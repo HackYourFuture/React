@@ -45,7 +45,7 @@ To add persistence to your application (so you don't have to restart every time 
 1. Copy the file `clocks/src/PersistentComponent.js` into your own `src`-directory.
 2. In `App.js`, use `import PersistentComponent from './PersistedComponent'` and use `extends PersistedComponent` instead of `extends React.Component`, e.g.
 
-```
+```es6
 import React from 'react'
 import PersistedComponent from './PersistedComponent'
 
