@@ -11,11 +11,11 @@ Given an application state like this:
 ```
 {
   "todos": [
-  	{
-  		"description": "<Description>",
-  		"done":        true / false
-  	},
-  	...
+    {
+      "description": "<Description>",
+      "done":        true / false
+    },
+    ...
   ]
 }
 ```
