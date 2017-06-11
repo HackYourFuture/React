@@ -33,3 +33,9 @@ Also review the Git [workflow material](https://github.com/HackYourFuture/Git/bl
 Find the slides used in class here:
 
 https://slides.com/joostlubach/react-class/live
+
+## Real world example
+
+Have a look at Mattijn's real world React project:
+
+https://github.com/mattijnlahuis/beertools
