@@ -22,6 +22,9 @@ Please *do not worry about understanding all*. However, do make sure you underst
 - http://es6-features.org/#RestParameter
 - http://es6-features.org/#SpreadOperator
 
+Read about React here:
+
+https://facebook.github.io/react/
 
 ## Handing in homework
 Take a look at [this video](https://www.youtube.com/watch?v=-o0yomUVVpU&index=2&list=PLVYDhqbgYpYUGxRdtQdYVE5Q8h3bt6SIA) made by Daan, he explains how your homework needs to be handed in.
