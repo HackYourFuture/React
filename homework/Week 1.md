@@ -37,3 +37,12 @@ You will be scored on:
 - Code organisation
 - Proper metadata (React prop types)
 - Cleanliness of code
+
+## Persistence
+
+To add persistence to your application (so you don't have to restart every time you reload), follow these steps:
+
+1. Copy the file `clocks/src/PersistentComponent.js` into your own `src`-directory.
+2. In `App.js`, use `import PersistentComponent from './PersistedComponent'` and use `extends PersistedComponent` instead of `extends React.Component`.
+3. Now, when you reload, your data is saved.
+4. If ever you want to clear your data, open up the console in your browser, and type: `delete localStorage.appState`.
