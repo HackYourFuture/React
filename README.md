@@ -1,7 +1,14 @@
 # React
 Specifications React Module
 
-## Read up
+## Planning
+| Week | Topic | Read | Homework |
+| ---- | ----- | ---- | -------- |
+| 1. | TBA | [Week 1 Reading](reading/README.md) | [Week 1 Homework](homework/Week%201.md) |
+| 2. | TBA | TBA | [Week 2 Homework](homework/Week%202.md) |
+| 3. | TBA | TBA | [Week 3 Homework](homework/Week%203.md) |
+
+## Read up before we get started
 
 Watch this video from Facebook about why they started React:
 
