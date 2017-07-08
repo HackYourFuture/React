@@ -7,12 +7,15 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
+    "node-sass-chokidar": "^0.0.3",
     "react-scripts": "1.0.10"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "yarn watch-css & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive"
   }
 }
