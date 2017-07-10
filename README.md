@@ -5,7 +5,7 @@ Specifications React Module
 | Week | Topic | Read | Homework |
 | ---- | ----- | ---- | -------- |
 | 1. | React Components | TBA | [Week 1 Homework](https://github.com/HackYourFuture/React/blob/master/homework/Week%201.md) |
-| 2. | Inputting data | TBA | [Week 2 Homework](https://github.com/HackYourFuture/React/blob/master/homework/Week%202.md) |
+| 2. | Inputting data | [React Forms](https://facebook.github.io/react/docs/forms.html) | [Week 2 Homework](https://github.com/HackYourFuture/React/blob/master/homework/Week%202.md) |
 | 3. | Managing application state | TBA | [Week 3 Homework](https://github.com/HackYourFuture/React/blob/master/homework/Week%203.md) |
 
 ## Read up before we get started
