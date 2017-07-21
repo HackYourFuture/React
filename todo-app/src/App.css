@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.App-Body {
+  padding: 20px;
+}
+
+.todo-items{
+  padding: 10px;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
