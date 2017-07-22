@@ -73,7 +73,7 @@ export default class App extends Component {
           <button style= {{flex: "1 0 0"}} onClick= {this.handleAddOrRemoveAllBTN}>
             {this.state.deletAllIsClicked ? "Delete all" : "Add todo"}
           </button>
-          {/*The phe previous button adds a todo or deletes all of them depending on the value
+          {/*The previous button adds a todo or deletes all of them depending on the value
           of this.state.deletAllIsClicked. This value is determined by the next button*/}
           <button style= {{flex: "1 0 0"}} onClick= {this.handleControllerBTN}>
             {this.state.deletAllIsClicked ? "Cancel" : "Delete all"}
