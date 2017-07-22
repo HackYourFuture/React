@@ -13,8 +13,9 @@ export default class App extends Component {
         the available functions are : (Edit, Save or Delete)*/
       }],
       nextId: 2,
-      deletAllIsClicked: false /* This changes the function of the Add todo button
-      from Add to Delete All*/
+      counter: 1,
+      clearIsClicked: false /* This changes the function of the Add todo button
+      from Add to Clear*/
     };
   }
   render() {
@@ -60,9 +61,9 @@ export default class App extends Component {
     return (
       <div>
         <div key style = {{display: "flex"}}>
-          {this.state.deletAllIsClicked ?
+          {this.state.clearIsClicked ?
             <span style= {{flex: "6 0 0"}}>
-              Are you sure that you want to permanently delete all the todos?
+              Are you sure that you want to permanently clear the todo list?
             </span> :
             <input
               id= "newTodoDescription"
@@ -70,13 +71,13 @@ export default class App extends Component {
               placeholder= "Please write here the description for the new todo that you want to add"
               style= {{flex: "6 0 0"}}/>
           }
-          <button style= {{flex: "1 0 0"}} onClick= {this.handleAddOrRemoveAllBTN}>
-            {this.state.deletAllIsClicked ? "Delete all" : "Add todo"}
+          <button style= {{flex: "1 0 0"}} onClick= {this.handleAddOrClearBTN}>
+            {this.state.clearIsClicked ? "Clear" : "Add todo"}
           </button>
-          {/*The previous button adds a todo or deletes all of them depending on the value
-          of this.state.deletAllIsClicked. This value is determined by the next button*/}
+          {/*The previous button adds a todo or clears all of them depending on the value
+          of this.state.clearIsClicked. This value is determined by the next button*/}
           <button style= {{flex: "1 0 0"}} onClick= {this.handleControllerBTN}>
-            {this.state.deletAllIsClicked ? "Cancel" : "Delete all"}
+            {this.state.clearIsClicked ? "Cancel" : "Clear"}
           </button>
         </div>
         <ul style= {{padding: "0 0 0 0"}}>
@@ -85,18 +86,19 @@ export default class App extends Component {
       </div>
     )
   }
-  handleAddOrRemoveAllBTN = () => {
-    if (this.state.deletAllIsClicked) {
+  handleAddOrClearBTN = () => {
+    if (this.state.clearIsClicked) {
       this.setState({
         todos: [],
         nextId: 1,
-        deletAllIsClicked: false
+        counter: 0,
+        clearIsClicked: false
       });
     }
     else {
       const newToDo = document.getElementById("newTodoDescription").value;
-      document.getElementById("newTodoDescription").value = "";
       if (newToDo) {
+        document.getElementById("newTodoDescription").value = "";
         this.setState({
           todos: this.state.todos.concat(
             {
@@ -106,14 +108,17 @@ export default class App extends Component {
               action: "Edit"
             }),
           nextId: this.state.nextId + 1,
+          counter: this.state.counter + 1
         });
       }
     }
   }
   handleControllerBTN = () => {
-    this.setState({
-      deletAllIsClicked: !this.state.deletAllIsClicked
-    });
+    if (this.state.counter > 0) {
+      this.setState({
+        clearIsClicked: !this.state.clearIsClicked
+      });
+    }
   }
   findTodoIndex = (prefix, id) => {
     return this.state.todos.findIndex(todoItem =>
@@ -142,6 +147,8 @@ export default class App extends Component {
           this.setState({
             todos: this.state.todos.slice(0,itemIndex)
               .concat(this.state.todos.slice(itemIndex + 1)),
+            nextId: this.state.counter === 1 ? 1 : this.state.nextId,
+            counter: this.state.counter - 1
           });
         }
         else {
