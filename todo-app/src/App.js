@@ -13,7 +13,6 @@ export default class App extends Component {
         the available functions are : (Edit, Save or Delete)*/
       }],
       nextId: 2,
-      counter: 1,
       clearIsClicked: false /* This changes the function of the Add todo button
       from Add to Clear*/
     };
@@ -28,7 +27,9 @@ export default class App extends Component {
               id= {"text" + todoListItem.toDoId}
               type= "text"
               placeholder= "Please rewrite here the description for the current todo"
-              style= {{flex: "5 0 0"}}/> :
+              style= {{flex: "5 0 0"}}
+              value= {todoListItem.descriptionContainer}
+              onChange= {this.handleUpdateInputText}/> :
             <span style= {{flex: "5 0 0"}}>
               {todoListItem.action === "Edit" ?
                 (todoIndex + 1) + " - " + todoListItem.description :
@@ -91,7 +92,6 @@ export default class App extends Component {
       this.setState({
         todos: [],
         nextId: 1,
-        counter: 0,
         clearIsClicked: false
       });
     }
@@ -107,14 +107,13 @@ export default class App extends Component {
               toDoId: this.state.nextId,
               action: "Edit"
             }),
-          nextId: this.state.nextId + 1,
-          counter: this.state.counter + 1
+          nextId: this.state.nextId + 1
         });
       }
     }
   }
   handleControllerBTN = () => {
-    if (this.state.counter > 0) {
+    if (this.state.todos.length > 0) {
       this.setState({
         clearIsClicked: !this.state.clearIsClicked
       });
@@ -123,6 +122,21 @@ export default class App extends Component {
   findTodoIndex = (prefix, id) => {
     return this.state.todos.findIndex(todoItem =>
       prefix + todoItem.toDoId === id );
+  }
+  handleUpdateInputText = (event) => {
+    const itemIndex = this.findTodoIndex("text", event.target.id);
+    this.setState({
+      todos: this.state.todos.slice(0,itemIndex).concat(
+        {
+          description: this.state.todos[itemIndex].description,
+          done: this.state.todos[itemIndex].done,
+          toDoId: this.state.todos[itemIndex].toDoId,
+          action: this.state.todos[itemIndex].action,
+          descriptioncontainer: event.target.value
+        },
+        this.state.todos.slice(itemIndex + 1)
+      ),
+    });
   }
   handleDoneTodo = (event) => {
     const itemIndex = this.findTodoIndex("check", event.target.id);
@@ -147,8 +161,7 @@ export default class App extends Component {
           this.setState({
             todos: this.state.todos.slice(0,itemIndex)
               .concat(this.state.todos.slice(itemIndex + 1)),
-            nextId: this.state.counter === 1 ? 1 : this.state.nextId,
-            counter: this.state.counter - 1
+            nextId: this.state.todos.length === 1 ? 1 : this.state.nextId
           });
         }
         else {
@@ -158,7 +171,8 @@ export default class App extends Component {
                 document.getElementById(event.target.id.replace("primaryBTN", "text")).value,
               done: this.state.todos[itemIndex].done,
               toDoId: this.state.todos[itemIndex].toDoId,
-              action: selectedAction === "Edit" ? "Save" : "Edit"
+              action: selectedAction === "Edit" ? "Save" : "Edit",
+              descriptionContainer: this.state.todos[itemIndex].description
             }, this.state.todos.slice(itemIndex + 1)),
           });
         }
