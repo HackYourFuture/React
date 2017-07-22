@@ -25,14 +25,7 @@ import Todo from './Todo';
   }
     
   
-    onAdd = () => {
-
-    const description = prompt("Add the description ?")
-
-    const newToDo = {description};
-    const todosList = [...this.state.todos, newToDo];
-    this.setState({todos:todosList})
-    }
+   
   onDelete= (index) => {
     const todosList = [...this.state.todos];
     todosList.splice(index, 1);
