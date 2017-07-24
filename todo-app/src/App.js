@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import todo from './todo.json';
-import { SingleTask } from './components/SingleTask';
+import TasksForm  from './components/TasksForm';
 
 
 class App extends Component {
@@ -33,37 +33,52 @@ class App extends Component {
         }
       ]
     }
-    //this.handleClick = this.handleClick.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
-  //add a form and the text will be the description of the task
-  //figure out how to delete items, maybe a button and a function that removes it from the list(must be easy)
-  handleClick(index) {
-    console.log(index)
-    //this.setState(prevState => ({
-      //isToggleOn: !prevState.isToggleOn
-    };
 
+handleSubmit(newDescription,id){
+  const index = this.state.todos.findIndex((item) => {
+    return item.id === id
+  })
+  const todo = this.state.todos[index]
+  const newTodo = Object.assign({}, todo, {
+    description: newDescription
+  })
+  this.setState({
+    todos: this.state.todos.slice(0, index).concat(newTodo, this.state.todos.slice(index + 1))
+  })
+  console.log(index)
+  console.log(newDescription + id)
+}
+
+handleDelete(newId){
+  console.log(newId)
+  const index = this.state.todos.findIndex((item) => {
+    return item.id === newId}
+  )
+  this.setState({
+    todos: this.state.todos.slice(0, index).concat(this.state.todos.slice(index + 1))
+  })
+  console.log(index)
+  console.log(this.state.todos)
+
+}
      
   
   render() {
     return (
       <div>
-       <div className="App-header">
+        
+      <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2> Welcome to Your Todo App </h2>
         </div>
-        
-        <ol className='todos-list'>
-          
-            {this.state.todos.map((task,i) => {
-              return <SingleTask 
-              index={i} 
-              removeFunction={() => {this.handleClick()}} 
-              taskToBuild={task} />
-            }
-            )
-          }
-          </ol>
+          <TasksForm 
+            todos={this.state.todos}
+            handleSubmit={this.handleSubmit}
+            handleDelete={this.handleDelete}
+          />
         </div>
           
         
