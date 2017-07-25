@@ -9,13 +9,14 @@ export default class TasksFrom extends Component {
             <div>
                 {todos.map((task,index) => {
                     return <TaskItem 
-                        key={index}
+                        key={task.id}
                         task={task}
                         index={index}
                         handleSubmit={(description) => {
                             return this.props.handleSubmit(description,task.id)}
                         }
                         handleDelete={this.props.handleDelete}
+                        handleCompletedTask={this.props.handleCompletedTask}
                     />
                 })}
                 

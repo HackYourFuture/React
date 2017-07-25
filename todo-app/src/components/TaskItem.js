@@ -21,15 +21,15 @@ export default class TaskItem extends React.Component{
         e.preventDefault()
         this.props.handleSubmit(this.state.textValue)
     }
-
-    handleCompletedTask(e){
-        console.log(e.target.value)
-    }
     render(){
         const {index, task} = this.props
         return(
             <form onSubmit={this.handleLocalSubmit}>
-            <input id='completed' type='checkbox' onChange={this.handleCompletedTask} />
+            <input id='completed' 
+            type='checkbox' 
+            defaultChecked={task.done} 
+            onClick={() => this.props.handleCompletedTask(task.id)} 
+            />
             <label>{index + 1}</label>
             <input id='task' 
                     type='text' 
