@@ -3,3 +3,19 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+h1 {
+  text-align: center
+}
+
+li, div div div {
+  display: flex
+}
+
+button {
+  flex: 1 0 0
+}
+
+span:first-child, input:first-child{
+  flex: 5 0 0
+}
