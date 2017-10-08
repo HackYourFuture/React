@@ -1,18 +1,46 @@
 # Homework Week 2
 
+Base your week 2 homework on the result of week 1.
+
+When you are done update your PR from week 1.
+
 ## Outline
 
-Extend your to-do list app with editing capabilities.
+Extend your todo list app with dynamic rendering of items based on the following JSON list:
 
-## Details
+```json
+[
+  {
+    "description": "Get out of bed"
+  },
+  {
+    "description": "Brush teeth"
+  },
+  {
+    "description": "Eat breakfast"
+  }
+]
+```
 
-Continue your to-do list app from week 1. Extend the app so that people can enter descriptions without having to use the `prompt` function, and allow users to edit the descriptions of existing to-do items.
+The JSON list should be the state of the `App` component.
+Create a checkbox in each todo item. When you click the checkbox, the done state of the item should change.
+A mockup of the end result is the following:
 
-## Features
+```
+Todo List
 
-1. If you didn't do this in week 1: create a checkbox in each to do to mark the item as done.
-2. When pressing the "Add" button, instead of using `prompt`, there should be a nice editor.
-3. Users should be able to edit existing to-do items
+* [x] Get out of bed
+* [ ] Brush teeth
+* [ ] Eat breakfast
+```
+
+When there are no items, the todo app should render the text "No items...":
+
+```
+Todo List
+
+No items...
+```
 
 ## Scoring
 
@@ -20,5 +48,4 @@ You will be scored on:
 
 - Correct functionality
 - Code organisation
-- Proper metadata (React prop types)
 - Cleanliness of code

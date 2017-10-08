@@ -6,14 +6,14 @@ When you are done issue a PR with your homework as explained in [this video](htt
 
 ## Outline
 
-Render a basic todo list with three items:
+Render a basic static todo list with three items:
 
 ```
 Todo List
 
-* Get out of bed
-* Brush teeth
-* Eat breakfast
+* Get out of bed (done)
+* Brush teeth (not done)
+* Eat breakfast (not done)
 ```
 
 Mark it so that the first one is done and second and third not done yet. Before you start draw a mockup and identify
