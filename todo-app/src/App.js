@@ -1,13 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Comment from './Comment';
+import comments from './comments-from-db';
 
-class App extends Component {
+export default class App extends React.Component {
+  renderComments(comments) {
+    return comments.map((comment, index) => {
+      return (
+        <Comment
+          key={index}
+          comment={comment}
+        />
+      );
+    })
+  }
+
   render() {
     return (
       <div>
-        Hello World!
+        <h1>Comments:</h1>
+
+        {this.renderComments(comments)}
       </div>
     );
   }
 }
-
-export default App;
