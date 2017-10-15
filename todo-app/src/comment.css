@@ -1,0 +1,11 @@
+.comment {
+    margin-bottom: 20px;
+}
+
+.comment--user-info {
+    display: flex;
+}
+
+.comment--meta-info {
+    margin-left: 10px;
+}
