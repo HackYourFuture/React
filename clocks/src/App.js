@@ -1,13 +1,25 @@
 import React from 'react'
-import PersistedComponent from './PersistedComponent'
+// import PersistedComponent from './PersistedComponent'
 import Clock from './Clock'
 import './App.css'
 
-export default class App extends PersistedComponent {
+export default class App extends React.Component {
 
-  state = {
-    clocks: []
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      clocks: [],
+      newClock: {
+        city: "",
+        timezone: ""
+      }
+    }
+
+    this.handleCityInput = this.handleCityInput.bind(this)
+    this.handleTzInput = this.handleTzInput.bind(this)
   }
+
 
   render() {
     return (
@@ -43,10 +55,35 @@ export default class App extends PersistedComponent {
     )
   }
 
+  handleCityInput(event) {
+    this.setState(
+      {
+        newClock: {
+          city: event.target.value,
+          timezone: this.state.newClock.timezone
+        }
+      })
+  }
+
+  handleTzInput(event) {
+    this.setState(
+      {
+        newClock: {
+          city: this.state.newClock.city,
+          timezone: event.target.value
+        }
+      }
+    )
+  }
+
   renderAddClock() {
     return (
       <div className="app--add-clock">
-        <button type="button" onClick={this.onAddClick}>Add new clock</button>
+        <form onSubmit={this.onAddClick}>
+          <input type='text' value={this.state.newClock.city} onChange={this.handleCityInput} /><br />
+          <input type='text' value={this.state.newClock.timezone} onChange={this.handleTzInput} /><br />
+          <input type="submit" value="Add new clock" />
+        </form>
       </div>
     )
   }
@@ -61,14 +98,20 @@ export default class App extends PersistedComponent {
   // This is done to bind this function to <this>.
   // instead of `onAddClick() { ... }`
   // so that we don't have to type `this.onAddClick.bind(this)`
-  onAddClick = () => {
-    const city     = prompt("What is the city?")
-    const timeZone = prompt("What is the Time Zone?")
-
-    const clock = {city, timeZone}
+  onAddClick = (event) => {
+    event.preventDefault()
+    const {city, timezone} = this.state.newClock
+    const clock = {city, timezone}
     const clocks = [...this.state.clocks, clock]
 
-    this.setState({clocks})
+    this.setState(
+      {
+        clocks,
+        newClock: {
+          city: "",
+          timezone: ""
+        }
+      })
   }
 
 }
