@@ -1,13 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
+import TodoList from './TodoList';
+import Todos from './Todos';
 
-class App extends Component {
+export default class App extends React.Component {
+  renderTodos(Todos) {
+    return Todos.map((todo, index) => {
+      return (
+        <TodoList
+          key={index}
+          todo={todo}
+        />
+      );
+    })
+  }
   render() {
     return (
       <div>
-        Hello World!
+        <h1>TodoList:</h1>
+        {this.renderTodos(Todos)}
       </div>
     );
   }
 }
-
-export default App;
