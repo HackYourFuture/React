@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default class Description extends React.Component {
+export default class Done extends React.Component{
     render() {
         return (
             <div>
-                {this.props.text}
+                {this.props.done}
             </div>
         )
     }
