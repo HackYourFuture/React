@@ -1,13 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Tasks from './Tasks'
+import action from './actions'
 
-class App extends Component {
+export default class App extends React.Component {
   render() {
     return (
       <div>
-        Hello World!
+        <h1>ToDo List:</h1>
+        <div>
+          {action.map((action, index) => {
+            return (
+              <Tasks
+                key={index}
+                task={action}
+              />
+
+            );
+          }
+          )}
+        </div>
       </div>
     );
   }
 }
-
-export default App;
