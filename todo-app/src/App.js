@@ -1,13 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react'
+import ToDo from './ToDo.js'
+import ToDos from './toDos-DB.js'
 
-class App extends Component {
+export default class App extends React.Component {
+  renderToDos(toDos) {
+    return toDos.map((toDo, index) => {
+      return (
+        <ToDo key={index} toDo={toDo} />
+      )
+
+    })
+  }
   render() {
     return (
       <div>
-        Hello World!
+        <h1>ToDo List</h1>
+        {this.renderToDos(ToDos)}
       </div>
-    );
+    )
   }
 }
-
-export default App;

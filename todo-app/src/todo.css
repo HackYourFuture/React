@@ -1,0 +1,10 @@
+.toDoItem{
+    display: flex;
+    margin-bottom: 10px;
+}
+.toDo-Status{
+ margin-left: 10px;
+}
+.toDo-Description{
+width: 150px;
+}
