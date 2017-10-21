@@ -1,0 +1,7 @@
+.todo{
+    float: left;
+    background: gray;
+}
+.todo--info{
+    background: yellow;
+}
