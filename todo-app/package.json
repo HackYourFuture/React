@@ -5,7 +5,8 @@
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.10"
+    "react-scripts": "1.0.10",
+    "yarn": "^1.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
