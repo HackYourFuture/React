@@ -1,6 +1,6 @@
 import React from 'react';
-import Tasks from './Tasks'
-import task from './TasksDB'
+import Task from './Tasks'
+import tasks from './TasksDB'
 
 export default class App extends React.Component {
   render() {
@@ -8,9 +8,9 @@ export default class App extends React.Component {
       <div>
         <h1>ToDo List:</h1>
         <div>
-          {task.map((task, index) => {
+          {tasks.map((task, index) => {
             return (
-              <Tasks
+              <Task
                 key={index}
                 task={task}
               />

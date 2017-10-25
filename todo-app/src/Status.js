@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Done extends React.Component{
+export default class Status extends React.Component{
     render() {
         return (
             <div>

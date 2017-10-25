@@ -1,9 +1,9 @@
 import React from 'react';
 import Description from './Description';
-import Done from './Done';
+import Status from './Status';
 import './tasks.css';
 
-export default class Tasks extends React.Component {
+export default class Task extends React.Component {
     render() {
         const { text, done } = this.props.task;
         return (
@@ -12,7 +12,7 @@ export default class Tasks extends React.Component {
                     <Description text={text} />
                 </div>
                 <div className='status'>
-                    <Done done={done} />
+                    <Status done={done} />
                 </div>
             </div>
         );
