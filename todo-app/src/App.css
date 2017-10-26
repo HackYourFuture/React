@@ -1,4 +1,32 @@
-.main {
-    background-color: grey;
-   
+.App {
+	box-sizing: border-box;
+	border-radius: 20px;
+	color: silver;
+	background-color: black;
+	font-family: sans-serif;
+	font-size: 16 px;
+	max-width: fit-content;
+	margin: auto;
+	margin-top: 50px;
+	padding: 20px;
+}
+
+.todoList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	padding-bottom: 5px;
+	list-style: none;
+}
+
+.Description {
+	color: whitesmoke;
+}
+
+.todoState {
+	font-weight: bold;
+	width: 38%;
+	font-size: 0.8rem;
+	margin: 0 20px 0 0;
+
 }
