@@ -1,17 +1,17 @@
-import React from 'react'
+import React, { Component } from 'react';
 import TodoDescription from './todoDescription'
 import TodoState from './todoState'
 import './App.css'
 
-class todo extends React.Component { 
+class todo extends Component {
   render() {
     return (
-      <div>
-        <div className='Description'>
-          <li><TodoDescription todoDescription={this.props.todoDescription}/></li>
+      <div className='todoList'>
+        <div className='todoState'>
+          <li><TodoState done={this.props.done}/></li>
         </div>
-        <div className='State'>
-          <li><TodoState todoState={this.props.todoState}/></li>
+        <div className='Description'>
+          <li><TodoDescription todoDescription={this.props.todoDescription} /></li>
         </div>
       </div>
     )
