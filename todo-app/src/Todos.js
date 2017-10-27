@@ -1,13 +1,10 @@
 export default [{
-        text : 'eat your veggies',
-        status : 'done'
+        text: 'eat your veggies'
     },
     {
-        text : 'brush your teeth',
-        status : 'not done'
+        text: 'brush your teeth'
     },
     {
-        text : 'make your bed',
-        status : 'not done'
+        text: 'make your bed'
     }
 ];

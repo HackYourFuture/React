@@ -6,17 +6,14 @@ export default class App extends React.Component {
   renderTodos(Todos) {
     return Todos.map((todo, index) => {
       return (
-        <TodoList
-          key={index}
-          todo={todo}
-        />
+        <TodoList key={index} text={todo.text} />
       );
     })
   }
   render() {
     return (
       <div>
-        <h1>TodoList:</h1>
+        <h1>Todo list:</h1>
         {this.renderTodos(Todos)}
       </div>
     );
