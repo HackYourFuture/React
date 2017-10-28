@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+    font-size: 3em;
+  }
+  
+  h1 {
+    text-align: center
+  }
+  
+  ul, ol {
+    width: 100;
+    padding-left: 00px;
+  }
+  
+  button {
+    flex: 1 0 0
+  }
+  
+  span:first-child, input:first-child{
+    flex: 0 0 0
+  }
+  .inputCheckBox{
+    width: 30px;
+    height: 30px;
+    margin-left: 25%;
+    border-radius: 119px;
+  }
+  .inputAddBox{
+    margin-left: 10%;
+    width: 50%;
+    font-family: cursive;
+    font-size: xx-large;
+  }
+  .buttonAdd{
+    font-family: cursive;
+    font-size: xx-large;
+    border-radius: 119px;
+  }
+  
