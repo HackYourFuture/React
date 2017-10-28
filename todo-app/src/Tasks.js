@@ -8,6 +8,7 @@ export default class Task extends React.Component {
         const { text, done } = this.props.task;
         return (
             <div className='task'>
+                * 
                 <div className='text'>
                     <Description text={text} />
                 </div>

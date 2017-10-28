@@ -8,16 +8,18 @@ export default class App extends React.Component {
       <div>
         <h1>ToDo List:</h1>
         <div>
-          {tasks.map((task, index) => {
-            return (
-              <Task
-                key={index}
-                task={task}
-              />
+          {tasks.length > 0 ?
 
-            );
-          }
-          )}
+            tasks.map((task, index) => {
+              return (
+                <Task
+                  key={index}
+                  task={task}
+                />
+              );
+
+            })
+            : (" No Items ... ")}
         </div>
       </div>
     );

@@ -1,17 +1,11 @@
 export default [
     {
-        text: "* Get out of bed",
-        done: "(done)"
+      "text": "Get out of bed"
     },
-
     {
-        text: "* Brush teeth",
-        done: "(not done)"
+      "text": "Brush teeth"
     },
-
     {
-        text: "* Eat breakfast",
-        done: "(not done)"
+      "text": "Eat breakfast"
     }
-
-];
+  ];
