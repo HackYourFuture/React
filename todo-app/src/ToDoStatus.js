@@ -11,6 +11,7 @@ export default class ToDoStatus extends React.Component {
         }
     }
     toggleCheckbox = () => {
+        
         if (this.refs.chxToDoStatus.checked !== true) {
             updateStatus(this.status.index, "Not Done")
             this.setState({
