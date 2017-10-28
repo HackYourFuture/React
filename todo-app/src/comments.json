@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "username": "Joost",
+    "imageType": "wavatar",
+    "text": "I really like React!",
+    "date": "2017-09-13",
+    "read": true
+  },
+  {
+    "id": 2,
+    "username": "Spyros",
+    "imageType": "monsterid",
+    "text": "Me too!",
+    "date": "2017-09-14",
+    "read": false
+  },
+  {
+    "id": 3,
+    "username": "Ayman",
+    "imageType": "retro",
+    "text": "Kinda like it..",
+    "date": "2017-09-15",
+    "read": false
+  },
+  {
+    "id": 4,
+    "username": "Rami",
+    "imageType": "mm",
+    "text": "I don't like it! No seriously I don't",
+    "date": "2017-09-16",
+    "read": false
+  },
+  {
+    "id": 5,
+    "username": "Ali",
+    "imageType": "identicon",
+    "text": "React is the best framework ever!",
+    "date": "2017-09-17",
+    "read": true
+  },
+  {
+    "id": 6,
+    "username": "Ismail",
+    "imageType": "wavatar",
+    "text": "Guys relax with React.. It's just hip :/",
+    "date": "2017-09-18",
+    "read": false
+  }
+]

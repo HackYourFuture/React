@@ -2,10 +2,14 @@
     margin-bottom: 20px;
 }
 
-.comment--user-info {
+.comment__user-info {
     display: flex;
 }
 
-.comment--meta-info {
+.comment__meta-info {
     margin-left: 10px;
+}
+
+.comment--read {
+    background-color: lightgray;
 }
