@@ -1,13 +1,39 @@
 import React from 'react';
 import Comment from './Comment';
-import comments from './comments-from-db';
+import comments from './comments.json';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    // State
+    this.state = {
+      comments: []
+    };
+  }
+
+  // Lifecycle
+  componentDidMount() {
+    // Imagine this data was coming from an API
+    // fetchComments().then(response => {
+    //   this.setState({
+    //     comments: response.comments
+    //   });
+    // });
+    this.setState({ comments });
+  }
+
   renderComments(comments) {
-    return comments.map((comment, index) => {
+    // Conditional rendering
+    if (comments.length === 0) {
+      return <div>No comments...</div>;
+    }
+
+    // List and keys
+    return comments.map(comment => {
       return (
         <Comment
-          key={index}
+          key={comment.id}
           comment={comment}
         />
       );
@@ -17,9 +43,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Comments:</h1>
+        <h1>Comments</h1>
 
-        {this.renderComments(comments)}
+        {this.renderComments(this.state.comments)}
       </div>
     );
   }
