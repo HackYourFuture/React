@@ -9,29 +9,22 @@ export default class Comment extends React.Component {
   constructor(props) {
     super(props);
 
-    // State
-    this.state = {
-      read: props.comment.read
-    };
-
     // Events and bind to `this`
     this.markAsRead = this.markAsRead.bind(this);
   }
 
-  markAsRead() {
-    // State updates are asynchronous
-    this.setState(prevState => ({
-      read: !prevState.read
-    }));
+  markAsRead(event) {
+    const checked = event.target.checked;
+    this.props.onReadChange(checked, this.props.comment.id);
   }
 
   render() {
-    const { username, imageType, date, text } = this.props.comment;
+    const { username, imageType, date, text, read } = this.props.comment;
 
     let commentClasses = 'comment';
 
     // Conditional rendering
-    if (this.state.read) {
+    if (read) {
       commentClasses += ' comment--read';
     }
 
@@ -45,10 +38,15 @@ export default class Comment extends React.Component {
           </div>
         </div>
         <CommentDate date={date} />
-        <button onClick={this.markAsRead}>
+        <label>
+          <input
+            type='checkbox'
+            checked={read}
+            onChange={this.markAsRead}
+          />
           {/* Conditional rendering */}
-          {this.state.read ? 'mark unread' : 'mark read'}
-        </button>
+          {read ? 'mark unread' : 'mark read'}
+        </label>
       </div>
     );
   }
