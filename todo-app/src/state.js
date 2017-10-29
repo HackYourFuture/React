@@ -24,8 +24,8 @@ export default class Status extends React.Component{
     render(){
         return (
             <div>
-                <input type="checkbox">
-                {/* checked={this.state.checked} */}
+                <input type="checkbox" checked={this.state.done} onChange={this.changedStatus}>
+                
                 </input>
                 <label >
                     {this.getStatus()}
