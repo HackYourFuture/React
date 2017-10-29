@@ -1,24 +1,22 @@
-import React from 'react';
-import TodoList from './components/TodoList';
-import Todos from './components/todos';
+import React, { Component } from 'react';
+import todosStatus from './todosStatus'
+import TodoItem from './todoItems'
 
-export default class App extends React.Component {
-  renderTodos(Todos) {
-    return Todos.map((todo, index) => {
-      return (
-        <TodoList
-          key={index}
-          todo={todo}
-        />
-      );
-    })
-  }
+class App extends Component {
   render() {
     return (
-      <div>
-        <h1>TodoList:</h1>
-        {this.renderTodos(Todos)}
+      <div className='App'>
+        <h1>Todo List App</h1>
+        {todosStatus.map((todo, index) => {
+          return (
+            <TodoItem key={index}
+              todoDescription={todo.todoDescription}
+              done={todo.done}
+            />
+          )
+        })}
       </div>
-    );
+    )
   }
 }
+export default App
