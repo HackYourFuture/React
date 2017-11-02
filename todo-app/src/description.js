@@ -9,5 +9,4 @@ class description extends Component {
         )
     }
 }
-
 export default description

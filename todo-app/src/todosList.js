@@ -1,4 +1,4 @@
-const todosTable = [
+let todosList = [
     {
         description: 'Get out of bed',
         done: true
@@ -12,4 +12,4 @@ const todosTable = [
         done: false
     }
 ]
-export default todosTable
+export default todosList

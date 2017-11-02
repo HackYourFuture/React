@@ -1,20 +1,19 @@
 .App {
-    box-sizing: border-box;
     border-radius: 20px;
     color: silver;
     background-color: purple;
     font-family: cursive;
-    font-size: 50px;
+    font-size: 40px;
     max-width: fit-content;
-   
+    margin: auto;
+    padding: auto;
 }
 
 .todo {
-    display: flex;
-    flex-wrap: wrap;
+    box-sizing: border-box;
     justify-content: flex-start;
     padding-bottom: 5px;
-    box-sizing: border-box;
+    display: flow-root;
 }
 
 .Description {

@@ -7,7 +7,7 @@ class todo extends Component {
     render() {
         return (
             <div class = 'todoList'>
-                <div class = 'todo'>
+                <div class = 'todoBox'>
                     <li><TodoBox done={this.props.done}/></li>
                     </div>
                     <div class ='Description'>
