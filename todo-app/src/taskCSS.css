@@ -1,0 +1,16 @@
+.task {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.text {
+    font-style: sans-serif;
+    color: darkgray;
+    padding-right: 30px;
+}
+
+.status {
+    font-style: oblique;
+    color: darkblue;
+    margin-top: 20px
+}
