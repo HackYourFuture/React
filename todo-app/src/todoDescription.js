@@ -4,7 +4,7 @@ class todoDescription extends Component {
   render() {
     return (
       <div>
-        {this.props.todoDescription}
+        {this.props.description}
       </div>
     )
   }
