@@ -7,7 +7,6 @@ class todo extends Component {
   constructor(props) {
     super(props)
 
-
     this.handleTodoStage = this.handleTodoStage.bind(this)
     this.handleClickEvent = this.handleClickEvent.bind(this)
   }
@@ -15,7 +14,7 @@ class todo extends Component {
   handleTodoStage(todoStage, todoID) {
     this.props.onChange(todoStage, todoID);
   }
-
+// handle click event to toggle button visibility
   handleClickEvent(event) {
     const selectedTodo = this.props.todo.id
     switch (event.target.name) {
@@ -37,6 +36,7 @@ class todo extends Component {
         break;
     }
   }
+////////////////////////////////////////////////
 
   renderButtons() {
     if (!this.props.visibility) {
