@@ -1,15 +1,18 @@
 let todosTable = [
     {
-        todoDescription: 'Get out of bed',
-        done: true
+        id: 1,
+        description: 'Get out of bed',
+        stage: true
     },
     {
-        todoDescription: 'Brush teeth',
-        done: false
+        id: 2,
+        description: 'Brush teeth',
+        stage: false
     },
     {
-        todoDescription: 'Eat breakfast',
-        done: false
+        id: 3,
+        description: 'Eat breakfast',
+        stage: false
     }
 ]
 export default todosTable
