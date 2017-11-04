@@ -47,12 +47,16 @@ class App extends Component {
     });
   }
 
+  // toggle the Visibility of cancel and update buttons
   changeButtonsVisibility(show, clickedBtn) {
     this.setState({
       visibility: show,
+      // save the clicked edit button to render cancel and update buttons exclusively
       clicked: clickedBtn
+      ///////////////////////////////////////////////////////////////////////////////
     })
   }
+//////////////////////////////////////////////////////
 
   captureUserInput(event) {
     const updatedNewTodo = Object.assign({}, this.state.newTodo, {
