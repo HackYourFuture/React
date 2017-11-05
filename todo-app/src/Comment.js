@@ -6,17 +6,10 @@ import CommentText from './CommentText';
 import './comment.css';
 
 export default class Comment extends React.Component {
-  constructor(props) {
-    super(props);
-
-    // Events and bind to `this`
-    this.markAsRead = this.markAsRead.bind(this);
-  }
-
-  markAsRead(event) {
+  markAsRead = (event) => {
     const checked = event.target.checked;
     this.props.onReadChange(checked, this.props.comment.id);
-  }
+  };
 
   render() {
     const { username, imageType, date, text, read } = this.props.comment;
@@ -34,7 +27,13 @@ export default class Comment extends React.Component {
           <Picture username={username} imageType={imageType} />
           <div className='comment__meta-info'>
             <Username username={username} />
-            <CommentText text={text} />
+            <CommentText
+              text={text}
+              editing={this.props.editing}
+              onUpdate={this.props.onCommentTextUpdate}
+              onStartEdit={this.props.onStartEditText}
+              onStopEdit={this.props.onStopEditText}
+            />
           </div>
         </div>
         <CommentDate date={date} />

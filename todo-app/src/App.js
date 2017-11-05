@@ -13,12 +13,15 @@ export default class App extends React.Component {
         username: '',
         text: '',
         imageType: 'retro'
-      }
+      },
+      editingCommentId: null
     };
 
     this.handleReadChange = this.handleReadChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.onCommentTextUpdate = this.onCommentTextUpdate.bind(this);
+    this.onStopEditCommentText = this.onStopEditCommentText.bind(this);
   }
 
   // Lifecycle
@@ -34,15 +37,38 @@ export default class App extends React.Component {
     }, 1000);
   }
 
-  handleReadChange(updatedReadValue, commentId) {
+  updateComment(commentId, values) {
     const updatedComments = this.state.comments.map(comment => {
       if (commentId === comment.id) {
-        return Object.assign({}, comment, {read: updatedReadValue});
+        return Object.assign({}, comment, values);
       }
       return comment;
     });
     this.setState({
       comments: updatedComments
+    });
+  }
+
+  handleReadChange(updatedReadValue, commentId) {
+    this.updateComment(commentId, {read: updatedReadValue});
+  }
+
+  onCommentTextUpdate(text, commentId) {
+    this.updateComment(commentId, {text});
+    this.setState({
+      editingCommentId: null
+    });
+  }
+
+  onStartEditCommentText(commentId) {
+    this.setState({
+      editingCommentId: commentId
+    });
+  }
+
+  onStopEditCommentText() {
+    this.setState({
+      editingCommentId: null
     });
   }
 
@@ -58,7 +84,12 @@ export default class App extends React.Component {
         <Comment
           key={comment.id}
           comment={comment}
+          editing={this.state.editingCommentId === comment.id}
           onReadChange={this.handleReadChange}
+          onCommentTextUpdate={(text) => this.onCommentTextUpdate(text, comment.id)}
+          onStartEditText={this.onStartEditCommentText.bind(this, comment.id)}
+          // () => this.onStartEditCommentText(comment.id)
+          onStopEditText={this.onStopEditCommentText}
         />
       );
     })
