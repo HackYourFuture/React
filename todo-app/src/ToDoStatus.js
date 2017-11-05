@@ -5,29 +5,16 @@ import updateStatus from './toDos-DB.js'
 export default class ToDoStatus extends React.Component {
     constructor(props) {
         super(props)
-        this.status = {
+        /*this.state = {
             index: this.props.index,
-            toDoStatus: this.props.toDoStatus
-        }
+            isDone: this.props.isDone
+        }*/
     }
-    toggleCheckbox = () => {
+    toggleCheckbox = (event) => {
+        //updateStatus(this.props.index, event.target.checked)
+        event.target.value=event.target.checked
+        this.props.onChange(event,this.props.index)
         
-        if (this.refs.chxToDoStatus.checked !== true) {
-            updateStatus(this.status.index, "Not Done")
-            this.setState({
-                key: this.props.key,
-                toDoStatus: "Not Done"
-            }, () => { this.refs.valueToDoStatus.innerHTML = "( Not Done )" })
-        } else {
-            updateStatus(this.status.index, "Done")
-            this.setState({
-                index: this.props.key,
-                toDoStatus: "Done"
-            }, () => { this.refs.valueToDoStatus.innerHTML = "( Done )" })
-        }
-    }
-    componentDidMount() {
-        this.refs.chxToDoStatus.checked = (this.status.toDoStatus === "Done") ? true : false;
     }
     render() {
         return (
@@ -35,11 +22,12 @@ export default class ToDoStatus extends React.Component {
                 <div>
                     <input
                         type="checkbox"
-                        ref="chxToDoStatus"
                         onClick={this.toggleCheckbox}
+                        checked={this.props.isDone}
+                        name="isDone"
                     />
                 </div>
-                <div className="toDo-Status" ref="valueToDoStatus">( {this.status.toDoStatus} )</div>
+                <div className="toDo-Status">( {this.props.isDone ? "Done" : "Not Done"} )</div>
             </div>
         )
     }
