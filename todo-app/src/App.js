@@ -49,7 +49,7 @@ export default class App extends React.Component {
   }
   editToDo = (toDoIndex) => {
     this.setState({
-      upatingTodoIndex: this.state.upatingTodoIndex?null:toDoIndex
+      upatingTodoIndex:this.state.upatingTodoIndex?null:toDoIndex+1
     })
   }
   updateToDo = (updatedToDoDesc ,toDoIndex) => {
@@ -81,7 +81,7 @@ export default class App extends React.Component {
           <ToDo key={index} toDo={toDo} onChangeToDoStatus={this.onChangeToDoStatus.bind(this,index)} controlActions={{
             deleteToDo: this.deleteToDo.bind(this,index), updateToDo: this.updateToDo.bind(this,index),
             editToDo: this.editToDo.bind(this,index)
-          }} isUpdating={index===this.state.upatingTodoIndex}/>
+          }} isUpdating={index===this.state.upatingTodoIndex-1}/>
         )
       })
     }
