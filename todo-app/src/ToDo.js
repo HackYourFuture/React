@@ -5,15 +5,14 @@ import ToDoStatus from './ToDoStatus.js'
 export default class TODO extends React.Component {
 
     render() {
-        const { todoDesc, isDone ,toDoControl } = this.props.toDo
+        const { todoDesc, isDone} = this.props.toDo
         return (
             <div className="toDoItem">
                 <div>
-                    <ToDoStatus isDone={isDone} index={this.props.index} onChange={this.props.onChange}/>
+                    <ToDoStatus isDone={isDone} onChangeStatus={this.props.onChangeToDoStatus}/>
                 </div>
                 <div>
-                    <TodoDesc todoDesc={todoDesc} index={this.props.index} toDoControl={toDoControl} onChange={this.props.onChange} controlActions={this.props.controlActions} editToDO= {this.props.editToDO}
-/>
+                    <TodoDesc todoDesc={todoDesc} isUpdating={this.props.isUpdating} controlActions={this.props.controlActions}/>
                 </div>
             </div>
         )

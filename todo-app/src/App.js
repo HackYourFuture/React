@@ -8,20 +8,15 @@ export default class App extends React.Component {
     this.state = {
       ToDos: ToDos,
       newToDo: {
-        todoDesc: ""
-      }
+        todoDesc:""
+      },
+      upatingTodoIndex:null
     }
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleNewToDo = this.handleNewToDo.bind(this);
-    this.sendForm = this.sendForm.bind(this);
-    this.deleteToDo = this.deleteToDo.bind(this);
-    this.updateToDo = this.updateToDo.bind(this);
-    this.editToDo = this.editToDo.bind(this);
   }
-  handleInputChange(event, toDoIndex) {
+  onChangeToDoStatus = (toDoIndex) => {
     let updatedToDos = this.state.ToDos.map((toDo, index) => {
-      if (index == toDoIndex) {
-        return Object.assign({}, toDo, { [event.target.name]: (event.target.name == "isDone") ? event.target.value == 'true' : event.target.value })
+      if (index === toDoIndex) {
+        return Object.assign({}, toDo, { isDone: !this.state.ToDos[index].isDone})
       }
       return toDo;
     });
@@ -29,7 +24,7 @@ export default class App extends React.Component {
       ToDos: updatedToDos
     })
   }
-  handleNewToDo(event) {
+  handleNewToDo = (event) => {
     let updatedToDo = Object.assign({}, this.state.newToDo,
       {
         [event.target.name]: event.target.value
@@ -38,15 +33,11 @@ export default class App extends React.Component {
       newToDo: updatedToDo
     })
   }
-  sendForm(event) {
+  sendForm = (event) => {
     event.preventDefault()
     let updatedToDo = Object.assign({}, this.state.newToDo, {
       date: new Date(),
-      isDone: false,
-      toDoControl: {
-        update: 'none',
-        edit: 'Edit'
-      }
+      isDone: false
     })
     let updatedToDos = [...this.state.ToDos, updatedToDo]
     this.setState({
@@ -56,54 +47,41 @@ export default class App extends React.Component {
       }
     })
   }
-  editToDo(toDoIndex) {
+  editToDo = (toDoIndex) => {
+    this.setState({
+      upatingTodoIndex: this.state.upatingTodoIndex?null:toDoIndex
+    })
+  }
+  updateToDo = (updatedToDoDesc ,toDoIndex) => {
     let updatedToDos = this.state.ToDos.map((toDo, index) => {
-      if (index == toDoIndex) {
+      if (index === toDoIndex) {
         return Object.assign({}, toDo, {
-          toDoControl: {
-            update:this.state.ToDos[index].toDoControl.update=='block'?'none':'block',
-            edit: this.state.ToDos[index].toDoControl.edit=='Cancel'?'Edit':'Cancel'
-          }
+          todoDesc: updatedToDoDesc
         })
       }
       return toDo;
     });
     this.setState({
-      ToDos: updatedToDos
+      ToDos: updatedToDos,
+      upatingTodoIndex: null
     })
   }
-  updateToDo(toDoIndex) {
-    let updatedToDos = this.state.ToDos.map((toDo, index) => {
-      if (index == toDoIndex) {
-        return Object.assign({}, toDo, {
-          toDoControl: {
-            update: 'none',
-            edit: 'Edit'
-          }
-        })
-      }
-      return toDo;
-    });
-    this.setState({
-      ToDos: updatedToDos
-    })
-  }
-  deleteToDo(toDoIndex) {
+  deleteToDo = (toDoIndex) => {
     let updatedToDos = this.state.ToDos
     updatedToDos.splice(toDoIndex, 1)
     this.setState({
       ToDos: updatedToDos
     })
   }
-  renderToDos() {
+  renderToDos = () => {
     let toDoItems = this.state.ToDos;
     if (toDoItems.length > 0) {
       return toDoItems.map((toDo, index) => {
         return (
-          <ToDo key={index} toDo={toDo} index={index} onChange={this.handleInputChange} controlActions={{
-            deleteToDo: this.deleteToDo, updateToDo: this.updateToDo,
-            editToDo: this.editToDo
-          }} editToDO= {this.editToDO}/>
+          <ToDo key={index} toDo={toDo} onChangeToDoStatus={this.onChangeToDoStatus.bind(this,index)} controlActions={{
+            deleteToDo: this.deleteToDo.bind(this,index), updateToDo: this.updateToDo.bind(this,index),
+            editToDo: this.editToDo.bind(this,index)
+          }} isUpdating={index===this.state.upatingTodoIndex}/>
         )
       })
     }
@@ -117,7 +95,6 @@ export default class App extends React.Component {
     return (
       <div>
         <h1>ToDo List</h1>
-
         <form id="formAddToDo" onSubmit={this.sendForm}>
           <label>Wanna Add New <strong>ToDo</strong>?!!..</label><br /><br />
           <label>
