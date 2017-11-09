@@ -1,0 +1,18 @@
+.toDoItem{
+    display: flex;
+    margin-bottom: 10px;
+}
+.toDo-Description{
+     display: flex;
+    margin-left: 10px;
+}
+.editToDo ,.updateToDo ,.deleteToDo{
+    margin-left: 10px;
+}
+.toDo-Status{
+ margin-left: 10px;
+width: 85px;
+}
+.toDo-Status-chx{
+    display: flex;
+}
