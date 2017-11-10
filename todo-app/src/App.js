@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import todos from './todosTable'
-import Todo from './todo'
+import Todos from './TodosTable'
+import Todo from './Todo'
 import './App.css'
 
 class App extends Component {
@@ -8,17 +8,13 @@ class App extends Component {
     super(props)
 
     this.state = {
-      todos: [],
+      Todos: [],
       newTodo: {
         id: '',
         description: '',
-        stage: ''
+        stage: false
       },
-      updatedTodo: {
-        description: '',
-      },
-      visibility: false,
-      clicked: ''
+      editingTodoId: null
     }
 
     this.changeTodoStage = this.changeTodoStage.bind(this)
@@ -26,37 +22,13 @@ class App extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this)
     this.deleteTodo = this.deleteTodo.bind(this)
     this.updateTodo = this.updateTodo.bind(this)
-    this.changeButtonsVisibility = this.changeButtonsVisibility.bind(this)
   }
 
   componentDidMount() {
     setTimeout(() => {
-      this.setState({ todos })
+      this.setState({ Todos })
     }, 1000)
   }
-
-  changeTodoStage(todoStage, todoID) {
-    const updatedTodos = this.state.todos.map(todo => {
-      if (todoID === todo.id) {
-        return Object.assign({}, todo, { stage: todoStage })
-      }
-      return todo;
-    })
-    this.setState({
-      todos: updatedTodos
-    });
-  }
-
-  // toggle the Visibility of cancel and update buttons
-  changeButtonsVisibility(show, clickedBtn) {
-    this.setState({
-      visibility: show,
-      // save the clicked edit button to render cancel and update buttons exclusively
-      clicked: clickedBtn
-      ///////////////////////////////////////////////////////////////////////////////
-    })
-  }
-//////////////////////////////////////////////////////
 
   captureUserInput(event) {
     const updatedNewTodo = Object.assign({}, this.state.newTodo, {
@@ -71,55 +43,79 @@ class App extends Component {
   onFormSubmit(event) {
     event.preventDefault()
     const updatedNewTodo = Object.assign({}, this.state.newTodo, {
-      id: this.state.todos.length + 1,
+      id: this.state.Todos.length + 1,
       done: false
     })
-    const updatedTodos = [...this.state.todos, updatedNewTodo]
+    const updatedTodos = [...this.state.Todos, updatedNewTodo]
     this.setState({
-      todos: updatedTodos
+      Todos: updatedTodos
 
     })
   }
 
   deleteTodo(deletedTodoID) {
-    const newTodos = this.state.todos.filter(todo => {
+    const newTodos = this.state.Todos.filter(todo => {
       return todo.id !== deletedTodoID
     })
     this.setState({
-      todos: newTodos,
+      Todos: newTodos,
       newTodo: {
         description: ''
       }
     })
   }
 
-  updateTodo(updatedTodoID) {
-    const updatedTodos = this.state.todos.map(todo => {
-      if (updatedTodoID === todo.id) {
-        return Object.assign({}, todo, { description: this.state.newTodo.description })
+  onEditOn(todoID) {
+    this.setState({
+      editingTodoId: todoID
+    })
+  }
+
+  onEditOff() {
+    this.setState({
+      editingTodoId: null
+    })
+  }
+
+  updateTodo(todoID, updatedTodo) {
+    const updatedTodos = this.state.Todos.map(todo => {
+      if (todo.id === todoID) {
+        return Object.assign({}, todo, updatedTodo)
       }
       return todo
     })
     this.setState({
-      todos: updatedTodos
+      Todos: updatedTodos
     })
   }
 
-  renderTodos(todos) {
-    if (todos.length === 0) {
+  changeTodoStage(todoStage, todoID) {
+    this.updateTodo(todoID, {stage: todoStage})
+  }
+
+  onUpdateDescription(updatedTodo, todoID) {
+    this.updateTodo(todoID,  {description: updatedTodo})
+    this.setState({
+      editingTodoId: null
+    })
+  }
+
+  renderTodos(Todos) {
+    if (Todos.length === 0) {
       return <div> Loading... </div>
     }
-    return todos.map(todo => {
+    return Todos.map(todo => {
       return (
         <Todo
           key={todo.id}
           todo={todo}
-          clickedBtn={this.state.clicked}
-          visibility={this.state.visibility}
-          onShow={this.changeButtonsVisibility}
           onChange={this.changeTodoStage}
           onDelete={this.deleteTodo}
-          onUpdate={this.updateTodo}
+          onDoneChange={this.handleDoneChange}
+          editingState={this.state.editingTodoId === todo.id}
+          onUpdateDescription={(description) => this.onUpdateDescription(description, todo.id)}              
+          onEditOn={this.onEditOn.bind(this, todo.id)}
+          onEditOff={this.onEditOff.bind(this)}
         />
       )
     })
@@ -143,7 +139,7 @@ class App extends Component {
             </form>
           </div>
           <div>
-            {this.renderTodos(this.state.todos)}
+            {this.renderTodos(this.state.Todos)}
           </div>
         </div>
       </div>)
