@@ -5,6 +5,7 @@
 	background-color: black;
 	font-family: sans-serif;
 	font-size: 16 px;
+	min-width: 470px;
 	width: fit-content;	
 	margin: auto;
 	margin-top: 50px;
@@ -45,17 +46,10 @@
 
 .updateBtnList {
 	display: flex;
+	align-content: flex-end;
 }
 
 .Buttons {
 	width: 70px;
-	margin: 0, 0, 0, 20px;
-}
-
-.hidden{
-	visibility: hidden;
-}
-
-.shown {
-	visibility: visible;
+	margin: 0, 20px, 0, 20px;
 }
