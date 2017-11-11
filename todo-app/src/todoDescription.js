@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class todoDescription extends Component {
+class TodoDescription extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -66,4 +66,4 @@ class todoDescription extends Component {
   }
 }
 
-export default todoDescription
+export default TodoDescription

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Todos from './Todos'
-import TodoItem from './todoItems'
+import TodoItem from './TodoItems'
 
 class App extends Component {
 

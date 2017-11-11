@@ -1,6 +1,6 @@
 import React from 'react'
 
-class todoState extends React.Component {
+class TodoState extends React.Component {
     constructor(props) {
         super(props);
 
@@ -34,4 +34,4 @@ class todoState extends React.Component {
         )
     }
 }
-export default todoState
+export default TodoState
