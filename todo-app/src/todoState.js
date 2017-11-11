@@ -3,34 +3,34 @@ import React from 'react'
 class todoState extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            checked: this.props.done
-        }
-        this.handleChange = this.handleChange.bind(this);
+
+        this.handleTodoStatus = this.handleTodoStatus.bind(this);
     }
 
-    handleChange(event) {
-        let changed = !this.state.checked
-        this.setState({
-            checked: changed
-        })
+    handleTodoStatus(event) {
+        const todoStatus = event.target.checked
+        const todoID = this.props.todo.id
+        this.props.onChange(todoStatus, todoID)
     }
 
     todoStatus() {
         let status = 'Not Done'
-        if (this.state.checked) { status = 'Done' }
+        if (this.props.todo.status) { status = 'Done' }
         return status
     }
 
     render() {
         return (
-            <div>
-                <input type="checkbox"
-                    checked={this.state.checked}
-                    onChange={this.handleChange}>
-                </input>
-                {this.todoStatus()}
-            </div>
+                <div>
+                    <input
+                        type="checkbox"
+                        checked={this.props.todo.status}
+                        onChange={this.handleTodoStatus}>
+                    </input>
+                    <label>
+                        {this.todoStatus()}
+                    </label>
+                </div>
         )
     }
 }
