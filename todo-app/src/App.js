@@ -1,6 +1,8 @@
 import React from 'react';
 import Comment from './Comment';
+// import {createNewComment, fetchComments, removeComment, updateCommentWithValues} from './api';
 import comments from './comments.json';
+import uuidv4 from 'uuid/v4';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -26,16 +28,21 @@ export default class App extends React.Component {
 
   // Lifecycle
   componentDidMount() {
-    // Imagine this data was coming from an API
-    // fetchComments().then(response => {
-    //   this.setState({
-    //     comments: response.comments
-    //   });
-    // });
     setTimeout(() => {
       this.setState({ comments });
     }, 1000);
+    // API
+    // this.refreshComments();
   }
+
+  // refreshComments() {
+  //   return fetchComments()
+  //     .then(comments => {
+  //       this.setState({
+  //         comments
+  //       });
+  //     });
+  // }
 
   updateComment(commentId, values) {
     const updatedComments = this.state.comments.map(comment => {
@@ -47,6 +54,11 @@ export default class App extends React.Component {
     this.setState({
       comments: updatedComments
     });
+    // API
+    // updateCommentWithValues(commentId, values)
+    //   .then(() => {
+    //     this.refreshComments();
+    //   });
   }
 
   handleReadChange(updatedReadValue, commentId) {
@@ -72,6 +84,62 @@ export default class App extends React.Component {
     });
   }
 
+  onFormSubmit(event) {
+    event.preventDefault();
+    const updatedNewComment = Object.assign({}, this.state.newComment, {
+      date: new Date(),
+      id: uuidv4(),
+      read: false
+    });
+    const updatedComments = [...this.state.comments, updatedNewComment];
+    this.setState({
+      comments: updatedComments,
+      newComment: {
+        username: '',
+        text: '',
+        imageType: 'retro'
+      }
+    });
+    // API
+    // createNewComment(this.state.newComment)
+    //   .then(() => {
+    //     fetchComments()
+    //       .then(comments => {
+    //         this.setState({
+    //           comments,
+    //           newComment: {
+    //             username: '',
+    //             text: '',
+    //             imageType: 'retro'
+    //           }
+    //         });
+    //       });
+    //   });
+  }
+
+  onCommentRemove(commentId) {
+    const comments = this.state.comments.filter(comment => comment.id !== commentId);
+    this.setState({comments});
+    // API
+    // removeComment(commentId)
+    //   .then(() => {
+    //     this.refreshComments();
+    //   });
+  }
+
+  handleInputChange(event) {
+    const updatedNewComment = Object.assign({}, this.state.newComment, {
+      [event.target.name]: event.target.value
+    });
+    this.setState({
+      newComment: updatedNewComment
+    });
+  }
+
+  getNumberOfReadComments(comments) {
+    return comments.filter(comment => !comment.read).length;
+  }
+
   renderComments(comments) {
     // Conditional rendering
     if (comments.length === 0) {
@@ -90,40 +158,10 @@ export default class App extends React.Component {
           onStartEditText={this.onStartEditCommentText.bind(this, comment.id)}
           // () => this.onStartEditCommentText(comment.id)
           onStopEditText={this.onStopEditCommentText}
+          onRemove={this.onCommentRemove.bind(this, comment.id)}
         />
       );
     })
-  }
-
-  getNumberOfReadComments(comments) {
-    return comments.filter(comment => !comment.read).length;
-  }
-
-  onFormSubmit(event) {
-    event.preventDefault();
-    const updatedNewComment = Object.assign({}, this.state.newComment, {
-      date: new Date(),
-      id: this.state.comments.length + 1,
-      read: false
-    });
-    const updatedComments = [...this.state.comments, updatedNewComment];
-    this.setState({
-      comments: updatedComments,
-      newComment: {
-        username: '',
-        text: '',
-        imageType: 'retro'
-      }
-    });
-  }
-
-  handleInputChange(event) {
-    const updatedNewComment = Object.assign({}, this.state.newComment, {
-      [event.target.name]: event.target.value
-    });
-    this.setState({
-      newComment: updatedNewComment
-    });
   }
 
   render() {

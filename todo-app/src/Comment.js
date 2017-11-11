@@ -35,6 +35,9 @@ export default class Comment extends React.Component {
               onStopEdit={this.props.onStopEditText}
             />
           </div>
+          <div>
+            <button onClick={this.props.onRemove}>x</button>
+          </div>
         </div>
         <CommentDate date={date} />
         <label>
