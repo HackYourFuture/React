@@ -1,206 +1,78 @@
 import React from 'react';
-import Comment from './Comment';
-// import {createNewComment, fetchComments, removeComment, updateCommentWithValues} from './api';
-import comments from './comments.json';
-import uuidv4 from 'uuid/v4';
+import {observer} from 'mobx-react';
+import AddComment from './AddComment';
+import CommentList from './CommentList';
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
 
-    // State
-    this.state = {
-      comments: [],
-      newComment: {
-        username: '',
-        text: '',
-        imageType: 'retro'
-      },
-      editingCommentId: null
-    };
-
-    this.handleReadChange = this.handleReadChange.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.onFormSubmit = this.onFormSubmit.bind(this);
-    this.onCommentTextUpdate = this.onCommentTextUpdate.bind(this);
+    this.onAddComment = this.onAddComment.bind(this);
     this.onStopEditCommentText = this.onStopEditCommentText.bind(this);
+    this.onNewCommentUpdate = this.onNewCommentUpdate.bind(this);
+    this.onStartEditCommentText = this.onStartEditCommentText.bind(this);
+    this.onCommentUpdate = this.onCommentUpdate.bind(this);
+    this.onCommentRemove = this.onCommentRemove.bind(this);
   }
 
   // Lifecycle
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({ comments });
-    }, 1000);
-    // API
-    // this.refreshComments();
-  }
-
-  // refreshComments() {
-  //   return fetchComments()
-  //     .then(comments => {
-  //       this.setState({
-  //         comments
-  //       });
-  //     });
-  // }
-
-  updateComment(commentId, values) {
-    const updatedComments = this.state.comments.map(comment => {
-      if (commentId === comment.id) {
-        return Object.assign({}, comment, values);
-      }
-      return comment;
-    });
-    this.setState({
-      comments: updatedComments
-    });
-    // API
-    // updateCommentWithValues(commentId, values)
-    //   .then(() => {
-    //     this.refreshComments();
-    //   });
-  }
-
-  handleReadChange(updatedReadValue, commentId) {
-    this.updateComment(commentId, {read: updatedReadValue});
-  }
-
-  onCommentTextUpdate(text, commentId) {
-    this.updateComment(commentId, {text});
-    this.setState({
-      editingCommentId: null
-    });
+    this.props.store.refreshComments();
   }
 
   onStartEditCommentText(commentId) {
-    this.setState({
-      editingCommentId: commentId
-    });
+    this.props.store.editComment(commentId);
   }
 
   onStopEditCommentText() {
-    this.setState({
-      editingCommentId: null
-    });
+    this.props.store.stopEditingComment();
   }
 
-  onFormSubmit(event) {
-    event.preventDefault();
-    const updatedNewComment = Object.assign({}, this.state.newComment, {
-      date: new Date(),
-      id: uuidv4(),
-      read: false
-    });
-    const updatedComments = [...this.state.comments, updatedNewComment];
-    this.setState({
-      comments: updatedComments,
-      newComment: {
-        username: '',
-        text: '',
-        imageType: 'retro'
-      }
-    });
-    // API
-    // createNewComment(this.state.newComment)
-    //   .then(() => {
-    //     fetchComments()
-    //       .then(comments => {
-    //         this.setState({
-    //           comments,
-    //           newComment: {
-    //             username: '',
-    //             text: '',
-    //             imageType: 'retro'
-    //           }
-    //         });
-    //       });
-    //   });
+  onAddComment(updatedNewComment) {
+    this.props.store.addComment(updatedNewComment);
+    this.props.store.resetNewComment();
   }
 
   onCommentRemove(commentId) {
-    const comments = this.state.comments.filter(comment => comment.id !== commentId);
-    this.setState({comments});
-    // API
-    // removeComment(commentId)
-    //   .then(() => {
-    //     this.refreshComments();
-    //   });
+    this.props.store.removeComment(commentId);
   }
 
-  handleInputChange(event) {
-    const updatedNewComment = Object.assign({}, this.state.newComment, {
-      [event.target.name]: event.target.value
-    });
-    this.setState({
-      newComment: updatedNewComment
-    });
+  onCommentUpdate(commentId, values) {
+    this.props.store.updateComment(commentId, values);
   }
 
-  getNumberOfReadComments(comments) {
-    return comments.filter(comment => !comment.read).length;
-  }
-
-  renderComments(comments) {
-    // Conditional rendering
-    if (comments.length === 0) {
-      return <div>Loading...</div>;
-    }
-
-    // List and keys
-    return comments.map(comment => {
-      return (
-        <Comment
-          key={comment.id}
-          comment={comment}
-          editing={this.state.editingCommentId === comment.id}
-          onReadChange={this.handleReadChange}
-          onCommentTextUpdate={(text) => this.onCommentTextUpdate(text, comment.id)}
-          onStartEditText={this.onStartEditCommentText.bind(this, comment.id)}
-          // () => this.onStartEditCommentText(comment.id)
-          onStopEditText={this.onStopEditCommentText}
-          onRemove={this.onCommentRemove.bind(this, comment.id)}
-        />
-      );
-    })
+  onNewCommentUpdate(propertyToUpdate, valueOfPropertyToUpdate) {
+    this.props.store.updateNewComment(propertyToUpdate, valueOfPropertyToUpdate);
   }
 
   render() {
+    const {store} = this.props;
+
     return (
       <div>
         <h1>
           Comments {
-            this.state.comments.length !== 0 && `(unread ${this.getNumberOfReadComments(this.state.comments)})`
+            store.comments.length !== 0 && `(unread ${store.numberOfReadComments})`
           }
         </h1>
 
-        <div>
-          <form onSubmit={this.onFormSubmit}>
-            <input
-              name="username"
-              type="text"
-              value={this.state.newComment.username}
-              onChange={this.handleInputChange}
-            />
-            <textarea
-              name="text"
-              value={this.state.newComment.text}
-              onChange={this.handleInputChange}
-            />
-            <select
-              name="imageType"
-              value={this.state.newComment.imageType}
-              onChange={this.handleInputChange}
-            >
-              <option value="wavatar">wavatar</option>
-              <option value="monsterid">monsterid</option>
-              <option value="retro">retro</option>
-            </select>
-            <button>submit</button>
-          </form>
-        </div>
+        <AddComment
+          newComment={store.newComment}
+          onAddComment={this.onAddComment}
+          onNewCommentUpdate={this.onNewCommentUpdate}
+        />
 
-        {this.renderComments(this.state.comments)}
+        <CommentList
+          comments={store.comments}
+          editingCommentId={store.editingCommentId}
+          onStartEditCommentText={this.onStartEditCommentText}
+          onStopEditCommentText={this.onStopEditCommentText}
+          onCommentRemove={this.onCommentRemove}
+          onCommentUpdate={this.onCommentUpdate}
+        />
       </div>
     );
   }
 }
+
+export default observer(App);

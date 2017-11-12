@@ -7,6 +7,7 @@ export default class CommentText extends React.Component {
 
   onEditClick = () => {
     this.props.onStartEdit();
+
     this.setState({
       editingText: this.props.text
     });

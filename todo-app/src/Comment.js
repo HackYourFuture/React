@@ -4,11 +4,16 @@ import Username from './Username';
 import CommentDate from './CommentDate';
 import CommentText from './CommentText';
 import './comment.css';
+import {observer} from 'mobx-react';
 
-export default class Comment extends React.Component {
+class Comment extends React.Component {
   markAsRead = (event) => {
-    const checked = event.target.checked;
-    this.props.onReadChange(checked, this.props.comment.id);
+    this.props.updateComment(this.props.comment.id, {read: event.target.checked});
+  };
+
+  onCommentTextUpdate = (text) => {
+    this.props.updateComment(this.props.comment.id, {text});
+    this.props.onStopEditText();
   };
 
   render() {
@@ -30,7 +35,7 @@ export default class Comment extends React.Component {
             <CommentText
               text={text}
               editing={this.props.editing}
-              onUpdate={this.props.onCommentTextUpdate}
+              onUpdate={this.onCommentTextUpdate}
               onStartEdit={this.props.onStartEditText}
               onStopEdit={this.props.onStopEditText}
             />
@@ -53,3 +58,5 @@ export default class Comment extends React.Component {
     );
   }
 }
+
+export default observer(Comment);

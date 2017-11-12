@@ -1,12 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const uuidv4 = require('uuid/v4');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-let comments = require('../todo-app/src/comments.json');
-let commentNextId = 7;
+let comments = require('./comments.json');
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -23,7 +23,7 @@ app.post('/comments', function (req, res) {
   const {username, imageType, text} = req.body;
 
   const newComment = {
-    id: commentNextId++,
+    id: uuidv4(),
     username,
     imageType,
     text,
@@ -37,7 +37,7 @@ app.post('/comments', function (req, res) {
 });
 
 app.put('/comments/:id', function (req, res) {
-  const commentId = parseInt(req.params.id);
+  const commentId = req.params.id;
   const {text, read} = req.body;
 
   let values = {};
@@ -61,7 +61,7 @@ app.put('/comments/:id', function (req, res) {
 });
 
 app.delete('/comments/:id', (req, res) => {
-  const commentId = parseInt(req.params.id);
+  const commentId = req.params.id;
 
   comments = comments.filter(comment => comment.id !== commentId);
 
