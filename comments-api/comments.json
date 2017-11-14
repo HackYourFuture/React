@@ -1,0 +1,50 @@
+[
+  {
+    "id": "f6e8aa27-e3a7-47fe-accc-1d53ecb7c1cc",
+    "username": "Joost",
+    "imageType": "wavatar",
+    "text": "I really like React!",
+    "date": "2017-11-06T13:05:57.855Z",
+    "read": true
+  },
+  {
+    "id": "74112fae-f05f-4005-ab2e-89613538eb41",
+    "username": "Spyros",
+    "imageType": "monsterid",
+    "text": "Me too!",
+    "date": "2017-11-07T13:05:57.855Z",
+    "read": false
+  },
+  {
+    "id": "3c80c081-f98d-43ab-98ee-68fd79faa46a",
+    "username": "Ayman",
+    "imageType": "retro",
+    "text": "Kinda like it..",
+    "date": "2017-11-08T13:05:57.855Z",
+    "read": false
+  },
+  {
+    "id": "498542ad-c8a6-48d0-ba73-55c2878e5848",
+    "username": "Rami",
+    "imageType": "mm",
+    "text": "I don't like it! No seriously I don't",
+    "date": "2017-11-09T13:05:57.855Z",
+    "read": false
+  },
+  {
+    "id": "ef6a0562-4190-4cac-b5d5-680f2502f3b3",
+    "username": "Ali",
+    "imageType": "identicon",
+    "text": "React is the best framework ever!",
+    "date": "2017-11-10T13:05:57.855Z",
+    "read": true
+  },
+  {
+    "id": "21bac694-d850-4457-b22f-050cfe2c5768",
+    "username": "Ismail",
+    "imageType": "wavatar",
+    "text": "Guys relax with React.. It's just hip :/",
+    "date": "2017-11-11T13:05:57.855Z",
+    "read": false
+  }
+]

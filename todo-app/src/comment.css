@@ -1,0 +1,15 @@
+.comment {
+    margin-bottom: 20px;
+}
+
+.comment__user-info {
+    display: flex;
+}
+
+.comment__meta-info {
+    margin-left: 10px;
+}
+
+.comment--read {
+    background-color: lightgray;
+}
