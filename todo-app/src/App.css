@@ -1,0 +1,23 @@
+.App {
+    border-radius: 20px;
+    color: silver;
+    background-color: purple;
+    font-family: cursive;
+    font-size: 40px;
+    max-width: fit-content;
+    margin: auto;
+    padding: auto;
+}
+
+.todo {
+    box-sizing: border-box;
+    justify-content: flex-start;
+    padding-bottom: 5px;
+    display: flow-root;
+}
+
+.Description {
+    display: flex;
+    background-color: purple;
+    font-family: serif;
+}

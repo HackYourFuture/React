@@ -1,0 +1,8 @@
+{
+  "name": "React",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:mrbarri/React.git",
+  "author": "Khaled",
+  "license": "MIT"
+}
