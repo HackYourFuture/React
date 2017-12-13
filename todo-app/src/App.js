@@ -1,13 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Task from './Tasks'
+import tasks from './TasksDB'
 
-class App extends Component {
+export default class App extends React.Component {
   render() {
     return (
       <div>
-        Hello World!
+        <h1>ToDo List:</h1>
+        <div>
+          {tasks.length > 0 ?
+
+            tasks.map((task, index) => {
+              return (
+                <Task
+                  key={index}
+                  task={task}
+                />
+              );
+
+            })
+            : (" No Items ... ")}
+        </div>
       </div>
     );
   }
 }
 
-export default App;

@@ -1,0 +1,15 @@
+.task {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.text {
+    font-size: 1em;
+    color: midnightblue;
+    padding-left: 30px;
+}
+
+.status {
+    font-size: 1em;
+    padding-left: 30px;
+}
