@@ -1,13 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {AppTask} from './AppTask';
+import {AppDate} from './AppDate';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        Hello World!
-      </div>
-    );
-  }
+export class Todo extends React.Component{
+    Constructor(){
+        
+    }
+    
+    render(){
+        return (
+            <div className = "todoApp">
+            <h1>Todo App</h1>
+            <AppDate tasks={this.props.tasks}/>
+            <AppTask tasks={this.props.tasks}/>
+            </div>
+        );
+    }
 }
 
-export default App;
+export default Todo;
