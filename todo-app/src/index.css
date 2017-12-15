@@ -1,0 +1,24 @@
+h1 {
+     margin: 10px;
+     padding: 10px;
+}
+
+.tasks {
+     list-style: none;
+     margin: 10px;
+     padding: 10px;
+}
+
+.task-text {
+     margin: 10px;
+     padding: 10px;
+     font-size: 1.5em;
+     font-family: sans-serif;
+}
+
+.task-deadline {
+     margin: 10px;
+     padding: 10px;
+     font-size: 1em;
+     font-family: sans-serif;
+}
