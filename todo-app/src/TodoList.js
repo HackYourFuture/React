@@ -19,7 +19,7 @@ const todoItems = [{
         deadline: new Date("12-03-2015")
 
     }
-]
+];
 
 export default class TodoList extends React.Component {
 
