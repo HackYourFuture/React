@@ -10,13 +10,15 @@ ul {
     list-style: none;
   }
 
-  .TodoItem {
+ li{
     padding: 10px;
     margin: 10px;
     background: rgb(247, 247, 247);
     width : 300px;
     border: 3px solid rgb(187, 187, 187);
     border-radius: 10px;
+    font-family: sans-serif;
+    font-size: 1.2em;
 
   }
 
@@ -25,7 +27,7 @@ ul {
       font-size: 1.2em;
   }
 
-  .Deadline{
+  p{
       font-family: Courier;
       font-size: 0.8em;
   }
