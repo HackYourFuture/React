@@ -9,5 +9,4 @@ export default class Deadline extends React.Component {
       </div>
     )
   }
-
 }

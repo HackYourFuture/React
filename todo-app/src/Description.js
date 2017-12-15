@@ -9,5 +9,4 @@ export default class Description extends React.Component {
       </div>
     )
   }
-
 }

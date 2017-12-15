@@ -5,19 +5,19 @@ const todoItems = [{
         id: '1',
         description: "Get out of bed.",
         deadline: new Date("12-03-2015")
-        
+
     },
     {
         id: '2',
         description: "Brush teeth.",
         deadline: new Date("12-03-2015")
-        
+
     },
     {
         id: '3',
         description: "Eat breakfast.",
         deadline: new Date("12-03-2015")
-        
+
     }
 ]
 
@@ -32,7 +32,6 @@ export default class TodoList extends React.Component {
                             <TodoItem todoItem = {todoItem}/>
                         </React.Fragment>
                     ))}
-                    
                 </ul>
             </div>
         )
