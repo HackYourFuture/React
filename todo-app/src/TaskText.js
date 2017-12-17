@@ -4,9 +4,9 @@ export default class TaskText extends React.Component {
 
   render() {
     return (
-      <p className="task-text">
+      <span className="task-text">
         {this.props.text}
-      </p>
+      </span>
     )
   }
 
