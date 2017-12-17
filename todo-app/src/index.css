@@ -1,0 +1,29 @@
+h2 {
+    font-family: Verdana;
+    color: rgb(121, 0, 0);
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.TodoItem {
+    padding: 10px;
+    margin: 10px;
+    background: rgb(247, 247, 247);
+    width: 300px;
+    border: 3px solid rgb(187, 187, 187);
+    border-radius: 10px;
+}
+
+.Description {
+    font-family: sans-serif;
+    font-size: 1.2em;
+}
+
+.Deadline {
+    font-family: Courier;
+    font-size: 0.8em;
+}
