@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+//jshint esnext: true
 
-class App extends Component {
+import React from 'react';
+import Todos from './components/Todos/List-todos';
+
+
+export default class App extends React.Component {
   render() {
     return (
-      <div>
-        Hello World!
-      </div>
+      <Todos />
     );
   }
 }
-
-export default App;
