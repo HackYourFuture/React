@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "author": {
+      "firstName": "Joost",
+      "lastName": "Lubach",
+      "avatarURL": "https://pbs.twimg.com/profile_images/845196505279455233/IUV3v-jP_400x400.jpg"
+    },
+    "date": "2017-01-01",
+    "text": "I like this post."
+  },
+  {
+    "id": "2",
+    "author": {
+      "firstName": "Isaac",
+      "lastName": "Hinman",
+      "avatarURL": "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/8/005/08a/374/2a60474.jpg"
+    },
+    "date": "2017-02-01",
+    "text": "Me too."
+  },
+  {
+    "id": "3",
+    "author": {
+      "firstName": "Amin",
+      "lastName": "Mahrami",
+      "avatarURL": "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAwKAAAAJDMwNGQ5YjE2LWUyNzYtNDI2Zi1hZDQ0LTc3ZGM0NDViOWY2ZQ.jpg"
+    },
+    "date": "2017-03-01",
+    "text": "Me too."
+  }
+]
