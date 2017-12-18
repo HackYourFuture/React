@@ -36,7 +36,7 @@ export default class TodoList extends React.Component {
     }
     
     renderAllTodos = () => {
-        return todos.map(item => {
+        return this.state.todos.map(item => {
             return (
             <React.Fragment key={item.id}>
                 <TodoItem 
