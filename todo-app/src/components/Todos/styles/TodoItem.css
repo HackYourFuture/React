@@ -1,17 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background: aliceblue;
-    text-align: center;
-}
-
-ul {
-    list-style: none;
-}
-
 .todosWrapper {
     width: 50vw;
     margin: auto;
@@ -32,18 +18,6 @@ ul {
     margin-bottom: 1rem;
 }
 
-.author-info {
+.authorInfo {
     text-align: left;
 }
-
-img {
-    width: 100%;
-    
-}
-
-.author-avatar {
-    width: 40px;
-    margin-right: 1rem;
-}
-
-
