@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: aliceblue;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}

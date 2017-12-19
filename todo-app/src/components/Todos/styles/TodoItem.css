@@ -1,0 +1,23 @@
+.todosWrapper {
+    width: 50vw;
+    margin: auto;
+}
+
+.todosWrapper>li {
+    margin-top: 2rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    border-bottom: 1px solid black;
+    margin-bottom: 1rem;
+}
+
+.authorInfo {
+    text-align: left;
+}
