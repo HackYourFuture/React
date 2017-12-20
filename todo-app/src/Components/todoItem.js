@@ -7,12 +7,13 @@ import './styles/todoItem.css';
 export default class TodoItem extends React.Component {
     render (){
         const {description, deadline, done, id } = this.props.data;
+        const inputId = `item${id}`;
         return (
             <li className="todoItem">
-                <div>
+                <div className="todoState">
                     <span>{deadline}</span>
-                    <label for={`item${id}`} className={done ? 'markDone' : 'markUndone'}></label>
-                    <input type="checkbox" id={`item${id}`} onClick={() => this.props.handleIsItDone(this.props.data)}/>
+                    <label htmlFor={inputId} className={done ? 'markDone' : 'markUndone'}></label>
+                    <input type="checkbox" id={inputId} onClick={() => this.props.handleToggleDone(this.props.data)}/>
                 </div>
                 <p className={done ? 'done' : 'notDone'}>{description}</p>
             </li>

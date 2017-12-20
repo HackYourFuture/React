@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import Todos from './Components/todoList';
+import Todos from './Components/TodoList';
 import './App.css';
 
 

@@ -4,12 +4,13 @@
 }
 
 .todoItem > * {
+    font-size: 100%;
     text-align: center;
     flex: 3;
     padding: 1rem;
 }
 
-.todoItem>*:first-child {
+.todoState {
     flex: 1;
     display: flex;
     justify-content: space-around;

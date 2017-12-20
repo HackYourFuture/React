@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import TodoItem from './todoItem';
+import TodoItem from './TodoItem';
 import todosData from './todos.json';
 import './styles/todoList.css';
 
@@ -15,7 +15,7 @@ export default class TodoList extends React.Component {
         todos,
     }
 
-    handleIsItDone = (todoItem) => {
+    handleToggleDone = (todoItem) => {
        this.setState({
            todos: this.state.todos.map(item => {
                if (item.id === todoItem.id){
@@ -26,6 +26,18 @@ export default class TodoList extends React.Component {
        })
     }
 
+    renderAllTodos = () => {
+        return this.state.todos.map(item => {
+            return (
+            <React.Fragment key={item.id}>
+                <TodoItem 
+                data={item}
+                handleToggleDone={this.handleToggleDone}
+                />
+            </React.Fragment>
+        )})
+
+    }
 
     render() {
         return (
@@ -37,21 +49,4 @@ export default class TodoList extends React.Component {
             </ul>
         )
     }
-    
-    renderAllTodos = () => {
-        return this.state.todos.map(item => {
-            return (
-            <React.Fragment key={item.id}>
-                <TodoItem 
-                data={item}
-                handleIsItDone={this.handleIsItDone}
-                />
-            </React.Fragment>
-        )})
-
-    }
-
-
-
-
 }
