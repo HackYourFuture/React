@@ -1,7 +1,10 @@
+//jshint esnext: true
+
 import React from 'react';
 
-import TodoItem from './todo-item';
+import TodoItem from './todoItem';
 import todosData from './todos.json';
+import './styles/todoList.css';
 
 const todos = todosData.todos;
 
@@ -26,7 +29,7 @@ export default class TodoList extends React.Component {
 
     render() {
         return (
-            <ul className="todos-container">
+            <ul className="todosContainer">
                 {this.state.todos.length === 0 ? //is it empty?
                     <h1>No items to show</h1>
                     :

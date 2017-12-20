@@ -1,7 +1,9 @@
 //jshint esnext: true
 
 import React from 'react';
-import Todos from './todos/todo-list';
+
+import Todos from './Components/todoList';
+import './App.css';
 
 
 export default class App extends React.Component {

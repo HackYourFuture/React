@@ -1,0 +1,44 @@
+.todoItem {
+    display: flex;
+    flex-direction: row;
+}
+
+.todoItem > * {
+    text-align: center;
+    flex: 3;
+    padding: 1rem;
+}
+
+.todoItem>*:first-child {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    border-right: 1px solid grey;
+}
+
+label {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: red;
+    cursor: pointer;
+}
+
+input {
+    display: none;
+}
+
+.markDone, .markUndone {
+    position: relative
+}
+
+.markDone {
+    background-color: green;
+}
+.markUndone {
+    background-color: red;
+}
+
+.done {
+    text-decoration: line-through;
+}
