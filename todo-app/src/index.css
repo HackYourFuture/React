@@ -9,19 +9,21 @@ h1{
     margin-left: 30%;
 }
 li{
-    line-height: 20px;
+    line-height: 50px;
     border: 1px groove black;
     background-color: yellow;
-    width: 200px;
+    width: 300px;
     height: 200px;
     font-size: 30px;
     font-family: "Shadows Into Light", Arial;
+    margin-right: 50px;
 }
 
 ul{
     list-style: none;
     display: flex;
-    flex-flow:wrap;
+    flex-flow: wrap;
+    
 }
 p{
     font-family: "Shadows Into Light", Arial;
