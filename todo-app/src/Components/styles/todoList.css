@@ -1,0 +1,16 @@
+
+ h1 {
+    margin-top: 3rem;
+    text-align: center;
+    color: white;
+}
+
+.todosContainer {
+    background-color: lavender;
+    list-style: none;
+    padding: 0;
+    width: 70%;
+    margin: 3rem auto;
+    border-radius: 2rem;
+    
+}

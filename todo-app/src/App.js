@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
+//jshint esnext: true
 
-class App extends Component {
+import React from 'react';
+
+import Todos from './Components/todoList';
+import './App.css';
+
+
+export default class App extends React.Component {
   render() {
     return (
       <div>
-        Hello World!
+        <h1>TODO LIST</h1>
+        <Todos />
       </div>
     );
   }
 }
-
-export default App;
