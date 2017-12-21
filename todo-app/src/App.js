@@ -1,32 +1,38 @@
 import React, { Component } from 'react';
 import Task from './Task';
-
-const todo_arr = [
-  {
-	 id:1,
-	 text:"Get out of bed" ,
-	 date:"Wed Sep 13 2017"
-  },
-  {
-	  id:2,
-	  text:"Brush teeth",
-	  date:"Thu Sep 14 2017"
-  },
-  {
-	  id:3,
-	  text:"Eat breakfast",
-	  date:"Fri Sep 15 2017"
-  }
-];
+import tasks from './task.json';
 
 class App extends Component {
-	
+
+  constructor(props) {
+    super(props);
+
+    // State
+    this.state = {
+      tasks_arr: tasks,
+    };
+
+    this.handleDoneChange = this.handleDoneChange.bind(this);
+  }
+  
+  handleDoneChange(doneValue, taskId) {
+    const updatedtasks = this.state.tasks_arr.map(task => {
+      if (taskId === task.id) {
+        return Object.assign({}, task, {done: doneValue});
+      }
+      return task;
+    });
+    this.setState({
+      tasks_arr: updatedtasks
+    });
+  }
+  
   render() {
     return (
       <div>
         <h1>Todo list</h1>
 		<ul className='task-list'>
-			{todo_arr.map(item => <Task key={item.id} task={item} />)}
+			{this.state.tasks_arr.map(item => <Task key={item.id} task={item} onDoneChange={this.handleDoneChange} />)}
 		</ul>
       </div>
     );
