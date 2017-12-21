@@ -28,12 +28,22 @@ class App extends Component {
   }
   
   render() {
+	  
+    if (this.state.tasks_arr.length === 0) {
+      return (
+	  <div>
+	    <h1>Todo list</h1>
+	    <div>No items...</div>
+	  </div>
+	 );
+    }
+	
     return (
       <div>
         <h1>Todo list</h1>
-		<ul className='task-list'>
-			{this.state.tasks_arr.map(item => <Task key={item.id} task={item} onDoneChange={this.handleDoneChange} />)}
-		</ul>
+	 <ul className='task-list'>
+	  {this.state.tasks_arr.map(item => <Task key={item.id} task={item} onDoneChange={this.handleDoneChange} />)}
+	 </ul>
       </div>
     );
   }
