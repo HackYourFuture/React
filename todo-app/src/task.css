@@ -1,17 +1,20 @@
 .task-list{
- margin-top:20px;
- font-family:calibri, sanserif;
- list-style-type: square;
+	margin-top:20px;
+	font-family:calibri,sanserif;
+	list-style-type: square;
 }
 .task-item{
- padding-top:5px;
- padding-bottom:5px;
+	padding-top:5px;
+	padding-bottom:5px;
 }
 .task-text{
- color:#333;
- font-size:1.1em;
+	color:#333;
+	font-size:1.1em;
 }
 .task-data{
- color:#060;
- font-size:0.90em;
+	color:#060;
+	font-size:0.90em;
+}
+.done{
+	text-decoration:line-through;
 }
