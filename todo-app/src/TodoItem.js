@@ -5,11 +5,14 @@ import './index.css';
 
 export default class TodoItem extends React.Component {
 
+  onDelete = () => this.props.onDelete(this.props.todoItem.id)
+  
   render() {
-    const {todoItem} = this.props;
+    const {todoItem, onDelete} = this.props;
     return (
       <li className="TodoItem">
           <div className="Item-info">
+            <span onClick={() => onDelete(todoItem.id)}>[Delete]</span>
             <Description description={todoItem.description}/>
             <Deadline deadline={todoItem.deadline}/>
           </div>
