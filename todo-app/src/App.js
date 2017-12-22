@@ -2,38 +2,38 @@ import React, { Component } from 'react';
 import Task from './Task';
 import tasks from './task.json';
 
-class App extends Component {
+export default class App extends Component {
 
   constructor(props) {
     super(props);
 
     // State
     this.state = {
-      tasks_arr: tasks,
+      tasksArr: tasks,
     };
 
     this.handleDoneChange = this.handleDoneChange.bind(this);
   }
   
   handleDoneChange(doneValue, taskId) {
-    const updatedtasks = this.state.tasks_arr.map(task => {
+    const updatedtasks = this.state.tasksArr.map(task => {
       if (taskId === task.id) {
         return Object.assign({}, task, {done: doneValue});
       }
       return task;
     });
     this.setState({
-      tasks_arr: updatedtasks
+      tasksArr: updatedtasks
     });
   }
   
   render() {
 	  
-    if (this.state.tasks_arr.length === 0) {
+	if (this.state.tasksArr.length === 0) {
       return (
 	  <div>
-	    <h1>Todo list</h1>
-	    <div>No items...</div>
+		<h1>Todo list</h1>
+		<div>No items...</div>
 	  </div>
 	 );
     }
@@ -41,12 +41,10 @@ class App extends Component {
     return (
       <div>
         <h1>Todo list</h1>
-	 <ul className='task-list'>
-	  {this.state.tasks_arr.map(item => <Task key={item.id} task={item} onDoneChange={this.handleDoneChange} />)}
-	 </ul>
+		<ul className='task-list'>
+			{this.state.tasksArr.map(item => <Task key={item.id} task={item} onDoneChange={this.handleDoneChange} />)}
+		</ul>
       </div>
     );
   }
 }
-
-export default App;
