@@ -15,7 +15,18 @@ export default class TodoList extends React.Component {
     this.setState({
       todos: updatedTodos
     })  
-  }  
+  }
+  
+  onDone = (todoID) => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === todoID) {
+          todo.done = !todo.done
+        }
+        return todo
+      })
+    })
+  } 
  
   render() {
     const { todos } = this.state
@@ -30,7 +41,7 @@ export default class TodoList extends React.Component {
           <ul>
             {todos.map((todoItem, i) => (
               <React.Fragment key={todoItem.id}>
-                <TodoItem onDelete={this.onDelete} todoItem = {todoItem}/>
+                <TodoItem onDelete={this.onDelete} onDone={this.onDone} todoItem = {todoItem}/>
               </React.Fragment>
             ))}
           </ul>
