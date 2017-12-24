@@ -30,7 +30,7 @@ export default class TodoList extends React.Component {
  
   render() {
     const { todos } = this.state
-    if(todos.length == 0){
+    if(todos.length === 0){
       return(
         <div className="TodoList">No items...</div>
       )
