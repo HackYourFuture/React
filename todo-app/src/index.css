@@ -17,6 +17,7 @@ li{
     font-size: 30px;
     font-family: "Shadows Into Light", Arial;
     margin-right: 50px;
+    
 }
 
 ul{
@@ -28,5 +29,13 @@ ul{
 p{
     font-family: "Shadows Into Light", Arial;
     font-size: 30px;
+}
+
+.task-done {
+    text-decoration: none;
+}
+
+.task-not-done {
+   text-decoration:line-through;
 }
 
