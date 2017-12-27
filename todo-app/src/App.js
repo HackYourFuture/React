@@ -8,11 +8,11 @@ export default class App extends Component {
     todos: todoItems
   }
 
-handleTaskDone = (todoID)=>{
+toggleStatus = (todoID) =>{
     this.setState({
             todos: this.state.todos.map(todo =>{
                 if (todo.id === todoID){
-                    todo.done =! todo.done
+                    todo.done = !todo.done
                 }
                 return todo
             })
@@ -24,9 +24,9 @@ handleTaskDone = (todoID)=>{
       <div>
         <h1>Todo App</h1>
 		<ul className='tasks'>
-         {todos.map((todoItem, i)=>(
-        <Task key = {todoItem.id} handleTaskDone=
-        {this.handleTaskDone} todoItem = {todoItem}/>
+         {todos.map((todoItem, i) =>(
+        <Task key = {todoItem.id} toggleStatus =
+        {this.toggleStatus} todoItem = {todoItem}/>
     
     ))}
 		</ul>

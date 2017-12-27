@@ -5,26 +5,22 @@ import './index.css';
 
 export default class Task extends React.Component{
 
-  handleTaskDone = () =>  this.props.handleTaskDone(this.props.todoItem.id)
+  toggleStatus = () =>  this.props.toggleStatus(this.props.todoItem.id)
   
   render() {
-  const{todoItem, handleTaskDone} = this.props;
+  const{todoItem, toggleStatus} = this.props;
        return (
             <li className="task-list">
-             <span>{todoItem.done ? <input type = 'checkbox' onClick={()=>handleTaskDone(todoItem.id)}/>
-              :
-              <input type = 'checkbox' checked onClick={()=> handleTaskDone(todoItem.id)}/>   
-             }
-                 </span>
+             <span> <input type = 'checkbox'onClick = {() => toggleStatus(todoItem.id)} /></span>
             <span> {todoItem.done? <span className = 'task-done'>
-                     Task: <AppDate deadline={todoItem.description}/>
+                     Task: <AppTask task = {todoItem.description}/>
                       <br/>
-                     Deadline: <AppDate deadline={todoItem.deadline}/></span>
+                     Deadline: <AppDate deadline = {todoItem.deadline}/></span>
                       :
                   <span className = 'task-not-done'>
-                    Task: <AppDate deadline={todoItem.description}/>
+                    Task: <AppTask task = {todoItem.description}/>
                       <br/>
-                    Deadline: <AppDate deadline={todoItem.deadline}/></span>
+                    Deadline: <AppDate deadline = {todoItem.deadline}/></span>
 }
              </span>
            
