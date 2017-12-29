@@ -15,9 +15,11 @@ toggleStatus = (todoID) =>{
                     todo.done = !todo.done
                 }
                 return todo
+                
             })
         })
     }
+
   render() {
       const{todos} = this.state
     return (
@@ -33,7 +35,5 @@ toggleStatus = (todoID) =>{
       </div>
     );
   }
-  
-  
       
 }

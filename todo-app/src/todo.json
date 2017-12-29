@@ -9,12 +9,12 @@
           "id": "2",
           "description": "React HomeWorks",
           "deadline": "Today",
-          "done": true
+          "done": false
   },
    {
           "id": "3",
           "description": "Breakfast",
           "deadline": "Today before 12:00",
-          "done": true
+          "done": false
   }
 ]
