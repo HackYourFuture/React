@@ -23,3 +23,7 @@ h1 {
      font-size: 1em;
      font-family: sans-serif;
 }
+
+.done{
+	text-decoration: line-through;
+}
