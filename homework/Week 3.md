@@ -49,6 +49,21 @@ Enter description: [           ] [Add]
 * [ ] Eat breakfast, Fri Sep 15 2017 [remove]
 ```
 
+## Extra assignment
+
+Look at the application in `/chat-app`. We want to add some functionality. Answer the four questions below for each functionality we want to add.
+
+A. Which component(s) are affected by the change?
+B. Do you need to add new components? Which?
+C. Where will you place the state for the new functionality?
+D. Which components will receive which props?
+
+These are the functionalities we want to add:
+
+1. Users should be able to choose or upload an avatar
+2. Users can turn notifications on or off
+
+
 ## Scoring
 
 You will be scored on:
