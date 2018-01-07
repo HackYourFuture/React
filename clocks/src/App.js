@@ -1,74 +1,57 @@
 import React from 'react'
-import PersistedComponent from './PersistedComponent'
 import Clock from './Clock'
-import './App.css'
 
-export default class App extends PersistedComponent {
+class App extends React.Component {
 
   state = {
     clocks: []
   }
 
+  handleCreateClock = () => {
+    const city = prompt('What is the city?')
+    const timeZone = prompt('What is the Time Zone?')
+
+    const newClocks = this.state.clocks.concat([{
+      city,
+      timeZone,
+    }])
+
+    this.setState({
+      clocks: newClocks,
+    })
+  }
+
+  handleDeleteClock = (cityToDelete) => {
+    const newClocks = this.state.clocks.filter(clock => {
+      return clock.city !== cityToDelete
+    })
+
+    this.setState({
+      clocks: newClocks,
+    })
+  }
+
   render() {
+
     return (
-      <div className="app">
-        {this.renderClocks()}
-        {this.renderAddClock()}
+      <div>
+        <h1>World clocks:</h1>
+        <button onClick={this.handleCreateClock}>
+          Create new clock
+        </button>
+        <div>
+          {this.state.clocks.map(clock =>            
+            <Clock
+              city={clock.city}
+              timeZone={clock.timeZone}
+              key={clock.city}
+              handleDeleteClock={this.handleDeleteClock}
+            />
+          )}
+        </div>
       </div>
-    )
+    );
   }
-
-  renderClocks() {
-    const {clocks} = this.state
-
-    return (
-      <div className="app--clocks">
-        <Clock/>
-
-        {clocks.map((clock, index) => this.renderClock(clock, index))}
-      </div>
-    )
-  }
-
-  renderClock(clock, index) {
-    const {timeZone, city} = clock
-
-    return (
-      <Clock
-        key={index}
-        timeZone={timeZone}
-        city={city}
-        onClick={() => { this.onClockClick(index) }}
-      />
-    )
-  }
-
-  renderAddClock() {
-    return (
-      <div className="app--add-clock">
-        <button type="button" onClick={this.onAddClick}>Add new clock</button>
-      </div>
-    )
-  }
-
-  onClockClick = (index) => {
-    const clocks = [...this.state.clocks]
-    clocks.splice(index, 1)
-
-    this.setState({clocks})
-  }
-
-  // This is done to bind this function to <this>.
-  // instead of `onAddClick() { ... }`
-  // so that we don't have to type `this.onAddClick.bind(this)`
-  onAddClick = () => {
-    const city     = prompt("What is the city?")
-    const timeZone = prompt("What is the Time Zone?")
-
-    const clock = {city, timeZone}
-    const clocks = [...this.state.clocks, clock]
-
-    this.setState({clocks})
-  }
-
 }
+
+export default App;

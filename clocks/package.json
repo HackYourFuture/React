@@ -1,16 +1,13 @@
 {
-  "name": "myapp",
+  "name": "hyf-react-world-clocks",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "moment": "^2.18.1",
-    "moment-timezone": "^0.5.13",
-    "prop-types": "^15.5.10",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
-  },
-  "devDependencies": {
-    "react-scripts": "1.0.7"
+    "moment": "^2.20.0",
+    "moment-timezone": "^0.5.14",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17"
   },
   "scripts": {
     "start": "react-scripts start",

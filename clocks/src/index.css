@@ -1,13 +1,15 @@
-html, body {
-	height: 100vh;
-}
-
 body {
   margin: 0;
-  padding: 0;
+  padding: 50px;
   font-family: sans-serif;
+  text-align: center;
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.Clock {
+  background: rgba(0,0,0,0.085);
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  line-height: 2em;
 }
