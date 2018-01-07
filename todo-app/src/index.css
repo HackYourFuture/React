@@ -27,3 +27,18 @@ ul {
     font-family: Courier;
     font-size: 0.8em;
 }
+
+.done-button {
+    font-weight: bold;
+    color: rgb(12, 158, 1);
+}
+
+.undone-button {
+    font-weight: bold;
+    color: rgb(155, 0, 0);
+}
+
+.delete-button {
+    font-size: 0.7em;
+    color: rgb(61, 0, 82)
+}

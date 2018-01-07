@@ -4,7 +4,7 @@ export default class Description extends React.Component {
 
   render() {
     return (
-      <div className="Description">
+      <div className="Description"> 
         {this.props.description}
       </div>
     )
