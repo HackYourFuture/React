@@ -1,20 +1,36 @@
 .todoItem {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+
+.todoItem:last-child {
+    border: none;
+    margin: 0;
 }
 
 .todoItem > * {
-    font-size: 100%;
-    text-align: center;
-    flex: 3;
     padding: 1rem;
 }
 
-.todoState {
-    flex: 1;
+.todoDate {
+    flex: 2;
+    display: flex;
+    justify-content: space-between; 
+}
+
+.todoText {
+    flex: 4;
+    border-right: 0.2px solid grey;
+    border-left: 0.2px solid grey;
+    
+}
+
+.manageTodo {
+    flex: 2;
     display: flex;
     justify-content: space-around;
-    border-right: 1px solid grey;
 }
 
 label {
@@ -25,8 +41,24 @@ label {
     cursor: pointer;
 }
 
-input {
-    display: none;
+.manageTodo button {
+    flex: 1;
+    margin: 2px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    background-color: green;
+}
+
+.manageTodo .cancelButton {
+    background-color: red;
+    
+}
+
+
+.checkDone {
+    display: none
 }
 
 .markDone, .markUndone {

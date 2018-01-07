@@ -1,16 +1,20 @@
-
- h1 {
+.pageHeader {
     margin-top: 3rem;
     text-align: center;
     color: white;
 }
 
-.todosContainer {
-    background-color: lavender;
-    list-style: none;
-    padding: 0;
-    width: 70%;
-    margin: 3rem auto;
-    border-radius: 2rem;
-    
+.emptyListHeader {
+    color:  rgb(41, 40, 43);
+    text-align: center;
 }
+
+.todosContainer {
+    list-style: none;
+    background-color: lavender;
+    width: 90%;
+    margin: 3rem auto;
+    border-radius: 0.5rem;
+}
+
+
