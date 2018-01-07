@@ -1,27 +1,24 @@
 import React from 'react';
 import Comment from './Comment';
-import initialCommentData from './comments.json'
 
 export default class CommentList extends React.Component {
 
   state = {
-    comments: initialCommentData.map(comment => {
-      return Object.assign({}, comment, {
-        isLiked: false,
-      })
-    }),
-  }
+    editingCommentID: null
+  };
 
-  handleToggleIsLiked = (commentID) => {
-    this.setState({
-      comments: this.state.comments.map(comment => {
-        if (comment.id === commentID) {
-          comment.isLiked = !comment.isLiked
-        }
-        return comment
-      })
-    })
-  }
+  handleCommentEdit = id => {
+    this.setState({editingCommentID: id});
+  };
+
+  handleCommentCancelEdit = () => {
+    this.setState({editingCommentID: null});
+  };
+
+  handleCommentSave = (id, text) => {
+    this.props.onSaveComment(id, text);
+    this.handleCommentCancelEdit();
+  };
 
   render() {
     return (
@@ -33,14 +30,21 @@ export default class CommentList extends React.Component {
 
   renderList() {
 
-    const { comments } = this.state
+    const { comments } = this.props
 
     return (
       <ul>
         {comments.map((comment, index) => (
           <React.Fragment key={comment.id}>
             {index > 0 && <li className="CommentList-separator"/>}
-            <Comment handleToggleIsLiked={this.handleToggleIsLiked} comment={comment} />
+            <Comment
+              comment={comment}
+              onToggleIsLiked={this.props.onToggleIsLiked}
+              isEditing={comment.id === this.state.editingCommentID}
+              onEdit={this.handleCommentEdit}
+              onCancelEdit={this.handleCommentCancelEdit}
+              onSave={this.handleCommentSave}
+            />
           </React.Fragment>
         ))}
       </ul>

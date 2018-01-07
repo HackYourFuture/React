@@ -6,12 +6,15 @@ import CommentBody from './CommentBody';
 
 export default class Comment extends React.Component {
 
-  handleToggleIsLiked = () => {
-    this.props.handleToggleIsLiked(this.props.comment.id)
-  }
-
   render() {
-    const { comment, handleToggleIsLiked } = this.props;
+    const {
+      comment,
+      onToggleIsLiked,
+      isEditing,
+      onEdit,
+      onCancelEdit,
+      onSave
+    } = this.props;
 
     return (
       <li className="Comment">
@@ -24,15 +27,21 @@ export default class Comment extends React.Component {
             <CommentDate date={comment.date} />
             <div>
               {comment.isLiked ?
-                <span onClick={() => handleToggleIsLiked(comment.id)}>♥</span>
+                <span onClick={() => onToggleIsLiked(comment.id)}>♥</span>
                 :
-                <span onClick={() => handleToggleIsLiked(comment.id)}>♡</span>
+                <span onClick={() => onToggleIsLiked(comment.id)}>♡</span>
               }
             </div>
           </div>
         </div>
         
-        <CommentBody text={comment.text}/>
+        <CommentBody
+          text={comment.text}
+          isEditing={isEditing}
+          onEditClick={() => { onEdit(comment.id); }}
+          onSaveClick={text => { onSave(comment.id, text); }}
+          onCancelEditClick={onCancelEdit}
+        />
       </li>
     )
   }
