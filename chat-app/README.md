@@ -26,7 +26,6 @@ Review the list of components, their state and their props:
 
 - `chats` (`array<chat>`):  all chats
 - `profile` (`<profile>`): the user's profile
-- `screen` (`<string>`): the currently visible screen (`"chats"` or `"profile"`)
 
 ### `ChatsScreen`
 
