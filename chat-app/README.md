@@ -102,16 +102,6 @@ Review the list of components, their state and their props:
 
 The following lists the structure of the data:
 
-### `chats`
-
-```js
-[
-  <chat>,
-  <chat>,
-  ...
-]
-```
-
 ### `profile`
 
 ```js
