@@ -45,7 +45,7 @@ The following lists the structure of the data:
 
 ```js
 {
-  "name": <string>,
+  "name":      <string>,
   "avatarURL": <string>
 ]
 ```
@@ -57,6 +57,16 @@ The following lists the structure of the data:
   "id":       <number>,
   "contact":  <contact>,
   "messages": [<message>, <message>, ...]
+}
+```
+
+### `contact`
+
+```js
+{
+  "id":        <number>,
+  "name":      <string>,
+  "avatarURL": <string>
 }
 ```
 
