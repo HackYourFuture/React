@@ -65,3 +65,13 @@ One part that's missing in the application is the navigation. That is, the scree
 - 6a. In which component should you add the *state property* that describes where the user is in the app?
 - 6b. What should be the *shape* of this property (that is, what should be its type, or in case of an object, what properties should it have?). Think very thoroughly about *all* different possibilities!
 - 6c. How should you use this state property to display the correct screen to the user? (You don't need to write code, just explain it in English.)
+
+## 7. Chat notifications
+
+We want users to turn notifications for a chat on or off. This information is not stored in the current data structure, so you need to create a new *state* property for it in the `<App>` component, called `notifications`.
+
+We want a toggle button to appear in the ChatScreen that indicates whether notifications are turned on for the chat in the screen. For this, you will use a new component `<ToggleButton>` that has a prop `isOn` (a boolean indicating whether the toggle button is currently on).
+
+- 7a. What could be a suitable *shape* of the `notifications` property?
+- 7b. In which component should you add the toggle button?
+- 7c. List all required *props* that you need to add (including callback props) for this to work.
