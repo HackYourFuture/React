@@ -16,16 +16,87 @@ With the following component hierarchy:
 
 Review the list of components, their state and their props:
 
-| Component | Props | State |
-| --------- | ----- | ----- |
-| `App` | &lt;None&gt; | <ul><li>`chats`</li><li>`profile`</li></ul> |
-| `ChatsScreen` | <ul><li>`chats`</li></ul> | &lt;None&gt; |
-| `ChatItem` | <ul><li>`chat`</li></ul> | &lt;None&gt; |
-| `ChatScreen` | <ul><li>`chat`</li></ul> | &lt;None&gt; |
-| `Message` | <ul><li>`message`</li></ul> | &lt;None&gt; |
-| `ProfileScreen` | <ul><li>`profile`</li></ul> | &lt;None&gt; |
-| `Avatar` | <ul><li>`profile`</li></ul> | &lt;None&gt; |
-| `ProfileName` | <ul><li>`profile`</li></ul> | &lt;None&gt; |
+### `App`
+
+#### Props
+
+&lt;None&gt;
+
+#### State
+
+- `chats` (`array<chat>`):  all chats
+- `profile` (`<profile>`): the user's profile
+- `screen` (`<string>`): the currently visible screen (`"chats"` or `"profile"`)
+
+### `ChatsScreen`
+
+#### Props
+
+- `chats` (`array<chat>`): all chats
+
+#### State
+
+&lt;None&gt;
+
+### `ChatItem`
+
+#### Props
+
+- `chat` (`<chat>`): the chat to display in the item
+
+#### State
+
+&lt;None&gt;
+
+### `ChatScreen`
+
+#### Props
+
+- `chat` (`<chat>`): the chat to display in the screen
+
+#### State
+
+&lt;None&gt;
+
+### `Message`
+
+#### Props
+
+- `message` (`<message>`): the message to display
+
+#### State
+
+&lt;None&gt;
+
+### `ProfileScreen`
+
+#### Props
+
+- `profile` (`<profile>`): the user's profile
+
+#### State
+
+&lt;None&gt;
+
+### `Avatar`
+
+#### Props
+
+- `profile` (`<profile>`): the user's profile
+
+#### State
+
+&lt;None&gt;
+
+### `ProfileName`
+
+#### Props
+
+- `profile` (`<profile>`): the user's profile
+
+#### State
+
+&lt;None&gt;
 
 ## Data structure
 
