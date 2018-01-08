@@ -30,7 +30,7 @@ We want users to delete existing messages. Each message will have a small button
 - 3b. Do you need to create additional components? If so, which, and what are their *props*? (Specify name and type.)
 - 3c. Do you need to add *state* properties to any existing component?
 - 3d. Which component should be the one that performs the actual deletion (i.e. calls `setState`)?
-- 3d. Do you need to add *props* to any existing component?
+- 3e. Do you need to add *props* to any existing component?
 
 ## 4. Message deletion with confirmation
 
@@ -54,10 +54,14 @@ We want the chat screen to display a little separator between messages received 
            You too!! <
 ```
 
-## Navigation
+- 5a. Which existing components do you need to modify?
+- 5b. Do you need to add *state* properties to any existing component?
+- 5c. Do you need to add *props* to any existing component?
+
+## 6. Navigation
 
 One part that's missing in the application is the navigation. That is, the screen that the user is looking at should also be part of the state.
 
-- 1. In which component should you add the *state property* that describes where the user is in the app?
-- 2. What should be the *shape* of this property (that is, what should be its type, or in case of an object, what properties should it have?). Think very thoroughly about *all* different possibilities!
-- 3. How should you use this state property to display the correct screen to the user? (You don't need to write code, just explain it in English.)
+- 6a. In which component should you add the *state property* that describes where the user is in the app?
+- 6b. What should be the *shape* of this property (that is, what should be its type, or in case of an object, what properties should it have?). Think very thoroughly about *all* different possibilities!
+- 6c. How should you use this state property to display the correct screen to the user? (You don't need to write code, just explain it in English.)
