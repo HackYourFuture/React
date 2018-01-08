@@ -33,7 +33,7 @@ The following lists the structure of the data:
 
 ### `chats`
 
-```json
+```js
 [
   <chat>,
   <chat>,
@@ -43,7 +43,7 @@ The following lists the structure of the data:
 
 ### `profile`
 
-```json
+```js
 {
   "name": <string>,
   "avatarURL": <string>
@@ -52,7 +52,7 @@ The following lists the structure of the data:
 
 ### `chat`
 
-```json
+```js
 {
   "id":       <number>,
   "contact":  <contact>,
@@ -62,7 +62,7 @@ The following lists the structure of the data:
 
 ### `message`
 
-```json
+```js
 {
   "id":     <number>,
   "fromMe": <boolean>,
