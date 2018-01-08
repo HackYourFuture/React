@@ -26,3 +26,48 @@ Review the list of components, their state and their props:
 | `ProfileScreen` | <ul><li>`profile`</li></ul> | &lt;None&gt; |
 | `Avatar` | <ul><li>`profile`</li></ul> | &lt;None&gt; |
 | `ProfileName` | <ul><li>`profile`</li></ul> | &lt;None&gt; |
+
+## Data structure
+
+The following lists the structure of the data:
+
+### `chats`
+
+```json
+[
+  <chat>,
+  <chat>,
+  ...
+]
+```
+
+### `profile`
+
+```json
+{
+  "name": <string>,
+  "avatarURL": <string>
+]
+```
+
+### `chat`
+
+```json
+{
+  "id":       <number>,
+  "contact":  <contact>,
+  "messages": [<message>, <message>, ...]
+}
+```
+
+### `message`
+
+```json
+{
+  "id":     <number>,
+  "fromMe": <boolean>,
+  "date":   <string / date>,
+  "text":   <contact>,
+  "read":   <boolean>
+}
+```
