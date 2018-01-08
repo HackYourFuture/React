@@ -51,7 +51,7 @@ Enter description: [           ] [Add]
 
 ## Extra assignment
 
-Make the exercises in [/chat-app/Excercises.md](/chat-app)!
+Make the exercises in [chat-app](/chat-app/Exercises.md)!
 
 
 ## Scoring
