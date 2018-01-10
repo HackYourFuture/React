@@ -18,3 +18,26 @@
 .done{
 	text-decoration:line-through;
 }
+.form-button{
+	margin-left:5px;
+}
+
+.linkButton{
+	color:#59d;
+	text-decoration:none;
+	margin:0px 5px;
+}
+.linkButton:hover{
+	text-decoration:underline;
+}
+.linkButton-disabled {
+  color:#888;
+}
+.linkButton-disabled:hover{
+	color:#888;
+	text-decoration:none;
+}
+.TextField-singleline{
+	width:300px;
+	padding:3px 5px;
+}
