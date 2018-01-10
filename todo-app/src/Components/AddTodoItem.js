@@ -1,99 +1,98 @@
-//jshint esnext: true
+import React, { Component } from "react";
 
-import React, { Component } from 'react'
-
-import Button from './Button';
-import InputField from './InputField';
-import './styles/addTodoItem.css';
+import Button from "./Button";
+import InputField from "./InputField";
+import "./styles/addTodoItem.css";
 
 export default class AddTodoItem extends Component {
+  state = {
+    active: false,
+    toBeAddedItem: "",
+    toBeAddedDeadline: ""
+  };
 
-    state = {
-        adding: false,
-        toBeAddedItem: '',
-        toBeAddedDeadline: ''
-    }
+  toggleAddForm = event => {
+    this.setState({
+      active: !this.state.active
+    });
 
+    this.state.active && this.clearForm();
+  };
 
+  handleChangeTodoItem = event => {
+    this.setState({ toBeAddedItem: event.target.value });
+  };
 
-    toggleAddFrom = event => {
-        this.setState({ adding: !this.state.adding });
+  handleChangeDeadline = event => {
+    this.setState({ toBeAddedDeadline: event.target.value });
+  };
 
-        //clearing fields for if it's a cancel
-        this.setState({
-            toBeAddedDeadline: '',
-            toBeAddedItem: ''
-        });
-    }
+  handleSubmit = event => {
+    event.preventDefault();
+  };
 
-   handleChangeTodoItem = event => {
-       this.setState({ toBeAddedItem: event.target.value });
-   }
+  clearForm = () => {
+    this.setState({
+      toBeAddedItem: "",
+      toBeAddedDeadline: ""
+    });
+  };
 
-   handleChangeDeadline = event => {
-        this.setState({ toBeAddedDeadline: event.target.value })
-   }
-
-   handleSubmit = event => {
-       event.preventDefault();
-   }
-
-
-   handleAddTodo = () => {
+  handleAddTodo = () => {
     const { toBeAddedItem, toBeAddedDeadline } = this.state;
     this.props.handleAddTodo(toBeAddedItem, toBeAddedDeadline);
-    this.setState({
-        toBeAddedDeadline: '',
-        toBeAddedItem: ''
-    });
-    this.setState({ adding: false })
-   }
+    this.setState({ active: false });
+    this.clearForm();
+  };
 
-    showForm = () => {
-        if (this.state.adding) {
-            return (
-            <div className='addTodoForm'>
-                <form onSubmit={this.handleSubmit}>
-                    <div className='formInputWrapper'>
-                        <InputField 
-                            type='text' 
-                            placeholder='Todo item' 
-                            className='todoInput'
-                            value={this.state.toBeAddedItem} 
-                            handleChange={this.handleChangeTodoItem} 
-                        />
-                        <InputField 
-                            type='text'
-                            placeholder='Deadline' 
-                            className='deadlineInput'
-                            value={this.state.toBeAddedDeadline} 
-                            handleChange={this.handleChangeDeadline} 
-                        />
-                    </div>
-                    <div className='formButtonsWrapper'>
-                        <Button 
-                            className='addTodoButton'  
-                            buttonContent='Add' 
-                            onClick={this.handleAddTodo} 
-                            isDisabled={this.state.toBeAddedItem.trim() === ''} />
-                        <Button 
-                            className='cancelAddButton'
-                            buttonContent='Cancel' 
-                            onClick={this.toggleAddFrom}/>
-                    </div>
-                </form>
-            </div>
-        )
-        }
-    }
+  showForm = () => {
+    return (
+      <div className="addTodoForm">
+        <form onSubmit={this.handleSubmit}>
+          <div className="formInputWrapper">
+            <InputField
+              type="text"
+              placeholder="Todo item"
+              className="todoInput"
+              value={this.state.toBeAddedItem}
+              handleChange={this.handleChangeTodoItem}
+            />
+            <InputField
+              type="text"
+              placeholder="Deadline"
+              className="deadlineInput"
+              value={this.state.toBeAddedDeadline}
+              handleChange={this.handleChangeDeadline}
+            />
+          </div>
+          <div className="formButtonsWrapper">
+            <Button
+              className="addTodoButton"
+              buttonContent="Add"
+              onClick={this.handleAddTodo}
+              isDisabled={this.state.toBeAddedItem.trim() === ""}
+            />
+            <Button
+              className="cancelAddButton"
+              buttonContent="Cancel"
+              onClick={this.toggleAddForm}
+            />
+          </div>
+        </form>
+      </div>
+    );
+  };
 
-    render() { 
-        return (
-            <div>
-                {!this.state.adding && <button className='toggleAddForm' onClick={this.toggleAddFrom} >Add a todo item</button>}
-                {this.showForm()}
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        {!this.state.active && (
+          <button className="toggleAddForm" onClick={this.toggleAddForm}>
+            Add a todo item
+          </button>
+        )}
+        {this.state.active && this.showForm()}
+      </div>
+    );
+  }
 }
- 

@@ -1,20 +1,24 @@
 .pageHeader {
-    margin-top: 3rem;
-    text-align: center;
-    color: white;
+  margin-top: 3rem;
+  text-align: center;
+  color: white;
 }
 
 .emptyListHeader {
-    color:  rgb(41, 40, 43);
-    text-align: center;
+  color: rgb(41, 40, 43);
+  text-align: center;
 }
 
 .todosContainer {
-    list-style: none;
-    background-color: lavender;
-    width: 90%;
-    margin: 3rem auto;
-    border-radius: 0.5rem;
+  list-style: none;
+  background-color: lavender;
+  width: 90%;
+  margin: 3rem auto;
+  border-radius: 0.5rem;
 }
 
-
+.updateButton.disabled {
+  color: darkgrey;
+  background-color: rgb(148, 142, 142);
+  cursor: default;
+}
