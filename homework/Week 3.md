@@ -23,7 +23,7 @@ Enter description: [           ] [Add]
 * [ ] Eat breakfast, Fri Sep 15 2017 [remove]
 ```
 
-All the **state** should be in the `App` component. No state should be in the other components. Before you start draw a mockup and identify the components with colours.
+Before you start draw a mockup and identify the components with colours.
 
 As a bonus, have the option to edit the description of a todo item. A mockup of the end result, in this case, should be the following:
 
