@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import Task from './Task';
-//import tasks from './task.json';
-import TaskForm from './taskForm';
+import TaskForm from './TaskForm';
 import Moment from 'moment';
+import {loadTasks, saveTasks} from './localStorageUtils'
 
 export default class App extends Component {
 
   constructor(props) {
     super(props);
-	let tasks = [];
-	if (localStorage.tasks != null) { 
-		tasks = JSON.parse(localStorage.tasks);
-	}
+	
     this.state = {
-      tasksArr: tasks,
+      tasksArr: loadTasks(),
 	  editingTaskID: null
     };
 
@@ -28,7 +25,7 @@ export default class App extends Component {
       return task;
     });
     this.setState({tasksArr: updatedtasks});
-	localStorage.tasks = JSON.stringify(updatedtasks);
+	saveTasks(updatedtasks);
   }
   
   handleTaskAdd = (taskText , taskDate) => {
@@ -41,13 +38,13 @@ export default class App extends Component {
     };
 	const newTaskArr = [newTask, ...this.state.tasksArr];
 	this.setState({tasksArr:newTaskArr});
-    localStorage.tasks = JSON.stringify(newTaskArr);
+    saveTasks(newTaskArr);
   };
   
   handleTaskDelete = taskId => {
 	const newTaskArr = this.state.tasksArr.filter(task => taskId !== task.id);
 	this.setState({tasksArr:newTaskArr});
-    localStorage.tasks = JSON.stringify(newTaskArr);
+    saveTasks(newTaskArr);
   };
   
 	handleTaskEdit = taskId => {
@@ -66,12 +63,10 @@ export default class App extends Component {
 		  return task;
 		});
 		this.setState({tasksArr: updatedtasks , editingTaskID: null});
-		localStorage.tasks = JSON.stringify(updatedtasks);
+		saveTasks(updatedtasks);
 	};
   
   render() {
-	  
-	if (this.state.tasksArr.length === 0) {
       return (
 	  <div>
 		<h1>Todo list</h1>
@@ -79,20 +74,9 @@ export default class App extends Component {
         <TaskForm
           onTaskAdd={this.handleTaskAdd}
         />
-		
-		<div>No items...</div>
-	  </div>
-	 );
-    }
-	
-    return (
-      <div>
-        <h1>Todo list</h1>
-		<h3>Enter description:</h3>
-        <TaskForm
-          onTaskAdd={this.handleTaskAdd}
-        />
-		
+	  {this.state.tasksArr.length === 0 ? 
+	  <div>No items...</div> 
+	  : 
 		<ul className='task-list'>
 			{this.state.tasksArr.map(item => <Task key={item.id} task={item} 
 			onDoneChange={this.handleDoneChange} 
@@ -103,7 +87,9 @@ export default class App extends Component {
 			onSave={this.handleTaskSave}
 			/>)}
 		</ul>
-      </div>
-    );
+	  }
+		
+	  </div>
+	 );
   }
 }

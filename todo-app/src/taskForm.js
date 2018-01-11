@@ -1,6 +1,6 @@
 import React from 'react'
 import TextField from './TextField'
-import LinkButton from './linkButton'
+import LinkButton from './LinkButton'
 import DatePicker from 'react-datepicker';
 import Moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';

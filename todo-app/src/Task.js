@@ -2,7 +2,7 @@ import React from 'react';
 import TaskText from './TaskText';
 import TaskDate from './TaskDate';
 import './task.css';
-import LinkButton from './linkButton';
+import LinkButton from './LinkButton';
 import TextField from './TextField'
 import DatePicker from 'react-datepicker';
 import Moment from 'moment';
