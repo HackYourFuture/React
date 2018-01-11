@@ -49,6 +49,11 @@ Enter description: [           ] [Add]
 * [ ] Eat breakfast, Fri Sep 15 2017 [remove]
 ```
 
+## Extra assignment
+
+Make the exercises in [chat-app](/chat-app/Exercises.md)!
+
+
 ## Scoring
 
 You will be scored on:
