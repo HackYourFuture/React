@@ -30,6 +30,7 @@ export default class TodoList extends React.Component {
  
   render() {
     const { todos } = this.state
+    const {onAddClick} = this.props;
     if(todos.length === 0){
       return(
         <div className="TodoList">No items...</div>
@@ -49,4 +50,4 @@ export default class TodoList extends React.Component {
       )
     } 
   } 
-}
+} 

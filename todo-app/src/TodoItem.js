@@ -22,9 +22,9 @@ export default class TodoItem extends React.Component {
               }</span>
             <Description description={todoItem.description}/>
             <Deadline deadline={todoItem.deadline}/>
-            <span className="delete-button" onClick={() => onDelete(todoItem.id)}>[Delete this item]</span>
+            <button className="delete-button" onClick={() => onDelete(todoItem.id)}>Delete </button>
           </div>
       </li>
     )
   }
-}
+} 
