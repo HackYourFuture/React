@@ -31,12 +31,12 @@ export default class App extends Component {
 	localStorage.tasks = JSON.stringify(updatedtasks);
   }
   
-  handleTaskAdd = taskText => {
+  handleTaskAdd = (taskText , taskDate) => {
 	const ids = this.state.tasksArr.map(task => task.id);
     const newTask =  {
       id:     ids.length === 0 ? 1 : Math.max(...ids) + 1,
       description: taskText,
-      deadline:   Moment().format('YYYY-MM-DD'),
+      deadline:   taskDate,
       done:   false
     };
 	const newTaskArr = [newTask, ...this.state.tasksArr];
@@ -58,10 +58,10 @@ export default class App extends Component {
 		this.setState({editingTaskID: null});
 	};
 	
-	handleTaskSave = (taskId, taskDescription) => {
+	handleTaskSave = (taskId, taskDescription , taskDate) => {
 		const updatedtasks = this.state.tasksArr.map(task => {
 		  if (taskId === task.id) {
-			return Object.assign({}, task, {description: taskDescription});
+				return Object.assign({}, task, {description: taskDescription , deadline: taskDate});
 		  }
 		  return task;
 		});

@@ -4,16 +4,20 @@ import TaskDate from './TaskDate';
 import './task.css';
 import LinkButton from './linkButton';
 import TextField from './TextField'
+import DatePicker from 'react-datepicker';
+import Moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export default class Task extends React.Component {
 	
 	state = {
-		taskText: ''
+		taskText: '',
+		taskDate: Moment()
 	};
   
     componentWillReceiveProps(newProps) {
     if (newProps.isEditing && !this.props.isEditing) {
-      this.setState({taskText: newProps.task.description});
+      this.setState({taskText: newProps.task.description , taskDate: Moment(newProps.task.deadline)});
     }
   }
   
@@ -39,9 +43,13 @@ export default class Task extends React.Component {
 	handleTaskTextChange = event => {
 		this.setState({taskText: event.target.value});
 	};
+
+	handleTaskDateChange = date => {
+    this.setState({taskDate: date});
+  };
   
 	handleSaveClick = () => {
-		this.props.onSave(this.props.task.id , this.state.taskText);
+		this.props.onSave(this.props.task.id , this.state.taskText , this.state.taskDate.format('YYYY-MM-DD'));
 		this.setState({taskText: ''});
 	};
 
@@ -72,22 +80,36 @@ export default class Task extends React.Component {
 		else{
 			return (
 				<li className={"task-item " + isDone}>
-				   <form className=''>
-					  <TextField
-						multiline={false}
-						value={this.state.taskText}
-						onChange={this.handleTaskTextChange}
-					  />
-					  <LinkButton
-						label="Save"
-						onClick={this.handleSaveClick}
-						disabled={this.state.taskText.trim() === ''}
-					  />
-					  <LinkButton
-						label="Cancel"
-						onClick={this.props.onCancelEdit}
-					  />
-				  </form>
+
+<form className="form">
+        <div className="form-input">
+          <TextField
+            multiline={false}
+            value={this.state.taskText}
+            onChange={this.handleTaskTextChange}
+          />
+          </div>
+          <div className="form-input">
+            <DatePicker 
+              selected={this.state.taskDate} 
+              onChange={this.handleTaskDateChange} 
+              dateFormat="YYYY-MM-DD"
+            />
+          </div>
+          <div className="form-button">
+            <LinkButton
+              label="Save"
+              onClick={this.handleSaveClick}
+              disabled={this.state.taskText.trim() === '' || this.state.taskDate === null}
+            />
+          </div>
+					<div className="form-button">
+            <LinkButton
+              label="Cancel"
+              onClick={this.props.onCancelEdit}
+            />
+          </div>
+      </form>
 				</li>
 			);
 		}

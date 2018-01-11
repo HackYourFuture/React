@@ -1,11 +1,12 @@
 .task-list{
-	margin-top:20px;
+	/*margin-top:20px;*/
 	font-family:calibri,sanserif;
-	list-style-type: square;
+	list-style:none;
 }
 .task-item{
 	padding-top:5px;
 	padding-bottom:5px;
+	vertical-align: text-top;
 }
 .task-text{
 	color:#333;
@@ -39,5 +40,20 @@
 }
 .TextField-singleline{
 	width:300px;
-	padding:3px 5px;
+}
+.form{
+	overflow:auto;
+}
+.form-input{
+	float:left;
+	margin:0px 5px;
+}
+.form-input input[type=text]{
+	border:solid 1px #999;
+	padding:5px 10px;
+	border-radius: 5px;
+}
+.form-button{
+	float:left;
+	margin-top:5px;
 }
