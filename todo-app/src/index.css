@@ -39,3 +39,12 @@ p{
    text-decoration:line-through;
 }
 
+.Button-disabled{
+    background-color: forestgreen;
+    opacity: 0.6;
+}
+.TextField{
+    width: 250px;
+    height: 70px;
+    resize: none;
+}

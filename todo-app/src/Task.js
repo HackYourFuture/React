@@ -1,26 +1,34 @@
 import React from 'react';
 import AppTask from './AppTask';
-import AppDate from './AppDate';
 import './index.css';
 
 export default class Task extends React.Component{
 
-  toggleStatus = () =>  this.props.toggleStatus(this.props.todoItem.id)
-  
   render() {
-  const{todoItem, toggleStatus} = this.props;
+  const{todoItem, toggleStatus, isEditing, onRemove, onEdit, onCancleEdit, onSaveEdit} = this.props;
        return (
             <li className="task-list">
-             <span> <input type = 'checkbox' checked = {todoItem.done} onChange = {() => toggleStatus(todoItem.id)} /></span>
+             <span> <input type = 'checkbox' checked = {todoItem.done} onChange = {() => toggleStatus(todoItem.id)}/></span>
             <span> {todoItem.done? <span className = 'task-not-done'>
-                     Task: <AppTask task = {todoItem.description}/>
-                      <br/>
-                     Deadline: <AppDate deadline = {todoItem.deadline}/></span>
+                     Task: <AppTask task = {todoItem.description} 
+                           onRemove = {() => { onRemove(todoItem.id) }}
+                           isEditing = {isEditing}
+                           onEdit = {() => { onEdit(todoItem.id); }}
+                           onCancleEdit = {() => { onCancleEdit(todoItem.id)}}
+                           onSaveEdit = {description => { onSaveEdit(todoItem.id, description) ;}}
+                           />
+                     
+             </span>
                       :
-                  <span className = 'task-done'>
-                    Task: <AppTask task = {todoItem.description} />
-                      <br/>
-                    Deadline: <AppDate deadline = {todoItem.deadline}/></span>
+              <span className = 'task-done'>
+                    Task: <AppTask task = {todoItem.description}
+                           onRemove = {() => { onRemove(todoItem.id) }}
+                           isEditing = {isEditing}
+                           onEdit= {() => { onEdit(todoItem.id); }}
+                           onCancleEdit = {() => { onCancleEdit(todoItem.id)}}
+                           onSaveEdit = {description => { onSaveEdit(todoItem.id, description) ;}}
+                          />
+             </span>
 }
              </span>
            
