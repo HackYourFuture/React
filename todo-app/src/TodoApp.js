@@ -58,7 +58,7 @@ export default class TodoApp extends Component {
             <button className="add-button" onClick={this.onAddClick}> Add</button>
           </div>  
         </div>
-        <TodoList onAddClick={this.onAddClick}/>
+        <TodoList todos={this.state.todos}/>
       </div>  
     )
   }

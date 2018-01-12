@@ -27,20 +27,18 @@ export default class TodoList extends React.Component {
       })
     })
   }
-  
-  
-  // handleAdd = () =>{
 
-  //  this.props.onAddClick()
-  //   // console.log(this)
-  //   // this.setState({
-  //   //   todos: updatedTodos
-  //   // })  
+  handleAdd = () =>{
+    this.setState({
+      todos: this.props.todos
+    }) 
+    console.log('from function ' , this)
 
-  // }
- 
+  }
+
   render() {
     const { todos } = this.state
+    console.log(this)
     if(todos.length === 0){
       return(
         <div className="TodoList">No items...</div>
@@ -52,7 +50,7 @@ export default class TodoList extends React.Component {
           <ul>
             {todos.map((todoItem, i) => (
               <React.Fragment key={todoItem.id}>
-                <TodoItem handleAdd={this.handleAdd} onDelete={this.onDelete} onDone={this.onDone} todoItem = {todoItem} />
+                <TodoItem handleAdd={ this.handleAdd }  onDelete={this.onDelete} onDone={this.onDone} todoItem = {todoItem} />
               </React.Fragment>
             ))}
           </ul>
