@@ -5,15 +5,15 @@ import todoItems from './todo.json';
 export default class TodoApp extends Component {
 
   state = {
-    commentText: '',
+    text: '',
     todos: todoItems
   };
 
 
   onAddClick = (event) => {
     event.preventDefault();
-    var text = this.state.commentText;
-    console.log("here is :  ", text);
+    var text = this.state.text;
+    
 
     const ids = this.state.todos.map(todos => todos.id);
     
@@ -25,22 +25,23 @@ export default class TodoApp extends Component {
     }
 
     var updatedTodos = [addTodo, ...this.state.todos]
+    console.log("here is :  ", updatedTodos);
 
     this.setState({
-      commentText: '',
+      text: '',
       todos: updatedTodos
     });
+
   };
 
   onAddChange = event => {
     var text = event.target.value;
     this.setState({
-      commentText: text
+      text: text
     });
   };
 
     
-
   render() {
     return (
       <div className="TodoApp">
@@ -57,7 +58,7 @@ export default class TodoApp extends Component {
             <button className="add-button" onClick={this.onAddClick}> Add</button>
           </div>  
         </div>
-        <TodoList/>
+        <TodoList onAddClick={this.onAddClick}/>
       </div>  
     )
   }
