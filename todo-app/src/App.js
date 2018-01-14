@@ -59,12 +59,14 @@ toggleStatus = (todoID) =>{
      this.setTodos([todo, ...this.state.todos]);
  };
 
-handleRemoveTodo = (todoItem) => {
-     const updateTodos = this.state.todos;
-    updateTodos.splice(updateTodos.indexOf(todoItem), 1)
-    this.setState({todos: updateTodos});
-    saveTodoItems(updateTodos);
-    
+handleRemoveTodo = (todoID) => {
+     var updatedTodos = this.state.todos.filter(todo =>{
+    return todo.id !== todoID;
+    })
+    this.setState({
+      todos: updatedTodos
+    }) 
+    saveTodoItems(updatedTodos) 
 }
 
   render() {
