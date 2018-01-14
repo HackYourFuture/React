@@ -6,7 +6,7 @@ Answer the following questions about the hypothetical chat application described
 
 ## 1. Profile
 
-We want users to edit their profile name. For this, you will use a component `<TextEditor>` that takes props `value`, `onCancel` and `onSave`. This component displays a text box and manages its state. When the user presses save, the `onSave` callback prop is called.
+We want users to edit their profile name. For this, you will use a component `<TextEditor>` that takes props `initialValue`, `onCancel` and `onSave`. This component displays a text box and manages its state. When the user presses save, the `onSave` callback prop is called.
 
 - 1a. Which existing components do you need to modify?
 - 1b. Which *state* properties are you going to add, and in which component?
