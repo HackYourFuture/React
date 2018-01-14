@@ -6,16 +6,14 @@ When you are done, update your PR from week 3.
 
 ## Outline
 
-...
+Refactor your todo list app so that all state is handled by MobX stores. You _may_ want to keep some form state as local state inside React components. Make sure to only mutate your store(s) with MobX actions - you will need to move all your handler functions inside your MobX store(s).
 
-
-## Extra assignment
-
-...
-
+To use decorators (the `@` syntax) with `create-react-app`, follow this [tutorial](https://swizec.com/blog/mobx-with-create-react-app/swizec/7158).
 
 ## Scoring
 
 You will be scored on:
 
-...
+- Correct functionality
+- Code organisation
+- Cleanliness of code
