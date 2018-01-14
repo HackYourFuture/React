@@ -5,8 +5,38 @@ import todoItems from './todo.json';
 export default class TodoList extends React.Component {
 
   state = {
+    text: '',
     todos: todoItems
-  }
+  }; 
+
+  onAddClick = (event) => {
+    event.preventDefault();
+    var text = this.state.text;
+    const ids = this.state.todos.map(todos => todos.id);
+  
+    const addTodo = {
+      "id": ids.length === 0 ? 1 : Math.max(...ids) + 1,
+      "description": text,
+      "deadline": "2018-01-11",
+      "done": false
+    }
+
+    var updatedTodos = [addTodo, ...this.state.todos]
+    console.log("here is :  ", updatedTodos);
+
+    this.setState({
+      text: '',
+      todos: updatedTodos
+    });
+  };
+
+  onAddChange = event => {
+    var text = event.target.value;
+    this.setState({
+      text: text
+    });
+  };
+
     
   onDelete = (todoID) => {
     var updatedTodos = this.state.todos.filter((val,index) =>{
@@ -15,7 +45,7 @@ export default class TodoList extends React.Component {
     this.setState({
       todos: updatedTodos
     })  
-  }
+  } 
   
   onDone = (todoID) => {
     this.setState({
@@ -45,8 +75,20 @@ export default class TodoList extends React.Component {
       )
     }
     else {
-      return ( 
+      return (
         <div className="TodoList">
+        <div>
+          <div>
+            <textarea
+            className='TextField'
+            value={this.state.commentText}
+            onChange={this.onAddChange}
+            />
+          </div>
+          <div>
+            <button className="add-button" onClick={this.onAddClick}> Add</button>
+          </div>  
+        </div>
           <ul>
             {todos.map((todoItem, i) => (
               <React.Fragment key={todoItem.id}>
