@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 import "./styles/todoItem.css";
 import Button from "./Button";
-import NewTodoFormToggle from "./NewTodoFormToggle";
-import EditMode from "./EditMode";
+import NewTodoFormToggle from "./TodoItem-newTodoFormToggle";
+import EditMode from "./TodoItem-editMode";
 
 export default class TodoItem extends Component {
   handleRemove = () => {
@@ -18,12 +18,12 @@ export default class TodoItem extends Component {
     this.props.handleUpdate(this.props.data.id);
   };
 
-  handleChangeItem = event => {
-    this.props.handleChangeItem(event);
+  handleChangeItem = updatedItem => {
+    this.props.handleChangeItem(updatedItem);
   };
 
-  handleChangeDeadline = event => {
-    this.props.handleChangeDeadline(event);
+  handleChangeDeadline = updatedDeadline => {
+    this.props.handleChangeDeadline(updatedDeadline);
   };
 
   handleToggleDone = id => {

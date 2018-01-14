@@ -6,6 +6,14 @@ export default class NewTodoFormToggle extends Component {
   handleToggleDone = id => {
     this.props.handleToggleDone(id);
   };
+
+  handleChangeItem = updatedItem => {
+    this.props.handleChangeItem(updatedItem);
+  };
+  handleChangeDeadline = updatedDeadline => {
+    this.props.handleChangeDeadline(updatedDeadline);
+  };
+
   render() {
     if (this.props.isEditing) {
       return (
@@ -14,13 +22,13 @@ export default class NewTodoFormToggle extends Component {
             type="text"
             className="todoDate input"
             value={this.props.toBeUpdatedDeadline}
-            handleChange={this.props.handleChangeDeadline}
+            handleChange={this.handleChangeDeadline}
           />
           <InputField
             type="text"
             className="todoText input"
             value={this.props.toBeUpdatedItem}
-            handleChange={this.props.handleChangeItem}
+            handleChange={this.handleChangeItem}
           />
         </Fragment>
       );

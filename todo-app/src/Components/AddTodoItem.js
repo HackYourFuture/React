@@ -19,12 +19,12 @@ export default class AddTodoItem extends Component {
     this.state.active && this.clearForm();
   };
 
-  handleChangeTodoItem = event => {
-    this.setState({ toBeAddedItem: event.target.value });
+  handleChangeTodoItem = newText => {
+    this.setState({ toBeAddedItem: newText });
   };
 
-  handleChangeDeadline = event => {
-    this.setState({ toBeAddedDeadline: event.target.value });
+  handleChangeDeadline = newDeadline => {
+    this.setState({ toBeAddedDeadline: newDeadline });
   };
 
   handleSubmit = event => {

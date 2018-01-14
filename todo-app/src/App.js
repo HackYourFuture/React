@@ -13,7 +13,7 @@ export default class App extends React.Component {
     isEditing: null
   };
 
-  addNewTodos = todos => {
+  updateTodos = todos => {
     this.setState({ todos });
     setTodos(todos);
   };
@@ -26,7 +26,7 @@ export default class App extends React.Component {
     let newId;
     if (this.state.todos.length > 1) {
       let allIds = this.state.todos.map(a => a.id);
-      newId = allIds.reduce((a, b) => Math.max(a, b), 0) + 1; // the max value in the id's + 1
+      newId = Math.max(...allIds) + 1;
     } else {
       newId = this.state.todos.length;
     }
@@ -38,22 +38,22 @@ export default class App extends React.Component {
     };
     const oldTodos = this.state.todos || [];
 
-    this.addNewTodos([...oldTodos, newItem]);
+    this.updateTodos([...oldTodos, newItem]);
   };
 
   handleToggleDone = id => {
-    const newTodos = [...this.state.todos].map(item => {
+    const newTodos = this.state.todos.map(item => {
       if (item.id === id) {
         item.done = !item.done;
       }
       return item;
     });
-    this.addNewTodos(newTodos);
+    this.updateTodos(newTodos);
   };
 
   handleRemove = id => {
-    const newTodos = [...this.state.todos].filter(item => item.id !== id);
-    this.addNewTodos(newTodos);
+    const newTodos = this.state.todos.filter(item => item.id !== id);
+    this.updateTodos(newTodos);
   };
 
   handleUpdate = (id, newText, newDeadline) => {
@@ -67,7 +67,7 @@ export default class App extends React.Component {
     this.setState({
       isEditing: null
     });
-    this.addNewTodos(newTodos);
+    this.updateTodos(newTodos);
   };
 
   render() {

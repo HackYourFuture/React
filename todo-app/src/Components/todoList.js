@@ -27,12 +27,12 @@ export default class TodoList extends Component {
     this.props.handleUpdate(id, toBeUpdatedItem, toBeUpdatedDeadline);
   };
 
-  handleChangeItem = event => {
-    this.setState({ toBeUpdatedItem: event.target.value });
+  handleChangeItem = updatedItem => {
+    this.setState({ toBeUpdatedItem: updatedItem });
   };
 
-  handleChangeDeadline = event => {
-    this.setState({ toBeUpdatedDeadline: event.target.value });
+  handleChangeDeadline = updatedDeadline => {
+    this.setState({ toBeUpdatedDeadline: updatedDeadline });
   };
 
   handleToggleDone = id => {
