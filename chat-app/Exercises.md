@@ -36,9 +36,9 @@ We want users to delete existing messages. Each message will have a small button
 
 We want to build in a safeguard to prevent accidental deletion of messages. The delete button will have to states: first, it is gray, and if the user presses it, the button becomes bigger and red. If they press it a second time, the message will actually be deleted.
 
-- 4a. To add this behavior, do you need to modify any other components than the `<Button>` component?
-- 4b. Do you need to add *state* properties to the `<Button>` component?
-- 4c. Do you need to add *props* to the `<Button>` component?
+- 4a. To add this behavior, do you need to modify any other components than the `<DeleteButton>` component?
+- 4b. Do you need to add *state* properties to the `<DeleteButton>` component?
+- 4c. Do you need to add *props* to the `<DeleteButton>` component?
 
 ## 5. Date headers
 
