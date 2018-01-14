@@ -1,0 +1,50 @@
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
+body{
+    background-color:darkorange;
+}
+.todoApp{
+   margin-left: 20%;
+}
+h1{
+    margin-left: 30%;
+}
+li{
+    line-height: 50px;
+    border: 1px groove black;
+    background-color: yellow;
+    width: 300px;
+    height: 200px;
+    font-size: 30px;
+    font-family: "Shadows Into Light", Arial;
+    margin-right: 50px;
+    
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-flow: wrap;
+    
+}
+p{
+    font-family: "Shadows Into Light", Arial;
+    font-size: 30px;
+}
+
+.task-done {
+    text-decoration: none;
+}
+
+.task-not-done {
+   text-decoration:line-through;
+}
+
+.Button-disabled{
+    background-color: forestgreen;
+    opacity: 0.6;
+}
+.TextField{
+    width: 250px;
+    height: 70px;
+    resize: none;
+}
