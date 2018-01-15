@@ -8,8 +8,9 @@ When you are done, update your PR from week 4.
 
 Your todo list app should now handle all its important state in MobX stores. Now, instead of loading your data from a static JSON file, refactor your app to read and write data via an external REST API.
 
-*API root:* https://hyf-react-api.herokuapp.com
-*API docs:* https://hyf-react-api.herokuapp.com/apiDocs
+**API root:** https://hyf-react-api.herokuapp.com
+
+**API docs:** https://hyf-react-api.herokuapp.com/apiDocs
 
 For this homework, you will only need the /todos paths.
 
