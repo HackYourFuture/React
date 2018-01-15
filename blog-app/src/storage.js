@@ -5,5 +5,4 @@ export function loadComments() {
 
 export function saveComments(comments) {
   localStorage.comments = JSON.stringify(comments);
-
 }

@@ -1,23 +1,20 @@
 import React from 'react';
+import {inject, observer} from 'mobx-react';
 import Comment from './Comment';
 
+@inject('comments') @observer
 export default class CommentList extends React.Component {
 
   state = {
     editingCommentID: null
   };
 
-  handleCommentEdit = id => {
+  handleCommentStartEdit = id => {
     this.setState({editingCommentID: id});
   };
 
-  handleCommentCancelEdit = () => {
+  handleCommentStopEdit = () => {
     this.setState({editingCommentID: null});
-  };
-
-  handleCommentSave = (id, text) => {
-    this.props.onSaveComment(id, text);
-    this.handleCommentCancelEdit();
   };
 
   render() {
@@ -29,21 +26,18 @@ export default class CommentList extends React.Component {
   }
 
   renderList() {
-
-    const { comments } = this.props
+    const {comments} = this.props.comments
 
     return (
       <ul>
         {comments.map((comment, index) => (
           <React.Fragment key={comment.id}>
             {index > 0 && <li className="CommentList-separator"/>}
-            <Comment
-              comment={comment}
-              onToggleIsLiked={this.props.onToggleIsLiked}
+            <Comment 
+              id={comment.id}
               isEditing={comment.id === this.state.editingCommentID}
-              onEdit={this.handleCommentEdit}
-              onCancelEdit={this.handleCommentCancelEdit}
-              onSave={this.handleCommentSave}
+              onStartEdit={this.handleCommentStartEdit}
+              onStopEdit={this.handleCommentStopEdit}
             />
           </React.Fragment>
         ))}

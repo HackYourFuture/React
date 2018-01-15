@@ -1,7 +1,9 @@
 import React from 'react'
+import {inject, observer} from 'mobx-react';
 import TextField from './TextField'
 import Button from './Button'
 
+@inject('comments') @observer
 export default class CommentForm extends React.Component {
 
   state = {
@@ -9,7 +11,7 @@ export default class CommentForm extends React.Component {
   };
 
   handleAddCommentClick = () => {
-    this.props.onCommentAdd(this.state.commentText);
+    this.props.comments.addComment(this.state.commentText);
     this.setState({commentText: ''});
   };
 
