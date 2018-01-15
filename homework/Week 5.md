@@ -18,6 +18,8 @@ GET paths take no params, POST paths take strictly validated params, and PUT pat
 
 All requests should be done with the `fetch` API, and all store mutation should happen inside MobX actions. _MobX strict mode should be turned on!_
 
+You will almost certainly need to refactor your app to handle a new todo object shape.
+
 ## NB
 
 The API for this homework reads and writes to a database. Unlike past weeks, you will now be sharing data with your colleagues. Please be aware of this - for example, deleting all the todos may lead to a confusing situation for others.
