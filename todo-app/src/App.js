@@ -2,7 +2,8 @@
 
 import React from "react";
 
-import TodoList from "./Components/TodoList";
+import TodoList from "./Components/todoList";
+import { todoStore } from "./store";
 import AddTodoItem from "./Components/AddTodoItem";
 import { loadTodos, setTodos } from "./storage/storage";
 import "./App.css";
@@ -71,6 +72,7 @@ export default class App extends React.Component {
   };
 
   render() {
+    console.log(todoStore.todos);
     return (
       <div>
         <h1 className="pageHeader">TODO LIST</h1>
