@@ -55,6 +55,7 @@ export default class TodoItem extends Component {
 
   render() {
     console.log("item here");
+    const done = this.props.data.done;
     return (
       <li className="todoItem">
         <NewTodoFormToggle
@@ -62,6 +63,7 @@ export default class TodoItem extends Component {
           handleToggleEdit={this.handleToggleEdit}
           handleChangeItem={this.handleChangeItem}
           data={this.props.data}
+          done={done}
           isEditing={this.props.todoStore.isEditing}
           toBeUpdatedDeadline={this.state.toBeUpdatedDeadline}
           toBeUpdatedItem={this.state.toBeUpdatedItem}

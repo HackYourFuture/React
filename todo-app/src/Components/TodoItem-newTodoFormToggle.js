@@ -33,7 +33,8 @@ export default class NewTodoFormToggle extends Component {
         </Fragment>
       );
     }
-    const { text, deadline, done, id } = this.props.data;
+    const { text, deadline, id } = this.props.data;
+    const done = this.props.done;
     const inputId = `item${id}`;
     return (
       <Fragment>
