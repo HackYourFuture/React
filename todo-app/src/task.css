@@ -57,3 +57,8 @@
 	float:left;
 	margin-top:5px;
 }
+.task-done{
+	color:#060;
+	font-style: italic;
+	margin-left: 10px;
+}

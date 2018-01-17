@@ -22,7 +22,7 @@ export default class LinkButton extends React.Component {
 
     return (
       <a
-		href="#"
+      href="about:blank"
         className={className}
         disabled={this.props.disabled}
         onClick={this.handleClick}

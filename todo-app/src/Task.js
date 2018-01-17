@@ -7,7 +7,9 @@ import TextField from './TextField'
 import DatePicker from 'react-datepicker';
 import Moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import {observer} from 'mobx-react';
 
+@observer
 export default class Task extends React.Component {
 	
 	state = {
@@ -15,29 +17,25 @@ export default class Task extends React.Component {
 		taskDate: Moment()
 	};
   
-    componentWillReceiveProps(newProps) {
+  componentWillReceiveProps(newProps) {
     if (newProps.isEditing && !this.props.isEditing) {
-      this.setState({taskText: newProps.task.description , taskDate: Moment(newProps.task.deadline)});
+      const task = this.props.tasksStore.findTask(newProps.id);
+      this.setState({taskText: task.description , taskDate: Moment(task.deadline)});
     }
   }
   
-    constructor(props) {
-    super(props);
-        this.toggleDone = this.toggleDone.bind(this);
-    }
-
-    toggleDone(event) {
-        const checked = event.target.checked;
-        this.props.onDoneChange(checked, this.props.task.id);
-    }
+  changeDone = (event) => {
+    const checked = event.target.checked;
+    this.props.tasksStore.changeDone(checked, this.props.id);
+  };
 	
 	handleDeleteTaskClick = () => {
-		if (window.confirm('Are you sure to delete this task?')) 
-			this.props.onTaskDelete(this.props.task.id);
+    if (window.confirm('Are you sure to delete this task?')) 
+    this.props.tasksStore.deleteTask(this.props.id)
 	};
 	
 	handleEditTaskClick = () => {
-		this.props.onEdit(this.props.task.id);
+    this.props.onStartEdit(this.props.id);
 	};
 	
 	handleTaskTextChange = event => {
@@ -49,23 +47,30 @@ export default class Task extends React.Component {
   };
   
 	handleSaveClick = () => {
-		this.props.onSave(this.props.task.id , this.state.taskText , this.state.taskDate.format('YYYY-MM-DD'));
-		this.setState({taskText: ''});
-	};
+		this.props.tasksStore.updateTask(this.props.id , this.state.taskText , this.state.taskDate.format('YYYY-MM-DD'));
+    this.handleCancel();
+  };
+  
+  handleCancel = () => {
+    this.setState({taskText: ''});
+    this.props.onStopEdit();
+  };
 
-    render() {
-        const {description , deadline , done } = this.props.task;
-        const isDone = done? "done" : "";
+  render() {
+    const taskId = this.props.id;
+    const task = this.props.tasksStore.findTask(taskId);
+    if (task == null) { return null; }
+    const isDone = task.done? "done" : "";
 
 		if(!this.props.isEditing){
 			return (
 				<li className={"task-item " + isDone}>
 					<input
 						type='checkbox'
-						checked={done}
-						onChange={this.toggleDone}
+						checked={task.done}
+						onChange={this.changeDone}
 					/>
-					<TaskText text={description} />, <TaskDate date={deadline} />
+					<TaskText text={task.description} />, <TaskDate date={task.deadline} />
 					<LinkButton
 						label="edit"
 						onClick={this.handleEditTaskClick}
@@ -79,40 +84,38 @@ export default class Task extends React.Component {
 		}
 		else{
 			return (
-				<li className={"task-item " + isDone}>
-
-<form className="form">
-        <div className="form-input">
-          <TextField
-            multiline={false}
-            value={this.state.taskText}
-            onChange={this.handleTaskTextChange}
-          />
-          </div>
-          <div className="form-input">
-            <DatePicker 
-              selected={this.state.taskDate} 
-              onChange={this.handleTaskDateChange} 
-              dateFormat="YYYY-MM-DD"
-            />
-          </div>
-          <div className="form-button">
-            <LinkButton
-              label="Save"
-              onClick={this.handleSaveClick}
-              disabled={this.state.taskText.trim() === '' || this.state.taskDate === null}
-            />
-          </div>
-					<div className="form-button">
-            <LinkButton
-              label="Cancel"
-              onClick={this.props.onCancelEdit}
-            />
-          </div>
+      <li className={"task-item " + isDone}>
+      <form className="form">
+      <div className="form-input">
+      <TextField
+        multiline={false}
+        value={this.state.taskText}
+        onChange={this.handleTaskTextChange}
+      />
+      </div>
+      <div className="form-input">
+        <DatePicker 
+          selected={this.state.taskDate} 
+          onChange={this.handleTaskDateChange} 
+          dateFormat="YYYY-MM-DD"
+        />
+      </div>
+      <div className="form-button">
+        <LinkButton
+          label="Save"
+          onClick={this.handleSaveClick}
+          disabled={this.state.taskText.trim() === '' || this.state.taskDate === null}
+        />
+      </div>
+      <div className="form-button">
+        <LinkButton
+          label="Cancel"
+          onClick={this.handleCancel}
+        />
+      </div>
       </form>
-				</li>
+      </li>
 			);
 		}
     }
-
 }

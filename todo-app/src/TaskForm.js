@@ -4,7 +4,9 @@ import LinkButton from './LinkButton'
 import DatePicker from 'react-datepicker';
 import Moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import {observer} from 'mobx-react';
 
+@observer
 export default class TaskForm extends React.Component {
 
   state = {
@@ -13,7 +15,7 @@ export default class TaskForm extends React.Component {
   };
 
   handleAddTaskClick = () => {
-    this.props.onTaskAdd(this.state.taskText , this.state.taskDate.format('YYYY-MM-DD'));
+    this.props.tasksStore.addTask(this.state.taskText , this.state.taskDate.format('YYYY-MM-DD'));
     this.setState({taskText: '' , taskDate: Moment()});
   };
 
