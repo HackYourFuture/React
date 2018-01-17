@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import { observer, inject } from "mobx-react";
 
 import Button from "./Button";
 import InputField from "./InputField";
 import "./styles/addTodoItem.css";
 
+@inject("todoStore")
+@observer
 export default class AddTodoItem extends Component {
   state = {
     active: false,
@@ -40,10 +43,10 @@ export default class AddTodoItem extends Component {
 
   handleAddTodo = () => {
     const { toBeAddedItem, toBeAddedDeadline } = this.state;
-    this.props.handleAddTodo(toBeAddedItem, toBeAddedDeadline);
+    this.props.todoStore.addTodoItem(toBeAddedItem, toBeAddedDeadline);
     this.setState({ active: false });
     this.clearForm();
-  };
+  }; // good
 
   showForm = () => {
     return (
