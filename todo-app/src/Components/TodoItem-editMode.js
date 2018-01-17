@@ -8,25 +8,24 @@ export default class EditMode extends Component {
       return (
         <Button buttonContent="Edit" onClick={this.props.handleToggleEdit} />
       );
-    } else {
-      return (
-        <Fragment>
-          <Button
-            buttonContent="Update"
-            onClick={this.props.handleUpdate}
-            className="updateButton"
-            isDisabled={
-              this.props.toBeUpdatedItem.trim() === "" ||
-              this.props.toBeUpdatedDeadline.trim() === ""
-            }
-          />
-          <Button
-            buttonContent="Cancel"
-            onClick={this.props.handleCancelEdit}
-            className="cancelButton"
-          />
-        </Fragment>
-      );
     }
+    return (
+      <Fragment>
+        <Button
+          buttonContent="Update"
+          onClick={this.props.handleUpdate}
+          className="updateButton"
+          isDisabled={
+            this.props.toBeUpdatedItem.trim() === "" ||
+            this.props.toBeUpdatedDeadline.trim() === ""
+          }
+        />
+        <Button
+          buttonContent="Cancel"
+          onClick={this.props.handleCancelEdit}
+          className="cancelButton"
+        />
+      </Fragment>
+    );
   }
 }

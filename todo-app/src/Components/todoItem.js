@@ -55,6 +55,7 @@ export default class TodoItem extends Component {
 
   render() {
     console.log("item here");
+    console.log(this.props.todoStore.isEditing);
     const done = this.props.data.done;
     return (
       <li className="todoItem">
@@ -64,7 +65,7 @@ export default class TodoItem extends Component {
           handleChangeItem={this.handleChangeItem}
           data={this.props.data}
           done={done}
-          isEditing={this.props.todoStore.isEditing}
+          isEditing={this.props.todoStore.isEditing === this.props.data.id}
           toBeUpdatedDeadline={this.state.toBeUpdatedDeadline}
           toBeUpdatedItem={this.state.toBeUpdatedItem}
           handleToggleDone={this.handleToggleDone}
@@ -76,7 +77,7 @@ export default class TodoItem extends Component {
             handleToggleEdit={this.handleToggleEdit}
             handleUpdate={this.handleUpdate}
             handleCancelEdit={this.handleCancelEdit}
-            isEditing={this.props.todoStore.isEditing}
+            isEditing={this.props.todoStore.isEditing === this.props.data.id}
           />
           <Button buttonContent="remove" onClick={this.handleRemove} />
         </div>

@@ -32,33 +32,27 @@ export default class TodoStore {
   @action //done
   addTodoItem = (text, deadline) => {
     const allIds = this.todos.map(item => item.id);
+    console.log(allIds);
     const newTodo = {
-      id: Math.max(...allIds) + 1,
+      id: allIds.length === 0 ? 0 : Math.max(...allIds) + 1,
       text,
       deadline,
       done: false
     };
-
+    console.log(newTodo.id);
     this.todos.push(newTodo);
     setTodos(this.todos);
   };
 
   @action
   handleToggleDone = id => {
-    const newTodos = this.todos.map(item => {
+    this.todos.map(item => {
       if (item.id === id) {
         item.done = item.done ? false : true;
       }
       return item;
     });
-    this.todos = newTodos;
-    console.log(this.todos[0].done);
-    console.log({ ...this.todos[0] });
     setTodos(this.todos);
-    // const index = this.todos.findIndex(item => item.id === id);
-    // this.todos[index].done = this.todos[index].done ? false : true;
-    // this.todos[index].text = "bla";
-    // console.log(this.todos[index].done);
   };
 
   @action
