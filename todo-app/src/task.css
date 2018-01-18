@@ -1,0 +1,64 @@
+.task-list{
+	/*margin-top:20px;*/
+	font-family:calibri,sanserif;
+	list-style:none;
+}
+.task-item{
+	padding-top:5px;
+	padding-bottom:5px;
+	vertical-align: text-top;
+}
+.task-text{
+	color:#333;
+	font-size:1.1em;
+}
+.task-data{
+	color:#060;
+	font-size:0.90em;
+}
+.done{
+	text-decoration:line-through;
+}
+.form-button{
+	margin-left:5px;
+}
+
+.linkButton{
+	color:#59d;
+	text-decoration:none;
+	margin:0px 5px;
+}
+.linkButton:hover{
+	text-decoration:underline;
+}
+.linkButton-disabled {
+  color:#888;
+}
+.linkButton-disabled:hover{
+	color:#888;
+	text-decoration:none;
+}
+.TextField-singleline{
+	width:300px;
+}
+.form{
+	overflow:auto;
+}
+.form-input{
+	float:left;
+	margin:0px 5px;
+}
+.form-input input[type=text]{
+	border:solid 1px #999;
+	padding:5px 10px;
+	border-radius: 5px;
+}
+.form-button{
+	float:left;
+	margin-top:5px;
+}
+.task-done{
+	color:#060;
+	font-style: italic;
+	margin-left: 10px;
+}
