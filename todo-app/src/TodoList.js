@@ -1,33 +1,18 @@
 import React from 'react';
 import TodoItem from './TodoItem';
-import todoItems from './todo.json';
+import {observer} from 'mobx-react';
+import {todoStore} from './stores';
 
+@observer
 export default class TodoList extends React.Component {
 
   state = {
     text: '',
-    todos: todoItems
   }; 
 
-  onAddClick = (event) => {
-    event.preventDefault();
-    var text = this.state.text;
-    const ids = this.state.todos.map(todos => todos.id);
-  
-    const addTodo = {
-      "id": ids.length === 0 ? 1 : Math.max(...ids) + 1,
-      "description": text,
-      "deadline": "2018-01-11",
-      "done": false
-    }
-
-    var updatedTodos = [addTodo, ...this.state.todos]
-    console.log("here is :  ", updatedTodos);
-
-    this.setState({
-      text: '',
-      todos: updatedTodos
-    });
+  onAddClick = (text) => {
+    text = this.state.text
+    todoStore.addTodo(text)
   };
 
   onAddChange = event => {
@@ -37,39 +22,18 @@ export default class TodoList extends React.Component {
     });
   };
 
-    
   onDelete = (todoID) => {
-    var updatedTodos = this.state.todos.filter((val,index) =>{
-    return val.id !== todoID;
-    })
-    this.setState({
-      todos: updatedTodos
-    })  
+    todoStore.onDelete(todoID); 
   } 
   
   onDone = (todoID) => {
-    this.setState({
-      todos: this.state.todos.map(todo => {
-        if (todo.id === todoID) {
-          todo.done = !todo.done
-        }
-        return todo
-      })
-    })
-  }
+   todoStore.onDone(todoID);
+  };
 
-  handleAdd = () =>{
-    this.setState({
-      todos: this.props.todos
-    }) 
-    console.log('from function ' , this)
 
-  }
 
   render() {
-    const { todos } = this.state
-    console.log(this)
-    if(todos.length === 0){
+    if(todoStore.todos.length === 0){
       return(
         <div className="TodoList">No items...</div>
       )
@@ -81,7 +45,7 @@ export default class TodoList extends React.Component {
           <div>
             <textarea
             className='TextField'
-            value={this.state.commentText}
+            value={this.state.text}
             onChange={this.onAddChange}
             />
           </div>
@@ -90,7 +54,7 @@ export default class TodoList extends React.Component {
           </div>  
         </div>
           <ul>
-            {todos.map((todoItem, i) => (
+            {todoStore.todos.map((todoItem, i) => (
               <React.Fragment key={todoItem.id}>
                 <TodoItem handleAdd={ this.handleAdd }  onDelete={this.onDelete} onDone={this.onDone} todoItem = {todoItem} />
               </React.Fragment>

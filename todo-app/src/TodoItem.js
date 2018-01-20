@@ -1,8 +1,11 @@
 import React from 'react';
+import { observer } from "mobx-react";
 import Description from './Description';
 import Deadline from './Deadline';
 import './index.css';
 
+
+@observer
 export default class TodoItem extends React.Component {
 
   //onDelete = () => this.props.onDelete(this.props.todoItem.id)
