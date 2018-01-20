@@ -9,7 +9,7 @@ export default class Description extends React.Component{
                {this.props.task}   
                
             </div>
-        )
+        );
     }
 }
 

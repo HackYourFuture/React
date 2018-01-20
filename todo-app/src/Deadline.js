@@ -6,10 +6,10 @@ export default class Deadline extends React.Component{
         return (
             <div className="Deadline">
 
-              {this.props.time}
+               {this.props.time}
               
             </div>
-        )
+        );
     }
 }
     

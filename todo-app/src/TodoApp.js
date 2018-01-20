@@ -1,5 +1,7 @@
 import React from 'react';
 import TodoList from './TodoList';
+//import {observer} from 'mobx-react';
+
 
 export default class TodoApp extends React.Component {
 
@@ -15,3 +17,4 @@ export default class TodoApp extends React.Component {
         );
     }
 }
+
