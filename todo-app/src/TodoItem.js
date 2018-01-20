@@ -1,10 +1,10 @@
 import React from 'react';
-import { observer } from "mobx-react";
+import { observer, inject } from "mobx-react";
 import Description from './Description';
 import Deadline from './Deadline';
 import './index.css';
 
-
+@inject("todoStore")
 @observer
 export default class TodoItem extends React.Component {
 
@@ -12,20 +12,20 @@ export default class TodoItem extends React.Component {
   //onDone = () =>  this.props.onDone(this.props.todoItem.id)
   
   render() {
-    const {todoItem, onDelete, onDone} = this.props;
+    const {todoItem, deleteTodo, changeStatus} = this.props;
     return (
       <li className="TodoItem">
           <div className="Item-info">
             <span >{todoItem.done ?
-                <span className="done-button" onClick={() => onDone(todoItem.id)}>[X]</span>
+                <span className="done-button" onClick={() => changeStatus(todoItem.id)}>[X]</span>
                 //<span className="done-button" onClick={onDone}>[X]</span>
                 :
-                <span className="undone-button" onClick={() => onDone(todoItem.id)}>[_]</span>
+                <span className="undone-button" onClick={() => changeStatus(todoItem.id)}>[_]</span>
                 //<span className="undone-button" onClick={onDone}>[_]</span>
               }</span>
             <Description description={todoItem.description}/>
             <Deadline deadline={todoItem.deadline}/>
-            <button className="delete-button" onClick={() => onDelete(todoItem.id)}>Delete </button>
+            <button className="delete-button" onClick={() => deleteTodo(todoItem.id)}>Delete </button>
           </div>
       </li>
     )

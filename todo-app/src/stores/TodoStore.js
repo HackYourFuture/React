@@ -25,7 +25,7 @@ export default class TodoStore{
         }
     ]
 
-    @action
+    @action  // add a todo item
     addTodo(text){
 
       const ids = this.todos.map(todo => todo.id)
@@ -39,7 +39,7 @@ export default class TodoStore{
       this.todos.push(todo);
     }
 
-    @action
+    @action // change status of a todo
     onDone(todoID){
 
       const todo = this.todos.find(todo => todo.id === todoID)
@@ -48,7 +48,7 @@ export default class TodoStore{
       todo.done = !todo.done
     }
 
-    @action
+    @action  // delete a todo item
     onDelete(todoID){
 
       var updatedTodos = this.todos.filter((val,index) =>{

@@ -1,8 +1,9 @@
 import React from 'react';
 import TodoItem from './TodoItem';
-import {observer} from 'mobx-react';
+import {observer, inject} from 'mobx-react';
 import {todoStore} from './stores';
 
+@inject("todoStore")
 @observer
 export default class TodoList extends React.Component {
 
@@ -10,7 +11,7 @@ export default class TodoList extends React.Component {
     text: '',
   }; 
 
-  onAddClick = (text) => {
+  addTodo = (text) => {
     text = this.state.text
     todoStore.addTodo(text)
   };
@@ -22,14 +23,13 @@ export default class TodoList extends React.Component {
     });
   };
 
-  onDelete = (todoID) => {
+  deleteTodo = (todoID) => {
     todoStore.onDelete(todoID); 
   } 
   
-  onDone = (todoID) => {
+  changeStatus = (todoID) => {
    todoStore.onDone(todoID);
   };
-
 
 
   render() {
@@ -50,13 +50,13 @@ export default class TodoList extends React.Component {
             />
           </div>
           <div>
-            <button className="add-button" onClick={this.onAddClick}> Add</button>
+            <button className="add-button" onClick={this.addTodo}> Add</button>
           </div>  
         </div>
           <ul>
             {todoStore.todos.map((todoItem, i) => (
               <React.Fragment key={todoItem.id}>
-                <TodoItem handleAdd={ this.handleAdd }  onDelete={this.onDelete} onDone={this.onDone} todoItem = {todoItem} />
+                <TodoItem  deleteTodo={this.deleteTodo} changeStatus={this.changeStatus} todoItem = {todoItem} />
               </React.Fragment>
             ))}
           </ul>

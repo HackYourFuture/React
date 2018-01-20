@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Provider } from "mobx-react";
+import {todoStore} from './stores';
 import TodoList from './TodoList';
 
 export default class TodoApp extends Component {
@@ -6,10 +8,12 @@ export default class TodoApp extends Component {
 
   render() {
     return (
-      <div className="TodoApp">
-        <h2>TODO LIST</h2>
-        <TodoList/>
-      </div>  
+      <Provider todoStore={todoStore}>
+        <div className="TodoApp">
+          <h2>TODO LIST</h2>
+          <TodoList/>
+        </div>
+      </Provider>    
     )
   }
 } 
