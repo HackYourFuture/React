@@ -62,7 +62,7 @@ export default class AddTodoItem extends Component {
             />
             <InputField
               type="text"
-              placeholder="Deadline"
+              placeholder="Deadline (date\time)"
               className="deadlineInput"
               value={this.state.toBeAddedDeadline}
               handleChange={this.handleChangeDeadline}

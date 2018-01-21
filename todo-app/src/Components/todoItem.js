@@ -15,9 +15,9 @@ export default class TodoItem extends Component {
   };
 
   handleToggleEdit = () => {
-    this.props.todoStore.handleToggleEditOnItem(this.props.data.id);
+    this.props.todoStore.handleToggleEditOnItem(this.props.data._id);
     this.setState({
-      toBeUpdatedItem: this.props.data.text,
+      toBeUpdatedItem: this.props.data.description,
       toBeUpdatedDeadline: this.props.data.deadline
     });
   }; // good
@@ -28,7 +28,7 @@ export default class TodoItem extends Component {
 
   handleUpdate = () => {
     const { toBeUpdatedItem, toBeUpdatedDeadline } = this.state;
-    const id = this.props.data.id;
+    const id = this.props.data._id;
     this.props.todoStore.handleUpdateItem(
       id,
       toBeUpdatedItem,
@@ -38,7 +38,7 @@ export default class TodoItem extends Component {
   };
 
   handleRemove = () => {
-    this.props.todoStore.handleRemove(this.props.data.id);
+    this.props.todoStore.handleRemove(this.props.data._id);
   }; //good
 
   handleChangeItem = updatedItem => {
@@ -54,8 +54,6 @@ export default class TodoItem extends Component {
   };
 
   render() {
-    console.log("item here");
-    console.log(this.props.todoStore.isEditing);
     const done = this.props.data.done;
     return (
       <li className="todoItem">
@@ -65,7 +63,7 @@ export default class TodoItem extends Component {
           handleChangeItem={this.handleChangeItem}
           data={this.props.data}
           done={done}
-          isEditing={this.props.todoStore.isEditing === this.props.data.id}
+          isEditing={this.props.todoStore.isEditing === this.props.data._id}
           toBeUpdatedDeadline={this.state.toBeUpdatedDeadline}
           toBeUpdatedItem={this.state.toBeUpdatedItem}
           handleToggleDone={this.handleToggleDone}
@@ -77,7 +75,7 @@ export default class TodoItem extends Component {
             handleToggleEdit={this.handleToggleEdit}
             handleUpdate={this.handleUpdate}
             handleCancelEdit={this.handleCancelEdit}
-            isEditing={this.props.todoStore.isEditing === this.props.data.id}
+            isEditing={this.props.todoStore.isEditing === this.props.data._id}
           />
           <Button buttonContent="remove" onClick={this.handleRemove} />
         </div>

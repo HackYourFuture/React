@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from "react";
+import moment from "moment";
 
 import InputField from "./InputField";
 
 export default class NewTodoFormToggle extends Component {
-  handleToggleDone = id => {
+  handleToggleDone = () => {
+    const id = this.props.data._id;
     this.props.handleToggleDone(id);
   };
 
@@ -33,13 +35,13 @@ export default class NewTodoFormToggle extends Component {
         </Fragment>
       );
     }
-    const { text, deadline, id } = this.props.data;
+    const { description, deadline, _id } = this.props.data;
     const done = this.props.done;
-    const inputId = `item${id}`;
+    const inputId = `item${_id}`;
     return (
       <Fragment>
         <div className="todoDate">
-          <span>{deadline}</span>
+          <span>{moment(deadline).format("YYYY-mm-DD hh:mm")}</span>
           <label
             htmlFor={inputId}
             className={done ? "markDone" : "markUndone"}
@@ -48,11 +50,11 @@ export default class NewTodoFormToggle extends Component {
             className="checkDone"
             type="checkbox"
             id={inputId}
-            onClick={() => this.handleToggleDone(this.props.data.id)}
+            onClick={this.handleToggleDone}
           />
         </div>
         <div className="todoText">
-          <p className={done ? "done" : "notDone"}>{text}</p>
+          <p className={done ? "done" : "notDone"}>{description}</p>
         </div>
       </Fragment>
     );
