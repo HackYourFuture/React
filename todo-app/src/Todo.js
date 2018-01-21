@@ -22,8 +22,8 @@ export default class Todo extends React.Component{
                 </div> 
 
                 <div>
-                   is done : <input onClick={() => handleDoneToggle(todo.id)} 
-                   // done={todo.done}
+                   <input onChange={() => handleDoneToggle(todo.id)} 
+                   checked={todo.done}
                    type="checkbox" />
                 </div>
 

@@ -9,17 +9,23 @@ export default class TodoList extends React.Component {
   state = {
     todos: initialTodoData,
   }
+
   //done checkbox event handler
   handleDoneToggle = (todoId) => {
-    this.setState({
-      todos: this.state.todos.map(todo => {
+
+    const newState = this.state.todos.map(
+      todo => {
         if (todo.id === todoId) {
           todo.done = !todo.done
         }
         return todo
-      })
-    })
-  }
+      }
+    );
+
+    this.setState({
+      todos: newState
+    });
+  };
 
 
   // this is new feature of react in version 16
@@ -28,7 +34,7 @@ export default class TodoList extends React.Component {
     const { todos } = this.state
 
     return (
-      <ul>
+      <ul className="TodoList-list">
         {todos.map((todo, index) => (
           <React.Fragment key={todo.id}>
             {index > 0 && <li className="TodoList-separator"/>}
