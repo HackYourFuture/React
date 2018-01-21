@@ -15,7 +15,7 @@ export default class Comment extends React.Component {
 
   markAsRead(event) {
     const checked = event.target.checked;
-    this.props.onReadChange(checked, this.props.comment.id);
+    this.props.onReadChange(checked, this.props.comment._id);
   }
 
   render() {

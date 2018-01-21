@@ -36,7 +36,7 @@ export default class App extends React.Component {
 
   handleReadChange(updatedReadValue, commentId) {
     const updatedComments = this.state.comments.map(comment => {
-      if (commentId === comment.id) {
+      if (commentId === comment._id) {
         return Object.assign({}, comment, {read: updatedReadValue});
       }
       return comment;
@@ -56,7 +56,7 @@ export default class App extends React.Component {
     return comments.map(comment => {
       return (
         <Comment
-          key={comment.id}
+          key={comment._id}
           comment={comment}
           onReadChange={this.handleReadChange}
         />

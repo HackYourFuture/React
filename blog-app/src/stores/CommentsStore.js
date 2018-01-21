@@ -1,6 +1,6 @@
-import {observable, computed, autorun, action} from 'mobx'
-import Moment from 'moment'
-import {saveComments, loadComments} from '../storage'
+import { observable, computed, action, useStrict, runInAction} from 'mobx'
+
+useStrict(true)
 
 const fakeAuthor = {
   firstName: "Joost",
@@ -10,18 +10,39 @@ const fakeAuthor = {
 
 export default class CommentsStore {
 
-  constructor() {
-    autorun(() => {
-      saveComments(this.comments);
-    });
-  }
+  @observable
+  comments = [];
 
   @observable
-  comments = loadComments();
+  loadingComments = false  
+
+  @action
+  loadComments(showLoader = true) {
+
+    if (showLoader) {
+      this.loadingComments = true
+    }
+
+    // Use fetch to get data from the API
+    fetch('https://hyf-react-api.herokuapp.com/blog/comments')
+      .then(res => res.json()) // Promise #1
+      .then(res => {           // Promise #2
+        runInAction(() => {
+          this.loadingComments = false
+          this.comments = res
+        })
+      })
+      .catch(error => {
+        runInAction(() => {
+          this.loadingComments = false
+        })
+      })
+
+  }
 
   findComment(id) {
     return this.comments
-      .find(comment => comment.id === id)
+      .find(comment => comment._id === id)
   }
 
   @computed
@@ -33,30 +54,72 @@ export default class CommentsStore {
 
   @action
   addComment(text) {
-    const ids = this.comments.map(comment => comment.id);
     const comment = {
-      id:      ids.length === 0 ? 1 : Math.max(...ids) + 1,
-      author:  fakeAuthor,
+      author: fakeAuthor,
       isLiked: false,
-      date:    Moment().format('YYYY-MM-DD'),
-      text:    text
+      text: text
     };
 
-    this.comments.push(comment);
+    fetch('https://hyf-react-api.herokuapp.com/blog/comments/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(comment),
+    })
+      .then(res => res.json())
+      .then(res => {
+
+        // Option #2
+        this.loadComments(false)
+
+      })
+
   }
 
-  @action
   removeComment(id) {
-    this.comments = this.comments
-      .filter(comment => comment.id !== id)
+    fetch(`https://hyf-react-api.herokuapp.com/blog/comments/${id}`, {
+      method: 'DELETE',
+    })
+      .then(res => res.json())
+      .then(res => {
+
+        // Option #2
+        this.loadComments(false)
+
+      })
   }
 
   @action
   toggleLiked(id) {
+
     const comment = this.findComment(id)
-    if (comment == null) { return }
+
+    if (!comment) {
+      throw new Error('You are trying to modify a comment that does not exist.')
+    }
 
     comment.isLiked = !comment.isLiked
+
+    fetch(`https://hyf-react-api.herokuapp.com/blog/comments/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        isLiked: comment.isLiked,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.loadComments(false)
+      })
+      .catch(() => {
+        runInAction(() => {
+          comment.isLiked = !comment.isLiked
+        })
+      })
+
   }
 
   @action

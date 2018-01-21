@@ -50,9 +50,9 @@ export default class Comment extends React.Component {
             <CommentDate date={comment.date} />
             <div>
               {comment.isLiked ?
-                <span onClick={() => this.handleToggleIsLiked(comment.id)}>♥</span>
+                <span onClick={() => this.handleToggleIsLiked(comment._id)}>♥</span>
                 :
-                <span onClick={() => this.handleToggleIsLiked(comment.id)}>♡</span>
+                <span onClick={() => this.handleToggleIsLiked(comment._id)}>♡</span>
               }
             </div>
           </div>
