@@ -16,7 +16,7 @@ export default class TodoList extends React.Component {
     const { todos } = this.props
 
     return (
-      <ul>
+      <ul className="TodoList-list">
         {todos.map((todo, index) => (
           <React.Fragment key={todo.id}>
             {index > 0 && <li className="TodoList-separator"/>}
