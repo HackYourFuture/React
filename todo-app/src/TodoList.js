@@ -16,9 +16,10 @@ export default class TodoList extends React.Component {
     const newState = this.state.todos.map(
       todo => {
         if (todo.id === todoId) {
-          todo.done = !todo.done
+          return {...todo, done: !todo.done};
+        } else {
+          return todo
         }
-        return todo
       }
     );
 
