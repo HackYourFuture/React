@@ -1,0 +1,50 @@
+.pageHeader {
+  margin-top: 3rem;
+  text-align: center;
+  color: white;
+}
+
+.emptyListHeader {
+  color: rgb(41, 40, 43);
+  text-align: center;
+}
+
+.todosContainer {
+  list-style: none;
+  background-color: lavender;
+  width: 90%;
+  margin: 3rem auto;
+  border-radius: 0.5rem;
+}
+
+.updateButton.disabled {
+  color: darkgrey;
+  background-color: rgb(148, 142, 142);
+  cursor: default;
+}
+
+.loading {
+  margin: 1rem auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 12px solid rgb(218, 218, 218);
+  border-top: 12px solid rgb(2, 139, 252);
+  animation: spin 1s cubic-bezier(0.18, 1.22, 1, 1) infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingImg {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  width: 20vw;
+}

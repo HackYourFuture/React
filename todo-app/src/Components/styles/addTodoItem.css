@@ -1,0 +1,65 @@
+.addTodoForm {
+    width: 70%;
+    margin: 2rem auto;
+    min-height: 10rem;
+    background-color: lavender;
+    border: 1px solid lavenderblush;
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggleAddForm {
+    background-color: rgb(76, 0, 255);
+    border: none;
+    border-radius: 2rem;
+    color: white;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 2rem;
+    width: 30%;
+    margin: 4rem 35%;
+    cursor: pointer;
+}
+
+.formInputWrapper>input {
+    min-height: 30px;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;    
+}
+
+.todoInput {
+    width: 100%;
+}
+
+
+.formButtonsWrapper {
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.formButtonsWrapper>button {
+    padding: 5px;
+    min-width: 100px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.addTodoButton {
+    background-color: green;
+    margin-right: 1rem; 
+}
+.addTodoButton.disabled {
+    color: darkgrey;
+    background-color: rgb(148, 142, 142);
+    cursor: default;
+
+}
+
+.cancelAddButton {
+    background-color: red;
+}
