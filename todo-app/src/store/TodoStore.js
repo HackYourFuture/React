@@ -10,15 +10,15 @@ export default class TodoStore {
 
   @observable loading = false;
 
-  @observable isEditing = null;
+  @observable isEditingId = null;
 
   @action
   handleToggleEditOnItem = (id, cancel) => {
     if (cancel) {
-      this.isEditing = null;
+      this.isEditingId = null;
       return;
     }
-    this.isEditing = id;
+    this.isEditingId = id;
   };
 
   @action // maybe done
