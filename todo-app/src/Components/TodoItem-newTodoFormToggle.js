@@ -17,11 +17,11 @@ export default class NewTodoFormToggle extends Component {
   };
 
   render() {
-    if (this.props.isEditing) {
+    if (this.props.isEditingId) {
       return (
         <Fragment>
           <InputField
-            type="text"
+            type="date"
             className="todoDate input"
             value={this.props.toBeUpdatedDeadline}
             handleChange={this.handleChangeDeadline}
@@ -41,7 +41,7 @@ export default class NewTodoFormToggle extends Component {
     return (
       <Fragment>
         <div className="todoDate">
-          <span>{moment(deadline).format("YYYY-mm-DD hh:mm")}</span>
+          <span>{moment(deadline).format("YYYY-mm-DD")}</span>
           <label
             htmlFor={inputId}
             className={done ? "markDone" : "markUndone"}

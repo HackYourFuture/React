@@ -61,10 +61,8 @@ export default class AddTodoItem extends Component {
               handleChange={this.handleChangeTodoItem}
             />
             <InputField
-              type="text"
-              placeholder="Deadline (date\time)"
+              type="date"
               className="deadlineInput"
-              value={this.state.toBeAddedDeadline}
               handleChange={this.handleChangeDeadline}
             />
           </div>
@@ -73,7 +71,10 @@ export default class AddTodoItem extends Component {
               className="addTodoButton"
               buttonContent="Add"
               onClick={this.handleAddTodo}
-              isDisabled={this.state.toBeAddedItem.trim() === ""}
+              isDisabled={
+                this.state.toBeAddedItem.trim() === "" ||
+                this.state.toBeAddedDeadline === ""
+              }
             />
             <Button
               className="cancelAddButton"

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
 
-import TodoItem from "./todoItem";
+import loadingImage from "./styles/images/loader.gif";
+import TodoItem from "./TodoItem";
 import "./styles/todoList.css";
 
 @inject("todoStore")
@@ -26,8 +27,7 @@ export default class TodoList extends Component {
 
   render() {
     if (this.props.todoStore.loading) {
-      // return <img src="./loading.png" alt="loading" className="loadingImg" />; ////////////////////this is Not working WHY?
-      return <div className="loading" />;
+      return <img src={loadingImage} alt="loading" className="loadingImg" />;
     }
     if (this.props.todoStore.todos.length === 0) {
       return (

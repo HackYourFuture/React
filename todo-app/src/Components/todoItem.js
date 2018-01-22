@@ -63,7 +63,7 @@ export default class TodoItem extends Component {
           handleChangeItem={this.handleChangeItem}
           data={this.props.data}
           done={done}
-          isEditing={this.props.todoStore.isEditing === this.props.data._id}
+          isEditingId={this.props.todoStore.isEditingId === this.props.data._id}
           toBeUpdatedDeadline={this.state.toBeUpdatedDeadline}
           toBeUpdatedItem={this.state.toBeUpdatedItem}
           handleToggleDone={this.handleToggleDone}
@@ -75,7 +75,9 @@ export default class TodoItem extends Component {
             handleToggleEdit={this.handleToggleEdit}
             handleUpdate={this.handleUpdate}
             handleCancelEdit={this.handleCancelEdit}
-            isEditing={this.props.todoStore.isEditing === this.props.data._id}
+            isEditingId={
+              this.props.todoStore.isEditingId === this.props.data._id
+            }
           />
           <Button buttonContent="remove" onClick={this.handleRemove} />
         </div>

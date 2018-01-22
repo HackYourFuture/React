@@ -4,7 +4,7 @@ import Button from "./Button";
 
 export default class EditMode extends Component {
   render() {
-    if (!this.props.isEditing) {
+    if (!this.props.isEditingId) {
       return (
         <Button buttonContent="Edit" onClick={this.props.handleToggleEdit} />
       );
@@ -17,7 +17,7 @@ export default class EditMode extends Component {
           className="updateButton"
           isDisabled={
             this.props.toBeUpdatedItem.trim() === "" ||
-            this.props.toBeUpdatedDeadline.trim() === ""
+            this.props.toBeUpdatedDeadline === ""
           }
         />
         <Button
