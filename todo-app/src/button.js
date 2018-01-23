@@ -8,16 +8,15 @@ export default class Button extends React.Component {
 
         if (!this.props.disabled && this.props.onClick) {
            this.props.onClick();
-        }
-    }
+        };
+    };
 
     render(){
-
-        let className = 'Button'
+        let className = 'Button';
         if (this.props.disabled) {
-            className += ' Button-disabled'
-        }
-//disabled is for when text field is empty
+            className += 'Button-disabled'
+        };
+        //disabled is for when text field is empty
         return(
             <button className={className}
             disabled={this.props.disabled}
@@ -25,5 +24,5 @@ export default class Button extends React.Component {
             {this.props.label}
             </button>
         );
-    }
-}
+    };
+};

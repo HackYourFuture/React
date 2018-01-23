@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 export default class Deadline extends React.Component{
     
     render(){
@@ -7,9 +8,10 @@ export default class Deadline extends React.Component{
             <div className="Deadline">
 
                {this.props.time}
+               
               
             </div>
         );
-    }
-}
+    };
+};
     

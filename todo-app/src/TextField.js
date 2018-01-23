@@ -9,24 +9,25 @@ export default class TextField extends React.Component {
         } else {
             return this.renderSingleLine();
         }
-    }
+    };
 
     renderSingleLine() {
         return (
-            <input type="text"
+            <input type="text" 
+            className="form"
             value={this.props.value}
             onChange={this.props.onChange}
              />
         );
-    }
+    };
     
     renderMultiLine() {
         return (
-            <textarea 
+            <textarea className="form"
             value={this.props.value}
             onChange={this.props.onChange}
             />
         );
-    }
-}
+    };
+};
 
