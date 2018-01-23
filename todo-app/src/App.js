@@ -24,6 +24,9 @@ export default class App extends Component {
 		this.setState({editingTaskID: null});
 	};
 	
+	componentDidMount = () => {
+    tasksStore.loadTasks()
+	};
 	
   
   render() {
@@ -33,10 +36,13 @@ export default class App extends Component {
 			<h4 className='task-done'>✓ = {tasksStore.doneCount}</h4>
 			<h3>Enter description:</h3>
 			<TaskForm tasksStore = {tasksStore} />
-	  	{tasksStore.tasks.length === 0 ? 
-	  		<div>No items...</div> 
-	  	: 
-				<ul className='task-list'>
+	  	{tasksStore.loadingTasks ? (
+			<div className ="loader"></div>)
+			: 
+			(
+				tasksStore.tasks.length === 0 ? <div>No items...</div>
+			:
+			 <ul className='task-list'>
 					{
 						tasksStore.tasks.map(item => 
 						<Task 
@@ -49,6 +55,7 @@ export default class App extends Component {
 						/>)
 					}
 				</ul>
+			)
 	  	}
 	  </div>
 	 	);

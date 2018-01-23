@@ -62,3 +62,15 @@
 	font-style: italic;
 	margin-left: 10px;
 }
+.loader {
+	width: 3em;
+	height: 3em;
+	border-right: 15px solid silver; 
+	border-top: 15px solid #005687;
+	border-bottom: 15px solid #005687;
+	border-left: 15px solid silver;
+	border-radius: 50%;
+	animation: spin 1s ease-in-out infinite;
+	margin:auto;
+	margin-top:50px;
+  }
