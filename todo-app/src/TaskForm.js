@@ -1,6 +1,10 @@
 import React from "react"
+import {inject, observer} from 'mobx-react';
 import Button from './Button'
 import TextField from './TextField'
+
+@inject('taskStore')
+@observer
 
 export default class TaskForm extends React.Component{
     

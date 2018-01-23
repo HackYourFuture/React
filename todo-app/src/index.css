@@ -31,11 +31,11 @@ p{
     font-size: 30px;
 }
 
-.task-done {
+.task-not-done {
     text-decoration: none;
 }
 
-.task-not-done {
+.task-done {
    text-decoration:line-through;
 }
 
