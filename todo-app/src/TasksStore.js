@@ -11,8 +11,16 @@ class TasksStore {
     @observable
     loadingTasks = false 
 
+    @observable
+    editingTaskID = null
+
     findTask(taskId) {
         return this.tasks.find(task => task.id === taskId)
+    }
+
+    @action
+    EditTask(taskId){
+        this.editingTaskID = taskId;
     }
 
     @action
@@ -21,15 +29,13 @@ class TasksStore {
             this.loadingTasks = true
         }
         fetch(`${api_url}/todos`)
-        .then(res =>{return res.json()})
+        .then(res => res.json())
         .then(tasks_arr => {
             runInAction(()=>{
                 this.tasks = tasks_arr.map(comment => {
                     return {
                         id:comment._id , 
-                        description:comment.description , 
-                        deadline: comment.deadline , 
-                        done:comment.done}
+                        ...comment}
                 });
                 this.loadingTasks = false;
             });
@@ -135,7 +141,7 @@ class TasksStore {
 
     @computed
     get doneCount() {
-            return this.tasks.filter(task => task.done).length;
+        return this.tasks.filter(task => task.done).length;
     }
 }
 
