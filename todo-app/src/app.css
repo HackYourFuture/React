@@ -27,14 +27,23 @@ body{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-left: 10px;
 }
 
-.Todo-Deadline{font-size: 0.7em;
+.Add-Time{font-size: 0.7em;
     color:gray;
     margin-left: 20px;
-
 }
 
-.form{width: 50%;}
+.Deadline-Time{font-size: 0.7em;
+    color:gray;
+    margin-left: 20px;
+}
 
+.deadline-form-title{clear: both;
+    color: darkslategray;
+}
+
+
+.form{width: 50%;
+}
 
 .Remove{display: inline-block;
     height: 20px;
@@ -46,14 +55,12 @@ body{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     float: right;
 }
 
-.TodoList{margin-left: }
-
-.TodoList-list{ list-style: none;
+.TodoList-list{list-style: none;
 
 }
 
 .TodoList-separator{ height: 20px;
-    
+
 }
 
 .TodoForm{margin-left: 40px;

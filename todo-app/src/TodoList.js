@@ -12,15 +12,18 @@ export default class TodoList extends React.Component {
   };
   
   handleTodoCancelEdit = () => {
-    this.setState({editingTodoID: null});
-    console.log('calling cancel edit')
-    console.log('calling cancel edit')
-};
+    this.setState({editingTodoID: null})
+  };
 
   handleTodoSave = (id, text) => {
     this.props.onSaveTodo(id, text);
     this.handleTodoCancelEdit();
-};
+  };
+
+  handleDateSave = (id, deadline) => {
+    this.props.onSaveDeadline(id, deadline);
+  };
+
   // this is new feature of react in version 16
   renderList() {
 
@@ -39,13 +42,15 @@ export default class TodoList extends React.Component {
             isEditing={todo.id === this.state.editingTodoID}
             onEditClick={this.handleEditTodo}
             onSaveClick={text => { this.handleTodoSave(todo.id, text); }}
+            onSaveDateClick={deadline => { this.handleDateSave(todo.id, deadline); }}
             onCancelEditClick={this.handleTodoCancelEdit}
+            onRmoveClick={this.props.handleTodoRemove}
             /> 
           </React.Fragment>
         ))}
       </ul>
     );
-  }
+  };
 
   render() {
 

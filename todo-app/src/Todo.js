@@ -1,6 +1,6 @@
 import React from 'react';
 import Description from './Description';
-import Deadline from './Deadline';
+import Time from './Time';
 import Button from './button';
 import TextField from './TextField';
 
@@ -8,11 +8,14 @@ export default class Todo extends React.Component{
    
     state = {
         todoText: '',
+        deadline: '',
     };
 
     componentWillReceiveProps(newProps) {
         if (newProps.isEditing && !this.props.isEditing) {
-          this.setState({todoText: newProps.text});
+          this.setState({
+              todoText: newProps.text,
+              deadline: newProps.deadline,});
         }
     };
 
@@ -20,9 +23,16 @@ export default class Todo extends React.Component{
         this.setState({todoText: event.target.value});
     };
 
+    handleDeadlineChange = event => {
+        this.setState({deadline: event.target.value});
+    };
+
     handleSaveClick = () => {
-        this.props.onSaveClick(this.state.todoText);
+        const {todoText, deadline } = this.state;
+        this.props.onSaveClick(todoText);
         this.setState({todoText: ''});
+        this.props.onSaveDateClick(deadline);
+
     };
 
     render(){
@@ -37,7 +47,7 @@ export default class Todo extends React.Component{
 
    renderViewing() {
 
-    const { todo, handleDoneToggle, onEditClick } = this.props;
+    const { todo, handleDoneToggle, onEditClick, onRmoveClick } = this.props;
 
         return (
 
@@ -46,20 +56,21 @@ export default class Todo extends React.Component{
                 <div className="Remove">
                     <Button 
                       label="remove"
+                      onClick={() => {onRmoveClick(todo.id)}}
                     />
                 </div>
 
-                 <div className="Edit">
+                <div className="Edit">
                     <Button 
                       label="edit"
                       onClick={() => {onEditClick(todo.id)}}
                       />
-                    </div>
+                </div>
 
                 <div className="Checkbox">
                     <input onChange={() => handleDoneToggle(todo.id)} 
-                      checked={todo.done}
-                      type="checkbox" 
+                    checked={todo.done}
+                    type="checkbox" 
                     />
                 </div>
 
@@ -67,9 +78,16 @@ export default class Todo extends React.Component{
                     <Description task={todo.task}/>
                 </div> 
     
-                <div className="Todo-Deadline">
-                    <Deadline time={todo.time}/>
+                <div className="Add-Time">
+                   <Time title={"at "}
+                    time={todo.addedTime}
+                    /> 
                 </div> 
+
+                <div className="Deadline-Time">
+                    <Time title={"Deadline is "}
+                    time={todo.deadlineTime}/>
+                </div>
 
             </li>
         )
@@ -80,18 +98,24 @@ export default class Todo extends React.Component{
         return (
           <div>
             <div>
+              {/* this is for task */}
               <TextField
                 multiline
                 value={this.state.TodoText}      
                 onChange={this.handleTextChange} 
               />
+              {/* this is for deadline date */}
+              <TextField value={this.state.TodoText}      
+                onChange={this.handleDeadlineChange} 
+            
+              />
             </div>
-            <div>
+            <div className="edit-mode-buttons">
               <Button
                 label='Save'
                 onClick={this.handleSaveClick}
-                //disabled is not working
-                disabled={this.state.TodoText.trim() === ''}
+                //disabled is not working at this momment
+                //disabled={this.state.TodoText.trim() === ''}
               />
               <Button
                 label='Cancel'

@@ -2,14 +2,12 @@ import React from 'react';
 import TodoList from './TodoList';
 import TodoForm from './todoForm';
 import Moment from 'moment';
-//import initialTodoData from './data/todo-data.json';
-import { loadTodos, saveTodos} from './storage';
+import {loadTodos, saveTodos} from './storage';
 
 export default class TodoApp extends React.Component {
 
     state = {
-       //todos: initialTodoData,
-       todos: loadTodos()
+       todos: loadTodos(),
     };
  
     setTodos(todos) {
@@ -17,40 +15,41 @@ export default class TodoApp extends React.Component {
         saveTodos(todos);
     };
 
-    newTodoWithText(text) {
+    handleDoneToggle = (todoId) => {
+        let newArray = this.state.todos.map(todo => {
+            if (todo.id === todoId) {
+          todo.done = !todo.done
+           }
+          return todo
+         })
+
+        this.setTodos(newArray);
+    };
+
+    newTodoWithText(text, deadline) {
         const ids = this.state.todos.map(todo => todo.id)
 
         return {
             // id: Math.max(...ids) + 1, solving todos with same id 
             id: ids.length === 0 ? 1 : Math.max(...ids) + 1,
             task: text,
-            time: Moment().format('YY-MM-DD'),
+            addedTime: Moment().format('YY-MM-DD'),
+            deadlineTime: deadline,
             done: false,
         }
     };
+    
+    handleAddTodoClick = (todoText, deadline) => {
 
-    handleDoneToggle = (todoId) => {
-        this.setState({
-            todos: this.state.todos.map(todo => {
-               if (todo.id === todoId) {
-             todo.done = !todo.done
-              }
-             return todo
-            })
-        });
+        const todo = this.newTodoWithText(todoText, deadline);
+        this.setTodos([todo, ...this.state.todos]);
+        console.log("Adding todo :", todoText, "deadline is ", deadline);
     };
 
-    handleAddTodoClick = todoText => {
-        const todo = this.newTodoWithText(todoText);
-        //should change to setTodos
-        this.setState({
-            todos: [todo, ...this.state.todos]
-        })
-        console.log("adding todo :", todoText);
-    };
+    //saves text after editing
 
     handleSaveTodo = (id, task) => {
-        //text changed to task 
+
         this.setTodos(this.state.todos.map(todo => {
             if (todo.id === id) {
               return {...todo, task};
@@ -59,7 +58,30 @@ export default class TodoApp extends React.Component {
             }
       }));
     };
+
+    //saves deadline after editing
+    //both handleSave and handleSaveDeadline are not working at  
+    //sametime thats why i've used setTimeOut until updating to mobx
     
+    handleSaveDeadline = (id, deadlineTime) => {
+
+        setTimeout( ()=> {
+            this.setTodos(this.state.todos.map(todo => {
+                if (todo.id === id) {
+                  return {...todo, deadlineTime};
+                } else {
+                  return todo
+                }
+          }));
+
+        }, 10)
+       
+    };
+    
+    handleTodoRemove = (id) => {
+        let filteredTodos =  this.state.todos.filter(todo => todo.id !== id)
+        this.setTodos(filteredTodos);
+    };
 
     render() {
         return(
@@ -73,12 +95,14 @@ export default class TodoApp extends React.Component {
                    handleRemove={this.handleRemove}
                    handleEditTodo={this.handleEditTodo}
                    onSaveTodo={this.handleSaveTodo}
+                   onSaveDeadline={this.handleSaveDeadline}
+                   handleTodoRemove={this.handleTodoRemove}
                    />
                    <TodoForm onTodoAdd={this.handleAddTodoClick}
                    />
                 </div>
             </div>
-        )
+        );
     };
 };
 

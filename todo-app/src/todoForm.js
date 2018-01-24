@@ -6,22 +6,26 @@ import Button from './button';
 export default class TodoForm extends React.Component {
 
     state = {
-        todoText: ''
-    }
-    //state should move up 
-    //problem is in adding todo , state not changing in local storage
-    
+        todoText: '',
+        deadline: '',
+    };
+
     handleAddTodoClick = () => {
-        this.props.onTodoAdd(this.state.todoText);
-        this.setState({todoText: ''})
+        this.props.onTodoAdd(this.state.todoText, this.state.deadline);
+        this.setState({todoText: '',deadline: ''});
     };
 
     handleTodoTextChange = event => {
         this.setState({
-            todoText: event.target.value
+            todoText: event.target.value,
         });
     };
 
+    handleDeadlineChange = event => {
+        this.setState({
+            deadline: event.target.value,
+        });
+    };
 
     render() {
         return (
@@ -31,8 +35,12 @@ export default class TodoForm extends React.Component {
                     value={this.state.todoText}
                     onChange={this.handleTodoTextChange}/>
                 </div>
-               
-
+                <div>
+                    <span className="deadline-form-title">Enter deadline here</span>
+                    <TextField className="deadline-input"
+                    value={this.state.deadline}
+                    onChange={this.handleDeadlineChange}/>
+                </div>
                 <div className='TodoForm-Buttons'>
                     <Button label="Add Todo"
                      onClick={this.handleAddTodoClick}
