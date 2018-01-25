@@ -16,14 +16,18 @@ export default class TodoApp extends React.Component {
     };
 
     handleDoneToggle = (todoId) => {
-        let newArray = this.state.todos.map(todo => {
-            if (todo.id === todoId) {
-          todo.done = !todo.done
-           }
-          return todo
-         })
-
-        this.setTodos(newArray);
+        
+        const newState = this.state.todos.map(
+            todo => {
+              if (todo.id === todoId) {
+                return {...todo, done: !todo.done};
+              } else {
+                return todo
+              }
+            }
+          );
+          
+        this.setTodos(newState);
     };
 
     newTodoWithText(text, deadline) {
