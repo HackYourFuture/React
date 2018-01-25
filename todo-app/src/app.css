@@ -1,0 +1,69 @@
+body{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.TodoApp{
+
+}
+
+.Header{background-image: url(https://drivenlocal.com/wp-content/uploads/2015/10/Material-design.jpg);
+    height: 150px;
+    background-size: 100%;
+
+}
+
+.Title{color: white;
+    text-align: center;
+    padding-top: 80px;
+
+}
+
+.Checkbox{
+    display: inline-block;
+}
+
+.Todo-Description{display: inline-block;
+    margin-left: 10px;
+}
+
+.Add-Time{font-size: 0.7em;
+    color:gray;
+    margin-left: 20px;
+}
+
+.Deadline-Time{font-size: 0.7em;
+    color:gray;
+    margin-left: 20px;
+}
+
+.deadline-form-title{clear: both;
+    color: darkslategray;
+}
+
+
+.form{width: 50%;
+}
+
+.Remove{display: inline-block;
+    height: 20px;
+    float: right;
+
+}
+
+.Edit{display: inline-block;
+    float: right;
+}
+
+.TodoList-list{list-style: none;
+
+}
+
+.TodoList-separator{ height: 20px;
+
+}
+
+.TodoForm{margin-left: 40px;
+
+}
+
