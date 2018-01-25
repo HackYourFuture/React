@@ -1,6 +1,8 @@
 import React from 'react';
+import {inject, observer} from 'mobx-react';
 import Todo from './Todo';
 
+@inject('todos')@observer
 export default class TodoList extends React.Component {
 
   state = {
@@ -16,18 +18,17 @@ export default class TodoList extends React.Component {
   };
 
   handleTodoSave = (id, text) => {
-    this.props.onSaveTodo(id, text);
+    this.props.todos.onSaveTodo(id, text);
     this.handleTodoCancelEdit();
   };
 
   handleDateSave = (id, deadline) => {
-    this.props.onSaveDeadline(id, deadline);
+    this.props.todos.onSaveDeadline(id, deadline);
   };
 
-  // this is new feature of react in version 16
   renderList() {
 
-    const { todos } = this.props
+    const { todos, handleTodoRemove, handleDoneToggle } = this.props.todos
 
     return (
       <ul className="TodoList-list">
@@ -35,8 +36,7 @@ export default class TodoList extends React.Component {
           <React.Fragment key={todo.id}>
             {index > 0 && <li className="TodoList-separator"/>}
             <Todo 
-            handleDoneToggle={this.props.handleDoneToggle}
-            handleRemove={this.props.handleRemove}
+            handleDoneToggle={handleDoneToggle}
             handleEditTodo={this.props.handleEditTodo}
             todo={todo}
             isEditing={todo.id === this.state.editingTodoID}
@@ -44,7 +44,7 @@ export default class TodoList extends React.Component {
             onSaveClick={text => { this.handleTodoSave(todo.id, text); }}
             onSaveDateClick={deadline => { this.handleDateSave(todo.id, deadline); }}
             onCancelEditClick={this.handleTodoCancelEdit}
-            onRmoveClick={this.props.handleTodoRemove}
+            onRmoveClick={handleTodoRemove}
             /> 
           </React.Fragment>
         ))}

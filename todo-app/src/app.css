@@ -3,10 +3,6 @@ body{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-right: 30%;
 }
 
-.TodoApp{
-
-}
-
 .Header{background-image: url(https://drivenlocal.com/wp-content/uploads/2015/10/Material-design.jpg);
     height: 150px;
     background-size: 100%;
@@ -30,6 +26,20 @@ body{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 .Add-Time{font-size: 0.7em;
     color:gray;
     margin-left: 20px;
+}
+
+.Add-Time-Title{display: inline-block;
+    margin-right: 5px;
+}
+
+.Add-Deadline-Title{display: inline-block;
+    margin-right: 5px;
+}
+
+.Add-Time-Time {display: inline-block;
+}
+
+.Add-Deadline-Time{display: inline-block;
 }
 
 .Deadline-Time{font-size: 0.7em;

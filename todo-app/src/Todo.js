@@ -1,9 +1,12 @@
 import React from 'react';
+import {inject, observer} from 'mobx-react';
 import Description from './Description';
 import Time from './Time';
+import Title from './Title';
 import Button from './button';
 import TextField from './TextField';
 
+@inject('todos')@observer
 export default class Todo extends React.Component{
    
     state = {
@@ -32,7 +35,7 @@ export default class Todo extends React.Component{
         this.props.onSaveClick(todoText);
         this.setState({todoText: ''});
         this.props.onSaveDateClick(deadline);
-
+        
     };
 
     render(){
@@ -77,18 +80,32 @@ export default class Todo extends React.Component{
                 <div className="Todo-Description">
                     <Description task={todo.task}/>
                 </div> 
-    
+                
                 <div className="Add-Time">
-                   <Time title={"at "}
-                    time={todo.addedTime}
-                    /> 
+                    <div>
+                        <div className="Add-Time-Title">
+                            <Title titleText={"at "}
+                            />
+                        </div>
+                        <div className="Add-Time-Time">
+                            <Time
+                            time={todo.addedTime}
+                            /> 
+                        </div>
+                    </div>
+                    <div>
+                        <div className="Add-Deadline-Title">
+                           <Title disabled={this}
+                            titleText={"Deadline is "}
+                            />
+                        </div>
+                        <div className="Add-Deadline-Time">
+                            <Time 
+                            time={todo.deadlineTime}
+                            /> 
+                        </div>
+                    </div>
                 </div> 
-
-                <div className="Deadline-Time">
-                    <Time title={"Deadline is "}
-                    time={todo.deadlineTime}/>
-                </div>
-
             </li>
         )
     };
@@ -114,8 +131,6 @@ export default class Todo extends React.Component{
               <Button
                 label='Save'
                 onClick={this.handleSaveClick}
-                //disabled is not working at this momment
-                //disabled={this.state.TodoText.trim() === ''}
               />
               <Button
                 label='Cancel'

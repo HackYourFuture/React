@@ -16,7 +16,7 @@ export default class Button extends React.Component {
         if (this.props.disabled) {
             className += 'Button-disabled'
         };
-        //disabled is for when text field is empty
+
         return(
             <button className={className}
             disabled={this.props.disabled}
