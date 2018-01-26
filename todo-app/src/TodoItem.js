@@ -17,15 +17,15 @@ export default class TodoItem extends React.Component {
       <li className="TodoItem">
           <div className="Item-info">
             <span >{todoItem.done ?
-                <span className="done-button" onClick={() => changeStatus(todoItem.id)}>[X]</span>
+                <span className="done-button" onClick={() => changeStatus(todoItem._id)}>[X]</span>
                 //<span className="done-button" onClick={onDone}>[X]</span>
                 :
-                <span className="undone-button" onClick={() => changeStatus(todoItem.id)}>[_]</span>
+                <span className="undone-button" onClick={() => changeStatus(todoItem._id)}>[_]</span>
                 //<span className="undone-button" onClick={onDone}>[_]</span>
               }</span>
             <Description description={todoItem.description}/>
             <Deadline deadline={todoItem.deadline}/>
-            <button className="delete-button" onClick={() => deleteTodo(todoItem.id)}>Delete </button>
+            <button className="delete-button" onClick={() => deleteTodo(todoItem._id)}>Delete </button>
           </div>
       </li>
     )

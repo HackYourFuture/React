@@ -5,7 +5,7 @@ export default class Deadline extends React.Component {
   render() {
     return (
       <div className="Deadline">
-        {this.props.deadline.toLocaleString()}
+        {this.props.deadline}
       </div>
     )
   }

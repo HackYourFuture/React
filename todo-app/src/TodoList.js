@@ -8,8 +8,9 @@ import {todoStore} from './stores';
 export default class TodoList extends React.Component {
 
   state = {
-    text: '',
+    text: ''
   }; 
+
 
   addTodo = (text) => {
     text = this.state.text
@@ -55,7 +56,7 @@ export default class TodoList extends React.Component {
         </div>
           <ul>
             {todoStore.todos.map((todoItem, i) => (
-              <React.Fragment key={todoItem.id}>
+              <React.Fragment key={todoItem._id}>
                 <TodoItem  deleteTodo={this.deleteTodo} changeStatus={this.changeStatus} todoItem = {todoItem} />
               </React.Fragment>
             ))}

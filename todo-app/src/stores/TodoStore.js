@@ -1,61 +1,108 @@
-import {observable, action} from 'mobx'
+import {observable, action, useStrict, runInAction} from 'mobx'
+import Moment from 'moment'
 
+
+useStrict(true)
 
 export default class TodoStore{
 
+    constructor(){
+      this.loadTodos();   // without constructor it won't work, you need to use componentDidMount
+    }
+
     @observable
-    todos = [
-        {
-          "id": 1,
-          "description": "Get out of bed",
-          "deadline": "2017-09-11",
-          "done": true
-        },
-        {
-          "id": 2,
-          "description": "Brush teeth",
-          "deadline": "2017-09-10",
-          "done": false
-        },
-        {
-          "id": 3,
-          "description": "Eat breakfast",
-          "deadline": "2017-09-09",
-          "done": false
-        }
-    ]
+    todos = [];
+
+    @action
+    loadTodos(){
+
+      fetch("https://hyf-react-api.herokuapp.com/todos")
+        .then(response => response.json())
+        .then(response => {
+          // this.setTodos(response)    // if you wanna make the @action tiny [using the function below]
+          console.log("LOAD TODOS : ", response);
+          runInAction(() => {
+            this.todos = response
+          })
+        })
+        .catch(error => {
+          runInAction(() => {
+            console.log(error)
+          })
+        })
+    }
+
+    // @action
+    // setTodos(todos) {
+    //   this.todos = todos
+    // }
 
     @action  // add a todo item
     addTodo(text){
 
-      const ids = this.todos.map(todo => todo.id)
       const todo = {
-        "id": ids.length === 0 ? 1 : Math.max(...ids) + 1,
         "description": text,
-        "deadline": "2018-01-11",
+        "deadline": Moment().format('YYYY-MM-DD'),
         "done": false
       }
 
-      this.todos.push(todo);
+      fetch('https://hyf-react-api.herokuapp.com/todos/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(todo), 
+      })
+        .then(response => response.json())
+        .then(response => {
+          console.log("POST RESPONSE   :", response)
+          this.loadTodos();
+        })  
     }
 
     @action // change status of a todo
     onDone(todoID){
 
-      const todo = this.todos.find(todo => todo.id === todoID)
+      const todo = this.todos.find(todo => todo._id === todoID)
       if(todo == null) {return}
 
       todo.done = !todo.done
+
+      fetch(`https://hyf-react-api.herokuapp.com/todos/${todoID}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(todo), 
+      })
+        .then(response => response.json())
+        .then(response => {
+          console.log("PATCH RESPONSE   :", response)
+          this.loadTodos();
+        })  
     }
 
     @action  // delete a todo item
     onDelete(todoID){
 
       var updatedTodos = this.todos.filter((val,index) =>{
-      return val.id !== todoID;
+      return val._id !== todoID;
       })
 
-      this.todos = updatedTodos; 
+      this.todos = updatedTodos;
+      
+      fetch(`https://hyf-react-api.herokuapp.com/todos/${todoID}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedTodos), 
+      })
+        .then(response => response.json())
+        .then(response => {
+          console.log("DELETE RESPONSE  :", response)
+          this.loadTodos();
+        })  
     }
 
 }
