@@ -50,7 +50,7 @@ export default class Todo extends React.Component{
 
    renderViewing() {
 
-    const { todo, handleDoneToggle, onEditClick, onRmoveClick } = this.props;
+    const {todo, handleDoneToggle, onEditClick, onRmoveClick } = this.props;
 
         return (
 
@@ -59,40 +59,31 @@ export default class Todo extends React.Component{
                 <div className="Remove">
                     <Button 
                       label="remove"
-                      onClick={() => {onRmoveClick(todo.id)}}
+                      onClick={() => {onRmoveClick(todo._id)}}
                     />
                 </div>
 
                 <div className="Edit">
                     <Button 
                       label="edit"
-                      onClick={() => {onEditClick(todo.id)}}
+                      onClick={() => {onEditClick(todo._id)}}
                       />
                 </div>
 
                 <div className="Checkbox">
-                    <input onChange={() => handleDoneToggle(todo.id)} 
+                    <input onChange={() => handleDoneToggle(todo._id)} 
                     checked={todo.done}
                     type="checkbox" 
                     />
                 </div>
 
                 <div className="Todo-Description">
-                    <Description task={todo.task}/>
+                    <Description 
+                    description={todo.description}
+                    />
                 </div> 
                 
                 <div className="Add-Time">
-                    <div>
-                        <div className="Add-Time-Title">
-                            <Title titleText={"at "}
-                            />
-                        </div>
-                        <div className="Add-Time-Time">
-                            <Time
-                            time={todo.addedTime}
-                            /> 
-                        </div>
-                    </div>
                     <div>
                         <div className="Add-Deadline-Title">
                            <Title disabled={this}
@@ -101,7 +92,7 @@ export default class Todo extends React.Component{
                         </div>
                         <div className="Add-Deadline-Time">
                             <Time 
-                            time={todo.deadlineTime}
+                            time={todo.deadline}
                             /> 
                         </div>
                     </div>
@@ -115,14 +106,14 @@ export default class Todo extends React.Component{
         return (
           <div>
             <div>
-              {/* this is for task */}
+              {/* this is for description */}
               <TextField
                 multiline
-                value={this.state.TodoText}      
+                value={this.props.description}      
                 onChange={this.handleTextChange} 
               />
               {/* this is for deadline date */}
-              <TextField value={this.state.TodoText}      
+              <TextField value={this.props.deadline}      
                 onChange={this.handleDeadlineChange} 
             
               />

@@ -1,61 +1,80 @@
-import {observable, autorun, action} from 'mobx';
-import Moment from 'moment';
-import {saveTodos, loadTodos} from '../storage';
+import {observable, action, useStrict} from 'mobx';
+
+useStrict(true);
 
 export default class TododStore {
 
-    constructor() {
-        autorun(() => {
-            saveTodos(this.todos);
-        });
-    };
-
     @observable
-    todos = loadTodos();
-
-    findTodo(id) {
-        return this.todos
-          .find(todo => todo.id === id)
+    todos = [];
+  
+    loadTodos(){
+    fetch("https://hyf-react-api.herokuapp.com/todos")
+        .then(response => response.json())
+        .then(response => {
+            this.setTodos(response)
+        })     
     };
 
     @action
-    addTodo(text, deadline) {
-        const ids = this.todos.map(todo => todo.id)
+    setTodos(todos){
+        this.todos = todos
+    };
+
+    findTodo(id) {
+        return this.todos
+          .find(todo => todo._id === id)
+    };
+
+    @action
+    addTodo(text, deadlineTime) {
+
         const todo = {
-                id: ids.length === 0 ? 1 : Math.max(...ids) + 1,
-                task: text,
-                addedTime: Moment().format('YY-MM-DD'),
-                deadlineTime: deadline,
-                done: false,
+            description: text,
+            deadline: deadlineTime,
+            done: false,
         };
-        this.todos.push(todo);
+
+        fetch('https://hyf-react-api.herokuapp.com/todos/create', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            }, body: JSON.stringify(todo),
+        })
+        .then(response => response.json())
+        .then(response => this.loadTodos())
     };
 
     @action
     handleTodoRemove = (id) => {
-        this.todos = this.todos.filter(todo => todo.id !== id);
+        fetch(`https://hyf-react-api.herokuapp.com/todos/${id}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(response => this.loadTodos())
     };
 
     @action
-    onSaveTodo = (id, task) => {
-        this.todos = this.todos.map(todo => {
-            if (todo.id === id) {
-              return {...todo, task};
-            } else {
-              return todo
-            }
-      });
+    onSaveTodo = (id, text) => {
+      fetch(`https://hyf-react-api.herokuapp.com/todos/${id}`, {
+            method: 'PATCH',
+            headers: {
+            'Content-Type': 'application/json',
+            }, body: JSON.stringify({description : text}),
+        })
+        .then(response => response.json())
+        .then(response => this.loadTodos())
     };
 
     @action
     onSaveDeadline = (id, deadlineTime) => {
-        this.todos = this.todos.map(todo => {
-            if (todo.id === id) {
-                return {...todo, deadlineTime};
-            } else {
-                return todo
-            }
-        });  
+        fetch(`https://hyf-react-api.herokuapp.com/todos/${id}`, {
+            method: 'PATCH',
+            headers: {
+            'Content-Type': 'application/json',
+            }, body: JSON.stringify({deadline : deadlineTime}),
+        })
+        .then(response => response.json())
+        .then(response => this.loadTodos())
     };
 
     @action
@@ -63,5 +82,14 @@ export default class TododStore {
         const todo = this.findTodo(id)
     
         todo.done = !todo.done
+
+        fetch(`https://hyf-react-api.herokuapp.com/todos/${id}`, {
+            method: 'PATCH',
+            headers: {
+            'Content-Type': 'application/json',
+            }, body: JSON.stringify({done : todo.done}),
+        })
+        .then(response => response.json())
+        .then(response => this.loadTodos())
     };
 };

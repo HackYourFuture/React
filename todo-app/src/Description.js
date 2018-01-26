@@ -7,7 +7,7 @@ export default class Description extends React.Component{
 
             <div className="Description">
 
-               {this.props.task}   
+               {this.props.description}   
 
             </div>
         );
