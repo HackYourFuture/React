@@ -1,6 +1,24 @@
+body {
+    font-family: monospace;
+    color: gray;
+    background-image: url("./back_ground.jpg");
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+
 h1 {
-     margin: 10px;
-     padding: 10px;
+    font-size: 35px;
+}
+
+h1, h2 {
+     margin-right: 2px;
+     font-weight: 400;
+}
+
+.counter:hover{
+    font-weight: bolder;
+    font-size: 20px;
 }
 
 .tasks {
@@ -14,16 +32,60 @@ h1 {
      margin: 10px;
      padding: 10px;
      font-size: 1.5em;
-     font-family: sans-serif;
+     font-family: monospace;
+}
+
+.task-text:hover {
+    font-weight: bolder;
+    font-size: 30px;
 }
 
 .task-deadline {
      margin: 10px;
      padding: 10px;
      font-size: 1em;
-     font-family: sans-serif;
+     font-family: monospace;
+}
+
+.task-deadline:hover {
+    font-weight: bolder;
+    font-size: 15px;
 }
 
 .done{
-	text-decoration: line-through;
+    text-decoration: line-through;
+    opacity: 50%;
+}
+.form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.TextField-singleline {
+    margin-right: 5px;
+    background: transparent;
+    border: none;
+    border-radius: 50px;
+    border: 3px solid gray;
+    font-family: monospace;
+    color: gray;
+    padding: 3px;
+
+}
+
+.TextField-singleline:focus {
+    outline: none;
+}
+
+.Button {
+    background: transparent;
+    border: none;
+    font-family: monospace;
+    color: gray;
+    font-weight: bold;
+    font-size: 15px;
+}
+.Button:hover {
+    font-weight: bolder;
+    font-size: 18px;
 }
