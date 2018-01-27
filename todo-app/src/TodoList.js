@@ -1,62 +1,73 @@
 import React from 'react';
-import {inject, observer} from 'mobx-react';
-import {taskStore} from './stores';
-import Task from './Task' ;
-import TaskForm from './TaskForm';
+import { inject, observer } from 'mobx-react';
+import { todoStore } from './stores';
+import Todo from './Todo';
+import TodoForm from './TodoForm';
+import loadinImage from './loadingImage.gif';
 
-@inject('taskStore')
+@inject('todoStore')
 @observer
 
 export default class TodoList extends React.Component {
-    
-state = {
+
+  state = {
     editingTodoID: null
+  };
+
+  componentDidMount = () => {
+    todoStore.loadTodoItems();
   }
-   
-handleTaskAdd = newTodo => {
-     taskStore.addTask(newTodo);
- };
 
-handleRemoveTodo = (todoItem) => {
-     taskStore.removeTask(todoItem);
-    
-}
+  handleTodoAdd = (newTodo, date) => {
+    todoStore.addTodo(newTodo, date);
+  };
 
-toggleStatus = (todoID) =>{
-     taskStore.toggleStatus(todoID);    
-}
+  handleRemoveTodo = (todoItem) => {
+    todoStore.removeTodo(todoItem);
 
-handleEditTodo = id => {
-  this.setState({editingTodoID: id});
-};
-handleCancleEdit = ()=> {
-    this.setState({editingTodoID: null});
-}
-handleSaveEdit = (id , description) => {
-     taskStore.handleSaveEdit(id, description);
-     this.setState({editingTodoID: null});
-};
+  }
+
+  toggleStatus = (todoID) => {
+    todoStore.toggleStatus(todoID);
+  }
+
+  handleEditTodo = id => {
+    this.setState({ editingTodoID: id });
+  };
+  handleCancleEdit = () => {
+    this.setState({ editingTodoID: null });
+  }
+  handleSaveEdit = (id, description) => {
+    todoStore.handleSaveEdit(id, description);
+    this.setState({ editingTodoID: null });
+  };
 
   render() {
+    if (todoStore.loadingTodos) {
+      return (
+        <img src={loadinImage} alt='loading' />
+      )
+    }
     return (
       <div>
-         <TaskForm 
-           ontodoAdd = {this.handleTaskAdd}
-          />
-		<ul className='tasks'>
-			{taskStore.todos.map((todoItem, i)=> 
-            <Task 
-             key={todoItem.id} 
-             todoItem = {todoItem}
-             toggleStatus ={this.toggleStatus}
-             onRemove = {this.handleRemoveTodo}
-             isEditing = {todoItem.id === this.state.editingTodoID}
-             onEdit = {this.handleEditTodo}
-             onCancleEdit = {this.handleCancleEdit}
-             onSaveEdit = {this.handleSaveEdit}
+        <TodoForm
+          ontodoAdd={this.handleTodoAdd}
+        />
+        <ul className='tasks'>
+          {todoStore.loadingTodos}
+          {todoStore.todos.map((todoItem, i) =>
+            <Todo
+              key={todoItem._id}
+              todoItem={todoItem}
+              toggleStatus={this.toggleStatus}
+              onRemove={this.handleRemoveTodo}
+              isEditing={todoItem._id === this.state.editingTodoID}
+              onEdit={this.handleEditTodo}
+              onCancleEdit={this.handleCancleEdit}
+              onSaveEdit={this.handleSaveEdit}
             />
-    )}
-		</ul>
+          )}
+        </ul>
       </div>
     );
   }

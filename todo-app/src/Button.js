@@ -1,25 +1,25 @@
 import React from 'react'
 
-export default class Button extends React.Component{
+export default class Button extends React.Component {
     handleClick = event => {
         event.preventDefault();
-        
-        if (!this.props.disabled && this.props.onClick){
-        this.props.onClick();
+
+        if (!this.props.disabled && this.props.onClick) {
+            this.props.onClick();
         }
     }
-    render(){
+    render() {
         let className = 'Button';
-        if (this.props.disabled){
+        if (this.props.disabled) {
             className += 'Button-disabled'
         }
-        return(
-              <button 
-              className={className} 
-              disabled={this.props.disabled} 
-              onClick={this.handleClick}>
-              {this.props.label}
-              </button>
+        return (
+            <button
+                className={className}
+                disabled={this.props.disabled}
+                onClick={this.handleClick}>
+                {this.props.label}
+            </button>
         )
     }
 }

@@ -1,3 +1,3 @@
-import TaskStore from './TaskStore';
+import TodoStore from './TodoStore';
 
-export const taskStore = new TaskStore();
+export const todoStore = new TodoStore();
