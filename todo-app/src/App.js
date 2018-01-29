@@ -1,13 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Provider } from 'mobx-react';
+import { todoStore } from './stores';
+import TodoList from './TodoList';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        Hello World!
-      </div>
-    );
-  }
+export default class App extends React.Component {
+    render() {
+        return (
+            <Provider todoStore={todoStore}>
+                <div className="App">
+                    <h1>Todo App</h1>
+                    <TodoList />
+                </div>
+            </Provider>
+        )
+    }
 }
 
-export default App;
+
