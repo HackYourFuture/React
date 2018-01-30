@@ -25,18 +25,18 @@ export default class TodoList extends React.Component {
   };
 
   deleteTodo = (todoID) => {
-    todoStore.onDelete(todoID); 
+    todoStore.deleteTodo(todoID); 
   } 
   
   changeStatus = (todoID) => {
-   todoStore.onDone(todoID);
+   todoStore.todoStatus(todoID);
   };
 
 
   render() {
     if(todoStore.todos.length === 0){
       return(
-        <div className="TodoList">No items...</div>
+        <div className="TodoList">Loading...</div>
       )
     }
     else {

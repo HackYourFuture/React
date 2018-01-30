@@ -39,11 +39,12 @@ export default class TodoStore{
 
     @action  // add a todo item
     addTodo(text){
-
+        
+      const fourDaysForward = new Moment().add(4, 'day');
       const todo = {
-        "description": text,
-        "deadline": Moment().format('YYYY-MM-DD'),
-        "done": false
+        description: text,
+        deadline: fourDaysForward.format('YYYY-MM-DD'),
+        done: false
       }
 
       fetch('https://hyf-react-api.herokuapp.com/todos/create', {
@@ -61,10 +62,12 @@ export default class TodoStore{
     }
 
     @action // change status of a todo
-    onDone(todoID){
+    todoStatus(todoID){
 
       const todo = this.todos.find(todo => todo._id === todoID)
-      if(todo == null) {return}
+      if(todo === null) {
+          throw new Error("No items..."); 
+      }
 
       todo.done = !todo.done
 
@@ -83,11 +86,11 @@ export default class TodoStore{
     }
 
     @action  // delete a todo item
-    onDelete(todoID){
+    deleteTodo(todoID){
 
-      var updatedTodos = this.todos.filter((val,index) =>{
-      return val._id !== todoID;
-      })
+      const updatedTodos = this.todos.filter((val) =>{
+                             return val._id !== todoID;
+                           })
 
       this.todos = updatedTodos;
       

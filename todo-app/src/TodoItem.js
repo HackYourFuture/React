@@ -8,8 +8,8 @@ import './index.css';
 @observer
 export default class TodoItem extends React.Component {
 
-  //onDelete = () => this.props.onDelete(this.props.todoItem.id)
-  //onDone = () =>  this.props.onDone(this.props.todoItem.id)
+  //deleteTodo = () => this.props.deleteTodo(this.props.todoItem.id)
+  //todoStatus = () =>  this.props.todoStatus(this.props.todoItem.id)
   
   render() {
     const {todoItem, deleteTodo, changeStatus} = this.props;
@@ -18,10 +18,10 @@ export default class TodoItem extends React.Component {
           <div className="Item-info">
             <span >{todoItem.done ?
                 <span className="done-button" onClick={() => changeStatus(todoItem._id)}>[X]</span>
-                //<span className="done-button" onClick={onDone}>[X]</span>
+                //<span className="done-button" onClick={todoStatus}>[X]</span>
                 :
                 <span className="undone-button" onClick={() => changeStatus(todoItem._id)}>[_]</span>
-                //<span className="undone-button" onClick={onDone}>[_]</span>
+                //<span className="undone-button" onClick={todoStatus}>[_]</span>
               }</span>
             <Description description={todoItem.description}/>
             <Deadline deadline={todoItem.deadline}/>
