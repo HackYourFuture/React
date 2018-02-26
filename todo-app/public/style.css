@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#root {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.theme {
+     background: #03a9f4ab;
+     background-image: url(https://assets.fstatic.nl/master_1659/assets/components/search-banner/images/gezinswoning-winter-silhouet.svg);
+     background-repeat: no-repeat no-repeat;
+     background-size: auto 100%;
+     background-position: center top;
+         height: 20vh;
+}
+
+.theme h1 {
+    padding: 5%;
+    color: white;
+    margin: 0;
+}
+.todosItim{
+    list-style: none;
+   
+}
+.todoList{
+     padding: 3%;
+     border-bottom: 1px solid gray;
+}
