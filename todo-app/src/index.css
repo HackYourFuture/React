@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#main {
+  padding: 5vh 5vw;
+}
+
+h2 {
+  padding-left: 3vw;
+  font-size: 150%;
+  font-family: Verdana, sans-serif;
+}
+
+li {
+  line-height: 7vh;
+  list-style-type: circle;
+  font-family: Tahoma, sans-serif;
+  font-size: 120%; 
+}
