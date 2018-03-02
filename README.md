@@ -4,11 +4,11 @@ Specifications React Module
 ## Planning
 | Week | Topic | Read | Homework |
 | ---- | ----- | ---- | -------- |
-| 1. | React Components | [JSX](https://reactjs.org/docs/introducing-jsx.html), [Elements](https://reactjs.org/docs/rendering-elements.html), [Components and Props](https://reactjs.org/docs/components-and-props.html) | [Week 1 Homework](https://github.com/HackYourFuture/React/blob/master/homework/Week%201.md) |
-| 2. | State and Lifecycle | [Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html), [Events](https://reactjs.org/docs/handling-events.html), [Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html), [List and Keys](https://reactjs.org/docs/lists-and-keys.html) | [Week 2 Homework](https://github.com/HackYourFuture/React/blob/master/homework/Week%202.md) |
-| 3. | Forms and Managing State | [Forms](https://reactjs.org/docs/forms.html), [Manage State](https://reactjs.org/docs/lifting-state-up.html), [Thinking in React](https://reactjs.org/docs/thinking-in-react.html) | [Week 3 Homework](https://github.com/HackYourFuture/React/blob/master/homework/Week%203.md) |
-| 4. | Application State | [Flux Concepts](https://github.com/facebook/flux/tree/master/examples/flux-concepts) | [Week 4 Homework](https://github.com/HackYourFuture/React/blob/master/homework/Week%204.md) |
-| 5. | MobX + APIs | [MobX Async Actions](https://mobx.js.org/best/actions.html) | [Week 5 Homework](https://github.com/HackYourFuture/React/blob/master/homework/Week%205.md) |
+| 1. | React Components | [JSX](https://reactjs.org/docs/introducing-jsx.html), [Elements](https://reactjs.org/docs/rendering-elements.html), [Components and Props](https://reactjs.org/docs/components-and-props.html) | [Week 1 Homework](https://github.com/HackYourFuture/React/blob/master/documentation/homework/Week%201.md) |
+| 2. | State and Lifecycle | [Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html), [Events](https://reactjs.org/docs/handling-events.html), [Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html), [List and Keys](https://reactjs.org/docs/lists-and-keys.html) | [Week 2 Homework](https://github.com/HackYourFuture/React/blob/master/documentation/homework/Week%202.md) |
+| 3. | Forms and Managing State | [Forms](https://reactjs.org/docs/forms.html), [Manage State](https://reactjs.org/docs/lifting-state-up.html), [Thinking in React](https://reactjs.org/docs/thinking-in-react.html) | [Week 3 Homework](https://github.com/HackYourFuture/React/blob/master/documentation/homework/Week%203.md) |
+| 4. | Application State | [Flux Concepts](https://github.com/facebook/flux/tree/master/examples/flux-concepts) | [Week 4 Homework](https://github.com/HackYourFuture/React/blob/master/documentation/homework/Week%204.md) |
+| 5. | MobX + APIs | [MobX Async Actions](https://mobx.js.org/best/actions.html) | [Week 5 Homework](https://github.com/HackYourFuture/React/blob/master/documentation/homework/Week%205.md) |
 
 ## Read up before we get started
 
