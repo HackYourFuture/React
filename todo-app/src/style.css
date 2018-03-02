@@ -1,0 +1,87 @@
+body {
+    background-image: url('http://www.wildtextures.com/wp-content/uploads/2011/11/wildtextures-wooden-chopping-board-texture-2.jpg');
+    background-size:  cover ;
+    box-sizing: content-box;
+}
+.header {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: rgb(79, 73, 0);
+    font-size: 80px;
+    display : flex;
+    justify-content: center;
+    height : 200px;
+    width : 100%;
+}
+.title {
+    margin :auto;
+}
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    vertical-align: top;
+
+}
+.tasks {
+    background-image: url("http://backgroundcheckall.com/wp-content/uploads/2017/12/background-note.png");
+    background-size : cover;
+    list-style-type: none;
+    font-weight: bold;
+    width :25%;
+    
+    font-size: 20px;
+    padding: 15px;
+    padding-top: 50px;
+    margin :5px;
+    justify-content: center;
+    box-shadow: 12px 12px 2px 1px rgba(1, 1, 22, 0.4);;
+}
+.addingContainer {
+    width:100;
+    background-color: rgba(0, 0, 0, 0.6);
+    color : white;  
+}
+form {
+    padding: 10px;
+    font-size:19px;
+    text-align: center;
+    font-weight:bold;
+}
+input {
+    margin: 20px;
+    padding: 20px;
+}
+.tools {
+    width:90%;
+    margin: 5px;
+    position: relative;
+    float: right;
+    
+}
+.tools button {
+    padding: 10px;
+    margin :5px;
+    position: realtive;
+    float: right;
+    margin-top:25px;
+}
+.remove-button {
+    background-color: rgb(238, 56, 56);
+}
+.remove-button:hover {
+    background-color:  rgb(211, 21, 21);
+}
+.edit-button {
+    background-color: rgb(138, 138, 247)
+}
+.edit-button:hover {
+    background-color:  rgb(93, 93, 240)
+}
+.createButton {
+    padding:10px;
+    background-color: rgb(250, 159, 1);
+}
+.createButton:hover {
+    background-color: rgb(113, 248, 72);   
+}
