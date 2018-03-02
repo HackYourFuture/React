@@ -46,6 +46,14 @@ Find the slides used in class here:
 
 https://slides.com/joostlubach/react-class/live
 
+## Learning examples
+
+### Clocks [[source](/examples/clocks)]
+
+Follows the React docs clock example [here](https://reactjs.org/docs/state-and-lifecycle.html). Uses [momentjs](https://github.com/moment/moment) and [moment-timezone](https://github.com/moment/moment-timezone) for datetime functionality.
+
+![Clocks Example Screenshot](/documentation/example-screenshots/clocks.png)
+
 ## Real world example
 
 Have a look at Mattijn's real world React project:
