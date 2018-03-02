@@ -11,14 +11,16 @@ class App extends React.Component {
     const city = prompt('What is the city?')
     const timeZone = prompt('What is the Time Zone?')
 
-    const newClocks = this.state.clocks.concat([{
-      city,
-      timeZone,
-    }])
+    if (city && timeZone) {
+      const newClocks = this.state.clocks.concat([{
+        city,
+        timeZone,
+      }])
 
-    this.setState({
-      clocks: newClocks,
-    })
+      this.setState({
+        clocks: newClocks,
+      })
+    }
   }
 
   handleDeleteClock = (cityToDelete) => {
@@ -33,22 +35,38 @@ class App extends React.Component {
 
   render() {
 
+    const { clocks } = this.state
+    const clockCount = clocks.length
+
     return (
-      <div>
-        <h1>World clocks:</h1>
-        <button onClick={this.handleCreateClock}>
+      <div className='panel'>
+        <h1>
+          World clocks
+          <span className='header-count'>| {clockCount} clock{clockCount !== 1 ? <span>s</span> : null}</span>
+        </h1>
+        <table>
+          <thead>
+            <tr>
+              <th>City</th>
+              <th>Timezone</th>
+              <th>Current time</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {clocks.map(clock =>
+              <Clock
+                city={clock.city}
+                timeZone={clock.timeZone}
+                key={clock.city}
+                handleDeleteClock={this.handleDeleteClock}
+              />
+            )}
+          </tbody>
+        </table>
+        <button onClick={this.handleCreateClock} className='create-clock-btn'>
           Create new clock
         </button>
-        <div>
-          {this.state.clocks.map(clock =>            
-            <Clock
-              city={clock.city}
-              timeZone={clock.timeZone}
-              key={clock.city}
-              handleDeleteClock={this.handleDeleteClock}
-            />
-          )}
-        </div>
       </div>
     );
   }

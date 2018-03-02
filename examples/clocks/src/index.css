@@ -1,15 +1,66 @@
+/* General styles */
 body {
   margin: 0;
   padding: 50px;
   font-family: sans-serif;
-  text-align: center;
+  text-align: left;
+  background: rgba(200,200,200,0.2);
+  font-family: "Montserrat", "Helvetica", "Open Sans", "Arial";
 }
 
-.Clock {
-  background: rgba(0,0,0,0.085);
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 10px;
-  line-height: 2em;
+/* Panel styles */
+.panel {
+  border: 1px solid #1b2431;
+  border-radius: 3px;
+  background: #273142;
+  color: #fff;
+  max-width: 760px;
+  min-height: 400px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 0 60px 0;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+/* Header styles */
+h1 {
+  padding: 0 40px;
+}
+.header-count {
+  color: #738297;
+  font-size: 20px;
+  margin: 0 0 0 10px;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-spacing: 0px;
+  table-layout: fixed;
+}
+thead th {
+  padding: 10px 40px;
+  background: #313D4F;
+}
+tbody th {
+  padding: 20px 40px;
+  border-bottom: 1px solid #738297;
+}
+
+/* Button styles */
+button {
+  background: transparent;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  min-height: 40px;
+  opacity: 0.9;
+}
+button:hover {
+  opacity: 1;
+}
+.create-clock-btn {
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
 }

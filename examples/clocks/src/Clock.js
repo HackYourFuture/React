@@ -29,12 +29,12 @@ export default class Clock extends React.Component {
     const { city, timeZone, handleDeleteClock } = this.props
 
     return (
-      <div className='Clock'>
-        <div>City: {city}</div>
-        <div>Time Zone: {timeZone}</div>
-        <div>{this.state.currentTime.toLocaleString()}</div>
-        <button onClick={() => handleDeleteClock(city)}>Delete clock</button>
-      </div>
+      <tr>
+        <th>{city}</th>
+        <th>{timeZone}</th>
+        <th>{this.state.currentTime.toLocaleString()}</th>
+        <th><button onClick={() => handleDeleteClock(city)}>Delete clock</button></th>
+      </tr>
     )
   }
 }
