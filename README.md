@@ -48,9 +48,26 @@ https://slides.com/joostlubach/react-class/live
 
 ## Learning examples
 
+### Counter [[source](/examples/counter)]
+
+Demonstrates:
+
+1. Most basic implementation of component state
+2. Handler functions bound to `onClick`
+
+![Clocks Example Screenshot](/documentation/example-screenshots/counter.png)
+
 ### Clocks [[source](/examples/clocks)]
 
 Follows the React docs clock example [here](https://reactjs.org/docs/state-and-lifecycle.html). Uses [momentjs](https://github.com/moment/moment) and [moment-timezone](https://github.com/moment/moment-timezone) for datetime functionality.
+
+Demonstrates:
+
+1. Using both state and props in a component tree
+2. Passing event handlers as props
+3. Rendering components in a loop
+4. Conditional JSX rendering (header count)
+5. State-bound lifecycle and lifecycle events (clock interval)
 
 ![Clocks Example Screenshot](/documentation/example-screenshots/clocks.png)
 
