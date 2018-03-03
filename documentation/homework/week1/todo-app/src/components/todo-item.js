@@ -7,7 +7,6 @@ export default class todoItem extends Component {
       deadLineDate: new Date(this.props.deadLineDate).toDateString(),
       _isDone: this.props.isDone,
       get isDone() {
-        console.log(this._isDone)
         if (this._isDone) {
           return {
             textDecoration: this._isDone && 'line-through',
@@ -16,7 +15,6 @@ export default class todoItem extends Component {
         }
       }
     }
-    console.log(isDone)
     return (
       <ul>
         <li style={isDone} >{description}, {deadLineDate}</li>
