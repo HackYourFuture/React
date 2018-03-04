@@ -9,18 +9,31 @@ export let todoArray = [
 ]
 
 class TodoList extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            tasks: todoArray
+        }
+    }
+   
+    addingTask = (description, deadLine) => {
+        this.setState((previousState) => ({
+                tasks: [ { description: description, deadLine: deadLine }, ...previousState.tasks]
+            })
+        )
+        console.log(this.state)
+    }
     render() {
-        let tasks = todoArray.map((task, index) =>
+        let tasks = this.state.tasks.map((task, index) =>
             <TaskItem
                 description={task.description}
                 deadLine={task.deadLine}
                 key={index}
             />
         );
-        console.log(todoArray)
         return (
             <div>
-                <AddingContainer todos={todoArray}/>
+                <AddingContainer create={this.addingTask} />
                 <ul className="list">
                     {tasks}
                 </ul>

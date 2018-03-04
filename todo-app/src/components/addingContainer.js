@@ -1,32 +1,43 @@
+
 import React, { Component } from "react";
 import FaPlus from "react-icons/lib/fa/plus"
 
 
 export default class AddingContainer extends Component {
     constructor(props) {
-        super(props);
-        this.state = { tasks: this.props.todos }
-        this.addingTask = this.addingTask.bind(this)
+        super(props)
+        this.state = {
+            description: "",
+            deadLine: ""
+        }
     }
-    addingTask() {
-        let tasksList = this.state.tasks
-        tasksList.push({ description: this.description.value, deadLine: this.deadLine.value });
-        this.setState({ tasks: tasksList })
-        console.log(this.state);
+
+    handleDescriptionChange = (event) => {
+        this.setState({ description: event.target.value })
     }
+    handleDeadlineChange = (event) => {
+        this.setState({ deadLine: event.target.value })
+
+    }
+    handleCreating = () => {
+        let descriptionInput = this.state.description
+        let deadLineInput = this.state.deadLine
+         this.props.create(descriptionInput, deadLineInput)
+    }
+
     render() {
-        let description = <input type="text" />;
-        let deadLine = <input type="text" />;
-        
+        let description = <input type="text" value={this.state.description} onChange={this.handleDescriptionChange} />;
+        let deadLine = <input type="text" value={this.state.deadLine} onChange={this.handleDeadlineChange} />;
+
         return (
-            <form className="addingContainer">
+            <div className="addingContainer">
                 Description : {description}
                 Dead line : {deadLine}
-                <button className="createButton" value="Create new task" onClick={this.addingTask}>
-                    Create new task 
+                <button className="createButton" value="Create new task" onClick={this.handleCreating}>
+                    Create new task
                      <FaPlus />
-                    </button>
-            </form>
+                </button>
+            </div>
         )
     }
 } 
