@@ -5,7 +5,13 @@ class Header extends Component {
     render() {
         return (
             <div className="theme">
-                <h1>To-Do</h1>
+                <div>
+                    <h1 className="listTitle">
+                        <span>
+                           To_Do
+                        </span>
+                    </h1>
+                </div>
             </div>
         );
     }
