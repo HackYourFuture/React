@@ -50,6 +50,9 @@ input {
     padding: 20px;
     font-weight:bold;
 }
+.deadline-input {
+    padding: 0px;
+}
 .tools {
     width:90%;
     margin: 5px;
@@ -82,4 +85,9 @@ input {
 }
 .createButton:hover {
     background-color: rgb(113, 248, 72);   
+}
+.timestamp {
+    font-size : 15px;
+    margin : 5px;
+    padding: 2px;
 }
