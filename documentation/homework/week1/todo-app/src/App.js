@@ -11,9 +11,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>This is Todo-Item App</h2>
         </header> {/*the Date should be -> M/D/Y */}
-          <Item description='Get out of bed' deadLineDate={'11/13/2017'} isDone={true} />
-          <Item description='Brush teeth' deadLineDate={'11/14/2017'} />
-          <Item description='Eate breakfast' deadLineDate={'11/15/2017'} />
+        <Item description='Get out of bed' deadLineDate={'11/13/2017'} isDone={true} />
+        <Item description='Brush teeth' deadLineDate={'11/14/2017'} />
+        <Item description='Eate breakfast' deadLineDate={'11/15/2017'} />
       </div>
     );
   }
