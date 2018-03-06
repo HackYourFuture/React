@@ -1,30 +1,24 @@
-import React, { Component } from "react";
-import TodoItems from "./Todos";
+import React from "react";
+import PropTypes from "prop-types";
 
-export default class ListItems extends Component {
-
-    dateString(date) {
-        return new Date(date).toDateString();
-    }
+export default class ListItems extends React.Component {
 
     render() {
+        const { todos } = this.props;
+        
         return (
-            <TodoItems
-                todos={[
-                    {
-                        task: "make dental appointment",
-                        deadline: this.dateString("March 9, 2018")
-                    },
-                    {
-                        task: "pay phone bill",
-                        deadline: this.dateString("March 27, 2018")
-                    },
-                    {
-                        task: "plan summer vacation",
-                        deadline: this.dateString("April 14, 2018")
-                    }
-                ]}
-            />      
+            <ul>
+                {todos.map(todo => {
+                    return <li key={todo.id}>
+                        {todo.task}, {todo.deadline}
+                    </li>
+                })}
+            </ul>
         );
     }
 }
+
+
+ListItems.propTypes = {
+    todos: PropTypes.array.isRequired
+};
