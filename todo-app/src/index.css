@@ -4,7 +4,7 @@ body {
   font-family: sans-serif;
 }
 
-#main {
+#wrapper {
   padding: 5vh 5vw;
 }
 
@@ -14,9 +14,44 @@ h2 {
   font-family: Verdana, sans-serif;
 }
 
-li {
+label {
   line-height: 7vh;
   list-style-type: circle;
   font-family: Tahoma, sans-serif;
   font-size: 120%; 
+  margin-left: 1vw;
 }
+
+.crossedOut {
+  text-decoration: line-through;
+}
+
+button {
+  padding: 2vh 4vw;
+  font-size: 100%;
+  background: purple;
+  color: white;
+  border: 2px solid green;
+  margin-left: 4vw;
+  position: relative;
+  bottom: 4vh;
+}
+
+h3 {
+  margin-top: 10vh;
+  margin-left: 3vw;
+}
+
+textarea {
+  margin: 2vh;
+  font-size: 150%;
+}
+
+#form input {
+  font-size: 150%;
+  margin: 2vh;
+  position: relative;
+  bottom: 3vh;
+}
+
+
