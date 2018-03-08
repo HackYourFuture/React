@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+
 export default class ListItem extends React.Component {
 
     state = {
@@ -11,17 +12,28 @@ export default class ListItem extends React.Component {
         this.setState({ done: e.target.checked });
     }
 
+    removeTodo = () => {
+        const todoId = this.props.todoItem.id;
+        this.props.removeTodo(todoId);
+    }
+
     render() {
         const { description, deadline } = this.props.todoItem;
         const crossedOut = this.state.done ? "crossedOut" : null;
 
         return (
-            <section>
-                <input type="checkbox" checked={this.state.done} onChange={this.handleCheck} />
+            <div>
+                <input type="checkbox"
+                    checked={this.state.done}
+                    onChange={this.handleCheck}
+                    className="checkbox" />
+                
                 <label className={crossedOut}>
                     {description}, {new Date(deadline).toDateString()}
                 </label> 
-            </section>
+
+                <button onClick={this.removeTodo} className="remove-btn">X</button>
+            </div>
         );
     }
 }
@@ -30,4 +42,3 @@ export default class ListItem extends React.Component {
 ListItem.propTypes = {
     todoItem: PropTypes.object.isRequired
 };
-

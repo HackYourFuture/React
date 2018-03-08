@@ -1,7 +1,8 @@
-body {
-  margin: 0;
-  padding: 0;
+* {
+  box-sizing: border-box;
   font-family: sans-serif;
+  margin: 0;
+  padding: 0; 
 }
 
 #wrapper {
@@ -26,32 +27,48 @@ label {
   text-decoration: line-through;
 }
 
-button {
-  padding: 2vh 4vw;
-  font-size: 100%;
-  background: purple;
-  color: white;
-  border: 2px solid green;
-  margin-left: 4vw;
-  position: relative;
-  bottom: 4vh;
+#form {
+  margin: 4vh;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-h3 {
-  margin-top: 10vh;
+#form button {
+  padding: 2vh 3vw;
+  font-size: 120%;
+  font-weight: bold;
+  border: 3px solid rgb(170, 243, 211);
+  background: rgb(247, 242, 242);
+  color:  rgb(185, 69, 180);
+  border-radius: 5%;
+  margin-top: 2vh;
+}
+
+.remove-btn {
+  padding: 0.5vh 0.5vw;
   margin-left: 3vw;
-}
-
-textarea {
-  margin: 2vh;
-  font-size: 150%;
+  font-weight: bold;
+  background: rgb(170, 243, 211);
+  color: rgb(185, 69, 180);
+  border-radius: 30%;
 }
 
 #form input {
-  font-size: 150%;
-  margin: 2vh;
-  position: relative;
-  bottom: 3vh;
+  font-size: 120%;
+  margin-right: 4vw;
+  border-radius: 5%;
+  border: 3px solid rgb(170, 243, 211);
+  padding: 1vh 1vw;
+  margin-top: 2vh;
 }
 
+#form input:nth-child(1) {
+  padding: 2vh 3.5vw;
+}
 
+.checkbox {
+  margin-right: 1vw;
+  position: relative;
+  bottom: 0.5vh;
+}
