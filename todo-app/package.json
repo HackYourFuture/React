@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "dataformat": "^1.0.0",
-    "moment": "^2.21.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-icons": "^2.2.7",

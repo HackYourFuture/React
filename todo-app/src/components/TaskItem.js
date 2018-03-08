@@ -17,7 +17,7 @@ export default class TaskItem extends Component {
     }
     handleChange = () => {
         this.setState(prevState => ({
-            isDone: !prevState
+            isDone: !prevState.isDone
         }))
         this.props.handleCheckingBox(this.props.taskId)
     }
@@ -25,7 +25,7 @@ export default class TaskItem extends Component {
         this.props.onRemove(this.props.taskId)
     }
     handleEditing = () => {
-        let descriptionPrompt = prompt("Enter the new Description", this.props.description)
+        const descriptionPrompt = prompt("Enter the new Description", this.props.description)
         if (descriptionPrompt) {
             this.props.onEdit(this.props.taskId, descriptionPrompt)
         } else {
@@ -47,7 +47,7 @@ export default class TaskItem extends Component {
                         <br />
                         Dead Line : {deadLine}
                         <br />
-                        Done : {checkBox}
+                       {checkBox}  {this.state.isDone ? "is Done" : "not done yet"}
                    </div>
                 </li>
                 <div className="tools">
@@ -55,7 +55,7 @@ export default class TaskItem extends Component {
                     <button className="edit-button" onClick={this.handleEditing}><Edit /></button>
                 </div>
                 <div className="timestamp">
-                    <span>Created at: {now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + " " + now.getHours() + ":" + now.getMinutes()}</span>     
+                    <span>Created at: {now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + " | " + now.getHours() + ":" + now.getMinutes()}</span>     
                 </div>    
 
             </div>

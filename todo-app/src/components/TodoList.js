@@ -1,16 +1,11 @@
 import React, { Component } from "react";
 import TaskItem from "./TaskItem.js";
 import AddingContainer from "./AddingContainer.js"
-
-export let todoArray = [
-    { id: 3, description: 'Get out of bed', deadLine: '2017-10-15', done: false },
-    { id: 2, description: 'Brush teeth', deadLine: '2017-10-14', done: false },
-    { id: 1, description: 'Eat breakfast', deadLine: '2017-10-13', done: false }
-]
+import myTodoList from "./myTodoList.json"
 
 class TodoList extends Component {
     state = {
-        tasks: todoArray
+        tasks: myTodoList
     }
 
     nextId = () => {
@@ -28,11 +23,12 @@ class TodoList extends Component {
         )
     }
     handleCheckingBox = (taskId) => {
-        let newState = this.state.tasks
-        newState.map(task => {
-            (taskId !== task.id) ? task : task.done = !task.done
+        const newState = this.state.tasks
+        newState.forEach(task => {
+            // eslint-disable-next-line
+            (taskId !== task.id) ? task : task.done = !task.done 
         })
-        return this.setState({tasks: newState})
+        this.setState({tasks: newState})
     }
     remove = (taskId) => {
         this.setState(prevState => ({
@@ -40,15 +36,17 @@ class TodoList extends Component {
         }))
     }
     edit = (taskId, newDescription) => {
-        let newState = this.state.tasks
-        newState.map(task => {
-            (taskId !== task.id) ? task : task.description = newDescription
+        const newState = this.state.tasks
+        newState.forEach(task => {
+            // eslint-disable-next-line
+            (taskId !== task.id) ? task : task.description = newDescription 
         })
-        return this.setState({tasks: newState})
+        this.setState({tasks: newState})
     }
     render() {
         console.log(this.state)
-        let tasks = this.state.tasks.map((task, index) =>
+        const todoArray = this.state.tasks
+        const tasks = todoArray.map((task, index) =>
             <TaskItem
                 taskId={task.id}    
                 description={task.description}
@@ -59,14 +57,23 @@ class TodoList extends Component {
                 onEdit={this.edit}
             />
         );
-        return (
-            <div>
-                <AddingContainer addingTask={this.addingTask} />
-                <ul className="list">
-                    {tasks}
-                </ul>
-            </div>
-        );
+        if (!todoArray.length) {
+            return (
+                <div>
+                    <AddingContainer addingTask={this.addingTask} />
+                    <div className="emptyList"> No Tasks to do!!</div>
+                </div>    
+            )
+        } else {
+            return (
+                <div>
+                    <AddingContainer addingTask={this.addingTask} />
+                    <ul className="list">
+                        {tasks}
+                    </ul>
+                </div>
+            )
+        }    
     }
 }
 

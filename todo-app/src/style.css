@@ -37,7 +37,6 @@ body {
     box-shadow: 12px 12px 2px 1px rgba(1, 1, 22, 0.4);;
 }
 .addingContainer {
-    width:100;
     background-color: rgba(0, 0, 0, 0.6);
     color : white;  
      padding: 10px;
@@ -90,4 +89,14 @@ input {
     font-size : 15px;
     margin : 5px;
     padding: 2px;
+}
+.emptyList {
+    background-color: rgba(0, 0, 0, 0.6);
+    color : white;
+    height:200px;
+    padding: 10px;
+    margin: 50px;
+    font-size:29px;
+    text-align: center;
+    font-weight:bold;
 }
