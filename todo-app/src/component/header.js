@@ -1,17 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Header extends Component {
+class Header extends React.Component {
 
     render() {
         return (
             <div className="theme">
-                <div>
                     <h1 className="listTitle">
-                        <span>
-                           To_Do
-                        </span>
+                            To_Do
                     </h1>
-                </div>
             </div>
         );
     }
