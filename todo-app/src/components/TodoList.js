@@ -44,7 +44,7 @@ class TodoList extends Component {
         this.setState({tasks: newState})
     }
     render() {
-        console.log(this.state)
+        console.log(this.state.tasks)
         const todoArray = this.state.tasks
         const tasks = todoArray.map((task, index) =>
             <TaskItem

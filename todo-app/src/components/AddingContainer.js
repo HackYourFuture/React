@@ -1,6 +1,7 @@
 
 import React, { Component } from "react";
 import FaPlus from "react-icons/lib/fa/plus"
+import moment from "moment"
 
 
 export default class AddingContainer extends Component {
@@ -12,7 +13,7 @@ export default class AddingContainer extends Component {
         this.setState({ description: event.target.value })
     }
     handleDeadlineChange = (event) => {
-        this.setState({ deadLine: event.target.value })
+        this.setState({ deadLine: moment(event.target.value).format('ddd, DD MMM, YYYY') })
 
     }
     handleCreating = () => {
@@ -30,7 +31,7 @@ export default class AddingContainer extends Component {
 
     render() {
         const descriptionText = <input type="text" value={this.state.description} onChange={this.handleDescriptionChange} />;
-        const deadLineTime = <input type="date" className="deadline-input" value={this.state.deadLine} onChange={this.handleDeadlineChange} />;
+        const deadLineTime = <input type="date" className="deadline-input"  onChange={this.handleDeadlineChange} />;
 
         return (
             <form onSubmit={this.handleSubmit} className="addingContainer">
