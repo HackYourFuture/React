@@ -7,7 +7,8 @@ export default class Header extends Component {
             <div>
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to TODO.App</h1>
+                    <h1 className="App-todo">TODO</h1>
+                    <h3 className="App-title">Check what you have to do today:</h3>
                 </header>    
             </div>
         )

@@ -1,17 +1,29 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import Checkbox from './Checkbox'
+import '../App.css';
 
 export default class Container extends Component {
 
-render() {
+    render() {
+        const {
+            todoItems,
+            handelDoneStatus
+        } = this.props
 
-    const todos = this.props.todoItems.map((item) => {
-        return <li> {`${item.id}- you have to: ${item.whatToDo} at: ${item.date}`} </li>})
-    return (
-        <div>
+        return (<div>
             <ul>
-            {todos}
-            </ul> 
-        </div>    
+                {todoItems.map((item, index) => {
+                    return <li key={item.id} className="app-list">
+                        <Checkbox id={item.id}
+                            description={item.description}
+                            deadline={item.deadline}
+                            done={item.done}
+                            index={index}
+                            handelDoneStatus={handelDoneStatus}/>
+                    </li>
+                })}
+            </ul>
+        </div>
         )
     }
 }
