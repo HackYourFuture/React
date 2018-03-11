@@ -5,7 +5,7 @@ import './App.css'
 import TodoList from './TodosList.json'
 
 
-function content() {
+const Content = () => {
   if (TodoList.length > 0) {
     return TodoList.map(item => {
       return (
@@ -34,7 +34,7 @@ class App extends Component {
         </header>
         <ul>
           <p>Todo List</p>
-          {content()}
+          <Content />
         </ul>
       </div>
     )
