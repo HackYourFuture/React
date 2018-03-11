@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import TaskItem from "./TaskItem.js";
-import AddingContainer from "./AddingContainer.js"
 
 class TodoList extends Component {
    
@@ -23,14 +22,12 @@ class TodoList extends Component {
         if (!todoArray.length) {
             return (
                 <div>
-                    <AddingContainer onCreate={this.props.onCreate} />
                     <div className="emptyList"> No Tasks to do!!</div>
                 </div>    
             )
         } else {
             return (
                 <div>
-                    <AddingContainer onCreate={this.props.onCreate} />
                     <ul className="list">
                         {tasks}
                     </ul>

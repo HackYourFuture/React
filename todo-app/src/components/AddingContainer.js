@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import FaPlus from "react-icons/lib/fa/plus"
 import moment from "moment"

@@ -4,6 +4,7 @@ import Header from "./components/Header.js"
 import TodoList from "./components/TodoList"
 import myTodoList from "./components/myTodoList.json"
 import moment from "moment"
+import AddingContainer from "./components/AddingContainer"
 
 
 class App extends Component {
@@ -56,11 +57,11 @@ class App extends Component {
     return (
       <div>
         <Header />
+        <AddingContainer onCreate={this.addingTask} />
         <TodoList tasks={this.state.tasks}
           handleCheckingBox={this.handleCheckingBox}
           onRemove={this.remove}
           onEdit={this.edit}
-          onCreate={this.addingTask}
         />
       </div>
     );

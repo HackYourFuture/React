@@ -10,7 +10,8 @@ export default class TaskItem extends Component {
         id: PropTypes.number,
         description: PropTypes.string,
         deadLine: PropTypes.string,
-        done: PropTypes.bool
+        done: PropTypes.bool,
+        creatingDate: PropTypes.string
     }
     
     state = {
@@ -37,7 +38,7 @@ export default class TaskItem extends Component {
     render() {
         const description = this.props.description;
         const deadLine = this.props.deadLine
-        const checkBox = <input type="checkBox" checked={this.state.isDone} onChange={this.handleChange} />
+        const checkBox = <input type="checkBox" checked={this.props.isDone} onChange={this.handleChange} />
         return (
             <div className="tasks">    
                 <li>
@@ -47,7 +48,7 @@ export default class TaskItem extends Component {
                         <br />
                         Dead Line : {deadLine}
                         <br />
-                        {this.state.isDone ? "is Done" : "not done yet"} {checkBox}
+                        {this.props.isDone ? "is Done" : "not done yet"} {checkBox}
                    </div>
                 </li>
                 <div className="tools">
