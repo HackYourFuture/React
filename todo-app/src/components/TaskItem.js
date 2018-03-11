@@ -3,7 +3,6 @@ import "../style.css"
 import PropTypes from "prop-types"
 import Trash from "react-icons/lib/fa/trash"
 import Edit from "react-icons/lib/fa/edit"
-import moment from "moment"
 
 
 export default class TaskItem extends Component {
@@ -15,8 +14,7 @@ export default class TaskItem extends Component {
     }
     
     state = {
-        isDone: false,
-        creatingDate: moment().format('llll')
+        isDone: this.props.isDone,
     }
     handleChange = () => {
         this.setState(prevState => ({
@@ -39,7 +37,7 @@ export default class TaskItem extends Component {
     render() {
         const description = this.props.description;
         const deadLine = this.props.deadLine
-        const checkBox = <input type="checkBox" value={this.state.isDone} onChange={this.handleChange} />
+        const checkBox = <input type="checkBox" checked={this.state.isDone} onChange={this.handleChange} />
         return (
             <div className="tasks">    
                 <li>
@@ -49,7 +47,7 @@ export default class TaskItem extends Component {
                         <br />
                         Dead Line : {deadLine}
                         <br />
-                       {checkBox}  {this.state.isDone ? "is Done" : "not done yet"}
+                        {this.state.isDone ? "is Done" : "not done yet"} {checkBox}
                    </div>
                 </li>
                 <div className="tools">
@@ -57,7 +55,7 @@ export default class TaskItem extends Component {
                     <button className="edit-button" onClick={this.handleEditing}><Edit /></button>
                 </div>
                 <div className="timestamp">
-                    <span>Created at: {this.state.creatingDate}</span>     
+                    <span>Created at: {this.props.creatingDate}</span>     
                 </div>    
 
             </div>

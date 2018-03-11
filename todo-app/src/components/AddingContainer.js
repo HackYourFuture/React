@@ -20,24 +20,25 @@ export default class AddingContainer extends Component {
         const descriptionInput = this.state.description
         const deadLineInput = this.state.deadLine
         if (descriptionInput && deadLineInput) {
-            this.props.addingTask(descriptionInput, deadLineInput)
+            this.props.onCreate(descriptionInput, deadLineInput)
         } else {
             alert("you should fill the values of description and deadline")
         }    
     }
     handleSubmit = (e) => {
         e.preventDefault()
+        this.setState({description: ""})
     }
 
     render() {
         const descriptionText = <input type="text" value={this.state.description} onChange={this.handleDescriptionChange} />;
-        const deadLineTime = <input type="date" className="deadline-input"  onChange={this.handleDeadlineChange} />;
+        const deadLineTime = <input type="date" className="deadline-input" onChange={this.handleDeadlineChange} />;
 
         return (
             <form onSubmit={this.handleSubmit} className="addingContainer">
                 <label> Description : {descriptionText} </label>
                 <label> Dead line : {deadLineTime} </label>
-                <button className="createButton" value="Create new task" onClick={this.handleCreating}>
+                <button type="submit" className="createButton" value="Create new task" onClick={this.handleCreating}>
                     Create new task
                      <FaPlus />
                 </button>
