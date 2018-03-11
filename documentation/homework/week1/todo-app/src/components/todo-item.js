@@ -1,27 +1,42 @@
 import React, { Component } from 'react'
 
 export default class TodoItem extends Component {
-  render() {
-    const { description, deadLineDate, isDone} = {
-      description: this.props.description,
-      deadLineDate: new Date(this.props.deadLineDate).toDateString(),
-      _isDone: this.props.isDone, // this is a privte property just like state
-      get isDone() {
-        // this get method is for
-        // when ever the isDone prop has set to true
-        // make a css style for it As a done property
-        if (this._isDone) {
-          return {
-            textDecoration: this._isDone && 'line-through',
-            color: this._isDone && 'red'
-          }
-        }
+  constructor(props) {
+    super(props)
+    this.state = {
+      checked: this.props.done,
+      styleCheck: {
+        textDecoration: null,
+        color: null
       }
     }
+    this.handleCheck = this.handleCheck.bind(this)
+  }
+  handleCheck(e) {
+    const checked = e.target.checked
+    this.setState(prevState => ({
+      checked: !prevState.checked,
+      styleCheck: {
+        textDecoration: checked && 'line-through',
+        color: checked && 'red'
+      }
+    }))
+  }
+  componentDidMount() {
+    this.setState({
+      ...this.state,
+      styleCheck: {
+        textDecoration: this.state.checked && 'line-through',
+        color: this.state.checked && 'red'
+      }
+    })
+  }
+  render() {
     return (
-      <ul>
-        <li style={isDone} >{description}, {deadLineDate}</li>
-      </ul>
+      <li style={this.state.styleCheck} >
+        <input type='checkbox' checked={this.state.checked} onChange={this.handleCheck} />
+        {this.props.children}
+      </li>
     )
   }
 }
