@@ -5,70 +5,109 @@
   padding: 0; 
 }
 
-#wrapper {
+.wrapper {
   padding: 5vh 5vw;
 }
 
 h2 {
   padding-left: 3vw;
+  margin-left: 4vw;
   font-size: 150%;
-  font-family: Verdana, sans-serif;
+  font-family: Geneva, sans-serif;
 }
 
 label {
   line-height: 7vh;
-  list-style-type: circle;
-  font-family: Tahoma, sans-serif;
+  font-family: Verdana, sans-serif;
   font-size: 120%; 
   margin-left: 1vw;
 }
 
-.crossedOut {
+.crossOut {
   text-decoration: line-through;
 }
 
-#form {
-  margin: 4vh;
-  display: flex;
+.form {
+  margin: 4vh -1vw;
+  display: grid;
+  grid-template: repeat(2, 50%) / 18% 30% 45%;
   align-items: center;
-  flex-wrap: wrap;
 }
 
-#form button {
-  padding: 2vh 3vw;
-  font-size: 120%;
-  font-weight: bold;
-  border: 3px solid rgb(170, 243, 211);
-  background: rgb(247, 242, 242);
-  color:  rgb(185, 69, 180);
-  border-radius: 5%;
-  margin-top: 2vh;
-}
-
-.remove-btn {
-  padding: 0.5vh 0.5vw;
-  margin-left: 3vw;
-  font-weight: bold;
-  background: rgb(170, 243, 211);
-  color: rgb(185, 69, 180);
-  border-radius: 30%;
-}
-
-#form input {
+.form input {
   font-size: 120%;
   margin-right: 4vw;
   border-radius: 5%;
-  border: 3px solid rgb(170, 243, 211);
+  width: 85%;
+  border: 3px solid rgb(241, 195, 238);
   padding: 1vh 1vw;
+  margin-top: 2vh;
+  grid-column: 2 / span 1;
+}
+
+#text-input {
+  font-size: 130%;
+  width: 55%;
+  padding: 2vh 3.5vw;
+  grid-column: 2 / span 2;
+}
+
+.form p {
+  margin: 2vh 1vw 0vh 0vw;
+  font-style: italic;
+  font-size: 120%;
+  grid-column: 1 / span 1;
+  align-self: center;
+  justify-self: end;
+}
+
+.form button {
+  padding: 2vh 2vw;
+  font-size: 120%;
+  font-weight: bold;
+  border: 3px solid rgb(164, 181, 236);
+  background:rgb(177, 68, 171);
+  color: white;
+  border-radius: 5%;
+  margin-top: 2vh;
+  grid-column: 3 / span 1;
+  justify-self: start;
+}
+
+.delete-btn,
+.edit-btn,
+.save-btn,
+.cancel-btn {
+  padding: 0.5vh 1vw;
+  margin-left: 3vw;
+  font-weight: bold;
+  background: rgb(120, 139, 51);
+  color: white;
+  border-radius: 10%;
+  font-size: 80%;
+}
+
+.update-input {
+  font-size: 100%;
+  margin-right: 2vw;
+  border-radius: 5%;
+  border: 3px solid rgb(170, 243, 211);
+  padding: 1vh 2vw;
   margin-top: 2vh;
 }
 
-#form input:nth-child(1) {
-  padding: 2vh 3.5vw;
+.update-input:nth-child(2) {
+  padding: 0.5vh 0.5vw;
 }
 
 .checkbox {
-  margin-right: 1vw;
+  margin: 0vh 1vw 0vh 3vw;
   position: relative;
   bottom: 0.5vh;
+}
+
+.empty {
+  font: italic 120% Verdana;
+  text-align: center;
+  margin-top: 10vh;
 }
