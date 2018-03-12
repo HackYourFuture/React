@@ -1,26 +1,53 @@
 import React from 'react'
 
+const defaultState = {
+  commentText: '',
+  authorName: '',
+  image: '',
+}
+
 export default class AddCommentForm extends React.Component {
 
-  state = {
-    text: ''
+  state = defaultState
+
+  handleFieldChange = (event, field) => {
+    this.setState({ [field]: event.target.value })
   }
 
-  handleTextChange = event => {
-    this.setState({ text: event.target.value })
+  createComment = () => {
+    this.props.handleCreateComment(this.state)
+    this.setState(defaultState)
   }
 
   render() {
 
-    console.log(this.state)
+    const { handleCreateComment } = this.props
+    const {
+      commentText,
+      authorName,
+      image,
+    } = this.state
 
     return (
       <div className='add-comment-form'>
-        <textarea
-          onChange={this.handleTextChange}
-          value={this.state.text}
+        <input
+          type='text'
+          placeholder='Your name'
+          value={this.state.authorName}
+          onChange={(e) => this.handleFieldChange(e, 'authorName')}
         />
-        <button>Add comment</button>
+        <input
+          type='text'
+          placeholder='Your photo'
+          value={this.state.image}
+          onChange={(e) => this.handleFieldChange(e, 'image')}
+        />
+        <textarea
+          placeholder='Add a new comment'  
+          onChange={(e) => this.handleFieldChange(e, 'commentText')}
+          value={this.state.commentText}
+        />
+        <button onClick={this.createComment}>Add comment</button>
       </div>
     )
   }

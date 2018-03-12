@@ -3,7 +3,15 @@ import React from 'react'
 export default class Comment extends React.Component {
   render() {
 
-    const { authorName, createdAt, commentText, image, isLiked } = this.props.comment
+    const { handleToggleLike } = this.props
+    const {
+      authorName,
+      createdAt,
+      commentText,
+      image,
+      isLiked,
+      id,
+    } = this.props.comment
 
     return (
       <div className='comment'>
@@ -14,7 +22,10 @@ export default class Comment extends React.Component {
         <div className='comment-body'>
           <div className='comment-info-container'>
             <div className='timestamp'>{createdAt}</div>
-            <div className='liked-icon'>
+            <div
+              className='liked-icon'
+              onClick={() => handleToggleLike(id)}
+            >
               {isLiked ? <span>♥</span> : <span>♡</span>}
             </div>
           </div>
