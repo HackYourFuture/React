@@ -27,17 +27,23 @@ export default class TodoInput extends React.Component {
         const { description, deadline } = this.state;
         return (
             <section className="form">
+                
                 <p>Enter todo:</p>  
-                <input type="text"
-                    value={description}
-                    onChange={(e) => this.handleInputChange(e, "description")}
+                <input type="text" value={description}
+                    onChange={(e) => {
+                        this.handleInputChange(e, "description")
+                    }}
                     id="text-input" />
                 
                 <p>Deadline:</p>
                 <input type="date" value={deadline}
-                    onChange={(e) => this.handleInputChange(e, "deadline")} />
+                    onChange={(e) => {
+                        this.handleInputChange(e, "deadline")
+                    }} />
 
-                <button onClick={this.handleAddTodo}>Add</button>
+                <button onClick={this.handleAddTodo}>
+                    Add
+                </button>
             </section>
         );
     }

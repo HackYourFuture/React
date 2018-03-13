@@ -14,7 +14,9 @@ export default class Main extends React.Component {
 
     toggleCheck = todoId => {
         const todoItems = this.state.todos.map(todo => (
-            todo.id === todoId ? { ...todo, done: !todo.done } : todo
+            todo.id === todoId
+                ? { ...todo, done: !todo.done }
+                : todo
         ));
         this.setState({ todos: todoItems });
     }
@@ -56,7 +58,9 @@ export default class Main extends React.Component {
 
     deleteTodo = todoId => {
         const todoItems = this.state.todos.map(todo => todo);
-        const index = todoItems.findIndex(todo => todo.id === todoId);
+        const index = todoItems.findIndex(todo => (
+            todo.id === todoId
+        ));
         this.setState({
             todos: [
                 ...todoItems.slice(0, index),
@@ -67,27 +71,29 @@ export default class Main extends React.Component {
 
     render() {
         const { todos } = this.state;
+
+        const emptyList = (
+            <p className="empty">
+                There are no items on this list
+            </p>
+        );
+        
+        const listItem = (todos.map(todo => (
+            <ListItem
+                key={todo.id}
+                todoItem={todo}
+                toggleCheck={this.toggleCheck}
+                toggleEdit={this.toggleEdit}
+                saveUpdate={this.saveUpdate}
+                deleteTodo={this.deleteTodo}
+            />
+        )));
+
         return (
             <section className="wrapper">
                 <h2>Todo list</h2>
                 <TodoInput addTodo={this.addTodo} />
-
-                { !todos.length
-                    ?
-                    <p className="empty">
-                        There are no items on this list
-                    </p>
-                    :
-                    todos.map(todo => (
-                        <ListItem
-                            key={todo.id}
-                            todoItem={todo}
-                            toggleCheck={this.toggleCheck}
-                            toggleEdit={this.toggleEdit}
-                            saveUpdate={this.saveUpdate}
-                            deleteTodo={this.deleteTodo}
-                        />
-                    ))} 
+                { !todos.length ? emptyList : listItem } 
             </section>
         );
     }
