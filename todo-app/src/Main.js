@@ -22,7 +22,7 @@ export default class Main extends React.Component {
     }
 
     addTodo = (description, deadline) => {
-        const todoItems = this.state.todos.map(todo => todo);
+        const todoItems = [...this.state.todos];
         const id = this.state.nextId;
         this.setState({
             todos: [
@@ -33,15 +33,6 @@ export default class Main extends React.Component {
         });
     }
 
-    toggleEdit = todoId => {
-        const todoItems = this.state.todos.map(todo => (
-            todo.id === todoId   
-            ? { ...todo, update: !todo.update }
-            : todo
-        ));
-        this.setState({ todos: todoItems });   
-    }
-
     saveUpdate = (todoId, newDescription, newDeadline) => {
         const updatedTodos = this.state.todos.map(todo => (
             todo.id === todoId
@@ -49,7 +40,6 @@ export default class Main extends React.Component {
                     ...todo,
                     description: newDescription,
                     deadline: newDeadline,
-                    update: !todo.update
                     }
                 : todo
         ));
@@ -57,7 +47,7 @@ export default class Main extends React.Component {
     }
 
     deleteTodo = todoId => {
-        const todoItems = this.state.todos.map(todo => todo);
+        const todoItems = [...this.state.todos];
         const index = todoItems.findIndex(todo => (
             todo.id === todoId
         ));
@@ -71,19 +61,16 @@ export default class Main extends React.Component {
 
     render() {
         const { todos } = this.state;
-
         const emptyList = (
             <p className="empty">
                 There are no items on this list
             </p>
         );
-        
         const listItem = (todos.map(todo => (
             <ListItem
                 key={todo.id}
                 todoItem={todo}
                 toggleCheck={this.toggleCheck}
-                toggleEdit={this.toggleEdit}
                 saveUpdate={this.saveUpdate}
                 deleteTodo={this.deleteTodo}
             />
@@ -93,7 +80,7 @@ export default class Main extends React.Component {
             <section className="wrapper">
                 <h2>Todo list</h2>
                 <TodoInput addTodo={this.addTodo} />
-                { !todos.length ? emptyList : listItem } 
+                { todos.length ? listItem : emptyList } 
             </section>
         );
     }

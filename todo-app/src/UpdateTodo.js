@@ -1,28 +1,28 @@
 import React from "react";
 
-
 export default class UpdateTodo extends React.Component {
 
     state = {
         description: this.props.description,
-        deadline: ""
+        deadline: this.props.deadline
     };
 
-    handleInputChange = (e, field) => {
+    changeInput = (e, field) => {
         this.setState({
             [field]: e.target.value
         });
     }
 
-    handleSaveUpdate = () => {
+    saveUpdate = () => {
         const { description, deadline } = this.state;
-        const { saveUpdate } = this.props;
+        const { saveUpdate, cancelUpdate } = this.props;
         if (description && deadline) {
             saveUpdate(description, deadline);
         }  
+        cancelUpdate();
     }
 
-    handleCancelUpdate = () => {
+    cancelUpdate = () => {
         this.props.cancelUpdate();
     }
 
@@ -30,25 +30,22 @@ export default class UpdateTodo extends React.Component {
         const { description, deadline } = this.state;
         return (
             <div>
-                <input type="text" value={description}
+                <input type="text"
+                    value={description}
                     className="update-input"
-                    onChange={(e) => {
-                        this.handleInputChange(e, "description")
-                    }} />
-                
-                <input type="date" value={deadline}
+                    onChange={(e) => this.changeInput(e, "description")}
+                />
+                <input type="date"
+                    value={deadline}
                     className="update-input"
-                    onChange={(e) => {
-                        this.handleInputChange(e, "deadline")
-                    }} />
-                
+                    onChange={(e) => this.changeInput(e, "deadline")}
+                />
                 <button className="save-btn"
-                    onClick={this.handleSaveUpdate}>
+                    onClick={this.saveUpdate}>
                     Save
                 </button>
-
                 <button className="cancel-btn"
-                    onClick={this.handleCancelUpdate}>
+                    onClick={this.cancelUpdate}>
                     Cancel
                 </button>
             </div>
