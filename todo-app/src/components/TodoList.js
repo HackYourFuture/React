@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import TaskItem from "./TaskItem.js";
 
 class TodoList extends Component {
@@ -6,9 +7,9 @@ class TodoList extends Component {
     render() {
         console.log(this.props.tasks)
         const todoArray = this.props.tasks
-        const tasks = todoArray.map((task, index) =>
+        const tasks = todoArray.map((task, index) => 
             <TaskItem
-                taskId={task.id}    
+                taskId={task.id}
                 description={task.description}
                 deadLine={task.deadLine}
                 isDone={task.done}

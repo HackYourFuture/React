@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import FaPlus from "react-icons/lib/fa/plus"
 import moment from "moment"
+
+import FaPlus from "react-icons/lib/fa/plus"
 
 
 export default class AddingContainer extends Component {
@@ -26,6 +27,7 @@ export default class AddingContainer extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault()
+        this.handleCreating()
         this.setState({description: ""})
     }
 
@@ -37,7 +39,7 @@ export default class AddingContainer extends Component {
             <form onSubmit={this.handleSubmit} className="addingContainer">
                 <label> Description : {descriptionText} </label>
                 <label> Dead line : {deadLineTime} </label>
-                <button type="submit" className="createButton" value="Create new task" onClick={this.handleCreating}>
+                <button type="submit" className="createButton" value="Creae new task" >
                     Create new task
                      <FaPlus />
                 </button>

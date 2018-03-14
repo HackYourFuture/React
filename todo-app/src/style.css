@@ -100,3 +100,16 @@ input {
     text-align: center;
     font-weight:bold;
 }
+.delete-container {
+    text-align: center;
+}
+.delete-all-button {
+    text-align : center;
+    margin : 5px;
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+    background-color: rgb(238, 56, 56);
+}.delete-all-button:hover {
+     background-color:  rgb(211, 21, 21);
+}

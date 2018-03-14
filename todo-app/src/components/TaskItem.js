@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "../style.css"
 import PropTypes from "prop-types"
+
+import "../style.css"
 import Trash from "react-icons/lib/fa/trash"
 import Edit from "react-icons/lib/fa/edit"
 
@@ -13,14 +14,7 @@ export default class TaskItem extends Component {
         done: PropTypes.bool,
         creatingDate: PropTypes.string
     }
-    
-    state = {
-        isDone: this.props.isDone,
-    }
     handleChange = () => {
-        this.setState(prevState => ({
-            isDone: !prevState.isDone
-        }))
         this.props.handleCheckingBox(this.props.taskId)
     }
     handleRemoving = () => {
