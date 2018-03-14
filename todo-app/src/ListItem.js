@@ -23,6 +23,7 @@ export default class ListItem extends React.Component {
         const { id } = this.props.todoItem;
         const { saveUpdate } = this.props;
         saveUpdate(id, newDescription, newDeadline);
+        this.toggleEdit();
     }
 
     render() {

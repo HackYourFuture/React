@@ -15,15 +15,10 @@ export default class UpdateTodo extends React.Component {
 
     saveUpdate = () => {
         const { description, deadline } = this.state;
-        const { saveUpdate, cancelUpdate } = this.props;
+        const { saveUpdate } = this.props;
         if (description && deadline) {
             saveUpdate(description, deadline);
         }  
-        cancelUpdate();
-    }
-
-    cancelUpdate = () => {
-        this.props.cancelUpdate();
     }
 
     render() {
@@ -45,7 +40,7 @@ export default class UpdateTodo extends React.Component {
                     Save
                 </button>
                 <button className="cancel-btn"
-                    onClick={this.cancelUpdate}>
+                    onClick={this.props.cancelUpdate}>
                     Cancel
                 </button>
             </div>
