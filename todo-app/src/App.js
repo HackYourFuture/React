@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Container from './Components/Container'
-import Input from './Components/Input'
+
 
 import './App.css';
 const data = require('./todoList.json');
@@ -30,24 +30,42 @@ class App extends Component {
     localStorage.setItem('todoItems', JSON.stringify(nextState.todoItems))
   }
 
-  handelDoneStatus = (index) => {
+  handelSelected = (index) => {
     const todoItems = JSON.parse(localStorage.getItem('todoItems'))
-    todoItems[index].done = !todoItems[index].done
+    todoItems[index].selected = !todoItems[index].selected
     this.setState({ todoItems })
   }
 
-  handelNewTask = (newTask) => {
+  handelNewTask = (newTask, newDeadLine) => {
 
-    const todoItems = JSON.parse(localStorage.getItem('todoItems'))
-    let currentDate = new Date()
-    console.log(currentDate.getFullYear().toString())
+    const todoItems = this.state.todoItems
     todoItems.push({
       "id": this.state.todoItems.length + 1,
       "description": newTask,
-      "deadline": `${currentDate.getFullYear().toString()}-${currentDate.getMonth().toString()}-${currentDate.getDay().toString()}`,
-      "done": false
+      "deadline": newDeadLine,
+      "selected": false
     })
     this.setState({ todoItems })
+  }
+
+  handelUpdateTask = (index , update) => {
+    const todoItems = this.state.todoItems
+    todoItems[index].description = update
+    this.setState({todoItems})
+  }
+
+  handelDeleteTask = (id, selected) => {
+    let todoItems
+    if (selected) {
+      todoItems = this.state.todoItems.filter(task => task.id !== id)
+      todoItems.map((item,index) => {
+        item.id = index + 1
+      })
+      this.setState({ todoItems })
+    } else {
+      console.log('Not selected yet')
+    }
+   
   }
 
   render() {
@@ -55,11 +73,14 @@ class App extends Component {
     return (
 
       <div className="App">
-        <Header />
-        <Container todoItems={this.state.todoItems}
-          handelDoneStatus={this.handelDoneStatus} />
-        <Input handelNewTask={this.handelNewTask}/>
-        <Footer />
+        <div className="Header"><Header /></div>
+        <div><Container todoItems={this.state.todoItems}
+          handelSelected={this.handelSelected}
+          handelDeleteTask={this.handelDeleteTask}
+          handelUpdateTask={this.handelUpdateTask}
+          handelNewTask={this.handelNewTask}/>
+        </div>
+        <div className="Footer"><Footer /></div>
       </div>
     );
   }

@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import '../App.css';
 
 export default class Input extends Component {
     state = {
-        input: ''
+        description: '',
+        date:''
     }
 
-    handleInput = event => {
-        this.setState({ input: event.target.value })
+    handleDescription = event => {
+        this.setState({ description: event.target.value })
+    }
+
+    handleDate = event => {
+        this.setState({ date: event.target.value })
+        console.log(this.state.date)
     }
 
     render() {
@@ -14,10 +21,10 @@ export default class Input extends Component {
             handelNewTask
         } = this.props
         return (
-            <div>
-                <h3>Add new task to your list.</h3>
-                <input onChange={this.handleInput} value={this.state.input}></input>
-                <button onClick={()=> handelNewTask(this.state.input)}>Save</button>
+            <div className='input-utilities'>
+                <input className='input-description' onChange={this.handleDescription} placeholder="Write your description" value={this.state.description}></input>
+                <input className='input-date' id="date" type="date" onChange={this.handleDate} value={this.state.date}></input>
+                <button className='input-button' onClick={() => handelNewTask(this.state.description,this.state.date)}>Save</button>
             </div>
         )
     }
