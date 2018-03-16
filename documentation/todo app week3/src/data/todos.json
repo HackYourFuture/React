@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "discription": "Get out of bed",
+        "deadline": "2017-09-11",
+        "done": true
+    },
+    {
+        "id": 2,
+        "discription": "Brush teeth",
+        "deadline": "2017-09-10",
+        "done": false
+    },
+    {
+        "id": 3,
+        "discription": "Eat breakfast",
+        "deadline": "2017-09-09",
+        "done": false
+    }
+]
