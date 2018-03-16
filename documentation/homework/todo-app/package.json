@@ -1,0 +1,24 @@
+{
+  "name": "todo-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "animate.css": "^3.6.1",
+    "moment": "^2.21.0",
+    "npm": "^5.7.1",
+    "react": "^16.2.0",
+    "react-date-picker": "^6.9.0",
+    "react-datepicker": "^1.2.2",
+    "react-dom": "^16.2.0",
+    "react-icons": "^2.2.7",
+    "react-reveal": "^1.1.10",
+    "react-scripts": "1.1.1",
+    "react-transition-group": "^1.2.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
