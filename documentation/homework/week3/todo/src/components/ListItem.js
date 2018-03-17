@@ -34,7 +34,7 @@ class ListItem extends Component {
       done
     } = this.props
     return (
-      <div>
+      <div className="form">
         <Checkbox id={id} handleCheckboxUpdate={handleCheckboxUpdate} done={done} />
         <span>{description}</span> <span>{deadline}</span>
         <button onClick={this.handleEdit}>Edit</button>

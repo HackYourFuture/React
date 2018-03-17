@@ -1,5 +1,31 @@
+* {
+  box-sizing: border-box
+}
+
 .App {
   text-align: center;
+  width: 80%;
+  margin: auto
+}
+
+li > * {
+  float: left;
+}
+
+ul {
+  list-style: none;
+  overflow: hidden;
+}
+
+button {
+  float: right;
+}
+
+form > *, .form {
+  margin: 5px;
+  padding: 3px;
+  background-color: #CCC;
+  border-radius: 5px
 }
 
 .App-logo {

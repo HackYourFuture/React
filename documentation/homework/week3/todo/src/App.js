@@ -55,7 +55,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         <AssignItem handleAssign={this.handleAssign} list={this.state.list} />
         <ul>
           {
