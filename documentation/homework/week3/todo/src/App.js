@@ -18,6 +18,10 @@ class App extends Component {
       list: Params.getLocals || []
     })
   }
+  Moments(date) {
+    const MOMENT_FORMAT = ["MM-DD-YYYY", "YYYY-MM-DD", "YYYY/MM/DD", "MM/DD/YYYY"]
+    return moment(date, MOMENT_FORMAT).format('LLLL')
+  }
   handleRemove = (event, local_id) => {
     this.setState({
       list: Params.removeLocal(local_id)
@@ -26,13 +30,12 @@ class App extends Component {
   handleAssign = (event) => { // Inserting Values
     event.preventDefault()
     const { deadline, description } = event.target
-    const MOMENT_FORMAT = ["MM-DD-YYYY", "YYYY-MM-DD", "YYYY/MM/DD", "MM/DD/YYYY"]
     this.setState({
       list: Params.saveLocal( // the Id is automaticly generats
         Params.getLocals,
         {
           description: description.value,
-          deadline: moment(deadline.value, MOMENT_FORMAT).format('LLLL')
+          deadline: this.Moments(deadline.value)
         }
       )
     })
@@ -40,6 +43,14 @@ class App extends Component {
   handleCheckboxUpdate = (event, local_id) => {
     this.setState({
       list: Params.updateLocal(local_id, 'done', event.target.checked)
+    })
+  }
+  handleUpdateListItem = (event, local_id, field, newValue) => {
+    if (field === 'deadline') {
+      newValue = this.Moments(newValue)
+    }
+    this.setState({
+      list: Params.updateLocal(local_id, field, newValue)
     })
   }
   render() {
@@ -54,6 +65,7 @@ class App extends Component {
                   <ListItem
                     id={item.id}
                     done={item.done}
+                    handleUpdateListItem={this.handleUpdateListItem}
                     handleCheckboxUpdate={this.handleCheckboxUpdate}
                     handleRemove={this.handleRemove}
                     description={item.description}
