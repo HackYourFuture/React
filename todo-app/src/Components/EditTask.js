@@ -12,13 +12,13 @@ export default class EditTask extends Component {
     }
     render() {
         const {
-            index,
+            id,
             handelUpdateTask
         } = this.props
         return (
             <div>
                 <button className='TodoFunctionality-list-items-buttons' onClick={() =>this.setState({
-                    UpdateButton: <UpdateButton index={index} handelUpdateTask={handelUpdateTask} handelDeleteUpdateTask={this.handelDeleteUpdateTask}/>
+                    UpdateButton: <UpdateButton id={id} handelUpdateTask={handelUpdateTask} handelDeleteUpdateTask={this.handelDeleteUpdateTask}/>
                 })}>Edit</button>
                 {this.state.UpdateButton}
             </div>

@@ -13,7 +13,7 @@ export default class DisplayDetails extends Component {
 
                     <div>
                         <EditTask
-                        index={index}
+                        id={id}
                         handelUpdateTask={handelUpdateTask}
                         />
                         <DeleteButton

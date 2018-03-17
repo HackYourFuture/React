@@ -4,15 +4,15 @@ export default class Checkbox extends Component {
 
     render() {
         const {
+            id,
             description,
             selected,
-            index,
             handelSelected
         } = this.props
         return (
-            <div key={index}>
+            <div key={id}>
                 <input type="checkbox"
-                    onChange={() => handelSelected(index)}
+                    onChange={() => handelSelected(id)}
                     defaultChecked={selected}
                 />  {description} 
             </div>

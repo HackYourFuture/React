@@ -1,46 +1,49 @@
 import React, { Component } from 'react';
 import Header from './Components/Header'
-import Footer from './Components/Footer'
 import Container from './Components/Container'
-
+import { LoadFromLocalStorage, SaveToLocalStorage} from './localStorage'
 
 import './App.css';
-const data = require('./todoList.json');
+import data from './todoList.json';
 
 class App extends Component {
   state = {
-    todoItems: []
+    todoItems: LoadFromLocalStorage() || data
   }
-  componentWillMount() {
-    localStorage.getItem('todoItems') && this.setState({
-      todoItems: JSON.parse(localStorage.getItem('todoItems'))
+
+  componentDidUpdate = () => {
+    SaveToLocalStorage(this.state.todoItems)
+  }
+
+  handelSelected = (id) => {
+    const todoItems = this.state.todoItems.map(task => {
+      if (task.id === id) {
+        return {
+          "id": task.id,
+          "description": task.description,
+          "deadline": task.deadline,
+          "selected": !task.selected
+        }
+      } else {
+        return {
+          "id": task.id,
+          "description": task.description,
+          "deadline": task.deadline,
+          "selected": task.selected
+        }
+      }
     })
-  }
-  componentDidMount() {
-    if (!localStorage.getItem('todoItems')) {
-      this.setState({
-        todoItems: data
-      })
-    } else {
-      console.log('we are using the data from the Local Storage.')
-    }
-
-  }
-  componentWillUpdate(nextProps, nextState) {
-    localStorage.setItem('todoItems', JSON.stringify(nextState.todoItems))
-  }
-
-  handelSelected = (index) => {
-    const todoItems = JSON.parse(localStorage.getItem('todoItems'))
-    todoItems[index].selected = !todoItems[index].selected
+    console.log(todoItems);
     this.setState({ todoItems })
   }
 
   handelNewTask = (newTask, newDeadLine) => {
 
     const todoItems = this.state.todoItems
+    const id = this.state.todoItems.map(task => task.id)
+    const newId = Math.max(...id) + 1
     todoItems.push({
-      "id": this.state.todoItems.length + 1,
+      "id": newId,
       "description": newTask,
       "deadline": newDeadLine,
       "selected": false
@@ -48,24 +51,34 @@ class App extends Component {
     this.setState({ todoItems })
   }
 
-  handelUpdateTask = (index , update) => {
-    const todoItems = this.state.todoItems
-    todoItems[index].description = update
-    this.setState({todoItems})
+  handelUpdateTask = (id, update) => {
+    const todoItems = this.state.todoItems.map(task => {
+      if (task.id === id) {
+        return {
+          "id": task.id,
+          "description": update,
+          "deadline": task.deadline,
+          "selected": task.selected
+        }
+      } else {
+        return {
+          "id": task.id,
+          "description": task.description,
+          "deadline": task.deadline,
+          "selected": task.selected
+        }
+      }
+    })
+    this.setState({ todoItems })
   }
 
   handelDeleteTask = (id, selected) => {
-    let todoItems
-    if (selected) {
-      todoItems = this.state.todoItems.filter(task => task.id !== id)
-      todoItems.map((item,index) => {
-        item.id = index + 1
-      })
-      this.setState({ todoItems })
-    } else {
-      console.log('Not selected yet')
-    }
-   
+
+    const todoItems = this.state.todoItems.filter(task => task.id !== id)
+    todoItems.map((item, index) => {
+      item.id = index + 1
+    })
+    this.setState({ todoItems })
   }
 
   render() {
@@ -78,9 +91,8 @@ class App extends Component {
           handelSelected={this.handelSelected}
           handelDeleteTask={this.handelDeleteTask}
           handelUpdateTask={this.handelUpdateTask}
-          handelNewTask={this.handelNewTask}/>
+          handelNewTask={this.handelNewTask} />
         </div>
-        <div className="Footer"><Footer /></div>
       </div>
     );
   }

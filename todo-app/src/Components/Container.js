@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import Checkbox from './Checkbox'
-import RemainingTime from './RemainingTime'    
+import Checkbox from './Checkbox' 
 import DisplayDetails from './DisplayDetails'
 import Input from './Input'
 
@@ -25,12 +24,12 @@ export default class Container extends Component {
                         {todoItems.map((item, index) => {
                             return <li key={item.id} className="app-list">
                                 <Checkbox
+                                    id={item.id}    
                                     description={item.description}
                                     selected={item.selected}
                                     index={index}
                                     handelSelected={handelSelected}
-                                />
-                                <RemainingTime deadline={item.deadline}/>
+                                />  
                             </li>
                         })}
                     </ul>

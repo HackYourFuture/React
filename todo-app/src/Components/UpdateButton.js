@@ -11,14 +11,14 @@ export default class UpdateButton extends Component {
 
     render() {
         const {
-            index,
+            id,
             handelUpdateTask,
             handelDeleteUpdateTask
         } = this.props
         return (
             <div>
                 <input type="text" onChange={this.handleUpdate} value={this.state.update}/>
-                <button onClick={() => handelUpdateTask(index, this.state.update)}>Save</button>
+                <button onClick={() => handelUpdateTask(id, this.state.update)}>Save</button>
                 <a href="" onClick={()=>handelDeleteUpdateTask}>Cancel</a>
             </div>
 
