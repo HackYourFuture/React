@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 
 class Checkbox extends Component {
   render() {
-    const { name, handleCheckboxUpdate, id } = this.props
+    const { name, handleCheckboxUpdate, id, done } = this.props
     return (
       <input
         onChange={(event) => handleCheckboxUpdate(event, id)}  
         name={name}
+        checked={done}
         type="checkbox"
         />
     )
