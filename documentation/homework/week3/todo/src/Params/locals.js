@@ -47,7 +47,7 @@ class Params {
         return item
       }
     })
-    return [...local_item]
+    return this.setLocal([...local_item])
   }
   // End localStorage section
 }
