@@ -15,7 +15,7 @@ class Checkbox extends Component {
 
 export default Checkbox
 
-/*// the value and the onChange methodes here are 
+/*// detecting the value here is 
   // -- useless with the text input so those are
   // -- used for the checkbox only
   // -- why are they useless?!
