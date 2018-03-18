@@ -12,7 +12,9 @@ Make sure to only mutate your store(s) with MobX actions - you will need to move
 
 To use decorators (the `@` syntax) with `create-react-app`, follow this [tutorial](https://swizec.com/blog/mobx-with-create-react-app/swizec/7158).
 
- _You must have MobX strict mode enabled. Any homework submitted without strict mode on will be rejected._
+ _You must have MobX strict mode enabled. Any homework submitted without strict mode on will be rejected. You enable strict mode like this:_
+ 
+    configure({ enforceActions: true })
 
 ## Scoring
 
