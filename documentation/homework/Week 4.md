@@ -2,7 +2,7 @@
 
 Base your week 4 homework on the result of week 3.
 
-When you are done, update your PR from week 3.
+When you are done, create a new PR for week 4.
 
 ## Outline
 
