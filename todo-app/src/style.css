@@ -5,6 +5,9 @@
   padding: 0; 
 }
 
+body {
+  padding: 5vh 5vw;
+}
 .wrapper {
   padding: 5vh 5vw;
 }
@@ -27,41 +30,28 @@ label {
   text-decoration: line-through;
 }
 
-.form {
-  margin: 4vh -1vw;
-  display: grid;
-  grid-template: repeat(2, 50%) / 18% 30% 45%;
+.add-form {
+  margin: 4vh 2vw;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
-.form input {
+.add-form input {
   font-size: 120%;
   margin-right: 4vw;
   border-radius: 5%;
-  width: 85%;
   border: 3px solid rgb(241, 195, 238);
   padding: 1vh 1vw;
   margin-top: 2vh;
-  grid-column: 2 / span 1;
 }
 
 #text-input {
-  font-size: 130%;
-  width: 55%;
   padding: 2vh 3.5vw;
-  grid-column: 2 / span 2;
+  width: 50%;
 }
 
-.form p {
-  margin: 2vh 1vw 0vh 0vw;
-  font-style: italic;
-  font-size: 120%;
-  grid-column: 1 / span 1;
-  align-self: center;
-  justify-self: end;
-}
-
-.form button {
+.add-form button {
   padding: 2vh 2vw;
   font-size: 120%;
   font-weight: bold;
@@ -70,8 +60,6 @@ label {
   color: white;
   border-radius: 5%;
   margin-top: 2vh;
-  grid-column: 3 / span 1;
-  justify-self: start;
 }
 
 .delete-btn,
@@ -102,12 +90,33 @@ label {
 
 .checkbox {
   margin: 0vh 1vw 0vh 3vw;
-  position: relative;
-  bottom: 0.5vh;
 }
 
-.empty {
+.empty, .count {
   font: italic 120% Verdana;
   text-align: center;
   margin-top: 10vh;
+}
+
+.count {
+  font-size: 100%;
+}
+
+.list-item {
+  display: grid;
+  align-items: center;
+  grid-template: 100% / 10% 50% 10% 10%;
+}
+
+.list-item .checkbox{
+  justify-self: end;
+}
+
+.list-item .edit-btn,
+.list-item .delete-btn {
+  justify-self: start;
+}
+
+.todos-container {
+  margin-top: 7vh;
 }

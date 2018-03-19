@@ -1,10 +1,13 @@
 import React from "react";
+import { observer, inject } from "mobx-react";
 
+@inject("todos")
+@observer    
 export default class UpdateTodo extends React.Component {
 
     state = {
-        description: this.props.description,
-        deadline: this.props.deadline
+        description: this.props.todo.description,
+        deadline: this.props.todo.deadline
     };
 
     changeInput = (e, field) => {
@@ -14,11 +17,14 @@ export default class UpdateTodo extends React.Component {
     }
 
     saveUpdate = () => {
+        const { id } = this.props.todo;
         const { description, deadline } = this.state;
-        const { saveUpdate } = this.props;
+        const { saveUpdate } = this.props.todoItems;
+
         if (description && deadline) {
-            saveUpdate(description, deadline);
-        }  
+            saveUpdate(id, description, deadline);
+        }
+        this.props.toggleEdit();
     }
 
     render() {
@@ -40,10 +46,12 @@ export default class UpdateTodo extends React.Component {
                     Save
                 </button>
                 <button className="cancel-btn"
-                    onClick={this.props.cancelUpdate}>
+                    onClick={this.props.toggleEdit}>
                     Cancel
                 </button>
             </div>
         );
     }
 }
+
+export default UpdateTodo;
