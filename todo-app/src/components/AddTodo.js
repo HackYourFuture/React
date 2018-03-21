@@ -1,13 +1,10 @@
 import React from "react";
-import { observer, inject } from "mobx-react";
 
 const defaultState = {
     description: "",
     deadline: ""
 }
 
-@inject("todos")
-@observer    
 export default class AddTodo extends React.Component {
 
     state = defaultState;
@@ -18,18 +15,9 @@ export default class AddTodo extends React.Component {
         });
     }
 
-    addTodo = () => {
-        const { description, deadline } = this.state;
-        const { addTodo, nextId } = this.props.todoItems;
-
-        if (description && deadline) {
-            addTodo(nextId, description, deadline);
-            this.setState(defaultState);
-        }
-    }
-
     render() {
         const { description, deadline } = this.state;
+        const { addTodo, nextId } = this.props.todoItems;
         return (
             <section className="add-form">
                 <input type="text"
@@ -42,11 +30,13 @@ export default class AddTodo extends React.Component {
                     value={deadline}
                     onChange={(e) => this.changeInput(e, "deadline")}
                 />
-                <button onClick={this.addTodo}>
+                <button onClick={() => {
+                    addTodo(nextId, description, deadline)
+                    this.setState(defaultState)
+                }}>
                     Add
                 </button>
             </section>
         );
     }
 }
-

@@ -1,8 +1,6 @@
 import React from "react";
-import { observer, inject } from "mobx-react";
 
-@inject("todos")
-@observer    
+
 export default class UpdateTodo extends React.Component {
 
     state = {
@@ -16,19 +14,10 @@ export default class UpdateTodo extends React.Component {
         });
     }
 
-    saveUpdate = () => {
+    render() {
         const { id } = this.props.todo;
         const { description, deadline } = this.state;
-        const { saveUpdate } = this.props.todoItems;
-
-        if (description && deadline) {
-            saveUpdate(id, description, deadline);
-        }
-        this.props.toggleEdit();
-    }
-
-    render() {
-        const { description, deadline } = this.state;
+        const { toggleEdit, saveUpdate } = this.props.todoItems;
         return (
             <div>
                 <input type="text"
@@ -42,16 +31,14 @@ export default class UpdateTodo extends React.Component {
                     onChange={(e) => this.changeInput(e, "deadline")}
                 />
                 <button className="save-btn"
-                    onClick={this.saveUpdate}>
+                    onClick={() => saveUpdate(id, description, deadline)}>
                     Save
                 </button>
                 <button className="cancel-btn"
-                    onClick={this.props.toggleEdit}>
+                    onClick={() => toggleEdit(id)}>
                     Cancel
                 </button>
             </div>
         );
     }
 }
-
-export default UpdateTodo;

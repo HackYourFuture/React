@@ -1,56 +1,65 @@
-import todoItems from "./data/todos.json";
-import { observable, action } from "mobx";
+import todos from "../data/todos.json";
+import { observable, action, configure } from "mobx";
 
-const todosStore = observable({
+configure({ enforceActions: true });
 
-    todos: todoItems,
+
+const TodoItems = observable({
+
+    todos,
 
     get nextId() {
-        const todoIds = todosStore.todos.map(todo => todo.id);
-        return Math.max(...todoIds) + 1
+        if (!this.todos.length) {
+            return 1;
+        }
+        const todoIDs = this.todos.map(todo => todo.id);
+        return Math.max(...todoIDs) + 1
     },
 
     addTodo: action((id, description, deadline) => {
-        const newTodo = {
-            id, description, deadline, done: false
+        if (description && deadline) {
+            const newTodo = {
+                id,
+                description,
+                deadline,
+                done: false, 
+                editMode: false
+            }
+            TodoItems.todos.push(newTodo);
         }
-        return todosStore.todos.push(newTodo);
     }),
 
-    toggleCheck: action(todoId => {
-        todosStore.todos = todosStore.todos.map(todo => (
-            todo.id === todoId
+    toggleCheck: action(todoID => {
+        TodoItems.todos = TodoItems.todos.map(todo => (
+            todo.id === todoID
                 ? { ...todo, done: !todo.done }
                 : todo
         ));
     }),
 
-    saveUpdate: action((todoId, description, deadline) => {
-        todosStore.todos = todosStore.todos.map(todo => (
-            todo.id === todoId
-                ? {
-                    ...todo,
-                    description,
-                    deadline,
-                }
+    toggleEdit: action(todoID => {
+        TodoItems.todos = TodoItems.todos.map(todo => (
+            todo.id === todoID
+                ? { ...todo, editMode: !todo.editMode }
                 : todo
         ));
     }),
 
-    deleteTodo: action(todoId => {
-        // const index = todosStore.todos.findIndex(todo => (
-        //     todo.id === todoId
-        // ));
-        
-        // todosStore.todos = [
-        //     ...todosStore.todos.slice(0, index),
-        //     ...todosStore.todos.slice(index + 1)
-        // ]; 
-        
-        const todoItems = todosStore.filter(todo => todo.id !== todoId);
+    saveUpdate: action((todoID, description, deadline) => {
+        if (description && deadline) {
+            TodoItems.todos = TodoItems.todos.map(todo => (
+                todo.id === todoID
+                    ? { ...todo, description, deadline }
+                    : todo
+            ));
+            TodoItems.toggleEdit(todoID);
+        }   
+    }),
 
-        todosStore.todos = todoItems;
-
+    deleteTodo: action(todoID => {
+        TodoItems.todos = TodoItems.todos.filter(todo => (
+            todo.id !== todoID
+        ));
     }),
 
     get doneCount() {
@@ -58,4 +67,4 @@ const todosStore = observable({
     }
 }) 
 
-export default todosStore;
+export default TodoItems;

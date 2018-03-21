@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./style.css";
+import "./index.css";
 import App from "./components/App";
-import TodosStore from "./stores/TodosStore";
+import TodoItems from "./stores/TodosStore";
 
-ReactDOM.render(<App todos={TodosStore}/>, document.getElementById("root"));
+ReactDOM.render(<App todoItems={TodoItems}/>, document.getElementById("root"));
