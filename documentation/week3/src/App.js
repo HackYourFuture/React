@@ -6,7 +6,7 @@ import data from './data/todos.json';
 import { loadFromLocalStorage, saveToLocalStorage } from './storage/localStoarge';
 export default class App extends Component {
 
-  state = loadFromLocalStorage() || { 
+  state = loadFromLocalStorage() || {
     todos: data,
     id: 1,
     discription: '',
