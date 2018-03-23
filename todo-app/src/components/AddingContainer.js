@@ -1,45 +1,30 @@
-import React, { Component } from "react";
-import moment from "moment"
+import React, { Component } from "react"
+import { inject, observer } from "mobx-react"
+
 
 import FaPlus from "react-icons/lib/fa/plus"
 
-
+@inject("todosStore")
+@observer    
 export default class AddingContainer extends Component {
-    state = {
-        description: "",
-        deadLine: ""
-    }
-    handleDescriptionChange = (event) => {
-        this.setState({ description: event.target.value })
-    }
-    handleDeadlineChange = (event) => {
-        this.setState({ deadLine: moment(event.target.value).format('ddd, DD MMM, YYYY') })
-
-    }
-    handleCreating = () => {
-        const descriptionInput = this.state.description
-        const deadLineInput = this.state.deadLine
-        if (descriptionInput && deadLineInput) {
-            this.props.onCreate(descriptionInput, deadLineInput)
-        } else {
-            alert("you should fill the values of description and deadline")
-        }    
-    }
+   
     handleSubmit = (e) => {
         e.preventDefault()
-        this.handleCreating()
-        this.setState({description: ""})
+        this.props.todosStore.createTodo();
     }
 
     render() {
-        const descriptionText = <input type="text" value={this.state.description} onChange={this.handleDescriptionChange} />;
-        const deadLineTime = <input type="date" className="deadline-input" onChange={this.handleDeadlineChange} />;
+        const { createTaskForm, editingDescription, editingDeadline } = this.props.todosStore
+        const { description } = createTaskForm 
+
+        const descriptionText = <input type="text" value={description} onChange={e => editingDescription(e)} />;
+        const deadLineTime = <input type="date" className="deadline-input" onChange={e => editingDeadline(e)} />;
 
         return (
             <form onSubmit={this.handleSubmit} className="addingContainer">
                 <label> Description : {descriptionText} </label>
                 <label> Dead line : {deadLineTime} </label>
-                <button type="submit" className="createButton" value="Creae new task" >
+                <button type="submit" className="createButton" value="Create new task" >
                     Create new task
                      <FaPlus />
                 </button>

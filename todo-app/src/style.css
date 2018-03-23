@@ -100,8 +100,13 @@ input {
     text-align: center;
     font-weight:bold;
 }
-.delete-container {
+.features-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    color : white;  
+    padding: 10px;
+    font-size:19px;
     text-align: center;
+    font-weight:bold;
 }
 .delete-all-button {
     text-align : center;
@@ -112,4 +117,24 @@ input {
     background-color: rgb(238, 56, 56);
 }.delete-all-button:hover {
      background-color:  rgb(211, 21, 21);
+}
+.mark-all-button {
+    text-align : center;
+    margin : 5px;
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+    background-color: rgb(250, 159, 1);
+}.mark-all-button:hover {
+     background-color:  rgb(201, 137, 20);
+}
+.unMark-all-button {
+    text-align : center;
+    margin : 5px;
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+    background-color: rgb(250, 159, 1);
+}.unMark-all-button:hover {
+     background-color:  rgb(201, 137, 20);
 }
