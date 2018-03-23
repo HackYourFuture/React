@@ -22,7 +22,16 @@ class Counter {
   // if the localStorage Empty it will be Only ~> []
   @observable 
   items = locals.load || [] // Items Holder
-
+  
+  get id() {
+    let randomString = ""
+    for (let i = 0; i < 8; i++) {
+      let random = Math.floor(Math.random() * (57 - 49) + 49)
+      randomString += String.fromCharCode(random)
+    }
+    return randomString
+  }
+  
   @action // onInput Change
   onInputChange = (e, field) => (this.item_state = {
     ...this.item_state,
@@ -33,7 +42,7 @@ class Counter {
   addNewItem = () => {
     const newItem = {
       ...this.item_state,
-      id: locals.id
+      id: this.id
     }
     this.items = [
       ...this.items,
