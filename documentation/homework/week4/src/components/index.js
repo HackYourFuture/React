@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
 
 import AssignItem from './AssignItem'
-import ViewRender from './ViewRender'
-import EditRender from './EditRender'
+import View from './View'
+import Edit from './Edit'
 import { locals } from '../utils'
 
 @inject('todo_actions')
@@ -25,7 +25,7 @@ export default class Layout extends Component {
             items.map(item => {
             return (
               (item.Edit) ?
-                <EditRender
+                <Edit
                   key={item.id}
                   item={item}
                   toggle_edit={toggle_edit}
@@ -33,7 +33,7 @@ export default class Layout extends Component {
                   onInputEdit={onInputEdit}
                   item_edit_state={item_edit_state} />
                 :
-                <ViewRender
+                <View
                   key={item.id}
                   item={item}
                   removeItem={removeItem}

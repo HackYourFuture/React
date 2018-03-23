@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react'
 
 @inject('todo_actions')
 @observer
-export default class extends Component {
+export default class Assign extends Component {
   render() {
     const { item_state, addNewItem, onInputChange } = this.props.todo_actions
     const { title, deadline } = item_state
