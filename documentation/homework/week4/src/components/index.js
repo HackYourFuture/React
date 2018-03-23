@@ -13,7 +13,6 @@ import { locals } from '../utils'
 export default class Layout extends Component {
   constructor(props) {
     super(props)
-    console.log(this.props)
     autorun(() => locals.save = [...this.props.todo_actions.items])
   }
   render() {
