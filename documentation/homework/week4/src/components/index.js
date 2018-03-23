@@ -1,0 +1,43 @@
+import React, { Component } from 'react'
+
+import { inject, observer } from 'mobx-react'
+
+import AssignItem from './AssignItem'
+import ViewRender from './ViewRender'
+import EditRender from './EditRender'
+import { locals } from '../utils'
+
+@inject('InitialStore')
+@observer
+export default class extends Component {
+  componentDidUpdate = (nextProps) => locals.save = [...nextProps.InitialStore.items]
+  render() {
+    const { items, removeItem, toggle_edit, toggle_checkbox, submit_edit, item_edit_state, onInputEdit } = this.props.InitialStore
+    return (
+      <div>
+        <AssignItem />
+        <ul>
+          {items.map(item => {
+            return (
+              (item.Edit) ?
+                <EditRender
+                  key={item.id}
+                  item={item}
+                  toggle_edit={toggle_edit}
+                  submit_edit={submit_edit}
+                  onInputEdit={onInputEdit}
+                  item_edit_state={item_edit_state} />
+                :
+                <ViewRender
+                  key={item.id}
+                  item={item}
+                  removeItem={removeItem}
+                  toggle_edit={toggle_edit}
+                  toggle_checkbox={toggle_checkbox} />
+            )
+          })}
+        </ul>
+      </div>
+    )
+  }
+}
