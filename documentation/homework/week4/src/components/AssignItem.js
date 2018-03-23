@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 
 import { inject, observer } from 'mobx-react'
 
-@inject('InitialStore')
+@inject('todo_actions')
 @observer
 export default class extends Component {
   render() {
-    const { item_state, addNewItem, onInputChange } = this.props.InitialStore
+    const { item_state, addNewItem, onInputChange } = this.props.todo_actions
     const { title, deadline } = item_state
     return (
       <div>

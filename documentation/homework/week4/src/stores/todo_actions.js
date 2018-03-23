@@ -12,7 +12,7 @@ const default_item_state = {
   Edit: false,
 }
 
-class Counter {
+class todo_actions {
   @observable
   item_state = {...default_item_state}
 
@@ -108,4 +108,4 @@ class Counter {
   }
 }
 
-export default new Counter()
+export default new todo_actions()

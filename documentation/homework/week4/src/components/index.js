@@ -7,15 +7,15 @@ import ViewRender from './ViewRender'
 import EditRender from './EditRender'
 import { locals } from '../utils'
 
-@inject('InitialStore')
+@inject('todo_actions')
 @observer
 export default class Layout extends Component {
-  componentDidUpdate = (nextProps) => locals.save = [...nextProps.InitialStore.items]
+  componentDidUpdate = (nextProps) => locals.save = [...nextProps.todo_actions.items]
   render() {
     const {
       items, removeItem, toggle_edit,
       toggle_checkbox, submit_edit,
-      item_edit_state, onInputEdit } = this.props.InitialStore
+      item_edit_state, onInputEdit } = this.props.todo_actions
     return (
       <div>
         <AssignItem />
