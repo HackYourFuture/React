@@ -9,14 +9,14 @@ import { Provider } from 'mobx-react'
 import Stores from './stores'
 
 // Import Components Index
-import Index from './components'
+import Layout from './components'
 
 class App extends Component {
   render() {
     // Sorry... I don't have an OOP background Am I that good?! :D
     return (
       <Provider {...Stores}>
-        <Index />
+        <Layout />
       </Provider>
     )
   }

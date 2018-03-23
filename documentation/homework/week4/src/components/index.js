@@ -9,7 +9,7 @@ import { locals } from '../utils'
 
 @inject('InitialStore')
 @observer
-export default class extends Component {
+export default class Layout extends Component {
   componentDidUpdate = (nextProps) => locals.save = [...nextProps.InitialStore.items]
   render() {
     const {
