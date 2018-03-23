@@ -12,12 +12,17 @@ import { locals } from '../utils'
 export default class extends Component {
   componentDidUpdate = (nextProps) => locals.save = [...nextProps.InitialStore.items]
   render() {
-    const { items, removeItem, toggle_edit, toggle_checkbox, submit_edit, item_edit_state, onInputEdit } = this.props.InitialStore
+    const {
+      items, removeItem, toggle_edit,
+      toggle_checkbox, submit_edit,
+      item_edit_state, onInputEdit } = this.props.InitialStore
     return (
       <div>
         <AssignItem />
         <ul>
-          {items.map(item => {
+          {(!items.length) ?
+            <p>No Items Found...</p> :  
+            items.map(item => {
             return (
               (item.Edit) ?
                 <EditRender
