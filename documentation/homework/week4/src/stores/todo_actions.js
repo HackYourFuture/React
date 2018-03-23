@@ -49,7 +49,6 @@ class todo_actions {
       newItem,
     ]
     this.item_state = default_item_state
-    return this.items
   }
 
   @action
@@ -74,7 +73,6 @@ class todo_actions {
           deadline: preVals.deadline
         }
       }
-      return item
     })
   }
 
@@ -90,7 +88,6 @@ class todo_actions {
           deadline,
         }
       }
-      return item
     })
   }
 
@@ -103,7 +100,6 @@ class todo_actions {
           done: !item.done
         }
       }
-      return item
     })
   }
 }
