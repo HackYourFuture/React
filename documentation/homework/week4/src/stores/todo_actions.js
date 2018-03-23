@@ -73,6 +73,7 @@ class todo_actions {
           deadline: preVals.deadline
         }
       }
+      return item
     })
   }
 
@@ -88,6 +89,7 @@ class todo_actions {
           deadline,
         }
       }
+      return item
     })
   }
 
@@ -100,6 +102,7 @@ class todo_actions {
           done: !item.done
         }
       }
+      return item
     })
   }
 }
