@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import { autorun } from 'mobx'
 import { inject, observer } from 'mobx-react'
 
 import AssignItem from './AssignItem'
@@ -10,7 +11,11 @@ import { locals } from '../utils'
 @inject('todo_actions')
 @observer
 export default class Layout extends Component {
-  componentDidUpdate = (nextProps) => locals.save = [...nextProps.todo_actions.items]
+  constructor(props) {
+    super(props)
+    console.log(this.props)
+    autorun(() => locals.save = [...this.props.todo_actions.items])
+  }
   render() {
     const {
       items, removeItem, toggle_edit,
