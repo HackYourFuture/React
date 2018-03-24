@@ -1,19 +1,25 @@
 [{
         "id": 1,
         "description": "Get out of bed",
-        "deadline": "2017-9-11",
-        "selected": true
+        "deadline": "2018-3-22",
+        "selected": true,
+        "isDone":false,
+        "timeout": true
     },
     {
         "id": 2,
         "description": "Brush teeth",
-        "deadline": "2017-9-10",
-        "selected": false
+        "deadline": "2018-3-23",
+        "selected": false,
+        "isDone": true,
+        "timeout": true
     },
     {
         "id": 3,
         "description": "Eat breakfast",
-        "deadline": "2017-9-9",
-        "selected": false
+        "deadline": "2018-3-26",
+        "selected": false,
+        "isDone": false,
+        "timeout": false
     }
 ]

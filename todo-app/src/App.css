@@ -62,18 +62,34 @@
   background-color: rgb(209, 209, 209);
 }
 
-.app-list {
+.toLate-list {
   display: grid;
+  grid-template-rows: 1fr 1fr;
   list-style: none;
   text-align: left;
   padding: 20px;
   border-bottom: rgb(182, 182, 182) 2px solid;
-  background-color: rgb(209, 209, 209);
+  background-color: rgb(230, 36, 36);
   box-shadow: black 0px 2px 5px;
 }
 
-.app-list:hover {
-  background-color: rgb(180, 180, 180);
+.toLate-list:hover {
+  background-color: rgb(184, 29, 29);
+}
+
+.inProgress-list {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  list-style: none;
+  text-align: left;
+  padding: 20px;
+  border-bottom: rgb(182, 182, 182) 2px solid;
+  background-color: rgb(8, 121, 23);
+  box-shadow: black 0px 2px 5px;
+}
+
+.inProgress-list:hover {
+  background-color: rgb(6, 94, 18);
 }
 
 .Input {

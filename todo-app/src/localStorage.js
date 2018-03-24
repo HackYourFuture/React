@@ -1,10 +1,10 @@
-export const LoadFromLocalStorage = data => {
+export const loadFromLocalStorage = data => {
 
     return JSON.parse(localStorage.getItem('todoItems'))
 
 }
 
-export const SaveToLocalStorage = data => {
+export const saveToLocalStorage = data => {
 
     return localStorage.setItem('todoItems', JSON.stringify(data))
 

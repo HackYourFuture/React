@@ -1,62 +1,59 @@
 import React, { Component } from 'react'
-import Checkbox from './Checkbox' 
+import { observer, inject } from 'mobx-react'
 import DisplayDetails from './DisplayDetails'
-import Input from './Input'
+import CreateNewTask from './CreateNewTask'
 
 import '../App.css';
 
+@inject('data')
+@observer
 export default class Container extends Component {
 
     render() {
+
         const {
-            todoItems,
-            handelSelected,
-            handelUpdateTask,
-            handelDeleteTask,
-            handelNewTask
-        } = this.props
+            todoList,
+            selected,
+        } = this.props.data
 
         return (
+
             <div className="Container">
-                <div>
-                    <div className="Task-Selector"><h3>Select your task:</h3></div>
+
+                <div className="Task-Selector">
+                    <h3>Select your task:</h3>
+
+
                     <ul className="TodoList">
-                        {todoItems.map((item, index) => {
-                            return <li key={item.id} className="app-list">
-                                <Checkbox
-                                    id={item.id}    
-                                    description={item.description}
-                                    selected={item.selected}
-                                    index={index}
-                                    handelSelected={handelSelected}
-                                />  
-                            </li>
+                        {todoList.map((task) => {
+                            return (
+                                <li key={task.id} className={task.timeout === true ? "toLate-list" : "inProgress-list"}>
+                                    <div >
+                                        <input type="checkbox" onChange={() => selected(task.id)} defaultChecked={task.selected} />
+                                        {task.description}
+                                        <div>
+                                            Deadline: {task.deadline}
+                                        </div>
+
+                                    </div>
+                                </li>
+                            )
                         })}
                     </ul>
-                    <div className="Input"><Input handelNewTask={handelNewTask} /></div>
+
                 </div>
+
                 <div className="TodoFunctionality">
                     <ul>
-                        {todoItems.map((item, index) => {
-                            return <li key={item.id} className="TodoFunctionality-list">
-                                <DisplayDetails
-                                    key={item.id}    
-                                    id={item.id}
-                                    description={item.description}
-                                    deadline={item.deadline}
-                                    selected={item.selected}
-                                    index={index}
-                                    handelUpdateTask={handelUpdateTask}
-                                    handelDeleteTask={handelDeleteTask}
-                                    
-                                />
-                            </li>
-                        })}
+                        <DisplayDetails />
                     </ul>
+                </div>
+
+                <div className="Input">
+                    <CreateNewTask />
                 </div>
 
             </div>
-
         )
     }
 }
