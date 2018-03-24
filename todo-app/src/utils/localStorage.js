@@ -1,4 +1,4 @@
-export const loadFromLocalStorage = data => {
+export const loadFromLocalStorage = () => {
     return JSON.parse(localStorage.getItem("todo list"))
 }
 export const saveToLocalStorage = (data) => {

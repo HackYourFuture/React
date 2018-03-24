@@ -10,7 +10,8 @@ class TodoList extends Component {
     render() {
         console.log(this.props)
         const { todosList } = this.props.todosStore
-        const tasks = todosList.map((task) => 
+
+        const tasks = todosList.map(task => 
             <TaskItem
                 taskId={task.id}
                 description={task.description}

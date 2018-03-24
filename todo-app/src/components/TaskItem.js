@@ -17,7 +17,7 @@ export default class TaskItem extends Component {
         creatingDate: PropTypes.string
     }
 
-    handleChange = () => {
+    handleToggling = () => {
         this.props.todosStore.toggleDone(this.props.taskId)
     }
 
@@ -25,28 +25,25 @@ export default class TaskItem extends Component {
         this.props.todosStore.removeTodo(this.props.taskId)
     }
 
-    handleEditing = () => {
-        const descriptionPrompt = prompt("Enter the new Description", this.props.description)
-        if (descriptionPrompt) {
-            this.props.todosStore.editingTodo(this.props.taskId, descriptionPrompt)
-        } else {
-            alert("you should enter some text")
-        }
-    }
-
     render() {
-        const { editMode, saveEdited, onChangeEditingText, enableEditMode } = this.props.todosStore
+        const {
+            editingText,
+            editMode,
+            saveEdited,
+            onChangeEditingText,
+            enableEditMode,
+            taskEditingId } = this.props.todosStore
 
         const description = this.props.description;
         const deadLine = this.props.deadLine
 
-        const checkBox = <input type="checkBox" checked={this.props.isDone} onChange={this.handleChange} />
-       
-       
+        const checkBox = <input type="checkBox" checked={this.props.isDone} onChange={this.handleToggling} />
+
+
         const editTextMode = () => {
             return (
                 <div>
-                    <textarea placeholder={description} onChange={e => onChangeEditingText(e)} />
+                    <textarea value={editingText} onChange={e => onChangeEditingText(e)} />
                     <button className="save-button" onClick={() => saveEdited(this.props.taskId)}>
                         Save
                     </button>
@@ -58,7 +55,7 @@ export default class TaskItem extends Component {
             <div className="tasks">
                 <li>
                     <div>
-                        {editMode ? editTextMode() : `Description : ${description}`}
+                        {editMode === true && taskEditingId === this.props.taskId ? editTextMode() : `Description : ${description}`}
                         <br />
                         <br />
                         Dead Line : {deadLine}
@@ -68,7 +65,7 @@ export default class TaskItem extends Component {
                 </li>
                 <div className="tools">
                     <button className="remove-button" onClick={this.handleRemoving}><Trash /></button>
-                    <button className="edit-button" onClick={() => enableEditMode()}><Edit /></button>
+                    <button className="edit-button" onClick={() => enableEditMode(this.props.taskId)}><Edit /></button>
                 </div>
                 <div className="timestamp">
                     <span>Created at: {this.props.creatingDate}</span>

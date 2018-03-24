@@ -17,7 +17,7 @@ export default class AddingContainer extends Component {
         const { createTaskForm, editingDescription, editingDeadline } = this.props.todosStore
         const { description } = createTaskForm 
 
-        const descriptionText = <input type="text" value={description} onChange={e => editingDescription(e)} />;
+        const descriptionText = <input placeholder="enter a description" onChange={e => editingDescription(e)} />;
         const deadLineTime = <input type="date" className="deadline-input" onChange={e => editingDeadline(e)} />;
 
         return (

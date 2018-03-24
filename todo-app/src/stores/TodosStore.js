@@ -1,7 +1,9 @@
-import { observable, action } from "mobx"
+import { observable, action, autorun } from "mobx"
 import moment from "moment"
 
 import todosList from "../data/myTodoList.json"
+
+import { loadFromLocalStorage, saveToLocalStorage } from "../utils/localStorage"
 
 const createTaskFormDefault = {
     description: "",
@@ -9,38 +11,57 @@ const createTaskFormDefault = {
 }
 
 class TodosStore {
-    
+
     @observable
-    todosList = todosList
+    todosList = loadFromLocalStorage()
 
     @observable
     createTaskForm = createTaskFormDefault
 
     @observable
     editMode = false
-    
-    @observable
-    editingText = ""    
 
-    @action 
+    @observable
+    editingText = ""
+
+    @observable
+    taskEditingId= null    
+
+    constructor() {
+        autorun(() => {
+            if (this.todosList.length === 0) {
+                this.todosList = todosList
+            }
+        })
+    }
+
+    @action
     createTodo = () => {
         const ids = this.todosList.map(task => task.id)
         const newId = this.todosList.length > 0 ? Math.max(...ids) + 1 : 1
-        const newTask = {
-            ...this.createTaskForm,
-            id: newId,
-            creatingDate: moment().format("llll")
+        if (this.createTaskForm.description && this.createTaskForm.deadLine) {
+            const newTask = {
+                id: newId,
+                ...this.createTaskForm,
+                done: false,
+                creatingDate: moment().format("ddd, D MMM, YYYY, hh:mm a")
+            }
+            this.todosList = [
+                newTask,
+                ...this.todosList
+            ]
+            this.createTaskForm = createTaskFormDefault
+        } else {
+            alert("you should fill the values of Description and Deadline")
         }
-        this.todosList = [
-            ...this.todosList,
-            newTask
-        ]
-        this.createTaskForm = createTaskFormDefault
+        saveToLocalStorage(this.todosList)
     }
 
     @action
     removeTodo = id => {
-        this.todosList = this.todosList.filter(task => task.id !== id)
+        const newTodosList = this.todosList.filter(task => task.id !== id)
+        this.todosList = newTodosList
+        saveToLocalStorage(this.todosList)
     }
 
     @action
@@ -49,72 +70,100 @@ class TodosStore {
             if (task.id === id) {
                 return {
                     ...task,
-                    done : !task.done
+                    done: !task.done
                 }
             }
             return task
         })
         this.todosList = newTodosList
+        saveToLocalStorage(this.todosList)
     }
 
-    @action 
+    @action
     deleteAllCompleted = () => {
         const newTodosList = this.todosList.filter(task => task.done === false)
         this.todosList = newTodosList
+        saveToLocalStorage(this.todosList)
+
     }
 
-    @action 
+    @action
     editingDescription = (e) => {
         this.createTaskForm.description = e.target.value
-    } 
+    }
 
     @action
     editingDeadline = (e) => {
-        this.createTaskForm.deadLine = moment(e.target.value).format('llll')
-    } 
+        this.createTaskForm.deadLine = moment(e.target.value).format("ddd, D MMM, YYYY")
+    }
 
     @action
     editingTodo = (id, newDescription) => {
-        this.todosList = todosList.map(task => {
+        const newTodosList = this.todosList.map(task => {
             if (task.id === id) {
-                task.description = newDescription
+                return {
+                    ...task,
+                    description: newDescription
+                }
             }
             return task;
         })
+        this.todosList = newTodosList
+        saveToLocalStorage(this.todosList)
+
     }
     @action
     markAllTodos = () => {
-        this.todosList = this.todosList.map(task => {
-           return task.done = true
+        const newTodosList = this.todosList.map(task => {
+            return {
+                ...task,
+                done: true
+            }
         })
+        this.todosList = newTodosList
+        saveToLocalStorage(this.todosList)
     }
 
     @action
     unMarkAllTodos = () => {
-        this.todosList = this.todosList.map(task => {
-           return task.done = false
+        const newTodosList = this.todosList.map(task => {
+            return {
+                ...task,
+                done: false
+            }
         })
+        this.todosList = newTodosList
+        saveToLocalStorage(this.todosList)
     }
-    @action 
+
+    @action
     onChangeEditingText = (e) => {
         this.editingText = e.target.value
     }
 
     @action
-    enableEditMode = () => {
+    enableEditMode = (id) => {
+        this.taskEditingId = this.todosList.filter(task => task.id === id)[0].id
+        this.editingText = this.todosList.filter(task => task.id === id)[0].description
         this.editMode = true
     }
 
     @action
     saveEdited = (id) => {
-        this.todosList = this.todosList.map(task => {
-            if (task.id === id) {
-                task.description = this.editingText
+        const newTodosList = this.todosList.map(task => {
+            if (task.id === id && this.editingText) {
+                return {
+                    ...task,
+                    description: this.editingText
+                }
+
             }
             return task
         })
+        this.todosList = newTodosList
         this.editMode = false
         this.editingText = ""
+        saveToLocalStorage(this.todosList)
     }
 }
 

@@ -13,16 +13,16 @@ export default class FeaturesContainer extends Component {
 
         return (
             <div className="features-container">
-                <button className="delete-all-button" onClick={() => deleteAllCompleted()}>
-                    Delete all completed todos
-                </button>
                 <button className="mark-all-button" onClick={() => markAllTodos()}>
                     Mark all as done
                 </button>
                 <button className="unMark-all-button" onClick={() => unMarkAllTodos()}>
                      Unmark all as not done
-                </button>
-                <span className="incomplete-counter">{incompletedTasks} still needs to be done </span>
+                </button><br/>
+                <button className="delete-all-button" onClick={() => deleteAllCompleted()}>
+                    Delete all completed todos
+                </button><br /><br />
+                <span className="incomplete-counter">{incompletedTasks} task/s still needs to be done </span><br /><br />
                 <span className="complete-counter">{completedTasks} task/s are done </span>
             </div>
         )
