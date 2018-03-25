@@ -28,7 +28,6 @@ export default class TaskItem extends Component {
     render() {
         const {
             editingText,
-            editMode,
             saveEdited,
             onChangeEditingText,
             enableEditMode,
@@ -55,10 +54,10 @@ export default class TaskItem extends Component {
             <div className="tasks">
                 <li>
                     <div>
-                        {editMode === true && taskEditingId === this.props.taskId ? editTextMode() : `Description : ${description}`}
+                        { taskEditingId === this.props.taskId ? editTextMode() : description}
                         <br />
                         <br />
-                        Dead Line : {deadLine}
+                         {deadLine}
                         <br />
                         {this.props.isDone ? "is Done" : "not done yet"} {checkBox}
                     </div>

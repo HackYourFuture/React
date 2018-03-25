@@ -14,15 +14,14 @@ export default class AddingContainer extends Component {
     }
 
     render() {
-        const { createTaskForm, editingDescription, editingDeadline } = this.props.todosStore
-        const { description } = createTaskForm 
+        const { editingDescription, editingDeadline } = this.props.todosStore
 
-        const descriptionText = <input placeholder="enter a description" onChange={e => editingDescription(e)} />;
+        const descriptionText = <textarea placeholder="enter new todo" rows="3" cols="60" onChange={e => editingDescription(e)} />;
         const deadLineTime = <input type="date" className="deadline-input" onChange={e => editingDeadline(e)} />;
 
         return (
             <form onSubmit={this.handleSubmit} className="addingContainer">
-                <label> Description : {descriptionText} </label>
+                <label> {descriptionText} </label><br/>
                 <label> Dead line : {deadLineTime} </label>
                 <button type="submit" className="createButton" value="Create new task" >
                     Create new task

@@ -19,9 +19,6 @@ class TodosStore {
     createTaskForm = createTaskFormDefault
 
     @observable
-    editMode = false
-
-    @observable
     editingText = ""
 
     @observable
@@ -145,7 +142,6 @@ class TodosStore {
     enableEditMode = (id) => {
         this.taskEditingId = this.todosList.filter(task => task.id === id)[0].id
         this.editingText = this.todosList.filter(task => task.id === id)[0].description
-        this.editMode = true
     }
 
     @action
@@ -161,8 +157,8 @@ class TodosStore {
             return task
         })
         this.todosList = newTodosList
-        this.editMode = false
         this.editingText = ""
+        this.taskEditingId = null
         saveToLocalStorage(this.todosList)
     }
 }

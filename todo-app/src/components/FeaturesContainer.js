@@ -18,7 +18,7 @@ export default class FeaturesContainer extends Component {
                 </button>
                 <button className="unMark-all-button" onClick={() => unMarkAllTodos()}>
                      Unmark all as not done
-                </button><br/>
+                </button>
                 <button className="delete-all-button" onClick={() => deleteAllCompleted()}>
                     Delete all completed todos
                 </button><br /><br />
