@@ -1,4 +1,4 @@
-import { observable, action, autorun } from "mobx"
+import { observable, action } from "mobx"
 import moment from "moment"
 
 import todosList from "../data/myTodoList.json"
@@ -13,25 +13,21 @@ const createTaskFormDefault = {
 class TodosStore {
 
     @observable
-    todosList = loadFromLocalStorage()
+    todosList = loadFromLocalStorage() || todosList
 
     @observable
     createTaskForm = createTaskFormDefault
 
     @observable
-    editingText = ""
+    editingDescriptionText = ""
+
+    @observable
+    editingDeadlineTime = ""    
 
     @observable
     taskEditingId= null    
 
-    constructor() {
-        autorun(() => {
-            if (this.todosList.length === 0) {
-                this.todosList = todosList
-            }
-        })
-    }
-
+    
     @action
     createTodo = () => {
         const ids = this.todosList.map(task => task.id)
@@ -85,30 +81,15 @@ class TodosStore {
     }
 
     @action
-    editingDescription = (e) => {
+    addingDescription = (e) => {
         this.createTaskForm.description = e.target.value
     }
 
     @action
-    editingDeadline = (e) => {
+    addingDeadline = (e) => {
         this.createTaskForm.deadLine = moment(e.target.value).format("ddd, D MMM, YYYY")
     }
 
-    @action
-    editingTodo = (id, newDescription) => {
-        const newTodosList = this.todosList.map(task => {
-            if (task.id === id) {
-                return {
-                    ...task,
-                    description: newDescription
-                }
-            }
-            return task;
-        })
-        this.todosList = newTodosList
-        saveToLocalStorage(this.todosList)
-
-    }
     @action
     markAllTodos = () => {
         const newTodosList = this.todosList.map(task => {
@@ -134,30 +115,43 @@ class TodosStore {
     }
 
     @action
-    onChangeEditingText = (e) => {
-        this.editingText = e.target.value
+    onChangeDescriptionText = (e) => {
+        this.editingDescriptionText = e.target.value
     }
 
     @action
+    onChangeDeadlineTime = e => {
+        this.editingDeadlineTime = moment(e.target.value).format("ddd, D MMM, YYYY") 
+    }    
+
+    @action
     enableEditMode = (id) => {
-        this.taskEditingId = this.todosList.filter(task => task.id === id)[0].id
-        this.editingText = this.todosList.filter(task => task.id === id)[0].description
+        this.taskEditingId = this.todosList.find(task => task.id === id).id
+        this.editingDescriptionText = this.todosList.find(task => task.id === id).description
     }
 
     @action
     saveEdited = (id) => {
         const newTodosList = this.todosList.map(task => {
-            if (task.id === id && this.editingText) {
-                return {
-                    ...task,
-                    description: this.editingText
-                }
-
+            if (task.id === id && this.editingDescriptionText) {
+                if (this.editingDeadlineTime.length > 0) {
+                    return {
+                        ...task,
+                        description: this.editingDescriptionText,
+                        deadLine: this.editingDeadlineTime
+                    }
+                } else {
+                    return {
+                        ...task,
+                        description: this.editingDescriptionText
+                    }
+                }    
             }
             return task
         })
         this.todosList = newTodosList
-        this.editingText = ""
+        this.editingDescriptionText = ""
+        this.editingDeadlineTime = ""
         this.taskEditingId = null
         saveToLocalStorage(this.todosList)
     }

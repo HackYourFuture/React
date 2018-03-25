@@ -149,3 +149,6 @@ input {
 }.save-button:hover {
      background-color:  rgb(73, 190, 4);
 }
+.edit-date-input {
+    padding: 0px;
+}

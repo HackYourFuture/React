@@ -17,36 +17,42 @@ export default class TaskItem extends Component {
         creatingDate: PropTypes.string
     }
 
-    handleToggling = () => {
+    togglingDone = () => {
         this.props.todosStore.toggleDone(this.props.taskId)
     }
 
-    handleRemoving = () => {
+    removeTodo = () => {
         this.props.todosStore.removeTodo(this.props.taskId)
     }
 
     render() {
         const {
-            editingText,
+            onChangeDeadlineTime,
+            editingDescriptionText,
             saveEdited,
-            onChangeEditingText,
+            onChangeDescriptionText,
             enableEditMode,
             taskEditingId } = this.props.todosStore
 
         const description = this.props.description;
         const deadLine = this.props.deadLine
 
-        const checkBox = <input type="checkBox" checked={this.props.isDone} onChange={this.handleToggling} />
+        const checkBox = <input type="checkBox" checked={this.props.isDone} onChange={this.togglingDone} />
 
 
         const editTextMode = () => {
             return (
                 <div>
-                    <textarea value={editingText} onChange={e => onChangeEditingText(e)} />
+                    <textarea value={editingDescriptionText} rows="3" cols="20" onChange={e => onChangeDescriptionText(e)} />
                     <button className="save-button" onClick={() => saveEdited(this.props.taskId)}>
                         Save
                     </button>
                 </div>
+            )
+        }
+        const editDeadlineMode = () => {
+            return (
+                <input type="date" className="edit-date-input" onChange={e => onChangeDeadlineTime(e)}/>
             )
         }
 
@@ -57,13 +63,13 @@ export default class TaskItem extends Component {
                         { taskEditingId === this.props.taskId ? editTextMode() : description}
                         <br />
                         <br />
-                         {deadLine}
+                        {taskEditingId === this.props.taskId ? editDeadlineMode() : deadLine}
                         <br />
                         {this.props.isDone ? "is Done" : "not done yet"} {checkBox}
                     </div>
                 </li>
                 <div className="tools">
-                    <button className="remove-button" onClick={this.handleRemoving}><Trash /></button>
+                    <button className="remove-button" onClick={this.removeTodo}><Trash /></button>
                     <button className="edit-button" onClick={() => enableEditMode(this.props.taskId)}><Edit /></button>
                 </div>
                 <div className="timestamp">
