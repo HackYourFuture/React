@@ -10,14 +10,12 @@ import Todos from "./component/Todos";
 export default class App extends React.Component {
   render() {
     return (
-      <div>
-        <Provider {...stores}>
-          <React.Fragment>
-            <Header />
-            <Todos/>
-          </React.Fragment>
-        </Provider>
-      </div>
+      <Provider {...stores}>
+        <React.Fragment>
+          <Header />
+          <Todos />
+        </React.Fragment>
+      </Provider>
     );
   }
 }

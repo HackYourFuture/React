@@ -11,38 +11,23 @@ import Footer from './Footer';
 export default class Todos extends React.Component {
 
   render() {
-    const { handelCheck,
-      handelDeleteItem,
-      handleDateChange,
-      handleDescriptionChange,
-      handleSubmit,
-      newDeadline,
-      newDescription,
-      todos,
-    } = this.props.TodoStore;
+    const { TodoStore } = this.props;
+    console.log(TodoStore)
+    const hasTodos = TodoStore.todos.length > 0;
 
-    const hasTodos = todos.length > 0;
-    
     return (
       <div className="todosContainer">
         <h3>Todo-List</h3>
-        <AddTodoForm description={newDescription}
-          deadline={newDeadline}
-          handleDescriptionChange={handleDescriptionChange}
-          handleDateChange={handleDateChange}
-          handleSubmit={handleSubmit}
-        />
-        {hasTodos ? (
-          <TodoList todos={todos}
-            handelCheck={handelCheck}
-            handelDeleteItem={handelDeleteItem}
-          />
-        ) : (
+        <AddTodoForm />
+        {
+          hasTodos ?
+            <TodoList />
+            :
             <div className="empty">
               <h3>No items...</h3>
             </div>
-          )}
-        <Footer todos={todos} />
+        }
+        <Footer />
       </div>
 
     );

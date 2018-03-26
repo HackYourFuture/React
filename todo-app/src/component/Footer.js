@@ -1,11 +1,12 @@
 import React from 'react';
-import { observer } from "mobx-react";
+import { observer, inject } from 'mobx-react'
 
+@inject('TodoStore')
 @observer
 export default class Footer extends React.Component {
 
   render() {
-    const { todos } = this.props;
+    const { todos } = this.props.TodoStore;
     return (
       <div className='footer'>
         <span className='todosInfo'>
