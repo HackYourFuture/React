@@ -1,70 +1,103 @@
 import todos from "../data/todos.json";
-import { observable, action, configure } from "mobx";
+import { observable, action, computed, configure } from "mobx";
 
 configure({ enforceActions: true });
 
+const defaultInputValues = {
+    description: "",
+    deadline: ""  
+}
 
-const TodoItems = observable({
+class TodosStore {
 
-    todos,
+    @observable
+    todos = todos
 
+    @observable
+    addFormInputs = defaultInputValues
+
+    @observable
+    editID = null   
+
+    @computed
     get nextId() {
         if (!this.todos.length) {
             return 1;
         }
         const todoIDs = this.todos.map(todo => todo.id);
         return Math.max(...todoIDs) + 1
-    },
+    }
 
-    addTodo: action((id, description, deadline) => {
+    @action
+    changeAddFormInput = (value, field) => {
+        this.addFormInputs[field] = value;
+    } 
+    
+    @action
+    addTodo = (id, description, deadline) => {
         if (description && deadline) {
             const newTodo = {
                 id,
                 description,
                 deadline,
-                done: false, 
-                editMode: false
+                done: false
             }
-            TodoItems.todos.push(newTodo);
+            this.todos.push(newTodo);
+            this.addFormInputs = defaultInputValues;
         }
-    }),
+    }
 
-    toggleCheck: action(todoID => {
-        TodoItems.todos = TodoItems.todos.map(todo => (
+    @action
+    toggleCheck = todoID => {
+        this.todos = this.todos.map(todo => (
             todo.id === todoID
                 ? { ...todo, done: !todo.done }
                 : todo
         ));
-    }),
+    }
 
-    toggleEdit: action(todoID => {
-        TodoItems.todos = TodoItems.todos.map(todo => (
+    @action
+    editTodo = (todoID) => {
+        this.editID = todoID
+    }
+
+    @action
+    changeEditInput = (value, todoID, field) => {
+        this.todos = this.todos.map(todo => (
             todo.id === todoID
-                ? { ...todo, editMode: !todo.editMode }
+                ? { ...todo, [field]: value }
                 : todo
         ));
-    }),
+    }    
 
-    saveUpdate: action((todoID, description, deadline) => {
+    @action
+    cancelEdit = () => {
+        this.editID = null;
+    }  
+
+    @action
+    saveUpdate = (todoID, description, deadline) => {
         if (description && deadline) {
-            TodoItems.todos = TodoItems.todos.map(todo => (
+            this.todos = this.todos.map(todo => (
                 todo.id === todoID
                     ? { ...todo, description, deadline }
                     : todo
             ));
-            TodoItems.toggleEdit(todoID);
+            this.cancelEdit();
         }   
-    }),
+    }
 
-    deleteTodo: action(todoID => {
-        TodoItems.todos = TodoItems.todos.filter(todo => (
+    @action
+    deleteTodo = (todoID) => {
+        this.todos = this.todos.filter(todo => (
             todo.id !== todoID
         ));
-    }),
+    }
 
+    @computed
     get doneCount() {
         return this.todos.filter(todo => todo.done).length;
     }
-}) 
+} 
 
-export default TodoItems;
+export default new TodosStore();

@@ -1,7 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "mobx-react";
+import todoItems from "./stores/TodosStore";
+import App from "./App";
 import "./index.css";
-import App from "./components/App";
-import TodoItems from "./stores/TodosStore";
 
-ReactDOM.render(<App todoItems={TodoItems}/>, document.getElementById("root"));
+const TodoApp = () => (
+    <Provider todoItems={todoItems}>
+        <App />
+    </Provider>
+);
+
+ReactDOM.render(<TodoApp />, document.getElementById("root"));

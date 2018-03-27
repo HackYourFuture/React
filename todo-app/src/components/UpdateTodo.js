@@ -1,41 +1,42 @@
 import React from "react";
+import { inject, observer } from "mobx-react";
 
 
+@inject("todoItems")
+@observer    
 export default class UpdateTodo extends React.Component {
 
-    state = {
-        description: this.props.todo.description,
-        deadline: this.props.todo.deadline
-    };
-
-    changeInput = (e, field) => {
-        this.setState({
-            [field]: e.target.value
-        });
-    }
-
     render() {
-        const { id } = this.props.todo;
-        const { description, deadline } = this.state;
-        const { toggleEdit, saveUpdate } = this.props.todoItems;
+        const { todo, todoItems } = this.props;
+        const { id, description, deadline } = todo;
+        const {
+            changeEditInput,
+            cancelEdit,
+            saveUpdate
+        } = todoItems;
+
         return (
             <div>
                 <input type="text"
                     value={description}
                     className="update-input"
-                    onChange={(e) => this.changeInput(e, "description")}
+                    onChange={(e) => {
+                        changeEditInput(e.target.value, id, "description")
+                    }}
                 />
                 <input type="date"
                     value={deadline}
                     className="update-input"
-                    onChange={(e) => this.changeInput(e, "deadline")}
+                    onChange={(e) => {
+                        changeEditInput(e.target.value, id, "deadline")
+                    }}
                 />
                 <button className="save-btn"
                     onClick={() => saveUpdate(id, description, deadline)}>
                     Save
                 </button>
                 <button className="cancel-btn"
-                    onClick={() => toggleEdit(id)}>
+                    onClick={cancelEdit}>
                     Cancel
                 </button>
             </div>

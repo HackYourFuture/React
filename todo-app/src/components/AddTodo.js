@@ -1,38 +1,39 @@
 import React from "react";
+import { inject, observer } from "mobx-react";
 
-const defaultState = {
-    description: "",
-    deadline: ""
-}
 
+@inject("todoItems")
+@observer    
 export default class AddTodo extends React.Component {
 
-    state = defaultState;
-
-    changeInput = (e, field) => {
-        this.setState({
-            [field]: e.target.value
-        });
-    }
-
     render() {
-        const { description, deadline } = this.state;
-        const { addTodo, nextId } = this.props.todoItems;
+        const {
+            nextId,
+            addTodo,
+            addFormInputs,
+            changeAddFormInput,
+        } = this.props.todoItems;
+
+        const { description, deadline } = addFormInputs;
+        
         return (
             <section className="add-form">
                 <input type="text"
                     value={description}
-                    placeholder="enter new todo . . ."
-                    onChange={(e) => this.changeInput(e, "description")}
+                    placeholder=" enter new todo . . ."
+                    onChange={(e) => {
+                        changeAddFormInput(e.target.value, "description")
+                    }}
                     id="text-input"
                 />
                 <input type="date"
                     value={deadline}
-                    onChange={(e) => this.changeInput(e, "deadline")}
+                    onChange={(e) => {
+                        changeAddFormInput(e.target.value, "deadline")
+                    }}
                 />
                 <button onClick={() => {
                     addTodo(nextId, description, deadline)
-                    this.setState(defaultState)
                 }}>
                     Add
                 </button>
