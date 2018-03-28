@@ -1,22 +1,36 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react'
 
-//Animation
-
 // Component
 import TodosItem from './TodosItem';
-
 
 @inject('TodoStore')
 @observer
 export default class TodosList extends React.Component {
 
 	render() {
+		const { todos,
+			todoEditingID,
+			toggleDone,
+			DeleteTodoItem,
+			toggleEdit,
+		} = this.props.TodoStore;
+
 		return (
-			<div>
-				<TodosItem />
-			</div>
-		)
+			<ul className="todosItem">
+				{
+					todos.map(todo => (
+							<TodosItem
+							key={todo._id}
+							todo={todo}
+							toggleDone={toggleDone}
+							DeleteTodoItem={DeleteTodoItem}
+							toggleEdit={toggleEdit}
+							todoEditingID={todoEditingID}
+							/>
+						))
+				}
+			</ul>
+		);
 	}
 }
-

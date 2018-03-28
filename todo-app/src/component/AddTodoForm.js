@@ -6,22 +6,33 @@ import { observer, inject } from 'mobx-react'
 export default class AddTodoForm extends React.Component {
 
     render() {
+       
         const {
-            TodoStore
-        } = this.props;
+            createTodo,
+            addTodoForm,
+            changeTodoFormField
+        } = this.props.TodoStore;
+        const {
+            description,
+            deadline,
+        } = addTodoForm
+
         return (
-            <form onSubmit={TodoStore.handleSubmit}>
+            <div className='addTodoForm'>
                 <input
-                    type="text" placeholder="Add new todo item"
-                    value={TodoStore.newDescription}
-                    onChange={TodoStore.handleDescriptionChange} />
+                    type="text"
+                    placeholder="Add new todo item"
+                    value={description}
+                    onChange={(e) => changeTodoFormField(e.target.value, 'description')} />
                 <input
                     type="date"
-                    value={TodoStore.newDeadline}
-                    onChange={TodoStore.handleDateChange} />
-                <input type="submit" value="Submit" />
-            </form>
+                    value={deadline}
+                    onChange={(e) => changeTodoFormField(e.target.value, 'deadline')} />
+                <input type="submit" value="Submit" onClick={createTodo}
+                />
+            </div>
         );
     }
 }
+
 

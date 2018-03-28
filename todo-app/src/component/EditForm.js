@@ -1,32 +1,39 @@
 import React from 'react';
+import { observer, inject } from 'mobx-react'
 
 //Animation
 import Fade from 'react-reveal/Fade';
-import { observer, inject } from 'mobx-react'
 
 @inject('TodoStore')
 @observer
 export default class EditForm extends React.Component {
 
   render() {
-    const { TodoStore } = this.props;
-    // const todo = TodoStore.todos.map((todo) => { return todo.id })
-    // console.log(todo)
+    const {
+      todoEditingText,
+      changeTodoEditingText,
+      saveTodo,
+      cancelEditing
+    } = this.props.TodoStore
+    
     return (
-      <Fade cascade >
-        <input type="text"
-          value={TodoStore.changedText}
-          onChange={TodoStore.handleChange}
-        />
-        <button className="saveBtn"
-          onClick={() => TodoStore.handelEditSubmit()}>
-          save
-        </button>
-        <button className="cancelBtn"
-          onClick={TodoStore.handelCancel}>
-          cancel
+      <div>
+        < Fade cascade >
+          <input type="text"
+            value={todoEditingText}
+            onChange={e => changeTodoEditingText(e.target.value)}
+          />
+          <button className="saveBtn"
+            onClick={saveTodo}>
+            save
           </button>
-      </Fade>
+          <button className="cancelBtn"
+            onClick={cancelEditing}>
+            cancel
+          </button>
+        </Fade>
+      </div >
     );
   }
 }
+

@@ -9,12 +9,13 @@ import Footer from './Footer';
 @inject('TodoStore')
 @observer
 export default class Todos extends React.Component {
-
+  componentDidMount() {
+    this.props.TodoStore.getTodos();
+  }
   render() {
-    const { TodoStore } = this.props;
-    console.log(TodoStore)
-    const hasTodos = TodoStore.todos.length > 0;
+    const { todos } = this.props.TodoStore;
 
+    const hasTodos = todos.length > 0;
     return (
       <div className="todosContainer">
         <h3>Todo-List</h3>
@@ -33,3 +34,4 @@ export default class Todos extends React.Component {
     );
   }
 }
+

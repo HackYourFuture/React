@@ -24,6 +24,11 @@ body {
     background-position: center top;
 }
 
+.addTodoForm {
+    width: 100%;
+    overflow: hidden;
+}
+
 .todosContainer {
     margin: 0 auto;
 }
@@ -103,6 +108,7 @@ input[type=submit] {
 input[type=submit],
 .saveBtn {
     background-color: #54c0ff;
+    float: none;
 }
 
 input[type=text],
@@ -133,3 +139,4 @@ input[type=date] {
     color: forestgreen;
     padding: 1%;
 }
+

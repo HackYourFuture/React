@@ -1,91 +1,123 @@
-import { action, observable } from 'mobx';
-// import moment from 'moment';
+import { action, observable, runInAction } from 'mobx';
 
-// Data
-import TodoData from '../data/todo.json';
+const addTodoFormDefault = {
+  description: '',
+  deadline: '',
+}
+
+const API_ROOT = 'https://hyf-react-api.herokuapp.com';
 
 export class TodoStore {
-  @observable todos = TodoData
-  @observable newDescription = ''
-  @observable newDeadline = ''
-  @observable isEditing = false
-  @observable changedText = ''
+  @observable
+  todos = []
+
+  @observable
+  addTodoForm = addTodoFormDefault
+
+  @observable
+  todoEditingID = null
+
+  @observable
+  todoEditingText = ''
+
+  //TODOs API
+  @action
+  getTodos = async () => {
+    const res = await fetch(`${API_ROOT}/todos`);
+    const parseResponse = await res.json()
+    runInAction(() => {
+      this.todos = parseResponse
+    })
+  }
 
   // Change the state of DONE foreach todo
   @action
-  handelCheck = (todo) => {
-    todo.done = !todo.done
-  }
-
-  @action
-  handelDeleteItem = (todo) => {
-    this.todos = this.todos.filter((item) => {
-      return item.id !== todo.id
+  toggleDone = async todo => {
+    this.todos = this.todos.map((task) => {
+      if (task._id === todo._id) {
+        return {
+          ...task,
+          done: !task.done
+        }
+      }
+      return task
+    })
+    await fetch(`${API_ROOT}/todos/${todo._id}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        done: !todo.done
+      })
     })
   }
 
   @action
-  handleDescriptionChange = (event) => {
-    this.newDescription = event.target.value
+  DeleteTodoItem = async (todoId) => {
+    await fetch(`${API_ROOT}/todos/${todoId}`, {
+      method: 'DELETE',
+    })
+    this.getTodos();
+  }
+
+  // add new todo
+  @action
+  createTodo = async() => {
+    await fetch(`${API_ROOT}/todos/create`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(this.addTodoForm)
+    })
+    runInAction(() => {
+      this.addTodoForm = addTodoFormDefault
+    })
+    this.getTodos();
   }
 
   @action
-  handleDateChange = (event) => {
-    this.newDeadline = event.target.value
+  saveTodo = async () => {
+    await fetch(`${API_ROOT}/todos/${this.todoEditingID}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        description: this.todoEditingText
+      })
+    })
+    this.getTodos()
+    this.cancelEditing()
   }
- 
-  // add new todo
+
   @action
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const ids = this.todos.map((todo) => todo.id);
-    const newId = this.todos.length > 0 ? Math.max(...ids) + 1 : 1;
-    const newTodo = {
-      id: newId,
-      description: this.newDescription,
-      deadline: this.newDeadline,
-      done: false
-    };
-    this.todos = [newTodo, ...this.todos];
-    this.newDescription = '';
-    this.newDeadline =''
+  changeTodoFormField = (inputValue, field) => {
+    this.addTodoForm[field] = inputValue
   }
 
   // editing todo
 
   @action
-  toggleEdit = (todo) => {
-    for (let i = 0; i < this.todos.length; i++) {
-      if (this.todos[i].id === todo.id) { 
-        console.log(todo.id)
-        this.changedText = this.todos[i].description
-      }
-      
-    }
-    this.isEditing = !this.isEditing
+  toggleEdit = (id) => {
+    this.todoEditingID = id
+    this.todoEditingText = this.todos.filter(todo => {
+      return todo._id === id
+    })[0].description
   }
-  @action
-  handleChange = (event) => {
-    this.changedText = event.target.value
-    console.log(event.target.value)
 
-  }
   @action
-  handelEditSubmit = () => {
-    for (let i = 0; i < this.todos.length; i++) {
-      // if (this.todos[i].description === this.changedText) {
-      // }
-      this.todos[i].description = this.changedText
-    
-    }
-    this.isEditing = !this.isEditing
+  changeTodoEditingText = (inputValue) => {
+    this.todoEditingText = inputValue
   }
-  @action
-  handelCancel = () => {
-    this.isEditing = !this.isEditing
 
+  @action
+  cancelEditing = () => {
+    this.todoEditingID = null
+    this.todoEditingText = ''
   }
+
 }
 
 export default new TodoStore();
- 
