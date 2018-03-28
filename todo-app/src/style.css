@@ -151,4 +151,16 @@ input {
 }
 .edit-date-input {
     padding: 0px;
+
+}
+.cancel-editing-button {
+    text-align : center;
+    margin : 5px;
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+    background-color: rgb(238, 56, 56);
+}
+.cancel-editing-button:hover {
+  background-color:  rgb(211, 21, 21);
 }

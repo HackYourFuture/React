@@ -6,19 +6,21 @@ import TaskItem from "./TaskItem.js";
 @inject('todosStore')
 @observer    
 class TodoList extends Component {
+    componentDidMount() {
+        this.props.todosStore.getTodos()
+    }
    
     render() {
-        console.log(this.props)
         const { todosList } = this.props.todosStore
-
+        
         const tasks = todosList.map(task => 
             <TaskItem
-                taskId={task.id}
+                key={task._id}
+                taskId={task._id}
                 description={task.description}
-                deadLine={task.deadLine}
+                deadline={task.deadline}
                 isDone={task.done}
-                creatingDate={task.creatingDate}
-                key={task.id}
+        
             />
         );
         if (!todosList.length) {
