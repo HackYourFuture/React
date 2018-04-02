@@ -26,7 +26,7 @@ label {
   margin-left: 1vw;
 }
 
-.crossOut {
+.lineThrough {
   text-decoration: line-through;
 }
 
@@ -46,7 +46,7 @@ label {
   margin-top: 2vh;
 }
 
-#text-input {
+.add-text-input {
   padding: 2vh 3.5vw;
   width: 50%;
 }

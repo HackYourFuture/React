@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "mobx-react";
-import todoItems from "./stores/TodosStore";
+import TodosStore from "./stores/TodosStore";
 import App from "./App";
 import "./index.css";
 
 const TodoApp = () => (
-    <Provider todoItems={todoItems}>
+    <Provider todosStore={TodosStore}>
         <App />
     </Provider>
 );

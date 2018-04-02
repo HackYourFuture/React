@@ -2,17 +2,16 @@ import React from "react";
 import { inject, observer } from "mobx-react";
 
 
-@inject("todoItems")
+@inject("todosStore")
 @observer    
 export default class AddTodo extends React.Component {
 
     render() {
         const {
-            nextId,
-            addTodo,
             addFormInputs,
             changeAddFormInput,
-        } = this.props.todoItems;
+            addTodo,
+        } = this.props.todosStore;
 
         const { description, deadline } = addFormInputs;
         
@@ -20,11 +19,11 @@ export default class AddTodo extends React.Component {
             <section className="add-form">
                 <input type="text"
                     value={description}
-                    placeholder=" enter new todo . . ."
+                    placeholder="enter new todo . . . "
+                    className="add-text-input"
                     onChange={(e) => {
                         changeAddFormInput(e.target.value, "description")
                     }}
-                    id="text-input"
                 />
                 <input type="date"
                     value={deadline}
@@ -32,9 +31,7 @@ export default class AddTodo extends React.Component {
                         changeAddFormInput(e.target.value, "deadline")
                     }}
                 />
-                <button onClick={() => {
-                    addTodo(nextId, description, deadline)
-                }}>
+                <button onClick={addTodo}>
                     Add
                 </button>
             </section>

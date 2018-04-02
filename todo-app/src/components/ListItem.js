@@ -4,7 +4,7 @@ import { inject, observer } from "mobx-react";
 import UpdateTodo from "./UpdateTodo";
 
 
-@inject("todoItems")
+@inject("todosStore")
 @observer    
 export default class ListItem extends React.Component {
     
@@ -14,44 +14,45 @@ export default class ListItem extends React.Component {
             editID,
             editTodo,
             deleteTodo,
-        } = this.props.todoItems;
+        } = this.props.todosStore;
 
         const {
-            id,
+            _id,
             description,
             deadline,
             done
         } = this.props.todo;
 
-        const date = deadline.split("-").join("/");
-        const crossOut = done ? "crossOut" : null;
+        const date = deadline.slice(0, 10).split("-").join("/");
+        const dateString = new Date(date).toDateString();
+        const lineThrough = done ? "lineThrough" : null;
 
         return (
             <section>
-                { editID === id
+                {editID === _id
                     ?
                     <UpdateTodo todo={this.props.todo} />
                     :
                     <div className="list-item">
                         <input type="checkbox"
                             checked={done}
-                            onChange={() => toggleCheck(id)}
+                            onChange={() => toggleCheck(_id)}
                             className="checkbox"
                         />
-                        <label className={crossOut}>
+                        <label className={lineThrough}>
                             {description},
-                            {new Date(date).toDateString()}
+                            {dateString}
                         </label>
                         <button className="edit-btn"
-                            onClick={() => editTodo(id)}>
+                            onClick={() => editTodo(_id)}>
                             Edit
                         </button>
                         <button className="delete-btn"
                             title="delete"
-                            onClick={() => deleteTodo(id)}>
+                            onClick={() => deleteTodo(_id)}>
                             X
                         </button>
-                    </div> }
+                    </div>}
             </section>
         );
     }

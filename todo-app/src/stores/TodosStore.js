@@ -1,32 +1,39 @@
-import todos from "../data/todos.json";
-import { observable, action, computed, configure } from "mobx";
+import { observable, action, computed, configure, runInAction } from "mobx";
 
 configure({ enforceActions: true });
 
+const todosURL = "https://hyf-react-api.herokuapp.com/todos";
+
 const defaultInputValues = {
     description: "",
-    deadline: ""  
-}
+    deadline: ""
+};
+
 
 class TodosStore {
 
     @observable
-    todos = todos
+    todos = [];
 
     @observable
-    addFormInputs = defaultInputValues
+    addFormInputs = defaultInputValues;
 
     @observable
-    editID = null   
+    editID = null;  
 
-    @computed
-    get nextId() {
-        if (!this.todos.length) {
-            return 1;
+    @action
+    getAllTodos = async () => {
+        try {
+            const res = await fetch(todosURL);
+            const data = await res.json();
+            
+            runInAction(() => {
+                this.todos = data;
+            })
+        } catch (err) {
+            console.error(err);   
         }
-        const todoIDs = this.todos.map(todo => todo.id);
-        return Math.max(...todoIDs) + 1
-    }
+    }    
 
     @action
     changeAddFormInput = (value, field) => {
@@ -34,26 +41,48 @@ class TodosStore {
     } 
     
     @action
-    addTodo = (id, description, deadline) => {
+    addTodo = async () => {
+        const { description, deadline } = this.addFormInputs;
+
         if (description && deadline) {
-            const newTodo = {
-                id,
-                description,
-                deadline,
-                done: false
+            try {
+                const newTodo = {
+                    description,
+                    deadline,
+                    done: false
+                }
+                await fetch(`${todosURL}/create`, {
+                    method: "POST",
+                    body: JSON.stringify(newTodo),
+                    headers: { "content-type": "application/json" }
+                });
+
+                runInAction(() => {
+                    this.addFormInputs = defaultInputValues;
+                    this.getAllTodos();
+                })
+            } catch (err) {
+                console.error(err);
             }
-            this.todos.push(newTodo);
-            this.addFormInputs = defaultInputValues;
-        }
+        }    
     }
 
     @action
-    toggleCheck = todoID => {
-        this.todos = this.todos.map(todo => (
-            todo.id === todoID
-                ? { ...todo, done: !todo.done }
-                : todo
-        ));
+    toggleCheck = async (todoID) => {
+        try {
+            const todo = this.todos.find(todo => todo._id === todoID);
+            await fetch(`${todosURL}/${todoID}`, {
+                method: "PATCH",
+                body: JSON.stringify({ done: !todo.done }),
+                headers: { "content-type": "application/json" }
+            });
+
+            runInAction(() => {
+                this.getAllTodos();
+            })
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     @action
@@ -62,36 +91,50 @@ class TodosStore {
     }
 
     @action
-    changeEditInput = (value, todoID, field) => {
+    changeEditInput = (todoID, value, field) => {
         this.todos = this.todos.map(todo => (
-            todo.id === todoID
+            todo._id === todoID
                 ? { ...todo, [field]: value }
                 : todo
         ));
     }    
 
     @action
-    cancelEdit = () => {
+    closeEditing = () => {
         this.editID = null;
     }  
 
     @action
-    saveUpdate = (todoID, description, deadline) => {
+    saveUpdate = async (todoID, description, deadline) => {
         if (description && deadline) {
-            this.todos = this.todos.map(todo => (
-                todo.id === todoID
-                    ? { ...todo, description, deadline }
-                    : todo
-            ));
-            this.cancelEdit();
-        }   
+            try {
+                await fetch(`${todosURL}/${todoID}`, {
+                    method: "PATCH",
+                    body: JSON.stringify({ description, deadline }),
+                    headers: { "content-type": "application/json" }
+                });
+                runInAction(() => {
+                    this.closeEditing();
+                    this.getAllTodos();
+                })
+            } catch (err) {
+                console.error(err);
+            }
+        }
     }
 
     @action
-    deleteTodo = (todoID) => {
-        this.todos = this.todos.filter(todo => (
-            todo.id !== todoID
-        ));
+    deleteTodo = async (todoID) => {
+        try {
+            await fetch(`${todosURL}/${todoID}`, {
+                method: "DELETE",
+            });
+            runInAction(() => {
+                this.getAllTodos();
+            })
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     @computed

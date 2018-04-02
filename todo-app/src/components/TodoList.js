@@ -3,25 +3,29 @@ import { inject, observer } from "mobx-react";
 import ListItem from "./ListItem";
 
 
-@inject("todoItems")
+@inject("todosStore")
 @observer    
 export default class TodoList extends React.Component {
 
+    componentDidMount() {
+        this.props.todosStore.getAllTodos();
+    }
+
     render() {
-        const { todoItems } = this.props;
-        const { todos, doneCount } = todoItems;
+        const { todos, doneCount } = this.props.todosStore;
+        const listItems = todos.map(todo => (
+            <ListItem
+                key={todo._id}
+                todo={todo}
+            />
+        ));
         
         return (
             <section>
-                { todos.length
+                {todos.length
                     ?
                     <div className="todos-container">
-                        { todos.map(todo => (
-                            <ListItem
-                                key={todo.id}
-                                todo={todo}
-                            />
-                        )) }   
+                        {listItems}   
                         <p className="count">
                             Todos Completed: {doneCount} of {todos.length}
                         </p>
@@ -29,7 +33,7 @@ export default class TodoList extends React.Component {
                     :
                     <p className="empty">
                         There are no items on this list
-                    </p> } 
+                    </p>} 
             </section>
         );
     }        

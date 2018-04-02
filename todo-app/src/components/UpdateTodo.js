@@ -2,18 +2,18 @@ import React from "react";
 import { inject, observer } from "mobx-react";
 
 
-@inject("todoItems")
+@inject("todosStore")
 @observer    
 export default class UpdateTodo extends React.Component {
 
     render() {
-        const { todo, todoItems } = this.props;
-        const { id, description, deadline } = todo;
+        const { _id, description, deadline } = this.props.todo;
+        const dateInputValue = deadline.slice(0, 10);
         const {
             changeEditInput,
-            cancelEdit,
+            closeEditing,
             saveUpdate
-        } = todoItems;
+        } = this.props.todosStore;
 
         return (
             <div>
@@ -21,22 +21,22 @@ export default class UpdateTodo extends React.Component {
                     value={description}
                     className="update-input"
                     onChange={(e) => {
-                        changeEditInput(e.target.value, id, "description")
+                        changeEditInput(_id, e.target.value, "description")
                     }}
                 />
                 <input type="date"
-                    value={deadline}
+                    value={dateInputValue}
                     className="update-input"
                     onChange={(e) => {
-                        changeEditInput(e.target.value, id, "deadline")
+                        changeEditInput(_id, e.target.value, "deadline")
                     }}
                 />
                 <button className="save-btn"
-                    onClick={() => saveUpdate(id, description, deadline)}>
+                    onClick={() => saveUpdate(_id, description, deadline)}>
                     Save
                 </button>
                 <button className="cancel-btn"
-                    onClick={cancelEdit}>
+                    onClick={closeEditing}>
                     Cancel
                 </button>
             </div>
