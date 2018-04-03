@@ -1,8 +1,0 @@
-[
-    { "id": 3, "description": "Get out of bed", "deadLine":"Sat, 16 Jan, 2018", "done": false, "creatingDate" : " Sun, Mar 11, 2018 8:35 PM"
-    },
-    { "id": 2, "description": "Brush teeth", "deadLine": "Fri, 15 Jan, 2018", "done": false, "creatingDate": " Sun, Mar 11, 2018 8:35 PM"
-    },
-    { "id": 1, "description": "Eat breakfast", "deadLine":"Thu, 14 Jan, 2018", "done": false, "creatingDate": " Sun, Mar 11, 2018 8:35 PM"
-    }
-]

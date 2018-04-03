@@ -1,120 +1,169 @@
-import { observable, action } from "mobx"
-import moment from "moment"
+import { observable, action, runInAction } from "mobx"
 
-import todosList from "../data/myTodoList.json"
 
 const createTaskFormDefault = {
     description: "",
-    deadLine: ""
+    deadline: ""
 }
 
+const API_ROOT = 'https://hyf-react-api.herokuapp.com'
+
 class TodosStore {
-    
+
     @observable
-    todosList = todosList
+    todosList = []
 
     @observable
     createTaskForm = createTaskFormDefault
 
     @observable
-    editMode = false
-    
+    editingDescriptionText = ""
+
     @observable
-    editingText = ""    
+    editingDeadlineTime = ""
 
-    @action 
-    createTodo = () => {
-        const ids = this.todosList.map(task => task.id)
-        const newId = this.todosList.length > 0 ? Math.max(...ids) + 1 : 1
-        const newTask = {
-            ...this.createTaskForm,
-            id: newId,
-            creatingDate: moment().format("llll")
+    @observable
+    taskEditingId = null
+
+    @action
+    getTodos = async () => {
+        const res = await fetch(`${API_ROOT}/todos`)
+        const parsedRes = await res.json()
+        runInAction(() => {
+            this.todosList = parsedRes
+        })
+    }
+    @action
+    createTodo = async () => {
+        if (this.createTaskForm.description && this.createTaskForm.deadline) {
+            await fetch(`${API_ROOT}/todos/create`, {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(this.createTaskForm)
+            })
+            runInAction(() => {
+                // reset the form
+                this.createTaskForm = createTaskFormDefault
+            })
+            this.getTodos()
+        } else {
+            alert("you should fill the values of Description and Deadline")
         }
-        this.todosList = [
-            ...this.todosList,
-            newTask
-        ]
-        this.createTaskForm = createTaskFormDefault
     }
 
     @action
-    removeTodo = id => {
-        this.todosList = this.todosList.filter(task => task.id !== id)
-    }
-
-    @action
-    toggleDone = id => {
-        const newTodosList = this.todosList.map(task => {
-            if (task.id === id) {
-                return {
-                    ...task,
-                    done : !task.done
-                }
-            }
-            return task
+    removeTodo = async taskId => {
+        await fetch(`${API_ROOT}/todos/${taskId}`, {
+            method: "DELETE",
         })
-        this.todosList = newTodosList
+        this.getTodos()
+
+    }
+
+    @action
+    toggleDone = async taskId => {
+        const task = this.todosList.find(task => task._id === taskId)
+        await fetch(`${API_ROOT}/todos/${taskId}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': "application/json"
+            },
+            body: JSON.stringify({ done: !task.done })
+        })
+        this.getTodos()
+
+    }
+
+    @action
+    deleteAllCompleted = async  () => {
+        const completedTodos = this.todosList.filter(task => task.done === true)
+         await completedTodos.forEach(task => {
+             fetch(`${API_ROOT}/todos/${task._id}`, {
+                method: "DELETE"
+            })
+            this.getTodos();
+        })
+    }
+
+    @action
+    onAddingTodo = (value,field) => {
+        this.createTaskForm[field] = value
+    }
+
+    @action
+    markAllTodos = async () => {
+         await this.todosList.forEach(task => {
+            fetch(`${API_ROOT}/todos/${task._id}`, {
+                method: "PATCH",
+                headers: {
+                    "content-type" : "application/json"
+                },
+                body : JSON.stringify({ done : true})
+            })
+            this.getTodos()
+        })
+    }
+
+    @action
+    unMarkAllTodos = async () => {
+        await this.todosList.forEach(task => {
+            fetch(`${API_ROOT}/todos/${task._id}`, {
+                method: "PATCH",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({ done: false })
+            })
+            this.getTodos()
+        })
+    }
+
+    @action
+    onChangeDescriptionText = (value) => {
+        this.editingDescriptionText = value
+    }
+
+    @action
+    onChangeDeadlineTime = value => {
+        this.editingDeadlineTime = value
+    }
+
+    @action
+    enableEditMode = (taskId) => {
+        this.taskEditingId = this.todosList.find(task => task._id === taskId)._id
+        this.editingDescriptionText = this.todosList.find(task => task._id === taskId).description
+        this.editingDeadlineTime = this.todosList.find(task => task._id === taskId).deadline.slice(0, 10)
+    }
+
+    @action
+    saveEdited = async (taskId) => {
+        if (this.editingDescriptionText.length > 0) {
+            await fetch(`${API_ROOT}/todos/${taskId}`, {
+                method: "PATCH",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    description: this.editingDescriptionText,
+                    deadline: this.editingDeadlineTime
+                })
+            })
+        }
+        runInAction(() => {
+            this.editingDescriptionText = ""
+            this.editingDeadlineTime = ""
+            this.taskEditingId = null
+        })
+        this.getTodos()
     }
 
     @action 
-    deleteAllCompleted = () => {
-        const newTodosList = this.todosList.filter(task => task.done === false)
-        this.todosList = newTodosList
-    }
-
-    @action 
-    editingDescription = (e) => {
-        this.createTaskForm.description = e.target.value
-    } 
-
-    @action
-    editingDeadline = (e) => {
-        this.createTaskForm.deadLine = moment(e.target.value).format('llll')
-    } 
-
-    @action
-    editingTodo = (id, newDescription) => {
-        this.todosList = todosList.map(task => {
-            if (task.id === id) {
-                task.description = newDescription
-            }
-            return task;
-        })
-    }
-    @action
-    markAllTodos = () => {
-        this.todosList = this.todosList.map(task => {
-           return task.done = true
-        })
-    }
-
-    @action
-    unMarkAllTodos = () => {
-        this.todosList = this.todosList.map(task => {
-           return task.done = false
-        })
-    }
-    @action 
-    onChangeEditingText = (e) => {
-        this.editingText = e.target.value
-    }
-
-    @action
-    enableEditMode = () => {
-        this.editMode = true
-    }
-
-    @action
-    saveEdited = (id) => {
-        this.todosList = this.todosList.map(task => {
-            if (task.id === id) {
-                task.description = this.editingText
-            }
-            return task
-        })
-        this.editMode = false
-        this.editingText = ""
+    cancelEditing = () => {
+        this.editingDescriptionText = ""
+        this.editingDeadlineTime = ""
+        this.taskEditingId = null
     }
 }
 
