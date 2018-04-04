@@ -54,7 +54,6 @@ class todo_actions {
 
   @action // onInput Change
   onInputChange = (value, field) => {
-    console.log(value)
     this.item_state = {
       ...this.item_state,
       [field]: value
