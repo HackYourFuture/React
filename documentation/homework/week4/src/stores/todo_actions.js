@@ -40,7 +40,7 @@ class todo_actions {
 
   // the items By default ~> []
   @observable
-  items = [] // Items Holder
+  items = /* locals.load || */ [] // Items Holder ~> Uncomment if there is a localSorage
 
   @action
   loadData = async () => {
@@ -137,7 +137,9 @@ class todo_actions {
       return item
     })
     const item = this.items.find(item => item._id === _id)
-    await request(`todos/${_id}`, "PATCH", { done: item.done }) // Request Ended    
+    await request(`todos/${_id}`, "PATCH", {
+      done: item.done
+    }) // Request Ended    
   }
 }
 
