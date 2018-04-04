@@ -6,45 +6,60 @@ import { inject, observer } from 'mobx-react'
 import AssignItem from './AssignItem'
 import View from './View'
 import Edit from './Edit'
-import { locals } from '../utils'
+// import { locals } from '../utils'
 
 @inject('todo_actions')
 @observer
 export default class Layout extends Component {
   constructor(props) {
     super(props)
-    autorun(() => locals.save = [...this.props.todo_actions.items])
+    autorun(() => props.todo_actions.loadData())
+    // autorun(() => locals.save = [...this.props.todo_actions.items])
   }
   render() {
     const {
       items, removeItem, toggle_edit,
       toggle_checkbox, submit_edit,
-      item_edit_state, onInputEdit } = this.props.todo_actions
+      item_edit_state, onInputEditChange,
+    } = this.props.todo_actions
+
+    // Clearefing the (props) for each one
+    const Edit_props = {
+      toggle_edit, submit_edit, onInputEditChange, item_edit_state,
+    }
+    const View_props = {
+      removeItem, toggle_checkbox, toggle_edit,
+    }
+
     return (
-      <div>
+      <div>        
         <AssignItem />
         <ul>
           {(!items.length) ?
-            <p>No Items Found...</p> :  
+            <p>No Items Found...</p> :
+            /*
+              "{
+                "_id": "5ac27a0250c2ac002f00dc50",
+                "description": "make dinner",
+                "deadline": "2018-04-10T00:00:00.000Z",
+                "__v": 0,
+                "done": false
+              }"
+            */
             items.map(item => {
-            return (
-              (item.Edit) ?
-                <Edit
-                  key={item.id}
-                  item={item}
-                  toggle_edit={toggle_edit}
-                  submit_edit={submit_edit}
-                  onInputEdit={onInputEdit}
-                  item_edit_state={item_edit_state} />
-                :
-                <View
-                  key={item.id}
-                  item={item}
-                  removeItem={removeItem}
-                  toggle_edit={toggle_edit}
-                  toggle_checkbox={toggle_checkbox} />
-            )
-          })}
+              return (
+                (item.Edit) ?
+                  <Edit
+                    key={item._id}
+                    item={item}
+                    {...Edit_props} />
+                  :
+                  <View
+                    key={item._id}
+                    item={item}
+                    {...View_props} />
+              )
+            })}
         </ul>
       </div>
     )

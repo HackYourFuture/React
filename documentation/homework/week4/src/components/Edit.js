@@ -6,26 +6,26 @@ export default class Edit extends Component {
       item,
       toggle_edit,
       submit_edit,
-      onInputEdit,
+      onInputEditChange,
       item_edit_state
     } = this.props
 
     const { // Item Object
-      id,
+      _id,
     } = item
     return (
       <span>
         <input type='text'
-          value={item_edit_state.title}
-          onChange={(e) => onInputEdit(e, 'title')}
+          value={item_edit_state.description}
+          onChange={(e) => onInputEditChange(e.target.value, 'description')}
           required
           autoFocus />
         <input type='date'
           value={item_edit_state.deadline}
-          onChange={(e) => onInputEdit(e, 'deadline')}
+          onChange={(e) => onInputEditChange(e.target.value, 'deadline')}
           required />
-        <button onClick={() => submit_edit(id)}>submit</button>
-        <button onClick={() => toggle_edit(id)}>Cancel</button>
+        <button onClick={() => submit_edit(_id)}>submit</button>
+        <button onClick={() => toggle_edit(_id)}>Cancel</button>
       </span>
     )
   }

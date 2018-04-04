@@ -1,75 +1,104 @@
-import { observable, action } from 'mobx'
+import { observable, action, runInAction } from 'mobx'
 
 // Setting our localStorage
-import { locals } from '../utils'
+// import { locals } from '../utils'
 
 // set the default state of the items Object
 const default_item_state = {
-  id: 0,
-  title: '',
+  description: '',
   deadline: '',
   done: false,
-  Edit: false,
+  // Edit: false,
+}
+
+async function request(url, method, param) {
+  method = method ? method.toUpperCase() : "GET"
+  let opts = {
+    method: method,
+  }
+  if (method === "POST" || method === "PATCH") {
+    const params = {
+      "body": JSON.stringify(param),
+      "headers": {
+        "Content-type": "application/json"
+      }
+    }
+    opts = {
+      ...opts,
+      ...params,
+    }
+  }
+  const preResponse = await fetch(`https://hyf-react-api.herokuapp.com/${url}`, opts)
+  const response = await preResponse.json()
+  return response
 }
 
 class todo_actions {
   @observable
-  item_state = {...default_item_state}
+  item_state = { ...default_item_state }
 
   @observable
   item_edit_state = { ...default_item_state }
 
-  // if the localStorage Empty it will be Only ~> []
-  @observable 
-  items = locals.load || [] // Items Holder
-  
-  get id() {
-    let randomString = ""
-    for (let i = 0; i < 8; i++) {
-      let random = Math.floor(Math.random() * (57 - 49) + 49)
-      randomString += String.fromCharCode(random)
-    }
-    return randomString
-  }
-  
-  @action // onInput Change
-  onInputChange = (e, field) => (this.item_state = {
-    ...this.item_state,
-    [field]: e.target.value
-  })
+  // the items By default ~> []
+  @observable
+  items = [] // Items Holder
 
   @action
-  addNewItem = () => {
+  loadData = async () => {
+    const data = await request('todos')
+    runInAction(() => {
+      this.items = data
+    })
+  }
+
+  @action // onInput Change
+  onInputChange = (value, field) => {
+    console.log(value)
+    this.item_state = {
+      ...this.item_state,
+      [field]: value
+    }
+  }
+
+  @action
+  onInputEditChange = (value, field) => {
+    this.item_edit_state = {
+      ...this.item_edit_state,
+      [field]: value
+    }
+  }
+
+  @action
+  addNewItem = async () => {
+    // because of the key it should render from the server
+    // waiting for the _id
     const newItem = {
       ...this.item_state,
-      id: this.id
     }
-    this.items = [
-      ...this.items,
-      newItem,
-    ]
-    this.item_state = default_item_state
+    const item = await request('todos/create', 'POST', newItem)
+    runInAction(() => {
+      this.items = [
+        ...this.items,
+        item,
+      ]
+      this.item_state = default_item_state
+    })
   }
 
   @action
-  removeItem = (id) => {
-    this.items = this.items.filter(item => item.id !== id)
+  removeItem = async (_id) => {
+    this.items = this.items.filter(item => item._id !== _id)
+    await request(`todos/${_id}`, 'DELETE')
   }
 
   @action
-  onInputEdit = (e, field) => (this.item_edit_state = {
-    ...this.item_edit_state,
-    [field]: e.target.value
-  })
-
-
-  @action
-  toggle_edit = (id, preVals) => {
+  toggle_edit = (_id, preVals) => {
     this.items = this.items.map(item => {
-      item.Edit = (item.id === id) ? !item.Edit : false
+      item.Edit = (item._id === _id) ? !item.Edit : false
       if (item.Edit) {
         this.item_edit_state = {
-          title: preVals.title,
+          description: preVals.description,
           deadline: preVals.deadline
         }
       }
@@ -78,25 +107,29 @@ class todo_actions {
   }
 
   @action
-  submit_edit = (id) => {
-    this.items = this.items.map(item => {
-      if (item.id === id) {
-        const { title, deadline } = this.item_edit_state
-        item = {
+  submit_edit = async (_id) => {
+    const { description, deadline } = this.item_edit_state
+    const applyChange = {
+      description,
+      deadline,
+    }
+    this.items = this.items.map(item => { // Rendering the applied changes
+      if (item._id === _id) {
+        return {
           ...item,
+          ...applyChange,
           Edit: false,
-          title,
-          deadline,
         }
       }
       return item
     })
+    await request(`todos/${_id}`, "PATCH", applyChange) // Request Ended
   }
 
   @action
-  toggle_checkbox = (id) => {
+  toggle_checkbox = async (_id) => {
     this.items = this.items.map(item => {
-      if (item.id === id) {
+      if (item._id === _id) {
         item = {
           ...item,
           done: !item.done
@@ -104,6 +137,8 @@ class todo_actions {
       }
       return item
     })
+    const item = this.items.find(item => item._id === _id)
+    await request(`todos/${_id}`, "PATCH", { done: item.done }) // Request Ended    
   }
 }
 
