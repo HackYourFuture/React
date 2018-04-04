@@ -6,7 +6,7 @@ import { inject, observer } from 'mobx-react'
 import AssignItem from './AssignItem'
 import View from './View'
 import Edit from './Edit'
-// import { locals } from '../utils'
+// import { locals } from '../utils' // if localStorage needed
 
 @inject('todo_actions')
 @observer
@@ -37,7 +37,7 @@ export default class Layout extends Component {
         <ul>
           {(!items.length) ?
             <p>No Items Found...</p> :
-            /*
+            /* an example of the recieving data
               "{
                 "_id": "5ac27a0250c2ac002f00dc50",
                 "description": "make dinner",

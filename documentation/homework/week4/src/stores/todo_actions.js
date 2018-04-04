@@ -7,8 +7,6 @@ import { observable, action, runInAction } from 'mobx'
 const default_item_state = {
   description: '',
   deadline: '',
-  done: false,
-  // Edit: false,
 }
 
 async function request(url, method, param) {
@@ -34,10 +32,10 @@ async function request(url, method, param) {
 }
 
 class todo_actions {
-  @observable
+  @observable // this is only for the adding item
   item_state = { ...default_item_state }
 
-  @observable
+  @observable // this is only for the editing item
   item_edit_state = { ...default_item_state }
 
   // the items By default ~> []
@@ -94,6 +92,7 @@ class todo_actions {
   @action
   toggle_edit = (_id, preVals) => {
     this.items = this.items.map(item => {
+      // no need for existing (Edit) in the original schema any way
       item.Edit = (item._id === _id) ? !item.Edit : false
       if (item.Edit) {
         this.item_edit_state = {
@@ -117,6 +116,7 @@ class todo_actions {
         return {
           ...item,
           ...applyChange,
+          // no need for existing (Edit) in the original schema any way
           Edit: false,
         }
       }
