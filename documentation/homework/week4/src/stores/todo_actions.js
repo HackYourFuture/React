@@ -9,24 +9,26 @@ const default_item_state = {
   deadline: '',
 }
 
-async function request(url, method, param) {
+async function request(url, method, inputToString) {
+  const params = {
+    "body": JSON.stringify(inputToString),
+    "headers": {
+      "Content-type": "application/json"
+    }
+  }
+
+  let options = {}
   method = method ? method.toUpperCase() : "GET"
-  let opts = {
-    method: method,
+  switch (method) {
+    case "POST":
+    case "PATCH":
+      options = { method, ...params, }
+      break
+    default:
+      options = { method }
   }
-  if (method === "POST" || method === "PATCH") {
-    const params = {
-      "body": JSON.stringify(param),
-      "headers": {
-        "Content-type": "application/json"
-      }
-    }
-    opts = {
-      ...opts,
-      ...params,
-    }
-  }
-  const preResponse = await fetch(`https://hyf-react-api.herokuapp.com/${url}`, opts)
+
+  const preResponse = await fetch(`https://hyf-react-api.herokuapp.com/${url}`, options)
   const response = await preResponse.json()
   return response
 }
@@ -40,7 +42,7 @@ class todo_actions {
 
   // the items By default ~> []
   @observable
-  items = /* locals.load || */ [] // Items Holder ~> Uncomment if there is a localSorage
+  items = /* locals.load || */[] // Items Holder ~> Uncomment if there is a localSorage
 
   @action
   loadData = async () => {
