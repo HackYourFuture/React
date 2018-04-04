@@ -29,6 +29,7 @@ class TodosStore {
     getTodos = async () => {
         const res = await fetch(`${API_ROOT}/todos`)
         const parsedRes = await res.json()
+        console.log(parsedRes)
         runInAction(() => {
             this.todosList = parsedRes
         })
@@ -79,12 +80,12 @@ class TodosStore {
     @action
     deleteAllCompleted = async  () => {
         const completedTodos = this.todosList.filter(task => task.done === true)
-         await completedTodos.forEach(task => {
-             fetch(`${API_ROOT}/todos/${task._id}`, {
+         await Promise.all(completedTodos.map( async task => {
+            await  fetch(`${API_ROOT}/todos/${task._id}`, {
                 method: "DELETE"
             })
-            this.getTodos();
-        })
+        }))
+        await this.getTodos();
     }
 
     @action
@@ -94,30 +95,30 @@ class TodosStore {
 
     @action
     markAllTodos = async () => {
-         await this.todosList.forEach(task => {
-            fetch(`${API_ROOT}/todos/${task._id}`, {
+         await Promise.all(this.todosList.map( async task => {
+            await fetch(`${API_ROOT}/todos/${task._id}`, {
                 method: "PATCH",
                 headers: {
                     "content-type" : "application/json"
                 },
                 body : JSON.stringify({ done : true})
             })
-            this.getTodos()
-        })
+        }))
+        await this.getTodos()
     }
 
     @action
     unMarkAllTodos = async () => {
-        await this.todosList.forEach(task => {
-            fetch(`${API_ROOT}/todos/${task._id}`, {
+        await Promise.all(this.todosList.map( async task => {
+          await  fetch(`${API_ROOT}/todos/${task._id}`, {
                 method: "PATCH",
                 headers: {
                     "content-type": "application/json"
                 },
                 body: JSON.stringify({ done: false })
             })
-            this.getTodos()
-        })
+        }))
+        await this.getTodos()
     }
 
     @action
