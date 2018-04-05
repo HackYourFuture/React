@@ -28,8 +28,12 @@ async function request(url, method, inputToString) {
       options = { method }
   }
 
+  // is't Okay to catch the errors here with in 
+  // -- one single line with the.json line ?
+  // OR we have to catch it on the fetch it self also ?!
+  // Because what i see here is a strange look to me
   const preResponse = await fetch(`https://hyf-react-api.herokuapp.com/${url}`, options)
-  const response = await preResponse.json()
+  const response = await preResponse.json().catch(console.error)
   return response
 }
 
@@ -138,10 +142,8 @@ class todo_actions {
       }
       return item
     })
-    const item = this.items.find(item => item._id === _id)
-    await request(`todos/${_id}`, "PATCH", {
-      done: item.done
-    }) // Request Ended    
+    const { done } = this.items.find(item => item._id === _id)
+    await request(`todos/${_id}`, "PATCH", { done })
   }
 }
 
