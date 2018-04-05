@@ -120,3 +120,9 @@ label {
 .todos-container {
   margin-top: 7vh;
 }
+
+.errMsg {
+  text-align: center;
+  color: red;
+  font: italic 120% Verdana;
+}

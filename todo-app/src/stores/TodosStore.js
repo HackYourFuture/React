@@ -19,7 +19,10 @@ class TodosStore {
     addFormInputs = defaultInputValues;
 
     @observable
-    editID = null;  
+    editID = null; 
+    
+    @observable
+    error = false;    
 
     @action
     getAllTodos = async () => {
@@ -28,10 +31,14 @@ class TodosStore {
             const data = await res.json();
             
             runInAction(() => {
+                this.error = false;
                 this.todos = data;
             })
+
         } catch (err) {
-            console.error(err);   
+            runInAction(() => {
+                this.error = true;
+            })
         }
     }    
 
@@ -45,12 +52,12 @@ class TodosStore {
         const { description, deadline } = this.addFormInputs;
 
         if (description && deadline) {
+            const newTodo = {
+                description,
+                deadline,
+                done: false
+            }
             try {
-                const newTodo = {
-                    description,
-                    deadline,
-                    done: false
-                }
                 await fetch(`${todosURL}/create`, {
                     method: "POST",
                     body: JSON.stringify(newTodo),
@@ -58,19 +65,23 @@ class TodosStore {
                 });
 
                 runInAction(() => {
+                    this.error = false;
                     this.addFormInputs = defaultInputValues;
                     this.getAllTodos();
                 })
+
             } catch (err) {
-                console.error(err);
+                runInAction(() => {
+                    this.error = true;
+                })
             }
         }    
     }
 
     @action
     toggleCheck = async (todoID) => {
+        const todo = this.todos.find(todo => todo._id === todoID);
         try {
-            const todo = this.todos.find(todo => todo._id === todoID);
             await fetch(`${todosURL}/${todoID}`, {
                 method: "PATCH",
                 body: JSON.stringify({ done: !todo.done }),
@@ -78,10 +89,14 @@ class TodosStore {
             });
 
             runInAction(() => {
+                this.error = false;
                 this.getAllTodos();
             })
+            
         } catch (err) {
-            console.error(err);
+            runInAction(() => {
+                this.error = true;
+            })
         }
     }
 
@@ -113,12 +128,17 @@ class TodosStore {
                     body: JSON.stringify({ description, deadline }),
                     headers: { "content-type": "application/json" }
                 });
+
                 runInAction(() => {
+                    this.error = false;
                     this.closeEditing();
                     this.getAllTodos();
                 })
+
             } catch (err) {
-                console.error(err);
+                runInAction(() => {
+                    this.error = true;
+                })  
             }
         }
     }
@@ -129,11 +149,16 @@ class TodosStore {
             await fetch(`${todosURL}/${todoID}`, {
                 method: "DELETE",
             });
+
             runInAction(() => {
+                this.error = false;
                 this.getAllTodos();
             })
+
         } catch (err) {
-            console.error(err);
+            runInAction(() => {
+                this.error = true;
+            })
         }
     }
 

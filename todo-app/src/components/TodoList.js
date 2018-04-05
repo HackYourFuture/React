@@ -19,7 +19,7 @@ export default class TodoList extends React.Component {
                 todo={todo}
             />
         ));
-        
+
         return (
             <section>
                 {todos.length
