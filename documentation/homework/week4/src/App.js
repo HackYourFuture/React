@@ -13,7 +13,6 @@ import Layout from './components'
 
 class App extends Component {
   render() {
-    // Sorry... I don't have an OOP background Am I that good?! :D
     return (
       <Provider {...Stores}>
         <Layout />

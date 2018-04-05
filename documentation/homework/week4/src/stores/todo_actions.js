@@ -70,7 +70,7 @@ class todo_actions {
 
   @action
   addNewItem = async () => {
-    // because of the key it should render from the server
+    // because of the key it should render from the api
     // waiting for the _id
     const newItem = {
       ...this.item_state,
@@ -124,7 +124,7 @@ class todo_actions {
       }
       return item
     })
-    await request(`todos/${_id}`, "PATCH", applyChange) // Request Ended
+    await request(`todos/${_id}`, "PATCH", applyChange)
   }
 
   @action
