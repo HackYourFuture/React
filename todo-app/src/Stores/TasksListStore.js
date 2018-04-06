@@ -1,20 +1,13 @@
-import {action,configure,observable} from 'mobx'
-import moment from 'moment'
+import {action, configure, observable, runInAction} from 'mobx'
 
-import {loadFromLocalStorage,saveToLocalStorage} from '../localStorage'
-import todoList from '../todoList.json'
+configure({enforceActions: true})
 
-configure({
-    enforceActions: true
-})
-
-
+const API_ROOT = 'https://hyf-react-api.herokuapp.com/todos'
 
 class TasksListStore {
 
     @observable
-    todoList = loadFromLocalStorage() || todoList
-
+    todoList = []
 
     @observable
     selectedToEdit = null
@@ -28,64 +21,47 @@ class TasksListStore {
         date: '',
     }
 
+
     @action
-    selected = (id) => {
-        const todoItems = this.todoList.map(task => {
-            if (task.id === id) {
-                return {
-                    "id": task.id,
-                    "description": task.description,
-                    "deadline": task.deadline,
-                    "selected": !task.selected,
-                    "isDone": task.isDone,
-                    "timeout": task.timeout
-                }
-            } else {
-                return task
-            }
+    getAPI = async () => {
+        const res = await fetch(`${API_ROOT}`)
+        const parsedRes = await res.json()
+        console.log(parsedRes)
+
+        runInAction(() => {
+            this.todoList = parsedRes
         })
-        this.todoList = todoItems
-        saveToLocalStorage(this.todoList)
+
     }
 
     @action
-    setDone = (id) => {
-        const todoItems = this.todoList.map(task => {
-            if (task.id === id) {
-                return {
-                    "id": task.id,
-                    "description": task.description,
-                    "deadline": task.deadline,
-                    "selected": task.selected,
-                    "isDone": !task.isDone,
-                    "timeout": task.timeout
-                }
-            } else {
-                return task
-            }
-        })
-        this.todoList = todoItems
-        saveToLocalStorage(this.todoList)
+    startEditing = (id) => {
+        this.selectedToEdit = id
     }
 
     @action
-    addNewTask = (newTask, newDeadLine) => {
-
-        const todoItems = this.todoList
-        const id = this.todoList.map(task => task.id)
-        const newId = this.todoList.length > 0 ? Math.max(...id) + 1 : 1
-        todoItems.push({
-            "id": newId,
-            "description": newTask.toUpperCase(),
-            "deadline": newDeadLine,
-            "selected": false,
-            "isDone": false,
-            "timeout": this.setTimeout(newDeadLine)
+    setDone = async (id) => {
+        const task = this.todoList.find(task => task._id === id)
+        const res = await fetch(`${API_ROOT}/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                "done": !task.done
+            })
         })
-        this.todoList = todoItems
-        this.newTask.description = ''
-        this.newTask.date = ''
-        saveToLocalStorage(this.todoList)
+        const newTask = await res.json()
+        runInAction(() => {
+            const todoItems = this.todoList.map(task => {
+                if (task._id === id) {
+                    return newTask
+                } else {
+                    return task
+                }
+            })
+            this.todoList = todoItems
+        })
     }
 
     @action
@@ -94,51 +70,59 @@ class TasksListStore {
     }
 
     @action
-    setTimeout = (deadline) => {
-        let taskDeadline = moment(deadline).toObject()
-        if (moment([taskDeadline.years, taskDeadline.months, taskDeadline.date]).diff(moment(), 'days') < 0) {
-            console.log('true')
-            return true
-        } else {
-            console.log('false')
-            return false
-         }
+    addNewTask = async (newTask, newDeadLine) => {
 
-    }
-
-    @action
-    deleteTask = (id) => {
-
-        const todoItems = this.todoList.filter(task => task.id !== id)
-        this.todoList = todoItems
-        saveToLocalStorage(this.todoList)
-    }
-
-    @action
-    selectToEdit = (id) => {
-        this.selectedToEdit = id
-        this.editedTask = ''
-    }
-
-    @action
-    updateTask = (id, update) => {
-        const todoItems = this.todoList.map(task => {
-            if (task.id === id) {
-                return {
-                    "id": task.id,
-                    "description": update,
-                    "deadline": task.deadline,
-                    "selected": task.selected,
-                    "isDone": task.isDone,
-                    "timeout": task.timeout
-                }
-            } else {
-                return task
-            }
+        await fetch(`${API_ROOT}/create`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                "description": newTask,
+                "deadline": newDeadLine
+            })
         })
-        this.todoList = todoItems
-        this.selectToEdit(null)
-        saveToLocalStorage(this.todoList)
+        this.getAPI()
+
+        runInAction(() => {
+            this.newTask.description = ''
+            this.newTask.date = ''
+        })
+    }
+
+    @action
+    deleteTask = async (id) => {
+        await fetch(`${API_ROOT}/${id}`, {
+            method: 'DELETE',
+        })
+
+        this.getAPI()
+    }
+
+    @action
+    updateTask = async (id, update) => {
+
+        const res = await fetch(`${API_ROOT}/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                "description": update
+            })
+        })
+        const newTask = await res.json()
+        runInAction(() => {
+            const todoItems = this.todoList.map(task => {
+                if (task._id === id) {
+                    return newTask
+                } else {
+                    return task
+                }
+            })
+            this.todoList = todoItems
+        })
+        this.cancelEditing()
     }
 
     @action
@@ -146,6 +130,10 @@ class TasksListStore {
         this.editedTask = event.target.value
     }
 
+    @action
+    cancelEditing = () => {
+        this.selectedToEdit = null
+    }
 }
 
 export default new TasksListStore()
