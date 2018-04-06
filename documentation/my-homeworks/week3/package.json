@@ -7,7 +7,7 @@
     "start": "node server"
   },
   "keywords": [],
-  "author": "Michael Cheng <cheng.c.mike@gmail.com> (http://michaelcheng.io)",
+  "author": "MOESI88",
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.4",
