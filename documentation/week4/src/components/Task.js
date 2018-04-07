@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-
+import { observer, inject } from 'mobx-react'
+@inject('todos')
+@observer
 export default class Task extends Component {
    
     render() {
@@ -11,7 +13,7 @@ export default class Task extends Component {
                   style={
                     {
                         textDecoration: this.props.done ? 'line-through' : 'none',
-                        color: this.props.done ? 'rgb(64, 18, 110)' : 'rgb(238, 233, 243)'
+                        color: this.props.done ? 'rgb(64, 18, 110)' : 'rgb(298, 100, 243)'
                     }
                     
                   }>
@@ -24,7 +26,7 @@ export default class Task extends Component {
                     onClick=
                     {
                         () =>
-                        this.props.handleClick(this.props.id)
+                            this.props.todos.toggleDone(this.props.id)
                     }
                 >
                    {this.props.done ? 'Undo' : 'Do it'}
@@ -34,7 +36,7 @@ export default class Task extends Component {
                     onClick=
                     {
                         () =>
-                         this.props.handleDelete(this.props.id)
+                         this.props.todos.deleteTask(this.props.id)
                         
                     }    
                 >    
