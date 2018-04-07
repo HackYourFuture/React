@@ -86,12 +86,12 @@
     ]
   },
   "babel": {
-   "plugins": [
-    "transform-decorators-legacy"
-  ],
-  "presets": [
-    "react-app"
-  ]
+    "plugins": [
+      "transform-decorators-legacy"
+    ],
+    "presets": [
+      "react-app"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
