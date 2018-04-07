@@ -1,7 +1,8 @@
 import { observable, action, runInAction } from 'mobx'
 
 // Setting our localStorage
-// import { locals } from '../utils'
+// and request on the wire
+import { locals } from '../utils'
 
 // set the default state of the items Object
 const default_item_state = {
@@ -9,35 +10,7 @@ const default_item_state = {
   deadline: '',
 }
 
-async function request(url, method, inputToString) {
-  const params = {
-    "body": JSON.stringify(inputToString),
-    "headers": {
-      "Content-type": "application/json"
-    }
-  }
-
-  let options = {}
-  method = method ? method.toUpperCase() : "GET"
-  switch (method) {
-    case "POST":
-    case "PATCH":
-      options = { method, ...params, }
-      break
-    default:
-      options = { method }
-  }
-
-  // is't Okay to catch the errors here with in 
-  // -- one single line with the.json line ?
-  // OR we have to catch it on the fetch it self also ?!
-  // Because what i see here is a strange look to me
-  const preResponse = await fetch(`https://hyf-react-api.herokuapp.com/${url}`, options)
-  const response = await preResponse.json().catch(console.error)
-  return response
-}
-
-class todo_actions {
+class TodoStore {
   @observable // this is only for the adding item
   item_state = { ...default_item_state }
 
@@ -50,27 +23,18 @@ class todo_actions {
 
   @action
   loadData = async () => {
-    const data = await request('todos')
+    const data = await locals.request('todos').catch(console.error)
     runInAction(() => {
       this.items = data
     })
   }
 
   @action // onInput Change
-  onInputChange = (value, field) => {
-    this.item_state = {
-      ...this.item_state,
-      [field]: value
-    }
-  }
+  onInputChange = (value, field) => this.item_state[field] = value
 
   @action
-  onInputEditChange = (value, field) => {
-    this.item_edit_state = {
-      ...this.item_edit_state,
-      [field]: value
-    }
-  }
+  onInputEditChange = (value, field) => // it want a ...spread beacause we need to change the original value
+    this.item_edit_state = { ...this.item_edit_state, [field]: value }
 
   @action
   addNewItem = async () => {
@@ -79,7 +43,7 @@ class todo_actions {
     const newItem = {
       ...this.item_state,
     }
-    const item = await request('todos/create', 'POST', newItem)
+    const item = await locals.request('todos/create', 'POST', newItem).catch(console.error)
     runInAction(() => {
       this.items = [
         ...this.items,
@@ -92,15 +56,15 @@ class todo_actions {
   @action
   removeItem = async (_id) => {
     this.items = this.items.filter(item => item._id !== _id)
-    await request(`todos/${_id}`, 'DELETE')
+    await locals.request(`todos/${_id}`, 'DELETE').catch(console.error)
   }
 
   @action
   toggle_edit = (_id, preVals) => {
     this.items = this.items.map(item => {
-      // no need for existing (Edit) in the original schema any way
-      item.Edit = (item._id === _id) ? !item.Edit : false
-      if (item.Edit) {
+      // no need for existing (edit) in the original schema any way
+      item.edit = (item._id === _id) ? !item.edit : false
+      if (item.edit) {
         this.item_edit_state = {
           description: preVals.description,
           deadline: preVals.deadline
@@ -122,29 +86,26 @@ class todo_actions {
         return {
           ...item,
           ...applyChange,
-          // no need for existing (Edit) in the original schema any way
-          Edit: false,
+          // no need for existing (edit) in the original schema any way
+          edit: false,
         }
       }
       return item
     })
-    await request(`todos/${_id}`, "PATCH", applyChange)
+    await locals.request(`todos/${_id}`, "PATCH", applyChange).catch(console.error)
   }
 
   @action
   toggle_checkbox = async (_id) => {
     this.items = this.items.map(item => {
       if (item._id === _id) {
-        item = {
-          ...item,
-          done: !item.done
-        }
+        item.done = !item.done
       }
       return item
     })
     const { done } = this.items.find(item => item._id === _id)
-    await request(`todos/${_id}`, "PATCH", { done })
+    await locals.request(`todos/${_id}`, "PATCH", { done }).catch(console.error)
   }
 }
 
-export default new todo_actions()
+export default new TodoStore()

@@ -2,12 +2,12 @@
 import { configure } from 'mobx'
 
 // Import Stores Instences
-import todo_actions from './todo_actions'
+import TodoStore from './TodoStore'
 
 // --use strict--
 configure({ enforceActions: true })
 
 // Exporting Errors or --Valid Instences--
 export default {
-  todo_actions
+  TodoStore
 }

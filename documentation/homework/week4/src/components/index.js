@@ -8,20 +8,20 @@ import View from './View'
 import Edit from './Edit'
 // import { locals } from '../utils' // if localStorage needed
 
-@inject('todo_actions')
+@inject('TodoStore')
 @observer
 export default class Layout extends Component {
   constructor(props) {
     super(props)
-    autorun(() => props.todo_actions.loadData())
-    // autorun(() => locals.save = [...this.props.todo_actions.items])
+    autorun(() => props.TodoStore.loadData())
+    // autorun(() => locals.save = [...this.props.TodoStore.items])
   }
   render() {
     const {
       items, removeItem, toggle_edit,
       toggle_checkbox, submit_edit,
       item_edit_state, onInputEditChange,
-    } = this.props.todo_actions
+    } = this.props.TodoStore
 
     // Clearefing the (props) for each one
     const Edit_props = {
@@ -48,7 +48,7 @@ export default class Layout extends Component {
             */
             items.map(item => {
               return (
-                (item.Edit) ?
+                (item.edit) ?
                   <Edit
                     key={item._id}
                     item={item}

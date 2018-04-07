@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 
 import { inject, observer } from 'mobx-react'
 
-@inject('todo_actions')
+@inject('TodoStore')
 @observer
 export default class Assign extends Component {
   render() {
-    const { item_state, addNewItem, onInputChange } = this.props.todo_actions
+    const { item_state, addNewItem, onInputChange } = this.props.TodoStore
     const { description, deadline } = item_state
     return (
       <div>
