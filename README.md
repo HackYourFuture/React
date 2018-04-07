@@ -1,5 +1,9 @@
-# React
-Specifications React Module
+> Please help us improve and share your feedback! If you find better tutorials
+or links, please share them by [opening a pull request](https://github.com/HackYourFuture/React/pulls).
+
+# HackYourFuture - React
+
+In this 5 week module we will learn React!
 
 ## Planning
 | Week | Topic | Read | Homework |
@@ -76,3 +80,5 @@ Demonstrates:
 Have a look at Mattijn's real world React project:
 
 https://github.com/mattijnlahuis/beertools
+
+*The HackYourFuture curriculum is subject to CC BY copyright. This means you can freely use our materials, but just make sure to give us credit for it :)*
