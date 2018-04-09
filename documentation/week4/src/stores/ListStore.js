@@ -1,5 +1,4 @@
 import { action, observable } from 'mobx'
-//Data
 import data from '../data/todos.json';
 
 const task_state = {
@@ -27,7 +26,7 @@ class ListStore {
             if (todo.id === id) {
                 return {
                     ...todo,
-                    isLiked: !todo.isLiked,
+                    done: !todo.done,
                 }
             }
             return todo
