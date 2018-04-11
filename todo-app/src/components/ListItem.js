@@ -31,7 +31,7 @@ export default class ListItem extends React.Component {
             <section>
                 {editID === _id
                     ?
-                    <UpdateTodo todo={this.props.todo} />
+                    <UpdateTodo id={_id} />
                     :
                     <div className="list-item">
                         <input type="checkbox"
@@ -40,8 +40,8 @@ export default class ListItem extends React.Component {
                             className="checkbox"
                         />
                         <label className={lineThrough}>
-                            {description},
-                            {dateString}
+                            <span>{description}, </span>
+                            <span>{dateString}</span>
                         </label>
                         <button className="edit-btn"
                             onClick={() => editTodo(_id)}>

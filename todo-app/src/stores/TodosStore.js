@@ -4,6 +4,8 @@ configure({ enforceActions: true });
 
 const todosURL = "https://hyf-react-api.herokuapp.com/todos";
 
+const errorMessage = "* Request was not successful. Please try again.";
+
 const defaultInputValues = {
     description: "",
     deadline: ""
@@ -19,10 +21,18 @@ class TodosStore {
     addFormInputs = defaultInputValues;
 
     @observable
-    editID = null; 
+    editID = null;
     
     @observable
-    error = false;    
+    editInputs = defaultInputValues;
+    
+    @observable
+    error = null;  
+    
+    @action 
+    setError = message => {
+        this.error = message;
+    }   
 
     @action
     getAllTodos = async () => {
@@ -31,14 +41,11 @@ class TodosStore {
             const data = await res.json();
             
             runInAction(() => {
-                this.error = false;
                 this.todos = data;
             })
-
-        } catch (err) {
-            runInAction(() => {
-                this.error = true;
-            })
+        }
+        catch (err) {
+            this.setError(errorMessage);
         }
     }    
 
@@ -65,17 +72,18 @@ class TodosStore {
                 });
 
                 runInAction(() => {
-                    this.error = false;
                     this.addFormInputs = defaultInputValues;
+                    this.setError(null);
                     this.getAllTodos();
                 })
-
-            } catch (err) {
-                runInAction(() => {
-                    this.error = true;
-                })
             }
-        }    
+            catch (err) {
+                this.setError(errorMessage);
+            }
+        }
+        else {
+            this.setError("* Both description and date are required.")
+        } 
     }
 
     @action
@@ -89,34 +97,30 @@ class TodosStore {
             });
 
             runInAction(() => {
-                this.error = false;
                 this.getAllTodos();
             })
-            
-        } catch (err) {
-            runInAction(() => {
-                this.error = true;
-            })
+        }
+        catch (err) {
+            this.setError(errorMessage)();
         }
     }
 
     @action
     editTodo = (todoID) => {
-        this.editID = todoID
+        this.editID = todoID;
+        const { description, deadline } = this.todos.find(todo => todo._id === todoID);
+        this.editInputs = { description, deadline };
     }
 
     @action
-    changeEditInput = (todoID, value, field) => {
-        this.todos = this.todos.map(todo => (
-            todo._id === todoID
-                ? { ...todo, [field]: value }
-                : todo
-        ));
+    changeEditInput = (value, field) => {
+        this.editInputs[field] = value;
     }    
 
     @action
     closeEditing = () => {
         this.editID = null;
+        this.setError(null);
     }  
 
     @action
@@ -130,17 +134,19 @@ class TodosStore {
                 });
 
                 runInAction(() => {
-                    this.error = false;
                     this.closeEditing();
+                    this.editInputs = defaultInputValues;
+                    this.setError(null);
                     this.getAllTodos();
                 })
-
-            } catch (err) {
-                runInAction(() => {
-                    this.error = true;
-                })  
+            }
+            catch (err) {
+                this.setError(errorMessage);
             }
         }
+        else {
+            this.setError("* Both fields are required.")
+        } 
     }
 
     @action
@@ -151,14 +157,11 @@ class TodosStore {
             });
 
             runInAction(() => {
-                this.error = false;
                 this.getAllTodos();
             })
-
-        } catch (err) {
-            runInAction(() => {
-                this.error = true;
-            })
+        }
+        catch (err) {
+            this.setError(errorMessage);
         }
     }
 

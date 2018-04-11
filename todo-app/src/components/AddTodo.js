@@ -21,15 +21,11 @@ export default class AddTodo extends React.Component {
                     value={description}
                     placeholder="enter new todo . . . "
                     className="add-text-input"
-                    onChange={(e) => {
-                        changeAddFormInput(e.target.value, "description")
-                    }}
+                    onChange={(e) => changeAddFormInput(e.target.value, "description")}
                 />
                 <input type="date"
                     value={deadline}
-                    onChange={(e) => {
-                        changeAddFormInput(e.target.value, "deadline")
-                    }}
+                    onChange={(e) => changeAddFormInput(e.target.value, "deadline")}
                 />
                 <button onClick={addTodo}>
                     Add
