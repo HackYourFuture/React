@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    padding-top: 5px;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#root {
+    width: 65%;
+    margin: 0 auto;
+    padding: 1%;
+    box-shadow: 0px 1px 8px 0px;
+}
+
+.theme {
+    height: 25vh;
+    width: 50vw;
+    margin: 0 auto;
+    box-shadow: 1px 0px 10px 0px;
+    background: #00aeff1a;
+    background-image: url('./img/todo.png');
+    background-repeat: no-repeat no-repeat;
+    background-size: 60% 100%;
+    background-position: center top;
+}
+
+.addTodoForm {
+    width: 100%;
+    overflow: hidden;
+}
+
+.todosContainer {
+    margin: 0 auto;
+}
+
+.listTitle {
+    color: #fff;
+    overflow: hidden;
+    margin: 0;
+    padding: 6px;
+    font-size: 35px;
+}
+
+.todosItem {
+    list-style: none;
+    padding: 0;
+}
+
+.todoList {
+    box-shadow: -1px -2px 2px 0px #9e9e9e17;
+    background-color: #d8d8d81c;
+    border-radius: 5px;
+    margin: 1px;
+    padding: 2%;
+    border: 1px solid #80808030;
+    overflow: hidden;
+}
+
+.deadline {
+    float: right;
+    padding: 9px;
+}
+
+small {
+    padding: 5%;
+}
+
+.isCompleted {
+    color: gray;
+    text-decoration-line: line-through;
+}
+
+em {
+    color: #0056ff;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.btnDelete,
+.btnEdit,
+.cancelBtn,
+.saveBtn,
+input[type=submit] {
+    border-radius: 4px;
+    float: right;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.cancelBtn {
+    background-color: #8f8e8e;
+}
+
+.btnDelete {
+    background-color: #cf2e2e;
+}
+
+.btnEdit {
+    background-color: #019401ad;
+}
+
+input[type=submit],
+.saveBtn {
+    background-color: #54c0ff;
+    float: none;
+}
+
+input[type=text],
+input[type=date] {
+    width: 54%;
+    padding: 5px 5px;
+    margin: 2px;
+    box-sizing: border-box;
+    border: 2px solid rgba(63, 63, 63, 0.18);
+    border-radius: 4px;
+    font-size: 1.08rem;
+}
+
+input[type=date] {
+    width: 30%;
+}
+
+/* =================================
+            FOOTER
+================================= */
+
+.footer {
+    margin: 1%;
+    padding: 1%;
+}
+
+.todosInfo {
+    color: forestgreen;
+    padding: 1%;
+}
+
