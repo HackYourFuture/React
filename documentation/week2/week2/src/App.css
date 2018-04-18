@@ -1,0 +1,60 @@
+body{
+
+background-color: aqua;
+
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.button {
+  background-color: #2196F3;
+   border: none;
+   color: white;
+   padding: 14px 28px;
+   font-size: 16px;
+   cursor: pointer;
+}
+
+.button:hover {
+  background: #0b7dda;
+}
+
+h1, h2 {
+
+	font-family: "Courier New",
+	Courier,
+	"Lucida Sans Typewriter",
+	"Lucida Typewriter",
+	monospace;
+	font-size: 34px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+  }
