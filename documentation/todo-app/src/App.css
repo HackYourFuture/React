@@ -1,28 +1,25 @@
-.App {
-  text-align: center;
+.todo{
+ margin: 20px auto;
+ padding: 10px 15px;
+ border: 2px solid rgba(223, 76, 223, 0.067);
+ display: block;
+ width: 50%;
 }
+.todo h3 {
+font-family: Arial, Helvetica, sans-serif;
+font-weight: 1000;
+color: #380303;
+font-size: 25px;
+text-align: center;
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
 }
+.todo span {
+color: #c73636;
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
 }
+.todo h4 {
+font-weight: 1000;
+font-size: 1em;
+color: #fa0b0be8
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }

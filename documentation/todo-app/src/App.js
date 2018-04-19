@@ -1,19 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import Todo from './Todo';
 class App extends Component {
+  
   render() {
+    let tasks = [
+      {
+        task: " Get out of bed",
+        date: " Wed Sep 13 2017",
+        deadline: "same day"
+
+      },
+      {
+        task: " Brush teeth",
+        date: "Thu Sep 14 2017",
+        deadline: "same day"
+
+      },
+      {
+        task: " Eat breakfast",
+        date: " Fri Sep 15 2017",
+        deadline: "same day"
+
+      }
+    ]
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+     <div className = "root">
+       {tasks.map((ele,i)=>
+<Todo task = {ele.task} date = {ele.date} deadline = {ele.deadline} key= {i}/>
+
+       )}
+    
+     </div>
     );
   }
 }
