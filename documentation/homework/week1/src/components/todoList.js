@@ -1,19 +1,24 @@
 import React,{Component} from 'react';
 import TodoListItem from './todoListItem';
+import TodoAdd from './todoAdd';
 
 class TodoList extends Component {
+
     render() {
-        const todoList = [
-            {'description':'Get out of bed','deadLine':'Wed Sep 13 2017'},
-            {'description':'Brush teeth','deadLine':'Thu Sep 14 2017'},
-            {'description':'Eat breakfast','deadLine':'Fri Sep 15 2017'},
-        ];
+        const todoList = this.props.listTodo;
         const todoListItem = todoList.map((data,index) =>
-             <TodoListItem description={data.description} deadLine={data.deadLine}/>
+             <TodoListItem 
+                id={data.id} 
+                description={data.description} 
+                deadline={data.deadline} 
+                done={data.done} 
+                handleDoneClick={this.props.handleDoneClick}
+            />
         );
         return (
             <div className='content'>
                 {todoListItem}
+                <TodoAdd addFunction= {this.props.addFunction}/>
             </div>
         );
     }

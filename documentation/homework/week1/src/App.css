@@ -9,10 +9,24 @@
   padding: 20px;
   color: white;
   text-align: center;
+  font-size:1.75rem;
 }
-
 .content{
   margin: 5%;
+  font-size: 30px;
+  border:1px solid darkblue;
+}
+
+.todoAdd{
+  margin:5%;
+}
+.doneClick{
+  color:lightblue;
+  cursor: pointer;
+  margin:60%;
+}
+.doneClick:hover{
+  background-color: khaki;
 }
 
 .App-title {
