@@ -9,17 +9,12 @@ import TopHeader from './components/TopHeader';
 
 class App extends Component {
   render() {
-    return ( <
-      div className = "App" >
-      <
-      h1 > hello < /h1>     <
-      TopHeader / >
+    return ( <div className = "App" >
+      <h1 > hello </h1>     <TopHeader / >
       <
       PostBody / >
-      <
-      TodoList / >
-      <
-      /div>
+      <TodoList / >
+      </div>
     );
   }
 }
