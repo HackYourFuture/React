@@ -1,35 +1,28 @@
 import React, { Component } from 'react';
-import ListItem from './listItems';
 
 export default class TodoItems extends Component{
-
+    
+    
     render() {
+        const { checkStatus } = this.props;
+        let { todoId, todoTask, taskDate, todoStatus } = this.props;
+        return (
 
-        const items = [
-            {
-                task: 'Get out of bed',
-                date: 'Wed Sep 13 2017',
-            },
-            {
-                task: 'Brush teeth',
-                date: 'Thu Sep 14 2017',
-            },
-            {
-                task: 'Eat breakfast',
-                date: 'Fri Sep 15 2017',
-            }
-        ];
-        
-     return (
-            <div>
-             {items.map((element, index) => 
-                 <ListItem
-                    todoTask={element.task}
-                    taskDate={element.date} />
-               )}
-               </div> 
+            <div className='listItems'>
+                <hr />
+                <h2>Number : {todoId}</h2>
+                <h2><strong> Task : {todoTask}</strong></h2>
+                <h3><strong> {taskDate} </strong></h3>
+                <h3><strong> {todoStatus} </strong></h3>
+                <div
+                    onClick={() => checkStatus(todoId)}
+                >
+                    {todoStatus ? <span>♥</span> : <span>♡</span>}    
 
+                </div>
 
+                <hr />
+            </div>
         );
     }
 }
