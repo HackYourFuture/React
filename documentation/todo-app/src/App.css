@@ -1,28 +1,85 @@
-.App {
-  text-align: center;
+.todo{
+ margin: 20px auto;
+ padding: 10px 15px;
+ border: 2px solid rgba(223, 76, 223, 0.067);
+ display: block;
+ width: 50%;
+}
+.todo h3 {
+font-family: Arial, Helvetica, sans-serif;
+font-weight: 1000;
+color: #380303;
+font-size: 25px;
+text-align: center;
+
+}
+.todo span {
+color: #c73636;
+
+}
+.todo h4 {
+font-weight: 1000;
+font-size: 1em;
+color: #fa0b0be8
+}
+.checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: rgb(20, 1, 1);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  
 }
 
-.App-title {
-  font-size: 1.5em;
+.checkbox:hover input ~ .checkmark {
+    background-color: rgb(228, 99, 99);
 }
 
-.App-intro {
-  font-size: large;
+.checkbox input:checked ~ .checkmark {
+    background-color: #2196F3;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox .checkmark:after {
+    z-index: 10;
+    bottom: 5px;
+    left: 4px;
+    width: 15px;
+    height: 50px;
+    border: solid rgb(29, 99, 15);
+    border-width: 0 5px 5px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
