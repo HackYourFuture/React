@@ -1,0 +1,34 @@
+
+.logo {
+    height: 200px;
+    width: 50%;
+}
+
+.Header {
+    font-family:'Arial Narrow', Arial, sans-serif;
+    color: rgb(27, 71, 10);
+    text-shadow: 2px 2px rgb(57, 99, 74);
+}
+
+.description {
+    margin: 20px 1.15%;
+    color:rgb(13, 46, 13);
+}
+
+.deadline {
+    margin: 20px 1.15%;
+    color:rgb(75, 14, 5);
+}
+
+div {
+    margin: 0 10%;
+    width:90%;
+   }
+
+th,td {   
+    font-family: 'Gill Sans', sans-serif;
+    border-bottom: 2px ridge rgba(21, 78, 4, 0.867);
+    padding: 3%;
+    width: 300px;  
+}
+
