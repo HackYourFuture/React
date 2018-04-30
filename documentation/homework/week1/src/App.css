@@ -1,0 +1,43 @@
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: rgb(39, 123, 193);
+  height: 150px;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  font-size:1.75rem;
+}
+.content{
+  margin: 5%;
+  font-size: 30px;
+  border:1px solid darkblue;
+}
+
+.todoAdd{
+  margin:5%;
+}
+.doneClick{
+  color:lightblue;
+  cursor: pointer;
+  margin:60%;
+}
+.doneClick:hover{
+  background-color: khaki;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
