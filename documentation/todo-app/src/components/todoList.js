@@ -4,31 +4,25 @@ import './todoList.css';
 
 class TodoList extends Component {
     render() {
-        const todoS = [
-            {
-                'description': 'Get out of bed',
-                'deadline': 'Wed Sep 13 2017'
-            },
-            {
-                'description': 'Brush teeth',
-                'deadline': 'Thu Sep 14 2017'
-            },
-            {
-                'description': 'Eat breakfast',
-                'deadline': 'Fri Sep 15 2017'
-            }
-        ];
+        const {
+            todoS,
+            handleToggleCheck
+        } = this.props
 
-        const todoItems = todoS.map((task, index) => (
-            <TodoItems description={task.description} deadline={task.deadline} />
-        ));
         return (
             <div className='todoList'>
                 <tr>
                     <th>Task</th>
                     <th>Deadline Date</th>
+                    <th>Done!</th>
                 </tr>
-                {todoItems}
+                {todoS.map(todo => (
+                    <TodoItems
+                        key={todo.id}
+                        todo={todo}
+                        handleToggleCheck={handleToggleCheck}
+                    />
+                ))}
             </div>
         )
     }
