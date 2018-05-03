@@ -1,76 +1,82 @@
 import React, { Component } from 'react';
 import './App.css';
-import Todo from './Todo';
 import Todos from "./Todos.json";
+import uuid from "uuid/v4"
 
-let IsDone = []
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      tasks: Todos,
-      msg: "No items"
-
-
+      tasks: Todos
     }
   }
 
-  handelCheck = (checked, id) => {
-    let newState = this.state.tasks;
-    newState.map((ele, index) => {
-      if (ele.id === id) {
-        if (ele.done === true) {
-          ele.done = false;
-          this.setState({
-          })
-        } else {
-          ele.done = true
-        }
-        this.setState({
-          tasks: newState
-        })
-        IsDone = []
-      }
+  onsubmit = (e) => {
+    e.preventDefault()
+    if(this.myTextInput.value !== "" && this.myDateInput.value ){
+    let newState = {
+      "id": uuid(),
+      "description": this.myTextInput.value,
+      "deadline": this.myDateInput.value,
+      "done": false
+    }
+    this.setState({
+      tasks: this.state.tasks.concat([newState])
     })
-    for (let key in newState) {
-      IsDone.push(newState[key].done)
-    }
-    console.log(IsDone)
-    this.check(IsDone)
   }
-  check = (array) => {
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] = false) {
-        return true;
-      } else {
-        return false;
-      }
-
-    }
-
-
+    this.myTextInput.value = "";
+    this.myDateInput.value = "";
   }
+  handelCheck = (e, index, isDone) => {
+    let state = this.state.tasks;
+    if (state[index].done === true) {
+      state[index].done = false;
+    } else {
+      state[index].done === true
+    }
+    this.setState({
+      state
+    })
+  }
+  remove = (e, id) => {
+    this.setState({
+      tasks: this.state.tasks.filter((ele) => {
+        return ele.id !== id
+      })
+    })
+  }
+
   render() {
     let tasks = this.state.tasks
+    console.log(tasks)
     return (
       <div className="root">
-        {this.check ? tasks.map((task, i) =>
+        <form onSubmit={(e) => this.onsubmit(e)}>
+          <input ref={(ref) => this.myTextInput = ref} name="Description" placeholder=" enter your task" type="text" className="text" />
+          <input ref={(ref) => this.myDateInput = ref} type="date" name="Date" className="date" />
+          <button type="submit" >Add</button>
+        </form>
+        {tasks.length > 0 ?
+          <div className="tasks">
 
-          <div className="todo">
-            <h3> {task.description}</h3>
+            {tasks.map((ele, index) =>
 
-            <h4>Deadline: {task.deadline}</h4>
-            <label class="checkbox">{task.done ? "Done" : "Not Done"}
-              <input type="checkbox" defaultChecked={task.done ? true : false} onChange={(e) => { this.handelCheck(task.done, task.id) }} />
-              <span class="checkmark"></span>
-            </label>
+              <div className="task">
+                <p>{ele.description}</p>
+                <p><strong>{ele.deadline}</strong></p>
+                <label> {ele.done === true ? "Done" : "not Done"} <input className="checkbox" type="checkbox" defaultChecked={ele.done == true ? true : false} onChange={(e) => this.handelCheck(e, index, ele.done)} /> </label>
+                <button className="close" onClick={(e) => this.remove(e, ele.id)} >X</button>
+              </div>
 
+
+            )}
           </div>
 
-        ) : this.state.msg}
 
+          : <p className="msg"> No tasks  </p>}
       </div>
+
     );
   }
 }
