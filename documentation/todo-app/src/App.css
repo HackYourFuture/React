@@ -1,28 +1,117 @@
-.App {
-  text-align: center;
+.root{
+margin:  50px auto;
+width: 50%;
+height: 200px;
+background-color:  #e6cfcf;
+}
+.text{
+margin-left: 200px;
+margin-top: 50px;
+width: 250px;
+height:  25px;
+border : 1px solid rgb(11, 33, 230);
+border-radius: 4px;
+
+}
+.date{
+    margin-left: 200px;
+    margin-top: 20px;
+    width: 250px;
+    height:  25px;
+    border : 1px solid rgb(11, 33, 230);
+    border-radius: 4px;
+    
+    }
+button {
+    margin-left: 220px;
+    margin-top: 20px;
+    width: 200px;
+    height:  27px;
+    color: rgb(71, 17, 197);
+    font-size: 16px;
+    border : 1px solid #522288;
+    font-weight: 1000;
+    cursor: pointer;
+
+    background-color: #e6cfcf
+    
+}    
+.task{
+    margin:  50px auto; 
+    border: 1px solid #2c2288  ;
+    border-radius:  5px;
+    width: 70%;
+    height: 150px;
+    background-color: #e6cfcf;
+}
+.task p{
+font-weight: 1000;
+color: #2c2288;
+margin-bottom: 10px;
+text-align: left;
+margin-left: 10px;
+}
+.task p strong{
+color:  rgb(133, 12, 12);    
+font-size: 20px;
+}
+.task label{
+  color: #300404 ;
+  font-size: 22px; 
+
+}
+.checkbox input[type="checkbox"] {
+    opacity: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.checkbox label {
+    position: relative;
+    display: inline-block;
+    padding-left: 22px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.checkbox label::before,
+.checkbox label::after {
+    position: absolute;
+    content: "";    
+    display: inline-block;
+}
+.checkbox label::before{
+    height: 16px;
+    width: 16px;
+    border: 1px solid;
+    left: 0px;
+    top: 3px;
 }
 
-.App-title {
-  font-size: 1.5em;
+.checkbox label::after {
+    height: 5px;
+    width: 9px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    
+    transform: rotate(-45deg);
+    
+    left: 4px;
+    top: 7px;
 }
+.msg{
+  margin : 50px 200px ;
+  color: #434cd6;
+  font-size: 22px;  
+}
+.close{
+    float: right; 
+    background-color:  #434cd6;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    width: 30px;
+    height:30px;
+    font-weight: 2500;
+    font-size: 25px;
+    color: #f10707;
+    cursor:  pointer;
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+   }
