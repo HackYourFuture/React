@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import './App.css';
 
 // ********* Components *********
@@ -6,7 +7,9 @@ import TodoList from './components/todoList';
 import TopHeader from './components/topHeader';
 
 // ********* Data *********
-import todoS from './data/todoS.json';
+import todoS from './data/todoS.json'
+
+const uuid = require('uuid/v4')
 
 class App extends Component {
 
@@ -14,6 +17,27 @@ class App extends Component {
     todoS : todoS
   }
 
+  handleAddTodo = (fields) => {
+    const newTodo = {
+      ...fields,
+      id: uuid(),
+      createdAt: moment().format('DD-MM-YYYY')
+    }
+    this.setState({
+      todoS: [
+        ...this.state.todoS,
+        newTodo
+      ]
+    })
+  }
+
+  handleRemoveTodo(id, i) {
+    this.setState({
+      todoS: this.state.todoS.filter(i => i !== id)
+    })
+  }
+
+  
   handleToggleCheck = todoId => {
     const newTodoList = this.state.todoS.map
       (todo => {
@@ -36,6 +60,8 @@ class App extends Component {
         <TodoList
           todoS={this.state.todoS}
           handleToggleCheck={this.handleToggleCheck}
+          handleAddTodo={this.handleAddTodo}
+          handleRemoveTodo={this.handleRemoveTodo}
         />
       </div>
     );

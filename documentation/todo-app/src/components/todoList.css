@@ -1,6 +1,6 @@
 .todoList {
     display: inline-table;
-    margin: 10% auto;
+    margin: 10%;
     border-collapse: collapse;
     
 }
@@ -8,7 +8,7 @@
 th,
 td {
     border: 1px solid #dddd;
-    padding: 5%;
+    padding: 1%;
     font-family: Tahoma, sans-serif;
 }
 
