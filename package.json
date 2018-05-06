@@ -1,0 +1,21 @@
+{
+  "name": "React",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/HackYourFuture/React.git",
+  "author": "HYF",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.46.3",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0"
+  },
+  "eslintIgnore": ["node_modules"]
+}
