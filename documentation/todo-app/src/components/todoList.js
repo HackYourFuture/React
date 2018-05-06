@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TodoItems from './todoItems'
 import AddTodoItem from './addTodoItem'
-// import RemoveTodo from './removeTodoItem'
+import RemoveTodo from './removeTodoItem'
 import './todoList.css'
 
 class TodoList extends Component {
@@ -28,7 +28,6 @@ class TodoList extends Component {
                                 key={todo.id}
                                 todo={todo}
                                 handleToggleCheck={handleToggleCheck}
-                            // handleRemoveTodo={handleRemoveTodo}
                             />
                         ))
                 }
@@ -36,9 +35,9 @@ class TodoList extends Component {
                 <AddTodoItem 
                     handleAddTodo={handleAddTodo}
                 />
-                {/* <RemoveTodo 
+                <RemoveTodo 
                     handleRemoveTodo={handleRemoveTodo}
-                />     */}
+                />    
             </div>
         )
     }
