@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 export default class TemperatureInput extends React.Component {
 
   render() {
 
-    const { onChange, temp, scale } = this.props
+    const { onChange, temp, scale } = this.props;
 
     return (
       <div>
@@ -15,6 +15,6 @@ export default class TemperatureInput extends React.Component {
           onChange={(event) => onChange(event.target.value, scale)}
         />
       </div>
-    )
+    );
   }
 }

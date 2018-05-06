@@ -1,42 +1,42 @@
-import React from 'react'
-import Clock from './Clock'
+import React from 'react';
+import Clock from './Clock';
 
 class App extends React.Component {
 
   state = {
     clocks: []
-  }
+  };
 
   handleCreateClock = () => {
-    const city = prompt('What is the city?')
-    const timeZone = prompt('What is the Time Zone?')
+    const city = prompt('What is the city?');
+    const timeZone = prompt('What is the Time Zone?');
 
     if (city && timeZone) {
       const newClocks = this.state.clocks.concat([{
         city,
         timeZone,
-      }])
+      }]);
 
       this.setState({
         clocks: newClocks,
-      })
+      });
     }
-  }
+  };
 
   handleDeleteClock = (cityToDelete) => {
     const newClocks = this.state.clocks.filter(clock => {
-      return clock.city !== cityToDelete
-    })
+      return clock.city !== cityToDelete;
+    });
 
     this.setState({
       clocks: newClocks,
-    })
-  }
+    });
+  };
 
   render() {
 
-    const { clocks } = this.state
-    const clockCount = clocks.length
+    const { clocks } = this.state;
+    const clockCount = clocks.length;
 
     return (
       <div className='panel'>

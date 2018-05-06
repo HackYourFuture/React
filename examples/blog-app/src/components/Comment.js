@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export default class Comment extends React.Component {
   render() {
 
-    const { handleToggleLike } = this.props
+    const { handleToggleLike } = this.props;
     const {
       authorName,
       createdAt,
@@ -11,7 +11,7 @@ export default class Comment extends React.Component {
       image,
       isLiked,
       id,
-    } = this.props.comment
+    } = this.props.comment;
 
     return (
       <div className='comment'>
@@ -33,6 +33,6 @@ export default class Comment extends React.Component {
           
         </div>
       </div>
-    )
+    );
   }
 }

@@ -1,6 +1,6 @@
-import React from 'react'
-import Comment from './Comment'
-import AddCommentForm from './AddCommentForm'
+import React from 'react';
+import Comment from './Comment';
+import AddCommentForm from './AddCommentForm';
 
 export default class CommentsList extends React.Component {
   render() {
@@ -9,7 +9,7 @@ export default class CommentsList extends React.Component {
       comments,
       handleToggleLike,
       handleCreateComment,
-    } = this.props
+    } = this.props;
 
     return (
       <div className='comments-list'>
@@ -25,6 +25,6 @@ export default class CommentsList extends React.Component {
           handleCreateComment={handleCreateComment}  
         />
       </div>
-    )
+    );
   }
 }
