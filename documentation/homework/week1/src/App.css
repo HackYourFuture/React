@@ -12,21 +12,30 @@
   font-size:1.75rem;
 }
 .content{
+  background-color:gray;
   margin: 5%;
   font-size: 30px;
-  border:1px solid darkblue;
+  border:1px solid rgb(129, 129, 167);
 }
-
+.removeClick{
+  cursor: pointer;
+  text-align: right;
+  margin-left:10px;
+}
+.addClick{
+  cursor: pointer;
+}
 .todoAdd{
-  margin:5%;
+  margin:0px auto;
+  margin-bottom:10px;
+  padding-top:10px;
+  text-align: center;
+  background-color: rgb(147, 163, 163);
 }
 .doneClick{
   color:lightblue;
   cursor: pointer;
-  margin:60%;
-}
-.doneClick:hover{
-  background-color: khaki;
+  margin-left:50px;
 }
 
 .App-title {

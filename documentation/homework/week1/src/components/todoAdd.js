@@ -1,10 +1,13 @@
 import React,{Component} from 'react';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
 
 class TodoAdd extends Component{
     state = {
         id:'',
         description:'',
-        deadline:'',
+        deadline:moment(),
         done:false
     }
     onChangeState(field,value){
@@ -12,30 +15,22 @@ class TodoAdd extends Component{
         currentState[field]=value;
         this.setState(currentState);
     }
+    handleDateStateChange = (element) => {
+        this.setState({deadline:element});
+      }
     onAddFunction(id,description,deadline,done){
         this.props.addFunction(id,description,deadline,done);
         this.setState({
             id:'',
             description:'',
-            deadline:'',
         })
     }
     render() {
         return (
             <div className='todoAdd'>
-                <div>
-                    <input placeholder='id' type='text' value={this.state.id} onChange={(element) => this.onChangeState('id',element.target.value)}/>
-                </div>
-                <div>
-                    <textarea placeholder='description' type='text' value ={this.state.description} onChange={(element) => this.onChangeState('description',element.target.value)}/>
-                </div>
-                <div>
-                    <input placeholder='deadline' type='text' value={this.state.deadline} onChange={(element) => this.onChangeState('deadline',element.target.value)}/>
-                </div>
-                    <button onClick={() => this.onAddFunction(this.state.id,this.state.description,this.state.deadline,this.state.done)}>Add</button>
-                <div>
-                    
-                </div>
+                <textarea placeholder='description' type='text' value ={this.state.description} onChange={(element) => this.onChangeState('description',element.target.value)}/>
+                <DatePicker selected={this.state.deadline} onChange={this.handleDateStateChange}/>;
+                <button className="addClick" onClick={() => this.onAddFunction(this.state.id,this.state.description,this.state.deadline,this.state.done)}>Add</button>
             </div>
         )
     }

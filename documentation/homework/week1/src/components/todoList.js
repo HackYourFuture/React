@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import TodoListItem from './todoListItem';
+import TodoListItem from './TodoListItem';
 import TodoAdd from './todoAdd';
 
 class TodoList extends Component {
@@ -13,6 +13,7 @@ class TodoList extends Component {
                 deadline={data.deadline} 
                 done={data.done} 
                 handleDoneClick={this.props.handleDoneClick}
+                removeTodo = {this.props.removeTodo}
             />
         );
         return (
