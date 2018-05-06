@@ -35,7 +35,7 @@ class TodoList extends Component {
                 <AddTodoItem 
                     handleAddTodo={handleAddTodo}
                 />
-                <RemoveTodo 
+                <RemoveTodo
                     handleRemoveTodo={handleRemoveTodo}
                 />    
             </div>
