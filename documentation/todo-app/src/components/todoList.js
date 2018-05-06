@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import TodoItems from './todoItems'
 import AddTodoItem from './addTodoItem'
-import RemoveTodo from './removeTodoItem'
 import './todoList.css'
 
 class TodoList extends Component {
@@ -21,24 +20,24 @@ class TodoList extends Component {
                     <th>Deadline Date</th>
                     <th>Created Date</th>
                     <th>Done!</th>
+                    <th>Remove</th>
+                    
                 </tr>
-                
-                {todoS.map(todo => (
-                            <TodoItems
-                                key={todo.id}
-                                todo={todo}
-                                handleToggleCheck={handleToggleCheck}
-                            handleRemoveTodo={handleRemoveTodo}
-                            />
-                        ))
+                {todoS.length === 0 ? <p>yeeyyy!! there is no task anymore :) </p> :
+                todoS.map(todo => (
+                    <TodoItems
+                        key={todo.id}
+                        todo={todo}
+                        handleToggleCheck={handleToggleCheck}
+                        handleRemoveTodo={handleRemoveTodo}
+                    />
+                ))
                 }
-                   
-                <AddTodoItem 
+
+                <AddTodoItem
                     handleAddTodo={handleAddTodo}
                 />
-                <RemoveTodo 
-                    handleRemoveTodo={handleRemoveTodo}
-                />    
+
             </div>
         )
     }

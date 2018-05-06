@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import moment from 'moment';
 import './App.css';
 
@@ -14,7 +15,7 @@ const uuid = require('uuid/v4')
 class App extends Component {
 
   state = {
-    todoS : todoS
+    todoS
   }
 
   handleAddTodo = (fields) => {
@@ -31,13 +32,13 @@ class App extends Component {
     })
   }
 
-  handleRemoveTodo(id, i) {
+  handleRemoveTodo(id) {
     this.setState({
-      todoS: this.state.todoS.filter(i => i !== id)
+      todoS: this.state.todoS.filter(todo => todo.id !== id)
     })
   }
 
-  
+
   handleToggleCheck = todoId => {
     const newTodoList = this.state.todoS.map
       (todo => {
@@ -49,11 +50,11 @@ class App extends Component {
         }
         return todo
       })
-    this.setState({todoS: newTodoList})
+    this.setState({ todoS: newTodoList })
   }
 
   render() {
-    
+
     return (
       <div className="App">
         <TopHeader />
@@ -61,7 +62,7 @@ class App extends Component {
           todoS={this.state.todoS}
           handleToggleCheck={this.handleToggleCheck}
           handleAddTodo={this.handleAddTodo}
-          handleRemoveTodo={this.handleRemoveTodo}
+          handleRemoveTodo={this.handleRemoveTodo.bind(this)}
         />
       </div>
     );

@@ -19,3 +19,7 @@ tr:hover{
 tr:nth-child(even) {
     background-color: rgb(238, 239, 240);
 }
+
+abbr {
+text-decoration: none;
+}
