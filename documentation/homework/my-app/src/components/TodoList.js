@@ -1,6 +1,4 @@
-import React, {
-    Component
-} from 'react';
+import React, {Component} from 'react';
 import './TodoList.css';
 import TodoItem from './TodoItem';
 class TodoList extends Component {
@@ -20,19 +18,13 @@ class TodoList extends Component {
         ];
         const TodoListElement = TodoList.map((element, index) =>
             <
-            TodoItem myDate = {
-                element.myDate
-            }
-            MyTask = {
-                element.MyTask
-            }
+            TodoItem myDate = {element.myDate}
+                MyTask={element.MyTask}
             />
 
         )
 
-        return ( <div > {
-                TodoListElement
-            } </div>
+        return ( <div > {TodoListElement} </div>
         );
     }
 }
