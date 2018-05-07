@@ -1,35 +1,37 @@
-import React from 'react';
-
-export default class TasksList extends React.Component {
-    constructor() {
-        super();
-    }
-
-    remove(e) {
-        const task = e.target.parentNode.querySelector('span').textContent;
-        console.log(task);
-
-        this.props.removeTask(task);
-    }
-
+import React, {Component} from 'react';
+import './TodoList.css';
+import TodoItem from './TodoItem';
+class TodoList extends Component {
     render() {
-        if (this.props.tasks.length === 0) {
-            return (
-                <p>No tasks</p>
-            )
+        const TodoList = [{
+            'myDate': 'Get out of bed',
+            'MyTask': 'Wed Sep 13 2017'
+        },
+        {
+            'myDate': 'Brush teeth',
+            'MyTask': 'Thu Sep 14 2017'
+        },
+        {
+            'myDate': 'Eat breakfast',
+            'MyTask': 'Fri Sep 15 2017'
         }
-
-        return (
-            <ul>
-                {
-                    this.props.tasks.map((elem, index) => (
-                        <li key={index}>
-                            <span>{elem}</span>
-                            <button onClick={this.remove}>X</button>
-                        </li>
-                    ))
+        ];
+        const TodoListElement = TodoList.map((element, index) =>
+            <
+                TodoItem myDate={
+                    element.myDate
                 }
-            </ul>
+                MyTask={
+                    element.MyTask
+                }
+            />
+
         )
+
+        return (<div > {
+            TodoListElement
+        } </div>
+        );
     }
 }
+export default TodoList;
