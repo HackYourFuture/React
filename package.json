@@ -6,7 +6,8 @@
   "author": "HYF",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint */src */*/src --fix"
+    "lint": "eslint */src */*/src --fix",
+    "test": "npm run lint"
   },
   "dependencies": {
     "babel-eslint": "^8.2.3",
