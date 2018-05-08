@@ -1,32 +1,25 @@
-import React from 'react'
+import React from 'react';
 
 const defaultState = {
   commentText: '',
   authorName: '',
   image: '',
-}
+};
 
 export default class AddCommentForm extends React.Component {
 
-  state = defaultState
+  state = defaultState;
 
   handleFieldChange = (event, field) => {
-    this.setState({ [field]: event.target.value })
-  }
+    this.setState({ [field]: event.target.value });
+  };
 
   createComment = () => {
-    this.props.handleCreateComment(this.state)
-    this.setState(defaultState)
-  }
+    this.props.handleCreateComment(this.state);
+    this.setState(defaultState);
+  };
 
   render() {
-
-    const { handleCreateComment } = this.props
-    const {
-      commentText,
-      authorName,
-      image,
-    } = this.state
 
     return (
       <div className='add-comment-form'>
@@ -49,6 +42,6 @@ export default class AddCommentForm extends React.Component {
         />
         <button onClick={this.createComment}>Add comment</button>
       </div>
-    )
+    );
   }
 }
