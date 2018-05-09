@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "mobx": "^4.2.1",
+    "mobx-react": "^5.1.2",
     "moment": "^2.22.1",
     "react": "^16.3.2",
     "react-datepicker": "^1.4.1",
