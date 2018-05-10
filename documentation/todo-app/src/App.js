@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from './components/headers';
-import Logo from './components/logo';
-import TodoMain from './components/todoMain';
+import Header from './components/Headers';
+import Logo from './components/Logo';
+import TodoList from './components/TodoList';
 import './App.css';
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
         <Logo />
         <Header />
-        <TodoMain/>
+        <TodoList/>
       </div>
     );
   }
