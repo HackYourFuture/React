@@ -10,10 +10,9 @@ class App extends Component {
       <div className="App">
         <Logo />
         <Header />
-        <TodoList/>
+        <TodoList />
       </div>
     );
   }
 }
-
 export default App;

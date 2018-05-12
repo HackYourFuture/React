@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class TodoItem extends Component {
     render() {
         const { description, deadline, id, done } = this.props.todo;
-        const { toggleTodo } = this.props;
+        const { toggleTodo , removeTodo } = this.props;
         return (
             <div> 
                     <tr>
@@ -17,7 +17,10 @@ export default class TodoItem extends Component {
                         </td>
                     <td className="deadline" style={done ? { textDecoration: 'line-through' } : {}}>
                            { deadline }
-                        </td>
+                    </td>
+                    <td className="remove"> 
+                        <button onClick={() => removeTodo(id)}> REMOVE </button>    
+                    </td>
                     </tr> 
             </div>
         )
