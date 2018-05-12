@@ -1,0 +1,12 @@
+.TodoList {
+   display: inline-table;
+    margin: 10% auto;
+    border-collapse: collapse;
+    
+}
+
+hover{
+    color: rgb(15, 126, 92);
+}
+
+
