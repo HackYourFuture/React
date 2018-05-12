@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import TodoListItem from './TodoListItem';
+import TodoListItem from './todoListItem';
 import TodoAdd from './todoAdd';
 
 class TodoList extends Component {
