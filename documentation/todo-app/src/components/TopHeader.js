@@ -10,7 +10,7 @@ export default class TopHeader extends Component {
             return (
                 <div className="clocking">
                     <h2>It is {props.date.toLocaleTimeString()}.</h2>
-                    <h2>Week 1 of React Homework!</h2>
+                    <h2>Week 2 of React Homework!</h2>
                 </div>
             );
         }
