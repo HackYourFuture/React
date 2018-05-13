@@ -1,0 +1,18 @@
+[{
+    "id":"1",
+    "task":"Get out of bed",
+    "time":"Wed Sep 13 2017",
+    "done": true
+    },
+    {
+     "id":"2",
+     "task":"Brush teeth",
+     "time":"Thu Sep 14 2017",
+     "done": false
+     },
+     {
+     "id":"3",
+    "task":"Eat breakfast",
+    "time":"Fri Sep 15 2017",
+    "done": true
+}] 
