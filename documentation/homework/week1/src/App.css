@@ -1,45 +1,50 @@
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App{
+  margin:0 auto;
+  width:40%;
 }
 
 .App-header {
-  background-color: rgb(39, 123, 193);
-  height: 150px;
+  background-color: rgb(88, 100, 100);
+  height: 100px;
   padding: 20px;
   color: white;
   text-align: center;
-  font-size:1.75rem;
+  font-size:1.50rem;
 }
-.content{
-  background-color:gray;
-  margin: 5%;
+
+.mainContent{
+  margin:0 auto;
+  margin-top:15px;
+  text-align: center;
   font-size: 30px;
-  border:1px solid rgb(129, 129, 167);
 }
+.todoListItem{
+  background-color: rgb(176, 176, 223);
+}
+
 .removeClick{
   cursor: pointer;
-  text-align: right;
-  margin-left:10px;
 }
-.addClick{
-  cursor: pointer;
-}
-.todoAdd{
-  margin:0px auto;
-  margin-bottom:10px;
-  padding-top:10px;
-  text-align: center;
-  background-color: rgb(147, 163, 163);
-}
+
 .doneClick{
-  color:lightblue;
+  color:rgb(196, 62, 9);
   cursor: pointer;
-  margin-left:50px;
+}
+
+.todoAdd{
+  background-color: rgb(163, 172, 138);
+  margin:0px auto;
+  margin-top:15px;
+  margin-bottom:15px;
+  text-align: center;
+}
+
+.addButton{
+  cursor: pointer;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 
 .App-intro {
