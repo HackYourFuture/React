@@ -1,15 +1,18 @@
+body{
+  border: solid gray 3px;
+  margin: 20px;
+  padding: 30px;
+  border-radius: 20px;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  border-radius: 20px;
   padding: 20px;
   color: white;
 }
@@ -22,7 +25,11 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.list-format{
+  border: solid lightblue 3px;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 30px;
+  list-style: circle;
+  text-align: left;
 }
