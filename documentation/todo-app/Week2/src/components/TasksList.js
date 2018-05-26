@@ -1,19 +1,41 @@
 import React from "react";
+import TodoItems from "./TodoItems.json";
 
 class TasksList extends React.Component {
 
+  state = {
+    // taskCompletion: false
+    TodoItems
+  }
+
+  // listState = {
+  //   todoItem: TodoItems
+  // }
+
+  taskCompleted = () => {
+    // console.log(Object.keys(this.state.todoItem));
+    // this.setState({ taskCompletion: true });
+    if (Object.keys(this.state.TodoItems) === false) {
+      this.setState({ taskCompletion: true })
+    } else if (Object.keys(this.state.TodoItems) === true)
+      this.setState({ taskCompletion: false });
+    console.log(this.state.taskCompletion);
+
+
+
+
+  }
+
   render() {
-    const list = [
-      { description: "Get out of bed", deadline: "Wed Sep 13 2017" },
-      { description: "Brush teeth", deadline: "Thu Sep 14 2017" },
-      { description: "Eat breakfast", deadline: "Fri Sep 15 2017" }
-    ];
+
     return (
       <div>
         <ul className="list-format">
-          <li>{`Description: ${list[0].description}, Deadline: ${list[0].deadline}`}</li>
-          <li>{`Description: ${list[1].description}, Deadline: ${list[1].deadline}`}</li>
-          <li>{`Description: ${list[2].description}, Deadline: ${list[2].deadline}`}</li>
+          {TodoItems.map((obj) => {
+            return <li key={obj.id}><button onClick={this.taskCompleted}>Completed!</button>
+              {`${obj.id} - Description: ${obj.description}, Deadline: ${obj.deadline}`}</li>
+          })}
+
         </ul>
       </div>
     );

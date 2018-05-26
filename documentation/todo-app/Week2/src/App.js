@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Sam's first homework Week 1</h1>
+          <h1 className="App-title">Sam's homework Week 2</h1>
         </header>
         <div>
           <p> The static todo list: </p>
