@@ -44,6 +44,8 @@ Take a look at [this video](https://www.youtube.com/watch?v=-o0yomUVVpU&index=2&
 
 Also review the Git [workflow material](https://github.com/HackYourFuture/Git/blob/master/Lecture-3.md) from the JavaScript3 module, use this as a reference.
 
+Please read [this doc](homework-submission/HOMEWORK.md) for information on how to where to put your homework for this particular module.
+
 ## Slides
 
 Find the slides used in class here:
