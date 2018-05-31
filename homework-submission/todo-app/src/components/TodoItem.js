@@ -22,7 +22,7 @@ class TodoItems extends Component {
             }
         ];
 
-        const TodoListItem = items.map((element, index) => (
+        const TodoListItem = items.map((element) => (
             <TodoList key={element.id} todoTask={element.task} taskDate={element.date
             } />
         ));
