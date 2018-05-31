@@ -7,6 +7,7 @@ class TodoList extends Component {
         let todoTask = this.props.todoTask;
         let taskDate = this.props.taskDate;
 
+
         return (
             <div className="comment">
 
@@ -14,7 +15,7 @@ class TodoList extends Component {
                 <Image />
                 <h2><strong>Task : {todoTask}</strong></h2>
 
-                <h3><strong> {taskDate} </strong></h3>
+                <h3><strong>Date : {taskDate} </strong></h3>
             </div>
 
         );

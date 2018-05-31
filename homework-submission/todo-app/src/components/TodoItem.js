@@ -17,15 +17,17 @@ class TodoItems extends Component {
                 date: 'Fri Sep 15 2017'
             }
         ];
-        const TodoListItem = items.map((element) => (
-            <TodoList todoTask={element.task} taskDate={element.date
+        const TodoListItem = items.map((element, index) => (
+            <TodoList key={index} todoTask={element.task} taskDate={element.date
             } />
         ));
 
-        return (<div>
-            {TodoListItem}
+        return (
+            <div>
+                {TodoListItem}
 
-        </div>);
+            </div>
+        );
     }
 }
 export default TodoItems;
