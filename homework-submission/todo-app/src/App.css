@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+}
+
+.comment {
+  text-align: center;
+  padding: 10px;
+  border: 1px dashed blue;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  background-color: burlywood;
+}
+
+.App-header {
+  height: 150px;
+  padding: 20px;
+  font-size: 2em;
+  color: blue;
+  margin-left: 10%;
+  margin-right: 10%;
+}
