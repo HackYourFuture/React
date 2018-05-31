@@ -4,7 +4,9 @@ import Image from '../components/Image';
 class TodoList extends Component {
 
     render() {
-        let { todoTask, taskDate } = this.props;
+        let todoTask = this.props.todoTask;
+        const taskDate = this.props.taskDate;
+
         return (
             <div className="comment">
 
