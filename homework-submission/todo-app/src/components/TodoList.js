@@ -5,7 +5,7 @@ class TodoList extends Component {
 
     render() {
         let todoTask = this.props.todoTask;
-        const taskDate = this.props.taskDate;
+        let taskDate = this.props.taskDate;
 
         return (
             <div className="comment">
