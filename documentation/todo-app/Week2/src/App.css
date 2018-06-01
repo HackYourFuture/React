@@ -1,0 +1,39 @@
+body{
+  border: solid gray 3px;
+  margin: 20px;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.App {
+  text-align: center;
+}
+
+
+.App-header {
+  background-color: #222;
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.list-format{
+  border: solid lightblue 3px;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 30px;
+  list-style: none;
+  text-align: left;
+}
+
+.completed-Item{
+  text-decoration: line-through;
+}

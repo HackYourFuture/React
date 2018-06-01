@@ -1,0 +1,84 @@
+body{
+  border: solid gray 3px;
+  margin: 20px;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.App {
+  text-align: center;
+}
+
+
+.App-header {
+  background-color: #222;
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.input-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-input, .deadline-input{
+  width: 50%;
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 20px;
+  font-style: italic;
+  margin: 5px;
+}
+
+.add-button{
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.list-format{
+  border: solid lightblue 3px;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 30px;
+  list-style: none;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkBox{
+  margin: 20px;  
+}
+
+.todo-desc{
+  margin: 20px;
+}
+
+.completed{
+  margin: 20px;
+  text-decoration: line-through;
+}
+
+.remove-item{
+  margin: 20px;
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgba(228, 12, 12, 0.393);
+}
+
+.completed-Item{
+  text-decoration: line-through;
+}
