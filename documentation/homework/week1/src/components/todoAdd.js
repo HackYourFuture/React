@@ -9,7 +9,7 @@ class TodoAdd extends Component{
 
     render() {
         const {
-            id,
+            _id,
             description,
             deadline,
             done
@@ -36,7 +36,7 @@ class TodoAdd extends Component{
                     />
                 </div>
                 <div className="addButton">
-                    <button onClick={() => this.props.todoStore.onAddFunction(id,description,deadline,done)}>Add</button>
+                    <button onClick={() => this.props.todoStore.onAddFunction(_id,description,deadline,done)}>Add</button>
                 </div>
             </div>
         )

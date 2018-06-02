@@ -8,11 +8,15 @@ import {inject,observer} from 'mobx-react'
 
 class TodoList extends Component {
 
+    componentDidMount(){
+        this.props.todoStore.getTodos()
+    }
+
     render() {
         const todoList = this.props.listTodo;
         const todoListItem = todoList.map((element =>
              <TodoListItem 
-                id={element.id} 
+                _id={element._id} 
                 description={element.description} 
                 deadline={element.deadline} 
                 done={element.done} 

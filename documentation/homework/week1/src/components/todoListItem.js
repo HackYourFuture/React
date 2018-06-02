@@ -6,7 +6,7 @@ import {inject,observer} from 'mobx-react'
 
 class TodoListItem extends Component {
     render() {
-        const id =this.props.id;
+        const _id =this.props._id;
         const description = this.props.description;
         const deadline = this.props.deadline;
         const done = this.props.done ? '◉' : '◎';
@@ -20,10 +20,10 @@ class TodoListItem extends Component {
                         {deadline}
                     </div>
                     <div className='doneClick'>
-                        <span onClick = {()=> this.props.handleDoneClick(id)}>{done}</span> 
+                        <span onClick = {()=> this.props.handleDoneClick(_id)}>{done}</span> 
                     </div>
                     <div className='removeClick'>
-                        <button onClick = {() => this.props.removeTodo(id)}>delete</button> 
+                        <button onClick = {() => this.props.removeTodo(_id)}>delete</button> 
                     </div>
                     <hr/>
                 </div>

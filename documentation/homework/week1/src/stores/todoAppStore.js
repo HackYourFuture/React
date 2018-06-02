@@ -1,19 +1,33 @@
-import {action,observable} from 'mobx';
-import todoList from '../components/todoList.json';
-import newID from 'uuid/v4';
+import {action,runInAction,observable} from 'mobx';
 import moment from 'moment';
 
+const API_ROOT = "https://hyf-react-api.herokuapp.com";
+const initialValue = {
+    description:'',
+    deadline:moment(),
+};
 class TodoAppStore{
 
     @observable
-    listTodo = todoList;
+    listTodo = [];
 
     @observable
-    defaultValue = {
-        id:'',
-        description:'',
-        deadline:moment(),
-        done:false
+    defaultValue = initialValue;
+
+    @action
+    getTodos = async () => {
+        try{
+            const res = await fetch(`${API_ROOT}/todos`);
+            const parsedResponse = await res.json();
+            console.log(parsedResponse);
+            runInAction(() =>{
+                this.listTodo = parsedResponse;
+            })
+            
+        }
+        catch(error){
+            console.log(error);
+        }
     }
 
     @action
@@ -29,8 +43,8 @@ class TodoAppStore{
     }
 
     @action
-    onAddFunction(id,description,deadline,done){
-        this.addFunction(id,description,deadline,done);
+    onAddFunction(_id,description,deadline,done){
+        this.addFunction(_id,description,deadline,done);
         this.defaultValue = {
             description:'',
             deadline:moment(),
@@ -38,32 +52,48 @@ class TodoAppStore{
     }
 
     @action
-    addFunction = (id,description,deadline,done) => {
-        const currentState = this.listTodo.map(element => element);
-        const newState={id:newID(),description:description,deadline:deadline.format('YYYY-MM-DD'),done:done}
-        const updatedState=currentState.concat(newState);
-        this.listTodo = updatedState;
+    addFunction = async (_id,description,deadline,done) => {
+        await fetch(`${API_ROOT}/todos/create`,{
+            method:"POST",
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(this.defaultValue)
+        })
+        this.getTodos();
     }
 
     @action
-    handleDoneClick = (id) => {
-        const newTodoList= this.listTodo.map((todoElement) => {
-            if(todoElement.id === id){
-                return {
-                    ...todoElement,
-                    done:!todoElement.done,
-                }
+    handleDoneClick = async (_id) => {
+        const todoElement = this.listTodo.find(todoElement=>todoElement._id === _id);
+        this.listTodo=this.listTodo.map(element=>{
+            if(element._id === _id){
+                return{
+                ...todoElement,
+                done:!element.done,
             }
-            return todoElement;
-        });
-        this.listTodo = newTodoList;
+            }
+            return element;
+        })
+        await fetch(`${API_ROOT}/todos/${_id}`,{
+            method:"PATCH",
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify({
+                done:!todoElement.done,
+            })
+        })
+        this.getTodos();
     }
 
     @action
-    removeTodo = (id) => {
-        const currentList =this.listTodo;
-        const newList = currentList.filter(todo => todo.id !== id)
-        this.listTodo = newList;
+    removeTodo = async (_id) => {
+        this.listTodo = this.listTodo.filter(todo => todo._id !== _id)
+        await fetch(`${API_ROOT}/todos/${_id}`,{
+            method:"DELETE",
+        })
+        this.getTodos();
     }
 }
 
