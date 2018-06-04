@@ -2,6 +2,7 @@
     height: 50px;
     width: 50px;
     margin: auto;
-    display: flex;
+    display: inline-block;
     align-items: center;
+    padding: 5px;
 }
