@@ -1,0 +1,40 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-content: center;
+}
+
+.comment {
+  text-align: center;
+  padding: 30px;
+  border: 1px dashed blue;
+  width: 50%;
+  margin: 2px auto;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+  /* display: inline-block;
+  position: relative; */
+  background-color: burlywood;
+}
+
+.text {
+  padding: 30px;
+  margin: 10px;
+  display: inline-block;
+  position: relative;
+}
+
+.App-header {
+  height: 100px;
+  text-align: center;
+  font-size: 1.5em;
+  color: red;
+  margin: 5px;
+  padding: 20px;
+  background-image: url('https://raw.githubusercontent.com/gisaac85/my_REACT/master/images/features.jpg');
+  background-repeat: repeat-y
+}
