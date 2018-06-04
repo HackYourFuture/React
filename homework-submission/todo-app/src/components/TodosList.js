@@ -21,7 +21,7 @@ class TodosList extends Component {
     }
     render() {
         const todoState = this.state.todos;
-        const todo = todoState.map((todo, index) => (
+        const todo = todoState.map((todo) => (
             <TodosItem key={todo.id} todo={todo} toggleDone={this.toggleDone.bind(this)} />
         )
         );
