@@ -2,17 +2,32 @@ import React, { Component } from 'react'
 import TodoItems from './todoItems'
 import AddTodoItem from './addTodoItem'
 import './todoList.css'
+import {inject,observer} from 'mobx-react'
+
+@inject('todoS')
+@observer
 
 class TodoList extends Component {
 
     render() {
         const {
-            todoS,
             handleToggleCheck,
             handleAddTodo,
             handleRemoveTodo
-        } = this.props
+        } = this.props.todoS
 
+        const todoS = this.props.todoS
+
+        const todoItems = todoS.length === 0 ? <p>yeeyyy!! there is no task anymore :) </p> :
+            todoS.map(todo => (
+                <TodoItems
+                    key={todo.id}
+                    todo={todo}
+                    handleToggleCheck={handleToggleCheck}
+                    handleRemoveTodo={handleRemoveTodo}
+                />
+            ));
+            
         return (
             <div className='todoList'>
                 <tr>
@@ -21,23 +36,11 @@ class TodoList extends Component {
                     <th>Created Date</th>
                     <th>Done!</th>
                     <th>Remove</th>
-                    
                 </tr>
-                {todoS.length === 0 ? <p>yeeyyy!! there is no task anymore :) </p> :
-                todoS.map(todo => (
-                    <TodoItems
-                        key={todo.id}
-                        todo={todo}
-                        handleToggleCheck={handleToggleCheck}
-                        handleRemoveTodo={handleRemoveTodo}
-                    />
-                ))
-                }
-
+                {todoItems}
                 <AddTodoItem
                     handleAddTodo={handleAddTodo}
                 />
-
             </div>
         )
     }

@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import ClickToEdit from 'react-click-to-edit'
+import { inject, observer } from 'mobx-react';
+
+@inject('todoS')
+@observer    
 
 class TodoItems extends Component {
     render() {
+
         const { handleToggleCheck,
-            handleRemoveTodo } = this.props
+            handleRemoveTodo } = this.props.todoS
+        
         const {
             description,
             deadline,
@@ -12,7 +18,7 @@ class TodoItems extends Component {
             done,
             id
         } = this.props.todo
-
+        
         return (
             <tr className='todoItems'>
                 <td>

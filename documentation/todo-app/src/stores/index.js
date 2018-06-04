@@ -1,5 +1,8 @@
-import TodoItemsStore from '.TodoItemsStore'
+import TodoItemsStore from './TodoItemsStore';
+import { configure } from 'mobx';
+
+configure({ enforceActions: true })
 
 export default {
-    todoS: new TodoItemsStore(),
+    todoS : TodoItemsStore,
 }
