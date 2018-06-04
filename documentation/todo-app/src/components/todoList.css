@@ -1,0 +1,25 @@
+.todoList {
+    display: inline-table;
+    margin: 10%;
+    border-collapse: collapse;
+    
+}
+
+th,
+td {
+    border: 1px solid #dddd;
+    padding: 1%;
+    font-family: Tahoma, sans-serif;
+}
+
+tr:hover{
+    color: rgb(89, 185, 240);
+}
+
+tr:nth-child(even) {
+    background-color: rgb(238, 239, 240);
+}
+
+abbr {
+text-decoration: none;
+}
