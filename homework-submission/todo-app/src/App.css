@@ -1,39 +1,38 @@
 .App {
-    font-family: Arial, Helvetica, sans-serif;
-    color: darkorange;
-}
-
-h2 {
-    color: maroon;
-    padding: 10px;
-    font-size: 20px;
-}
-
-h1 {
-    padding: 10px;
-    font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
 }
 
 .App-photo {
-    height: 200px;
-    position: static;
-    left: 1px;
+  height: 200px;
+  position: static;
+  left: 1px;
 }
 
 .App-header {
-    background-color: rgb(160, 118, 3);
-    height: 100px;
-    padding: 10px;
-    color: whitesmoke;
-    text-align: center;
-    font-size: larger;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: rgb(160, 118, 3);
+  height: 50px;
+  padding: 10px;
+  color: whitesmoke;
+  text-align: center;
+  font-family: cursive;
 }
 
 .App-title {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 .App-intro {
-    font-size: large;
+  font-size: large;
+}
+
+h1 {
+  padding: 10px;
+  font-size: 15px;
+}
+
+h2 {
+  color: rgb(160, 118, 3);
+  padding: 10px;
+  font-size: 15px;
 }
