@@ -14,7 +14,7 @@ class TodosItem extends Component {
 
         this.setState({ changedText: this.props.todo.description });
     }
-    handleEditing(event) {
+    handleEditing() {
         this.setState({ editing: true, changedText: this.props.description })
     }
     handleEditingDone(event) {
