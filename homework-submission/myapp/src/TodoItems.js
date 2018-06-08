@@ -33,7 +33,7 @@ class TodoItems extends Component {
                 <div className="comment" key={i}>
                     <h2>Description : {element.description}</h2>
                     <h2>Deadline : {element.deadline}</h2>
-                    <h2> It's {isDone} </h2>
+                    <h2> {isDone} </h2>
 
                 </div>
             )
