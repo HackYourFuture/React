@@ -21,7 +21,11 @@ class TodoItems extends Component {
     return (
       <div>
         {items.map((element, index) => (
-          <ListItem todoTask={element.task} taskDate={element.date} />
+          <ListItem
+            key={index}
+            todoTask={element.task}
+            taskDate={element.date}
+          />
         ))}
       </div>
     );
