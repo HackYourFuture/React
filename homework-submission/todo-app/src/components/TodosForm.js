@@ -47,7 +47,7 @@ class TodosForm extends Component {
                     <button className="buttonStyle" onClick=
                         {
 
-                            (e) => this.onSubmit(this.state.id, this.state.description, this.state.deadline, this.state.done)
+                            () => this.onSubmit(this.state.id, this.state.description, this.state.deadline, this.state.done)
 
                         }>
                         Add
