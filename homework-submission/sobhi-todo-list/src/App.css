@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: aquamarine;
+  height: 100px;
+  padding: 20px;
+  color: black;
+}
+
+.App-body {
+  color: black;
+  line-break: auto;
+  font-family: cursive;
+
+}
+
+
