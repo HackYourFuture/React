@@ -44,7 +44,7 @@ export default class ToDoItems extends React.Component {
 
             <div>
 
-                {tasksInfo.map((element, index) =>
+                {tasksInfo.map((element) =>
 
                     <ToDoList
 
