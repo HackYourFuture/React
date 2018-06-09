@@ -11,27 +11,34 @@ export default class ToDoItems extends React.Component {
 
             {
 
-                task: 'Get out of bed',
+                'task': 'Get out of bed',
 
-                date: 'Wed Sep 13 2017',
+                'date': 'Wed Sep 13 2017',
+
+                'id': '1'
 
             },
             {
 
-                task: 'Brush teeth',
+                'task': 'Brush teeth',
 
-                date: 'Thu Sep 14 2017',
+                'date': 'Thu Sep 14 2017',
+
+                'id': '2'
 
             },
 
             {
 
-                task: 'Eat breakfast',
+                'task': 'Eat breakfast',
 
-                date: 'Fri Sep 15 2017',
+                'date': 'Fri Sep 15 2017',
+
+                'id': '3'
 
             }
-        ];
+        ]
+
 
         return (
 
@@ -39,7 +46,7 @@ export default class ToDoItems extends React.Component {
 
                 {items.map((element, index) =>
 
-                    <ToDoList
+                    <ToDoList key={element.id}
 
                         todoTask={element.task}
 
