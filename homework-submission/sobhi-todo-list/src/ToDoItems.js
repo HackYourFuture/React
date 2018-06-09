@@ -7,7 +7,7 @@ export default class ToDoItems extends React.Component {
 
     render() {
 
-        const items = [
+        const tasksInfo = [
 
             {
 
@@ -37,16 +37,18 @@ export default class ToDoItems extends React.Component {
                 'id': '3'
 
             }
-        ]
+        ];
 
 
         return (
 
             <div>
 
-                {items.map((element, index) =>
+                {tasksInfo.map((element, index) =>
 
-                    <ToDoList key={element.id}
+                    <ToDoList
+
+                        key={element.id}
 
                         todoTask={element.task}
 
