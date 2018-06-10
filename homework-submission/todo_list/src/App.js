@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Describtion from './Describtion';
-import Deadline from './Deadline';
 
 
 class App extends Component {
@@ -20,6 +19,7 @@ class App extends Component {
           <li><Describtion todo={"Get out of bed ,Wed Sep 13 2017"} />
 
           </li>
+
           <li><Describtion todo={"Brush teeth,Thu Sep 14 2017"} /></li>
           <li><Describtion todo={"Eat breakfast,Fri Sep 15 2017"} /></li>
         </ul>
