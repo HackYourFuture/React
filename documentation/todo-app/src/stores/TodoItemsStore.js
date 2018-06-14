@@ -1,21 +1,34 @@
-import { action, observable } from 'mobx';
-import uuid from 'uuid/v4';
-import todoS from '../data/todoS.json';
+import { action, observable, runInAction } from 'mobx'
 import moment from 'moment';
 
 const defaultState = {
     description: '',
-    deadline: '',
-    done: false
+    deadline: moment()
 }
 
+const API_ROOT = 'https://hyf-react-api.herokuapp.com'
+
 class TodoItemsStore {
-    
+
     @observable
-    todoS = todoS;
+    todoS = [];
     
     @observable
     defaultValue = defaultState;
+
+    @action
+    getTodos = async () => {
+        try {
+            const res = await fetch(`${API_ROOT}/todos`)
+            const parsedResponse = await res.json();
+            runInAction(() => {
+                this.todoS = parsedResponse
+            })
+        }
+        catch (Error) {
+            throw Error;
+        }
+    }
     
     @action
     handleFieldChange = (event, field) => {
@@ -29,37 +42,43 @@ class TodoItemsStore {
     }
 
     @action
-    handleAddTodo = (fields) => {
-        const newTodo = {
-            ...fields,
-            id: uuid(),
-            createdAt: moment().format('DD-MM-YYYY')
-        }
-        this.todoS = [
-                ...this.todoS,
-                newTodo
-            ]
+    handleAddTodo = async () => {
+        await fetch(`${API_ROOT}/todos/create`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(this.defaultValue)
+        })
+        this.getTodos()
     }
 
     @action
-    handleRemoveTodo = (id) => {
-        this.todoS= this.todoS.filter(todo => todo.id !== id)
+    handleDateChange = (element) => {
+        this.defaultValue.deadline = element;
     }
 
     @action
-    handleToggleCheck = todoId => {
-        const newTodoList = this.todoS.map
-            (todo => {
-                if (todo.id === todoId) {
-                    return {
-                        ...todo,
-                        done: !todo.done
-                    }
-                }
-                return todo
+    handleRemoveTodo = async todoId => {  
+        await fetch(`${API_ROOT}/todos/${todoId}`, {
+            method: 'DELETE'
+        })
+        this.getTodos()
+    }
+
+    @action
+    handleToggleCheck = async todoId => {
+        const todo = this.todoS.find(todo => todo._id === todoId)
+        await fetch(`${API_ROOT}/todos/${todoId}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                done: !todo.done
             })
-        this.todoS = newTodoList;
+        })
+        this.getTodos()
     }
 }
-
 export default new TodoItemsStore();

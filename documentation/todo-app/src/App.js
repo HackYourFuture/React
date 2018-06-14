@@ -10,9 +10,13 @@ import TopHeader from './components/topHeader';
 @observer
   
 class App extends Component {
+  
+  componentDidMount() {
+    this.props.todoS.getTodos()
+  }
 
   render() {
-
+  
     return (
       <div className="App">
         <TopHeader />

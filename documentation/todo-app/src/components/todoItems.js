@@ -1,11 +1,13 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import ClickToEdit from 'react-click-to-edit'
-import { inject, observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react'
+
 
 @inject('todoS')
 @observer    
 
 class TodoItems extends Component {
+
     render() {
 
         const { handleToggleCheck,
@@ -16,10 +18,11 @@ class TodoItems extends Component {
             deadline,
             createdAt,
             done,
-            id
+            _id
         } = this.props.todo
-        
+
         return (
+            
             <tr className='todoItems'>
                 <td>
                     <abbr title='click the text for editing'>
@@ -35,21 +38,22 @@ class TodoItems extends Component {
                     <ClickToEdit
                         endEditing={(value) => alert(`new value: ${value}`)}
                     >
-                        {deadline}
+                    {deadline}
                         </ClickToEdit>
-                    </abbr>    
+                    </abbr>   
+                   
                 </td>
                 <td>{createdAt}</td>
                 <td
                     className='done-icon'
-                    onClick={() => handleToggleCheck(id)}
+                    onClick={() => handleToggleCheck(_id)}
                 >
                     {done ? <span>✔️</span> : <span>⬜</span>}
                 </td>
                 <td
                     className='remove-icon'
                     onClick={() =>
-                        handleRemoveTodo(id)}
+                        handleRemoveTodo(_id)}
                 >
                     <span>✖️</span>
                 </td>

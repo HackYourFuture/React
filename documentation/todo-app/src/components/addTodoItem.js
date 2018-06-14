@@ -1,5 +1,7 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css';
 
 @inject('todoS')
 @observer
@@ -13,14 +15,12 @@ export default class AddTodoItem extends React.Component {
                 <input 
                     type='text'
                     placeholder='task'
-                    value={this.props.todoS.defaultValue.description}
+                    value={this.props.todoS.defaultValue.description || ''}
                     onChange={(e) => this.props.todoS.handleFieldChange(e, 'description')}
                 />
-                <input 
-                    type='text'
-                    placeholder='deadline'
-                    value={this.props.todoS.defaultValue.deadline}
-                    onChange={(e) => this.props.todoS.handleFieldChange(e, 'deadline')}
+                <DatePicker
+                    selected={this.props.todoS.defaultValue.deadline}
+                    onChange={this.props.todoS.handleDateChange}
                 />
             <button onClick={this.props.todoS.addTodo}>Add task</button>    
             </div>
