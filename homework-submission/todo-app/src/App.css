@@ -1,11 +1,11 @@
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 70px;
 }
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 120px;
   padding: 20px;
   color: white;
   text-align: center;
@@ -15,4 +15,32 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.check-item:checked + .list-item    {
+  text-decoration: line-through;
+  color:silver;
+  }
+
+li {
+  border-bottom: 3px solid;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: inside;
+  list-style-type:decimal;
+  font-family: cursive , Georgia, 'Times New Roman', serif;
+  font-size: 1.3em;
+  background-color:#F9FCFF;
+  max-width: 500px;
+  margin: auto;
+  padding: 10px;
+  margin-top: 80px;
+  box-shadow: 5px 10px #222;
+}
+
+body {
+ background-color: #BBDAFF;
 }

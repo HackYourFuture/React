@@ -1,6 +1,6 @@
 import React from "react";
 
-class Description extends React.Component {
+class Todoitems extends React.Component {
     render(){
         return(
             <div id={this.props.id}>
@@ -12,4 +12,4 @@ class Description extends React.Component {
     }
 }
 
-export default Description;
+export default Todoitems;
