@@ -49,6 +49,21 @@ p {
     font-family: serif;
 }
 
+.done {
+    text-decoration: line-through;
+    color: rgb(70, 69, 69);
+    padding-bottom: 50px;
+    font-size: 15px;
+    font-family: serif;
+}
+
+.un-done {
+    color: rgb(70, 69, 69);
+    padding-bottom: 50px;
+    font-size: 15px;
+    font-family: serif;
+}
+
 .App-title {
     font-size: 1.5em;
 }

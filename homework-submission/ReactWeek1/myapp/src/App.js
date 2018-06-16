@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './todoapp/Header';
+import TodoList from './todoapp/TodoList';
 import Photo from './todoapp/picture';
-import Todoitem from './todoapp/TodoItems';
+import logo from './logo.svg';
 
 class App extends Component {
   render() {
@@ -13,13 +13,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Todo App</h1>
         </header>
-        {/* <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
         <Header />
+        <TodoList />
         <Photo />
-        <Todoitem />
-      </div>
+      </div >
     );
   }
 }
