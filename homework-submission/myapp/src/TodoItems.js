@@ -12,7 +12,7 @@ class TodoItems extends Component {
 
     }
 
-    handleChangeChekBox = (index, done) => {
+    handleChangeChekBox = (index) => {
         const item = [...this.state.data]
         item[index].done = !item[index].done
         this.setState({ item })
