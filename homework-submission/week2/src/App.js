@@ -47,8 +47,9 @@ class App extends Component {
       <div className="App" >
         <Header />
         <div >
-          {this.state.items.map((element) =>
+          {this.state.items.map((element,index) =>
             <Todo
+               key={index}
               todoId={element.id}
               text={element.description}
               date={element.deadline}
