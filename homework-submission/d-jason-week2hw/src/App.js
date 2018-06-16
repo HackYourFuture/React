@@ -10,14 +10,14 @@ class App extends Component {
   };
 
   clickHandler = e => {
-    let tempArr = this.state.todoList.slice();
+    let tickBox = this.state.todoList.slice();
 
     console.log(e.target.id);
 
-    tempArr[e.target.id - 1].done = !tempArr[e.target.id - 1].done;
+    tickBox[e.target.id - 1].done = !tickBox[e.target.id - 1].done;
 
     this.setState({
-      todoList: tempArr
+      todoList: tickBox
     });
   };
   render() {
