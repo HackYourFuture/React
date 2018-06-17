@@ -18,8 +18,6 @@ class App extends Component {
           className="img" alt="todo-img" width="400" height="260"
         />
         <TodoItems />
-
-        {/* <p>{1 === 2 ? "one is one!" : "one is not one silly!"}</p> */}
       </div>
     );
   }
