@@ -1,15 +1,14 @@
 import React from "react";
 
-class Todoitems extends React.Component {
-    render(){
+const Todoitems = ({todo,id}) =>{
         return(
-            <div id={this.props.id}>
+            <div id={id}>
             <ul>
-            {this.props.todo}
+            {todo}
             </ul>
             </div>
         );
     }
-}
+
 
 export default Todoitems;

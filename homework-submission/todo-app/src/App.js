@@ -16,7 +16,7 @@ class App extends Component {
     const listItem = this.state.data.map((item,i)=>
             <li key={"item_"+i} >
             <input type="checkbox"
-            onClick={this.checkHandler.bind(null,item)}
+            onClick={() => this.checkHandler(item)}
             defaultChecked={item.done} className="check-item"/> 
             <label className="list-item">
             {item.description} , {new Date(item.deadline).toDateString()}
