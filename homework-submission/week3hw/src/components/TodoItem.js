@@ -10,11 +10,11 @@ class TodoItem extends React.Component {
     todoList
   };
 
-  editButtonHandler = (index, event) => {
+  editButtonHandler = () => {
     this.setState({ isEditing: true });
   };
 
-  cancelButtonHandler = (index, event) => {
+  cancelButtonHandler = () => {
     this.setState({ isEditing: false });
   };
 

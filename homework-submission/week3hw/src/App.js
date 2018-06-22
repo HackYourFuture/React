@@ -9,7 +9,7 @@ class App extends Component {
     todoList
   };
 
-  onCheckboxChange = (index, event) => {
+  onCheckboxChange = index => {
     console.log(index);
     if (index >= 0) {
       todoList[index].done = !todoList[index].done;
