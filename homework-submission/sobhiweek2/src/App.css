@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: ghostwhite;
+  height: 70px;
+  padding: 10px;
+  color: black;
+}
+
+.todo-list {
+background-color: ghostwhite;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+padding: 10px;
+
+}
+
+.image{
+  height: 500px;
+  width: 1348px;
+}
+
