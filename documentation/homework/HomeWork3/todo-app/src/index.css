@@ -1,5 +1,77 @@
+/* Base
+   ====================================================== */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
+  font-family: Inconsolata, sans-serif;
+  font-size: 100%;
+  line-height: 1.4;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: baseline;
+}
+
+ul {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  list-style: none;
+}
+
+/* App
+   ====================================================== */
+
+.container {
+  width: calc(100% - 2rem);
+  margin: 0 auto;
+  position: relative;
+  height: 100vh;
+}
+
+.task-list {
+  padding-top: 1rem;
+}
+
+.task {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 2px;
+}
+
+.task p {
+  margin: 0;
+  padding: 0;
+}
+
+.task p.completed {
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+.icon-group i {
+  cursor: pointer;
+}
+
+.icon-group i:first-child {
+  margin-right: 1rem;
+}
+
+.separator {
+  width: 100%;
+  height: 2px;
+  background-color: #f06292;
 }
