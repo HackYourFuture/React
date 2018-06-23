@@ -13,8 +13,8 @@ class AddTodo extends Component {
     this.setState({ [field]: event.target.value });
   };
   render() {
-    const { todos, addNewTodo } = this.props;
-    const { description, deadline } = this.state;
+    //const { todos, addNewTodo } = this.props;
+    //const { description, deadline } = this.state;
     console.log(this.state);
     return (
       <div>
@@ -29,7 +29,7 @@ class AddTodo extends Component {
           <input
             onChange={event => this.onChangeTodo(event, "deadline")}
             value="deadline"
-            type="date"
+            type="number"
             placeholder="Deadline:"
           />
           <button onClick={() => this.props.addNewTodo(this.state)}>
