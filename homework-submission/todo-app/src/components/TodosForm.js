@@ -1,61 +1,48 @@
 import React, { Component } from 'react';
+import "../App.css";
+import { observer, inject } from 'mobx-react';
 
+@inject('todostore')
+@observer
 class TodosForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = ({
-            description: "",
-            deadline: "",
-            done: false
-        })
-    }
-    state = this.state;
-
-    onChanging = (index, value) => {
-        const newValue = this.state;
-        newValue[index] = value;
-        this.setState(newValue);
-    };
-
-    onSubmit(id, description, deadline, done) {
-        this.props.PreSubmit(id, description, deadline, done);
-        this.setState({ description: "", deadline: "" });
-        alert(`New Todo: ${this.state.description} ,Added successfully!!`)
-    };
-
 
     render() {
+        const { description, deadline } = this.props;
+        const { onChanging } = this.props.todostore;
+        const { onSubmitAdd } = this.props.todostore;
+        const { completedTodosCount } = this.props.todostore;
+        const { todosCount } = this.props.todostore;
+
         return (
-            <div>
+            <form onSubmit={(e) => onSubmitAdd(e)}>
+                <div className="computedArea"> <span>Number of Todo-Items: {todosCount}</span>
+                    <span>Number of Completed Todo-Items: {completedTodosCount}</span></div>
                 <div>
                     <p style={{ "color": "blue", "fontSize": "20px" }}>Description :</p>
                     <textarea className="textArea" placeholder="write the new todo here "
                         type="textarea"
-                        value={this.state.description}
-                        onChange={(e) => this.onChanging("description", e.target.value)}
+                        name="description"
+                        value={description}
+                        onChange={(e) => onChanging("description", e.target.value)}
                     />
                 </div>
                 <div>
                     <p style={{ "color": "blue", "fontSize": "20px" }}>Dead Line Date : </p>
                     <input className="textArea" placeholder="write the deadline here "
                         type="date"
-                        value={this.state.deadline}
-                        onChange={(e) => this.onChanging("deadline", e.target.value)}
+                        name="deadline"
+                        value={deadline}
+                        onChange={(e) => onChanging("deadline", e.target.value)}
                     />
                 </div>
                 <div>
-                    <button className="buttonStyle" onClick=
-                        {
-
-                            () => this.onSubmit(this.state.id, this.state.description, this.state.deadline, this.state.done)
-
-                        }>
+                    <button className="buttonStyle">
                         Add
                     </button>
                     <br /> <br />
                 </div>
 
-            </div>
+            </form>
         );
     }
 };

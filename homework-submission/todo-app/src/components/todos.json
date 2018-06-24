@@ -2,7 +2,7 @@
         "id": 1,
         "description": "Get out of bed",
         "deadline": "2017-09-11",
-        "done": false
+        "done": true
     },
     {
         "id": 2,
@@ -14,6 +14,6 @@
         "id": 3,
         "description": "Eat breakfast",
         "deadline": "2017-09-09",
-        "done": true
+        "done": false
     }
 ]

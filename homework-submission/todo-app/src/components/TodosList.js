@@ -1,71 +1,36 @@
-import React, { Component } from 'react';
-import TodosItem from './TodosItem';
-import Todos from './todos.json';
-import TodosForm from './TodosForm.js'
-
+import React, { Component } from "react";
+import TodosItem from "./TodosItem";
+import "../App.css";
+import uuid from 'uuid/v4';
+import TodosForm from './TodosForm';
 import '../App.css';
+import { observer, inject } from 'mobx-react';
 
+@inject('todostore')
+
+@observer
 class TodosList extends Component {
-    constructor() {
-        super();
-        this.state = {
-            todos: []
-        }
-    }
-
-    PreSubmit = (id, description, deadline, done) => {
-        const stateTodos = this.state.todos;
-        const newTodoItem = { id: this.state.todos.length + 1, description: description, deadline: deadline, done: done };
-        const newTodos = [...stateTodos, newTodoItem];
-        this.setState({
-            ...this.state,
-            todos: newTodos
-        });
-    }
-
-    removeTodo(id) {
-        this.setState(
-            {
-                todos: this.state.todos.filter((item) => {
-                    return item.id !== id
-                })
-            }
-        )
-    }
-
-
-    toggleDone(id) {
-        this.setState(
-            {
-                todos: this.state.todos.map((item) => {
-                    return item.id === id ? { ...item, done: !item.done } : item
-                })
-            }
-        )
-    }
-
-    componentDidMount() {
-        this.setState({
-            todos: Todos
-        }
-        );
-    }
-
 
     render() {
-        const todoState = this.state.todos;
-        const todo = todoState.map((todo) => (
-            <TodosItem key={todo.id} todo={todo} toggleDone={this.toggleDone.bind(this)} removeTodo={this.removeTodo.bind(this)} />
-        )
-        );
+        const activities = this.props.todostore.listTodo;
+        const todoListItem = activities.map((
+            element => <TodosItem
+                id={element.id}
+                description={element.description}
+                deadline={element.deadline}
+                done={element.done}
+                handleCheckBox={this.props.handleCheckBox}
+                key={uuid()} />
+        ));
         return (
             <div>
 
                 <div>
-                    {!(todoState && todoState.length > 0) ? <h1> NO ITEM !!! </h1> : null}
+                    {!(this.props.todostore.listTodo && this.props.todostore.listTodo.length > 0)
+                        ? <h1 className="comment"> NO ITEM !!! </h1> : null}
                 </div>
-                <TodosForm PreSubmit={this.PreSubmit} />
-                {todo}
+                <TodosForm />
+                {todoListItem}
 
             </div>
         );
