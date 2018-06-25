@@ -1,0 +1,8 @@
+.App-image {
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    display: inline-block;
+    align-items: center;
+    padding: 5px;
+}
