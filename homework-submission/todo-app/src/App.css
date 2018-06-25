@@ -1,28 +1,82 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-content: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.computedArea {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  flex-direction: row;
+  font-size: 24px;
+  color: blueviolet;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+}
+
+.comment {
+  text-align: center;
+  padding: 30px;
+  border: 1px dashed blue;
+  width: 60%;
+  margin: 2px auto;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: lightblue;
+}
+
+.textArea {
+  margin: auto;
+  width: 30%;
+  height: 25px;
+  padding: auto;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  resize: none;
+  text-align: center;
+}
+
+.removeStyle {
+  margin-left: 10px;
+  padding: 10px;
+  margin-right: 10px;
+  margin: 0 auto;
+}
+
+.buttonStyle {
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  color: red;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.text {
+  padding: 30px;
+  margin: 10px;
+  display: inline-block;
+  position: relative;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
+  height: 100px;
+  text-align: center;
   font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  color: red;
+  margin: 5px;
+  padding: 20px;
+  background-image: url('https://raw.githubusercontent.com/gisaac85/my_REACT/master/images/features.jpg');
+  background-repeat: repeat-y
 }
