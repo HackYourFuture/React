@@ -18,6 +18,11 @@ class TodoStore {
         deadline: moment(),
         done: false
     }
+
+    @observable
+    editing = false
+
+
     @computed
     get completedTodosCount() {
         return this.listTodo.filter(
@@ -33,20 +38,20 @@ class TodoStore {
 
     @action
     handleCheckBox = (id) => {
-        const newTodoList = this
-            .listTodo
-            .map((todoElement) => {
-                if (todoElement.id === id) {
+        const newTodoList = this.listTodo.map((todoElement) => {
+            if (todoElement.id === id) {
 
-                    return {
-                        ...todoElement,
-                        done: !todoElement.done
-                    }
-
+                return {
+                    ...todoElement,
+                    done: !todoElement.done
                 }
-                return todoElement;
 
-            });
+            }
+            else {
+                return todoElement;
+            }
+
+        });
 
         this.listTodo = newTodoList;
 
@@ -90,14 +95,43 @@ class TodoStore {
     removeTodo = (id) => {
 
         let stateTodos = this.listTodo.filter((item) => {
-            return item.id !== id
+            return item.id !== id;
+
         })
+
         this.listTodo = stateTodos;
 
     }
 
 
+    @action
+    handleEditing = (e) => {
+        let field = e.target.id;
+        this.editing = true;
+
+        e.target.value = this.listTodo[field].description;
 
 
-};
+
+    }
+
+    @action
+    handleEditingDone = (e) => {
+
+        if (e.keyCode === 13) {
+
+            this.editing = false;
+        }
+
+    }
+
+    @action
+    handleEditingChange = (event) => {
+
+        let field = event.target.id;
+        this.listTodo[field].description = event.target.value;
+
+    }
+
+}
 export default new TodoStore();

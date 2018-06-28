@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TodosItem from "./TodosItem";
 import "../App.css";
-import uuid from 'uuid/v4';
+// import uuid from 'uuid/v4';
 import TodosForm from './TodosForm';
 import '../App.css';
 import { observer, inject } from 'mobx-react';
@@ -13,15 +13,17 @@ class TodosList extends Component {
 
     render() {
         const activities = this.props.todostore.listTodo;
-        const todoListItem = activities.map((
-            element => <TodosItem
+        const todoListItem = activities.map((element, index) =>
+            <TodosItem
                 id={element.id}
                 description={element.description}
                 deadline={element.deadline}
-                done={element.done}
                 handleCheckBox={this.props.handleCheckBox}
-                key={uuid()} />
-        ));
+                done={element.done}
+                key={index}
+                index={index}
+            />
+        );
         return (
             <div>
 
