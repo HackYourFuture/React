@@ -24,7 +24,8 @@ class App extends Component {
     this.setState({ data : this.state.data.concat(newTodo)})
   }
 
-  removeHandler = (item)=>{
+  removeHandler = (e,item)=>{
+    e.preventDefault();
     const newTodoItems = this.state.data.filter((elem)=> elem !== item);
     this.setState({data : newTodoItems })
   }

@@ -11,7 +11,7 @@ class Todoitems extends React.Component {
     <label className="list-item">
     {item.description} , {new Date(item.deadline).toDateString()} 
     </label>
-    <input type="submit" onClick={()=>this.props.removeHandler(item)} value="Remove" name="remove" className="input-button remove"/>
+    <input type="submit" onClick={(e)=>this.props.removeHandler(e, item)} value="Remove" name="remove" className="input-button remove"/>
     </li>
     );
         return(
