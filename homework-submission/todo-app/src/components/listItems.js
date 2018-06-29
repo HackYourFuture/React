@@ -1,15 +1,8 @@
 import React, { Component } from "react";
-import Todos from "./todos.json";
 import "../App.css";
-import TodoItems from "./TodoItems";
+import TodoItems from "./todoItems";
 
 class ListItems extends Component {
-  constructor() {
-    super();
-    this.state = {
-      todos: Todos
-    };
-  }
   clickNotHandler = event => {
     const changedId = event.target.id;
     const todos = this.state.todos;

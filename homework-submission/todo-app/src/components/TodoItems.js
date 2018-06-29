@@ -1,23 +1,37 @@
-import React, { Component } from "react";
+import React from "react";
 import "../App.css";
-
-class TodoItems extends Component {
+class TodoItems extends React.Component {
   render() {
-    const { id, description, deadline, done } = this.props.todo;
-    const { clickHandler } = this.props;
-    return (
-      <li className={done ? "done" : "un-done"}>
+    const todoListItems = this.props.state.data.map((item, i) => (
+      <li key={item.description + i}>
         <input
           type="checkbox"
-          id={id}
-          name="Todo"
-          onChange={clickHandler}
-          checked={done}
+          onClick={() => this.props.checkHandler(item)}
+          defaultChecked={item.done}
+          className="checkItem"
         />
-        <label htmlFor="Todo">{description}</label>
-        <p>{deadline}</p>
+
+        <label className="listItem">
+          {item.description} , {new Date(item.deadline).toDateString()}
+        </label>
+        <input
+          type="submit"
+          onClick={e => this.props.removeHandler(e, item)}
+          value="Remove"
+          name="remove"
+          className="remove"
+        />
       </li>
+    ));
+    return (
+      <div id={this.props.id}>
+        <ul>{todoListItems}</ul>
+        {todoListItems.length === 0 ? (
+          <h2 className="no-items">No items to show...</h2>
+        ) : null}
+      </div>
     );
   }
 }
+
 export default TodoItems;
