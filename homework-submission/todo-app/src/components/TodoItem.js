@@ -7,7 +7,7 @@ class TodoItems extends Component {
 
     render() {
 
-        const items = [
+        const todo = [
             {
 
                 'task': 'Get out of bed',
@@ -23,7 +23,7 @@ class TodoItems extends Component {
             }
         ];
 
-        const TodoListItem = items.map((element) => (
+        const TodoListItem = todo.map((element) => (
             <TodoList key={uuid()} todoTask={element.task} taskDate={element.date
             } />
         ));

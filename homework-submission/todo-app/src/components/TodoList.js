@@ -4,8 +4,8 @@ import Image from '../components/Image';
 class TodoList extends Component {
 
     render() {
-        let todoTask = this.props.todoTask;
-        let taskDate = this.props.taskDate;
+
+        const { todoTask, taskDate } = this.props;
 
 
         return (

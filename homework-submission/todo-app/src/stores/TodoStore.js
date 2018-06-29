@@ -15,7 +15,7 @@ class TodoStore {
     defaultValue = {
         id: '',
         description: '',
-        deadline: moment(),
+        deadline: moment().format('MM-DD-YYYY'),
         done: false
     }
 
@@ -38,22 +38,14 @@ class TodoStore {
 
     @action
     handleCheckBox = (id) => {
-        const newTodoList = this.listTodo.map((todoElement) => {
-            if (todoElement.id === id) {
-
-                return {
+        this.listTodo = this.listTodo.map((todoElement) => {
+            return (todoElement.id === id) ?
+                {
                     ...todoElement,
                     done: !todoElement.done
                 }
-
-            }
-            else {
-                return todoElement;
-            }
-
+                : todoElement;
         });
-
-        this.listTodo = newTodoList;
 
     }
 
@@ -72,29 +64,29 @@ class TodoStore {
             alert('You must Enter Description and Date!!')
             return null;
         }
-        else {
 
-            let stateTodos = this.listTodo;
-            stateTodos = {
-                id: this.listTodo.length + 1,
-                description: e.target.description.value,
-                deadline: e.target.deadline.value,
-                done: e.done
-            };
 
-            this
-                .listTodo
-                .push(stateTodos);
-            e.target.description.value = '';
-            e.target.deadline.value = '';
+        let stateTodos = this.listTodo;
+        stateTodos = {
+            id: this.listTodo.length + 1,
+            description: e.target.description.value,
+            deadline: e.target.deadline.value,
+            done: e.done
+        };
 
-        }
+        this
+            .listTodo
+            .push(stateTodos);
+        e.target.description.value = '';
+        e.target.deadline.value = '';
+
+
     }
 
     @action
     removeTodo = (id) => {
 
-        let stateTodos = this.listTodo.filter((item) => {
+        const stateTodos = this.listTodo.filter((item) => {
             return item.id !== id;
 
         })
@@ -105,19 +97,15 @@ class TodoStore {
 
 
     @action
-    handleEditing = (e) => {
-        let field = e.target.id;
+    handleEditing = () => {
+
         this.editing = true;
-
-        e.target.value = this.listTodo[field].description;
-
-
 
     }
 
     @action
     handleEditingDone = (e) => {
-
+        // keyCode=13 is firing when you click ENTER
         if (e.keyCode === 13) {
 
             this.editing = false;

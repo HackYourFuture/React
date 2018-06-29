@@ -7,18 +7,18 @@ import { observer, inject } from 'mobx-react';
 class TodosForm extends Component {
 
     render() {
-        const { description, deadline } = this.props;
-        const { onChanging } = this.props.todostore;
-        const { onSubmitAdd } = this.props.todostore;
-        const { completedTodosCount } = this.props.todostore;
-        const { todosCount } = this.props.todostore;
+        const styleDiv = { "color": "blue", "fontSize": "20px" }
+        const {
+            description, deadline, todostore: {
+                onChanging, onSubmitAdd, completedTodosCount, todosCount
+            } } = this.props;
 
         return (
             <form onSubmit={(e) => onSubmitAdd(e)}>
                 <div className="computedArea"> <span>Number of Todo-Items: {todosCount}</span>
                     <span>Number of Completed Todo-Items: {completedTodosCount}</span></div>
                 <div>
-                    <p style={{ "color": "blue", "fontSize": "20px" }}>Description :</p>
+                    <p style={styleDiv}>Description :</p>
                     <textarea className="textArea" placeholder="write the new todo here "
                         type="textarea"
                         name="description"
@@ -27,7 +27,7 @@ class TodosForm extends Component {
                     />
                 </div>
                 <div>
-                    <p style={{ "color": "blue", "fontSize": "20px" }}>Dead Line Date : </p>
+                    <p style={styleDiv}>Dead Line Date : </p>
                     <input className="textArea" placeholder="write the deadline here "
                         type="date"
                         name="deadline"

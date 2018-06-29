@@ -4,18 +4,16 @@ import './Image.css'
 import Image from './Image';
 import { observer, inject } from 'mobx-react';
 
-
 @inject('todostore')
 
 @observer
 class TodosItem extends Component {
 
-
     render() {
 
         const { id, description, deadline, done, index } = this.props;
         const { handleCheckBox, removeTodo } = this.props.todostore;
-        let { editing, handleEditingDone, handleEditing, handleEditingChange } = this.props.todostore;
+        const { editing, handleEditingDone, handleEditing, handleEditingChange } = this.props.todostore;
 
 
         let viewStyle = {};
@@ -52,7 +50,7 @@ class TodosItem extends Component {
                     <input
                         type="text"
                         name="description"
-                        onKeyDown={e => handleEditingDone(e)}
+                        onKeyDown={(e) => handleEditingDone(e)}
                         onChange={(e) => handleEditingChange(e)}
                         style={editStyle}
                         defaultValue={description}
@@ -72,8 +70,8 @@ class TodosItem extends Component {
                 <span>
                     <button
                         style={viewStyle}
-                        onClick={e => handleEditing(e)}
-                        id={index}>
+                        onClick={(e) => handleEditing()}
+                    >
                         Edit Todo
                     </button>
                 </span>
