@@ -1,28 +1,90 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 70px;
 }
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 120px;
   padding: 20px;
   color: white;
+  text-align: center;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.check-item:checked + .list-item    {
+  text-decoration: line-through;
+  color:silver;
+  }
+
+li {
+  border-bottom: 3px solid;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: inside;
+  list-style-type:decimal;
+  font-family: cursive , Georgia, 'Times New Roman', serif;
+  font-size: 1.3em;
+  background-color:#F9FCFF;
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+  margin-top: 20px;
+  box-shadow: 5px 10px #222;
+}
+
+body {
+ background-color: #BBDAFF;
+}
+
+.no-items {
+  text-align: center;
+  font-size: 2em;
+}
+
+.add-form {
+  background-color: #222;
+  opacity: 0.9;
+  display: flex;
+  justify-content : center;
+  margin: auto;
+  width : 600px;
+  height: 50px;
+  padding: 15px;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+.add-input {
+  margin: 0;
+  font-size: 1.3em;
+}
+
+#add-description {
+  width : 350px;
+}
+
+.add-button {
+  background-color: silver;
+  width: 70px;
+}
+
+
+.remove {
+  background-color: red;
+  opacity: 0.8;
+}
+
+.input-button {
+  float: right; 
+  margin: auto;
+  font-weight: bold;
+  font-size :1em;
 }
