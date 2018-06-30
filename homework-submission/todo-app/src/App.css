@@ -1,0 +1,43 @@
+.App {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+.App-photo {
+    height: 200px;
+    position: static;
+    left: 1px;
+}
+
+.App-header {
+    background-color: rgb(160, 118, 3);
+    height: 50px;
+    padding: 10px;
+    color: whitesmoke;
+    text-align: center;
+    font-family: cursive;
+}
+
+.App-title {
+    font-size: 1.5em;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+h1 {
+    padding: 10px;
+    font-size: 15px;
+}
+
+h2 {
+    color: rgb(160, 118, 3);
+    padding: 10px;
+    font-size: 15px;
+}
+
+.checkItem:checked+.listItem {
+    text-decoration: line-through;
+    color: silver;
+}
