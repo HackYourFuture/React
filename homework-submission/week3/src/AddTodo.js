@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 class AddTodo extends Component {
   state = {
-    description: " ",
+    description: "",
     deadline: ""
   };
 
@@ -9,30 +9,36 @@ class AddTodo extends Component {
   //   this.props.addNewTodo(this.state);
   // };
 
-  onChangeTodo = (event, field) => {
-    this.setState({ [field]: event.target.value });
+  onChangeTodo = (field, value) => {
+    this.setState({ [field]: value });
   };
+
   render() {
     //const { todos, addNewTodo } = this.props;
     //const { description, deadline } = this.state;
-    console.log(this.state);
+    const currentState = this.state;
+    console.log(currentState);
     return (
       <div>
         <form>
           Enter:
           <input
-            value="description"
-            onChange={event => this.onChangeTodo(event, "description")}
+            value={this.state.description}
+            onChange={event =>
+              this.onChangeTodo("description", event.target.value)
+            }
             type="text"
             placeholder="description"
           />
           <input
-            onChange={event => this.onChangeTodo(event, "deadline")}
-            value="deadline"
+            onChange={event =>
+              this.onChangeTodo("deadline", event.target.value)
+            }
+            value={this.state.deadline}
             type="number"
             placeholder="Deadline:"
           />
-          <button onClick={() => this.props.addNewTodo(this.state)}>
+          <button onClick={() => this.props.addNewTodo(currentState)}>
             Add New Todo
           </button>
         </form>
