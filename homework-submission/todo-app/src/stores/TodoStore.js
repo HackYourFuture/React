@@ -15,9 +15,14 @@ class TodoStore {
     defaultValue = {
         id: '',
         description: '',
-        deadline: moment(),
+        deadline: moment().format('MM-DD-YYYY'),
         done: false
     }
+
+    @observable
+    editing = false
+
+
     @computed
     get completedTodosCount() {
         return this.listTodo.filter(
@@ -33,22 +38,14 @@ class TodoStore {
 
     @action
     handleCheckBox = (id) => {
-        const newTodoList = this
-            .listTodo
-            .map((todoElement) => {
-                if (todoElement.id === id) {
-
-                    return {
-                        ...todoElement,
-                        done: !todoElement.done
-                    }
-
+        this.listTodo = this.listTodo.map((todoElement) => {
+            return (todoElement.id === id) ?
+                {
+                    ...todoElement,
+                    done: !todoElement.done
                 }
-                return todoElement;
-
-            });
-
-        this.listTodo = newTodoList;
+                : todoElement;
+        });
 
     }
 
@@ -67,37 +64,62 @@ class TodoStore {
             alert('You must Enter Description and Date!!')
             return null;
         }
-        else {
 
-            let stateTodos = this.listTodo;
-            stateTodos = {
-                id: this.listTodo.length + 1,
-                description: e.target.description.value,
-                deadline: e.target.deadline.value,
-                done: e.done
-            };
 
-            this
-                .listTodo
-                .push(stateTodos);
-            e.target.description.value = '';
-            e.target.deadline.value = '';
+        let stateTodos = this.listTodo;
+        stateTodos = {
+            id: this.listTodo.length + 1,
+            description: e.target.description.value,
+            deadline: e.target.deadline.value,
+            done: e.done
+        };
 
-        }
+        this
+            .listTodo
+            .push(stateTodos);
+        e.target.description.value = '';
+        e.target.deadline.value = '';
+
+
     }
 
     @action
     removeTodo = (id) => {
 
-        let stateTodos = this.listTodo.filter((item) => {
-            return item.id !== id
+        const stateTodos = this.listTodo.filter((item) => {
+            return item.id !== id;
+
         })
+
         this.listTodo = stateTodos;
 
     }
 
 
+    @action
+    handleEditing = () => {
 
+        this.editing = true;
 
-};
+    }
+
+    @action
+    handleEditingDone = (e) => {
+        // keyCode=13 is firing when you click ENTER
+        if (e.keyCode === 13) {
+
+            this.editing = false;
+        }
+
+    }
+
+    @action
+    handleEditingChange = (e) => {
+
+        let field = e.target.id;
+        this.listTodo[field].description = e.target.value;
+
+    }
+
+}
 export default new TodoStore();

@@ -12,22 +12,26 @@ import { observer, inject } from 'mobx-react';
 class TodosList extends Component {
 
     render() {
+        const { listTodo } = this.props.todostore
+        const NO_ITEM = !(listTodo && listTodo.length > 0)
         const activities = this.props.todostore.listTodo;
-        const todoListItem = activities.map((
-            element => <TodosItem
+        const todoListItem = activities.map((element, index) =>
+            <TodosItem
                 id={element.id}
                 description={element.description}
                 deadline={element.deadline}
                 done={element.done}
-                handleCheckBox={this.props.handleCheckBox}
-                key={uuid()} />
-        ));
+                key={uuid()}
+                index={index}
+            />
+        );
         return (
             <div>
 
                 <div>
-                    {!(this.props.todostore.listTodo && this.props.todostore.listTodo.length > 0)
-                        ? <h1 className="comment"> NO ITEM !!! </h1> : null}
+                    {
+                        (NO_ITEM) ? <h1 className="comment"> NO ITEM !!! </h1> : null
+                    }
                 </div>
                 <TodosForm />
                 {todoListItem}
