@@ -48,13 +48,14 @@ class TodosItem extends Component {
                     <b>{description}</b>
 
                     <input
+                        id={index}
                         type="text"
                         name="description"
                         onKeyDown={(e) => handleEditingDone(e)}
                         onChange={(e) => handleEditingChange(e)}
                         style={editStyle}
                         defaultValue={description}
-                        id={index} />
+                    />
 
                     <h2 className="text">Dead Line:</h2>
                     <b>{deadline}</b>

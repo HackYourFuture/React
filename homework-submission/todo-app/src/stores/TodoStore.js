@@ -114,10 +114,10 @@ class TodoStore {
     }
 
     @action
-    handleEditingChange = (event) => {
+    handleEditingChange = (e) => {
 
-        let field = event.target.id;
-        this.listTodo[field].description = event.target.value;
+        let field = e.target.id;
+        this.listTodo[field].description = e.target.value;
 
     }
 
