@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import "../App.css";
 import { observer, inject } from 'mobx-react';
+//import DatePicker from 'react-datepicker';
 
 @inject('todostore')
 @observer
 class TodosForm extends Component {
 
     render() {
-        const { description, deadline } = this.props;
+        const {
+            _id,
+            description,
+            deadline,
+            done
+        } = this.props.todostore.defaultValue;
         const { onChanging } = this.props.todostore;
-        const { onSubmitAdd } = this.props.todostore;
         const { completedTodosCount } = this.props.todostore;
         const { todosCount } = this.props.todostore;
 
         return (
-            <form onSubmit={(e) => onSubmitAdd(e)}>
+            <form>
                 <div className="computedArea"> <span>Number of Todo-Items: {todosCount}</span>
                     <span>Number of Completed Todo-Items: {completedTodosCount}</span></div>
                 <div>
@@ -34,9 +39,13 @@ class TodosForm extends Component {
                         value={deadline}
                         onChange={(e) => onChanging("deadline", e.target.value)}
                     />
+
                 </div>
                 <div>
-                    <button className="buttonStyle">
+                    <button className="buttonStyle"
+                        onClick={() => this.props.todostore.onAddFunction(_id, description, deadline, done)}
+
+                    >
                         Add
                     </button>
                     <br /> <br />

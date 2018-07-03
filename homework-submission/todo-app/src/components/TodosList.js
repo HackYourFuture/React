@@ -11,20 +11,25 @@ import { observer, inject } from 'mobx-react';
 @observer
 class TodosList extends Component {
 
+    componentDidMount() {
+        this.props.todostore.getTodos()
+
+    }
     render() {
-        const { listTodo } = this.props.todostore
-        const NO_ITEM = !(listTodo && listTodo.length > 0)
-        const activities = this.props.todostore.listTodo;
-        const todoListItem = activities.map((element, index) =>
+
+        const todoList = this.props.todostore.listTodo;
+        const NO_ITEM = !(todoList && todoList.length > 0)
+        const todoListItem = todoList.map((element =>
             <TodosItem
-                id={element.id}
+                key={uuid()}
+                _id={element._id}
                 description={element.description}
                 deadline={element.deadline}
                 done={element.done}
-                key={uuid()}
-                index={index}
+                handleCheckBox={this.props.handleCheckBox}
+                removeTodo={this.props.removeTodo}
             />
-        );
+        ));
         return (
             <div>
 

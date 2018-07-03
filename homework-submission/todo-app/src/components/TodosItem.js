@@ -9,12 +9,12 @@ import { observer, inject } from 'mobx-react';
 @observer
 class TodosItem extends Component {
 
+
     render() {
 
-        const { id, description, deadline, done, index } = this.props;
+        const { _id, description, deadline, done, index } = this.props;
         const { handleCheckBox, removeTodo } = this.props.todostore;
         const { editing, handleEditingDone, handleEditing, handleEditingChange } = this.props.todostore;
-
 
         let viewStyle = {};
         let editStyle = {};
@@ -29,7 +29,7 @@ class TodosItem extends Component {
 
                 <input
                     className="checkbox"
-                    onClick={() => handleCheckBox(id)}
+                    onClick={() => handleCheckBox(_id)}
                     defaultChecked={done}
                     key={index}
                     type="checkbox" />
@@ -63,7 +63,7 @@ class TodosItem extends Component {
                 <span className="removeStyle">
                     <button
                         name="remove"
-                        onClick={() => removeTodo(id)}
+                        onClick={() => removeTodo(_id)}
                     >
                         Remove Todo
                     </button>

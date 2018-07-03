@@ -1,23 +1,24 @@
-import { action, observable, computed } from 'mobx';
-import todoList from '../components/todos.json';
+import { action, runInAction, observable, computed } from 'mobx';
+//import todoList from '../components/todos.json';
 import moment from 'moment';
 import '../App.css';
+
+const API_ROOT = "https://hyf-react-api.herokuapp.com";
+const initialValue = {
+    description: '',
+    deadline: moment().format('YYYY-MM-DD')
+};
 
 class TodoStore {
 
     @observable
-    listTodo = todoList
+    listTodo = []
 
     @observable
     emptyListTodo = {}
 
     @observable
-    defaultValue = {
-        id: '',
-        description: '',
-        deadline: moment().format('MM-DD-YYYY'),
-        done: false
-    }
+    defaultValue = initialValue
 
     @observable
     editing = false
@@ -34,21 +35,6 @@ class TodoStore {
         return this.listTodo.length;
     }
 
-
-
-    @action
-    handleCheckBox = (id) => {
-        this.listTodo = this.listTodo.map((todoElement) => {
-            return (todoElement.id === id) ?
-                {
-                    ...todoElement,
-                    done: !todoElement.done
-                }
-                : todoElement;
-        });
-
-    }
-
     @action
     onChanging = (index, value) => {
         const newValue = this.defaultValue;
@@ -56,44 +42,6 @@ class TodoStore {
         this.defaultValue = newValue;
 
     };
-
-    @action
-    onSubmitAdd = (e) => {
-        e.preventDefault();
-        if (e.target.description.value === '' || e.target.deadline.value === '') {
-            alert('You must Enter Description and Date!!')
-            return null;
-        }
-
-
-        let stateTodos = this.listTodo;
-        stateTodos = {
-            id: this.listTodo.length + 1,
-            description: e.target.description.value,
-            deadline: e.target.deadline.value,
-            done: e.done
-        };
-
-        this
-            .listTodo
-            .push(stateTodos);
-        e.target.description.value = '';
-        e.target.deadline.value = '';
-
-
-    }
-
-    @action
-    removeTodo = (id) => {
-
-        const stateTodos = this.listTodo.filter((item) => {
-            return item.id !== id;
-
-        })
-
-        this.listTodo = stateTodos;
-
-    }
 
 
     @action
@@ -120,6 +68,79 @@ class TodoStore {
         this.listTodo[field].description = e.target.value;
 
     }
+
+    //Week5 Actions
+
+    @action
+    getTodos = async () => {
+        try {
+            const res = await fetch(`${API_ROOT}/todos`);
+            const parsedResponse = await res.json();
+            runInAction(() => {
+                this.listTodo = parsedResponse;
+            })
+
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+    @action
+    addFunction = async (_id, description, deadline, done) => {
+        await fetch(`${API_ROOT}/todos/create`, {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(this.defaultValue)
+        })
+        this.getTodos();
+    }
+
+    @action
+    onAddFunction(_id, description, deadline, done) {
+        this.addFunction(_id, description, deadline, done);
+        this.defaultValue = {
+            description: '',
+            deadline: moment().format('YYYY-MM-DD')
+        }
+    }
+
+    @action
+    handleCheckBox = async (_id) => {
+        const todoElement = this.listTodo.find(todoElement => todoElement._id === _id);
+        this.listTodo = this.listTodo.map(element => {
+            if (element._id === _id) {
+                return {
+                    ...todoElement,
+                    done: !element.done,
+                }
+            }
+            return element;
+        })
+        await fetch(`${API_ROOT}/todos/${_id}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                done: !todoElement.done,
+            })
+        })
+        this.getTodos();
+    }
+
+    @action
+    removeTodo = async (_id) => {
+        this.listTodo = this.listTodo.filter(todo => todo._id !== _id)
+        await fetch(`${API_ROOT}/todos/${_id}`, {
+            method: "DELETE",
+        })
+        this.getTodos();
+    }
+
+
 
 }
 export default new TodoStore();
