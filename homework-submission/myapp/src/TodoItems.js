@@ -11,20 +11,19 @@ class TodoItems extends Component {
         }
 
     }
-    state = {
-        description: '',
-        deadline: '',
-        done: false
-    }
 
     onAdd = (event) => {
         event.preventDefault()
         const description = prompt("What is the description of to do?")
         const deadline = prompt("what is the deadline")
         const done = prompt("was it done?")
+        this.save(description, deadline, done, this.state.data.length)
 
-        const newToDo = { description, deadline, done }
-        const toDos = [...this.state.data, newToDo]
+    }
+    save = (description, deadline, index) => {
+        const newToDo = { description, deadline }
+        const toDos = [...this.state.data]
+        toDos[index] = newToDo
         this.setState({ data: toDos })
     }
     onDelete = (index) => {
@@ -32,7 +31,7 @@ class TodoItems extends Component {
         todosList.splice(index, 1)
         this.setState({ data: todosList })
     }
-    handleChangeChekBox = (index) => {
+    handleChangeCheckBox = (index) => {
         const item = [...this.state.data]
         item[index].done = !item[index].done
         this.setState({ item })
@@ -49,11 +48,14 @@ class TodoItems extends Component {
             return (
 
                 <div className={`comment ${doneClass}`} key={i}>
-                    <h2>Description : {element.description}</h2>
-                    <h2>Deadline : {new Date(element.deadline).toDateString()}</h2>
-                    <h2> {isDone} </h2>
-                    <Checkbox isDone={element.done} handleChangeChekBox={this.handleChangeChekBox}
-                        index={i} onDelete={this.onDelete} />
+
+                    <Checkbox isDone={element.done} handleChangeCheckBox={this.handleChangeCheckBox}
+                        index={i} onDelete={this.onDelete}
+                        description={element.description}
+                        deadline={element.deadline}
+                        done={isDone}
+                        save={this.save} />
+
                 </div>
             )
         })
