@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Devtools from 'mobx-react-devtools'
+import FilterTodos from './todos/FilterTodos'
+import TodoList from './todos/TodoList'
+import CreateTodo from './todos/CreateTodo'
 
 class App extends Component {
   render() {
@@ -11,8 +15,13 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          This is My Homework, Using <code>MOBX</code> Todo List.
         </p>
+          < Devtools / >
+        <h2 style={styles} > Todos </h2>
+        <FilterTodos />
+            <CreateTodo / >
+            <TodoList / >
       </div>
     );
   }
