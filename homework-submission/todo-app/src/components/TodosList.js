@@ -11,10 +11,7 @@ import { observer, inject } from 'mobx-react';
 @observer
 class TodosList extends Component {
 
-    componentDidMount() {
-        this.props.todostore.getTodos()
 
-    }
     render() {
 
         const todoList = this.props.todostore.listTodo;
@@ -24,7 +21,7 @@ class TodosList extends Component {
                 key={uuid()}
                 _id={element._id}
                 description={element.description}
-                deadline={element.deadline}
+                deadline={new Date(element.deadline).toDateString()}
                 done={element.done}
                 handleCheckBox={this.props.handleCheckBox}
                 removeTodo={this.props.removeTodo}
@@ -43,6 +40,10 @@ class TodosList extends Component {
 
             </div>
         );
+    }
+    componentDidMount() {
+        this.props.todostore.getTodos()
+
     }
 };
 export default TodosList;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import './Image.css'
 import Image from './Image';
+//import uuid from 'uuid/v4';
 import { observer, inject } from 'mobx-react';
 
 @inject('todostore')
@@ -14,7 +15,13 @@ class TodosItem extends Component {
 
         const { _id, description, deadline, done, index } = this.props;
         const { handleCheckBox, removeTodo } = this.props.todostore;
-        const { editing, handleEditingDone, handleEditing, handleEditingChange } = this.props.todostore;
+        const { editing } = this.props.todostore;
+        const { startEditing,
+            selectedToEdit,
+            changeEditedTask,
+            editedTask,
+            updateTask,
+            cancelEditing, } = this.props.todostore;
 
         let viewStyle = {};
         let editStyle = {};
@@ -25,60 +32,59 @@ class TodosItem extends Component {
         }
 
         return (
-            <div className="comment">
-
-                <input
-                    className="checkbox"
-                    onClick={() => handleCheckBox(_id)}
-                    defaultChecked={done}
-                    key={index}
-                    type="checkbox" />
-
-                <Image className="App-image" />
-
-                <span
-                    style={done
-                        ? {
-                            textDecoration: 'line-through',
-                            color: 'red'
-                        }
-                        : {}}>
-                    <h2 className="text">Task:
-                    </h2>
-                    <b>{description}</b>
+            <div>
+                <li className="comment" id={_id}>
 
                     <input
-                        id={index}
-                        type="text"
-                        name="description"
-                        onKeyDown={(e) => handleEditingDone(e)}
-                        onChange={(e) => handleEditingChange(e)}
-                        style={editStyle}
-                        defaultValue={description}
-                    />
+                        className="checkbox"
+                        onClick={() => handleCheckBox(_id)}
+                        defaultChecked={done}
+                        key={index}
+                        type="checkbox" />
 
-                    <h2 className="text">Dead Line:</h2>
-                    <b>{deadline}</b>
-                </span>
-                <span className="removeStyle">
-                    <button
-                        name="remove"
-                        onClick={() => removeTodo(_id)}
-                    >
-                        Remove Todo
+                    <Image className="App-image" />
+
+                    <span
+                        style={done
+                            ? {
+                                textDecoration: 'line-through',
+                                color: 'red'
+                            }
+                            : {}}>
+                        <h2 className="text">Task:</h2>
+                        <b>{description}</b>
+                        <h2 className="text">Dead Line:</h2>
+                        <b>{deadline}</b>
+                    </span>
+                    <span className="removeStyle">
+                        <button
+                            name="remove"
+                            onClick={() => removeTodo(_id)}
+                        >
+                            Remove Todo
                     </button>
-                </span>
-                <span>
-                    <button
-                        style={viewStyle}
-                        onClick={(e) => handleEditing()}
-                    >
-                        Edit Todo
-                    </button>
-                </span>
+                    </span>
+                    <div>
+
+                    </div>
+                    <div>
+                        {selectedToEdit === _id}
+
+                        {(editing) ?
+                            <button onClick={() => startEditing(_id)}>Edit Todo</button>
+                            :
+                            <div>
+                                <input type="text" onChange={e => changeEditedTask(e)} value={editedTask}></input>
+                                <button onClick={() => updateTask(_id, editedTask)}>Save</button>
+                                <button onClick={() => cancelEditing()}>Cancel</button>
+                            </div>
+                        }
 
 
-            </div>
+                    </div>
+
+                </li>
+            </div >
         )
     }
 };

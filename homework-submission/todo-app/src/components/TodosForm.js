@@ -9,17 +9,17 @@ class TodosForm extends Component {
 
     render() {
         const {
-            _id,
+
             description,
-            deadline,
-            done
+            deadline
+
         } = this.props.todostore.defaultValue;
         const { onChanging } = this.props.todostore;
         const { completedTodosCount } = this.props.todostore;
         const { todosCount } = this.props.todostore;
 
         return (
-            <form>
+            <div>
                 <div className="computedArea"> <span>Number of Todo-Items: {todosCount}</span>
                     <span>Number of Completed Todo-Items: {completedTodosCount}</span></div>
                 <div>
@@ -43,15 +43,15 @@ class TodosForm extends Component {
                 </div>
                 <div>
                     <button className="buttonStyle"
-                        onClick={() => this.props.todostore.onAddFunction(_id, description, deadline, done)}
+                        onClick={() => this.props.todostore.onAddFunction(description, deadline)}
 
                     >
                         Add
                     </button>
                     <br /> <br />
                 </div>
+            </div>
 
-            </form>
         );
     }
 };

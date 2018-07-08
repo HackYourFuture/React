@@ -1,12 +1,13 @@
 import { action, runInAction, observable, computed } from 'mobx';
 //import todoList from '../components/todos.json';
-import moment from 'moment';
+//import moment from 'moment';
 import '../App.css';
 
 const API_ROOT = "https://hyf-react-api.herokuapp.com";
 const initialValue = {
     description: '',
-    deadline: moment().format('YYYY-MM-DD')
+    deadline: ''
+
 };
 
 class TodoStore {
@@ -15,14 +16,22 @@ class TodoStore {
     listTodo = []
 
     @observable
+    descText = '';
+
+    @observable
     emptyListTodo = {}
 
     @observable
     defaultValue = initialValue
 
     @observable
-    editing = false
+    editing = true
 
+    @observable
+    selectedToEdit = null
+
+    @observable
+    editedTask = ''
 
     @computed
     get completedTodosCount() {
@@ -47,7 +56,7 @@ class TodoStore {
     @action
     handleEditing = () => {
 
-        this.editing = true;
+        this.editing = false;
 
     }
 
@@ -57,6 +66,8 @@ class TodoStore {
         if (e.keyCode === 13) {
 
             this.editing = false;
+            this.defaultValue.description = this.descText;
+
         }
 
     }
@@ -64,8 +75,7 @@ class TodoStore {
     @action
     handleEditingChange = (e) => {
 
-        let field = e.target.id;
-        this.listTodo[field].description = e.target.value;
+        this.descText = e.target.value;
 
     }
 
@@ -88,22 +98,29 @@ class TodoStore {
 
     @action
     addFunction = async (_id, description, deadline, done) => {
+
         await fetch(`${API_ROOT}/todos/create`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(this.defaultValue)
+            body: JSON.stringify(this.defaultValue),
+
         })
         this.getTodos();
     }
 
     @action
     onAddFunction(_id, description, deadline, done) {
-        this.addFunction(_id, description, deadline, done);
+        if (this.defaultValue.description === '' || this.defaultValue.deadline === '') {
+            alert('You Should Enter a Todo!');
+            return;
+        }
+        this.addFunction(description, deadline);
+
         this.defaultValue = {
             description: '',
-            deadline: moment().format('YYYY-MM-DD')
+            deadline: ''
         }
     }
 
@@ -136,11 +153,48 @@ class TodoStore {
         this.listTodo = this.listTodo.filter(todo => todo._id !== _id)
         await fetch(`${API_ROOT}/todos/${_id}`, {
             method: "DELETE",
+            headers: { 'content-type': 'application/json' }
         })
         this.getTodos();
     }
 
+    // Edit Functions
 
+    @action
+    startEditing = (id) => {
+        this.selectedToEdit = id
+        this.editing = false;
+    }
+
+    @action
+    updateTask = (id, update) => {
+
+        fetch(`${API_ROOT}/todos/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ "description": update })
+        }).then((result) => {
+            return result.json()
+        }).then((res) => {
+            this.getTodos();
+        });
+
+        this.editing = true;
+
+    }
+
+    @action
+    changeEditedTask = event => {
+        this.editedTask = event.target.value;
+
+    }
+
+    @action
+    cancelEditing = () => {
+        this.editing = true
+    }
 
 }
 export default new TodoStore();
