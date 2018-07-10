@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.todoContent{
+  margin-top:25px;
+margin-bottom:25px;
+}
+
+strong{
+  color: #56BAD5;
+  font-size: 18px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.AddingForm {
+  display: flex;
+  justify-content : center;
+  margin: auto;
+  width : 500px;
+  height: 30px;
+  padding: 25px;
+}
+.AddingInput {
+  font-size: 16px;
+}
+
+.AddingButton {
+  font-size: 14px;
+  background-color: #56BAD5;
+  color:black;
+  width: 60px;
+  font-weight:bold
+}
+
+.RemoveInput {
+   font-size: 14px;
+  background-color: #56BAD5;
+  color:black;
+  width: 80px;
+  font-weight:bold;
+  margin-right: 30px;
+}
+
