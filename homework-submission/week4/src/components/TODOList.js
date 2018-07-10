@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 
 class TODOList extends Component {
@@ -5,7 +6,8 @@ class TODOList extends Component {
     const TODOList = this.props.TODOListItems.map((element, index) =>
       <div key={index}>
         <div onClick={() => this.props.checkStatus(element.id)} class="todoContent" >
-          {element.done ? <span>🔴</span> : <span>🔘</span>}
+
+          {element.done ? <span>💙</span> : <span>🖤</span>}
 
           <span style={element.done ? { textDecoration: 'line-through' } : {}}><strong>{element.description}</strong>, {element.deadline} </span>
 
@@ -16,9 +18,7 @@ class TODOList extends Component {
 
     return (
       <div id={this.props.id}>
-        <ul>
-          {TODOList}
-        </ul>
+        {TODOList}
       </div>
 
     )
