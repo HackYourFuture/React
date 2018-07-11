@@ -1,47 +1,76 @@
-import React, { Component } from 'react';
-// import logo from './logo.svg';
-import './App.css';
-import ToDoItems from './ToDoItems';
-import Header from './Header';
+import React, { Component } from "react";
+import "./App.css";
+import todoList from "./data/todos.json";
+import Form from "./components/Form";
+import TodoItem from "./components/TodoItem";
 
 class App extends Component {
   state = {
     todoList
   };
 
-  clickHandler = e => {
-    let tickBox = this.state.todoList.slice();
-
-    console.log(e.target.id);
-
-    tickBox[e.target.id - 1].done = !tickBox[e.target.id - 1].done;
+  onCheckboxChange = index => {
+    console.log(index);
+    if (index >= 0) {
+      todoList[index].done = !todoList[index].done;
+    }
 
     this.setState({
-      todoList: tickBox
+      todoList
     });
   };
+
+  onSubmitForm = event => {
+    event.preventDefault();
+
+    let id = 0;
+    if (todoList.length > 0) {
+      id = todoList[todoList.length - 1].id + 1;
+    }
+
+    let deadline = event.target.deadline.value;
+    let description = event.target.description.value;
+
+    let match = deadline.match(/^(\d{1,2})-(\d{1,2})-(\d{4})$/);
+    if (match && description.length > 0) {
+      let newTodo = {
+        id: id,
+        description: description,
+        deadline: deadline,
+        done: false
+      };
+      todoList.push(newTodo);
+
+      this.setState({
+        todoList
+      });
+    } else {
+      alert(
+        "The deadline should be in this format DD-MM-YYYY \n And the Todo must be at least 1 character"
+      );
+    }
+  };
+  onRemoveItemButton = (index, event) => {
+    event.preventDefault();
+    todoList.splice(index, 1);
+
+    this.setState({
+      todoList
+    });
+  };
+
   render() {
     let renderList;
-    if (todoList.length) {
-      renderList = todoList.map(todo => {
+    if (todoList.length > 0) {
+      renderList = todoList.map((todo, index) => {
         return (
-          <div key={todo.id}>
-            <input
-              type="checkbox"
-              defaultChecked={todo.done}
-              id={todo.id}
-              onClick={e => this.clickHandler(e)}
-            />
-            <label
-              htmlFor={todo.id}
-              style={{ textDecoration: todo.done ? "line-through" : "" }}
-            >
-              <Description
-                description={todo.description}
-                deadline={todo.deadline}
-              />
-            </label>
-          </div>
+          <TodoItem
+            key={index}
+            removeButtonHandler={this.onRemoveItemButton}
+            checkBoxHandler={this.onCheckboxChange}
+            index={index}
+            todo={todo}
+          />
         );
       });
     } else {
@@ -50,6 +79,7 @@ class App extends Component {
     return (
       <div className="container">
         <h1>Todos List</h1>
+        <Form submitForm={this.onSubmitForm} />
         {renderList}
       </div>
     );
