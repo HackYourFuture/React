@@ -3,7 +3,7 @@ import React from "react";
 class TodoItems extends React.Component {
   render() {
     const todosItems = this.props.todos.map((item, i) => (
-      <li>
+      <li key={i}>
         <input
           type="checkbox"
           onClick={() => this.props.checker(item)}
