@@ -80,3 +80,8 @@
   background-image: url('https://raw.githubusercontent.com/gisaac85/my_REACT/master/images/features.jpg');
   background-repeat: repeat-y
 }
+
+.doneTodo {
+  text-decoration: 'line-through';
+  color: 'red'
+}

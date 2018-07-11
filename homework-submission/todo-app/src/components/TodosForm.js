@@ -43,7 +43,7 @@ class TodosForm extends Component {
                 </div>
                 <div>
                     <button className="buttonStyle"
-                        onClick={() => this.props.todostore.onAddFunction(description, deadline)}
+                        onClick={() => this.props.todostore.addFunction(description, deadline)}
 
                     >
                         Add

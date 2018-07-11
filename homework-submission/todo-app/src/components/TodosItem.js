@@ -13,49 +13,39 @@ class TodosItem extends Component {
 
     render() {
 
-        const { _id, description, deadline, done, index } = this.props;
-        const { handleCheckBox, removeTodo } = this.props.todostore;
-        const { editing } = this.props.todostore;
-        const { startEditing,
-            selectedToEdit,
+        const { _id, description, deadline, done } = this.props;
+        const { toggleCheckbox, removeTodo, editing, startEditing,
             changeEditedTask,
             editedTask,
             updateTask,
-            cancelEditing, } = this.props.todostore;
-
-        let viewStyle = {};
-        let editStyle = {};
-        if (editing) {
-            viewStyle.display = 'none';
-        } else {
-            editStyle.display = 'none';
-        }
-
+            cancelEditing } = this.props.todostore;
+        const doneStyle = { textDecoration: 'line-through', color: 'red' }
         return (
             <div>
                 <li className="comment" id={_id}>
 
                     <input
                         className="checkbox"
-                        onClick={() => handleCheckBox(_id)}
+                        onClick={() => toggleCheckbox(_id)}
                         defaultChecked={done}
-                        key={index}
                         type="checkbox" />
 
                     <Image className="App-image" />
 
+
+
                     <span
-                        style={done
-                            ? {
-                                textDecoration: 'line-through',
-                                color: 'red'
-                            }
-                            : {}}>
+                        style={done ? doneStyle : {}}
+                    >
                         <h2 className="text">Task:</h2>
                         <b>{description}</b>
                         <h2 className="text">Dead Line:</h2>
                         <b>{deadline}</b>
                     </span>
+
+
+
+
                     <span className="removeStyle">
                         <button
                             name="remove"
@@ -68,8 +58,6 @@ class TodosItem extends Component {
 
                     </div>
                     <div>
-                        {selectedToEdit === _id}
-
                         {(editing) ?
                             <button onClick={() => startEditing(_id)}>Edit Todo</button>
                             :

@@ -97,7 +97,12 @@ class TodoStore {
     }
 
     @action
-    addFunction = async (_id, description, deadline, done) => {
+    addFunction = async (description, deadline) => {
+
+        if (this.defaultValue.description === '' || this.defaultValue.deadline === '') {
+            alert('You Should Enter a Todo!');
+            return;
+        }
 
         await fetch(`${API_ROOT}/todos/create`, {
             method: "POST",
@@ -107,35 +112,23 @@ class TodoStore {
             body: JSON.stringify(this.defaultValue),
 
         })
+
         this.getTodos();
+        this.clearText();
     }
 
     @action
-    onAddFunction(_id, description, deadline, done) {
-        if (this.defaultValue.description === '' || this.defaultValue.deadline === '') {
-            alert('You Should Enter a Todo!');
-            return;
-        }
-        this.addFunction(description, deadline);
-
+    clearText = () => {
         this.defaultValue = {
             description: '',
             deadline: ''
         }
+
     }
 
     @action
-    handleCheckBox = async (_id) => {
+    toggleCheckbox = async (_id) => {
         const todoElement = this.listTodo.find(todoElement => todoElement._id === _id);
-        this.listTodo = this.listTodo.map(element => {
-            if (element._id === _id) {
-                return {
-                    ...todoElement,
-                    done: !element.done,
-                }
-            }
-            return element;
-        })
         await fetch(`${API_ROOT}/todos/${_id}`, {
             method: "PATCH",
             headers: {
@@ -149,13 +142,17 @@ class TodoStore {
     }
 
     @action
-    removeTodo = async (_id) => {
-        this.listTodo = this.listTodo.filter(todo => todo._id !== _id)
-        await fetch(`${API_ROOT}/todos/${_id}`, {
+    removeTodo = (id) => {
+
+        fetch(`${API_ROOT}/todos/${id}`, {
             method: "DELETE",
             headers: { 'content-type': 'application/json' }
-        })
-        this.getTodos();
+        }).then((res) => {
+            this.getTodos();
+        });
+
+        this.listTodo = this.listTodo.filter(todo => todo._id !== id)
+
     }
 
     // Edit Functions
@@ -182,6 +179,9 @@ class TodoStore {
         });
 
         this.editing = true;
+        this.editedTask = ''
+
+
 
     }
 

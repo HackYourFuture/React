@@ -15,7 +15,7 @@ class TodosList extends Component {
     render() {
 
         const todoList = this.props.todostore.listTodo;
-        const NO_ITEM = !(todoList && todoList.length > 0)
+        const NO_ITEM = !(todoList && todoList.length > 0) ? <h1 className="comment"> NO ITEM !!! </h1> : null
         const todoListItem = todoList.map((element =>
             <TodosItem
                 key={uuid()}
@@ -23,17 +23,13 @@ class TodosList extends Component {
                 description={element.description}
                 deadline={new Date(element.deadline).toDateString()}
                 done={element.done}
-                handleCheckBox={this.props.handleCheckBox}
-                removeTodo={this.props.removeTodo}
             />
         ));
         return (
             <div>
 
                 <div>
-                    {
-                        (NO_ITEM) ? <h1 className="comment"> NO ITEM !!! </h1> : null
-                    }
+                    {NO_ITEM}
                 </div>
                 <TodosForm />
                 {todoListItem}
