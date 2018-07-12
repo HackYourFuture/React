@@ -16,7 +16,7 @@ class TodosListStore {
     onSubmitForm = event => {
         event.preventDefault();
 
-        const id = 0;
+        let id = 0;
         if (this.listItems.length > 0) {
             id = this.listItems[this.listItems.length - 1].id + 1;
         }

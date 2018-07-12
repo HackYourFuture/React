@@ -1,7 +1,7 @@
 import React from "react";
 import Deadline from "./Deadline";
 import Button from "./Button";
-import { observer, inject } from "mobx-react";
+import { observer } from "mobx-react";
 
 //@inject("todoListStore")
 @observer
