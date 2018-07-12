@@ -1,0 +1,5 @@
+The goal is to use at least 2 components to output a list of 3 items. 
+For each item render a description and a deadline date. Also, give the list a title.
+
+You can submit your homework before Friday if you want me to have looked at it before our next class.
+For anyone who wants an interactive refresher: https://www.codecademy.com/learn/react-101
