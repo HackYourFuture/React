@@ -1,11 +1,9 @@
-//remove injecting your store
-
 import React from "react";
 import Deadline from "./Deadline";
 import Button from "./Button";
 import { observer, inject } from "mobx-react";
 
-@inject("todoListStore")
+//@inject("todoListStore")
 @observer
 export class Description extends React.Component {
     render() {
