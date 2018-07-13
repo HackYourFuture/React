@@ -25,14 +25,15 @@ class Checkbox extends React.Component {
         }
         this.setState({ editToDo })
     }
-    deadlineChange = (event) => {
-        let editToDo = {
-            description: this.state.editToDo.description,
-            deadline: event.target.value
-        }
-        editToDo.deadline = event.target.value
-        this.setState({ editToDo })
-    }
+    // deadlineChange = (event) => {
+    //     let editToDo = {
+    //         description: this.state.editToDo.description,
+    //         deadline: event.target.value
+    //     }
+    //     editToDo.deadline = event.target.value
+    //     this.setState({ editToDo })
+    // }
+
     render() {
         if (!this.state.showEdit) {
             return (
@@ -48,25 +49,27 @@ class Checkbox extends React.Component {
 
             );
         }
+
         else {
             return (<div>
                 <form onSubmit={() => {
-                    this.props.save(this.state.description, this.state.deadline,
-                        this.state.done, this.props.index)
+                    this.props.save(this.state.editToDo.description, this.state.editToDo.deadline,
+                        this.props.id, this.props.index)
                     this.handleClickDescription()
                 }}>   <input type="text" name="description"
                     value={this.state.editToDo.description}
-                    onChange={this.descriptionChange.bind(this)}
+                    onChange={this.descriptionChange}
                     />
-                    <input type="text" name="deadline"
+                    {/* <input type="text" name="deadline"
                         value={this.state.editToDo.deadline}
                         onChange={this.deadlineChange.bind(this)}
-                    />
+                    /> */}
                     <button type="submit">
                         Save </button>
                     <button type="button" onClick={() => { this.handleClickDescription() }} >
                         Cancel </button>
                 </form>
+
             </div>)
         }
 

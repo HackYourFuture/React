@@ -10,7 +10,7 @@ import { inject, observer } from "mobx-react";
 @observer
 class App extends Component {
   render() {
-    const { handleChangeCheckBox, onAdd, onDelete, listItems, todoCount } = this.props.TodoListStore;
+    const { handleChangeCheckBox, onAdd, onDelete, save, listItems, todoCount } = this.props.TodoListStore;
     return (
       <div className="App">
         <Header />
@@ -24,7 +24,7 @@ class App extends Component {
         />
         <AddTodo onAdd={onAdd} />
         <TodoItems handleChangeCheckBox={handleChangeCheckBox} listItems={listItems}
-          onDelete={onDelete} />
+          onDelete={onDelete} save={save} />
         {(todoCount === 0) ? <h2 className="no-items">No items...</h2> : null}
 
       </div>

@@ -9,7 +9,7 @@ class TodoListStore {
 
     @action
     handleChangeCheckBox = (id) => {
-        const newTodoItems = this.listItems.map((element) => {
+        this.listItems = this.listItems.map((element) => {
             if (id === element.id) {
                 return {
                     ...element,
@@ -18,7 +18,7 @@ class TodoListStore {
             }
             return element;
         });
-        this.listItems = newTodoItems;
+
 
     }
     //    handleChangeCheckBox = (index) => {
@@ -28,12 +28,22 @@ class TodoListStore {
     // }
 
     @action
-    onDelete = (index) => {
-        const todosList = [...this.listItems]
-        todosList.splice(index, 1)
-        this.listItems = todosList;
-    }
+    onDelete = (id) => {
+        this.listItems = this.listItems.filter((element) => {
+            return id !== element.id
+            // if (id === element.id) {
+            //     return {
+            //         ...element,
+            //         done: !element.done
+            //     }
+            // }
+            // return element;
+        });
 
+        // const todosList = [...this.listItems]
+        // todosList.splice(index, 1)
+        // this.listItems = todosList;
+    }
     @action
     onAdd = (event) => {
         event.preventDefault();
@@ -43,12 +53,12 @@ class TodoListStore {
             "deadline": event.target.deadline.value,
             "done": false
         }
-        this.save(this.description, this.deadline, this.done, this.listItems.length)
+        // this.save(this.description, this.deadline, this.done, this.listItems.length)
         this.listItems.push(newTodo);
     }
     @action
-    save = (description, deadline, index) => {
-        const newToDo = { description, deadline }
+    save = (description, deadline, id, index) => {
+        const newToDo = { id, description, deadline }
         const toDos = [...this.listItems]
         toDos[index] = newToDo
         this.listItems = toDos
