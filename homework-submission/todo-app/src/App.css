@@ -82,9 +82,36 @@ body {
   opacity: 0.8;
 }
 
+.edit {
+  background-color: green;
+  opacity: 0.8;
+}
+
 .input-button {
   float: right; 
   margin: auto;
   font-weight: bold;
   font-size :1em;
+}
+
+.edit-form  {
+  display:flex;
+  justify-content: space-between;
+}
+
+.edit-input {
+  margin: 0;
+  font-size: 1em;
+}
+
+.cancel {
+  background-color: red;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.save {
+  background-color: green;
+  opacity: 0.8;
+  margin: 0;
 }
