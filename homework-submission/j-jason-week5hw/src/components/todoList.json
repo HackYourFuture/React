@@ -1,0 +1,20 @@
+[
+    {
+        "id": "be4985d3-c76a-49ac-b258-037500243aa3",
+        "description": "Get out of bed",
+        "deadline": "2017-09-11",
+        "done": true
+    },
+    {
+        "id": "ddbabc1d-1264-4519-8b15-d59f3e5133c3",
+        "description": "Brush teeth",
+        "deadline": "2017-09-10",
+        "done": false
+    },
+    {
+        "id": "76967277-ae52-46e6-a4e6-ad6222513634",
+        "description": "Eat breakfast",
+        "deadline": "2017-09-09",
+        "done": false
+    }
+]

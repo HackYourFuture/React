@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/header';
+import TodoList from './components/todoList';
+import { inject, observer } from 'mobx-react'
 
+@inject('todoStore')
+@observer
 class App extends Component {
   render() {
+    const {
+      listTodo,
+      addFunction,
+      handleDoneClick,
+      removeTodo
+    } = this.props.todoStore;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Header />
+        <TodoList
+          listTodo={listTodo}
+          addFunction={addFunction}
+          handleDoneClick={handleDoneClick}
+          removeTodo={removeTodo} />
       </div>
     );
   }
