@@ -1,0 +1,20 @@
+[
+    {
+        "id": "be4985d3-c76a-49ac-b258-037500243aa3",
+        "description": "Reoccupation of the Saar",
+        "deadline": "1936-03-07",
+        "done": true
+    },
+    {
+        "id": "ddbabc1d-1264-4519-8b15-d59f3e5133c3",
+        "description": "Anschluss with Austria",
+        "deadline": "1938-03-12",
+        "done": false
+    },
+    {
+        "id": "76967277-ae52-46e6-a4e6-ad6222513634",
+        "description": "Demand Sudentenland",
+        "deadline": "1938-09-15",
+        "done": false
+    }
+]
