@@ -78,7 +78,7 @@ class RashadStore {
       .then(response => response.json())
       .then(item =>
         runInAction(() => {
-          this.todosList = [this.todosList, item];
+          this.todosList = [...this.todosList, item];
         })
       )
       .catch(err => console.log(err));
