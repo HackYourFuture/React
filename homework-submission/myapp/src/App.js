@@ -13,7 +13,7 @@ class App extends Component {
       checker,
       submitHandler,
       remover,
-      todos,
+      todosList,
       count
     } = this.props.RashadStore;
 
@@ -22,9 +22,9 @@ class App extends Component {
         <Header className="header" />
         <Forms submitHandler={submitHandler} />
         <TodoItems
-          id="Todos"
+          id="todosList"
           checker={checker}
-          todos={todos}
+          todosList={todosList}
           remover={remover}
         />
         {count}

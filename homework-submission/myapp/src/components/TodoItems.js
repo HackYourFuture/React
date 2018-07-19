@@ -2,8 +2,8 @@ import React from "react";
 
 class TodoItems extends React.Component {
   render() {
-    const todosItems = this.props.todos.map((item, i) => (
-      <li key={i}>
+    const todosItems = this.props.todosList.map((item, index) => (
+      <li key={index}>
         <input
           type="checkbox"
           onClick={() => this.props.checker(item)}
@@ -22,7 +22,7 @@ class TodoItems extends React.Component {
     ));
 
     return (
-      <div id={this.props.id}>
+      <div id={this.props._id}>
         <ul>{todosItems}</ul>
       </div>
     );
