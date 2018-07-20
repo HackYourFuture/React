@@ -1,0 +1,18 @@
+<div>
+          item= items.map(item=>{
+            return (<input
+            type="checkbox"
+            id="subscribeNews"
+            name="subscribe"
+            value="newsletter"
+          />
+          <label for="subscribeNews">Subscribe to newsletter?</label>)
+          })
+          
+        </div>
+
+
+        Checkbox.propTypes = {
+  label: PropTypes.string.isRequired,
+  handleCheckboxChange: PropTypes.func.isRequired
+};
