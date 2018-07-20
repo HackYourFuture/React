@@ -1,47 +1,39 @@
 import React, { Component } from "react";
+
+const defaultState = {
+  description: "",
+  deadline: ""
+};
 class AddTodo extends Component {
-  state = {
-    description: "",
-    deadline: ""
+  state = defaultState;
+
+  handleFieldChange = (event, field) => {
+    this.setState({ [field]: event.target.value });
   };
-
-  // onSubmit = () => {
-  //   this.props.addNewTodo(this.state);
-  // };
-
-  onChangeTodo = (field, value) => {
-    this.setState({ [field]: value });
+  addNewTodo = () => {
+    this.props.handleAddTodo(this.state);
+    this.setState(defaultState);
   };
 
   render() {
-    //const { todos, addNewTodo } = this.props;
-    //const { description, deadline } = this.state;
-    const currentState = this.state;
-    console.log(currentState);
     return (
       <div>
-        <form>
+        <div>
           Enter:
           <input
             value={this.state.description}
-            onChange={event =>
-              this.onChangeTodo("description", event.target.value)
-            }
+            onChange={event => this.handleFieldChange(event, "description")}
             type="text"
             placeholder="description"
           />
           <input
-            onChange={event =>
-              this.onChangeTodo("deadline", event.target.value)
-            }
+            onChange={event => this.handleFieldChange(event, "deadline")}
             value={this.state.deadline}
             type="number"
             placeholder="Deadline:"
           />
-          <button onClick={() => this.props.addNewTodo(currentState)}>
-            Add New Todo
-          </button>
-        </form>
+          <button onClick={() => this.addNewTodo()}>Add New Todo</button>
+        </div>
       </div>
     );
   }

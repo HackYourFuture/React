@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
-import todos from "./todos.json";
-import Checkbox from "./Checkbox";
+import data from "./todos.json";
+// import Checkbox from "./Checkbox";
 import AddTodo from "./AddTodo";
 import "./App.css";
+import UUID from "uuid/v4";
+import TodoList from "./TodoList";
 
 class App extends Component {
   state = {
-    todos
+    todos: data
   };
 
   onChange = event => {
@@ -22,30 +24,43 @@ class App extends Component {
 
     this.setState({ todos });
   };
-  addNewTodo = add => {
-    const newTodo = {
-      description: add.description,
-      deadline: add.deadline
+
+  removeTodo = id => {
+    const newTodos = this.state.todos.filter(todo => todo.id !== id);
+    this.setState({
+      todos: newTodos
+    });
+  };
+
+  handleAddTodo = fields => {
+    const newId = UUID();
+    const newTodos = {
+      ...fields,
+      id: newId,
+      done: false
     };
     this.setState({
-      todos: this.state.todos.concat([newTodo])
+      todos: [...this.state.todos, newTodos]
     });
-    //const newId = uuid();
   };
 
   render() {
-    const todoItems = this.state.todos.map(todo => (
-      <Checkbox key={todo.id} todo={todo} onChange={this.onChange} />
-    ));
-
+    const todoList = this.state.todos;
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <AddTodo addNewTodo={this.addNewTodo} />
-        <ul>{todoItems.length > 0 ? todoItems : <p>No items</p>}</ul>
+        {todoList.map(todoItem => (
+          <TodoList
+            handleAddTodo={this.handleAddTodo}
+            todoItem={todoItem}
+            onChange={this.onChange}
+            removeTodo={this.removeTodo}
+          />
+        ))}
+        <AddTodo handleAddTodo={this.handleAddTodo} />
       </div>
     );
   }
