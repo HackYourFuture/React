@@ -1,5 +1,4 @@
 import { configure, action, observable, runInAction, computed } from "mobx";
-import Todos from "../components/todos.json";
 
 configure({ enforceActions: true });
 
@@ -7,18 +6,6 @@ const url = "https://hyf-react-api.herokuapp.com";
 
 class RashadStore {
   @observable todosList = [];
-
-  fetchAll = () => {
-    fetch(`${url}/todos`)
-      .then(response => response.json())
-      .then(todosList => {
-        console.log(todosList);
-        runInAction(() => {
-          this.todosList = Todos;
-        });
-      })
-      .catch(err => console.log(err));
-  };
 
   @action
   checker = item => {
