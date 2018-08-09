@@ -1,0 +1,27 @@
+#todoList {
+  margin: auto;
+  margin-top : 20px; 
+  padding: 20px 20px;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#todoList ul {
+  text-align : left;
+  list-style: none;
+}
+
+.todoItem div{
+  padding: 25px 10px 25px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.deadline{
+  width:40%;
+  text-align : center;
+  float: right;
+  color: white;
+  background-color: gray;
+  padding: 1px 8px;
+  border-radius: 7px;
+}
