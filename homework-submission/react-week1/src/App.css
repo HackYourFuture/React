@@ -1,0 +1,20 @@
+.header {
+  font-size: 30;
+  font-weight: bold;
+  color: blue;
+  margin-left: 30px;
+}
+
+.list {
+  width: 30%;
+  margin: 0;
+  padding: 5px;
+  background: lightblue;
+}
+
+.item {
+  background: white;
+  margin: 20px;
+  font-weight: bold;
+  list-style-type: disc;
+}
