@@ -1,0 +1,84 @@
+@keyframes Padding-top {
+  from {
+    padding-top: 0;
+  }
+  to {
+    padding-top: 11px;
+  }
+}
+
+* {
+  list-style-type: none;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-image: url("https://images.pexels.com/photos/355770/pexels-photo-355770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+}
+
+ul {
+  padding: 0;
+  text-align: left;
+  box-shadow: 0 9px 10px -7px #000;
+}
+
+ul li {
+  padding: 10px;
+  padding-top: 12px;
+  padding-left: 25px;
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.219),
+    rgba(0, 0, 0, 0.109)
+  );
+  font-weight: 600;
+  text-shadow: 0 1px 3px 1px rgb(255, 255, 255),
+    0 -1px 3px 1px rgb(160, 160, 160);
+  color: rgb(41, 41, 41);
+  word-spacing: -2px;
+  letter-spacing: -1px;
+  border-bottom: 2px ridge rgb(0, 0, 0);
+  border-left: 17px solid rgb(1, 14, 1);
+  border-right: 7px solid rgb(1, 14, 1);
+  border-radius: 5px;
+  height: auto;
+  min-height: 45px;
+  animation: Padding-top 300ms 1 ease-in-out;
+}
+
+ul li:nth-child(odd) {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.205),
+    rgba(0, 0, 0, 0.157)
+  );
+}
+
+ul li:nth-child(1) {
+  border-top: 2px ridge rgb(0, 0, 0);
+}
+
+p {
+  font-weight: 700;
+  font-size: 20px;
+  color: rgb(228, 228, 228);
+  letter-spacing: 3px;
+  text-shadow: 0 0 3px 5px rgb(1, 20, 1);
+  width: 95%;
+  margin: 0 auto;
+  border-bottom: 3px solid rgb(2, 26, 7);
+  border-top: 3px solid rgb(2, 26, 7);
+  border-radius: 5px;
+  padding: 10px 0 10px 0;
+  background: rgba(0, 0, 0, 0.157);
+  margin-top: 25px;
+  box-shadow: 7px 5px 15px -5px #000;
+}
+
+p:first-of-type {
+  margin-top: 50px;
+}
