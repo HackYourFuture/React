@@ -8,8 +8,3 @@ export default class Item extends Component {
     return todo;
   }
 }
-// can use ternary operators in after the props
-
-// create new file called 'Item'
-// Create class Item extends Component
-// Return div with 1 child paragraph (text:"this is an item")
