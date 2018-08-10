@@ -1,7 +1,3 @@
-// create item component that returns item information (Description, Deadline)
-// in App.js create ul and map through the todos and return li tag for the todo
-//
-
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
