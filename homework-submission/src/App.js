@@ -54,8 +54,8 @@ export default class App extends Component {
         <ul>
           {todos.map((todo, index) => {
             return (
-              <li>
-                <Item description={todo.description} deadline={todo.deadline} key={todo.index} />
+              <li key={todo.index}>
+                <Item description={todo.description} deadline={todo.deadline}/>
               </li>
             );
           })}
