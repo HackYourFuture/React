@@ -52,10 +52,10 @@ export default class App extends Component {
         </ul>
         <p>Dynamic</p>
         <ul>
-          {todos.map(todo => {
+          {todos.map((todo, index) => {
             return (
               <li>
-                <Item description={todo.description} deadline={todo.deadline} />
+                <Item description={todo.description} deadline={todo.deadline} key={todo.index} />
               </li>
             );
           })}
