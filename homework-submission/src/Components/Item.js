@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Item extends Component {
+export default class Item extends React.Component {
   render() {
     const todo = `description: ${this.props.description} - deadline: ${
       this.props.deadline
