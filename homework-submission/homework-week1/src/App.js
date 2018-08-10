@@ -12,9 +12,9 @@ class App extends Component {
           <h1 className='App-title'>Todo List</h1>
         </header>
         <p className='App-intro'></p> 
-        <Description description='Get out of bed ,' deadlineDate='Wed Sep 13 2017' />
-        <Description description='Brush teeth ,' deadlineDate='Thu Sep 14 2017' />
-        <Description description='Eat breakfast ,' deadlineDate='Fri Sep 15 2017' />
+        <Description descriptionAndDeadline='Get out of bed , Wed Sep 13 2017' />
+        <Description descriptionAndDeadline='Brush teeth , Thu Sep 14 2017' />
+        <Description descriptionAndDeadline='Eat breakfast , Fri Sep 15 2017' />
       </div>
     );
   }
