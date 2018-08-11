@@ -20,8 +20,8 @@ class Todos extends Component {
 
         return (
             <div>
-                {items.map((item) => (
-                    <List description={item.description} deadline={item.deadline} />
+                {items.map((item, id) => (
+                    <List key={id} description={item.description} deadline={item.deadline} />
                 ))}
             </div>
         );
