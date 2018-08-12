@@ -12,11 +12,13 @@ class App extends Component {
         <h1 className="App-title">To Do List</h1>
       </header>
       <br />
-      <ToDoList deadLine="Wed Sep 13 2017" description="Get out of bed" />
-      <ToDoList deadLine="Thu Sep 14 2017" description="Brush teeth" />
-      <ToDoList deadLine="Fri Sep 15 2017" description="Eat breakfast" />
+      <ul>
+        <ToDoList deadLine="Wed Sep 13 2017" description="Get out of bed" />
+        <ToDoList deadLine="Thu Sep 14 2017" description="Brush teeth" />
+        <ToDoList deadLine="Fri Sep 15 2017" description="Eat breakfast" />
+      </ul>
     </div>);
-  }
-}
-
-export default App;
+      }
+    }
+    
+    export default App;
