@@ -24,12 +24,14 @@ class Todolist extends Component {
         ];
 
         return (
-            <div className='all-todos'>
+            <div className='all-todos' >
+                <ul className='all-todos'>
 
-                {todos.map((todo) => {
-                    return <Todo todo={todo} key={todo.id} />
-                })}
+                    {todos.map((todo) => {
+                        return <Todo todo={todo} key={todo.id} />
+                    })}
 
+                </ul>
             </div>
         );
     }
