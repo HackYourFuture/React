@@ -14,18 +14,22 @@ class App extends Component {
       <div className='App'>
         <header className='App-header'>
           <img src={logo} className='App-logo' alt='logo' />
-          <h1 className='App-title'>Dumie`s Todo List</h1>
+          <h1 className='App-title'>Dumie's Todo List</h1>
         </header>
         <p className='App-intro'></p> 
-        
+        <checkBox/>
         <ul>
           {
             todos.map((todos)=> {
-              return <li>{todos.id} - {todos.description} - {todos.deadline} - {todos.done ? "Done" : "Undone"}</li>;
+              // return <li>{todos.id} - {todos.description} - {todos.deadline} - {todos.done ? 'Done' : 'Undone'}</li>;
+              return <li>
+                <input type='checkbox'/>
+                {todos.description} , {todos.deadline} , {todos.done ? 'Done' : 'Undone'}
+              </li> 
             })
           }
         </ul>
-
+        
         {/* <Description descriptionAndDeadline='Get out of bed , Wed Sep 13 2017' />
         <Description descriptionAndDeadline='Brush teeth , Thu Sep 14 2017' />
         <Description descriptionAndDeadline='Eat breakfast , Fri Sep 15 2017' /> */}
