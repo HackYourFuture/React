@@ -5,6 +5,17 @@ import TodoList from './TodoList'
 import todoObj from './todo.json';
 
 class App extends Component {
+  state = {
+    todoObj
+  };
+
+  checkBoxHandler = (e) => {
+    let id = e.target.id;
+    let todos = Object.assign({}, this.state.todoObj);
+    todos[id - 1].done = !todos[id - 1].done;
+    this.setState({ todos });
+  }
+
   render() {
     return (
       <div className="App">
@@ -13,7 +24,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <div>
-          <TodoList listObj={todoObj} />
+          <TodoList listObj={this.state.todoObj} handler={this.checkBoxHandler} />
         </div>
       </div>
     );

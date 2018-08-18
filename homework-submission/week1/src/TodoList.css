@@ -25,3 +25,7 @@
   padding: 1px 8px;
   border-radius: 7px;
 }
+
+.checked {
+  text-decoration: line-through;
+}

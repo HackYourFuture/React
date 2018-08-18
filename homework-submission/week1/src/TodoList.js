@@ -5,11 +5,12 @@ import './TodoList.css';
 
 class TodoList extends React.Component {
   render() {
-    const List = this.props.listObj.map((item, i) => <TodoItem key={i} description={item.description} deadline={item.deadline} />);
+    const list = this.props.listObj.map((item, i) => <TodoItem key={i} todo={item} handler={this.props.handler} />);
+    const content = list.length === 0 ? <p> No items... </p> : <ul> {list} </ul>;
     return (
       <div id='todoList'>
         <h3>Todo List</h3>
-        <ul> {List} </ul>
+        {content}
       </div>
     );
   }
