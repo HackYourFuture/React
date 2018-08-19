@@ -1,8 +1,6 @@
 # Homework Week 1
 
-Fork this repository and use `create-react-app` to create your project inside the `homework-submission` directory.
-
-When you are done issue a PR with your homework as explained in [this video](https://www.youtube.com/watch?v=-o0yomUVVpU&index=2&list=PLVYDhqbgYpYUGxRdtQdYVE5Q8h3bt6SIA) made by Daan.
+usign `create-react-app` create a new react project.
 
 ## Outline
 
@@ -17,11 +15,3 @@ Todo List
 ```
 
 For each item render a description and a deadline date. Before you start draw a mockup and identify the components with colours. You have to use more than two components. Think which props the components should take.
-
-## Scoring
-
-You will be scored on:
-
-- Correct functionality
-- Code organisation
-- Cleanliness of code
