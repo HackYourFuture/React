@@ -8,8 +8,8 @@ class Description extends React.Component {
             <div>
                 <ul>
                     <li>{this.props.descriptionAndDeadline} </li>
-                </ul> 
-             </div>
+                </ul>
+            </div>
         );
     }
 }
