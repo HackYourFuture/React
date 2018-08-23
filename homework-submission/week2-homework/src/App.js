@@ -25,10 +25,10 @@ class App extends React.Component {
 
   render() {
     let todoItems = this.state.todos.map((todo, index) => (
-      <TodoItem key={index} {...todo} index={index}>
+      <TodoItem key={index} {...todo}>
         <Checkbox
           key={index}
-          {...todo}
+          done={todo.done}
           onClick={() => {
             this.handleClick(index);
           }}

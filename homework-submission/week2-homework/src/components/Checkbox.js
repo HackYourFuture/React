@@ -6,7 +6,7 @@ class Checkbox extends React.Component {
     return (
       <div>
         <button onClick={this.props.onClick}>
-          {done ? <i class="fa fa-times" /> : ""}
+          {done ? <i className="fa fa-times" /> : ""}
         </button>
       </div>
     );
