@@ -2,7 +2,8 @@
   text-align: center;
   text-transform: uppercase;
 }
-ul {
+ul,
+p {
   position: absolute;
   top: 150px;
   left: -55px;
@@ -13,7 +14,8 @@ img {
   margin-right: auto;
   width: 1200px;
 }
-li {
+li,
+p {
   margin: 10px;
   border: 1px solid transparent;
   padding: 10px;
