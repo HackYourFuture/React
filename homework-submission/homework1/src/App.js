@@ -31,6 +31,8 @@ class App extends Component {
         action:'done',
         noActionAnyMore:'No items'
       })
+    }else{
+      alert("start as a new user")
     }
   }
   render() {
