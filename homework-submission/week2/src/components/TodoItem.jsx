@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
-class TodoItem extends Component {
-  render() {
-    return <li key={this.Index}>{this.TodoItem}</li>;
-  }
+const TodoItem = (props) => {
+  const {Index, TodoItem} = props;
+  return <li key={Index}>{TodoItem}</li>;
 }
 
 export default TodoItem;

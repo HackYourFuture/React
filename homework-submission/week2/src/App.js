@@ -9,9 +9,14 @@ class App extends Component {
 
   state = { items : TodoItems};
 
-  handleChecked = () => {
-    const { done } = this.state.items;
-    done === true? this.setState({ done: false }) : this.setState({ done: true });
+  handleChecked = (id) => {
+    let newState = Object.assign({}, this.state);
+    const indexOfItem = newState.items.findIndex(item => item.id === id);
+    let targetItem = newState.items[indexOfItem];
+    if (indexOfItem >= 0) {
+      targetItem.done === true ? targetItem.done = false : targetItem.done = true;
+    } 
+    this.setState({ items: newState.items });
   }
   
   render() {
@@ -23,7 +28,11 @@ class App extends Component {
         </header>
         <ul>{this.state.items.map(item => (
           <div>
-          <input type="checkbox" className={(item.done === true ? "checked" : "unchecked")} defaultChecked={item.done} onInput={this.handleChecked}/>
+            <input 
+            type="checkbox" 
+            className={(item.done === true ? "checked" : "unchecked")}
+            id={item.id} 
+            defaultChecked={item.done} onInput={() => this.handleChecked(item.id)}/>
             <li key={item.id}>{item.description + " deadLine: " + item.deadline}</li>
           </div>
           ))} 
