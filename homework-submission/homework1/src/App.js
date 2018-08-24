@@ -1,21 +1,46 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Todo from './todo';
-import Todotimes from './todoTime';
+// import Todo from './todo';
+// import Todotimes from './todoTime';
+import ListTitle from './listTitle';
+import List from './list';
+import StateLists from './listJson.json';
+import CheckBoxes from './checkbox'
 class App extends Component {
+  state={
+    StateLists,
+    action:'',
+    textDecorationLine1:'',
+    textDecorationLine2:'',
+    textDecorationLine3:'',
+    noActionAnyMore:''
+  }
+  onChange=(key)=>{
+    if(key==1){
+      this.setState({
+        textDecorationLine1:'line-through',
+      })
+    }else if(key==2){
+      this.setState({
+        textDecorationLine2:'line-through',
+      })
+    }else if(key==3){
+      this.setState({
+        textDecorationLine3:'line-through',
+        action:'done',
+        noActionAnyMore:'No items'
+      })
+    }
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Todo/>
-        <Todotimes/>
+          <ListTitle title="todo list"></ListTitle>
+          <p style={{textDecorationLine:this.state.textDecorationLine1}}><input type="checkbox" onClick={()=>this.onChange(this.state.StateLists[0].id)} key={this.state.StateLists[0].id}/><List description={this.state.StateLists[0].description} deadline={this.state.StateLists[0].deadline}/></p>
+          <p style={{textDecorationLine:this.state.textDecorationLine2}}><input type="checkbox" onClick={()=>this.onChange(this.state.StateLists[1].id)} key={this.state.StateLists[1].id}/><List description={this.state.StateLists[1].description} deadline={this.state.StateLists[1].deadline}/></p>
+          <p style={{textDecorationLine:this.state.textDecorationLine3}}><input type="checkbox" onClick={()=>this.onChange(this.state.StateLists[2].id)} key={this.state.StateLists[2].id}/><List description={this.state.StateLists[2].description} deadline={this.state.StateLists[2].deadline}/></p>
+           {this.state.noActionAnyMore}
       </div>
     );
   }
