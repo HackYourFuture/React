@@ -1,0 +1,71 @@
+@keyframes rainbow {
+  0% {
+    color: rgb(209, 23, 23);
+  }
+  25% {
+    color: rgb(157, 17, 192);
+  }
+  50% {
+    color: rgb(11, 66, 155);
+  }
+  75% {
+    color: rgb(9, 110, 56);
+  }
+  100% {
+    color: rgb(179, 22, 17);
+  }
+}
+
+.no-todos {
+  font-size: 24px;
+  font-weight: 700;
+  min-width: 200px;
+  padding: 75px 0;
+  text-align: center;
+  margin: 0 auto;
+  color: #222;
+  animation: rainbow 10s infinite;
+  transform: scale(1.2);
+}
+
+ul {
+  list-style-type: none;
+  width: 600px;
+  margin: 50px auto;
+  padding: 80px 80px 100px 60px;
+  border-radius: 15px;
+  box-shadow: 0 0 50px 3px rgba(0, 0, 0, 0.514),
+    0 0 3px 2px rgba(51, 51, 51) inset;
+  background: radial-gradient(
+    circle at 50%,
+    #ddd,
+    rgb(224, 224, 224),
+    rgba(15, 15, 15, 0.151)
+  );
+}
+
+ul li {
+  padding: 10px;
+  padding-top: 32px;
+  padding-left: 25px;
+  font-weight: 600;
+  font-size: 18px;
+  height: auto;
+  min-height: 45px;
+  margin-left: 30px;
+  box-shadow: 0 2px 10px 1px black, 0 2px 7px -3px#ccc inset;
+  text-shadow: 0 2px 10px 1px black;
+  border-radius: 5px;
+  border-bottom: 2px ridge rgba(0, 0, 0, 0.178);
+  border-right: 17px solid rgb(15, 15, 15);
+  border-left: 7px solid rgb(15, 15, 15);
+  background: radial-gradient(circle, #333, #222);
+}
+
+ul input {
+  position: relative;
+  top: 55px;
+  transform: scale(3);
+  margin-left: 25px;
+  box-shadow: 0 2px 3px -2px black;
+}
