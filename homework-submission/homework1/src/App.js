@@ -15,38 +15,32 @@ class App extends Component {
     textDecorationLine3:'',
     noActionAnyMore:''
   }
-  onChange=(key)=>{
+  onChange=(key,done)=>{
         StateLists:[{
           id:this.state.StateLists[0].id,
-          done:this.state.StateLists[0].done,
           description:this.state.StateLists[0].description,
           deadline:this.state.StateLists[0].deadline
         },
         {
           id:this.state.StateLists[1].id,
-          done:this.state.StateLists[1].done,
           description:this.state.StateLists[1].description,
           deadline:this.state.StateLists[1].deadline
         },
         {
           id:this.state.StateLists[2].id,
-          done:this.state.StateLists[2].done,
           description:this.state.StateLists[2].description,
           deadline:this.state.StateLists[2].deadline
         }
       ]
     if(key==1){
-      StateLists[0].done=true;
         this.setState({
           textDecorationLine1:'line-through',
         })
     }else if(key==2){
-      StateLists[1].done=true
       this.setState({
         textDecorationLine2:'line-through',
       })
     }else if(key==3){
-      StateLists[2].done=true
       this.setState({
         textDecorationLine3:'line-through'
       })
@@ -61,9 +55,9 @@ class App extends Component {
     return (
       <div className="App">
           <ListTitle title="todo list"></ListTitle>
-          <input type="checkbox" onClick={()=>this.onChange(this.state.StateLists[0].id)} key={this.state.StateLists.id}/><p style={{textDecorationLine:this.state.textDecorationLine1}}>{this.state.StateLists[0].description} {this.state.StateLists[0].deadline}</p>
-          <input type="checkbox" onClick={()=>this.onChange(this.state.StateLists[1].id)} key={this.state.StateLists[1].id}/><p style={{textDecorationLine:this.state.textDecorationLine2}}>{this.state.StateLists[1].description} {this.state.StateLists[1].deadline}</p>
-          <input type="checkbox" onClick={()=>this.onChange(this.state.StateLists[2].id)} key={this.state.StateLists[2].id}/><p style={{textDecorationLine:this.state.textDecorationLine3}}>{this.state.StateLists[2].description} {this.state.StateLists[2].deadline}</p>
+          <input type="checkbox" onClick={()=>this.onChange(this.state.StateLists[0].id,StateLists[0].done=true)} key={this.state.StateLists.id}/><p style={{textDecorationLine:this.state.textDecorationLine1}}>{this.state.StateLists[0].description} {this.state.StateLists[0].deadline}</p>
+          <input type="checkbox" onClick={()=>this.onChange(this.state.StateLists[1].id,StateLists[1].done=true)} key={this.state.StateLists[1].id}/><p style={{textDecorationLine:this.state.textDecorationLine2}}>{this.state.StateLists[1].description} {this.state.StateLists[1].deadline}</p>
+          <input type="checkbox" onClick={()=>this.onChange(this.state.StateLists[2].id,StateLists[2].done=true)} key={this.state.StateLists[2].id}/><p style={{textDecorationLine:this.state.textDecorationLine3}}>{this.state.StateLists[2].description} {this.state.StateLists[2].deadline}</p>
            {this.state.noActionAnyMore}
       </div>
     );
