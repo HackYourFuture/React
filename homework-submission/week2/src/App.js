@@ -21,11 +21,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    let stateCopy = localStorage.state
-    if (stateCopy !== undefined) {
-      this.setState({
-        state: JSON.parse(stateCopy)
-      });
+    let itemsCopy = localStorage.items;
+    if (itemsCopy !== undefined) {
+      this.setState({items: JSON.parse(itemsCopy)});
     }
   }
   
@@ -38,7 +36,7 @@ class App extends Component {
         <ul>
           {this.state.items.map(item => 
             <div key={"wrapper" + item.id}>
-              <input key={"checkbox" + item.id} type="checkbox" className={item.done === true ? "checked" : "unchecked"} id={item.id} defaultChecked={item.done} onInput={() => this.handleChecked(item.id)} />
+              <input key={"checkbox" + item.id} type="checkbox" className={item.done === true ? "checked" : "unchecked"} defaultChecked={item.done} onInput={() => this.handleChecked(item.id)} />
               <li key={item.id}>
                 {item.description + " deadLine: " + item.deadline}
               </li>
