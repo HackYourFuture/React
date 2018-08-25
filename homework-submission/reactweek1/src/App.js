@@ -1,10 +1,35 @@
 import React, { Component } from 'react';
 import './App.css';
-import ToDoList from './ToDoList.js';
-
-
+import list from './list.json';
 class App extends Component {
+  state = {
+    list
+  }
+  changeToDone= () => {
+    this.setState({
+     done: true
+    });
+  }
+
+  itemHandler() {
+    if (this.state.list.length === 0) return <p>No items... </p>;
+
+    return <ul>
+      {
+        list.map((list, i) => {
+          return <div key={i}>
+            <li>
+              <input type="checkbox" onChange={this.changeToDone.bind(this)} defaultChecked={list.done} /> <span style={{ textDecoration: list.done ? "line-through" : "normal" }}>
+                {list.id} - {list.description} - {list.deadline} 
+              </span>
+            </li>
+          </div>;
+        })
+      }
+    </ul>
+  }
   render() {
+    console.log('this.list= ', this.state.list)
     return(
     <div className="App">
       <header className="App-header">
@@ -12,11 +37,7 @@ class App extends Component {
         <h1 className="App-title">To Do List</h1>
       </header>
       <br />
-      <ul>
-        <ToDoList deadLine="Wed Sep 13 2017" description="Get out of bed" />
-        <ToDoList deadLine="Thu Sep 14 2017" description="Brush teeth" />
-        <ToDoList deadLine="Fri Sep 15 2017" description="Eat breakfast" />
-      </ul>
+      {this.itemHandler()}
     </div>);
       }
     }
