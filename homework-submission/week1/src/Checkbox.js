@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import data from './sources/data.json'
+
 class Checkbox extends Component {
     render(){
         return(

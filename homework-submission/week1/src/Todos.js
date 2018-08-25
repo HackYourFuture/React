@@ -10,6 +10,7 @@ class Todos extends Component {
           {this.props.items.map((item, id) => (
             <div className={item.done? 'checked' : ''}>
             <Checkbox 
+            key={id} 
             id={item.id} 
             checkbox= {item.done} 
             handler = {this.props.handler}
