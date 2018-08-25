@@ -5,7 +5,7 @@ class Checkbox extends React.Component {
     let done = this.props.done;
     return (
       <div>
-        <button onClick={this.props.onClick}>
+        <button onClick={this.props.onClick} key={this.props.key}>
           {done ? <i className="fa fa-times" /> : ""}
         </button>
       </div>

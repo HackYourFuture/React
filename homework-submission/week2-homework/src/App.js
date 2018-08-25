@@ -36,7 +36,7 @@ class App extends React.Component {
       </TodoItem>
     ));
 
-    let contentTodisplay =
+    let contentToDisplay =
       this.state.todos.length === 0 ? (
         <p>No todos yet </p>
       ) : (
@@ -47,7 +47,7 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <img src={image} alt="background" />
-        {contentTodisplay}
+        {contentToDisplay}
       </div>
     );
   }
