@@ -9,15 +9,11 @@ class App extends Component {
     todos
   }
 
-  styles = {
-    'border': '3px solid #e8effc',
-    'width': '500px',
-    'padding': '25px',
-    'listStyleType': 'none',
-    'background': '#6cc5fc',
-    'textAlign': 'left',
-    'borderRadius': '10px'
-  };
+  isTaskDone = () => {
+    this.setState({
+      done: true
+    });
+  }
 
   renderTodos() {
     if (this.state.todos.length === 0) return <p>No items...</p>
@@ -27,13 +23,25 @@ class App extends Component {
         todos.map((todos) => {
 
           return <li key={todos.id} style={this.styles}>
-            <input type='checkbox' />
-            {todos.description} , {todos.deadline} , {todos.done ? 'Done' : 'Undone'}
+            <input type='checkbox' onChange={this.isTaskDone.bind(this)} defaultChecked={todos.done} />
+            <span style={{ textDecoration: todos.done ? 'line-through' : 'plain' }}>
+              {todos.description} , {todos.deadline}
+            </span>
           </li>
         })
       }
     </ul>
   }
+
+  styles = {
+    'border': '3px solid #e8effc',
+    'width': '500px',
+    'padding': '25px',
+    'listStyleType': 'none',
+    'background': '#6cc5fc',
+    'textAlign': 'left',
+    'borderRadius': '10px'
+  };
 
   render() {
     console.log(this.state.todos);
