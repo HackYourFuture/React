@@ -1,0 +1,19 @@
+h1 {
+  font-size: 30;
+  font-weight: bold;
+  color: red;
+}
+
+.list {
+  width: 35%;
+  margin: 5%;
+  padding: 10px;
+  background: lightblue;
+}
+
+li {
+  background: white;
+  font-size: 20px;
+  font-weight: bold;
+  list-style-type: none;
+}
