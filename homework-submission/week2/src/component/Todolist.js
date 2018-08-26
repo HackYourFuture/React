@@ -8,7 +8,7 @@ class Todolist extends Component {
       <Todo
         todo={todo}
         key={todo.id}
-        handler={() => this.props.handler(todo.id)}
+        handler={() => this.props.handler(todo)}
       />
     ));
     const uiContent = items.length === 0 ? "Todo list is empty" : todos;

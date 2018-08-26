@@ -9,19 +9,9 @@ class App extends Component {
     data
   };
 
-  // handleChange = event => {
-  //   const targetId = event.target.id;
-  //   const todos = this.state.data;
-  //   const index = todos.findIndex(
-  //     todo => todo.id.toString() === targetId.toString()
-  //   );
-  //   todos[index].done = !todos[index].done;
-  //   this.setState({ todos });
-  // };
-
-  handleChange = todoId => {
+  handleChange = todo => {
     const todos = this.state.data;
-    todos[todoId - 1].done = !todos[todoId - 1].done;
+    todo.done = !todo.done;
     this.setState({ todos });
   };
 
