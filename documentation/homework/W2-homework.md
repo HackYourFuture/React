@@ -57,3 +57,5 @@ read about `this` binding in Javascript:
 - https://gist.github.com/zcaceres/2a4ac91f9f42ec0ef9cd0d18e4e71262
 - https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/
 - https://codeburst.io/binding-functions-in-react-b168d2d006cb
+
+fellow the The Beginner's Guide to React by egghead https://egghead.io/courses/the-beginner-s-guide-to-react
