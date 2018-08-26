@@ -23,11 +23,3 @@ You will almost certainly need to refactor your app to handle a new todo object 
 ## NB
 
 The API for this homework reads and writes to a database. Unlike past weeks, you will now be sharing data with your colleagues. Please be aware of this - for example, deleting all the todos may lead to a confusing situation for others.
-
-## Scoring
-
-You will be scored on:
-
-- Correct functionality
-- Code organisation
-- Cleanliness of code
