@@ -55,12 +55,3 @@ Enter description: [           ] Deadline: [           ] [Add]
 ## Extra assignment
 
 Make the exercises in [chat-app](/documentation/chat-app/Exercises.md)!
-
-
-## Scoring
-
-You will be scored on:
-
-- Correct functionality
-- Code organisation
-- Cleanliness of code
