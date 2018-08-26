@@ -2,12 +2,21 @@ import React, { Component } from 'react';
 import './App.css';
 import list from './list.json';
 class App extends Component {
-  state = {
-    list
+  constructor(props) { 
+    super(props);
+    this.changeToDone = this.changeToDone.bind(this);
+    this.state = {
+      list
+    }
   }
-  changeToDone= () => {
+  changeToDone = (event) => {
+    const id = event.target.id;
+    console.log(event.target);
+    const listCopy = this.state.list.slice(0);
+    const itemIndex = listCopy.findIndex(el => el.id == id);
+    listCopy[itemIndex].done = !listCopy[itemIndex].done;
     this.setState({
-     done: true
+     list:listCopy
     });
   }
 
@@ -16,14 +25,14 @@ class App extends Component {
 
     return <ul>
       {
-        list.map((list, i) => {
+        list.map((el, i) => {
           return <div key={i}>
-            <li>
-              <input type="checkbox" onChange={this.changeToDone.bind(this)} defaultChecked={list.done} /> <span style={{ textDecoration: list.done ? "line-through" : "normal" }}>
-                {list.id} - {list.description} - {list.deadline} 
-              </span>
-            </li>
-          </div>;
+              <li>
+                <input id={el.id} type="checkbox" onChange={this.changeToDone} defaultChecked={el.done} /> <span style={{ textDecoration: el.done ? "line-through" : null }}>
+                  {el.id} - {el.description} - {el.deadline}
+                </span>
+              </li>
+            </div>;
         })
       }
     </ul>
