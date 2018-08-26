@@ -11,7 +11,6 @@ class App extends Component {
   }
   changeToDone = (event) => {
     const id = event.target.id;
-    console.log(event.target);
     const listCopy = this.state.list.slice(0);
     const itemIndex = listCopy.findIndex(el => el.id == id);
     listCopy[itemIndex].done = !listCopy[itemIndex].done;
@@ -27,7 +26,7 @@ class App extends Component {
       {
         list.map((el, i) => {
           return <div key={i}>
-              <li>
+              <li className = 'todoList'>
                 <input id={el.id} type="checkbox" onChange={this.changeToDone} defaultChecked={el.done} /> <span style={{ textDecoration: el.done ? "line-through" : null }}>
                   {el.id} - {el.description} - {el.deadline}
                 </span>
@@ -38,7 +37,6 @@ class App extends Component {
     </ul>
   }
   render() {
-    console.log('this.list= ', this.state.list)
     return(
     <div className="App">
       <header className="App-header">

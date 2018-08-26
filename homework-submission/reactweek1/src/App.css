@@ -30,3 +30,10 @@
 .todo-logo{
   width : 120px;
 }
+.todoList{
+  list-style: none;
+  border : 1px black solid;
+  margin : 2px;
+  border-radius: 5px;
+  padding : 2px;
+}
