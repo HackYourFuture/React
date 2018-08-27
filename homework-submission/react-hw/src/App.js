@@ -1,5 +1,5 @@
 import React from "react";
-import Description from "./Description";
+import Description from "./components/Description";
 
 export class App extends React.Component {
   render() {
