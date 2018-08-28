@@ -1,19 +1,13 @@
-h1 {
-  font-size: 30;
-  font-weight: bold;
-  color: red;
-}
-
-.list {
-  width: 35%;
-  margin: 5%;
+.container {
+  margin: 30px;
   padding: 10px;
+  width: 40%;
+  position: left;
+  font-size: 20px;
+  font-weight: bold;
   background: lightblue;
 }
 
-li {
-  background: white;
-  font-size: 20px;
-  font-weight: bold;
-  list-style-type: none;
+input {
+  zoom: 2;
 }

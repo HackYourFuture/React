@@ -1,12 +1,13 @@
 import React from "react";
-import Date from "./Date";
+import Deadline from "./Deadline";
 
 class Description extends React.Component {
   render() {
+    const { description, deadline } = this.props;
     return (
-      <p>
-        {this.props.todo}, <Date deadline={this.props.deadline} />
-      </p>
+      <span>
+        {description} <Deadline deadline={deadline} />
+      </span>
     );
   }
 }
