@@ -9,25 +9,32 @@ class App extends Component {
     todos
   }
 
-  isTaskDone = () => {
+  isTaskDone = (todo) => {
+    console.log(todo);
+
+    todo.done = !todo.done;
     this.setState({
-      done: true
+      todos: this.state.todos
     });
   }
 
   renderTodos() {
     if (this.state.todos.length === 0) return <p>No items...</p>
-    
+
+    const textStyle = { textDecoration: 'line-through' }
+
+
     return <ul>
       {
-        todos.map((todos) => {
+        todos.map((todo) => {
 
-          return <li key={todos.id} style={this.styles}>
-            <input type='checkbox' onChange={this.isTaskDone.bind(this)} defaultChecked={todos.done} />
-            <span style={{ textDecoration: todos.done ? 'line-through' : 'plain' }}>
-              {todos.description} , {todos.deadline}
-            </span>
-          </li>
+          return (
+            <li key={todo.id} style={this.styles}>
+              <input checked={todo.done} type='checkbox' onChange={this.isTaskDone.bind(this, todo)} />
+              <span style={todo.done ? textStyle : null}>
+                {todo.description} , {todo.deadline}
+              </span>
+            </li>)
         })
       }
     </ul>
@@ -47,14 +54,14 @@ class App extends Component {
     console.log(this.state.todos);
     return (
       <div className='App'>
-        
+
         <header className='App-header'>
           <img src={logo} className='App-logo' alt='logo' />
           <h1 className='App-title'>Todo List</h1>
         </header>
 
-        <p className='App-intro'></p> 
-      
+        <p className='App-intro'></p>
+
         {this.renderTodos()}
 
       </div>

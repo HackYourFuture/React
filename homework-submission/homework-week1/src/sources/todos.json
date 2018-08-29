@@ -1,18 +1,18 @@
 [
     {
-        "id": 1,
+        "id": 0,
         "description": "Get out of bed",
         "deadline": "2017-09-11",
         "done": true
     },
     {
-        "id": 2,
+        "id": 1,
         "description": "Brush teeth",
         "deadline": "2017-09-10",
         "done": false
     },
     {
-        "id": 3,
+        "id": 2,
         "description": "Eat breakfast",
         "deadline": "2017-09-09",
         "done": false
