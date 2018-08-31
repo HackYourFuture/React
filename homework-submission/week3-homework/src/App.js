@@ -6,7 +6,6 @@ import Checkbox from "./components/Checkbox";
 import todos from "./source/todos.json";
 import Header from "./components/Header";
 import AddTodoForm from "./components/AddTodoForm";
-import FlipMove from "react-flip-move";
 
 class App extends React.Component {
   constructor(props) {
@@ -61,6 +60,7 @@ class App extends React.Component {
       <TodoItem
         key={index}
         {...todo}
+        index={index}
         onRemove={() => {
           this.deleteTodo(todo);
         }}
@@ -72,6 +72,7 @@ class App extends React.Component {
           onClick={() => {
             this.handleClick(todo.id);
           }}
+          index={index}
         />
       </TodoItem>
     ));
@@ -79,11 +80,7 @@ class App extends React.Component {
       this.state.todos.length === 0 ? (
         <p id="no-todos">No todos yet... </p>
       ) : (
-        <List>
-          <FlipMove duration={250} easing="ease-out">
-            {todoItems}
-          </FlipMove>
-        </List>
+        <List>{todoItems}</List>
       );
     return (
       <div className="App">

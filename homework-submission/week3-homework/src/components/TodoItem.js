@@ -68,7 +68,7 @@ class TodoItem extends React.Component {
 
     return (
       <td
-        key={this.props.key}
+        key={this.props.index}
         style={done ? listStyle : {}}
         className="todos-td"
       >
