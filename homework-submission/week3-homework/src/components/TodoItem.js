@@ -23,7 +23,7 @@ class TodoItem extends React.Component {
   onUpdateClick(e) {
     e.preventDefault();
     let oldTodo = this.props.description;
-    let newTodo = this.refs.editedTodo.value;
+    let newTodo = this.editedTodo.value;
 
     this.props.onUpdate(oldTodo, newTodo);
     this.setState({ isEditing: false });
@@ -58,7 +58,7 @@ class TodoItem extends React.Component {
           <form onSubmit={this.onUpdateClick}>
             <input
               defaultValue={this.props.description}
-              ref="editedTodo"
+              ref={el => (this.editedTodo = el)}
               className="editing-input"
             />
           </form>

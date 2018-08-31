@@ -8,19 +8,23 @@ class AddTodoForm extends React.Component {
 
   onAddTodo(e) {
     e.preventDefault();
-    let newTodo = this.refs.enteredTodo.value;
+    let newTodo = this.enteredTodo.value;
     if (newTodo === "") {
       return "";
     }
     this.props.AddTodo(newTodo);
-    this.refs.enteredTodo.focus();
-    this.refs.enteredTodo.value = "";
+    this.enteredTodo.focus();
+    this.enteredTodo.value = "";
   }
 
   render() {
     return (
       <form onSubmit={this.onAddTodo} className="AddTodoForm">
-        <input type="text" placeholder="Enter todo" ref="enteredTodo" />
+        <input
+          type="text"
+          placeholder="Enter todo"
+          ref={el => (this.enteredTodo = el)}
+        />
         <button> Add </button>
       </form>
     );
