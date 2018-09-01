@@ -7,11 +7,12 @@ class edit extends Component{
       <label>
         description
       </label>
-      <input type="text" value={this.props.description} onChange={this.props.handleDescriptionChange}/>
+      <input type="text" value={this.props.description} onChange={(e)=>this.props.handleDeadlineChange(e.target.value)}/>
       <label>
         deadline
       </label>
-      <input type="text" value={this.props.deadline} onChange={this.props.handleDeadlineChange}/>
+      <input type="text" value={this.props.deadline} onChange={(e)=>this.props.handleDeadlineChange(e.target.value)}/>
+      <button onClick={this.props.onUpdate}>update</button>
       </div>
     )
   }
