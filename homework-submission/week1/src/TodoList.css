@@ -1,9 +1,14 @@
-#todoList {
+#todoList, #addForm {
   margin: auto;
-  margin-top : 20px; 
-  padding: 20px 20px;
-  width: 30%;
+  margin-top : 15px; 
+  padding: 10px 10px;
+  width: 40%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#addForm table{
+  padding-left: 40px;
+  text-align: left;
 }
 
 #todoList ul {
@@ -12,20 +17,36 @@
 }
 
 .todoItem div{
-  padding: 25px 10px 25px 10px;
+  padding: 20px 10px 20px 10px;
+  
+}
+
+.warning{
+  color: red;
+}
+
+.notWarning{
+  overflow: hidden;
+}
+
+.todoItem{
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .deadline{
-  width:40%;
+  width:30%;
   text-align : center;
   float: right;
   color: white;
   background-color: gray;
-  padding: 1px 8px;
+  padding: 1px 5px;
   border-radius: 7px;
 }
 
 .checked {
   text-decoration: line-through;
+}
+
+button{
+  margin-left: 5px;
 }

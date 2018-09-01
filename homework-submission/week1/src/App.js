@@ -1,31 +1,72 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import TodoList from './TodoList'
 import todoObj from './todo.json';
+import AddForm from './AddForm';
 
 class App extends Component {
   state = {
-    todoObj
+    todoObj,
+    editing: null
   };
 
   checkBoxHandler = (e) => {
-    let id = e.target.id;
-    let todos = Object.assign({}, this.state.todoObj);
-    todos[id - 1].done = !todos[id - 1].done;
-    this.setState({ todos });
+    const idx = e.target.id;
+    const todos = this.state.todoObj;
+    const result = todos.map(item => {
+      if (item.id == idx) item.done = !item.done;
+      return item;
+    });
+    this.setState({ todoObj: result });
+  }
+
+  deleteHandler = (e) => {
+    const idx = e.target.id;
+    const todos = this.state.todoObj;
+    const result = todos.filter(item => item.id != idx);
+    this.setState({ todoObj: result });
+  }
+
+  editHandler = (edit, id) => {
+    const newId = edit ? id : null; // edit = true mean a new todo is now editing, false mean editing cancel.
+    this.setState({ editing: newId })
+  }
+
+  updateHandler = (id, newDescription) => {
+    this.setState({ editing: null });
+    const todos = this.state.todoObj;
+    const result = todos.map(item => {
+      if (item.id == id) item.description = newDescription;
+      return item;
+    });
+    this.setState({ todoObj: result });
+
+  }
+
+  addHandler = (description, deadline) => {
+    const id = this.state.todoObj.length !== 0 ? this.state.todoObj[this.state.todoObj.length - 1].id + 1 : 1;
+    const todo = {
+      id,
+      description,
+      deadline,
+      "done": false
+    }
+    const todos = this.state.todoObj;
+    todos.push(todo);
+    this.setState({ todoObj: todos });
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <div>
-          <TodoList listObj={this.state.todoObj} handler={this.checkBoxHandler} />
-        </div>
+        <TodoList listObj={this.state.todoObj}
+          editing={this.state.editing}
+          checkBoxHandler={this.checkBoxHandler}
+          deleteHandler={this.deleteHandler}
+          editHandler={this.editHandler}
+          updateHandler={this.updateHandler}
+        />
+        <AddForm addHandler={this.addHandler} />
       </div>
     );
   }
