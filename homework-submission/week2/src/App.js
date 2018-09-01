@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
-import ListHeader from './components/ListHeader.jsx';
-// import List from './components/List.jsx';
-// import TodoItem from './components/TodoItem.jsx';
+import ListHeader from './components/ListHeader';
+import List from './components/List';
 import TodoItems from './sources/todoItems.json';
 
 class App extends Component {
   state = {
-    items: localStorage.items !== undefined ? JSON.parse(localStorage.items) : TodoItems
+    items: localStorage.items !== undefined ? JSON.parse(localStorage.items) : TodoItems,
+    newItem: {
+      newId: localStorage.items !== undefined ? (JSON.parse(localStorage.items).length + 1) : (TodoItems.length + 1),
+      newDescription: '',
+      newDeadLine: '',
+      newState: false,
+    }
   };
 
-  handleChecked = id => {
+  handleChecked = (id) => {
     let newState = Object.assign({}, this.state);
     const indexOfItem = newState.items.findIndex(item => item.id === id);
     let targetItem = newState.items[indexOfItem];
@@ -25,8 +30,6 @@ class App extends Component {
 
   componentDidMount() {
     let itemsCopy = localStorage.items;
-    console.log("itemsCopy: ", itemsCopy);
-    // this.setState = { items: localStorage.getItem("items") !== null ? localStorage.getItem("items") : TodoItems };
 
     if (itemsCopy !== undefined) {
       this.setState({ items: JSON.parse(itemsCopy) });
@@ -44,22 +47,10 @@ class App extends Component {
           />
           <ListHeader className="todo-list" Title="Todo List" />
         </header>
-        <ul>
-          {this.state.items.map(item => (
-            <div key={"wrapper" + item.id}>
-              <input
-                key={"checkbox" + item.id}
-                type="checkbox"
-                className={item.done === true ? "checked" : "unchecked"}
-                defaultChecked={item.done}
-                onInput={() => this.handleChecked(item.id)}
-              />
-              <li key={item.id}>
-                {item.description + " deadLine: " + item.deadline}
-              </li>
-            </div>
-          ))}
-        </ul>
+        <List 
+          handleChecked={this.handleChecked}
+          todoItems={this.state.items}
+        />
       </React.Fragment>
     );
   }

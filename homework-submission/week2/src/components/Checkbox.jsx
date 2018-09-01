@@ -1,8 +1,17 @@
 import React from "react";
 
-const Checkbox = (props) => {
-    const { className, defaultChecked } = props;
-    <input type="checkbox" className={className} defaultChecked={defaultChecked} />
-}
+export default class Checkbox extends React.Component{
 
-export default Checkbox;
+    render(){
+        const { type, id, done, handleChecked } = this.props;
+        return (
+            <input
+                key={type + id}
+                type={type}
+                className={done === true ? "checked" : "unchecked"}
+                defaultChecked={done} 
+                onInput={() => handleChecked(id)} 
+            />
+        );
+    }
+}
