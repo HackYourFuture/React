@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import MyList from './myList';
 import AddTodo from './addTodos';
 import stateLists from './listJson.json';
-import Edit from './edit'
+import Edit from './edit';
+import  Todos from './todo'
 class App extends Component {
   constructor(props){
     super(props);
@@ -74,7 +75,8 @@ handleDescriptionUpdate=(index,value)=>{
     description:value
   })
 }
-handlesubmit=()=>{
+handlesubmit=(e)=>{
+  e.preventDefault();
   let todos=this.state.stateLists;
   let id=this.state.id;
   let description=this.state.description;
@@ -105,7 +107,8 @@ render() {
         <h4>home work2</h4>
           {this.state.stateLists.map((list,index)=>
              <ul>
-               <li key={index} ><input type="checkbox" onChange={(event)=>this.onChange(index,event)}/>{list.description +"   "+list.deadline}</li>
+             <li key={index} style={{textDecorationLine:list.done?'line-through':null}}><input type="checkbox" onChange={(event)=>this.onChange(index,event)}/>{list.description +"   "+list.deadline}</li>
+
              </ul>
           )}
           <h4>home work3</h4>
@@ -118,8 +121,7 @@ render() {
                 ondelete={()=>this.onDelete(index)}
                 onedit={()=>this.onEdit(index)}
                 onChange={(event)=>this.onChange(index,event)}>
-                <li>{list.description +"  "+list.deadline}
-                </li>
+                <li>{list.description +"  "+list.deadline}</li>
                 </MyList>
               )}
               { this.state.show && <Edit onUpdate={()=>this.onUpdate()} handleDeadlineChange={this.state.handleDeadlineChange} handleDescriptionChange={this.state.handleDescriptionChange}/>}
