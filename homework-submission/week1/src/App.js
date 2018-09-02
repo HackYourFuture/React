@@ -7,14 +7,14 @@ import AddForm from './AddForm';
 class App extends Component {
   state = {
     todoObj,
-    editing: null
+    editing: -1
   };
 
   checkBoxHandler = (e) => {
     const idx = e.target.id;
     const todos = this.state.todoObj;
     const result = todos.map(item => {
-      if (item.id == idx) item.done = !item.done;
+      if (item.id === parseInt(idx, 10)) item.done = !item.done;
       return item;
     });
     this.setState({ todoObj: result });
@@ -23,20 +23,20 @@ class App extends Component {
   deleteHandler = (e) => {
     const idx = e.target.id;
     const todos = this.state.todoObj;
-    const result = todos.filter(item => item.id != idx);
+    const result = todos.filter(item => item.id !== parseInt(idx, 10));
     this.setState({ todoObj: result });
   }
 
   editHandler = (edit, id) => {
-    const newId = edit ? id : null; // edit = true mean a new todo is now editing, false mean editing cancel.
+    const newId = edit ? id : -1; // edit = true mean a new todo is now editing, false mean editing cancel.
     this.setState({ editing: newId })
   }
 
   updateHandler = (id, newDescription) => {
-    this.setState({ editing: null });
+    this.setState({ editing: -1 });
     const todos = this.state.todoObj;
     const result = todos.map(item => {
-      if (item.id == id) item.description = newDescription;
+      if (item.id === parseInt(id, 10)) item.description = newDescription;
       return item;
     });
     this.setState({ todoObj: result });

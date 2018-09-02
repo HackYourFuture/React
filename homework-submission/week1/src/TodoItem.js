@@ -22,7 +22,7 @@ class TodoItem extends React.Component {
 
   render() {
     const todo = this.props.todo;
-    const edit = this.props.editing == todo.id;
+    const edit = this.props.editing === todo.id;
     let content = edit ? <input type='text' defaultValue={todo.description} onChange={this.changHandler} /> : todo.description;
     return (
       <li className='todoItem'>
