@@ -1,0 +1,23 @@
+.todo_item {
+  clear: both;
+}
+.labels_checkbox {
+  float: left;
+}
+
+.buttons_container {
+  float: right;
+  margin-right: 10%;
+}
+
+.display_style {
+  display: inline-block;
+}
+
+.editing_style {
+  display: none;
+}
+
+.remove_button {
+  display: inline-block;
+}
