@@ -4,22 +4,11 @@ import "./list.css";
 import { Edit, Update, Remove } from "./UserAction";
 
 export default class ListItems extends Component {
-  state = {
-    actions: {
-      editClicked: false
-    }
-  };
-  handleEdit = (e, item) => {
-    let { actions } = this.state;
-    actions.editClicked = !this.state.actions.editClicked;
-    this.setState({ actions });
-  };
-
   render() {
     const {
       dataModel,
       handleCheck,
-      // handleEdit,
+      handleEdit,
       handleRemove,
       handleUpdate,
       actions
@@ -33,8 +22,8 @@ export default class ListItems extends Component {
         />
         <Item todo={entity} />
         <span className="user-action-wrapper">
-          <Edit todo={entity} handleEdit={this.handleEdit} actions={actions} />
-          {this.state.actions.editClicked && <Update />}
+          <Edit todo={entity} handleEdit={handleEdit} actions={actions} />
+          {actions.editClicked && <Update />}
           <Remove todoIndex={i} handleRemove={handleRemove} />
         </span>
       </React.Fragment>

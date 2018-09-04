@@ -9,7 +9,8 @@ export default class App extends Component {
     todos: todosJSON,
     newTodo: {
       description: "",
-      deadline: ""
+      deadline: undefined,
+      id: undefined
     },
     actions: {
       editClicked: false
@@ -20,38 +21,44 @@ export default class App extends Component {
     this.setState({ item });
   };
 
-  // handleEdit = (e, item) => {
-  //   console.log(item);
-  //   console.log("target: ", e.target);
-
-  //   let { actions } = this.state;
-  //   actions.editClicked = !this.state.actions.editClicked;
-  //   this.setState({ actions });
-  // };
+  handleEdit = (e, item) => {
+    const { actions } = this.state;
+    actions.editClicked = !this.state.actions.editClicked;
+    this.setState({ actions });
+  };
 
   handleUpdate = () => {};
 
   handleSubmit = e => {
+    e.preventDefault();
     let { todos } = this.state;
+    let { description, deadline, id } = this.state.newTodo;
+    if (!description || !deadline) return;
     let newTodo = {
-      description: this.state.newTodo.description,
-      deadline: this.state.newTodo.deadline,
+      description,
+      deadline,
       id: this.state.newTodo.id || this.state.todos.length + 1, // only because we're working with fake api data
       done: false
     };
     todos = [...todos, newTodo];
     newTodo = {
       description: "",
-      deadline: ""
+      deadline: undefined
     };
     this.setState({ todos, newTodo });
-    e.preventDefault();
   };
 
   handleRemove = index => {
     console.log("should remove ", index);
-    const newTodos = this.state.todos.filter((item, i) => i !== index);
+    const { todos } = this.state;
+    const newTodos = todos.filter((item, i) => i !== index);
+    const removedTodo = todos[index];
     this.setState({ todos: newTodos });
+
+    //TODO: display this message when removing with undo button,
+    // when clicked it reassign the removed todo to the todos array
+    // this.setState({ todos })
+    console.log(`you removed '${removedTodo.description}', undo?`);
   };
 
   handleNewDescription = e => {
@@ -70,19 +77,19 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
+        <List
+          dataModel={this.state.todos}
+          handleCheck={this.handleCheck}
+          handleEdit={this.handleEdit}
+          handleUpdate={this.handleUpdate}
+          handleRemove={this.handleRemove}
+          actions={this.state.actions}
+        />
         <NewTodoForm
           newTodo={this.state.newTodo}
           handleSubmit={this.handleSubmit}
           handleNewDescription={this.handleNewDescription}
           handleNewDeadline={this.handleNewDeadline}
-        />
-        <List
-          dataModel={this.state.todos}
-          handleCheck={this.handleCheck}
-          // handleEdit={this.handleEdit}
-          handleUpdate={this.handleUpdate}
-          handleRemove={this.handleRemove}
-          actions={this.state.actions}
         />
       </div>
     );
