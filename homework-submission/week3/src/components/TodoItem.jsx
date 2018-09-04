@@ -9,12 +9,14 @@ export default class TodoItem extends Component {
           type="text"
           label="update description:"
           value={this.props.newDescription}
+          placeholder={this.props.description}
           handleChange={this.props.handleDescriptionChange}
         />
         <InputField
           type="date"
           label="update deadline:"
           value={this.props.newDate}
+          placeholder={this.props.date}
           handleChange={this.props.handleDeadLineChange}
         />
       </li>)
