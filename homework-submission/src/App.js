@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import MyList from './myList';
 import AddTodo from './addTodos';
 import stateLists from './listJson.json';
-import Edit from './edit'
+import Edit from './edit';
+import  Todos from './todo'
 class App extends Component {
   constructor(props){
     super(props);
@@ -13,23 +14,28 @@ class App extends Component {
     schedules:[{'description':'','deadline':''}],
   description:'',
   deadline:'',
-  active:false,
+  textDecorationLine:'',
   nextId:3,
-  show:false
+  show:false,
+  textDecorationLine:''
   }
 onChange=(index,event)=>{
-  let myCopyOfData=this.state.stateLists;
-  if(event.target.checked===true){
-    myCopyOfData[index].done=true;
+  let data=this.state.stateLists;
+  var mystyle={
+    textDecorationLine:"line-through"
+  }
+  if(event.target.checked==true){
+    data[index].done=true;
     this.setState({
-      active:true
+      stateLists:data,
+      textDecorationLine:'line-through'
     })
   }else{
-    myCopyOfData[index].done=false
+   data[index].done=false;
     this.setState({
-      active:false
+      stateLists:data,
+      textDecorationLine:''
     })
-
   }
 }
 onUpdate=(index)=>{
@@ -44,30 +50,43 @@ onDelete=(index)=>{
 onEdit=(index)=>{
   let myCopyOfData= this.state.stateLists
   let myCopyOfData2=this.state
-//  alert(myCopyOfData.stateLists[index].description)
-const {show}=this.state;
+  const {show}=this.state;
   myCopyOfData[index].description=myCopyOfData[index].description;
   myCopyOfData[index].deadline=myCopyOfData[index].deadline;
   myCopyOfData2.description=myCopyOfData[index].description
   this.setState({
-    description:myCopyOfData.description,
-    deadline:myCopyOfData.deadline,
+    description:myCopyOfData[index].description.toString(),
+    deadline:myCopyOfData[index].deadline,
     show:!show
   })
 
 }
-handlesubmit=()=>{
-
-  if(this.state.description==='' || this.state.deadline===''){
-     return alert("Enter description and Deadline")
-  }
-  let todos=this.state.stateLists.slice();
-  todos.push({id:this.state.nextId,description:this.state.description,deadline:this.state.deadline});
+handleDeadlineUpdate=(index,value)=>{
+  let myCopyOfData=this.state.stateLists;
+  value=myCopyOfData[index].deadline
+  this.setState({
+    deadline:value
+  })
+}
+handleDescriptionUpdate=(index,value)=>{
+  let myCopyOfData=this.state.stateLists;
+  value=myCopyOfData[index].description
+  this.setState({
+    description:value
+  })
+}
+handlesubmit=(e)=>{
+  e.preventDefault();
+  let todos=this.state.stateLists;
+  let id=this.state.id;
+  let description=this.state.description;
+  let deadline=this.state.deadline;
+  let mydata={id:id,description:description,deadline:deadline}
+  todos.push(mydata);
   this.setState({
     stateLists:todos,
     nextId:++this.state.nextId
    });
-   console.log("hello")
 }
 handleDeadlineChange=(value)=>{
   this.setState({
@@ -79,28 +98,22 @@ handleDescriptionChange=(value)=>{
     description:value
   })
 }
-handleDeadlineUpdate=(index,value)=>{
-  let myCopyOfData=this.state.stateLists;
-  this.setState({
-    deadline:myCopyOfData[index].deadline
-  })
-}
-handleDescriptionUpdate=(index,value)=>{
-  let myCopyOfData=this.state.stateLists;
-  this.setState({
-    description:myCopyOfData[index].description
-  })
-
-}
-
 render() {
     return (
       <div className="App App-intro text-center">
         <header className="App-header text-center">
         <h1>to do list</h1>
         </header>
-          <MyList style={{textDecorationLine:'line-through'}} description={this.state.stateLists[0].description} deadline={this.state.stateLists[0].deadline}>{this.state.stateLists[0].description}</MyList>
+        <h4>home work2</h4>
+          {this.state.stateLists.map((list,index)=>
+             <ul>
+             <li key={index} style={{textDecorationLine:list.done?'line-through':null}}><input type="checkbox" onChange={(event)=>this.onChange(index,event)}/>{list.description +"   "+list.deadline}</li>
+             </ul>
+          )}
           <h4>home work3</h4>
+          <AddTodo handleDescriptionChange={this.handleDescriptionChange}
+            handleDeadlineChange={this.handleDeadlineChange}
+            handlesubmit={this.handlesubmit}/>
               {this.state.stateLists.map((list,index)=>
                 <MyList key={index} description={list.description}
                 deadline={list.deadline}
@@ -108,15 +121,9 @@ render() {
                 onedit={()=>this.onEdit(index)}
                 onChange={(event)=>this.onChange(index,event)}>
                 <li>{list.description +"  "+list.deadline}</li>
-
                 </MyList>
-
               )}
-            <AddTodo handleDescriptionChange={this.handleDescriptionChange}
-              handleDeadlineChange={this.handleDeadlineChange}
-              handlesubmit={this.handlesubmit}
-              />
-        {this.state.show && <Edit/>}
+              { this.state.show && <Edit onUpdate={()=>this.onUpdate()} handleDeadlineChange={this.state.handleDeadlineChange} handleDescriptionChange={this.state.handleDescriptionChange}/>}
       </div>
     );
   }

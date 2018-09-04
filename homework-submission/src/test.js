@@ -6,3 +6,13 @@
  // -----------
  // <input type="text" value={this.props.description} onChange={(e)=>this.props.handleDescriptionUpdate(e.target.value)}/>
  // <input type="text" value={this.props.deadline} onChange={(e)=>this.props.handleDeadlineUpdate(e.target.value)}/><button onClick={this.props.onupdate}>update</button>
+
+
+ // <MyList key={index} description={list.description}
+ // deadline={list.deadline}
+ // ondelete={()=>this.onDelete(index)}
+ // onedit={()=>this.onEdit(index)}
+ // onChange={(event)=>this.onChange(index,event)}>
+ // <li>{list.description +"  "+list.deadline}
+ // </li>
+ // </MyList>
