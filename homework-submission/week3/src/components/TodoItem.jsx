@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
+import InputField from './InputField';
 
 export default class TodoItem extends Component {
   render() {
-    return (
-    <li key={this.props.id}>
-      <span contentEditable={this.props.contentEditable} >
-        {this.props.description}
-        </span>
-      {` deadline: `}
-      <span contentEditable={this.props.contentEditable} type="date">
-        {this.props.date}
-      </span>
-    </li>
-    );
+    const contentElement = this.props.contentEditable ? 
+      (<li key={this.props.id}>
+        <InputField
+          type="text"
+          label="update description:"
+          value={this.props.newDescription}
+          handleChange={this.props.handleDescriptionChange}
+        />
+        <InputField
+          type="date"
+          label="update deadline:"
+          value={this.props.newDate}
+          handleChange={this.props.handleDeadLineChange}
+        />
+      </li>)
+      : (<li key={this.props.id}>
+          <span>{this.props.description}</span>
+          <span> deadline: </span>
+          <span>{this.props.date}</span>
+        </li>)
+    ;
+    
+    return contentElement;
   }
 }

@@ -5,7 +5,12 @@ export default class InputField extends React.Component {
         return (
         <label>
             {this.props.label}
-            <input type={this.props.type} value={this.props.value} onChange={(e) => this.props.handleChange(e.target.value)} />
+            <input 
+                type={this.props.type} 
+                value={this.props.value} 
+                placeholder={this.props.placeholder}
+                onChange={(e) => this.props.handleChange(e.target.value)} 
+            />
         </label>
         );
     }   
