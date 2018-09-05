@@ -1,0 +1,21 @@
+.calendar-nav button {
+  padding: 5px;
+  background-color: black;
+  color: white;
+  margin: 10px;
+  cursor: pointer;
+  outline: none;
+}
+.time {
+  display: none;
+}
+.datetime-picker {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+.calendar {
+  margin-left: -10px;
+}
+.calendar-nav {
+  font-weight: bold;
+}
