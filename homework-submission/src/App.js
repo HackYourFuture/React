@@ -1,131 +1,99 @@
+
 import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import { observer,inject}  from 'mobx-react';
 import MyList from './myList';
 import AddTodo from './addTodos';
-import stateLists from './listJson.json';
-import Edit from './edit';
-import  Todos from './todo'
+import Edit from './edit'
+@inject("StoreTodo")
+@observer
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state=this.state
-  }
+//state for editing purpose only
   state={
-    stateLists,
-    schedules:[{'description':'','deadline':''}],
-  description:'',
-  deadline:'',
-  textDecorationLine:'',
-  nextId:3,
-  show:false,
-  textDecorationLine:''
+    description:'',
+    deadline:'',
+    index:'',
+    showEdit:false
   }
-onChange=(index,event)=>{
-  let data=this.state.stateLists;
-  var mystyle={
-    textDecorationLine:"line-through"
+  onChange=(index,event)=>{
+    return this.props.StoreTodo.onChange(index,event)
   }
-  if(event.target.checked==true){
-    data[index].done=true;
+  handleDeadlineChange=(value)=>{
+   return this.props.StoreTodo.handleDeadlineChange(value)
+  }
+  handleDescriptionChange=(value)=>{
+   return this.props.StoreTodo.handleDescriptionChange(value)
+  }
+  handlesubmit=(e)=>{
+   e.preventDefault();
+   let description=this.props.StoreTodo.todos.description;
+   let deadline=this.props.StoreTodo.todos.deadline;
+   let mydata={description:description,deadline:deadline}
+   return this.props.StoreTodo.handlesubmit(mydata)
+  }
+  onDelete=(index)=>{
+    this.props.StoreTodo.todoCount
+   return this.props.StoreTodo.onDelete(index)
+  }
+  onEdit=async(index,description,deadline)=>{
     this.setState({
-      stateLists:data,
-      textDecorationLine:'line-through'
+      description:this.props.StoreTodo.todos.stateLists[index].description,
+      deadline:this.props.StoreTodo.todos.stateLists[index].deadline,
+      index:index
     })
-  }else{
-   data[index].done=false;
-    this.setState({
-      stateLists:data,
-      textDecorationLine:''
-    })
-  }
-}
-onUpdate=(index)=>{
-  alert(index+" update")
-}
-onDelete=(index)=>{
-  let myCopyOfData=this.state.stateLists;
-  myCopyOfData.splice(index, 1);
-  alert("deleted")
-  this.setState({myCopyOfData})
-}
-onEdit=(index)=>{
-  let myCopyOfData= this.state.stateLists
-  let myCopyOfData2=this.state
-  const {show}=this.state;
-  myCopyOfData[index].description=myCopyOfData[index].description;
-  myCopyOfData[index].deadline=myCopyOfData[index].deadline;
-  myCopyOfData2.description=myCopyOfData[index].description
-  this.setState({
-    description:myCopyOfData[index].description.toString(),
-    deadline:myCopyOfData[index].deadline,
-    show:!show
-  })
-
-}
-handleDeadlineUpdate=(index,value)=>{
-  let myCopyOfData=this.state.stateLists;
-  value=myCopyOfData[index].deadline
-  this.setState({
-    deadline:value
-  })
-}
-handleDescriptionUpdate=(index,value)=>{
-  let myCopyOfData=this.state.stateLists;
-  value=myCopyOfData[index].description
-  this.setState({
-    description:value
-  })
-}
-handlesubmit=(e)=>{
-  e.preventDefault();
-  let todos=this.state.stateLists;
-  let id=this.state.id;
-  let description=this.state.description;
-  let deadline=this.state.deadline;
-  let mydata={id:id,description:description,deadline:deadline}
-  todos.push(mydata);
-  this.setState({
-    stateLists:todos,
-    nextId:++this.state.nextId
-   });
-}
-handleDeadlineChange=(value)=>{
-  this.setState({
-    deadline:value
-  })
-}
-handleDescriptionChange=(value)=>{
-  this.setState({
-    description:value
-  })
-}
-render() {
+    this.state.showEdit=true
+   }
+   onUpdate=(e)=>{
+    e.preventDefault();
+    let copy=this.state
+     return this.props.StoreTodo.onUpdate(copy.description,copy.deadline,copy.index);
+   }
+   onUpdateDescription=(e)=>{
+     this.setState({
+       description:e.target.value
+     })
+   }
+   onUpdateDeadline=(e)=>{
+     this.setState({
+       deadline:e.target.value
+     })
+   }
+  render() {
     return (
-      <div className="App App-intro text-center">
-        <header className="App-header text-center">
-        <h1>to do list</h1>
-        </header>
-        <h4>home work2</h4>
-          {this.state.stateLists.map((list,index)=>
-             <ul>
-             <li key={index} style={{textDecorationLine:list.done?'line-through':null}}><input type="checkbox" onChange={(event)=>this.onChange(index,event)}/>{list.description +"   "+list.deadline}</li>
-             </ul>
-          )}
-          <h4>home work3</h4>
-          <AddTodo handleDescriptionChange={this.handleDescriptionChange}
-            handleDeadlineChange={this.handleDeadlineChange}
-            handlesubmit={this.handlesubmit}/>
-              {this.state.stateLists.map((list,index)=>
-                <MyList key={index} description={list.description}
-                deadline={list.deadline}
-                ondelete={()=>this.onDelete(index)}
-                onedit={()=>this.onEdit(index)}
-                onChange={(event)=>this.onChange(index,event)}>
-                <li>{list.description +"  "+list.deadline}</li>
-                </MyList>
-              )}
-              { this.state.show && <Edit onUpdate={()=>this.onUpdate()} handleDeadlineChange={this.state.handleDeadlineChange} handleDescriptionChange={this.state.handleDescriptionChange}/>}
+      <div className="App App-intro text-center container row">
+      <header>
+            <h1>toDo list</h1>
+      </header><br/>
+      <div className="col-lg-7">
+        <AddTodo handleDescriptionChange={this.handleDescriptionChange}
+         handleDeadlineChange={this.handleDeadlineChange}
+         handlesubmit={this.handlesubmit}/>
+        {this.props.StoreTodo.todos.stateLists.map((list,index)=>
+         <li style={{textDecorationLine:list.done?'line-through':null}}>
+             <MyList key={index}
+             description={list.description}
+             deadline={list.deadline}
+              ondelete={()=>this.onDelete(index)}
+              onedit={()=>this.onEdit(index,list.description,list.deadline)}
+              onChange={(event)=>this.onChange(index,event)}></MyList>
+
+         </li>
+        )}
+         {this.state.showEdit &&
+           <form>
+           <p>Hee,you are editing {"     '"+this.state.description +" "+ this.state.deadline+"'!,    Okay, modify it and click update button."}</p>
+              <input type="text" onChange={this.onUpdateDescription} value={this.state.description}/>
+              <input type="text" onChange={this.onUpdateDeadline} value={this.state.deadline} />
+              <button onClick={(e)=>this.onUpdate(e)}>update</button>
+           </form>}
+
+      </div>
+
+
       </div>
     );
   }
 }
-export default App;
+
+export default observer(App);
