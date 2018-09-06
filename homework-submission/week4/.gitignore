@@ -16,6 +16,16 @@
 .env.test.local
 .env.production.local
 
+.vscode/launch.json
+package.json
+package-lock.json
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#gitignore
+.gitignore
+
+#readme
+README.md
