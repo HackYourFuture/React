@@ -14,23 +14,21 @@ class App extends Component {
 
   render() {
     const { BooksStore } = this.props;
-    return (
-      <div className="App">
+    return <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Book Store</h1>
         </header>
         <h1>You have {BooksStore.bookCount} Books</h1>
         <form onSubmit={e => this.handleSubmit(e)}>
-          <input type="text" placeholder="Add a book" name="bookName" ref={input => (this.bookName = input)} />
+          <input type="text" placeholder="Add a book" name="bookName" ref={input => (this.bookName = input)} value={BooksStore.books[BooksStore.books.length]} />
         </form>
         <ul>
           {BooksStore.books.map((book, index) => (
             <li key={index}>{book}</li>
           ))}
         </ul>
-      </div>
-    );
+      </div>;
   }
 }
 
