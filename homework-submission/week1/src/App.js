@@ -10,10 +10,13 @@ class App extends Component {
   };
 
   checkBoxHandler = (e) => {
-    let id = e.target.id;
-    let todos = Object.assign({}, this.state.todoObj);
-    todos[id - 1].done = !todos[id - 1].done;
-    this.setState({ todos });
+    const idx = e.target.id;
+    const todos = this.state.todoObj;
+    const result = todos.map(item => {
+      if (item.id === parseInt(idx, 10)) item.done = !item.done;
+      return item;
+    });
+    this.setState({ todoObj: result });
   }
 
   render() {
