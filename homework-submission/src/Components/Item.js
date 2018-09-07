@@ -3,8 +3,8 @@ import React, { Component } from "react";
 export default class Item extends Component {
   render() {
     const { todo } = this.props;
-    let style =
-      todo.done === true
+    const style =
+      todo.done
         ? {
             textDecoration: "line-through wavy black",
             color: "#aaa",
