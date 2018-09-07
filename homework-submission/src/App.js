@@ -5,7 +5,7 @@ import List from "./Components/List";
 
 export default class App extends Component {
   state = {
-    todos: todosJSON
+    todos: [...todosJSON]
   };
 
   handleChecked = item => {
