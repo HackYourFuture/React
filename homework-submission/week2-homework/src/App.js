@@ -26,7 +26,7 @@ class App extends React.Component {
           key={index}
           done={todo.done}
           onClick={() => {
-            this.handleClick(index);
+            this.handleClick(todo.id);
           }}
         />
       </TodoItem>
