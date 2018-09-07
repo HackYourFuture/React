@@ -23,7 +23,7 @@ class TodoClass {
   };
 
   @action
-  AddTodo = newTodo => {
+  addTodo = newTodo => {
     let todoItems = this.todos.slice();
     todoItems.push({
       id: uuidv4(),

@@ -6,7 +6,7 @@ class AddTodoForm extends React.Component {
     if (newTodo === "") {
       return "";
     }
-    this.props.AddTodo(newTodo);
+    this.props.addTodo(newTodo);
     this.enteredTodo.focus();
     this.enteredTodo.value = "";
   };

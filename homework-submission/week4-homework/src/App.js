@@ -40,7 +40,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <AddTodoForm AddTodo={TodoStore.AddTodo} />
+        <AddTodoForm addTodo={TodoStore.addTodo} />
         {contentToDisplay}
       </div>
     );
