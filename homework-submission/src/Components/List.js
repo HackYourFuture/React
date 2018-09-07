@@ -15,7 +15,7 @@ export default class ListItems extends Component {
               <React.Fragment key={i}>
                 <input
                   type="checkbox"
-                  checked={entity.done ? true : false}
+                  checked={entity.done}
                   onChange={() => handleChecked(entity)}
                 />
                 <Item todo={entity} />
