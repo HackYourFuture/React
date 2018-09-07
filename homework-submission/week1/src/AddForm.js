@@ -1,8 +1,11 @@
 import React from "react";
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-
 import 'react-datepicker/dist/react-datepicker.css';
+import { observer, inject } from 'mobx-react';
+
+@inject('todos')
+@observer
 
 class AddForm extends React.Component {
   constructor(props) {
@@ -31,7 +34,7 @@ class AddForm extends React.Component {
       this.setState({ warn: true });
       return;
     }
-    this.props.addHandler(this.state.description, this.state.deadline.format('YYYY-MM-DD'));
+    this.props.todos.addHandler(this.state.description, this.state.deadline.format('YYYY-MM-DD'));
     this.setState({ description: '' });
     this.setState({ deadline: moment() });
     this.setState({ warn: false });
