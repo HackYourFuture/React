@@ -7,10 +7,18 @@ export default class App extends Component {
   state = {
     todos: todosJSON
   };
+
   handleChecked = item => {
-    item.done = !item.done;
-    this.setState({ item });
+    const { todos } = this.state;
+    const newlist = todos.map(todo => {
+      if (todo.id === item.id) {
+        item.done = !todo.done;
+      }
+      return todo;
+    });
+    this.setState({ todos: newlist });
   };
+
   render() {
     return (
       <div className="App">
