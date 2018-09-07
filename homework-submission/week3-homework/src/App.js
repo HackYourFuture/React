@@ -6,28 +6,29 @@ import Checkbox from "./components/Checkbox";
 import todos from "./source/todos.json";
 import Header from "./components/Header";
 import AddTodoForm from "./components/AddTodoForm";
+import uuidv4 from "uuid/v4";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.AddTodo = this.AddTodo.bind(this);
-    this.deleteTodo = this.deleteTodo.bind(this);
-    this.updateTodo = this.updateTodo.bind(this);
-  }
-  handleClick(id) {
-    let todos = this.state.todos.slice();
-    let foundTodo = todos.find(todo => id === todo.id);
-    foundTodo.done = !foundTodo.done;
-    this.setState({ todos: todos });
-  }
+  state = {
+    todos
+  };
 
-  AddTodo(newTodo) {
+  handleClick = id => {
+    let todos = this.state.todos.map(todo => {
+      if (id === todo.id) {
+        return {
+          ...todo,
+          done: !todo.done
+        };
+      }
+
+      return todo;
+    });
+    this.setState({ todos: todos });
+  };
+
+  AddTodo = newTodo => {
     let todos = this.state.todos.slice();
-    const uuidv4 = require("uuid/v4");
     todos.push({
       id: uuidv4(),
       description: newTodo,
@@ -35,32 +36,37 @@ class App extends React.Component {
     });
 
     this.setState({ todos: todos });
-  }
+  };
 
-  deleteTodo(todo) {
+  deleteTodo = todo => {
     let todos = this.state.todos.slice();
     let index = todos.indexOf(todo);
     todos.splice(index, 1);
     this.setState({
       todos: todos
     });
-  }
+  };
 
-  updateTodo(oldTodo, newTodo) {
-    const foundTodo = this.state.todos.find(
-      todo => todo.description === oldTodo
-    );
-    foundTodo.description = newTodo;
+  updateTodo = (oldTodo, newTodo) => {
+    let todos = this.state.todos.map(todo => {
+      if (todo.description === oldTodo) {
+        return {
+          ...todo,
+          description: newTodo
+        };
+      }
 
-    this.setState({ todos: this.state.todos });
-  }
+      return todo;
+    });
+
+    this.setState({ todos: todos });
+  };
 
   render() {
     let todoItems = this.state.todos.map((todo, index) => (
       <TodoItem
         key={index}
         {...todo}
-        index={index}
         onRemove={() => {
           this.deleteTodo(todo);
         }}
@@ -72,7 +78,6 @@ class App extends React.Component {
           onClick={() => {
             this.handleClick(todo.id);
           }}
-          index={index}
         />
       </TodoItem>
     ));
