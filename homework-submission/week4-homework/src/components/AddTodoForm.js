@@ -1,10 +1,6 @@
 import React from "react";
 class AddTodoForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onAddTodo = this.onAddTodo.bind(this);
-  }
-  onAddTodo(e) {
+  onAddTodo = e => {
     e.preventDefault();
     let newTodo = this.enteredTodo.value;
     if (newTodo === "") {
@@ -13,7 +9,7 @@ class AddTodoForm extends React.Component {
     this.props.AddTodo(newTodo);
     this.enteredTodo.focus();
     this.enteredTodo.value = "";
-  }
+  };
   render() {
     return (
       <form onSubmit={this.onAddTodo} className="AddTodoForm">
@@ -21,6 +17,7 @@ class AddTodoForm extends React.Component {
           type="text"
           placeholder="Enter todo"
           ref={el => (this.enteredTodo = el)}
+          defaultValue=""
         />
         <button> Add </button>
       </form>

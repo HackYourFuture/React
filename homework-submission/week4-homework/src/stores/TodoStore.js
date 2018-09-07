@@ -1,7 +1,8 @@
 import { observable, action, computed } from "mobx";
 import todos from "../source/todos.json";
 import { configure } from "mobx";
-configure({ enforceActions: true });
+import uuidv4 from "uuid/v4";
+configure({ enforceActions: "observed" });
 
 class TodoClass {
   @observable
@@ -9,15 +10,21 @@ class TodoClass {
 
   @action
   toggleDone = id => {
-    let todoItems = this.todos.slice();
-    let foundTodo = todoItems.find(todo => id === todo.id);
-    foundTodo.done = !foundTodo.done;
+    let todoItems = this.todos.map(todo => {
+      if (id === todo.id) {
+        return {
+          ...todo,
+          done: !todo.done
+        };
+      }
+      return todo;
+    });
     this.todos = todoItems;
   };
+
   @action
   AddTodo = newTodo => {
     let todoItems = this.todos.slice();
-    const uuidv4 = require("uuid/v4");
     todoItems.push({
       id: uuidv4(),
       description: newTodo,
@@ -32,9 +39,16 @@ class TodoClass {
   };
   @action
   updateTodo = (oldTodo, newTodo) => {
-    const foundTodo = this.todos.find(todo => todo.description === oldTodo);
-    foundTodo.description = newTodo;
-    this.todos = this.todos;
+    const todoItems = this.todos.map(todo => {
+      if (todo.description === oldTodo) {
+        return {
+          ...todo,
+          description: newTodo
+        };
+      }
+      return todo;
+    });
+    this.todos = todoItems;
   };
 
   @computed

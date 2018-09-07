@@ -1,28 +1,23 @@
 import React from "react";
 import Deadline from "./Deadline";
 class TodoItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isEditing: false
-    };
-    this.OnEdit = this.OnEdit.bind(this);
-    this.onCancel = this.onCancel.bind(this);
-    this.onUpdateClick = this.onUpdateClick.bind(this);
-  }
-  OnEdit() {
+  state = {
+    isEditing: false
+  };
+
+  OnEdit = () => {
     this.setState({ isEditing: true });
-  }
-  onCancel() {
+  };
+  onCancel = () => {
     this.setState({ isEditing: false });
-  }
-  onUpdateClick(e) {
+  };
+  onUpdateClick = e => {
     e.preventDefault();
     let oldTodo = this.props.description;
     let newTodo = this.editedTodo.value;
     this.props.onUpdate(oldTodo, newTodo);
     this.setState({ isEditing: false });
-  }
+  };
   renderButtons() {
     if (this.state.isEditing) {
       return (
@@ -58,11 +53,7 @@ class TodoItem extends React.Component {
       );
     }
     return (
-      <td
-        key={this.props.index}
-        style={done ? listStyle : {}}
-        className="todos-td"
-      >
+      <td style={done ? listStyle : {}} className="todos-td">
         {this.props.children}
         <strong> {this.props.description} </strong>
       </td>

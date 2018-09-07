@@ -17,7 +17,6 @@ class App extends React.Component {
       <TodoItem
         key={index}
         {...todo}
-        index={index}
         onRemove={() => {
           TodoStore.deleteTodo(todo.id);
         }}
@@ -29,7 +28,6 @@ class App extends React.Component {
           onClick={() => {
             TodoStore.toggleDone(todo.id);
           }}
-          index={index}
         />
       </TodoItem>
     ));
