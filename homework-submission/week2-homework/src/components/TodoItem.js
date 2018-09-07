@@ -8,7 +8,7 @@ class TodoItem extends React.Component {
     };
 
     return (
-      <li key={this.props.key} style={done ? listStyle : {}}>
+      <li style={done ? listStyle : {}}>
         <strong> {this.props.description} </strong>, {this.props.deadline}
         {this.props.children}
       </li>

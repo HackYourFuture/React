@@ -8,20 +8,16 @@ import Header from "./components/Header";
 import image from "./todo.jpg";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+  state = {
+    todos
+  };
 
-  handleClick(id) {
+  handleClick = id => {
     let todos = this.state.todos.slice();
     let foundTodo = todos.find(todo => id === todo.id);
     foundTodo.done = !foundTodo.done;
     this.setState({ todos: todos });
-  }
+  };
 
   render() {
     let todoItems = this.state.todos.map((todo, index) => (
