@@ -11,7 +11,7 @@ In this 5 week module we will learn React!
 | 1. | React Components | [JSX](https://reactjs.org/docs/introducing-jsx.html), [Elements](https://reactjs.org/docs/rendering-elements.html), [Components and Props](https://reactjs.org/docs/components-and-props.html) | [W1 Lesson Plan](documentation/lesson-plans/W1-lesson-plan.md) | [W1 Homework](documentation/homework/W1-homework.md) |
 | 2. | State and Lifecycle | [State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html), [Events](https://reactjs.org/docs/handling-events.html), [Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html), [List and Keys](https://reactjs.org/docs/lists-and-keys.html) | [W2 Lesson Plan](documentation/lesson-plans/W2-lesson-plan.md) | [W2 Homework](documentation/homework/W2-homework.md) |
 | 3. | Forms and Managing State | [Forms](https://reactjs.org/docs/forms.html), [Manage State](https://reactjs.org/docs/lifting-state-up.html), [Thinking in React](https://reactjs.org/docs/thinking-in-react.html) | [W3 Lesson Plan](documentation/lesson-plans/W3-lesson-plan.md) | [W3 Homework](documentation/homework/W3-homework.md) |
-| 4. | Flux & MobX | [MobX](https://mobx.js.org/), [Flux Concepts](https://github.com/facebook/flux/tree/master/examples/flux-concepts) | [W4 Lesson Plan](documentation/lesson-plans/W4-lesson-plan.md) | [W4 Homework](documentation/homework/W4-homework.md) |
+| 4. | communication with APIs and data fetching | | [W4 Lesson Plan](documentation/lesson-plans/W4-lesson-plan.md) | [W4 Homework](documentation/homework/W4-homework.md) |
 | 5. | API Integration | [MobX Async Actions](https://mobx.js.org/best/actions.html) |  [W5 Lesson Plan](documentation/lesson-plans/W5-lesson-plan.md) | [W5 Homework](documentation/homework/W5-homework.md) |
 
 ## Read up before we get started
@@ -38,19 +38,6 @@ Please *do not worry about understanding all*. However, do make sure you underst
 Read about React here:
 
 https://facebook.github.io/react/
-
-## Handing in homework
-Take a look at [this video](https://www.youtube.com/watch?v=-o0yomUVVpU&index=2&list=PLVYDhqbgYpYUGxRdtQdYVE5Q8h3bt6SIA) made by Daan, he explains how your homework needs to be handed in.
-
-Also review the Git [workflow material](https://github.com/HackYourFuture/Git/blob/master/Lecture-3.md) from the JavaScript3 module, use this as a reference.
-
-Please read [this doc](homework-submission/HOMEWORK.md) for information on how to where to put your homework for this particular module.
-
-## Slides
-
-Find the slides used in class here:
-
-https://slides.com/joostlubach/react-class/live
 
 ## Learning examples
 
@@ -79,8 +66,8 @@ Demonstrates:
 
 ## Real world example
 
-Have a look at Mattijn's real world React project:
+Have a look at Exemplary real world application built with React + Redux:
 
-https://github.com/mattijnlahuis/beertools
+https://github.com/gothinkster/react-redux-realworld-example-app
 
 *The HackYourFuture curriculum is subject to CC BY copyright. This means you can freely use our materials, but just make sure to give us credit for it :)*
