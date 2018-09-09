@@ -8,7 +8,7 @@ import Store from './Store';
 
 
 const Root = (
-    <Provider store={Store}>
+    <Provider Store={Store}>
         <App />
     </Provider>
 )

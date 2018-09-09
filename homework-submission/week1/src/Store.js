@@ -8,40 +8,27 @@ class Store {
 
   @action
   handler = e => {
-    let todos = this.state.data;
+    let todos = this.data;
     todos[e.target.id -1].done = !todos[e.target.id -1].done;
-    this.setState({
-      todos
-    })
   }
 
   @action
   addTodo = e => {
     e.preventDefault();
-    const {data} = this.state;
     const newTodo = {
-      id: data.length + 1,
+      id: this.data.length + 1,
       description: e.target.description.value,
       deadline: e.target.deadline.value,
       done: false
     };
-    data.push(newTodo)
-    this.setState({
-      data
-    })
+    this.data.push(newTodo)
     e.target.description.value = "";
     e.target.deadline.value = "";
   }
 
   @action
   removeTodo = (i) => {
-    this.state.data.splice(i, 1);
-    console.log(i)
-    this.setState({
-      data: this.state.data
-    })
+    this.data.splice(i, 1);
   }
-
 }
-
-export default new Store;
+export default new Store();
