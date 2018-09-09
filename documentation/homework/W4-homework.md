@@ -1,17 +1,20 @@
 # Homework Week 4
 
-Base your week 4 homework on the result of week 3.
+Base your week 4 homework on what was thought in tne week 4 class .
 
 When you are done, create a new PR for week 4.
 
 ## Outline
 
-Refactor your todo list app so that all state is handled by MobX stores. You _may_ want to keep some form state as local state inside React components. But think carefully about this.
+Extend the project done in class so that:
 
-Make sure to only mutate your store(s) with MobX actions - you will need to move all your handler functions inside your MobX store(s).
+- You show the name and location of the searched github user. (Hint: you need to use this endpoint : https://api.github.com/users)
+- Manipulate the response body object so that your React app can display the name and location of the github user searched.
 
-To use decorators (the `@` syntax) with `create-react-app`, follow this [tutorial](https://swizec.com/blog/mobx-with-create-react-app/swizec/7158).
 
- _You must have MobX strict mode enabled. Any homework submitted without strict mode on will be rejected. You enable strict mode like this:_
- 
-    configure({ enforceActions: true })
+Continue using the github API through this url - https://api.github.com/ - (Hint: use postman to query the github API)
+
+- By querying the above url you will view all the api urls that the github API has. You can try to explore them, we recommend that you read the github API documentation. (https://developer.github.com/v3/#current-version)
+    - You can try to retrieve the repos data from the HackYourFuture-CPH organisation - (Hint: https://api.github.com/users/.../repos)
+    - You can try to display the name of all the repos in your React app
+    - If this is to easy for you... surprise us with your creativity... build up on your project and we will have a look!! ;)
