@@ -27,7 +27,7 @@ class AddForm extends React.Component {
 
   submitHandler(event) {
     event.preventDefault();
-    if (this.state.description.length === 0 || /^\s*$/.test(this.state.description)) {
+    if (/^\s*$/.test(this.state.description)) {
       this.setState({ warn: true });
       return;
     }

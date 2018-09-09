@@ -12,12 +12,16 @@ class App extends Component {
 
   checkBoxHandler = (e) => {
     const idx = e.target.id;
-    const todos = this.state.todoObj;
-    const result = todos.map(item => {
-      if (item.id === parseInt(idx, 10)) item.done = !item.done;
+    const newTodos = this.state.todoObj.map(item => {
+      if (item.id === parseInt(idx, 10)) {
+        return {
+          ...item,
+          done: !item.done
+        };
+      }
       return item;
     });
-    this.setState({ todoObj: result });
+    this.setState({ todoObj: newTodos });
   }
 
   deleteHandler = (e) => {
@@ -34,26 +38,31 @@ class App extends Component {
 
   updateHandler = (id, newDescription) => {
     this.setState({ editing: -1 });
-    const todos = this.state.todoObj;
-    const result = todos.map(item => {
-      if (item.id === parseInt(id, 10)) item.description = newDescription;
+    const newTodos = this.state.todoObj.map(item => {
+      if (item.id === parseInt(id, 10)) {
+        return {
+          ...item,
+          description: newDescription
+        }
+      }
       return item;
     });
-    this.setState({ todoObj: result });
-
+    this.setState({ todoObj: newTodos });
   }
 
   addHandler = (description, deadline) => {
-    const id = this.state.todoObj.length !== 0 ? this.state.todoObj[this.state.todoObj.length - 1].id + 1 : 1;
+    const id = Math.max(...this.state.todoObj.map(todo => todo.id), 0) + 1;
     const todo = {
       id,
       description,
       deadline,
       "done": false
     }
-    const todos = this.state.todoObj;
-    todos.push(todo);
-    this.setState({ todoObj: todos });
+    this.setState({
+      todoObj: [
+        ...this.state.todoObj,
+        todo]
+    });
   }
 
   render() {

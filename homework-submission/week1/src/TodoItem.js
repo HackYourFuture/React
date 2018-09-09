@@ -13,7 +13,7 @@ class TodoItem extends React.Component {
   }
 
   updateHandler = (e) => {
-    if (this.state.description.length === 0 || /^\s*$/.test(this.state.description)) {
+    if (/^\s*$/.test(this.state.description)) {
       this.props.editHandler(false, this.props.todo.id);
       return;
     }
@@ -23,7 +23,7 @@ class TodoItem extends React.Component {
   render() {
     const todo = this.props.todo;
     const edit = this.props.editing === todo.id;
-    let content = edit ? <input type='text' defaultValue={todo.description} onChange={this.changHandler} /> : todo.description;
+    const content = edit ? <input type='text' defaultValue={todo.description} onChange={this.changHandler} /> : todo.description;
     return (
       <li className='todoItem'>
         <div>
@@ -32,9 +32,13 @@ class TodoItem extends React.Component {
             <ItemDeadLine deadline={todo.deadline} />
           </label>
         </div>
-        {!edit && <button onClick={() => this.props.editHandler(true, todo.id)} >Edit</button>}
-        {edit && <button onClick={this.updateHandler} id={todo.id}>Update</button>}
-        {edit && <button onClick={() => this.props.editHandler(false, todo.id)} >Cancel</button>}
+        {edit ?
+          <React.Fragment>
+            <button onClick={this.updateHandler} id={todo.id}>Update</button>
+            <button onClick={() => this.props.editHandler(false, todo.id)} >Cancel</button>
+          </React.Fragment>
+          : <button onClick={() => this.props.editHandler(true, todo.id)} >Edit</button>
+        }
         <button onClick={this.props.deleteHandler} id={todo.id}>Delete</button>
       </li>
     );
