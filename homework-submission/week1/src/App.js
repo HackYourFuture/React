@@ -11,19 +11,15 @@ class App extends Component {
 
   checkBoxHandler = (e) => {
     const idx = e.target.id;
-
-    const todos = this.state.todoObj;
-    const result = todos.map(item => {
-      let newItem = { ...item };
+    const newTodos = this.state.todoObj.map(item => {
       if (item.id === parseInt(idx, 10)) {
-        newItem.done = !item.done;
         return {
           ...item, done: !item.done
         }
       }
-      return newItem;
+      return item;
     });
-    this.setState({ todoObj: result });
+    this.setState({ todoObj: newTodos });
   }
 
   render() {
