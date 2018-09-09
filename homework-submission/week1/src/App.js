@@ -9,8 +9,8 @@ class App extends Component {
     data
   }
 
-    handler = event => {
-      let todos = this.state.data;
+    toggleTodo = event => {
+      let todos = [...this.state.data];
       todos[event.target.id -1].done = !todos[event.target.id -1].done;
       this.setState({
         todos
