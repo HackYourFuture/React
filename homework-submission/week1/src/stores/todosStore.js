@@ -12,10 +12,9 @@ class TodosStore {
 
   @action async checkBoxHandler(id) {
     this.state = 'loading';
-    const ddone = !this.todos.find(item => item._id === id).done;
+    const done = !this.todos.find(item => item._id === id).done;
     try {
-      const nd = await this.patchData(id, { ddone });
-      console.log(nd);
+      await this.patchData(id, { done });
       runInAction(() => {
         const newTodos = this.todos.map(item => {
           if (item._id === id) {
@@ -51,6 +50,7 @@ class TodosStore {
       });
     }
   }
+
   @action editHandler = (id) => {
     this.editing = id ? id : -1;
   }
@@ -120,8 +120,8 @@ class TodosStore {
 
   getData() {
     return fetch('https://hyf-react-api.herokuapp.com/todos')
+      .then(this.handleFetchErrors)
       .then(res => res.json());
-    //  .catch(error => error);
   }
 
   postData(data) {
@@ -132,6 +132,7 @@ class TodosStore {
         'Content-Type': 'application/json'
       }
     })
+      .then(this.handleFetchErrors)
       .then(res => res.json());
   }
 
@@ -139,7 +140,7 @@ class TodosStore {
     return fetch('https://hyf-react-api.herokuapp.com/todos/' + id, {
       method: "DELETE",
     })
-      .then(res => res.json());
+      .then(this.handleFetchErrors)
   }
 
   patchData(id, data) {
@@ -150,7 +151,12 @@ class TodosStore {
         'Content-Type': 'application/json'
       }
     })
-      .then(res => res.json());
+      .then(this.handleFetchErrors)
+  }
+
+  handleFetchErrors(response) {
+    if (!response.ok) throw Error(response.statusText);
+    return response;
   }
 
 }
