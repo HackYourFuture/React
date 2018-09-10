@@ -9,23 +9,24 @@ class App extends Component {
   state = {
     data
   }
-    handler = e => {
-      let todos = this.state.data;
-      todos[e.target.id -1].done = !todos[e.target.id -1].done;
+    toggleTodo = e => {
+      let data = [...this.state.data]
+      data[e.target.id - 1].done = !data[e.target.id - 1].done;
       this.setState({
-        todos
+        data
       })
     }
 
     addTodo = e => {
       e.preventDefault();
-      const {data} = this.state;
+      let data = [...this.state.data]
       const newTodo = {
-        id: data.length + 1,
+        id: Math.random(),
         description: e.target.description.value,
         deadline: e.target.deadline.value,
         done: false
       };
+      
       data.push(newTodo)
       this.setState({
         data
@@ -35,10 +36,10 @@ class App extends Component {
     }
 
     removeTodo = (i) => {
-      this.state.data.splice(i, 1);
-      console.log(i)
+      let data = [...this.state.data] 
+      data.splice(i, 1);
       this.setState({
-        data: this.state.data
+        data
       })
     }
 
@@ -54,7 +55,7 @@ class App extends Component {
           />
         <Todos 
           items = {this.state.data} 
-          handler = {this.handler}
+          handler = {this.toggleTodo}
           remove = {this.removeTodo}
          />
       </div>

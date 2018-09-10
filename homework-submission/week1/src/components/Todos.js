@@ -21,8 +21,7 @@ class Todos extends Component {
               deadline = {item.deadline}
              />
              <RemoveTodo
-             remove = {this.props.remove}
-             i = {id}
+             remove = {this.props.remove.bind(null, id)}
              />
             </div>
           ))}
