@@ -21,9 +21,13 @@ class TodoItem extends React.Component {
             <ItemDeadLine deadline={todo.deadline} />
           </label>
         </div>
-        {!edit && <button onClick={() => editHandler(todo.id)} >Edit</button>}
-        {edit && <button onClick={() => updateHandler(todo.id, this.newDescription.value)} id={todo.id}>Update</button>}
-        {edit && <button onClick={editHandler} >Cancel</button>}
+        {edit ?
+          <React.Fragment>
+            <button onClick={() => updateHandler(todo.id, this.newDescription.value)} id={todo.id}>Update</button>
+            <button onClick={editHandler} >Cancel</button>
+          </React.Fragment>
+          : <button onClick={() => editHandler(todo.id)} >Edit</button>
+        }
         <button onClick={() => deleteHandler(todo.id)} id={todo.id}>Delete</button>
       </li>
     );

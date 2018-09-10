@@ -2,7 +2,7 @@ import { observable, action, configure } from 'mobx';
 import todoObj from '../todo.json';
 
 configure({
-  enforceActions: true
+  enforceActions: 'observed'
 });
 
 class TodosStore {
@@ -10,11 +10,16 @@ class TodosStore {
   @observable editing = -1;
 
   @action checkBoxHandler = (id) => {
-    const result = this.todos.map(item => {
-      if (item.id === parseInt(id, 10)) item.done = !item.done;
+    const newTodos = this.todos.map(item => {
+      if (item.id === parseInt(id, 10)) {
+        return {
+          ...item,
+          done: !item.done
+        };
+      }
       return item;
     });
-    this.todos = result;
+    this.todos = newTodos;
   }
 
   @action deleteHandler = (id) => {
@@ -28,17 +33,23 @@ class TodosStore {
 
   @action updateHandler = (id, newDescription) => {
     this.editing = -1;
-    if (!(newDescription.length === 0 || /^\s*$/.test(newDescription))) {
-      const result = this.todos.map(item => {
-        if (item.id === parseInt(id, 10)) item.description = newDescription;
-        return item;
-      });
-      this.todos = result;
-    }
+    if (/^\s*$/.test(newDescription))
+      return;
+    const newTodos = this.todos.map(item => {
+      if (item.id === parseInt(id, 10)) {
+        return {
+          ...item,
+          description: newDescription
+        };
+      }
+      return item;
+    });
+    this.todos = newTodos;
+
   }
 
   @action addHandler = (description, deadline) => {
-    const id = this.todos.length !== 0 ? this.todos[this.todos.length - 1].id + 1 : 1;
+    const id = Math.max(...this.todos.map(todo => todo.id), 0) + 1;
     const todo = {
       id,
       description,
