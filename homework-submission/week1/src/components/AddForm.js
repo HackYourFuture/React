@@ -34,7 +34,7 @@ class AddForm extends React.Component {
       this.setState({ warn: true });
       return;
     }
-    this.props.todos.addHandler(this.state.description, this.state.deadline.format('YYYY-MM-DD'));
+    this.props.todos.addHandler(this.state.description, this.state.deadline.format());
     this.setState({ description: '' });
     this.setState({ deadline: moment() });
     this.setState({ warn: false });

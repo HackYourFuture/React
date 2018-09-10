@@ -7,8 +7,7 @@ import { observer, inject } from 'mobx-react';
 class CheckBox extends React.Component {
   render() {
     const { todo } = this.props;
-    const { checkBoxHandler } = this.props.todos;
-    return <input type="checkbox" onChange={() => checkBoxHandler(todo.id)} id={todo.id} checked={todo.done} />;
+    return <input type="checkbox" onChange={() => this.props.todos.checkBoxHandler(todo._id)} id={todo._id} checked={todo.done} />;
   }
 }
 
