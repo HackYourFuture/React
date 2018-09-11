@@ -9,12 +9,13 @@ import { inject, observer } from 'mobx-react';
 @observer
 class App extends Component {
     render() {
-      const {
-        handler,
+      let {
         addTodo,
+        toggleTodo,
         removeTodo,
         data
       } = this.props.Store;
+
 
     return (
       <div className="App">
@@ -26,8 +27,9 @@ class App extends Component {
         <AddTodo
           addItem = {addTodo} 
           />
+
         <Todos 
-          handler = {handler}
+          toggle = {toggleTodo}
           remove = {removeTodo}
           items = {data}
          />
