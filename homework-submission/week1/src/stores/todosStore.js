@@ -12,9 +12,9 @@ class TodosStore {
 
   @action async checkBoxHandler(id) {
     this.state = 'loading';
-    const done = !this.todos.find(item => item._id === id).done;
+    const ddone = !this.todos.find(item => item._id === id).done;
     try {
-      await this.patchData(id, { done });
+      await this.patchData(id, { ddone });
       runInAction(() => {
         const newTodos = this.todos.map(item => {
           if (item._id === id) {
@@ -30,6 +30,7 @@ class TodosStore {
       });
     } catch (error) {
       runInAction(() => {
+        console.log(error, error.message);
         this.state = 'error';
       });
     }

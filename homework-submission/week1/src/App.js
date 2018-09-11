@@ -14,6 +14,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {(this.props.todos.state === 'error') &&
+          <div id='error'><p>Error connecting server, Please try again</p></div>}
         <TodoList />
         <AddForm />
       </div>

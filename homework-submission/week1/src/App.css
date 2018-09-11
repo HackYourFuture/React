@@ -26,3 +26,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#error{
+    background: #ffe7e8;
+    border-color: #e66465;
+    width:100%;
+    margin: 20px 0px;
+    padding: 10px;
+    font-size: 1.125rem;
+    border-left-width: 5px;
+    border-left-style: solid;
+}
