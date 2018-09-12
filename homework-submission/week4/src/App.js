@@ -3,6 +3,8 @@ import { inject, observer } from 'mobx-react';
 import './App.css';
 import ListHeader from './components/ListHeader';
 import List from './components/List';
+import Checkbox from './components/Checkbox';
+import TodoItem from './components/TodoItem';
 import Button from './components/Button';
 import InputField from './components/InputField';
 import TodoList from './stores/TodoList';
@@ -94,7 +96,54 @@ class App extends Component {
         </div>
         <List
           title="todo-list"
-          content={this.props.TodoList}
+          content={this.props.TodoList.items.map(item => (
+            <div key={"wrapper" + item.id}>
+              <Checkbox
+                type="checkbox"
+                done={item.done}
+                handleChecked={this.handleChecked}
+                id={item.id}
+              />
+              <TodoItem
+                id={item.id}
+                contentEditable={item.editable}
+                description={item.description}
+                date={item.deadline}
+                newDescription={this.TodoList.newItem.newDescription}
+                newDate={this.TodoList.newItem.newDeadline}
+                handleDescriptionChange={this.handleDescriptionChange}
+                handleDeadLineChange={this.handleDeadLineChange}
+              />
+              <Button
+                key={"edit" + item.id}
+                id={item.id}
+                action="Edit"
+                handleClick={this.handleEdit}
+                className="show"
+              />
+              <Button
+                key={"update" + item.id}
+                id={item.id}
+                action="update"
+                handleClick={this.handleUpdate}
+                className={!item.editable ? "hide" : "show"}
+              />
+              <Button
+                key={"cancel" + item.id}
+                id={item.id}
+                action="Cancel"
+                handleClick={this.handleCancel}
+                className={!item.editable ? "hide" : "show"}
+              />
+              <Button
+                key={"remove" + item.id}
+                id={item.id}
+                action="Remove"
+                handleClick={this.handleRemove}
+                className="show"
+              />
+            </div>
+          ))}
         />
       </React.Fragment>
     );
