@@ -1,0 +1,64 @@
+#enter-new-description {
+  box-shadow: 0 2px 5px -2px #000;
+  border: none;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.6);
+  border-radius: 1px;
+  font-size: 5px;
+  padding: 5px;
+  background: none;
+  color: #ccc;
+  position: relative;
+  padding-left: 2px;
+  padding-bottom: 3px;
+
+  background: #ccc;
+  color: #333;
+  border-bottom: 2px solid #333;
+}
+
+#enter-new-description {
+  width: 45px;
+  height: fit-content;
+  left: 60px;
+  top: -5px;
+  position: relative;
+
+  padding-top: 3px;
+
+  transition: background-color 300ms ease-in-out, box-shadow 450ms ease-in-out,
+    width 450ms ease-in-out, left 455ms ease-in-out;
+}
+
+#enter-new-description:hover,
+#enter-new-description:focus {
+  background-color: #eee;
+  box-shadow: 0 2px 3px -1px #000;
+}
+#enter-new-description:focus {
+  outline-color: rgba(200, 200, 200, 0.2);
+}
+
+#enter-new-deadline {
+  position: relative;
+  left: 23px;
+  top: 15px;
+  width: 155px;
+  height: 25px;
+  display: inline-flex;
+  border-bottom: 2px solid rgb(151, 151, 151);
+  border-radius: 3px;
+  box-shadow: 0 5px 15px -5px #000;
+  transition: background-color 350ms ease-in-out;
+  margin-top: -12px;
+
+  height: 20px;
+  transition: box-shadow 350ms ease-in-out, background 350ms ease-in-out;
+
+  background: #ccc;
+  border-bottom: 2px solid #333;
+}
+
+#enter-new-deadline:hover {
+  background-color: #eee;
+  box-shadow: 0 5px 15px -1px #000;
+}

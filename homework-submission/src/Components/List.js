@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Item from "./Item";
 import "./list.css";
-import { Edit, Update, Remove } from "./UserAction";
+import { Edit, Cancel, Update, Remove } from "./UserAction";
 
 export default class ListItems extends Component {
   render() {
@@ -11,8 +11,12 @@ export default class ListItems extends Component {
       handleEdit,
       handleRemove,
       handleUpdate,
+      handleUpdateDescription,
+      handleUpdateDeadline,
+      handleCancel,
       actions
     } = this.props;
+
     const todoItems = dataModel.map((entity, i) => (
       <React.Fragment key={i}>
         <input
@@ -20,15 +24,25 @@ export default class ListItems extends Component {
           checked={entity.done}
           onChange={() => handleCheck(entity)}
         />
-        <Item todo={entity} />
+        <Item
+          todo={entity}
+          actions={actions}
+          handleUpdateDescription={handleUpdateDescription}
+          handleUpdateDeadline={handleUpdateDeadline}
+        />
         <span className="user-action-wrapper">
-          <Edit todo={entity} handleEdit={handleEdit} actions={actions} />
-          {actions.editClicked && <Update />}
-          <Remove todoIndex={i} handleRemove={handleRemove} />
+          {actions.editClicked && actions.updatedTodo.itemID === entity.id ? (
+            <React.Fragment>
+              <Cancel handleCancel={handleCancel} />
+              <Update handleUpdate={handleUpdate} itemID={entity.id} />
+            </React.Fragment>
+          ) : (
+            <Edit handleEdit={handleEdit} itemID={entity.id} />
+          )}
+          <Remove handleRemove={handleRemove} itemIndex={i} />
         </span>
       </React.Fragment>
     ));
-
     return (
       <ul className="list">
         {dataModel.length === 0 ? (

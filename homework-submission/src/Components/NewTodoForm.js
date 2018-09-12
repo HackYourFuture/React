@@ -1,4 +1,5 @@
 import React from "react";
+import "./newTodoForm.css";
 import "@vaadin/vaadin-date-picker/vaadin-date-picker.js";
 
 export default function NewTodoForm(props) {
@@ -17,6 +18,8 @@ export default function NewTodoForm(props) {
         type="text"
         value={newTodo.description}
         onChange={e => handleNewDescription(e)}
+        autoComplete="off"
+        autoFocus
       />
     </label>
   );

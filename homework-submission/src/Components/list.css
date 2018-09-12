@@ -53,11 +53,9 @@
   padding-top: 32px;
   padding-left: 25px;
   padding: 15px;
-  /* font-weight: 600; */
   font-size: 18px;
   min-width: 90%;
   word-wrap: break-word;
-  /* min-height: 45px; */
   height: auto;
   margin-left: 30px;
   box-shadow: 0 2px 10px 1px black, 0 2px 7px -3px#ccc inset;
@@ -69,6 +67,7 @@
   background: radial-gradient(circle, #333, #222);
   font-size: 14px;
 }
+
 .list li span {
   color: rgb(156, 156, 156);
   font-weight: 600;
@@ -81,64 +80,8 @@
   margin-left: 25px;
   box-shadow: 0 0px 3px -2px black;
   width: 10px;
-  /* height: 10px; */
   padding: 0;
   margin-left: 0;
-}
-
-/* .list {
-  display: flex;
-  flex-direction: column;
-} */
-
-.new-todo-form {
-  font-size: 18px !important;
-  width: fit-content;
-  margin: 0 auto;
-  font-size: 20px;
-  position: fixed;
-  bottom: 0;
-  /* background: rgb(197, 197, 197); */
-  box-shadow: 0 -7px 20px -3px #000 inset;
-  border-top: 2px solid rgba(34, 34, 34, 0.534);
-  padding: 15px;
-  width: 100%;
-  text-align: center;
-  background: linear-gradient(
-    to top,
-    rgba(231, 231, 231, 0.424),
-    rgba(196, 196, 196, 0.575)
-  );
-}
-
-.new-todo-form label {
-  font-family: monospace;
-  /* margin: 0 20px; */
-  margin-left: -20px;
-  padding: 20px;
-  text-shadow: 0 0 3px rgb(0, 0, 0);
-}
-
-.new-todo-form input {
-  margin-left: 15px;
-  background: rgba(255, 255, 255, 0.699);
-  color: #222;
-  border: unset;
-  padding: 15px;
-  border-radius: 15px;
-}
-.new-todo-form vaadin-date-picker {
-  padding: 0px !important;
-  background: rgba(255, 255, 255, 0.699);
-  border-radius: 15px;
-  margin-left: 15px;
-}
-
-#date-picker {
-  width: 150px;
-}
-.new-todo-form button {
-  width: 75px;
 }
 
 ul::-webkit-scrollbar-track {

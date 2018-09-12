@@ -1,26 +1,39 @@
 import React, { Component } from "react";
+import "./item.css";
+
+import { EnterNewDescription, EnterNewDeadline } from "./UpdateTodo";
 
 export default class Item extends Component {
   render() {
-    const { todo } = this.props;
-    const style = todo.done
-      ? {
-          textDecoration: "line-through wavy black",
-          color: "#aaa",
-          borderRightColor: "rgba(0, 153, 13, 0.568)",
-          borderLeftColor: "rgba(0, 153, 13, 0.568)"
-        }
-      : {
-          textDecoration: "none",
-          color: "#eee",
-          borderRightColor: "rgb(136, 16, 0)",
-          borderLeftColor: "rgb(136, 16, 0)"
-        };
+    const {
+      todo,
+      actions,
+      handleUpdateDescription,
+      handleUpdateDeadline
+    } = this.props;
+
     const todoItem = (
-      <li style={style}>
+      <li id={todo.done ? "done" : "not-done"}>
         <span>Description: </span>
-        {todo.description},<br />
-        <span>Deadline: </span> {todo.deadline}.
+        {actions.editClicked && actions.updatedTodo.itemID === todo.id ? (
+          <EnterNewDescription
+            handleUpdateDescription={handleUpdateDescription}
+            actions={actions}
+          />
+        ) : (
+          todo.description
+        )}
+        <br />
+        <span>Deadline: </span>
+        {actions.editClicked && actions.updatedTodo.itemID === todo.id ? (
+          <EnterNewDeadline
+            handleUpdateDeadline={handleUpdateDeadline}
+            actions={actions}
+          />
+        ) : (
+          todo.deadline
+        )}
+        .
       </li>
     );
 

@@ -1,0 +1,14 @@
+#done {
+  text-decoration: line-through wavy black;
+  color: #aaa;
+  border-right: 17px solid rgba(0, 153, 13, 0.568);
+  border-left: 7px solid rgba(0, 153, 13, 0.568);
+  color: rgb(0, 153, 13);
+}
+
+#not-done {
+  text-decoration: none;
+  color: #eee;
+  border-right-color: rgb(136, 16, 0);
+  border-left-color: rgb(136, 16, 0);
+}
