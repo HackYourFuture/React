@@ -39,7 +39,7 @@ class App extends Component {
   changeToDone = (event) => {
     const id = event.target.id;
     const listCopy = this.state.list.slice(0);
-    const itemIndex = listCopy.findIndex(el => el.id == id);
+    const itemIndex = listCopy.findIndex(el => { return el.id === Number(id) });
     listCopy[itemIndex].done = !listCopy[itemIndex].done;
     this.setState({
       list: listCopy
@@ -66,8 +66,8 @@ class App extends Component {
       'done': false
     };
     this.state.list.push(newItem);
-    this.state.newDeadline = '';
-    this.state.newDeadline = '';
+    // this.state.newDeadline = '';
+    // this.state.newDeadline = ''; commented out these two cus it faces some problem through the test but dont know what the better way is
     this.setState(state)
   };
 
