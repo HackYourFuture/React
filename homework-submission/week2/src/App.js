@@ -20,7 +20,7 @@ class App extends Component {
     const indexOfItem = newState.items.findIndex(item => item.id === id);
     let targetItem = newState.items[indexOfItem];
     if (indexOfItem >= 0) {
-      targetItem.done === true
+      targetItem.done
         ? (targetItem.done = false)
         : (targetItem.done = true);
     }
