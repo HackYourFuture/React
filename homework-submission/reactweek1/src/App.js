@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import list from './list.json';
 class App extends Component {
-  constructor(props) { 
+  constructor(props) {
     super(props);
     this.changeToDone = this.changeToDone.bind(this);
     this.state = {
@@ -15,7 +15,7 @@ class App extends Component {
     const itemIndex = listCopy.findIndex(el => el.id == id);
     listCopy[itemIndex].done = !listCopy[itemIndex].done;
     this.setState({
-     list:listCopy
+      list: listCopy
     });
   }
 
@@ -26,27 +26,27 @@ class App extends Component {
       {
         list.map((el, i) => {
           return <div key={i}>
-              <li className = 'todoList'>
-                <input id={el.id} type="checkbox" onChange={this.changeToDone} defaultChecked={el.done} /> <span style={{ textDecoration: el.done ? "line-through" : null }}>
-                  {el.id} - {el.description} - {el.deadline}
-                </span>
-              </li>
-            </div>;
+            <li className='todoList'>
+              <input id={el.id} type="checkbox" onChange={this.changeToDone} defaultChecked={el.done} /> <span style={{ textDecoration: el.done ? "line-through" : null }}>
+                {el.id} - {el.description} - {el.deadline}
+              </span>
+            </li>
+          </div>;
         })
       }
     </ul>
   }
   render() {
-    return(
-    <div className="App">
-      <header className="App-header">
-        <img src="https://chosencalled.files.wordpress.com/2015/07/sharp-res-28.jpg?w=1024&h=1024" className ="todo-logo"  alt="TodoList-logo" />
-        <h1 className="App-title">To Do List</h1>
-      </header>
-      <br />
-      {this.itemHandler()}
-    </div>);
-      }
-    }
-    
-    export default App;
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src="https://chosencalled.files.wordpress.com/2015/07/sharp-res-28.jpg?w=1024&h=1024" className="todo-logo" alt="TodoList-logo" />
+          <h1 className="App-title">To Do List</h1>
+        </header>
+        <br />
+        {this.itemHandler()}
+      </div>);
+  }
+}
+
+export default App;
