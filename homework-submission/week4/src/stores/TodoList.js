@@ -4,16 +4,16 @@ import TodoItems from '../sources/todoItems.json';
 class Store {
   @observable
   items = localStorage.items !== undefined
-      ? JSON.parse(localStorage.items)
-      : TodoItems;
+    ? JSON.parse(localStorage.items)
+    : TodoItems;
   @observable
   newItem = {
-      newId:
-          localStorage.items !== undefined
-              ? JSON.parse(localStorage.items).length + 1
-              : TodoItems.length + 1,
-      newDescription: "",
-      newDeadline: "",
+    newId:
+      localStorage.items !== undefined
+      ? JSON.parse(localStorage.items).length + 1
+      : TodoItems.length + 1,
+    newDescription: "",
+    newDeadline: "",
   }
 
   @action
@@ -28,7 +28,7 @@ class Store {
   @action
   addTodo = () => {
     const newItem = {
-      id: this.newId,
+      id: this.newItem.newId,
       description: this.newItem.newDescription,
       deadline: this.newItem.newDeadline,
       done: false,
@@ -76,7 +76,7 @@ class Store {
   };
 
   @action
-  updateTodo = id => {
+  updateTodo = (id) => {
     id = parseInt(id, 10);
     return this.items = this.items.map(item => item[id] === id
     ? { ...item, description: this.newId.newDescription, deadline: this.newId.newDeadline }

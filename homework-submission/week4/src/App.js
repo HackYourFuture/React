@@ -109,8 +109,8 @@ class App extends Component {
                 contentEditable={item.editable}
                 description={item.description}
                 date={item.deadline}
-                newDescription={this.TodoList.newItem.newDescription}
-                newDate={this.TodoList.newItem.newDeadline}
+                newDescription={this.props.TodoList.newItem.newDescription}
+                newDate={this.props.TodoList.newItem.newDeadline}
                 handleDescriptionChange={this.handleDescriptionChange}
                 handleDeadLineChange={this.handleDeadLineChange}
               />
