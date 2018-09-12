@@ -19,7 +19,7 @@ class Store {
   @action
   checkAsDone = (id) => {
     return this.items = this.items.map((item) =>
-      item[id] === id
+      item.id === id
       ? {...item, done: !item.done }
       : item
     );
@@ -69,18 +69,19 @@ class Store {
   editTodo = (id) => {
     id = parseInt(id, 10);
     return this.items = this.items.map((item) =>
-      item[id] === id
-        ? { ...item, editable: true }
-        : item
+      item.id === id
+      ? { ...item, editable: true }
+      : item
     );
   };
 
   @action
   updateTodo = (id) => {
     id = parseInt(id, 10);
-    return this.items = this.items.map(item => item[id] === id
-    ? { ...item, description: this.newId.newDescription, deadline: this.newId.newDeadline }
-    : item
+    return this.items = this.items.map((item) => 
+      item.id === id
+      ? { ...item, description: this.newItem.newDescription, deadline: this.newItem.newDeadline, editable: !item.editable }
+      : item
     );
   }
 
@@ -88,7 +89,7 @@ class Store {
   cancelTodo = id => {
     id = parseInt(id, 10);
     return this.items = this.items.map(item => 
-      item[id] === id
+      item.id === id
       ? { ...item, editable: false }
       : item
     );
