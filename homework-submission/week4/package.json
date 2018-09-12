@@ -1,5 +1,5 @@
 {
-  "name": "week2",
+  "name": "week4",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -86,6 +86,9 @@
     ]
   },
   "babel": {
+    "plugins": [
+      "transform-decorators-legacy"
+    ],
     "presets": [
       "react-app"
     ]
