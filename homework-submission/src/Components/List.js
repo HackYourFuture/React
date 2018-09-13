@@ -5,7 +5,6 @@ import { Edit, Cancel, Update, Remove } from "./UserAction";
 
 import { inject, observer } from "mobx-react";
 
-// when should I inject only one observable, and when should I inject the whole store
 @inject("TodosStore")
 @observer
 export default class ListItems extends Component {
