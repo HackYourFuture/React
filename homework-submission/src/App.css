@@ -1,0 +1,25 @@
+.App {
+  margin: 0 auto;
+}
+
+.btn {
+  width: 75px;
+  height: 30px;
+  font-size: 14px;
+  margin: 10px auto;
+  background: rgba(200, 200, 200, 0.7);
+  margin: 15px;
+  color: #eee;
+  background: radial-gradient(circle, rgb(58, 58, 58), rgb(36, 36, 36));
+  box-shadow: 0 2px 2px -2px #000, 0 2px 2px -1px #fff inset;
+  border-radius: 7px;
+  font-size: 12px;
+}
+.btn:hover {
+  cursor: pointer;
+  background: radial-gradient(circle, rgb(83, 83, 83), rgb(59, 59, 59));
+}
+
+.user-action-wrapper {
+  margin: 0 auto;
+}

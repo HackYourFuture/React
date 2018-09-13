@@ -1,0 +1,104 @@
+@keyframes rainbow {
+  0% {
+    color: rgb(209, 23, 23);
+  }
+  25% {
+    color: rgb(157, 17, 192);
+  }
+  50% {
+    color: rgb(11, 66, 155);
+  }
+  75% {
+    color: rgb(9, 110, 56);
+  }
+  100% {
+    color: rgb(179, 22, 17);
+  }
+}
+
+.no-todos {
+  font-size: 24px;
+  font-weight: 700;
+  min-width: 200px;
+  padding: 75px 0;
+  text-align: center;
+  margin: 0 auto;
+  color: #222;
+  animation: rainbow 10s infinite;
+  transform: scale(1.2);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  width: 600px;
+  max-height: 70vh;
+  overflow-y: scroll;
+  margin: 50px auto;
+  padding: 50px 80px 70px 60px;
+  border-radius: 15px;
+  box-shadow: 0 0 50px 3px rgba(0, 0, 0, 0.075),
+    0 0 3px 2px rgba(51, 51, 51) inset;
+  background: linear-gradient(
+    to bottom,
+    rgb(224, 224, 224),
+    rgba(15, 15, 15, 0.151)
+  );
+  margin-top: 25px;
+}
+
+.list li {
+  padding: 10px;
+  padding-top: 32px;
+  padding-left: 25px;
+  padding: 15px;
+  font-size: 18px;
+  min-width: 90%;
+  word-wrap: break-word;
+  height: auto;
+  margin-left: 30px;
+  box-shadow: 0 2px 10px 1px black, 0 2px 7px -3px#ccc inset;
+  text-shadow: 0 2px 10px 1px black;
+  border-radius: 5px;
+  border-bottom: 2px ridge rgba(0, 0, 0, 0.178);
+  border-right: 17px solid rgb(15, 15, 15);
+  border-left: 7px solid rgb(15, 15, 15);
+  background: radial-gradient(circle, #333, #222);
+  font-size: 14px;
+}
+
+.list li span {
+  color: rgb(156, 156, 156);
+  font-weight: 600;
+}
+
+.list input {
+  position: relative;
+  top: 55px;
+  transform: scale(3);
+  margin-left: 25px;
+  box-shadow: 0 0px 3px -2px black;
+  width: 10px;
+  padding: 0;
+  margin-left: 0;
+}
+
+ul::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #f5f5f50c;
+}
+
+ul::-webkit-scrollbar {
+  width: 16px;
+  background-color: #f5f5f500;
+}
+
+ul::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #555;
+}
+
+ul::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(93, 93, 93);
+}
