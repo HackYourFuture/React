@@ -6,7 +6,8 @@
     "@vaadin/vaadin-date-picker": "^3.2.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
