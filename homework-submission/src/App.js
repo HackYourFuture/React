@@ -16,9 +16,7 @@ export default class App extends Component {
   state = {
     todos: [...todosJSON],
     updatedTodo: { ...TODO_TEMPLATE },
-    newTodo: {
-      ...TODO_TEMPLATE
-    }
+    newTodo: { ...TODO_TEMPLATE }
   };
 
   handleToggleCheck = item => {
@@ -39,7 +37,6 @@ export default class App extends Component {
   };
 
   handleNewDeadline = e => {
-    // is using a ref better here ? then combining this and handeleNewDescription in one go
     let newTodo = { ...this.state.newTodo };
     newTodo.deadline = e.target.value;
 
@@ -51,10 +48,8 @@ export default class App extends Component {
     let newTodo = { ...this.state.newTodo };
     if (!newTodo.description || !newTodo.deadline) return;
 
-    let { todos } = this.state;
     newTodo = { ...newTodo, id: newTodo.id || uuid() };
-    todos = [...todos, newTodo];
-
+    const todos = [...this.state.todos, newTodo];
     newTodo = TODO_TEMPLATE;
 
     this.setState({ todos, newTodo });
@@ -68,10 +63,8 @@ export default class App extends Component {
   };
 
   handleEdit = itemID => {
-    let updatedTodo = { ...this.state.updatedTodo };
     const todos = [...this.state.todos];
-    const entity = todos.find(todo => todo.id === itemID);
-    updatedTodo = entity;
+    const updatedTodo = todos.find(todo => todo.id === itemID);
 
     this.setState({ updatedTodo });
   };
