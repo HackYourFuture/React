@@ -4,7 +4,6 @@ import todosJSON from "./Sources/todosJSON.json";
 import List from "./Components/List";
 import NewTodoForm from "./Components/NewTodoForm";
 import uuid from "uuid/v4";
-// ✓
 
 const TODO_TEMPLATE = {
   description: "",
@@ -69,11 +68,10 @@ export default class App extends Component {
   };
 
   handleEdit = itemID => {
-    let { updatedTodo, todos } = this.state;
+    let updatedTodo = { ...this.state.updatedTodo };
+    const todos = [...this.state.todos];
     const entity = todos.find(todo => todo.id === itemID);
-    updatedTodo = entity; // no direct state mutation here?
-
-    // console.log(this.state.updatedTodo, updatedTodo);
+    updatedTodo = entity;
 
     this.setState({ updatedTodo });
   };
