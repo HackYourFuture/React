@@ -5,36 +5,32 @@ import List from './components/List';
 import TodoItems from './sources/todoItems.json';
 
 class App extends Component {
-  state = {
-    items: localStorage.items !== undefined ? JSON.parse(localStorage.items) : TodoItems,
-    newItem: {
-      newId: localStorage.items !== undefined ? (JSON.parse(localStorage.items).length + 1) : (TodoItems.length + 1),
-      newDescription: '',
-      newDeadLine: '',
-      newState: false,
-    }
-  };
 
-  handleChecked = (id) => {
-    let newState = Object.assign({}, this.state);
-    const indexOfItem = newState.items.findIndex(item => item.id === id);
-    let targetItem = newState.items[indexOfItem];
-    if (indexOfItem >= 0) {
-      targetItem.done
-        ? (targetItem.done = false)
-        : (targetItem.done = true);
-    }
-    localStorage.setItem("items", JSON.stringify(newState.items));
-    this.setState({ items: newState.items });
-  };
-
-  componentDidMount() {
-    let itemsCopy = localStorage.items;
-
-    if (itemsCopy !== undefined) {
-      this.setState({ items: JSON.parse(itemsCopy) });
+  constructor(props){
+    super(props);
+    const items = localStorage.items !== undefined 
+      ?JSON.parse(localStorage.items) 
+      : TodoItems;
+    this.state = {
+      items, 
+      newItem: {
+        newId: items.length + 1,
+        newDescription: '',
+        nweDeadLine: '',
+      }
     }
   }
+
+  handleChecked = (id) => {
+    const newItems = this.state.items.map(item => {
+      if (item.id === id) {
+      return {...item , done: !item.done}; // used spread operator to reset done for item if the id passed from event match
+      }
+      return item; // if id doesn't match return item unchanged
+    });
+    this.setState({ items: newItems });
+    localStorage.setItem('items', JSON.stringify(newItems));
+  };
 
   render() {
     return (
