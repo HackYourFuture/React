@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default class Checkbox extends React.Component{
 
@@ -8,7 +8,7 @@ export default class Checkbox extends React.Component{
             <input
                 key={type + id}
                 type={type}
-                className={done === true ? "checked" : "unchecked"}
+                className={done? 'checked' : 'unchecked'}
                 defaultChecked={done} 
                 onInput={() => handleChecked(id)}
             />

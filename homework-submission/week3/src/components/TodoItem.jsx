@@ -6,15 +6,15 @@ export default class TodoItem extends Component {
     const contentElement = this.props.contentEditable ? 
       (<li key={this.props.id}>
         <InputField
-          type="text"
-          label="update description:"
+          type='text'
+          label='update description:'
           value={this.props.newDescription}
           placeholder={this.props.description}
           handleChange={this.props.handleDescriptionChange}
         />
         <InputField
-          type="date"
-          label="update deadline:"
+          type='date'
+          label='update deadline:'
           value={this.props.newDate}
           placeholder={this.props.date}
           handleChange={this.props.handleDeadLineChange}

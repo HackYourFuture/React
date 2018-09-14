@@ -4,164 +4,171 @@ import ListHeader from './components/ListHeader';
 import List from './components/List';
 import Button from './components/Button';
 import InputField from './components/InputField';
-import Checkbox from "./components/Checkbox";
-import TodoItem from "./components/TodoItem";
+import Checkbox from './components/Checkbox';
+import TodoItem from './components/TodoItem';
 import TodoItems from './sources/todoItems.json';
 
-
 class App extends Component {
-  state = {
-    items:
-      localStorage.items !== undefined
-        ? JSON.parse(localStorage.items)
-        : TodoItems,
-    newId:
-      localStorage.items !== undefined
-        ? JSON.parse(localStorage.items).length + 1
-        : TodoItems.length + 1,
-    newDescription: "",
-    newDeadline: ""
-  };
+  constructor(props){
+    super(props);
+    const items = localStorage.items
+      ? JSON.parse(localStorage.items)
+      : TodoItems;
+    this.state = {
+      items,
+      newItem: {
+        newId: items[items.length - 1].id + 1,
+        newDescription: '',
+        newDeadline: '',
+      }
+    }
+  }
 
   handleChecked = id => {
-    let newState = this.state;
-    const indexOfItem = newState.items.findIndex(item => item.id === id);
-    if (indexOfItem >= 0) {
-      newState.items[indexOfItem].done === false
-        ? (newState.items[indexOfItem].done = true)
-        : (newState.items[indexOfItem].done = false);
-    }
-    localStorage.setItem("items", JSON.stringify(newState.items));
-    this.setState({ items: newState.items });
-  };
+    let newItems = this.state.items.map(item => {
+      if (item.id === id) {
+        return {...item, done: !item.done};
+      }
+      return item;
+    });
+    localStorage.setItem('items', JSON.stringify( newItems ));
+    this.setState({ items: newItems });
+  }
 
   handleSubmit = () => {
-    const newItem = {
-      id: this.state.newId,
-      description: this.state.newDescription,
-      deadline: this.state.newDeadline,
+    const toSubmitItem = {
+      id: this.state.newItem.newId,
+      description: this.state.newItem.newDescription,
+      deadline: this.state.newItem.newDeadline,
       done: false,
       editable: false
     };
 
     let newState = this.state;
 
-    newState.items.push(newItem);
-    newState.newDescription = "";
-    newState.newDeadline = "";
+    newState.items.push(toSubmitItem);
+    newState.newItem.newId = newState.items[newState.items.length - 1].id + 1;
+    newState.newItem.newDescription = '';
+    newState.newItem.newDeadline = '';
 
-    localStorage.setItem("items", JSON.stringify(newState.items));
+    localStorage.setItem('items', JSON.stringify(newState.items));
     this.setState(newState);
-  };
+  }
 
   handleDescriptionChange = (newDescription) => {
     let newState = this.state;
-    newState.newDescription = newDescription;
-    localStorage.setItem("items", JSON.stringify(newState.items));
+    newState.newItem.newDescription = newDescription;
+    localStorage.setItem('items', JSON.stringify(newState.items));
     this.setState(newState);
   };
 
   handleDeadLineChange = (value) => {
     let newState = this.state;
-    newState.newDeadline = value;
-    localStorage.setItem("items", JSON.stringify(newState.items));
+    newState.newItem.newDeadline = value;
+    localStorage.setItem('items', JSON.stringify(newState.items));
     this.setState(newState);
-  };
+  }
 
   handleRemove = (id) => {
-    let newState = this.state;
     id = parseInt(id, 10);
-    newState.items = newState.items.filter(item => item.id !== id);
-    localStorage.setItem("items", JSON.stringify(newState.items));
-    this.setState({ items: newState.items });
-  };
+    const newItems = this.state.items.filter(item => item.id !== id);
+    localStorage.setItem('items', JSON.stringify(newItems));
+    this.setState({ items: newItems });
+  }
 
   handleEdit = (id) => {
-    let newState = this.state;
     id = parseInt(id, 10);
-    const indexOfItem = newState.items.findIndex(item => item.id === id);
-    if (indexOfItem >= 0) {
-      newState.items[indexOfItem].editable === false
-        ? (newState.items[indexOfItem].editable = true)
-        : (newState.items[indexOfItem].editable = true);
-    }
-    localStorage.setItem("items", JSON.stringify(newState.items));
-    this.setState({ items: newState.items });
-  };
+    const newItems = this.state.items.map(item => {
+        if (item.id === id) {
+          return {...item, editable: !item.editable};
+        }
+        return item;
+      });
+    localStorage.setItem('items', JSON.stringify(newItems));
+    this.setState({ items: newItems });
+  }
 
   handleUpdate = (id) => {
-    
     id = parseInt(id, 10);
-    let newState = this.state;
-    const indexOfItem = newState.items.findIndex(item => item.id === id);
-    if (indexOfItem >= 0) {
-      newState.items[indexOfItem].description = this.state.newDescription;
-      newState.items[indexOfItem].deadline = this.state.newDeadline;
-      newState.newDescription = "";
-      newState.newDeadline = "";
-    }
 
-    localStorage.setItem("items", JSON.stringify(newState.items));
+    let newState = this.state;
+
+    newState.items = newState.items.map(item => {
+      if (item.id === id) {
+        return { 
+          ...item, 
+          description: 
+            newState.newItem.newDescription === '' 
+            ? item.description 
+            : newState.newItem.newDescription, 
+          deadline: 
+            newState.newItem.newDeadline === ''
+            ? item.deadline
+            : newState.newItem.newDeadline, 
+          editable: false 
+        };
+      }
+      return item;
+    });
+    newState.newItem.newId = newState.items.length + 1;
+    newState.newItem.newDescription = '';
+    newState.newItem.newDeadline = '';
+
+    localStorage.setItem('items', JSON.stringify(newState.items));
     this.setState(newState);
-  };
+  }
 
-  handleCancel = id => {
-    let newState = this.state;
+  handleCancel = (id) => {
     id = parseInt(id, 10);
-    const indexOfItem = newState.items.findIndex(item => item.id === id);
-    if (indexOfItem >= 0) {
-      newState.items[indexOfItem].editable === true
-        ? (newState.items[indexOfItem].editable = false)
-        : (newState.items[indexOfItem].editable = false);
-      newState.newDescription = "";
-      newState.newDeadline = "";
-    }
-    localStorage.setItem("newDescription", JSON.stringify(newState.newDescription));
-    localStorage.setItem("newDeadline", JSON.stringify(newState.newDeadline));
-    this.setState({ newDescription: newState.newDescription, newDeadline: newState.newDeadline });
-  };
 
-  componentDidMount() {
-    let itemsCopy = localStorage.items;
+    let newState = this.state;
 
-    if (itemsCopy !== undefined) {
-      this.setState({ items: JSON.parse(itemsCopy) });
-    }
+    newState.items = newState.items.map(item => {
+      if (item.id === id) {
+        return { ...item, editable: !item.editable };
+      }
+      return item;
+    });
+    newState.newItem.newId = newState.items[newState.items.length - 1].id + 1;
+    newState.newItem.newDescription = '';
+    newState.newItem.newDeadline = '';
+  
+    this.setState(newState);
   }
 
   render() {
     return (
       <React.Fragment>
-        <header className="App-header">
+        <header className='App-header'>
           <img
-            src="https://russellinvestments.com/-/media/images/au/tiles/todolist.png"
-            className="App-logo"
-            alt="logo"
+            src='https://russellinvestments.com/-/media/images/au/tiles/todolist.png'
+            className='App-logo'
+            alt='logo'
           />
-          <ListHeader className="todo-list" Title="Todo List" />
+          <ListHeader className='todo-list' Title='Todo List' />
         </header>
-        <div className="new-input">
+        <div className='new-input'>
           <InputField
-            type="text"
-            label="Description:"
-            placeholder="enter description"
-            value={this.state.description}
+            type='text'
+            label='Description:'
+            placeholder='enter description'
+            value={this.state.newItem.newDescription}
             handleChange={this.handleDescriptionChange}
           />
           <InputField
-            type="date"
-            label="Deadline:"
-            value={this.state.deadline}
+            type='date'
+            label='Deadline:'
+            value={this.state.newItem.newDeadline}
             handleChange={this.handleDeadLineChange}
           />
-          <Button type="submit" action="Add" handleClick={this.handleSubmit} />
+          <Button type='submit' action='Add' handleClick={this.handleSubmit} />
         </div>
         <List
-          title="todo-list"
+          title='todo-list'
           content={this.state.items.map(item => (
-            <div key={"wrapper" + item.id}>
+            <div key={'wrapper' + item.id}>
               <Checkbox
-                type="checkbox"
+                type='checkbox'
                 done={item.done}
                 handleChecked={this.handleChecked}
                 id={item.id}
@@ -171,38 +178,38 @@ class App extends Component {
                 contentEditable={item.editable}
                 description={item.description}
                 date={item.deadline}
-                newDescription={this.state.newDescription}
-                newDate={this.state.newDate}
+                newDescription={this.state.newItem.newDescription}
+                newDate={this.state.newItem.newDeadline}
                 handleDescriptionChange={this.handleDescriptionChange}
                 handleDeadLineChange={this.handleDeadLineChange}
               />
               <Button
-                key={"edit" + item.id}
+                key={'edit' + item.id}
                 id={item.id}
-                action="Edit"
+                action='Edit'
                 handleClick={this.handleEdit}
-                className="show"
+                className='show'
               />
               <Button
-                key={"update" + item.id}
+                key={'update' + item.id}
                 id={item.id}
-                action="update"
+                action='update'
                 handleClick={this.handleUpdate}
-                className={item.editable === false ? "hide" : "show"}
+                className={item.editable? 'show' : 'hide'}
               />
               <Button
-                key={"cancel" + item.id}
+                key={'cancel' + item.id}
                 id={item.id}
-                action="Cancel"
+                action='Cancel'
                 handleClick={this.handleCancel}
-                className={item.editable === false ? "hide" : "show"}
+                className={item.editable? 'show' : 'hide'}
               />
               <Button
-                key={"remove" + item.id}
+                key={'remove' + item.id}
                 id={item.id}
-                action="Remove"
+                action='Remove'
                 handleClick={this.handleRemove}
-                className="show"
+                className='show'
               />
             </div>
           ))}
