@@ -1,18 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import "./updateTodo.css";
-
 import { inject, observer } from "mobx-react";
 
-@inject("TodosStore")
+@inject("TodoStore")
 @observer
-class EnterNewDescription extends Component {
+class EnterNewDescription extends React.Component {
   render() {
-    const { actions, handleUpdateDescription } = this.props.TodosStore;
+    const { handleUpdateDescription, updatedTodo } = this.props.TodoStore;
     return (
       <input
         id="enter-new-description"
         type="text"
-        value={actions.updatedTodo.description}
+        value={updatedTodo.description}
         onChange={e => handleUpdateDescription(e)}
         autoFocus
       />
@@ -20,15 +19,15 @@ class EnterNewDescription extends Component {
   }
 }
 
-@inject("TodosStore")
+@inject("TodoStore")
 @observer
-class EnterNewDeadline extends Component {
+class EnterNewDeadline extends React.Component {
   render() {
-    const { actions, handleUpdateDeadline } = this.props.TodosStore;
+    const { handleUpdateDeadline, updatedTodo } = this.props.TodoStore;
     return (
       <vaadin-date-picker
         id="enter-new-deadline"
-        value={actions.updatedTodo.deadline}
+        value={updatedTodo.deadline}
         onBlur={e => handleUpdateDeadline(e)}
         placeholder="Pick a date"
       />

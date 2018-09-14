@@ -5,22 +5,22 @@ import { Edit, Cancel, Update, Remove } from "./UserAction";
 
 import { inject, observer } from "mobx-react";
 
-@inject("TodosStore")
+@inject("TodoStore")
 @observer
 export default class ListItems extends Component {
   render() {
-    const { todos, actions, handleCheck } = this.props.TodosStore;
+    const { handleToggleCheck, todos, updatedTodo } = this.props.TodoStore;
 
     const todoItems = todos.map(entity => (
       <React.Fragment key={entity.id}>
         <input
           type="checkbox"
           checked={entity.done}
-          onChange={() => handleCheck(entity.id)}
+          onChange={() => handleToggleCheck(entity.id)}
         />
-        <Item todo={entity} />
+        <Item renderedTodo={entity} />
         <span className="user-action-wrapper">
-          {actions.editClicked && actions.updatedTodo.itemID === entity.id ? (
+          {updatedTodo.id === entity.id ? (
             <React.Fragment>
               <Cancel />
               <Update itemID={entity.id} />
@@ -32,7 +32,6 @@ export default class ListItems extends Component {
         </span>
       </React.Fragment>
     ));
-
     return (
       <ul className="list">
         {todos.length === 0 ? <p className="no-todos">No todos</p> : todoItems}

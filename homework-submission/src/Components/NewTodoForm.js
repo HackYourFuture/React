@@ -1,19 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 import "./newTodoForm.css";
 import "@vaadin/vaadin-date-picker/vaadin-date-picker.js";
 import { inject, observer } from "mobx-react";
 
-@inject("TodosStore")
+@inject("TodoStore")
 @observer
-export default class NewTodoForm extends Component {
+export default class NewTodoForm extends React.Component {
   render() {
     const {
-      handleSubmit,
       newTodo,
-      handleNewTodo,
+      handleSubmit,
       handleNewDescription,
       handleNewDeadline
-    } = this.props.TodosStore;
+    } = this.props.TodoStore;
 
     const descriptionWrapper = (
       <label>
@@ -43,11 +42,7 @@ export default class NewTodoForm extends Component {
     const addButton = <button className="btn">Add</button>;
 
     return (
-      <form
-        className="new-todo-form"
-        onChange={handleNewTodo}
-        onSubmit={handleSubmit}
-      >
+      <form className="new-todo-form" onSubmit={handleSubmit}>
         {descriptionWrapper}
         {deadlineWrapper}
         {addButton}

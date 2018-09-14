@@ -4,14 +4,14 @@ import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 
+import TodoStore from "./Stores/TodoStore";
 import { Provider } from "mobx-react";
-import TodosStore from "./Stores/TodosStore";
 
-const MobxIntegratedApp = (
-  <Provider TodosStore={TodosStore}>
+const MobxProvider = (
+  <Provider TodoStore={TodoStore}>
     <App />
   </Provider>
 );
 
-ReactDOM.render(MobxIntegratedApp, document.getElementById("root"));
+ReactDOM.render(MobxProvider, document.getElementById("root"));
 registerServiceWorker();

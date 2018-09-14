@@ -29,7 +29,7 @@
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
-    "mobx": "^5.1.0",
+    "mobx": "^5.1.1",
     "mobx-react": "^5.2.8",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
@@ -98,5 +98,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-decorators": "^6.24.1"
   }
 }
