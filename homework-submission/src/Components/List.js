@@ -7,31 +7,31 @@ export default class ListItems extends Component {
   render() {
     const {
       dataModel,
-      handleCheck,
+      updatedTodo,
+      handleToggleCheck,
       handleEdit,
       handleRemove,
       handleUpdate,
       handleUpdateDescription,
       handleUpdateDeadline,
-      handleCancel,
-      actions
+      handleCancel
     } = this.props;
 
-    const todoItems = dataModel.map((entity, i) => (
-      <React.Fragment key={i}>
+    const todoItems = dataModel.map(entity => (
+      <React.Fragment key={entity.id}>
         <input
           type="checkbox"
           checked={entity.done}
-          onChange={() => handleCheck(entity)}
+          onChange={() => handleToggleCheck(entity)}
         />
         <Item
           todo={entity}
-          actions={actions}
           handleUpdateDescription={handleUpdateDescription}
           handleUpdateDeadline={handleUpdateDeadline}
+          updatedTodo={updatedTodo}
         />
         <span className="user-action-wrapper">
-          {actions.editClicked && actions.updatedTodo.itemID === entity.id ? (
+          {updatedTodo.id === entity.id ? (
             <React.Fragment>
               <Cancel handleCancel={handleCancel} />
               <Update handleUpdate={handleUpdate} itemID={entity.id} />
@@ -39,7 +39,7 @@ export default class ListItems extends Component {
           ) : (
             <Edit handleEdit={handleEdit} itemID={entity.id} />
           )}
-          <Remove handleRemove={handleRemove} itemIndex={i} />
+          <Remove handleRemove={handleRemove} itemID={entity.id} />
         </span>
       </React.Fragment>
     ));

@@ -36,7 +36,7 @@
   max-height: 70vh;
   overflow-y: scroll;
   margin: 50px auto;
-  padding: 50px 80px 70px 60px;
+  padding: 50px;
   border-radius: 15px;
   box-shadow: 0 0 50px 3px rgba(0, 0, 0, 0.075),
     0 0 3px 2px rgba(51, 51, 51) inset;
@@ -49,9 +49,6 @@
 }
 
 .list li {
-  padding: 10px;
-  padding-top: 32px;
-  padding-left: 25px;
   padding: 15px;
   font-size: 18px;
   min-width: 90%;

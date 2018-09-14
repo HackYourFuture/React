@@ -7,7 +7,7 @@ export default class Item extends Component {
   render() {
     const {
       todo,
-      actions,
+      updatedTodo,
       handleUpdateDescription,
       handleUpdateDeadline
     } = this.props;
@@ -15,20 +15,20 @@ export default class Item extends Component {
     const todoItem = (
       <li id={todo.done ? "done" : "not-done"}>
         <span>Description: </span>
-        {actions.editClicked && actions.updatedTodo.itemID === todo.id ? (
+        {updatedTodo.id === todo.id ? (
           <EnterNewDescription
             handleUpdateDescription={handleUpdateDescription}
-            actions={actions}
+            updatedTodo={updatedTodo}
           />
         ) : (
           todo.description
         )}
         <br />
         <span>Deadline: </span>
-        {actions.editClicked && actions.updatedTodo.itemID === todo.id ? (
+        {updatedTodo.id === todo.id ? (
           <EnterNewDeadline
             handleUpdateDeadline={handleUpdateDeadline}
-            actions={actions}
+            updatedTodo={updatedTodo}
           />
         ) : (
           todo.deadline

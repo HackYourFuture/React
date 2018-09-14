@@ -4,9 +4,8 @@ import "@vaadin/vaadin-date-picker/vaadin-date-picker.js";
 
 export default function NewTodoForm(props) {
   const {
-    handleSubmit,
     newTodo,
-    handleNewTodo,
+    handleSubmit,
     handleNewDescription,
     handleNewDeadline
   } = props;
@@ -39,11 +38,7 @@ export default function NewTodoForm(props) {
   const addButton = <button className="btn">Add</button>;
 
   return (
-    <form
-      className="new-todo-form"
-      onChange={handleNewTodo}
-      onSubmit={handleSubmit}
-    >
+    <form className="new-todo-form" onSubmit={handleSubmit}>
       {descriptionWrapper}
       {deadlineWrapper}
       {addButton}

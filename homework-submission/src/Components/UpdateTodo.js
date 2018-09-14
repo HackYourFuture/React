@@ -2,12 +2,12 @@ import React from "react";
 import "./updateTodo.css";
 
 const EnterNewDescription = props => {
-  const { handleUpdateDescription, actions } = props;
+  const { handleUpdateDescription, updatedTodo } = props;
   return (
     <input
       id="enter-new-description"
       type="text"
-      value={actions.updatedTodo.description}
+      value={updatedTodo.description}
       onChange={e => handleUpdateDescription(e)}
       autoFocus
     />
@@ -15,11 +15,11 @@ const EnterNewDescription = props => {
 };
 
 const EnterNewDeadline = props => {
-  const { handleUpdateDeadline, actions } = props;
+  const { handleUpdateDeadline, updatedTodo } = props;
   return (
     <vaadin-date-picker
       id="enter-new-deadline"
-      value={actions.updatedTodo.deadline}
+      value={updatedTodo.deadline}
       onBlur={e => handleUpdateDeadline(e)}
       placeholder="Pick a date"
     />

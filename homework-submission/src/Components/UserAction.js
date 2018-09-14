@@ -19,9 +19,9 @@ function Update(props) {
 }
 
 function Remove(props) {
-  const { itemIndex: i, handleRemove } = props;
+  const { itemID, handleRemove } = props;
   return (
-    <button className="btn" onClick={() => handleRemove(i)}>
+    <button className="btn" onClick={() => handleRemove(itemID)}>
       Remove
     </button>
   );
