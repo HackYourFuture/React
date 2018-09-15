@@ -10,10 +10,10 @@ class Store {
   newItem = {
     newId:
       localStorage.items !== undefined
-      ? JSON.parse(localStorage.items).length + 1
-      : TodoItems.length + 1,
-    newDescription: "",
-    newDeadline: "",
+        ? ((JSON.parse(localStorage.items))[localStorage.items.length -1].id + 1)
+        : (TodoItems[TodoItems.length - 1].id + 1),
+    newDescription: '',
+    newDeadline: '',
   }
 
   @action
