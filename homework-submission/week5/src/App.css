@@ -1,9 +1,9 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  /* animation: App-logo-spin infinite 20s linear; */
   height: 80px;
 }
 
@@ -20,9 +20,42 @@
 
 .App-intro {
   font-size: large;
+  padding-left: 1rem;
 }
 
-@keyframes App-logo-spin {
+checkbox {
+  display: inline-block;
+}
+
+.checked:checked~li {
+ text-decoration: line-through;
+}
+
+ul {
+list-style: none;
+}
+
+li {
+  display: inline-block;
+}
+
+.new-input {
+  padding: 20px;
+}
+
+input[text] {
+margin: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: inline-block;
+}
+
+/* @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+} */
