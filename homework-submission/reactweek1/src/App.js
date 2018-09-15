@@ -15,19 +15,19 @@ class App extends Component {
         {
           id: 1,
           description: "Get out of bed",
-          deadline: "2017-09-11",
+          deadLine: "2017-09-11",
           done: true
         },
         {
           id: 2,
           description: "Brush teeth",
-          deadline: "2017-09-10",
+          deadLine: "2017-09-10",
           done: false
         },
         {
           id: 3,
           description: "Eat breakfast",
-          deadline: "2017-09-09",
+          deadLine: "2017-09-09",
           done: false
         }
       ],
@@ -47,38 +47,37 @@ class App extends Component {
       list: listCopy
     });
   };
-  descriptionHandler = newDescription => {
-    const listCopy = [...this.state];
-    listCopy["newDescription"] = newDescription;
-    this.setState(listCopy);
-  };
 
-  // descriptionHandler = newDescription => this.setState({ newDescription }); does not work properly
+  descriptionHandler = newDescription => {
+    this.setState({
+      newDescription
+    });
+  };
 
   deadLineHandler = newDeadLine => {
-    const listCopy = [...this.state];
-    listCopy["newDeadline"] = newDeadLine;
-    this.setState(listCopy);
+    this.setState({
+      newDeadLine
+    });
   };
-
-  // deadLineHandler = newDeadLine => this.setState({ newDeadLine }); does not work properly
 
   addHandler = () => {
     const state = this.state;
     const newItem = {
-      id: this.state.list.length + 1,
+      id : this.state.list.length + 1,
       description: this.state.newDescription,
-      deadline: this.state.newDeadline,
+      deadLine: this.state.newDeadLine,
       done: false
     };
-    ([...this.state.newDeadline] = ""), ([...this.state.newDescription] = "");
-
-    this.setState({ list: [...state.list, newItem] });
+    this.setState({
+      list: [...state.list, newItem],
+      newDeadLine: '',
+      newDescription: ''
+    });
   };
 
-  removeHandler = i => {
+  removeHandler = id => {
     let state = this.state;
-    const updatedList = state.list.filter(prop => prop.id !== i + 1);
+    const updatedList = state.list.filter(prop => prop.id !== id);
     this.setState({ list: updatedList });
   };
 
@@ -87,28 +86,20 @@ class App extends Component {
 
     return (
       <div>
-        <ul>
+        <ol>
           {this.state.list.map((el, i) => {
             return (
-              <div key={i}>
-                <li className="todoList">
-                  <button onClick={() => this.removeHandler(i)}>Remove</button>
-                  <input
-                    id={el.id}
-                    type="checkbox"
-                    onChange={this.changeToDone}
-                    defaultChecked={el.done}
-                  />
-                  <span
-                    style={{ textDecoration: el.done ? "line-through" : null }}
-                  >
-                    {el.id} {el.description} - {el.deadline}
+                <li className="todoList" key={i}>
+                  <button onClick={() => this.removeHandler(el.id)}>
+                    Remove
+                  </button>
+                  <input id={el.id} type="checkbox" onChange={this.changeToDone} defaultChecked={el.done} />
+                  <span style={{ textDecoration: el.done ? "line-through" : null }}>
+                    {el.description} - {el.deadLine}
                   </span>
-                </li>
-              </div>
-            );
+                </li>)
           })}
-        </ul>
+        </ol>
         <label>
           Enter description :
           <input
