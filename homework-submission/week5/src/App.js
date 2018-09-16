@@ -13,66 +13,54 @@ import {toJS} from 'mobx';
 @observer
 class App extends Component {
   
-  componentWillMount() {
+  constructor(props){
+    super(props);
     this.props.TodoList.getTodo();
   }
 
   handleChecked = (id) => {
     this.props.TodoList.checkAsDone(id);
-    localStorage.setItem("items", JSON.stringify(this.props.TodoList.items));
   };
 
   handleSubmit = () => {
-    this.props.TodoList.addTodo();
+    this.props.TodoList.postTodo();
     this.props.TodoList.resetNewDescription();
     this.props.TodoList.resetNewDeadline();
-    localStorage.setItem("items", JSON.stringify(this.props.TodoList.items));
   }
 
   handleDescriptionChange = (newDescription) => {
     this.props.TodoList.addNewDescription(newDescription);
-    localStorage.setItem("items", JSON.stringify(this.props.TodoList.items));
   }
 
   handleDeadLineChange = (newDeadline) => {
     this.props.TodoList.addNewDeadline(newDeadline);
-    localStorage.setItem("items", JSON.stringify(this.props.TodoList.items));
   }
 
   handleRemove = (id) => {
     this.props.TodoList.removeTodo(id);
-    localStorage.setItem("items", JSON.stringify(this.props.TodoList.items));
   }
 
   handleEdit = (id) => {
     this.props.TodoList.editTodo(id);
     this.props.TodoList.resetNewDescription();
     this.props.TodoList.resetNewDeadline();
-    localStorage.setItem("items", JSON.stringify(this.props.TodoList.items));
   }
 
   handleUpdate = (id) => {
     this.props.TodoList.updateTodo(id);
     this.props.TodoList.resetNewDescription();
     this.props.TodoList.resetNewDeadline();
-    localStorage.setItem("items", JSON.stringify(this.props.TodoList.items));
   }
 
   handleCancel = (id) => {
     this.props.TodoList.cancelTodo(id);
     this.props.TodoList.resetNewDescription();
     this.props.TodoList.resetNewDeadline();
-    localStorage.setItem("newDescription", JSON.stringify(this.props.TodoList.newItem.newDescription));
-    localStorage.setItem("newDeadline", JSON.stringify(this.props.TodoList.newItem.newDeadline));
-  }
-
-  componentDidMount() {
-    this.props.TodoList.fetchFromLocalStorage();
   }
 
   render() {
     if(this.props.TodoList.state === 'done') {
-      console.log('this.props.TodoList.getTodo(): ', toJS(this.props.TodoList.items));
+      console.log("this.props.TodoList.getTodo(): ", toJS(this.props.TodoList.items));
     }
     return (
       <React.Fragment>
@@ -86,7 +74,7 @@ class App extends Component {
             handleChange={this.handleDescriptionChange}
           />
           <InputField
-            type="date"
+            type="datetime-local"
             label="Deadline:"
             value={this.props.TodoList.newItem.newDeadline}
             handleChange={this.handleDeadLineChange}
@@ -99,16 +87,16 @@ class App extends Component {
         </div>
         <List
           title="todo-list"
-          content={this.props.TodoList.items.map(item => (
-            <div key={"wrapper" + item.id}>
+          content={toJS(this.props.TodoList.items).map(item => (
+            <div key={"wrapper" + item._id}>
               <Checkbox
                 type="checkbox"
                 done={item.done}
                 handleChecked={this.handleChecked}
-                id={item.id}
+                id={item._id}
               />
               <TodoItem
-                id={item.id}
+                id={item._id}
                 contentEditable={item.editable}
                 description={item.description}
                 date={item.deadline}
@@ -118,29 +106,29 @@ class App extends Component {
                 handleDeadLineChange={this.handleDeadLineChange}
               />
               <Button
-                key={"edit" + item.id}
-                id={item.id}
+                key={"edit" + item._id}
+                id={item._id}
                 action="Edit"
                 handleClick={this.handleEdit}
                 className="show"
               />
               <Button
-                key={"update" + item.id}
-                id={item.id}
+                key={"update" + item._id}
+                id={item._id}
                 action="update"
                 handleClick={this.handleUpdate}
                 className={!item.editable ? "hide" : "show"}
               />
               <Button
-                key={"cancel" + item.id}
-                id={item.id}
+                key={"cancel" + item._id}
+                id={item._id}
                 action="Cancel"
                 handleClick={this.handleCancel}
                 className={!item.editable ? "hide" : "show"}
               />
               <Button
-                key={"remove" + item.id}
-                id={item.id}
+                key={"remove" + item._id}
+                id={item._id}
                 action="Remove"
                 handleClick={this.handleRemove}
                 className="show"
@@ -148,6 +136,7 @@ class App extends Component {
             </div>
           ))}
         />
+        {this.props.TodoList.state === 'error' && <p className='error'>Something went wrong</p>}
       </React.Fragment>
     );
   }

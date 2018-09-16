@@ -21,9 +21,7 @@ export default class TodoItem extends Component {
         />
       </li>)
       : (<li key={this.props.id}>
-          <span>{this.props.description}</span>
-          <span> deadline: </span>
-          <span>{this.props.date}</span>
+          {this.props.description} deadline: {this.props.date}
         </li>)
     ;
     

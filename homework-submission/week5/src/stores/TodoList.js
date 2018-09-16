@@ -1,58 +1,55 @@
 import { observable, action, configure, runInAction } from 'mobx';
-import TodoItems from '../sources/todoItems.json';
-configure({enforceActions: "observed"})
+import uuid from 'uuid/v4';
+configure({enforceActions: 'observed'})
 
 class Store {
   @observable
-  items = localStorage.items !== undefined
-    ? JSON.parse(localStorage.items)
-    : TodoItems;
+  items = [];
   @observable
   newItem = {
-    newId:
-      localStorage.items !== undefined
-        ? ((JSON.parse(localStorage.items))[localStorage.items.length -1].id + 1)
-        : (TodoItems[TodoItems.length - 1].id + 1),
+    newId: uuid(),
     newDescription: '',
-    newDeadline: '',
-  }
+    newDeadline: ''
+  };
   @observable
-  state= 'pending';
+  state = 'pending';
 
   @action
   async getTodo() {
     this.items = [];
     this.state = 'pending';
     try {
-      const items = await this.getData()
+      const items = await this.getData();
       runInAction(() => {
         this.state = 'done';
-        this.items = items.filter((post, index) => index < 10);
-      })
-    } 
-    catch (error) {
+        this.items = items.map(item => ({ ...item, editable: false }));
+      });
+    } catch (error) {
       runInAction(() => {
         this.state = 'error';
-      })
+      });
     }
   }
 
   @action
-  fetchFromLocalStorage() {
-    let copyItems = localStorage.items;
-    if(copyItems) {
-      JSON.parse(copyItems);
-    }
-  }
+  async checkAsDone(id) {
+    this.state = 'pending';
+    try{
 
-  @action
-  checkAsDone = (id) => {
-    return this.items = this.items.map((item) =>
-      item.id === id
-      ? {...item, done: !item.done }
-      : item
-    );
-  }
+    runInAction(() => {
+      this.items = this.items.map(item => 
+        item.id === id 
+        ? { ...item, done: !item.done } 
+        : item);
+      });
+      await this.updateData(id, this.items );
+
+    } catch (error) {
+      runInAction(() => {
+      this.state = 'error'
+      });
+    }
+  };
 
   @action
   addTodo = () => {
@@ -65,68 +62,107 @@ class Store {
     };
 
     return this.items.push(newItem);
-
   };
 
   @action
   resetNewDescription = () => {
-    return this.newItem.newDescription = "";
-  }
-  
+    return (this.newItem.newDescription = '');
+  };
+
   @action
   resetNewDeadline = () => {
-    return this.newItem.newDeadline = "";
-  }
-
-  @action
-  addNewDescription = (newDescription) => {
-    return this.newItem.newDescription = newDescription;
+    return (this.newItem.newDeadline = '');
   };
 
   @action
-  addNewDeadline = (value) => {
-    return this.newItem.newDeadline = value;
-  };
-
-  @action 
-  removeTodo = (id) => {
-    id = parseInt(id, 10);
-    return this.items = this.items.filter(item => item.id !== id);
-  };
-
-  @action 
-  editTodo = (id) => {
-    id = parseInt(id, 10);
-    return this.items = this.items.map((item) =>
-      item.id === id
-      ? { ...item, editable: true }
-      : item
-    );
+  addNewDescription = newDescription => {
+    return (this.newItem.newDescription = newDescription);
   };
 
   @action
-  updateTodo = (id) => {
+  addNewDeadline = value => {
+    return (this.newItem.newDeadline = value);
+  };
+
+  @action
+  removeTodo = id => {
     id = parseInt(id, 10);
-    return this.items = this.items.map((item) => 
-      item.id === id
-      ? { ...item, description: this.newItem.newDescription, deadline: this.newItem.newDeadline, editable: !item.editable }
-      : item
-    );
-  }
+    return (this.items = this.items.filter(item => item.id !== id));
+  };
+
+  @action
+  editTodo = id => {
+    id = parseInt(id, 10);
+    return (this.items = this.items.map(
+      item => (item.id === id ? { ...item, editable: true } : item)
+    ));
+  };
+
+  @action
+  updateTodo = id => {
+    id = parseInt(id, 10);
+    return (this.items = this.items.map(
+      item =>
+        item.id === id
+          ? {
+              ...item,
+              description: this.newItem.newDescription,
+              deadline: this.newItem.newDeadline,
+              editable: !item.editable
+            }
+          : item
+    ));
+  };
 
   @action
   cancelTodo = id => {
     id = parseInt(id, 10);
-    return this.items = this.items.map(item => 
-      item.id === id
-      ? { ...item, editable: false }
-      : item
-    );
-  }
+    return (this.items = this.items.map(
+      item => (item.id === id ? { ...item, editable: false } : item)
+    ));
+  };
 
   getData() {
-    fetch("https://jsonplaceholder.typicode.com/Todos")
-      .then(res => res.json()); 
+    return fetch('https://hyf-react-api.herokuapp.com/todos')
+    .then(response => this.handleErrors(response))
+    .then(res => res.json());
+  }
+
+  postData(data) {
+    return fetch('https://hyf-react-api.herokuapp.com/create', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => this.handleErrors(response))
+    .then(res => res.json());
+  }
+
+  deleteData(id) {
+    return fetch(`https://hyf-react-api.herokuapp.com/todos/:${id}`, {
+      method: 'DELETE'
+    })
+    .then(response => this.handleErrors(response))
+    .then(res => res.json());
+  }
+
+  updateData(id, data) {
+    return fetch(`https://hyf-react-api.herokuapp.com/todos/:${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => this.handleErrors(response))
+    .then(res => res.json());
+  }
+
+  handleErrors(response) {
+    if (!response.ok) throw Error(response.statusText);
+    return response;
   }
 }
 
