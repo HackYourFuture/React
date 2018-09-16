@@ -5,8 +5,7 @@ class Checkbox extends Component {
         return(
             <input 
                 type = 'Checkbox' 
-                defaultChecked = {this.props.item.done} 
-                id = {this.props.id} 
+                defaultChecked = {this.props.item.done}
                 onChange = {()=>this.props.toggle(this.props.item)}
             />
         )

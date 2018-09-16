@@ -1,40 +1,110 @@
-import { observable, action, configure} from "mobx";
-import data from "./sources/data.json";
+import { observable, action, configure, runInAction} from "mobx";
 
 configure({ enforceActions: "observed" });
 
 class Store {
-  @observable data = data;
+  @observable data = [];
+  @observable state = 'loading';
 
   @action
-  toggleTodo = item => {
-    let newData = [...this.data];
-    item.done = !item.done;
-    this.data = newData
-  }
+  toggleTodo = async item => {
+    this.state = "Loading";
+    try {
+      await fetch(`https://hyf-react-api.herokuapp.com/todos/${item._id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+      },
+      });
+      runInAction(() => {
+        this.data = this.data.map(todo => {
+          if (todo.id === item.id) {
+            return {
+              ...todo, done: !todo.done
+            }
+          }
+          return todo
+        })
+      });
+    } catch (error) {
+      runInAction(() => {
+        this.state = "Error";
+      });
+    }
+  };
 
   @action
-  addTodo = e => {
+  addTodo = async e => {
     e.preventDefault();
-    let newData = [...this.data];
+    this.state = "Loading";
     const newTodo = {
-      id: newData.length + 1,
+      id: Math.random(),
       description: e.target.description.value,
       deadline: e.target.deadline.value,
       done: false
     };
+
+    try {
+      await fetch(`https://hyf-react-api.herokuapp.com/todos/create`, {
+        method: "POST",
+        body: JSON.stringify(newTodo),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+      },
+      });
+      runInAction(() => {
+        this.data = [...this.data, newTodo];
+        e.target.description.value = "";
+        e.target.deadline.value = "";
+      });
+    } catch (error) {
+      runInAction(() => {
+        this.state = "Error";
+      });
+    }
+  };
     
-    newData.push(newTodo)
-    this.data = newData;
-    e.target.description.value = "";
-    e.target.deadline.value = "";
+  @action
+  removeTodo = async id => {
+    this.state = "Loading";
+    try {
+      await fetch(`https://hyf-react-api.herokuapp.com/todos/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+      },
+      });
+      runInAction(() => {
+        const newData = this.data.filter(item => item._id !== id);
+        this.state = "Done";
+        this.data = newData;
+      });
+    } catch (error) {
+      runInAction(() => {
+        this.state = "Error";
+      });
+    }
+  };
+
+  @action async getTodos(){
+    this.data = [];
+    this.state = 'Loading';
+    try {
+      const todos = await this.getData();
+      runInAction(()=>{
+        this.state = 'Done';
+        this.data = todos;
+      })
+     } catch (error){
+        runInAction(() => {
+          this.state = 'Error';
+        })
+      }
   }
 
-  @action
-  removeTodo = (i) => {
-    let newData = [...this.data];
-    newData.splice(i, 1);
-    this.data = newData
+  getData(){
+    return fetch('https://hyf-react-api.herokuapp.com/todos')
+    .then(response => response.json())
   }
 }
 export default new Store();

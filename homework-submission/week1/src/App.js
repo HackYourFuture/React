@@ -8,14 +8,17 @@ import { inject, observer } from 'mobx-react';
 @inject('Store')
 @observer
 class App extends Component {
+  componentWillMount(){
+    this.props.Store.getTodos()
+  }
+  
     render() {
-      let {
-        addTodo,
-        toggleTodo,
-        removeTodo,
-        data
-      } = this.props.Store;
-
+    const {
+      addTodo,
+      toggleTodo,
+      removeTodo,
+      data
+    } = this.props.Store;
 
     return (
       <div className="App">
