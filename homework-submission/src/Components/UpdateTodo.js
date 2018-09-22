@@ -28,7 +28,7 @@ class EnterNewDeadline extends React.Component {
       <vaadin-date-picker
         id="enter-new-deadline"
         value={updatedTodo.deadline}
-        onBlur={e => handleUpdateDeadline(e)}
+        onChange={e => handleUpdateDeadline(e)}
         placeholder="Pick a date"
       />
     );

@@ -10,23 +10,26 @@ export default class Item extends Component {
   render() {
     const { updatedTodo } = this.props.TodoStore;
     const { renderedTodo } = this.props;
+    const Description = () => {
+      return updatedTodo.id === renderedTodo.id ? (
+        <EnterNewDescription />
+      ) : (
+        renderedTodo.description
+      );
+    };
+    const Deadline = () => {
+      return updatedTodo.id === renderedTodo.id ? (
+        <EnterNewDeadline />
+      ) : (
+        renderedTodo.deadline
+      );
+    };
 
     const todoItem = (
       <li id={renderedTodo.done ? "done" : "not-done"}>
-        <span>Description: </span>
-        {updatedTodo.id === renderedTodo.id ? (
-          <EnterNewDescription />
-        ) : (
-          renderedTodo.description
-        )}
+        <span>Description: </span> <Description />
         <br />
-        <span>Deadline: </span>
-        {updatedTodo.id === renderedTodo.id ? (
-          <EnterNewDeadline />
-        ) : (
-          renderedTodo.deadline
-        )}
-        .
+        <span>Deadline: </span> <Deadline /> .
       </li>
     );
 

@@ -1,6 +1,6 @@
 import React from "react";
 import "./newTodoForm.css";
-import "@vaadin/vaadin-date-picker/vaadin-date-picker.js";
+// import "@vaadin/vaadin-date-picker/vaadin-date-picker.js";
 import { inject, observer } from "mobx-react";
 
 @inject("TodoStore")

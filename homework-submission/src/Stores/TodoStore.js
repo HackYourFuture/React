@@ -1,4 +1,4 @@
-import { observable, action, configure } from "mobx";
+import { observable, action, configure, toJS } from "mobx";
 import uuid from "uuid/v4";
 
 import todosJSON from "../Sources/todosJSON.json";
@@ -7,7 +7,7 @@ configure({ enforceActions: "observed" });
 
 const TODO_TEMPLATE = {
   description: "",
-  deadline: null,
+  deadline: "",
   id: null,
   done: false
 };
@@ -24,96 +24,65 @@ class TodoStore {
 
   @action
   handleToggleCheck = itemID => {
-    let todos = [...this.todos];
-    todos = todos.map(todo => {
+    this.todos = this.todos.map(todo => {
       if (todo.id !== itemID) return todo;
       return { ...todo, done: !todo.done };
     });
-
-    return (this.todos = todos);
   };
 
   @action
   handleNewDescription = e => {
-    const newTodo = { ...this.newTodo };
-    newTodo.description = e.target.value;
-
-    return (this.newTodo = newTodo);
+    this.newTodo = { ...this.newTodo, description: e.target.value };
   };
 
   @action
   handleNewDeadline = e => {
-    let newTodo = { ...this.newTodo };
-    newTodo.deadline = e.target.value;
-
-    return (this.newTodo = newTodo);
+    this.newTodo = { ...this.newTodo, deadline: e.target.value };
   };
 
   @action
   handleSubmit = e => {
     e.preventDefault();
-    let newTodo = { ...this.newTodo };
-    if (!newTodo.description || !newTodo.deadline) return;
+    if (!this.newTodo.description || !this.newTodo.deadline) return;
 
-    newTodo = { ...newTodo, id: newTodo.id || uuid() };
-    const todos = [...this.todos, newTodo];
-    newTodo = TODO_TEMPLATE;
-
-    return [(this.todos = todos), (this.newTodo = newTodo)];
+    this.newTodo = { ...this.newTodo, id: this.newTodo.id || uuid() };
+    this.todos = [...this.todos, this.newTodo];
+    this.newTodo = TODO_TEMPLATE;
   };
 
   @action
   handleRemove = itemID => {
-    const { todos } = this;
-    const newTodos = todos.filter(todo => todo.id !== itemID);
-
-    return (this.todos = newTodos);
+    this.todos = this.todos.filter(todo => todo.id !== itemID);
   };
 
   @action
   handleEdit = itemID => {
-    const todos = [...this.todos];
-    const updatedTodo = todos.find(todo => todo.id === itemID);
-
-    return (this.updatedTodo = updatedTodo);
+    this.updatedTodo = this.todos.find(todo => todo.id === itemID);
   };
 
   @action
   handleCancel = () => {
-    const updatedTodo = { ...TODO_TEMPLATE };
-
-    return (this.updatedTodo = updatedTodo);
+    this.updatedTodo = { ...TODO_TEMPLATE };
   };
 
   @action
   handleUpdateDescription = e => {
-    const updatedTodo = { ...this.updatedTodo };
-    updatedTodo.description = e.target.value;
-
-    this.updatedTodo = updatedTodo;
+    this.updatedTodo = { ...this.updatedTodo, description: e.target.value };
   };
 
   @action
   handleUpdateDeadline = e => {
-    const updatedTodo = { ...this.updatedTodo };
-    updatedTodo.deadline = e.target.value;
-
-    this.updatedTodo = updatedTodo;
+    this.updatedTodo = { ...this.updatedTodo, deadline: e.target.value };
   };
 
   @action
   handleUpdate = itemID => {
-    const todos = [...this.todos];
-    let updatedTodo = { ...this.updatedTodo };
-
-    const updatedTodos = todos.map(todo => {
+    this.todos = this.todos.map(todo => {
       if (todo.id !== itemID) return todo;
-      return (todo = { ...updatedTodo });
+      return (todo = { ...this.updatedTodo });
     });
 
-    updatedTodo = { ...TODO_TEMPLATE };
-
-    return [(this.todos = updatedTodos), (this.updatedTodo = updatedTodo)];
+    this.updatedTodo = { ...TODO_TEMPLATE };
   };
 }
 
