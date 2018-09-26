@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 class App extends React.Component {
 
   state = {
     count: 0,
-  }
+  };
 
-  handleIncreaseCount = () => this.setState({ count: this.state.count + 1 })
-  handleDecreaseCount = () => this.setState({ count: this.state.count - 1 })
+  handleIncreaseCount = () => this.setState({ count: this.state.count + 1 });
+  handleDecreaseCount = () => this.setState({ count: this.state.count - 1 });
 
   render() {
 
