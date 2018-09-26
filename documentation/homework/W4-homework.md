@@ -14,7 +14,7 @@ To use decorators (the `@` syntax) with `create-react-app`, follow this [tutoria
 
  _You must have MobX strict mode enabled. Any homework submitted without strict mode on will be rejected. You enable strict mode like this:_
  
-    configure({ enforceActions: true })
+    configure({ enforceActions: 'observed' })
 
 ## Scoring
 
