@@ -9,12 +9,21 @@
 - Lifecycle methods are used when render is not enough on its own
 
 - Cover each, giving examples of when they might be useful
-  - componentWillMount: SSR
+  - constructor: initializing state
   - componentDidMount: data fetching in client-side-only apps
   - shouldComponentUpdate: performance debugging
   - componentWillUnmount: teardown (payment SDKs, intervals, etc)
 
-- Question: in which of these lifecycle methods is it OK to call setState? (watch out for stack overflows)
+- Cover how the lifecycle methods invoking order by react component in [this lifecycle diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) the docs mentioned to.
+
+  
+**Can the answer on these questions possible?**
+  - in which of these lifecycle methods is it OK to call setState? (watch out for stack overflows)
+  - what methods are invoked on each component lifecycle:
+    - Mounting
+    - Updating
+    - Unmounting
+
 
 ### Component State
 
@@ -30,7 +39,8 @@
     - Later, we are going to remove state from our React applications completely, and use a state-management tool (mobx)
 
 2. Using state correctly
-    - Do not modify state directly, always use setState
+    - Do not modify state directly, always use setState, **Important to Note:**
+        - the difference between mutating state and re-assigning it
         - Give an example of how mutating state directly doesn’t work
     - State updates are merged (note that merging is shallow)
     - setState is an asynchronously-executed _request_ to change state
