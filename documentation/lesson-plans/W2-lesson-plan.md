@@ -9,7 +9,6 @@
 - Lifecycle methods are used when render is not enough on its own
 
 - Cover each, giving examples of when they might be useful
-  - constructor: initializing state
   - componentDidMount: data fetching in client-side-only apps
   - shouldComponentUpdate: performance debugging
   - componentWillUnmount: teardown (payment SDKs, intervals, etc)
@@ -17,9 +16,9 @@
 - Cover how the lifecycle methods invoking order by react component in [this lifecycle diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) the docs mentioned to.
 
   
-**Can the answer on these questions possible?**
-  - in which of these lifecycle methods is it OK to call setState? (watch out for stack overflows)
-  - what methods are invoked on each component lifecycle:
+**Can we answer these questions?**
+  - In which of these lifecycle methods is it OK to call setState? (watch out for stack overflows)
+  - What methods are invoked on each component lifecycle:
     - Mounting
     - Updating
     - Unmounting
