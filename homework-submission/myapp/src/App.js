@@ -16,7 +16,7 @@ class App extends Component {
 
         <Category />
         <hr />
-  
+        
       </div>
     );
   }

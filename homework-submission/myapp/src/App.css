@@ -2,20 +2,22 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
-}
+} */
 
 .App-header {
   background-color: #031e53;
   min-height: 3vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
+  text-align: left;
+  padding-left: 100px;
 }
 
 .App-link {
@@ -31,10 +33,13 @@
   }
 }
 
-/* my code below */
+/* My extra code below */
 
 .designLogo{
-  color: rgb(99, 218, 52);
+  color: rgb(29, 250, 129);
+  border-radius: 10px;
+  padding:2px;
+  background: rgb(15, 15, 15);
 }
 
 .items{
@@ -54,3 +59,6 @@
   font-size: 20px;
   border-radius: 10px;
 } 
+ul:hover > li:not(:hover) {
+    opacity: 0.9;
+}
