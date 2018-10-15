@@ -8,8 +8,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #031e53;
+  min-height: 3vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,3 +30,27 @@
     transform: rotate(360deg);
   }
 }
+
+/* my code below */
+
+.designLogo{
+  color: rgb(99, 218, 52);
+}
+
+.items{
+  background: #eeeeee;
+  list-style: none;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top:20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.items li{
+  padding: 20px;
+  margin: 10px;
+  background: rgb(74, 84, 224);
+  color: #ffff;
+  font-size: 20px;
+  border-radius: 10px;
+} 
