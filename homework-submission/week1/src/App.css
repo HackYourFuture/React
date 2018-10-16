@@ -1,0 +1,45 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Todo list */
+.todo-container li {
+  color: #fff;
+}
+.todo-container ul.list-group.list-group-striped li:nth-of-type(odd){
+  background: rgb(62, 106, 172);
+}
+.todo-container ul.list-group.list-group-striped li:nth-of-type(even){
+  background: rgb(137, 179, 243);
+}
+.todo-container ul.list-group.list-group-hover li:hover{
+  background: rgb(245, 123, 123);
+}
