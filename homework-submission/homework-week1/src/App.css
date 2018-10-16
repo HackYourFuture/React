@@ -1,0 +1,22 @@
+#header {
+  font-size: 20px;
+  text-align: center;
+  color: olive
+}
+ul {
+  text-align: center;
+  font-style: italic;
+  list-style-type: none;
+}
+footer {
+  text-align: center;
+  position: relative;
+  top: 250px;
+}
+span {
+  font-weight: bold;
+}
+li {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
