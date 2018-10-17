@@ -2,18 +2,11 @@
   text-align: center;
 }
 
-/* .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-} */
-
 .App-header {
   background-color: #031e53;
   min-height: 3vh;
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-  justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
   text-align: left;
@@ -54,7 +47,7 @@
 .items li{
   padding: 20px;
   margin: 10px;
-  background: rgb(74, 84, 224);
+  background: #3B5998;
   color: #ffff;
   font-size: 20px;
   border-radius: 10px;
