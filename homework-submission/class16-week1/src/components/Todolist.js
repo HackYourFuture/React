@@ -19,7 +19,7 @@ class Todolist extends Component {
     ];
     const activity = list.map((item, i) => {
       return (
-        <Todo key="i" description={item.description} deadline={item.deadline} />
+        <Todo key={i} description={item.description} deadline={item.deadline} />
       );
     });
 
