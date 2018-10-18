@@ -4,9 +4,9 @@ class Data extends React.Component {
 
     render() {
         return (
-            <ul className='todos'>
-                {this.props.description} , {this.props.deadline}
-            </ul>
+                <li className='todos'>
+                     {this.props.description} , {this.props.deadline}
+                </li>
         )
     }
 }

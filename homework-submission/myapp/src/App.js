@@ -13,12 +13,12 @@ class App extends Component {
           </p>
           
         </header>
-
-        <Data description='Get out of bed' deadline='Wed Sep 13 2018' />
-        <Data description='Get out of bed' deadline='Thu Sep 14 2018'/>
-        <Data description='Get out of bed' deadline='Fri Sep 15 2018' />
-        <hr />
-        
+          <ul>
+            <Data description='Get out of bed' deadline='Wed Sep 13 2018' />
+            <Data description='Get out of bed' deadline='Thu Sep 14 2018'/>
+            <Data description='Get out of bed' deadline='Fri Sep 15 2018' />
+            <hr />
+          </ul>     
       </div>
     );
   }
