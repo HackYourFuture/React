@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: #eeeeee;
 }
 
 .App-header {
@@ -35,23 +36,14 @@
   background: rgb(15, 15, 15);
 }
 
-.items{
-  background: #eeeeee;
+.todos{
+  background: #6872ac;
   list-style: none;
   margin-left: 100px;
   margin-right: 100px;
   margin-top:20px;
   padding: 20px;
   border-radius: 10px;
-}
-.items li{
-  padding: 20px;
-  margin: 10px;
-  background: #3B5998;
-  color: #ffff;
   font-size: 20px;
-  border-radius: 10px;
-} 
-ul:hover > li:not(:hover) {
-    opacity: 0.9;
+  color:white;
 }
