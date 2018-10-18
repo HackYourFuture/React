@@ -1,0 +1,44 @@
+.App-header {
+  background-color: #18abbe;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.todo-logo {
+  animation: App-logo-spin infinite 30s linear;
+  height: 30vmin;
+  margin: 3%;
+}
+
+ul, li {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+li:before {
+  content: "*";
+  position: relative;
+  left: -15px;
+  bottom: -3px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
