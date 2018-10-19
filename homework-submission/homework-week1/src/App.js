@@ -10,7 +10,9 @@ class App extends Component {
       <div className="App">
         <Header />
         <ul>
-          <Todos />
+          <Todos description='Get out of bed' deadline='Wed Sep 13 2017' />
+          <Todos description='Brush teeth' deadline='Thu Sep 14 2017' />
+          <Todos description='Eat breakfast' deadline='Fri Sep 15 2017' />
         </ul>
         <Footer />
       </div>

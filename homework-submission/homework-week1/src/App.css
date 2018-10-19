@@ -13,10 +13,15 @@ footer {
   position: relative;
   top: 250px;
 }
-span {
-  font-weight: bold;
-}
 li {
   margin-bottom: 10px;
   font-size: 20px;
+}
+p {
+  font-weight: bold
+}
+.todo {
+  border: 2px solid red;
+  display: inline-block;
+  padding: 5px
 }
