@@ -1,0 +1,55 @@
+.App {
+  text-align: center;
+  background-color:black;
+}
+
+ol{
+border: 3px dashed red;
+padding:20px;
+color:black;
+font-size:30px;
+line-height: 1.5em;
+background-color: white;
+margin-left:100px;
+margin-right:100px;
+list-style-type: none;
+}
+
+
+.logo{
+  width:500px;
+  height:300px; 
+  float:center;
+  box-shadow:5px 5px 5px 5px red ;
+  margin-top:20px;
+  animation: 
+  pulse 3s ease infinite alternate, 
+  nudge 5s linear infinite alternate;
+}
+
+.done{
+  width:500px;
+  height: 400px;
+}
+
+
+
+.item :hover{
+  color:blue;
+  font-size: 40px;
+  font-stretch: expanded;
+}
+
+
+@keyframes pulse {
+  from {
+    
+    width: 3 0%; 
+  }
+
+  to {
+    
+    width: 50%;
+  }
+}
+
