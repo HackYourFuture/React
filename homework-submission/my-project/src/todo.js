@@ -14,7 +14,7 @@ class TodosList extends React.Component {
         </li>
     ));
     render() {
-        return <ul>{this.item}</ul>;
+        return <ol>{this.item}</ol>;
     }
 }
 
