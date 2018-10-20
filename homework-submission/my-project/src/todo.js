@@ -8,8 +8,8 @@ const todos = [
 ]
 
 class TodosList extends React.Component {
-    item = todos.map((item, i) => (
-        <li key={i}>
+    item = todos.map((item) => (
+        <li >
             {item.id + "- " + item.description + " DeadLine: " + item.deadline}
         </li>
     ));
