@@ -12,7 +12,7 @@ In this 5 week module we will learn React!
 | 2. | State and Lifecycle | [State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html), [Events](https://reactjs.org/docs/handling-events.html), [Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html), [List and Keys](https://reactjs.org/docs/lists-and-keys.html) | [W2 Lesson Plan](documentation/lesson-plans/W2-lesson-plan.md) | [W2 Homework](documentation/homework/W2-homework.md) |
 | 3. | Forms and Managing State | [Forms](https://reactjs.org/docs/forms.html), [Manage State](https://reactjs.org/docs/lifting-state-up.html), [Thinking in React](https://reactjs.org/docs/thinking-in-react.html) | [W3 Lesson Plan](documentation/lesson-plans/W3-lesson-plan.md) | [W3 Homework](documentation/homework/W3-homework.md) |
 | 4. | communication with APIs and data fetching | [GitHub API docs](https://developer.github.com/v3/) | [W4 Lesson Plan](documentation/lesson-plans/W4-lesson-plan.md) | [W4 Homework](documentation/homework/W4-homework.md) |
-| 5. | API Integration | [MobX Async Actions](https://mobx.js.org/best/actions.html) |  [W5 Lesson Plan](documentation/lesson-plans/W5-lesson-plan.md) | [W5 Homework](documentation/homework/W5-homework.md) |
+| 5. | SPA and routing using React Router | [React Router DOM](https://reacttraining.com/react-router/web/guides/philosophy) |  [W5 Lesson Plan](documentation/lesson-plans/W5-lesson-plan.md) | [W5 Homework](documentation/homework/W5-homework.md) |
 
 ## Read up before we get started
 
