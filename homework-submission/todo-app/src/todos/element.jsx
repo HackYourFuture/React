@@ -16,7 +16,7 @@ class Element extends Component {
         const {id} = this.state;
         
         return ( 
-            <li className="list-group-item m-1 text-md-left font-weight-bold" id={'item' + id}>
+            <li className="list-group-item m-1 text-md-left font-weight-bold" id={"list_item" + id}>
                 {this.myCheckBox()}
                 {this.checkItemsDone()}
                     <span className="item-close-icon float-right font-weight-bold" onClick={() => this.props.deleteItem(id)}>&times;</span>

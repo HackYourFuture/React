@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Element from './element';
 import Data from './data';
+import AddForm from './addform';
+
 
 class Todos extends Component {
     constructor(props) {
@@ -14,14 +16,26 @@ class Todos extends Component {
         const newData = this.state.elements.filter(item => item.id !== itemId);
         this.setState({elements: newData});
     }
-
-    render() { 
+    addNewItem = (formFields) => {
+        const arrSize = this.state.elements.length;
+        const newItem = {
+            id: arrSize + 1,
+            description: formFields.description,
+            deadline: formFields.deadline,
+            done: formFields.done
+        };
+        const elements = this.state.elements;     
+        elements.push(newItem);
+        this.setState({elements});
+    }
+    render() {
         return ( 
             <div className="wrapper">
-            <div className="todo-container container-fluid col-md shadow p-2 mb-2 bg-white rounded">
-                <h2>Todo List :</h2>
-                {this.checkElementsMount()}
-            </div>
+                <div className="todo-container container-fluid col-md shadow p-2 mb-2 bg-white rounded">
+                    <h2>Todo List :</h2>
+                    <AddForm addNewItem={this.addNewItem} />
+                    {this.checkElementsMount()}
+                </div>
             </div>
          );
     }
