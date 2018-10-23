@@ -1,5 +1,5 @@
 import React from 'react';
-import Todos from './Todos';
+import Todos from './Todos.json';
 
 class Data extends React.Component {
 
@@ -10,7 +10,7 @@ class Data extends React.Component {
     isTaskDone = (todo) => {
         todo.done = !todo.done;
         this.setState({
-            todos: this.state.Todos
+            Todos
         });
     }
 
