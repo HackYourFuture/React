@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+}
+
+.checked {
+  text-decoration: line-through red solid
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+  margin-right: 0px;
+  background-color: #0066FF;
+  color: #FFF;
+  border: 2px solid #0066FF;
+}
+
+button:hover {
+  background-color: #003399;
+  border: 2px solid #003399;
+  cursor: pointer;
+}
+.item-todo {
+  color: #333;
+  background-color: rgba(255,255,255,.5);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+span {
+  font-weight: bold
+}
+.noTask {
+  color: red;
+  font-size: 100px;
+}
