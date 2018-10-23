@@ -1,0 +1,31 @@
+.todo_list {
+  margin-left: 200px;
+}
+.todo_item {
+  list-style: none;
+  border: 3px solid black;
+  padding: 5px;
+  margin: 20px;
+  width: 800px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  display: grid;
+}
+.todo_desc {
+  color: green;
+  font-style: italic;
+  font-size: 23px;
+}
+.todo_deadline {
+  color: red;
+  font-style: italic;
+  font-size: 20px;
+}
+.zero_todo {
+  margin-left: -220px;
+  padding: 50px;
+  color: red;
+  font-size: 30px;
+  font-weight: bold;
+}
