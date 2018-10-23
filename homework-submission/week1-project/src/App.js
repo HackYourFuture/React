@@ -3,14 +3,33 @@ import logo from './logo.svg';
 import './App.css';
 import Description from './Components/todoComponents.js'
 
+
 class App extends Component {
+  
+  constructor(props){
+    super(props);
+    this.state = {list: props.JSONList};
+  }
+
+  changeState = (id) => {
+    const JSONList = this.state.list;
+    JSONList[id].done = !JSONList[id].done;
+    this.setState({list: JSONList});
+  }
+  
   render() {
+    const JSONList = this.state.list;
+  
     return (
-      <div class="content">
+      <div>
         <h1>Todo List</h1>
-        <Description descrip ='Get out of bed' deadline = 'Wed Sep 13 2017'/>
-        <Description descrip ='Brush teeth' deadline = 'Thu Sep 14 2017'/>
-        <Description descrip ='Eat breakfast' deadline = 'Fri Sep 15 2017'/>
+        {JSONList.length == 0 ? <h2>No items...</h2> : JSONList.map((e, index) => <Description 
+        descrip = {e.description} 
+        deadline = {e.deadline} 
+        key = {e.id} 
+        done = {e.done} 
+        id = {index} 
+        changeState = {this.changeState}/>)}
       </div>
     );
   }
