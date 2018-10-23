@@ -14,7 +14,7 @@ class TodoList extends Component {
           description={item.description}
           deadline={item.deadline}
           done={item.done}
-          onCheck={() => console.log(onCheck(item))}
+          onCheck={() => onCheck(item)}
         />
       );
     });
