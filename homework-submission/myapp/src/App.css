@@ -1,8 +1,6 @@
 .App {
   text-align: center;
-  background: #eeeeee;
 }
-
 .App-header {
   background-color: #031e53;
   min-height: 3vh;
@@ -13,37 +11,40 @@
   text-align: left;
   padding-left: 100px;
 }
-
 .App-link {
   color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* My extra code below */
-
 .designLogo{
   color: rgb(29, 250, 129);
   border-radius: 10px;
   padding:2px;
   background: rgb(15, 15, 15);
 }
-
-.todos{
-  background: #6872ac;
+.items{
+  background: #eeeeee;
   list-style: none;
   margin-left: 100px;
   margin-right: 100px;
   margin-top:20px;
   padding: 20px;
   border-radius: 10px;
+}
+.items li{
+  padding: 20px;
+  margin: 10px;
+  background: #3B5998;
+  color: #ffff;
   font-size: 20px;
-  color:white;
+  border-radius: 10px;
+}
+li:hover{
+    opacity: 0.9;
+}
+.noItems{
+  background: hsl(246, 100%, 71%);
+  font-size: 20px;
+  border-radius: 30px;
+  color: #ffff;
+  padding: 20px;
 }
