@@ -48,9 +48,9 @@ class SendForm extends Component {
 
     render() { 
         return ( 
-            <form className="needs-validation text-center mb-4" novalidate onSubmit={this.handleSubmit}>
+            <form className="needs-validation text-center mb-4" onSubmit={this.handleSubmit}>
              <div className="form-group col-md-8 mx-auto">
-                <label for="validationCustom01">Your item</label>
+                <label>Your item</label>
                 <input type="text" 
                     className="form-control border border-primary"
                     name="description" 
@@ -79,23 +79,5 @@ class SendForm extends Component {
          );
     }
 }
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function() {
-
-    window.addEventListener('load', function() {
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      var forms = document.getElementsByClassName('needs-validation');
-      // Loop over them and prevent submission
-      var validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener('submit', function(event) {
-          if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    }, false);
-  })();
  
 export default SendForm;
