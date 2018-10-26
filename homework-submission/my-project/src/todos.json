@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "description": "Do my dutch homework",
+        "deadline": "FRI 26 OCT",
+        "done": true
+    },
+    {
+        "id": 2,
+        "description": "React week2 homework",
+        "deadline": "SAT 27 OCT",
+        "done": false
+    },
+    {
+        "id": 3,
+        "description": "preaper to React week3",
+        "deadline": "SUN 28 OCT",
+        "done": false
+    }
+]
