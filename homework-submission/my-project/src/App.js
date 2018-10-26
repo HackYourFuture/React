@@ -1,7 +1,7 @@
 import React from 'react';
-import Todos from './todos.js';
-import Header from './pageheader.js';
-import todosData from './todos.json'
+import Todos from './todo.js';
+import Header from './page-header.js';
+import todosData from './todo.json'
 import './App.css';
 
 
