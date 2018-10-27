@@ -1,0 +1,17 @@
+.main {
+ text-align: left;
+  margin: 5px;
+}
+.title {
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.list {
+    background: #697d89;
+    padding: 10px;
+    margin: 10px;
+}
+.list li {
+    color: white; 
+    padding: 10px;
+}
