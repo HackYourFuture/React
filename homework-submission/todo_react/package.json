@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "moment": "^2.22.2",
+    "rc-checkbox": "^2.1.5",
     "react": "^16.5.2",
     "react-date-picker": "^7.0.0",
     "react-datepicker": "^1.7.0",

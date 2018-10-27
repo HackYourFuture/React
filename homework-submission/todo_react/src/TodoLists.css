@@ -1,0 +1,38 @@
+ li{
+   width:40%;
+   padding:15px;
+   margin:auto ;
+   background-color: lightcyan;
+   box-shadow: 8px 10px 8px #afadad;
+}
+
+input[type=checkbox]:checked + label {
+   color:red;
+   text-decoration: line-through;
+
+}
+.addItem{
+    width:30%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin:auto;
+}
+
+
+#input{
+    padding: 10px ;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/* .myCheck{
+
+   color:green;
+text-decoration: line-through;
+
+
+} */
+

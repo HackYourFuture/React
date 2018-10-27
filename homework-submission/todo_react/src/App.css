@@ -1,41 +1,18 @@
+body{
+   background-color: rgb(224, 233, 240);
+}
+
 .App {
   text-align: center;
+ 
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 10s linear;
-  height: 30vmin;
-}
 
-.App-header {
-  position: relative;
+  padding-top: 120px;
+  animation: App-logo-spin infinite 6s linear;
 
-  background-color: #282c34;
-  min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-.topic{
-  margin: 0 auto;
-  text-align: center; 
-  padding:20px;
-  width:70%;
-}
-button {
-
-    color:black;
-    padding: 10px;
-    text-align: center;
-  
-    font-size: 15px;
-    margin:  12px;
-    cursor: pointer;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -44,3 +21,79 @@ button {
     transform: rotate(360deg);
   }
 }
+
+
+.App-header {
+
+  border-radius: 3px;
+  background-color: #282c34;
+  width: 90%;
+  height: 200px;
+
+}
+
+.topic {
+  line-height: 1.4;
+  width:20%;
+  position: relative;
+  bottom: 300px;
+  left: 77%;
+  padding:20px;
+
+}
+
+
+.infoBtn {
+   position: relative;
+   bottom: 325px;
+   left: 37%;
+ 
+}
+.infoBtn:hover{
+  box-shadow: 9px 10px 8px grey;
+}
+
+button {
+  color:black;
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+  margin:  12px;
+  cursor: pointer;
+}
+
+.creteItem{
+   width:50%;
+   border: 1px solid red;
+   padding:5px;
+   margin:auto ;
+  
+}
+
+.btn1 {
+    border: none;
+    width:15%;
+    color: white;
+    padding: 10px ;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+.btn1 {
+    background-color: white; 
+    color: black; 
+    border-radius: 5px;
+}
+
+.btn1:hover {
+    background-color: rgb(66, 231, 243);
+    color: white;
+}
+label{
+  line-height: 2;
+}
+
