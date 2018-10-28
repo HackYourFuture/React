@@ -5,8 +5,7 @@ class Checkbox extends Component {
             <input
                 type='Checkbox'
                 defaultChecked={this.props.Checkbox}
-                id={this.props.id}
-                onChange={this.props.handler}
+                onChange={() => this.props.handler(this.props.id)}
             />
         )
     }

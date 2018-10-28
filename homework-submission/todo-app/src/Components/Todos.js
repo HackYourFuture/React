@@ -8,7 +8,7 @@ class Todos extends Component {
             <div>
                 <ul>
                     {this.props.items.map((item, id) => (
-                        <div className={item.done ? 'checked' : ''}>
+                        <div className={item.done ? 'checked' : ''} key={id}>
                             <Checkbox
                                 id={item.id}
                                 checkbox={item.done}

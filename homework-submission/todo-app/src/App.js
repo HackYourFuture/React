@@ -8,11 +8,18 @@ class App extends Component {
     TodoItems
   }
 
-  changeTodo = event => {
+  changeTodo = id => {
+
     let todos = [...this.state.TodoItems];
-    todos[event.target.id - 1].done = !todos[event.target.id - 1].done;
+
+    todos.forEach(item => {
+      if (item.id === id) {
+        item.done = !item.done
+      }
+    })
+
     this.setState({
-      todos
+      TodoItems: todos
     })
   }
 
@@ -24,7 +31,7 @@ class App extends Component {
         </header>
         <Todos
           items={this.state.TodoItems}
-          handler={this.handler}
+          handler={this.changeTodo}
         />
       </div>
     );
