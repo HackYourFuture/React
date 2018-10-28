@@ -4,18 +4,15 @@ import ItemsComponent from './components/ItemsComponent'
 import './App.css'
 
 class App extends Component {
-  state = {
-    items: {
-      1: {
-        item: 'Get out of bed',
-        completed: false
-      },
-      2: {
-        item: 'Brush teeth',
-        completed: false
-      }
-    }
+  constructor() {
+    super();
+    this.state = {
+      todos: new TodosModel(),
+    };
+    this.update = this.update.bind(this);
+
   }
+
   completeItem = id => {
     let items = {
       ...this.state.items,
