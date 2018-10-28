@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "text": "Do your Home Work",
+    "date": "2018-10-25",
+    "read": true
+  },
+  {
+    "id": 2,
+    "text": "Clean the Bathroom",
+    "date": "2018-10-25",
+    "read": false
+  },
+  {
+    "id": 3,
+    "text": "Remove the garbage",
+    "date": "2018-10-25",
+    "read": false
+  }
+  
+]
