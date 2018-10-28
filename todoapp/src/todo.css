@@ -1,11 +1,11 @@
-.comment {
+.todo {
     margin-bottom: 20px;
 }
 
-.comment__meta-info {
+.todo__info {
     margin-left: 10px;
 }
 
-.comment--read {
-    background-color: lightgray;
+.todo--read {
+    background-color:gainsboro;
 }

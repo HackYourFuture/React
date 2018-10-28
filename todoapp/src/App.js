@@ -1,88 +1,81 @@
 import React from 'react';
-import Comment from './Todo';
-import comments from './todo.json';
+import Todo from './Todo';
+import todos from './todo.json';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-
-    // State
-    this.state = {
-      comments: [],
-      newComment: {
-        text: ''
-        
+     this.state = {
+      todos: [],
+      newToDoItem: {
+      text: ''        
       }
     };
 
-    this.handleReadChange = this.handleReadChange.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.changeToDoList = this.changeToDoList.bind(this);
+    this.inputAdd = this.inputAdd.bind(this);
+    this.submitNewItem = this.submitNewItem.bind(this);
   }
-
-  // Lifecycle
   componentDidMount() {
       setTimeout(() => {
-      this.setState({ comments });
+      this.setState({ todos });
     }, 1000);
   }
 
-  handleReadChange(updatedReadValue, commentId) {
-    const updatedComments = this.state.comments.map(comment => {
-      if (commentId === comment.id) {
+  changeToDoList(updatedReadValue, toDoId) {
+    const updatedtodos = this.state.todos.map(comment => {
+      if (toDoId === comment.id) {
         return Object.assign({}, comment, {read: updatedReadValue});
       }
       return comment;
     });
     this.setState({
-      comments: updatedComments
+      todos: updatedtodos
     });
   }
 
-  renderComments(comments) {
+  rendertodos(todos) {
     // Conditional rendering
-    if (comments.length === 0) {
+    if (todos.length === 0) {
       return <div>Loading...</div>;
     }
-
-    // List and keys
-    return comments.map(comment => {
+    return todos.map(comment => {
       return (
-        <Comment
+        <Todo
           key={comment.id}
           comment={comment}
-          onReadChange={this.handleReadChange}
+          onReadChange={this.changeToDoList}
         />
       );
     })
   }
 
-  getNumberOfReadComments(comments) {
-    return comments.filter(comment => !comment.read).length;
+  getNumberOfReadtodos(todos) {
+    return todos.filter(comment => !comment.read).length;
   }
 
-  onFormSubmit(event) {
+  submitNewItem(event) {
     event.preventDefault();
-    const updatedNewComment = Object.assign({}, this.state.newComment, {
+    const updatednewToDoItem = Object.assign({}, this.state.newToDoItem, {
       date: new Date(),
-      id: this.state.comments.length + 1,
+      id: this.state.todos.length + 1,
       read: false
     });
-    const updatedComments = [...this.state.comments, updatedNewComment];
+    const updatedtodos = [...this.state.todos, updatednewToDoItem];
     this.setState({
-      comments: updatedComments,
-      newComment: {
+      todos: updatedtodos,
+      newToDoItem: {
       text: ''
       }
     });
   }
 
-  handleInputChange(event) {
-    const updatedNewComment = Object.assign({}, this.state.newComment, {
+  inputAdd(event) {
+    const updatednewToDoItem = Object.assign({}, this.state.newToDoItem, {
       [event.target.name]: event.target.value
     });
     this.setState({
-      newComment: updatedNewComment
+      newToDoItem: updatednewToDoItem
     });
   }
 
@@ -91,22 +84,21 @@ export default class App extends React.Component {
       <div>
         <h1>
           ToDo List {
-            this.state.comments.length !== 0 && `(unread ${this.getNumberOfReadComments(this.state.comments)})`
+            this.state.todos.length !== 0 && `(unread ${this.getNumberOfReadtodos(this.state.todos)})`
           }
         </h1>
         <div>
-          <form onSubmit={this.onFormSubmit}>            
+          <form onSubmit={this.submitNewItem}>            
             <textarea
               name="text"
-              value={this.state.newComment.text}
-              onChange={this.handleInputChange}
-            />
-            
+              value={this.state.newToDoItem.text}
+              onChange={this.inputAdd}
+            />           
             <button>submit</button>
           </form>
         </div>
 
-        {this.renderComments(this.state.comments)}
+        {this.rendertodos(this.state.todos)}
       </div>
     );
   }

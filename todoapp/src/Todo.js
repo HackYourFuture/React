@@ -2,11 +2,9 @@ import React from 'react';
 import CommentDate from './TodoDate';
 import CommentText from './TodoText';
 import './todo.css';
-export default class Comment extends React.Component {
+export default class Todo extends React.Component {
   constructor(props) {
     super(props);
-
-    // Events and bind to `this`
     this.markAsRead = this.markAsRead.bind(this);
   }
 
@@ -16,24 +14,16 @@ export default class Comment extends React.Component {
   }
 
   render() {
-    const { username, imageType, date, text, read } = this.props.comment;
-
-    let commentClasses = 'comment';
-
-    // Conditional rendering
+    const {date, text, read } = this.props.comment;
+    let todoClasses = 'todo';
     if (read) {
-      commentClasses += ' comment--read';
+      todoClasses += ' todo--read';
     }
-
     return (
-      <div className={commentClasses}>
-        <div className='comment__user-info'>
-          
-          <div className='comment__meta-info'>
-            
+      <div className={todoClasses}>      
+          <div className='todo__info'> 
             <CommentText text={text} />
           </div>
-        </div>
         <CommentDate date={date} />
         <label>
           <input
@@ -41,7 +31,6 @@ export default class Comment extends React.Component {
             checked={read}
             onChange={this.markAsRead}
           />
-          {/* Conditional rendering */}
           {read ? 'mark unread' : 'mark read'}
         </label>
       </div>
