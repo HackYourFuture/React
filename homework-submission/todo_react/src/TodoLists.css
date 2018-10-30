@@ -5,12 +5,6 @@
    background-color: lightcyan;
    box-shadow: 8px 10px 8px #afadad;
 }
-
-input[type=checkbox]:checked + label {
-   color:red;
-   text-decoration: line-through;
-
-}
 .addItem{
     width:30%;
     border-radius: 5px;
@@ -18,8 +12,6 @@ input[type=checkbox]:checked + label {
     padding: 20px;
     margin:auto;
 }
-
-
 #input{
     padding: 10px ;
     margin: 8px 0;
@@ -28,11 +20,16 @@ input[type=checkbox]:checked + label {
     border-radius: 4px;
     box-sizing: border-box;
 }
-/* .myCheck{
 
-   color:green;
-text-decoration: line-through;
+ input[type=checkbox]:checked + label {
+   color:red;
+   text-decoration: line-through;
 
+} 
 
+/* #myCheck{
+
+   color: blue;
+   text-decoration: line-through;
 } */
 
