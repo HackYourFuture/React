@@ -1,5 +1,7 @@
 import React from "react";
-import Item from './item'
+import Item from './item';
+
+let data = require('./data/data.json')
 
 class ItemList extends React.Component {
 
@@ -11,21 +13,21 @@ class ItemList extends React.Component {
 
         <section className="ToDoItem">
           <Item
-            name="Graduation Thesis"
-            deadLine="20-10-2018"
-            check="Undone" />
+            name={data[0].name}
+            deadLine={data[0].deadline}
+            check={data[0].situation} />
         </section>
         <section className="ToDoItem">
           <Item
-            name="Payment for Credit Card"
-            deadLine="10/10/2018"
-            check="Done" />
+            name={data[1].name}
+            deadLine={data[1].deadline}
+            check={data[1].situation} />
         </section>
         <section className="ToDoItem">
           <Item
-            name="Renovation of House"
-            deadLine="01/12/2018"
-            check="Undone" />
+            name={data[2].name}
+            deadLine={data[2].deadline}
+            check={data[2].situation} />
         </section>
 
       </div>
