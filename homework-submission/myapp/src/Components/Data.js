@@ -7,6 +7,7 @@ class Data extends React.Component {
         Todos
     }
 
+
     isTaskDone = (todo) => {
         todo.done = !todo.done;
         this.setState({
@@ -14,34 +15,24 @@ class Data extends React.Component {
         });
     }
 
-    renderTodos() {
+    render() {
+        
         if (this.state.Todos.length === 0) return <p className='noItems'>No items...</p>
 
         const textStyle = { textDecoration: 'line-through', backgroundColor: '#0455d8' }
 
-        return <ul>
-            {
-                Todos.map((todo, id) => {
-
-                    return (
-                        <li key={id}>
-                            <input checked={todo.done} type='checkbox' onChange={this.isTaskDone.bind(this, todo)} />
-                            <span style={todo.done ? textStyle : null}>
-                                {todo.description} , {todo.deadline}
-                            </span>
-                        </li>)
-                })
-            }
-        </ul>
+        return <ul className='items'>
+            {Todos.map((todo, id) => {
+              return <li key={id}>
+                  <input checked={todo.done} type='checkbox' onChange={() => this.isTaskDone(todo)} />
+                  <span style={todo.done ? textStyle : null}>
+                    {todo.description} , {todo.deadline}
+                  </span>
+                </li>;
+            })}
+          </ul>;
     }
 
-    render() {
-        return (
-            <div className='items'>
-                {this.renderTodos()}
-            </div>
-        )
-    }
 }
 
 export default Data;
