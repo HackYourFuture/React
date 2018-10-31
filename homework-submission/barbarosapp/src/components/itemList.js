@@ -1,38 +1,24 @@
 import React from "react";
-import Item from './item';
-
-let data = require('./data/data.json')
+import Item from "./item";
+import Data from "./data/data";
 
 class ItemList extends React.Component {
-
   render() {
-    const { name, deadLine, check } = this.props;
-    
-    return (
-      <div className="ToDoList">
+    const createItems = Data.map(item => {
+      return (
+        <section className="ToDoItem">
+          <Item
+            key={item.id}
+            name={item.name}
+            deadLine={item.deadline}
+            check={item.situation}
+          />
+        </section>
+      );
+    });
 
-        <section className="ToDoItem">
-          <Item
-            name={data[0].name}
-            deadLine={data[0].deadline}
-            check={data[0].situation} />
-        </section>
-        <section className="ToDoItem">
-          <Item
-            name={data[1].name}
-            deadLine={data[1].deadline}
-            check={data[1].situation} />
-        </section>
-        <section className="ToDoItem">
-          <Item
-            name={data[2].name}
-            deadLine={data[2].deadline}
-            check={data[2].situation} />
-        </section>
-
-      </div>
-    );
+    return <div className="ToDoList">{createItems}</div>;
   }
-};
+}
 
 export default ItemList;
