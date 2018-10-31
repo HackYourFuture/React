@@ -1,0 +1,50 @@
+.App {
+  text-align: center;
+}
+h1 {
+  font-weight: bold;
+  font-size: 40px
+}
+.checked {
+  text-decoration: line-through;
+  color: red
+}
+ul {
+  list-style-type: none
+}
+.center {
+  font-size: 300%;
+  color: red
+}
+.todo {
+  font-size: 20px;
+  margin-bottom: 10px;
+  border: 2px solid ;
+  display: inline-block;
+  font-weight: bold
+}
+button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+  margin-right: 5px;
+  background-color: #0066FF;
+  color: #FFF;
+  border: 2px solid #0066FF;
+  border-radius: 20%
+}
+
+button:hover {
+  background-color: #003399;
+  border: 2px solid #003399;
+  cursor: pointer;
+}
+label {
+  font-size: 20px;
+  position: relative
+}
+input {
+  display: inline-block;
+  font-size: 20px;
+  margin-right: 5px
+}
