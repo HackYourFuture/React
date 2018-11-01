@@ -85,7 +85,6 @@ class Data extends React.Component {
           deadlineInput={this.deadlineInput}
         />
         <div className='items'>{this.renderTodos()}</div>
-
       </div>
     );
   }
