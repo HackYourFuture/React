@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Element from './element';
-import Data from './data';
+import Data from './../data/data';
 import AddForm from './addform';
 
 
