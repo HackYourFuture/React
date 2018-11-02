@@ -45,7 +45,7 @@ class Data extends React.Component {
     });
   };
 
-  renderTodos = () => {
+  renderTodos = () =>{
     if (this.state.Todos.length === 0)
       return <p className='noItems'>No items...</p>;
     const textStyle = {
@@ -54,7 +54,7 @@ class Data extends React.Component {
     };
 
     return (
-      <ul>
+        <ul>
         {Todos.map((todo, id) => {
           return (
             <li key={id}>
@@ -72,7 +72,7 @@ class Data extends React.Component {
             </li>
           );
         })}
-      </ul>
+        </ul>
     );
   };
 

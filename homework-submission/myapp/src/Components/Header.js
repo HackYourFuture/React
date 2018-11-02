@@ -5,7 +5,7 @@ class Header extends React.Component{
         return (
                 <header className="App-header">
                     <p>
-                        Todo<span className='designLogo'>App</span>
+                        Todo<span className='designLogo'>List</span>
                     </p>
                 </header>
         )
