@@ -1,25 +1,36 @@
 import React from "react";
+import DatePicker from "react-datepicker";
+import moment from "moment";
+import "react-datepicker/dist/react-datepicker.css";
 
 class AddMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
-      deadline: ""
+      deadline: moment()
     };
+    
     this.handleChangeForm = this.handleChangeForm.bind(this);
     this.handleSubmitAdd = this.handleSubmitAdd.bind(this);
+    this.handleChangeDate = this.handleChangeDate.bind(this);
   }
 
   handleChangeForm = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
   };
 
-  handleSubmitAdd(event) {
+  handleSubmitAdd = event => {
     event.preventDefault();
     this.props.handleAdd(this.state.name, this.state.deadline);
-    this.setState({ name: "", deadline: "" });
-  }
+    this.setState({ name: "", deadline: moment() }); 
+  };
+
+  handleChangeDate = date => {
+    this.setState({
+      deadline: date
+    });
+  };
 
   render() {
     return (
@@ -46,18 +57,21 @@ class AddMenu extends React.Component {
               <label for="lname">Deadline : </label>
             </div>
             <div className="col-75">
-              <input
-                type="text"
-                id="deadline"
-                name="deadline"
-                placeholder="Deadline is ..."
-                value={this.state.deadline}
-                onChange={this.handleChangeForm}
+              <DatePicker
+                className="col-75"
+                selected={this.state.deadline}
+                onChange={this.handleChangeDate}
+                minDate={moment()}
+                showTimeSelect
+                timeFormat="HH:mm"
+                timeIntervals={15}
+                dateFormat="LLL"
+                timeCaption="time"
               />
             </div>
           </div>
 
-          <div className="row">
+          <div className="rowAdd">
             <button className="AddButton" onClick={this.handleSubmitAdd}>
               Add
             </button>

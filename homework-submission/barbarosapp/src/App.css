@@ -1,6 +1,11 @@
 * {
   box-sizing: border-box;
 }
+.react-datepicker__input-container {
+  float: left;
+  width: 400px;
+  margin-top: 6px;
+}
 
 .App {
   text-align: center;
@@ -30,7 +35,8 @@ form {
   border: solid 1px gray;
   margin: auto;
   padding: 20px;
-  width: 60%;
+  width: 80%;
+  max-width: 700px;
 }
 
 input[type="text"],
@@ -56,13 +62,14 @@ label {
   cursor: pointer;
   float: right;
   min-width: 200px;
+  margin-top: 10px;
 }
 
 input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-.addMEnu {
+.addMenu {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
@@ -72,15 +79,22 @@ input[type="submit"]:hover {
   float: left;
   width: 25%;
   margin-top: 6px;
+  min-width: 140px;
 }
 
 .col-75 {
   float: left;
-  width: 75%;
+  width: 400px;
   margin-top: 6px;
 }
 
 .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.rowAdd:after {
   content: "";
   display: table;
   clear: both;
@@ -147,6 +161,15 @@ input.CheckBox {
 
 .CheckBoxDiv p {
   margin-top: 7px;
+}
+
+.icon-small {
+  width: 40px;
+  height: 40px;
+}
+
+.react-datepicker__input-container {
+  margin-top: 0;
 }
 
 @keyframes App-logo-spin {

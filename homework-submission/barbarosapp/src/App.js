@@ -47,6 +47,7 @@ class App extends Component {
           Data={this.state.Data}
           value={this.state.value}
           handleAdd={this.handleAdd}
+          handleChangeData={this.handleChangeData}
         />
         <ItemList
           Data={this.state.Data}
