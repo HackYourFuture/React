@@ -18,9 +18,15 @@ class Item extends React.Component {
           <p>
             Deadline : <span className="Color2"> {deadLine} </span>
           </p>
-          {/* <p>
-            Situation : <span className="Color3"> {situation} </span>
-          </p> */}
+        </div>
+
+        <div className="removeButtonDiv">
+          <button
+            onClick={item => this.handleRemove(item.id)}
+            className="removeButton"
+          >
+            Remove
+          </button>
         </div>
       </section>
     );
