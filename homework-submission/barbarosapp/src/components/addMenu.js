@@ -10,7 +10,7 @@ class AddMenu extends React.Component {
       name: "",
       deadline: moment()
     };
-    
+
     this.handleChangeForm = this.handleChangeForm.bind(this);
     this.handleSubmitAdd = this.handleSubmitAdd.bind(this);
     this.handleChangeDate = this.handleChangeDate.bind(this);
@@ -23,7 +23,8 @@ class AddMenu extends React.Component {
   handleSubmitAdd = event => {
     event.preventDefault();
     this.props.handleAdd(this.state.name, this.state.deadline);
-    this.setState({ name: "", deadline: moment() }); 
+    this.setState({ name: "" });
+    this.setState({ deadline: moment() });
   };
 
   handleChangeDate = date => {

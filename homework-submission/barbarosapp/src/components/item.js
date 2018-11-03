@@ -1,9 +1,10 @@
 import React from "react";
 import CheckBox from "./checkBox";
+import RemoveButton from "./removeButton";
 
 class Item extends React.Component {
   render() {
-    const { name, deadLine, handleCheck, done, id } = this.props;
+    const { name, deadLine, handleCheck, handleRemove, done, id } = this.props;
 
     return (
       <section className="ToDos">
@@ -21,12 +22,7 @@ class Item extends React.Component {
         </div>
 
         <div className="removeButtonDiv">
-          <button
-            onClick={item => this.handleRemove(item.id)}
-            className="removeButton"
-          >
-            Remove
-          </button>
+          <RemoveButton handleRemove={handleRemove} />
         </div>
       </section>
     );

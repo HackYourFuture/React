@@ -31,10 +31,10 @@ class App extends Component {
     this.setState({ Data: [...addedData, addition] });
   };
 
-  handleRemove = item => {
-    const newData = this.state.Data;
-    newData.splice(item.id, 1);
-    this.setState({ Data: newData });
+  handleRemove = id => {
+    const deletedData = this.state.Data;
+    deletedData.splice(id, 1);
+    this.setState({ Data: deletedData });
   };
 
   render() {
