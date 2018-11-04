@@ -21,6 +21,15 @@ ul, li {
   list-style:none;
 }
 
+label {
+  font-weight: bold;
+}
+
+.textFormat {
+  font-weight: normal;
+  color: #54c9d8;
+}
+
 .text-box {
   display: flex;
   flex-direction: column;
@@ -32,6 +41,12 @@ li:before {
   position: relative;
   left: -15px;
   bottom: -3px;
+}
+
+.checkbox {
+  margin: 15px;
+  width: 1.4em;
+  height: 1.4em
 }
 
 @keyframes App-logo-spin {

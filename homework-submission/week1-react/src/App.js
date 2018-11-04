@@ -2,21 +2,49 @@ import React, { Component } from 'react';
 import todoLogo from './todo.png';
 import './App.css';
 import Todo from "./todo.js";
+import data from './todoData.json';
 
 class App extends Component {
+
+  state = {
+    title: 'My Todo List',
+    data: data
+  };
+
+  changeDone = (index) => {
+    const newState = this.state;
+    if(this.state.data[index].done) {
+      newState.data[index].done = false  
+    } else {
+      newState.data[index].done = true
+    }
+    this.setState(newState);
+    console.log(newState.data[index])
+  }
+ 
   render() {
+    const elements = (this.state.data.length < 1 || this.state.data === undefined) ? <p>No items...</p> : this.state.data.map((item, key)=> <Todo
+      key={key}
+      index={key}
+      changeDone = {this.changeDone}
+      id={item.id}
+      text={item.description}
+      date={item.deadline}
+      done={item.done}
+      />)
     return (
+      
       <div className="App">
         <header className="App-header">
 
           <img src={todoLogo} className="todo-logo" alt="todo" />
-          <div class="text-box">
-            <h2>Todo List</h2>
 
-            <Todo class="todo-item" item="go to Noordwijkerhout" date='2018-10-17' />
-            <Todo class="todo-item" item="buy some households from Ikea" date='2018-11-01' />
-            <Todo class="todo-item" item="install laminate floor" date='2018-11-13' />
-          </div>
+          <h1>{this.state.title}</h1>
+
+          <ul>
+            {elements}
+          </ul>
+
         </header>
       </div>
     );
