@@ -6,11 +6,23 @@ When you are done, create a new PR for week 4.
 
 ## Outline
 
-Extend the project done in class so that:
+your home work will be serching github users based on the what you type in the input:
 
-- You show the name and location of the searched github user. (Hint: you need to use this endpoint : https://api.github.com/users)
-- Manipulate the response body object so that your React app can display the name and location of the github user searched.
+```
+Github Users
 
+type something: [           ]   [Search]
+
+* User 1
+* User 2
+* User 3
+```
+
+When the search is loading, you should show "loading..."
+
+When the search is failed, you should show "error fetching (reason why it failed)..."
+
+When the search result is empty (no users), you should show "No users...":
 
 Continue using the github API through this url - https://api.github.com/ - (Hint: use postman to query the github API)
 
