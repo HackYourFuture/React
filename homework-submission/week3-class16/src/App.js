@@ -21,13 +21,6 @@ class App extends Component {
       }
     });
 
-    // newData.map(todo => {
-    //   if (todo.id === event.id) {
-    //     todo.done = !todo.done;
-    //   }
-    //   return todo;
-    // });
-
     this.setState({ Data: newData });
   };
 
@@ -48,7 +41,6 @@ class App extends Component {
       deadline,
       done: false
     };
-    // newTodos.push(newTodo);
 
     this.setState({
       Data: [...newTodos, newTodo]
@@ -66,8 +58,6 @@ class App extends Component {
             deadline: todo.deadline,
             description: description
           };
-          // todo.description = description;
-          // todo.deadline = deadline;
         }
         if (deadline) {
           return {
@@ -75,8 +65,6 @@ class App extends Component {
             description: todo.description,
             deadline: deadline
           };
-          //   // todo.description = todo.description;
-          //   // todo.deadline = deadline;
         }
       }
 
