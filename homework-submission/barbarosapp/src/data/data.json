@@ -2,7 +2,7 @@
   {
     "id": "0",
     "name": "Graduation Thesis",
-    "deadline": "20-10-2018 00:00",
+    "deadline": "10/09/2018 00:00",
     "done": false
   },
   {
@@ -14,7 +14,7 @@
   {
     "id": "2",
     "name": "Renovation of House",
-    "deadline": "01/12/2018 00:00",
+    "deadline": "1990-04-19T12:59-0500",
     "done": false
   }
 ]

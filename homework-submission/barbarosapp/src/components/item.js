@@ -20,7 +20,7 @@ class Item extends React.Component {
           <p>
             Deadline :
             <span className="Color2">
-              <Moment parse="YYYY/MM/DD">{deadLine}</Moment>
+              <Moment format=" DD MMMM YYYY  hh:mm">{deadLine}</Moment>
             </span>
           </p>
         </div>
