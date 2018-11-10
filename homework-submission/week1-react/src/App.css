@@ -15,10 +15,30 @@
   margin: 3%;
 }
 
+.inputTodo {
+  margin: 5px;
+  height: 3em;
+  border-radius: 7px
+}
+
+.description {
+  width: 30em
+}
+
+.deadline {
+  width: 20em
+}
+
 ul, li {
   margin:0;
   padding:0;
   list-style:none;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline
 }
 
 label {
@@ -47,6 +67,20 @@ li:before {
   margin: 15px;
   width: 1.4em;
   height: 1.4em
+}
+
+.deleteButton {
+  margin: 1em;
+  font-weight: bold;
+  background-color: #1f8b99;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+.deleteButton:hover {
+  font-weight: normal;
+  font-color: 0.7em;
+  background-color: #28b7ca
 }
 
 @keyframes App-logo-spin {
