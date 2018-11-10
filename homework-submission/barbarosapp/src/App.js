@@ -20,9 +20,14 @@ class App extends Component {
   };
 
   handleRemove = id => {
-    const deletedData = this.state.Data;
-    deletedData.splice(id, 1);
+    function filterByID(item) {
+      if (item.id !== id) {
+        return true;
+      }
+      return false; 
+    }
 
+    const deletedData = this.state.Data.filter(filterByID);
     this.setState({ Data: deletedData });
   };
 
