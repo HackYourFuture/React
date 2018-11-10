@@ -10,7 +10,7 @@ class AddMenu extends React.Component {
       name: "",
       deadline: moment()
     };
-
+   
     this.handleChangeForm = this.handleChangeForm.bind(this);
     this.handleSubmitAdd = this.handleSubmitAdd.bind(this);
     this.handleChangeDate = this.handleChangeDate.bind(this);
@@ -20,19 +20,20 @@ class AddMenu extends React.Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmitAdd = event => {
-    event.preventDefault();
-    this.props.handleAdd(this.state.name, this.state.deadline);
-    this.setState({ name: "" });
-    this.setState({ deadline: moment() });
-  };
-
-  handleChangeDate = date => {
-    this.setState({
-      deadline: date
+  handleChangeDate = (date) => {
+    this.setState({ deadline: date
     });
   };
 
+  handleSubmitAdd = event => {
+    event.preventDefault();
+    this.props.handleAdd(this.state.name, this.state.deadline);
+    this.setState({
+      name: "",
+      deadline: moment()
+    });
+  };
+ 
   render() {
     return (
       <div className="AddMenu">
@@ -55,7 +56,7 @@ class AddMenu extends React.Component {
 
           <div className="row">
             <div className="col-25">
-              <label for="lname">Deadline : </label>
+              <label>Deadline : </label>
             </div>
             <div className="col-75">
               <DatePicker

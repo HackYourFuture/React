@@ -1,6 +1,7 @@
 import React from "react";
 import CheckBox from "./checkBox";
 import RemoveButton from "./removeButton";
+import Moment from "react-moment";
 
 class Item extends React.Component {
   render() {
@@ -17,12 +18,15 @@ class Item extends React.Component {
             Name : <span className="Color1"> {name} </span>
           </p>
           <p>
-            Deadline : <span className="Color2"> {deadLine} </span>
+            Deadline :
+            <span className="Color2">
+              <Moment parse="YYYY/MM/DD">{deadLine}</Moment>
+            </span>
           </p>
         </div>
 
         <div className="removeButtonDiv">
-          <RemoveButton handleRemove={handleRemove} />
+          <RemoveButton handleRemove={handleRemove} id={id} />
         </div>
       </section>
     );

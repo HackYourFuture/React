@@ -21,7 +21,7 @@ class ItemList extends React.Component {
     });
 
     const emptyCheck =
-      Data.length > 0 ? createItems : <h2> ~ There is nothing to do :) ~</h2>;
+      Data.length > 0 ? createItems : <h2> ~ There is nothing to do :) ~ </h2>;
 
     return <div className="ToDoList">{emptyCheck}</div>;
   }

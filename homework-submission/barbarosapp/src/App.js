@@ -19,22 +19,23 @@ class App extends Component {
     this.setState({ Data: newData });
   };
 
+  handleRemove = id => {
+    const deletedData = this.state.Data;
+    deletedData.splice(id, 1);
+
+    this.setState({ Data: deletedData });
+  };
+
   handleAdd = (name, deadline) => {
     const newId = this.state.Data.length;
-    const addedData = this.state.Data;
+    const newData = this.state.Data;
     const addition = {
       id: newId,
       name,
       deadline,
       done: false
     };
-    this.setState({ Data: [...addedData, addition] });
-  };
-
-  handleRemove = id => {
-    const deletedData = this.state.Data;
-    deletedData.splice(id, 1);
-    this.setState({ Data: deletedData });
+    this.setState({ Data: [...newData, addition] });
   };
 
   render() {
