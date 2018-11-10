@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 class Checkbox extends Component {
     render() {
         return (
-            <input
-                type='Checkbox'
-                defaultChecked={this.props.Checkbox}
-                id={this.props.id}
-                onChange={this.props.handler}
-            />
+            <div>
+                <input
+                    type='Checkbox'
+                    defaultChecked={this.props.checkbox}
+                    onClick={() => this.props.handleCheck(this.props.id)}
+                />
+            </div>
         )
     }
 }
-
 export default Checkbox;

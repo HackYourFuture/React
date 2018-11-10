@@ -1,35 +1,28 @@
 import React, { Component } from 'react';
+import logo from './logo.svg';
 import './App.css';
-import Todos from './Components/Todos';
-import TodoItems from './Components/TodoItems.json';
 
 class App extends Component {
-  state = {
-    TodoItems
-  }
-
-  changeTodo = event => {
-    let todos = [...this.state.TodoItems];
-    todos[event.target.id - 1].done = !todos[event.target.id - 1].done;
-    this.setState({
-      todos
-    })
-  }
-
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">To-Do list</h1>
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
         </header>
-        <Todos
-          items={this.state.TodoItems}
-          handler={this.handler}
-        />
       </div>
     );
   }
 }
-
 
 export default App;
