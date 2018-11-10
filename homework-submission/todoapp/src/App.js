@@ -30,19 +30,24 @@ class App extends Component {
     });
     this.setState({ todos });
   }
+
   addNewTodo = (todo) => {
-    const length = this.state.todos.length
-    todo.id = length + 1;
-    const todos = [...this.state.todos, todo]
-    this.setState({
-      todos
-    })
+    const todos = [...this.state.todos]
+    if (todos.length === 0) {
+      todo.id = 1
+    } else {
+      const lastItem = todos[todos.length - 1];
+      todo.id = lastItem.id + 1
+    }
+    todos.push(todo)
+    this.setState({ todos })
   }
+
   handleUpdateTodo = (oldDescription, newDescription, newDeadline) => {
     const todos = [...this.state.todos]
-    const neededItem = todos.find(todo => todo.description === oldDescription)
-    neededItem.description = newDescription
-    neededItem.deadline = newDeadline
+    const neededIndex = todos.findIndex(todo => todo.description === oldDescription)
+    const updatedItem = { ...this.state.todos[neededIndex], description: newDescription, deadline: newDeadline }
+    todos[neededIndex] = updatedItem
     this.setState({
       todos
     })

@@ -5,14 +5,9 @@ class TodoElement extends React.Component {
     isEdit: false
 
   }
-  handleEditButton = () => {
+  toggleEditView = () => {
     this.setState({
-      isEdit: true
-    })
-  }
-  handleCancelButton = () => {
-    this.setState({
-      isEdit: false
+      isEdit: !this.state.isEdit
     })
   }
   handleUpdate = (e) => {
@@ -35,19 +30,19 @@ class TodoElement extends React.Component {
         <div className="todo" key={this.props.unique}>
           <input type='checkbox' id='description' defaultChecked={this.props.done} onChange={() => this.props.handleClick(this.props.unique)} />
           <span className={this.props.done ? 'checked' : 'notChecked'}>{this.props.description}, {this.props.deadline}</span>
-          <button onClick={this.handleEditButton}>Edit</button>
+          <button onClick={this.toggleEditView}>Edit</button>
           <button onClick={() => this.props.deleteTodo(this.props.unique)}>Delete</button>
         </div >
       )
     } else {
       TodoView = (
-        <form onSubmit>
-          <div classNAme="todo editMode" key={this.props.unique}>
+        <form>
+          <div className="todo editMode" key={this.props.unique}>
             <input type='checkbox' defaultChecked={this.props.done} />
             <input type='text' defaultValue={this.props.description} ref={(chEl) => (this.editField = chEl)} />
             <input type='text' defaultValue={this.props.deadline} ref={(dateEl => (this.secondEditField = dateEl))} />
             <button onClick={this.handleUpdate}>Update</button>
-            <button onClick={this.handleCancelButton}>Cancel</button>
+            <button onClick={this.toggleEditView}>Cancel</button>
           </div>
         </form>
       )
