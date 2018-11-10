@@ -1,21 +1,21 @@
  li{
-   width:40%;
-   padding:15px;
+   width:50%;
+   padding:10px;
    margin:auto ;
    background-color: lightcyan;
    box-shadow: 8px 10px 8px #afadad;
 }
 .addItem{
-    width:30%;
+    width: 30%;
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
     margin:auto;
+
 }
-#input{
-    padding: 10px ;
-    margin: 8px 0;
-    display: inline-block;
+#desc{
+    height:30px;
+    padding: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -24,12 +24,49 @@
  input[type=checkbox]:checked + label {
    color:red;
    text-decoration: line-through;
-
+  
 } 
 
-/* #myCheck{
+span{
+   font-size: 1.5em;
+   padding:10px;
+}
 
-   color: blue;
-   text-decoration: line-through;
+#removeBtn{
+        color:rgba(41, 39, 39, 0.938);
+}
+
+#removeBtn:hover{
+       border-radius:3px;
+       cursor: pointer;
+       color:red;
+       border-color:rgb(243, 98, 98);    
+}
+.update{
+
+  background-color: white;
+  border :1px ridge blue;
+  border-radius: 5px;
+
+}
+
+.update button {
+ 
+  color: black;
+ border-style:none;
+}
+
+.update button:hover {
+  border-style:none;
+  background-color: rgb(42, 136, 243);
+  color: white;
+  font-weight: bold;
+   border-radius: 15px;
+}
+/* 
+#date{
+    padding:30px;
+    width:120%;
+   
+color:red;
 } */
-

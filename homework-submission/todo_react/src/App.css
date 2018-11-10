@@ -29,13 +29,14 @@ body {
   line-height: 1.4;
   width: 20%;
   position: relative;
-  bottom: 300px;
+  bottom: 430px;
   left: 77%;
   padding: 20px;
 }
+
 .infoBtn {
   position: relative;
-  bottom: 325px;
+  bottom: 475px;
   left: 37%;
 }
 .infoBtn:hover {
@@ -60,27 +61,25 @@ button {
 
 .btn1 {
   border: none;
+   border-radius: 5px;
   width: 15%;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
+  background-color: white;
+  color: black;
   transition-duration: 0.2s;
   cursor: pointer;
 }
 
-.btn1 {
-  background-color: white;
-  color: black;
-  border-radius: 5px;
-}
 
 .btn1:hover {
   background-color: rgb(66, 231, 243);
   color: white;
+  font-weight: bold;
+  
 }
 label {
   line-height: 2;
 }
+
+
+
+

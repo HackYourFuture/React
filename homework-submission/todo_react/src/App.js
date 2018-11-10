@@ -5,13 +5,14 @@ import data from "./data";
 import TodoLists from "./TodoLists";
 import ItemCreate from "./ItemCreate";
 
+
 class App extends Component {
   state = {
     todos: data
   };
 
-  handleClick = id => {
-    const newTodos = this.state.todos.slice();
+  handleClick = (id) => {
+    const newTodos = this.state.todos;
 
     newTodos.forEach(todo => {
       if (todo.id === id) {
@@ -20,9 +21,15 @@ class App extends Component {
     });
     this.setState({ todos: newTodos });
   };
+  removeItem = (item) => {
+    let newState = this.state.todos
+    newState.splice(item, 1)
+    this.setState({ newState })
+
+  }
 
   render() {
-    const listData = this.state.todos.map(item => (
+    let listData = this.state.todos.map(item => (
       <TodoLists
         key={item.id}
         description={item.description}
@@ -30,8 +37,20 @@ class App extends Component {
         done={item.done}
         id={item.id}
         handleClick={this.handleClick}
+        removeItem={this.removeItem}
       />
+
     ));
+
+    // console.log(data[1].deadline = new Date(2021 / 23 / 11))
+    // let push = data.push(
+    //   {
+    //     "id": 12,
+    //     "description": "qwqwqw out of bed",
+    //     "deadline": "2022-09-11",
+    //     "done": false
+    //   }
+    // )
 
     if (listData.length === 0) {
       return (
@@ -43,17 +62,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        {/* <DateP /> */}
-        <div>
-          <ItemCreate />
-        </div>
-
+        <div> <ItemCreate /></div>
         {listData}
 
-        <div>
-          <Info />
-        </div>
-        {/* {console.log(new Date())} */}
+        <div><Info /></div>
+
       </div>
     );
   }

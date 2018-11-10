@@ -22,7 +22,6 @@ class Info extends React.Component {
     }
 
     changeEventHandler = () => {
-        alert('your button has clicked => The state gonna change!');
         this.setState({
             some_info: [
                 {
@@ -42,7 +41,7 @@ class Info extends React.Component {
 
                 <button type="button" className="infoBtn" onClick={this.changeEventHandler} > Click Me! </button>
 
-                <div >
+                <div className='info' >
                     < SomeInfo img={this.state.some_info[0].img} topic={this.state.some_info[0].topic} />
                 </div>
 
