@@ -1,24 +1,32 @@
+
 import React from 'react';
 import { FaTrash } from 'react-icons/fa'
 import { FaPencilAlt } from 'react-icons/fa'
-const Todos = ({ todos, deleteTodo, handleClick }) => {
-    const todoList = todos.length !== 0 ? (
-        todos.map(todo => {
-            return (
-                <div className="item" key={todo.id}>
-                    <button className="pencil"> <input type='checkbox' defaultChecked={todo.done} onChange={() => handleClick(todo.id)} /> <FaPencilAlt /></button>
-                    <span>{todo.description}, {todo.deadline}</span>
-                    <button className="trash" onClick={() => deleteTodo(todo.id)}><FaTrash /></button>
+
+class TodoList extends React.Component {
+    state = {
+        editing: false
+    }
+    render() {
+        const TodoItem = (
+            <span className={this.props.done ? 'done' : 'notdone'}>
+                <div className="item" key={this.props.sort}>
+                    <li>
+                        <button className="pencil">
+                            <input type='checkbox' defaultChecked={this.props.done} onChange={() => this.props.handleClick(this.props.sort)} />
+                            <FaPencilAlt /></button>
+                        {this.props.description}</li><li className="deadline">{this.props.deadline}</li>
+                    <button onClick={this.handleEditButton}>Edit</button>
+                    <button className="trash" onClick={() => this.props.deleteTodo(this.props.sort)}><FaTrash /></button>
                 </div >
-            )
-        })
-    ) : (
-            <p className='noTodo'>All Todos is done...</p>
+            </span>
+
         )
-    return (
-        <div>
-            {todoList}
+
+
+        return <div>
+            {TodoItem}
         </div>
-    )
+    }
 }
-export default Todos 
+export default TodoList 

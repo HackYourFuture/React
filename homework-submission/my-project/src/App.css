@@ -46,14 +46,55 @@ img{
   padding: 15px;
   margin-bottom: 15px;
   border: 6px inset orange;
+  width:94%;
+}
+.newitem{
+  
+  color:white;
+  width:94%;
+  margin: 40px;
+  
 }
 
-span {
+li {
   font-weight: bold;
   font-size:25px;
+  list-style-type: none;
 }
 
 .noTodo {
   color: orange;
   font-size: 80px;
 } 
+
+.deadline{
+
+  color:blue;
+}
+
+.done{
+  text-decoration: line-through red;
+  
+}
+span{
+  font-size: 24px;
+}
+
+.newtodo{
+  width:300px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.newdeadline{
+  width:70px;
+  margin-left: 10px;
+  
+}
+
+.add{
+  font-size: 35px;
+  font-style: italic;
+  font-weight: bold;
+  color:black;
+}

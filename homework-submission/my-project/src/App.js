@@ -1,13 +1,12 @@
 import React from 'react';
-import Todos from './todo.js';
-import Header from './page-header.js';
+import TodoElement from './todo.js';
 import todosData from './todo.json'
+import Header from './page-header.js';
+import AddTodo from './AddForm.js';
 import './App.css';
-
-
 class App extends React.Component {
   state = {
-    todos: todosData
+    todos: todosData,
   }
   deleteTodo = (id) => {
     const todos = this.state.todos.filter(todo => {
@@ -28,11 +27,40 @@ class App extends React.Component {
     });
     this.setState({ todos });
   }
+  addNewTodo = (todo) => {
+    const length = this.state.todos.length
+    todo.id = length + 1;
+    const todos = [...this.state.todos, todo]
+    this.setState({
+      todos
+    })
+  }
+  handleUpdateTodo = (oldDescription, newDescription, newDeadline) => {
+    const todos = [...this.state.todos]
+    const neededItem = todos.find(todo => todo.description === oldDescription)
+    neededItem.description = newDescription
+    neededItem.deadline = newDeadline
+    this.setState({
+      todos
+    })
+  }
   render() {
+    const Todos = this.state.todos.length !== 0 ? this.state.todos.map(todo => <TodoElement
+      sort={todo.id}
+      description={todo.description}
+      deadline={todo.deadline}
+      done={todo.done}
+      deleteTodo={this.deleteTodo}
+      handleClick={this.checkBoxHandler}
+      updateTodo={this.handleUpdateTodo}
+    />) : (
+        <p className='noTodo '>All Todos is done...</p>
+      )
     return (
       <div className="App">
         <Header />
-        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} handleClick={this.checkBoxHandler} />
+        <ul>{Todos}</ul>
+        <AddTodo addTodo={this.addNewTodo} />
       </div>
     );
   }
