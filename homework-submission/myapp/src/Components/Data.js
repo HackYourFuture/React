@@ -55,7 +55,7 @@ class Data extends React.Component {
 
     return (
         <ul>
-        {Todos.map((todo, id) => {
+        {this.state.Todos.map((todo, id) => {
           return (
             <li key={id}>
               <input
