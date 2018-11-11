@@ -8,7 +8,7 @@ class CheckBox extends React.Component {
 
   render() {
     const { handleCheck, done, id } = this.props;
-
+    console.log(done, id)
     return (
       <div>
         <p>Check ?</p>
@@ -16,7 +16,7 @@ class CheckBox extends React.Component {
           type="checkbox"
           onChange={() => handleCheck(id)}
           className="CheckBox"
-          defaultChecked={done}
+          checked={done}
         />
         <p>{this.props.done ? "Done" : "Undone"}</p>
       </div>
