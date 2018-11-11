@@ -1,10 +1,10 @@
 import React from "react";
 
 class CheckBox extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { done: "" };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { done: "" };
+  // }
 
   render() {
     const { handleCheck, done, id } = this.props;
