@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import DatePicker from "react-datepicker";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
+import Form from "./Form";
 
 export default class UpdateTodo extends Component {
   constructor(props) {
@@ -27,37 +27,12 @@ export default class UpdateTodo extends Component {
     event.preventDefault();
     this.props.OnUpdate(todoId, this.state.description, this.state.deadline);
     this.setState({ description: "" });
-    this.setState({ deadline: moment() });
+
     this.setState({ edit: false });
   };
 
   render() {
     const { todo } = this.props;
-    const form = () => {
-      if (this.state.edit === true) {
-        return (
-          <div>
-            <input
-              className="description"
-              type="text"
-              placeholder="New Descr.."
-              onChange={this.handelDescriptionUpdate}
-            />
-
-            <DatePicker
-              className="date_picker"
-              selected={this.state.deadline}
-              onChange={this.handelDeadlineUpdate}
-              minDate={moment()}
-            />
-            <button onClick={event => this.handleSubmit(todo.id, event)}>
-              Update
-            </button>
-            <button onClick={this.handleCancelUpdate}>Cancel</button>
-          </div>
-        );
-      }
-    };
 
     return (
       <div>
@@ -69,7 +44,16 @@ export default class UpdateTodo extends Component {
             Edit Todo
           </button>
         </div>
-        <React.Fragment>{form()}</React.Fragment>
+        <React.Fragment>
+          <Form
+            stateData={this.state}
+            todo={todo}
+            handleSubmit={this.handleSubmit}
+            handleCancelUpdate={this.handleCancelUpdate}
+            handelDescriptionUpdate={this.handelDescriptionUpdate}
+            handelDeadlineUpdate={this.handelDeadlineUpdate}
+          />
+        </React.Fragment>
       </div>
     );
   }

@@ -4,13 +4,10 @@ import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 
 class AddForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      description: "",
-      deadline: moment()
-    };
-  }
+  state = {
+    description: "",
+    deadline: moment()
+  };
 
   handleDateChange = date => {
     this.setState({ deadline: date });
@@ -23,8 +20,7 @@ class AddForm extends Component {
     event.preventDefault();
 
     this.props.onAddTodo(this.state.description, this.state.deadline);
-    this.setState({ description: "" });
-    this.setState({ deadline: moment() });
+    this.setState({ description: "", deadline: moment() });
   };
 
   render() {

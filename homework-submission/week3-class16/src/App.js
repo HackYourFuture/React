@@ -8,24 +8,21 @@ const image =
   "https://i.postimg.cc/gjLMyGks/to-do-list-png-the-power-of-a-to-do-list-imodelafrica-1024.png";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { Data };
-  }
+  state = { Data };
 
   handelCheck = todoId => {
-    const newData = this.state.Data.slice();
-    newData.forEach(todo => {
+    const newData = this.state.Data.map(todo => {
       if (todo.id === todoId) {
         todo.done = !todo.done;
       }
+      return todo;
     });
 
     this.setState({ Data: newData });
   };
 
   handleDelete = todoId => {
-    const newData = this.state.Data.slice().filter(todo => {
+    const newData = this.state.Data.filter(todo => {
       return todo.id !== todoId;
     });
 
@@ -34,7 +31,7 @@ class App extends Component {
 
   handleAddTodo = (description, deadline) => {
     const id = Math.max(...this.state.Data.map(todo => todo.id), 0) + 1;
-    const newTodos = this.state.Data;
+
     const newTodo = {
       id,
       description,
@@ -42,32 +39,17 @@ class App extends Component {
       done: false
     };
 
-    this.setState({
-      Data: [...newTodos, newTodo]
-    });
+    this.setState({ Data: [...this.state.Data, newTodo] });
   };
   handelUpdate = (todoId, description, deadline) => {
-    const newData = this.state.Data.slice().map(todo => {
+    const newData = this.state.Data.map(todo => {
       if (todo.id === todoId) {
-        if (description && deadline) {
-          return { ...todo, description: description, deadline: deadline };
-        }
-        if (description) {
-          return {
-            ...todo,
-            deadline: todo.deadline,
-            description: description
-          };
-        }
-        if (deadline) {
-          return {
-            ...todo,
-            description: todo.description,
-            deadline: deadline
-          };
-        }
+        return {
+          ...todo,
+          description: description || todo.description,
+          deadline: deadline || todo.deadline
+        };
       }
-
       return todo;
     });
     this.setState({ Data: newData });
