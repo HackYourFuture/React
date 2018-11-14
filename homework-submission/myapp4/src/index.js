@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from "mobx-react";
-import BooksStore from "./stores/BooksStore";
+import TodosStore from "./stores/TodosStore";
 
 const Root = (
-    <Provider BooksStore={BooksStore}>
-        <App />
-    </Provider>
+    <Provider TodosStore={TodosStore}>
+    <App />
+  </Provider>
 );
 
 ReactDOM.render(Root, document.getElementById('root'));

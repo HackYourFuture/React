@@ -2,7 +2,7 @@
 import { observable, computed, action } from "mobx";
 
 
-class BooksStore {
+class TodosStore {
     @observable Todos = [
         {
             "id": 1,
@@ -24,19 +24,27 @@ class BooksStore {
         }
     ];
 
-    @action addBook = todo => {
-        this.Todos.push({
-            id: '',
-            description: '',
-            deadline: '',
-            done: false
-        });
+    @action addTodo = (newTodo) => {
+        this.Todos.push(newTodo);
     };
+
+    @action removeTodo = (id) => {
+        this.Todos.splice(id, 1);
+    };
+
+    @action isDone = (todo) => {
+        
+            todo.done = !todo.done;
+            
+                
+        
+        
+}
 
     @computed get numberOfBooks() {
         return this.Todos.length;
     }
 }
 
-const store = new BooksStore();
+const store = new TodosStore();
 export default store;
