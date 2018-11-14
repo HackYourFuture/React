@@ -13,7 +13,7 @@ class AddTodo extends Component {
   }
   handleTodoChange = (e) => {
     this.setState({
-      [e.target.id]: e.target.value
+      [e.target.name]: e.target.value
     })
     console.log(this.state)
   }
@@ -41,7 +41,7 @@ class AddTodo extends Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <label>Add new todo</label>
-            <input type='text' id='description' value={this.state.description} onChange={this.handleTodoChange} required />
+            <input type='text' name='description' value={this.state.description} onChange={this.handleTodoChange} required />
           </div>
           <label>Choose the deadline</label>
           <div>
