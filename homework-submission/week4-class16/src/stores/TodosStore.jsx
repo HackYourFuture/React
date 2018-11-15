@@ -1,5 +1,7 @@
 import { observable, computed, action } from "mobx";
 import Data from "../Data.json";
+import { configure } from "mobx";
+configure({ enforceActions: true });
 
 class TodosStore {
   @observable
