@@ -1,57 +1,52 @@
 import React from 'react';
+import { observer, inject } from 'mobx-react';
 
-class TodoElement extends React.Component {
-  state = {
-    isEdit: false
-
-  }
-  toggleEditView = () => {
-    this.setState({
-      isEdit: !this.state.isEdit
-    })
-  }
+@inject('todos')
+@observer
+class TodoItem extends React.Component {
   handleUpdate = (e) => {
     e.preventDefault()
-    let oldTask = this.props.description
+    const todo = this.props.todo
+    const { updateHandler, editHandler } = this.props.todos
+    let oldTask = todo.description
     let newTask = this.editField.value
     let newDate = this.secondEditField.value
-    this.props.updateTodo(oldTask, newTask, newDate)
-    this.setState({
-      isEdit: false
-
-    })
-
+    updateHandler(oldTask, newTask, newDate)
+    editHandler(todo.id)
   }
-
   render() {
-    let TodoView
-    if (!this.state.isEdit) {
+    const todo = this.props.todo;
+    const { deleteHandler, editHandler, checkBoxHandler } = this.props.todos;
+    let TodoView;
+    if (!todo.edit) {
       TodoView = (
-        <div className="todo" key={this.props.unique}>
-          <input type='checkbox' id='description' defaultChecked={this.props.done} onChange={() => this.props.handleClick(this.props.unique)} />
-          <span className={this.props.done ? 'checked' : 'notChecked'}>{this.props.description}, {this.props.deadline}</span>
-          <button onClick={this.toggleEditView}>Edit</button>
-          <button onClick={() => this.props.deleteTodo(this.props.unique)}>Delete</button>
+        <div className="todo">
+          <input type='checkbox' id='description' defaultChecked={todo.done} onChange={() => checkBoxHandler(todo.id)} />
+          <span className={todo.done ? 'checked' : 'notChecked'}>{todo.description}, {todo.deadline}</span>
+          <button onClick={() => editHandler(todo.id)}>Edit</button>
+          <button onClick={() => deleteHandler(todo.id)}>Delete</button>
         </div >
       )
     } else {
       TodoView = (
         <form>
-          <div className="todo editMode" key={this.props.unique}>
-            <input type='checkbox' defaultChecked={this.props.done} />
-            <input type='text' defaultValue={this.props.description} ref={(chEl) => (this.editField = chEl)} />
-            <input type='text' defaultValue={this.props.deadline} ref={(dateEl => (this.secondEditField = dateEl))} />
+          <div className="todo editMode">
+            <input type='checkbox' defaultChecked={todo.done} />
+            <input type='text' defaultValue={todo.description} ref={(chEl) => (this.editField = chEl)} />
+            <input type='text' defaultValue={todo.deadline} ref={(dateEl => (this.secondEditField = dateEl))} />
             <button onClick={this.handleUpdate}>Update</button>
-            <button onClick={this.toggleEditView}>Cancel</button>
+            <button onClick={() => editHandler(todo.id)}>Cancel</button>
           </div>
         </form>
       )
-    }
 
-    return <li>
-      {TodoView}
-    </li>
+    }
+    return (
+      <li className='todoItem'>
+        {TodoView}
+      </li>
+    );
   }
 }
 
-export default TodoElement
+export default TodoItem;

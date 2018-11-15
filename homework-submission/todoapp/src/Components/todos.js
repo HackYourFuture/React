@@ -1,25 +1,20 @@
 import React from 'react';
+import TodoElement from './TodoElement';
+import { observer, inject } from 'mobx-react';
 
-const Todos = ({ todos, deleteTodo, handleClick }) => {
-  const todoList = todos.length !== 0 ? (
-    todos.map(todo => {
-      return (
-        <div className="collection-item" key={todo.id}>
-          <input type='checkbox' defaultChecked={todo.done} onChange={() => handleClick(todo.id)} />
-          <span className={todo.done ? 'checked' : 'notChecked'}>{todo.description}, {todo.deadline}</span>
-          <button onClick={() => deleteTodo(todo.id)}>Edit</button>
-          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-        </div >
-      )
-    })
-  ) : (
-      <p className='center'>No items...</p>
-    )
-  return (
-    <div className='todos collection'>
-      {todoList}
-    </div>
-  )
+@inject('todos')
+@observer
+class TodoList extends React.Component {
+  render() {
+    const { todos } = this.props.todos;
+    const list = todos.map((item, i) => <TodoElement key={i} todo={item} />);
+    return (
+      <div id='todoList'>
+        <h2>My list of tasks</h2>
+        {list.length === 0 ? <p className='No-todo'> No items... </p> : <ul>{list}</ul>}
+      </div>
+    );
+  }
 }
 
-export default Todos
+export default TodoList;

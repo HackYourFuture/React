@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-
 import 'react-datepicker/dist/react-datepicker.css';
+import { observer, inject } from 'mobx-react';
+
+@inject('todos')
+@observer
 
 class AddTodo extends Component {
   state = {
     description: '',
     deadline: '',
     done: false,
+    edit: false,
     startDate: moment()
   }
   handleTodoChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     })
-    console.log(this.state)
   }
   handleDate = (date) => {
     this.setState({
@@ -26,11 +29,12 @@ class AddTodo extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addTodo(this.state)
+    this.props.todos.addHandler(this.state)
     this.setState({
       description: '',
       deadline: '',
       done: false,
+      edit: false,
       startDate: moment()
     })
 

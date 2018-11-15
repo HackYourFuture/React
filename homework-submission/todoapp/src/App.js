@@ -1,74 +1,14 @@
 import React, { Component } from 'react';
-import TodoElement from './Components/TodoElement';
-import todosData from './data/todos.json'
-import AddTodo from './Components/AddForm';
 import './App.css';
-
+import TodoList from './Components/todos'
+import AddForm from './Components/AddForm';
 
 class App extends Component {
-  state = {
-    todos: todosData,
-  }
-
-  deleteTodo = (id) => {
-    const todos = this.state.todos.filter(todo => {
-      return todo.id !== id
-    });
-    this.setState({
-      todos
-    })
-  }
-
-  checkBoxHandler = (id) => {
-    const todos = this.state.todos.map(item => {
-      if (item.id === id) {
-        return {
-          ...item, done: !item.done
-        }
-      }
-      return item;
-    });
-    this.setState({ todos });
-  }
-
-  addNewTodo = (todo) => {
-    const todos = [...this.state.todos]
-    if (todos.length === 0) {
-      todo.id = 1
-    } else {
-      const lastItem = todos[todos.length - 1];
-      todo.id = lastItem.id + 1
-    }
-    todos.push(todo)
-    this.setState({ todos })
-  }
-
-  handleUpdateTodo = (oldDescription, newDescription, newDeadline) => {
-    const todos = [...this.state.todos]
-    const neededIndex = todos.findIndex(todo => todo.description === oldDescription)
-    const updatedItem = { ...this.state.todos[neededIndex], description: newDescription, deadline: newDeadline }
-    todos[neededIndex] = updatedItem
-    this.setState({
-      todos
-    })
-  }
   render() {
-    const Todos = this.state.todos.length !== 0 ? this.state.todos.map(todo => <TodoElement
-      unique={todo.id}
-      description={todo.description}
-      deadline={todo.deadline}
-      done={todo.done}
-      deleteTodo={this.deleteTodo}
-      handleClick={this.checkBoxHandler}
-      updateTodo={this.handleUpdateTodo}
-    />) : (
-        <p className='center'>No items...</p>
-      )
     return (
       <div className="App">
-        <h1>Todo's</h1>
-        <ul>{Todos}</ul>
-        <AddTodo addTodo={this.addNewTodo} />
+        <TodoList />
+        <AddForm />
       </div>
     );
   }
