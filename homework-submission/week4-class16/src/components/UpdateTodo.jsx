@@ -14,7 +14,7 @@ class UpdateTodo extends Component {
       description: e.target.value
     });
   };
-  @action
+  @action //this action mutate the state in the TodosStore.
   handleCancelUpdate = () => {
     const { TodosStore } = this.props;
     TodosStore.Data.map(todo => {
