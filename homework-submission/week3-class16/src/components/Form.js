@@ -9,8 +9,8 @@ class Form extends Component {
       stateData,
       todo,
       handleSubmit,
-      handelDeadlineUpdate,
-      handelDescriptionUpdate,
+      handleDeadlineUpdate,
+      handleDescriptionUpdate,
       handleCancelUpdate
     } = this.props;
     return (
@@ -20,13 +20,13 @@ class Form extends Component {
             className="description"
             type="text"
             placeholder="New Descr.."
-            onChange={handelDescriptionUpdate}
+            onChange={handleDescriptionUpdate}
           />
 
           <DatePicker
             className="date_picker"
             selected={stateData.deadline}
-            onChange={handelDeadlineUpdate}
+            onChange={handleDeadlineUpdate}
             minDate={moment()}
           />
           <button onClick={event => handleSubmit(todo.id, event)}>

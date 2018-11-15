@@ -15,12 +15,12 @@ export default class UpdateTodo extends Component {
   handleCancelUpdate = () => {
     this.setState({ edit: false });
   };
-  handelDescriptionUpdate = e => {
+  handleDescriptionUpdate = e => {
     this.setState({
       description: e.target.value
     });
   };
-  handelDeadlineUpdate = date => {
+  handleDeadlineUpdate = date => {
     this.setState({ deadline: date });
   };
   handleSubmit = (todoId, event) => {
@@ -50,8 +50,8 @@ export default class UpdateTodo extends Component {
             todo={todo}
             handleSubmit={this.handleSubmit}
             handleCancelUpdate={this.handleCancelUpdate}
-            handelDescriptionUpdate={this.handelDescriptionUpdate}
-            handelDeadlineUpdate={this.handelDeadlineUpdate}
+            handleDescriptionUpdate={this.handleDescriptionUpdate}
+            handleDeadlineUpdate={this.handleDeadlineUpdate}
           />
         </React.Fragment>
       </div>

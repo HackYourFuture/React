@@ -10,10 +10,13 @@ const image =
 class App extends Component {
   state = { Data };
 
-  handelCheck = todoId => {
+  handleCheck = todoId => {
     const newData = this.state.Data.map(todo => {
       if (todo.id === todoId) {
-        todo.done = !todo.done;
+        return {
+          ...todo,
+          done: !todo.done
+        };
       }
       return todo;
     });
@@ -41,7 +44,7 @@ class App extends Component {
 
     this.setState({ Data: [...this.state.Data, newTodo] });
   };
-  handelUpdate = (todoId, description, deadline) => {
+  handleUpdate = (todoId, description, deadline) => {
     const newData = this.state.Data.map(todo => {
       if (todo.id === todoId) {
         return {
@@ -65,9 +68,9 @@ class App extends Component {
 
         <TodoList
           data={this.state.Data}
-          handleOnCheck={this.handelCheck}
+          handleOnCheck={this.handleCheck}
           handleOnDelete={this.handleDelete}
-          OnUpdate={this.handelUpdate}
+          OnUpdate={this.handleUpdate}
           onAddTodo={this.handleAddTodo}
         />
       </div>
