@@ -3,6 +3,10 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
  
 import 'react-datepicker/dist/react-datepicker.css';
+import {inject, observer} from 'mobx-react';
+
+@inject('TodosStore')
+@observer
 
 class SendForm extends Component {
     constructor(props) {
@@ -27,6 +31,7 @@ class SendForm extends Component {
     }
 
     handleSubmit = e => {
+        const {TodosStore} = this.props;
         e.preventDefault();
         const checkDateField = this.state.deadline;
         if(checkDateField ==='') {
@@ -34,8 +39,8 @@ class SendForm extends Component {
                 ...this.state,
                 deadline: moment().format("DD-MM-YYYY")
             }
-            this.props.addNewItem(itemOfToday);
-        }else this.props.addNewItem(this.state);
+            TodosStore.addNewItem(itemOfToday);
+        }else TodosStore.addNewItem(this.state);
         
         const initialState = {
             description: '',

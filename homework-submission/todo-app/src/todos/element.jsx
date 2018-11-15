@@ -3,10 +3,15 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCheck, faTrash, faPencilAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fab } from '@fortawesome/free-brands-svg-icons'
+import {inject, observer} from 'mobx-react';
+
+
 
  
 library.add(fab, faCheck, faTrash, faPencilAlt, faTimes);
 
+@inject('TodosStore')
+@observer
 class Element extends Component {
     state = {
         id: this.props.id,
@@ -57,13 +62,14 @@ class Element extends Component {
 
     defaultItemsDisplay() {
         const {id, description, deadline} = this.state;
+        const {TodosStore} = this.props;
         const item = description + ', ' + deadline;
         const editAndRemoveButtons = <div className="float-right p-0">
                                         <span className="btn text-primary float-left p-1 m-1 popup-container" onClick={this.turnUpdateMode}>
                                             <FontAwesomeIcon icon="pencil-alt" />
                                             <span className="popup-message">Click to Modify</span>
                                         </span>
-                                        <span className="btn text-danger float-left p-1 m-1 popup-container" onClick={() => this.props.deleteItem(id)}>
+                                        <span className="btn text-danger float-left p-1 m-1 popup-container" onClick={() => TodosStore.deleteItem(id)}>
                                             <FontAwesomeIcon icon="trash" />
                                             <span className="popup-message">Click to Remove</span>
                                         </span>

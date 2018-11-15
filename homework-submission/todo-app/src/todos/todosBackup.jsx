@@ -1,5 +1,7 @@
+/*
 import React, { Component } from 'react';
 import Element from './element';
+import Data from './../data/data';
 import AddForm from './addform';
 import {inject, observer} from 'mobx-react';
 
@@ -7,12 +9,37 @@ import {inject, observer} from 'mobx-react';
 @observer
 
 class Todos extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            elements: Data
+         }
+    }
+
+     deleteItem = (itemId) => {
+        const newData = this.state.elements.filter(item => item.id !== itemId);
+        this.setState({elements: newData});
+    }
+    addNewItem = (formFields) => {
+        const arrSize = this.state.elements.length;
+        const newItem = {
+            id: arrSize + 1,
+            description: formFields.description,
+            deadline: formFields.deadline,
+            done: formFields.done
+        };
+        const elements = this.state.elements;     
+        elements.push(newItem);
+        this.setState({elements});
+    }
     render() {
+        const {TodosStore} = this.props;
+        console.log('heeeey ::: ', TodosStore.numberOfData);
         return ( 
             <div className="wrapper">
                 <div className="todo-container container-fluid col-md shadow p-2 mb-2 bg-white rounded">
                     <h2>Todo List :</h2>
-                    <AddForm />
+                    <AddForm addNewItem={this.addNewItem} />
                     {this.checkElementsMount()}
                 </div>
             </div>
@@ -20,8 +47,7 @@ class Todos extends Component {
     }
 
     extractElements() {
-        const {TodosStore} = this.props;
-        return TodosStore.todos.map((el, index) =>
+        return this.state.elements.map((el, index) =>
                             <Element 
                             key={el.id}
                             id={el.id}
@@ -29,6 +55,7 @@ class Todos extends Component {
                             deadline={el.deadline}
                             done={el.done}
                             className="float-left"
+                            deleteItem={this.deleteItem}
                              />
                         );
     }
@@ -41,8 +68,9 @@ class Todos extends Component {
 
     checkElementsMount() {
         const noElement =  <div className="alert alert-danger" role="alert">No items...!</div>;
-        return this.props.TodosStore.todos.length < 1 ? noElement : this.listOfElements();
+        return this.state.elements.length < 1 ? noElement : this.listOfElements();
     }
 }
  
 export default Todos;
+*/
