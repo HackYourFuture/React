@@ -12,7 +12,7 @@ class Functionality extends Component {
         <label className="check_box">
           <input
             type="checkbox"
-            onClick={() => TodosStore.handelCheck(todo.id)}
+            onClick={() => TodosStore.handleCheck(todo.id)}
             id={todo.id}
             defaultChecked={todo.done}
           />

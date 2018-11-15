@@ -10,7 +10,7 @@ class TodosStore {
   Data = Data;
 
   @action
-  handelCheck = todoId => {
+  handleCheck = todoId => {
     const newData = this.Data.map(todo => {
       if (todo.id === todoId) {
         return { ...todo, done: !todo.done };
@@ -62,7 +62,7 @@ class TodosStore {
   };
 
   @action
-  handelUpdate = (todoId, description, deadline) => {
+  handleUpdate = (todoId, description, deadline) => {
     const newData = this.Data.map(todo => {
       if (todo.id === todoId) {
         return {

@@ -3,34 +3,25 @@ import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import Form from "./Form";
 import { observer, inject } from "mobx-react";
-import { action } from "mobx";
+
 @inject("TodosStore")
 @observer
 class UpdateTodo extends Component {
   state = { description: "", deadline: moment() };
 
-  handelDescriptionUpdate = e => {
+  handleDescriptionUpdate = e => {
     this.setState({
       description: e.target.value
     });
   };
-  @action //this action mutate the state in the TodosStore.
-  handleCancelUpdate = () => {
-    const { TodosStore } = this.props;
-    TodosStore.Data.map(todo => {
-      if (todo.edit) {
-        return (todo.edit = !todo.edit);
-      }
-      return todo;
-    });
-  };
-  handelDeadlineUpdate = date => {
+
+  handleDeadlineUpdate = date => {
     this.setState({ deadline: date });
   };
   handleSubmit = (todoId, event) => {
     event.preventDefault();
     const { TodosStore } = this.props;
-    TodosStore.handelUpdate(
+    TodosStore.handleUpdate(
       todoId,
       this.state.description,
       this.state.deadline
@@ -43,6 +34,7 @@ class UpdateTodo extends Component {
   render() {
     const { todo } = this.props;
     const { TodosStore } = this.props;
+    console.log(TodosStore);
 
     return (
       <div>
@@ -59,9 +51,8 @@ class UpdateTodo extends Component {
             stateData={this.state}
             todo={todo}
             handleSubmit={this.handleSubmit}
-            handleCancelUpdate={this.handleCancelUpdate}
-            handelDescriptionUpdate={this.handelDescriptionUpdate}
-            handelDeadlineUpdate={this.handelDeadlineUpdate}
+            handleDescriptionUpdate={this.handleDescriptionUpdate}
+            handleDeadlineUpdate={this.handleDeadlineUpdate}
           />
         </React.Fragment>
       </div>
