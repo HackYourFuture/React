@@ -3,7 +3,7 @@ import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import Form from "./Form";
 import { observer, inject } from "mobx-react";
-
+import { action } from "mobx";
 @inject("TodosStore")
 @observer
 class UpdateTodo extends Component {
@@ -14,6 +14,7 @@ class UpdateTodo extends Component {
       description: e.target.value
     });
   };
+  @action
   handleCancelUpdate = () => {
     const { TodosStore } = this.props;
     TodosStore.Data.map(todo => {
