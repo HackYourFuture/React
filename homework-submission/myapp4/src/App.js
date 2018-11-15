@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './Components/Header';
-import Calender from "./Components/Calender";
+import TodosCounter from "./Components/TodosCounter";
 import { inject, observer } from 'mobx-react';
 
 
@@ -66,23 +66,26 @@ class App extends Component {
 
   render() {
     return <div className="App">
-        <Header />
+      
+      <Header />
 
-        <div className="data">
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              Enter Description : <input placeholder="Type a description..." type="text" ref={input => (this.descriptionInput = input)} />{" "}
-            </label>
-            <label>
-              Deadline <input type="date" ref={input => (this.deadlineInput = input)} />
-            </label>
-            <input type="submit" value="Add" className="add" />
-          </form>
+      <div className="data">
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Enter Description : <input placeholder="Type a description..." type="text" ref={input => (this.descriptionInput = input)} />
+          </label>
+          <label>
+            Deadline <input type="date" ref={input => (this.deadlineInput = input)} />
+          </label>
+          <input type="submit" value="Add" className="add" />
+        </form>
 
-          <div className="items">{this.renderTodos()}</div>
-        </div>
-        <Calender />
-      </div>;
+        <div className="items">{this.renderTodos()}</div>
+      </div>
+
+      <TodosCounter />
+
+    </div>;
   }
 }
 

@@ -1,12 +1,6 @@
 .App {
   text-align: center;
 }
-/* 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 5vmin;
-} */
-
 .App-header {
   background: #062049;
   min-height: 10vh;
@@ -17,9 +11,6 @@
   text-align: left;
   padding-left: 100px;
 }
-
-/* --------- */
-
 .App {
   text-align: center;
 }
@@ -106,7 +97,7 @@ input{
 input:hover{
   background: #ffff;
 }
-.calender{
+.counter{
   width:25%;
   float: right;
   padding:10px;
@@ -117,4 +108,10 @@ input:hover{
   background: #062049;
   color: white;
   font-size: 20px;
+  text-align: center;
+}
+h3{
+  border-radius: 20px;
+  border: 2px solid rgb(29, 204, 6);
+  padding: 10px;
 }

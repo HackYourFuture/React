@@ -1,6 +1,4 @@
-
 import { observable, computed, action } from "mobx";
-
 
 class TodosStore {
     @observable Todos = [
@@ -33,15 +31,10 @@ class TodosStore {
     };
 
     @action isDone = (todo) => {
-        
-            todo.done = !todo.done;
-            
-                
-        
-        
-}
+        todo.done = !todo.done;
+    };
 
-    @computed get numberOfBooks() {
+    @computed get numberOfTodos() {
         return this.Todos.length;
     }
 }
