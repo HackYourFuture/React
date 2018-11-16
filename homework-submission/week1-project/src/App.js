@@ -3,50 +3,43 @@ import logo from './logo.svg';
 import './App.css';
 import Description from './Components/todoComponents.js'
 import TodoForm from './Components/addTodoForm'
-import JSONList from './JSONList'
+import { inject, observer } from 'mobx-react';
 
+@inject('TodoApp')
+@observer
 class App extends Component {
   
   constructor(props){
     super(props);
-    this.state = {list: JSONList};
+    console.log(this.props);
   }
 
   changeState = (id) => {
-    const JSONList = this.state.list.slice();
-
-    JSONList[id].done = !JSONList[id].done;
-    this.setState({list: JSONList});
+    this.props.TodoApp.changeDoneProp(id);
   }
   
   removeTodo = (id) => {
-    let JSONList = this.state.list.slice();
-    JSONList.splice(id, 1);
-    this.setState({list: JSONList});
-  
+    this.props.TodoApp.deleteTodo(id);
   };
 
   addTodo = (descrip, deadline) => {
-    let JSONList = this.state.list.slice();
-    JSONList.push({id:-1, description: descrip, deadline: deadline, done: false});
-    this.setState({list: JSONList});
+    let newTodo = {description: descrip, deadline:deadline, done: false};
+    this.props.TodoApp.addTodo(newTodo);
   }
 
   editTodo = (id, descrip, deadline) => {
-    let JSONList = this.state.list.slice();
-    JSONList[id].description = descrip;
-    JSONList[id].deadline = deadline;
-    this.setState({list: JSONList});  
+    this.props.TodoApp.updateTodo(id, descrip, deadline);
   }
 
   render() {
-    const JSONList = this.state.list;
-  
+    const {TodoApp} = this.props;
+    const todoList = TodoApp.todoList;
+    
     return (
       <div>
         <h1>Todo List</h1>
         <TodoForm addTodo = {this.addTodo}/>
-        {JSONList.length === 0 ? <h2>No items...</h2> : JSONList.map((e, index) => <Description 
+        {todoList.length === 0 ? <h2>No items...</h2> : todoList.map((e, index) => <Description 
         description = {e.description} 
         deadline = {e.deadline} 
         key = {index} 
