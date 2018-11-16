@@ -3,27 +3,13 @@ import './App.css';
 import Header from './Components/Header';
 import TodosCounter from "./Components/TodosCounter";
 import { inject, observer } from 'mobx-react';
+import Form from './Components/Form';
 
 
 @inject("TodosStore")
 @observer
 class App extends Component {
-  handleSubmit = event => {
-    event.preventDefault();
-
-    const descriptionInput = this.descriptionInput.value;
-    const deadlineInput = this.deadlineInput.value;
-
-    this.props.TodosStore.addTodo({
-      id: this.props.Todos + 1,
-      description: descriptionInput,
-      deadline: deadlineInput,
-      done: false
-    });
-    this.descriptionInput.value = "";
-    this.deadlineInput.value = "";
-  };
-
+  
   deleteTodo = id => {
     this.props.TodosStore.removeTodo(id);
   };
@@ -70,17 +56,10 @@ class App extends Component {
       <Header />
 
       <div className="data">
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Enter Description : <input placeholder="Type a description..." type="text" ref={input => (this.descriptionInput = input)} />
-          </label>
-          <label>
-            Deadline <input type="date" ref={input => (this.deadlineInput = input)} />
-          </label>
-          <input type="submit" value="Add" className="add" />
-        </form>
-
+        
+        <Form />
         <div className="items">{this.renderTodos()}</div>
+        
       </div>
 
       <TodosCounter />
