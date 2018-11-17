@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+.main {
+  text-align: left;
+  padding: 80px;
+}
+.title {
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.header {
+  background-color: #b388eb;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+.list {
+  background: #697d89;
+  margin: 0;
+  padding: 0;
+}
+.list li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  display: flex;
+  justify-content: space-between;
+}
+.list li:nth-child(odd) {
+  background: #f9f9f9;
+}
+.list li:hover {
+  background: #ddd;
+}
+.todo-text {
+  width: 300px;
+}
