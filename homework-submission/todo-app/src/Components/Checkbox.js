@@ -5,8 +5,8 @@ class Checkbox extends Component {
             <div>
                 <input
                     type='Checkbox'
-                    defaultChecked={this.props.checkbox}
-                    onClick={() => this.props.handleCheck(this.props.id)}
+                    checked={this.props.done}
+                    onChange={() => this.props.handleCheck(this.props.id)}
                 />
             </div>
         )

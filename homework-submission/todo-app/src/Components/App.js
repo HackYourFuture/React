@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-
+import uuid from 'uuid';
 import Form from './Form';
 import List from './List';
 import todos from '../data/todos.json';
@@ -12,10 +12,9 @@ class App extends Component {
   };
 
   handleCheck = id => {
-    const newTodos = this.state.todos;
-    newTodos.map(todo => {
+    const newTodos = this.state.todos.map(todo => {
       if (todo.id === id) {
-        todo.done = !todo.done
+        return { ...todo, done: !todo.done }
 
       }
       return todo;
@@ -26,7 +25,7 @@ class App extends Component {
 
   handleAdd = (description, deadline) => {
     const newTodo = {
-      id: this.state.todos.length + 1,
+      id: uuid(),
       description,
       deadline: deadline.toLocaleDateString(),
       done: false

@@ -10,10 +10,10 @@ class List extends Component {
             <div className='List'>
                 <ul>
                     {this.props.todos.map((todo, id) => (
-                        <div className={todo.done ? 'checked' : ''} key={id} >
+                        <li className={todo.done ? 'checked' : ''} key={id} >
                             <Checkbox
                                 id={todo.id}
-                                checkbox={todo.done}
+                                done={todo.done}
                                 handleCheck={this.props.handleCheck}
                             />
 
@@ -24,7 +24,7 @@ class List extends Component {
                                 todo={todo}
                                 handleRemove={this.props.handleRemove}
                             />
-                        </div>
+                        </li>
                     ))}
                 </ul>
             </div>

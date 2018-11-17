@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
-
 import DatePicker from 'react-date-picker';
-
-
 
 class Form extends Component {
     state = {
@@ -34,7 +30,6 @@ class Form extends Component {
                         onChange={this.handleChange}
                         value={this.state.description}
                         placeholder="Insert a todo"
-
                     />
                     <DatePicker
                         className="date_picker"
