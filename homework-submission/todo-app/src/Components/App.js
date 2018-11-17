@@ -32,8 +32,7 @@ class App extends Component {
     }
 
     const todos = this.state.todos;
-    todos.push(newTodo);
-    this.setState({ todos })
+    this.setState({ todos: [...todos, newTodo] });
   }
 
   handleRemove = (id) => {
