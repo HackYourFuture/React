@@ -1,32 +1,19 @@
-
 import React from 'react';
-import { FaTrash } from 'react-icons/fa'
-import { FaPencilAlt } from 'react-icons/fa'
+import TodoItem from './TodoElement';
+import { observer, inject } from 'mobx-react';
 
-class TodoList extends React.Component {
-    state = {
-        editing: false
-    }
+@inject('todos')
+@observer
+class todosList extends React.Component {
     render() {
-        const TodoItem = (
-            <span className={this.props.done ? 'done' : 'notdone'}>
-                <div className="item" key={this.props.sort}>
-                    <li>
-                        <button className="pencil">
-                            <input type='checkbox' defaultChecked={this.props.done} onChange={() => this.props.handleClick(this.props.sort)} />
-                            <FaPencilAlt /></button>
-                        {this.props.description}</li><li className="deadline">{this.props.deadline}</li>
-                    <button onClick={this.handleEditButton}>Edit</button>
-                    <button className="trash" onClick={() => this.props.deleteTodo(this.props.sort)}><FaTrash /></button>
-                </div >
-            </span>
-
-        )
-
-
-        return <div>
-            {TodoItem}
-        </div>
+        const { todos } = this.props.todos;
+        const list = todos.map((item) => <TodoItem todo={item} />);
+        return (
+            <div id='todoList'>
+                {list.length === 0 ? <p className='noTodo'> All Todos is done...</p> : <ul>{list}</ul>}
+            </div>
+        );
     }
 }
-export default TodoList 
+
+export default todosList;
