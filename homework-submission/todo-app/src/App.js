@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { inject, observer } from 'mobx-react';
+import Form from './Components/Form';
+import List from './Components/List';
 import './App.css';
+
+@inject('TasksStore')
+@observer
 
 class App extends Component {
   render() {
+    const { TasksStore } = this.props;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Form
+          onAdd={TasksStore.handleAdd}
+
+        />
+        <List
+          handleCheck={TasksStore.handleCheck}
+          todos={TasksStore.todos}
+          handleRemove={TasksStore.handleRemove}
+
+        />
       </div>
     );
   }
