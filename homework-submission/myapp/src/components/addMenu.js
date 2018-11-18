@@ -1,35 +1,13 @@
 import React from "react";
 import DatePicker from "react-datepicker";
-import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import { observer, inject } from "mobx-react";
 
 @inject("todoStore")
 @observer
 class AddMenu extends React.Component {
-  state = {
-    name: "",
-    deadline: moment()
-  };
-
-  handleChangeForm = ({ target: { name, value } }) => {
-    this.setState({ [name]: value });
-  };
-
-  handleChangeDate = date => {
-    this.setState({ deadline: date });
-  };
-
-  handleSubmitAdd = event => {
-    event.preventDefault();
-    this.props.todoStore.handleAdd(this.state.name, this.state.deadline);
-    this.setState({
-      name: "",
-      deadline: moment()
-    });
-  };
-
-  render() {
+   render() {
+    const { todoStore } = this.props;
     return (
       <div className="AddMenu">
         <form>
@@ -43,8 +21,8 @@ class AddMenu extends React.Component {
                 id="formName"
                 name="name"
                 placeholder="New Todo name is .. ."
-                value={this.state.name}
-                onChange={this.handleChangeForm}
+                value={this.name}
+                onChange={todoStore.handleChangeForm()}
               />
             </div>
           </div>
@@ -56,9 +34,8 @@ class AddMenu extends React.Component {
             <div className="col-75">
               <DatePicker
                 className="col-75"
-                selected={this.state.deadline}
-                onChange={this.handleChangeDate}
-                showTimeSelect
+                selected={this.deadline}
+                onChange={todoStore.handleChangeDate()}
                 timeFormat="HH:mm"
                 timeIntervals={15}
                 dateFormat="LLL"
@@ -68,7 +45,7 @@ class AddMenu extends React.Component {
           </div>
 
           <div className="rowAdd">
-            <button className="AddButton" onClick={this.handleSubmitAdd}>
+            <button className="AddButton" onClick={todoStore.handleSubmitAdd()}>
               Add
             </button>
           </div>
