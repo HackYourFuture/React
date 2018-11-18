@@ -1,9 +1,9 @@
 import { observable, action } from 'mobx';
-import todoObj from '../data/todos.json';
+import Todos from '../data/todos.json';
 
 
 class TodosStore {
-  @observable todos = todoObj;
+  @observable todos = Todos;
 
   @action checkBoxHandler = (id) => {
     const newTodos = this.todos.map(item => {
@@ -44,6 +44,7 @@ class TodosStore {
     } else {
       todo.id = (this.todos[this.todos.length - 1].id + 1)
     }
+    console.log(todo.id)
     this.todos = [...this.todos, todo]
   }
 }
