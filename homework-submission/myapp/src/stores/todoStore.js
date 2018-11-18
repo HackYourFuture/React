@@ -4,15 +4,13 @@ import Data from "./../data/data";
 class todoStore {
   @observable Data = Data;
 
-  @action handleCheck = id => {
-    const newData = this.Data.map(item => {
+  @action handleCheckBox = id => {
+    this.Data = this.Data.map(item => {
       if (item.id === id) {
         return { ...item, done: !item.done };
       }
       return item;
     });
-
-    this.Data = newData;
   };
 
   @action handleRemove = id => {

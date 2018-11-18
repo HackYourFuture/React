@@ -4,6 +4,7 @@ import { observer, inject } from "mobx-react";
 @inject("todoStore")
 @observer
 class CheckBox extends React.Component {
+  
   render() {
     const { todoStore, done, id } = this.props;
 
@@ -12,11 +13,11 @@ class CheckBox extends React.Component {
         <p>Check ?</p>
         <input
           type="checkbox"
-          onChange={() => todoStore.handleCheck(id)}
+          onChange={(event) => todoStore.handleCheckBox(event, id)}
           className="CheckBox"
           checked={done}
         />
-        <p>{this.props.done ? "Done" : "Undone"}</p>
+        <p>{done ? "Done" : "Undone"}</p>
       </div>
     );
   }
