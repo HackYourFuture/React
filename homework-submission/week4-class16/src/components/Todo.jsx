@@ -2,9 +2,9 @@ import React from "react";
 import Functionality from "./Functionality";
 import Moment from "react-moment";
 import UpdateTodo from "./UpdateTodo";
-import { observer } from "mobx-react";
+// import { observer } from "mobx-react";
 
-@observer
+// @observer
 class Todo extends React.Component {
   render() {
     const { todo } = this.props;
