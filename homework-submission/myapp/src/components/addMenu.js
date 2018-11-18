@@ -9,7 +9,7 @@ import { observer, inject } from "mobx-react";
 class AddMenu extends React.Component {
   state = {
     name: "",
-    deadline: moment()
+    deadline: ""
   };
 
   handleChangeForm = ({ target: { name, value } }) => {
@@ -42,7 +42,7 @@ class AddMenu extends React.Component {
                 type="text"
                 id="formName"
                 name="name"
-                placeholder="New Todo name is .. ."
+                placeholder="New Todo name is ..."
                 value={this.state.name}
                 onChange={this.handleChangeForm}
               />
@@ -59,7 +59,7 @@ class AddMenu extends React.Component {
                 selected={this.deadline}
                 onChange={this.handleChangeDate}
                 timeFormat="HH:mm"
-                timeIntervals={15}
+                timeIntervals={60}
                 dateFormat="LLL"
                 timeCaption="time"
                 showTimeSelect
