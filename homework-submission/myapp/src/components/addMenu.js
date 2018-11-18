@@ -1,13 +1,35 @@
 import React from "react";
 import DatePicker from "react-datepicker";
+import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import { observer, inject } from "mobx-react";
 
 @inject("todoStore")
 @observer
 class AddMenu extends React.Component {
-   render() {
-    const { todoStore } = this.props;
+  state = {
+    name: "",
+    deadline: moment()
+  };
+
+  handleChangeForm = ({ target: { name, value } }) => {
+    this.setState({ [name]: value });
+  };
+
+  handleChangeDate = date => {
+    this.setState({ deadline: date });
+  };
+
+  handleSubmitAdd = event => {
+    event.preventDefault();
+    this.props.todoStore.handleAdd(this.state.name, this.state.deadline);
+    this.setState({
+      name: "",
+      deadline: moment()
+    });
+  };
+
+  render() {
     return (
       <div className="AddMenu">
         <form>
@@ -21,8 +43,8 @@ class AddMenu extends React.Component {
                 id="formName"
                 name="name"
                 placeholder="New Todo name is .. ."
-                value={this.name}
-                onChange={todoStore.handleChangeForm()}
+                value={this.state.name}
+                onChange={this.handleChangeForm}
               />
             </div>
           </div>
@@ -35,17 +57,18 @@ class AddMenu extends React.Component {
               <DatePicker
                 className="col-75"
                 selected={this.deadline}
-                onChange={todoStore.handleChangeDate()}
+                onChange={this.handleChangeDate}
                 timeFormat="HH:mm"
                 timeIntervals={15}
                 dateFormat="LLL"
                 timeCaption="time"
+                showTimeSelect
               />
             </div>
           </div>
 
           <div className="rowAdd">
-            <button className="AddButton" onClick={todoStore.handleSubmitAdd()}>
+            <button className="AddButton" onClick={this.handleSubmitAdd}>
               Add
             </button>
           </div>

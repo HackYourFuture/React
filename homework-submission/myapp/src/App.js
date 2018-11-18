@@ -15,7 +15,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <AddMenu Data={this.Data} value={this.value} />
-        <ItemList Data={this.Data}/>
+        <ItemList Data={this.Data} />
       </div>
     );
   }

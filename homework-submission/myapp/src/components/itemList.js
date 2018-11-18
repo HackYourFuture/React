@@ -8,9 +8,9 @@ class ItemList extends React.Component {
   render() {
     const { todoStore } = this.props;
 
-    const createItems = todoStore.Data.map((item, id) => {
+    const createItems = todoStore.Data.map((item, index) => {
       return (
-        <section className="ToDoItem" key={id}>
+        <section className="ToDoItem" key={index}>
           <Item
             id={item.id}
             name={item.name}

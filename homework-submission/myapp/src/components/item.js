@@ -13,7 +13,7 @@ class Item extends React.Component {
     return (
       <section className="ToDos">
         <div className="CheckBoxDiv">
-          <CheckBox/>
+          <CheckBox />
         </div>
 
         <div className="Info">

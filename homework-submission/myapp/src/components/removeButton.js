@@ -8,7 +8,10 @@ class RemoveButton extends React.Component {
     const { todoStore, id } = this.props;
 
     return (
-      <button onClick={() => todoStore.handleRemove(id)} className="removeButton">
+      <button
+        onClick={() => todoStore.handleRemove(id)}
+        className="removeButton"
+      >
         Remove
       </button>
     );
