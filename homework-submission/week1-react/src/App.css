@@ -21,6 +21,12 @@
   border-radius: 7px
 }
 
+.wrongInput:before {
+	content: "please fill your todo or correct your deadline as yyyy-mm-dd and then →";
+  color: red;
+  font-weight: bold;
+}
+
 .description {
   width: 30em
 }

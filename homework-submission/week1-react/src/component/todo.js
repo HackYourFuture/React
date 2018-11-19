@@ -10,16 +10,16 @@ class Todo extends React.Component {
     }
 
     render () {
-        const {id, text, date, done, changeDone, deleteTodo, index, editButton} = this.props;
+        const {text, date, done, changeDone, deleteTodo, index, editButton} = this.props;
 
         return(
-                <li id={'todo'+id}>
+                <li>
                     <label className= {done ? 'textFormat' : null}>
                         <input type="checkbox" className="checkbox" onChange={()=>changeDone(index)} defaultChecked={this.props.done}/>
                         {(text !== '') ? text : 'no input!'} - {changeDateFormat(date)}
                     </label>
                     <p className="deleteButton" onClick={()=>deleteTodo(index)}>X</p>
-                    <p className="deleteButton" onClick={()=>editButton(index)}>edit</p>
+                    <p className="editButton" onClick={()=>editButton(index)}>edit</p>
                 </li>
         )
     }
