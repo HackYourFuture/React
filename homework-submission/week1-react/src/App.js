@@ -15,37 +15,40 @@ class App extends Component {
   };
 
   changeDone = (index) => {
-    const newData = this.state.data;
-    if(this.state.data[index].done) {
-      newData[index].done = false  
-    } else {
-      newData[index].done = true
-    }
+    const newData = this.state.data.map(item => {
+      if(item.id === index+1) {
+        return {...item, done: !item.done}
+      }
+      return item
+    });
+
     this.setState({
       data: newData,
     });
   }
 
   addNewTodo = (newEntry) => {
-    const newData = this.state.data;
+    const dateRegExp = /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/;
 
-    const dateRegExp = /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
     if(newEntry.description === '' || !dateRegExp.test(newEntry.deadline)) {
       this.setState({wrongInput: true})
     } else {
+
+      const newData = this.state.data.map(item => {return {...item}});
       newEntry.id = this.state.data.length;
       newData.push(newEntry)
       this.setState({
         data: newData,
         wrongInput: false
       })
-      console.log('asd')
     }
   }
 
   deleteTodo = (index) => {
-    const newData = this.state.data;
+    const newData = this.state.data.map(item => {return {...item}});
+
     newData.splice(index, 1);
+
     this.setState({
       data: newData,
     })
@@ -63,9 +66,13 @@ class App extends Component {
         indexToUpdate: -1
       })
     } else {
-      const newData = this.state.data;
-      newData[index].description = newEntry.description;
-      newData[index].deadline = newEntry.deadline;
+      const newData = this.state.data.map(item => {
+        if(item.id === index+1) {
+          return {...item, description: newEntry.description, deadline: newEntry.deadline}
+        }
+        return item
+      });
+
       this.setState({
         data: newData,
         indexToUpdate: -1
@@ -100,7 +107,6 @@ class App extends Component {
 
     const elements = (isEmpty) ? <p>No items...</p> : todoList;
       
-
     return (
       
       <div className="App">

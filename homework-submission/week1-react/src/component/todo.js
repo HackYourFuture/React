@@ -1,5 +1,5 @@
 import React from "react";
-import changeDateFormat from './change-format-date.js';
+import changeDateFormat from '../util/change-format-date.js';
 
 class Todo extends React.Component {
     constructor(props) {
