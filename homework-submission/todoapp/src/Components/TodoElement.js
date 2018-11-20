@@ -4,27 +4,32 @@ import { observer, inject } from 'mobx-react';
 @inject('todos')
 @observer
 class TodoItem extends React.Component {
+  state = {
+    edit: false
+  }
+  toggleHandler = () => {
+    this.setState({
+      edit: !this.state.edit
+    })
+  }
   handleUpdate = (e) => {
     e.preventDefault()
     const todo = this.props.todo
-    const { updateHandler, editHandler } = this.props.todos
-    let oldTask = todo.description
+    const { updateHandler } = this.props.todos
     let newTask = this.editField.value
-    let newDate = this.secondEditField.value
-    updateHandler(oldTask, newTask, newDate)
-    editHandler(todo.id)
+    updateHandler(todo._id, newTask)
   }
   render() {
     const todo = this.props.todo;
-    const { deleteHandler, editHandler, checkBoxHandler } = this.props.todos;
+    const { deleteHandler, checkBoxHandler } = this.props.todos;
     let TodoView;
-    if (!todo.edit) {
+    if (!this.state.edit) {
       TodoView = (
         <div className="todo">
-          <input type='checkbox' id='description' defaultChecked={todo.done} onChange={() => checkBoxHandler(todo.id)} />
+          <input type='checkbox' defaultChecked={todo.done} onChange={() => checkBoxHandler(todo._id)} />
           <span className={todo.done ? 'checked' : 'notChecked'}>{todo.description}, {todo.deadline}</span>
-          <button onClick={() => editHandler(todo.id)}>Edit</button>
-          <button onClick={() => deleteHandler(todo.id)}>Delete</button>
+          <button onClick={this.toggleHandler} > Edit</button>
+          <button onClick={() => deleteHandler(todo._id)}>Delete</button>
         </div >
       )
     } else {
@@ -35,9 +40,9 @@ class TodoItem extends React.Component {
             <input type='text' defaultValue={todo.description} ref={(chEl) => (this.editField = chEl)} />
             <input type='text' defaultValue={todo.deadline} ref={(dateEl => (this.secondEditField = dateEl))} />
             <button onClick={this.handleUpdate}>Update</button>
-            <button onClick={() => editHandler(todo.id)}>Cancel</button>
+            <button onClick={this.toggleHandler}>Cancel</button>
           </div>
-        </form>
+        </form >
       )
 
     }
