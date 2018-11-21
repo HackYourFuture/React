@@ -1,8 +1,9 @@
 import React from "react";
-import { inject, observer } from "mobx-react";
+import { inject, observer} from "mobx-react";
 
 @inject("TodosStore")
 @observer
+  
 class TodosCounter extends React.Component {
   render() {
 

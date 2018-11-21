@@ -1,42 +1,80 @@
-import { observable, computed, action } from "mobx";
+import { observable, computed, action, runInAction } from "mobx";
+
+const Parent_API = "https://hyf-react-api.herokuapp.com";
+
 
 class TodosStore {
-    @observable Todos = [
-        {
-            "id": 1,
-            "description": "Get out of bed",
-            "deadline": "2018-09-11",
-            "done": true
-        },
-        {
-            "id": 2,
-            "description": "Brush teeth",
-            "deadline": "2018-09-10",
-            "done": false
-        },
-        {
-            "id": 3,
-            "description": "Eat breakfast",
-            "deadline": "2018-09-09",
-            "done": false
-        }
-    ];
+  @observable Todos = {
+    data: [],
+    status: "loading..."
+  };
 
-    @action addTodo = (newTodo) => {
-        this.Todos.push(newTodo);
-    };
+  // @action addTodo = (newTodo) => {
+  //     this.Todos.push(newTodo);
+  // };
 
-    @action removeTodo = (id) => {
-        this.Todos.splice(id, 1);
-    };
+  @action createTodo(todo) {
+    this.createNewTodo.status = "loading...";
+    this.createNewTodo(todo)
+      .then(todo => {
+        runInAction(() => {
+          this.Todos.data.push(todo);
+          this.Todos.status = "done";
+        });
+      })
+      .catch(error => {
+        runInAction(() => {
+          this.Todos.status = "error";
+        });
+      });
+  }
 
-    @action isDone = (todo) => {
-        todo.done = !todo.done;
-    };
+  @action async addTodos() {
+    this.Todos.data = [];
+    this.addTodos.status = "loading...";
 
-    @computed get numberOfTodos() {
-        return this.Todos.length;
+    try {
+      const addedTodo = await this.getTodos();
+      runInAction(() => {
+        this.Todos.data = addedTodo;
+        this.Todos.status = "done";
+      });
+    } catch (error) {
+      runInAction(() => {
+        this.Todos.status = "error";
+      });
     }
+  }
+
+  
+    
+//   @action removeTodo = (id) => {
+//       this.Todos.data.splice(id, 1);
+//   };
+    
+
+  @action isDone = todo => {
+    todo.done = !todo.done;
+  };
+
+  @computed get numberOfTodos() {
+    return this.Todos.data.length;
+  }
+
+  getTodos() {
+    return fetch(`${Parent_API}/todos`).then(response => response.json());
+  }
+
+
+  createNewTodo(todo) {
+    return fetch(`${Parent_API}/todos/create`, {
+      method: "POST",
+      body: JSON.stringify(todo),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    }).then(response => response.json());
+  }
 }
 
 const store = new TodosStore();

@@ -9,10 +9,16 @@ import Form from './Components/Form';
 @inject("TodosStore")
 @observer
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    props.TodosStore.addTodos();
+    
+  }
   
-  deleteTodo = id => {
-    this.props.TodosStore.removeTodo(id);
-  };
+  // deleteTodo = id => {
+  //   this.props.TodosStore.removeTodo(id);
+  // };
 
   isTaskDone = todo => {
     this.props.TodosStore.isDone(todo);
@@ -29,22 +35,16 @@ class App extends Component {
 
     return (
       <ul>
-        {this.props.TodosStore.Todos.map((todo, id) => {
-          return (
-            <li key={id}>
-              <input
-                checked={todo.done}
-                type="checkbox"
-                onChange={() => this.isTaskDone(todo)}
-              />
+        {this.props.TodosStore.Todos.data.map((todo, id) => {
+          return <li key={id}>
+              <input checked={todo.done} type="checkbox" onChange={() => this.isTaskDone(todo)} />
               <span style={todo.done ? textStyle : null}>
                 {todo.description} , {todo.deadline}
               </span>
-              <button onClick={event => this.deleteTodo(id)} className="remove">
-                Remove
-              </button>
-            </li>
-          );
+            {/* <button onClick={event => this.deleteTodo(id)} className="remove">Remove</button> */}
+            <button className="edit">Edit</button>
+            <button className="remove">Remove</button>
+          </li>;
         })}
       </ul>
     );
