@@ -45,14 +45,11 @@ class TodosStore {
       });
     }
   }
-
+    
+  @action removeTodo = (id) => {
+      this.Todos.data.splice(id, 1);
+  };
   
-    
-//   @action removeTodo = (id) => {
-//       this.Todos.data.splice(id, 1);
-//   };
-    
-
   @action isDone = todo => {
     todo.done = !todo.done;
   };
@@ -62,9 +59,9 @@ class TodosStore {
   }
 
   getTodos() {
-    return fetch(`${Parent_API}/todos`).then(response => response.json());
+    return fetch(`${Parent_API}/todos`)
+      .then(response => response.json());
   }
-
 
   createNewTodo(todo) {
     return fetch(`${Parent_API}/todos/create`, {

@@ -16,16 +16,16 @@ class App extends Component {
     
   }
   
-  // deleteTodo = id => {
-  //   this.props.TodosStore.removeTodo(id);
-  // };
+  deleteTodo = (id) => {
+    this.props.TodosStore.removeTodo(id);
+  };
 
   isTaskDone = todo => {
     this.props.TodosStore.isDone(todo);
   };
 
   renderTodos = () => {
-    if (this.props.TodosStore.Todos.length === 0)
+    if (this.props.TodosStore.Todos.data.length === 0)
       return <p className="noItems">No items...</p>;
 
     const textStyle = {
@@ -41,10 +41,9 @@ class App extends Component {
               <span style={todo.done ? textStyle : null}>
                 {todo.description} , {todo.deadline}
               </span>
-            {/* <button onClick={event => this.deleteTodo(id)} className="remove">Remove</button> */}
-            <button className="edit">Edit</button>
-            <button className="remove">Remove</button>
-          </li>;
+              <button className="edit">Edit</button>
+              <button onClick={event => this.deleteTodo(id)} className="remove">Remove</button>
+            </li>;
         })}
       </ul>
     );
