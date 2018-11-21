@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import "./Componants/index.css";
 import { inject, observer } from "mobx-react";
 import TodoList from "./Componants/TodoList";
-// import DatePicker from "react-datepicker";
-// import moment from "moment";
-
-// import "react-datepicker/dist/react-datepicker.css";
 
 @inject("TodoStore")
 @observer
 class App extends Component {
+  constructor(props) {
+    super(props);
+    props.TodoStore.listTodos();
+  }
   handleSubmit = e => {
     e.preventDefault();
     const todo = {
@@ -18,7 +18,7 @@ class App extends Component {
       deadline: this.newDeadline.value,
       done: false
     };
-    this.props.TodoStore.addTodo(todo);
+    this.props.TodoStore.createTodo(todo);
     this.newDescription.value = "";
     this.newDeadline.value = new Date();
   };
@@ -39,12 +39,8 @@ class App extends Component {
                 placeholder="description"
                 ref={input => (this.newDescription = input)}
               />
-              {/* <DatePicker
-                selected={this.TodoStore.deadline}
-                onChange={this.handleChange}
-              /> */}
               <input
-                type="text"
+                type="date"
                 name="deadline"
                 className="form-control mb-2 mr-sm-2"
                 id="inlineFormInputName2"
