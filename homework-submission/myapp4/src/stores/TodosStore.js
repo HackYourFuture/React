@@ -9,10 +9,6 @@ class TodosStore {
     status: "loading..."
   };
 
-  // @action addTodo = (newTodo) => {
-  //     this.Todos.push(newTodo);
-  // };
-
   @action createTodo(todo) {
     this.createNewTodo.status = "loading...";
     this.createNewTodo(todo)
