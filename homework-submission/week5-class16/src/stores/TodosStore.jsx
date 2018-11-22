@@ -1,81 +1,165 @@
-import { observable, computed, action } from "mobx";
-import Data from "../Data.json";
+import { observable, computed, action, runInAction } from "mobx";
+
 import { configure } from "mobx";
-configure({ enforceActions: true });
+configure({ enforceActions: "observed" });
+
+const API_Base = "https://hyf-react-api.herokuapp.com";
 
 class TodosStore {
   @observable
   edit = false;
   @observable
-  Data = Data;
+  Data = [];
+  @observable
+  state = "loading";
 
   @action
-  handleCheck = todoId => {
+  handleCheck = async todoId => {
+    this.state = "loading";
+    const targetedTodo = this.Data.find(todo => todo._id === todoId);
+    // this code block to show instant change to the user.
     const newData = this.Data.map(todo => {
-      if (todo.id === todoId) {
+      if (todo._id === todoId) {
         return { ...todo, done: !todo.done };
       }
       return todo;
     });
     this.Data = newData;
+    this.state = "done";
+
+    try {
+      await this.patchRequest(todoId, { done: !targetedTodo.done });
+    } catch (error) {
+      runInAction(() => {
+        this.state = "error";
+      });
+    }
+
+    this.getTodos();
   };
   @action
-  handleDelete = todoId => {
-    const filteredTodos = this.Data.filter(todo => {
-      return todo.id !== todoId;
-    });
+  handleDelete = async todoId => {
+    this.state = "loading";
 
-    this.Data.replace(filteredTodos);
+    try {
+      await this.deleteRequest(todoId);
+      runInAction(() => {
+        this.state = "done";
+      });
+    } catch (error) {
+      runInAction(() => {
+        this.state = "error";
+      });
+    }
+
+    this.getTodos();
   };
-  @action
-  handleAddTodo = (description, deadline) => {
-    const id = Math.max(...this.Data.map(todo => todo.id), 0) + 1;
 
+  @action
+  handleAddTodo = async (description, deadline) => {
+    this.state = "loading";
     const newTodo = {
-      id,
       description,
       deadline,
-      done: false
+      done: "false"
     };
-
-    this.Data = [...this.Data, newTodo];
-  };
-  @action
-  handleEdit = id => {
-    this.Data.map(todo => {
-      if (todo.id === id) {
-        todo.edit = !this.edit;
-      }
-
-      return todo;
-    });
-  };
-  @action
-  cancelEdit = id => {
-    this.Data.map(todo => {
-      if (todo.id === id) {
-        todo.edit = !todo.edit;
-      }
-
-      return todo;
-    });
+    try {
+      await this.postRequest(newTodo);
+      runInAction(() => {
+        this.state = "done";
+      });
+    } catch (error) {
+      runInAction(() => {
+        this.state = "error";
+      });
+    }
+    this.getTodos();
   };
 
   @action
-  handleUpdate = (todoId, description, deadline) => {
-    const newData = this.Data.map(todo => {
-      if (todo.id === todoId) {
-        return {
-          ...todo,
-          description: description || todo.description,
-          deadline: deadline || todo.deadline
-        };
-      }
-
-      return todo;
-    });
-    this.Data = newData;
+  handleEdit = todoId => {
+    const toEdit = this.Data.find(todo => todo._id === todoId);
+    toEdit.edit = !this.edit;
   };
+  @action
+  cancelEdit = todoId => {
+    const toCancel = this.Data.find(todo => todo._id === todoId);
+    toCancel.edit = !toCancel.edit;
+  };
+
+  @action
+  handleUpdate = async (todoId, description, deadline) => {
+    this.state = "loading";
+
+    let targetTodo = this.Data.find(todo => todo._id === todoId);
+    const updatedTodo = {
+      ...targetTodo,
+      description: description || targetTodo.description,
+      deadline: deadline || targetTodo.deadline
+    };
+    delete updatedTodo.edit;
+
+    try {
+      await this.patchRequest(todoId, updatedTodo);
+
+      runInAction(() => {
+        this.state = "done";
+      });
+    } catch (error) {
+      runInAction(() => {
+        this.state = "error";
+      });
+    }
+    this.getTodos();
+  };
+
+  @action getTodos = async () => {
+    this.Data = [];
+    this.state = "loading";
+    try {
+      const API_TODOS = await this.fetchData();
+      runInAction(() => {
+        this.Data = API_TODOS;
+        this.state = "done";
+      });
+    } catch (error) {
+      runInAction(() => {
+        this.state = "error";
+      });
+    }
+  };
+  fetchData = () => {
+    return fetch(`${API_Base}/todos`)
+      .then(this.handleErrors)
+      .then(res => res.json());
+  };
+  deleteRequest(todoId) {
+    return fetch(`${API_Base}/todos/${todoId}`, {
+      method: "DELETE"
+    }).then(this.handleErrors);
+  }
+  postRequest(data) {
+    return fetch(`${API_Base}/todos/create`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    }).then(this.handleErrors);
+  }
+  patchRequest = (id, data) => {
+    return fetch(`${API_Base}/todos/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    }).then(this.handleErrors);
+  };
+  handleErrors(response) {
+    if (!response.ok) throw response.statusText;
+    return response;
+  }
 
   @computed
   get remainingTodos() {

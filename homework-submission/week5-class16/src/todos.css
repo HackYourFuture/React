@@ -1,0 +1,101 @@
+.todo_list {
+  margin-left: 200px;
+}
+.todo_item {
+  list-style: none;
+  border: 3px solid black;
+  padding: 5px;
+  margin: 20px;
+  width: 800px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  display: grid;
+}
+.error {
+  list-style: none;
+  border: 3px solid black;
+  padding: 5px;
+  margin: 20px;
+  width: 800px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  display: grid;
+}
+.todo_desc {
+  color: green;
+  font-style: italic;
+  font-size: 23px;
+}
+.todo_deadline {
+  color: red;
+  font-style: italic;
+  font-size: 20px;
+}
+.zero_todo {
+  margin-left: -220px;
+  padding: 50px;
+  color: red;
+  font-size: 30px;
+  font-weight: bold;
+}
+.date_picker {
+  border: 2px solid black;
+  margin: 5px 0px 10px 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
+.description {
+  border: 2px solid black;
+  margin: 5px 0px 10px 0px;
+  border-radius: 5px;
+  padding: 5px;
+}
+.add_form {
+  display: flex;
+  margin: 10px 0 20px 400px;
+}
+
+.todos_header {
+  margin: 10px 0px 5px 0;
+}
+.check_box {
+  margin: 10px 30px 0px 0px;
+}
+.left_todos {
+  color: darkcyan;
+  font-size: 2em;
+  font-weight: bold;
+  font-style: italic;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-right: 16px solid green;
+  border-bottom: 16px solid red;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin-left: 340px;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
