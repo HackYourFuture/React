@@ -23,9 +23,6 @@ class Description extends Component{
         this.props.editTodo(this.props.id, this.props.description,  e.target.value);
     };
 
-    handleRemove = (e) => {
-        
-    }
     render(){
         const doneStyle = {
             textDecoration: 'line-through',

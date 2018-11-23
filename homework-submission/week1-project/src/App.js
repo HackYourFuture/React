@@ -11,7 +11,7 @@ class App extends Component {
   
   constructor(props){
     super(props);
-    console.log(this.props);
+    this.props.TodoApp.fillTodos();
   }
 
   changeState = (id) => {
@@ -33,13 +33,14 @@ class App extends Component {
 
   render() {
     const {TodoApp} = this.props;
-    const todoList = TodoApp.todoList;
+    const todoList = TodoApp.todos.data;
+    console.log(TodoApp.todos);
     
     return (
       <div>
         <h1>Todo List</h1>
         <TodoForm addTodo = {this.addTodo}/>
-        {todoList.length === 0 ? <h2>No items...</h2> : todoList.map((e, index) => <Description 
+        {todoList.length === 0 ? <h1>Nothing to do...</h1>:todoList.map((e, index) => <Description 
         description = {e.description} 
         deadline = {e.deadline} 
         key = {index} 
