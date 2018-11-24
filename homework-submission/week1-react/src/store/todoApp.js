@@ -1,8 +1,6 @@
-import {observable, action, runInAction} from 'mobx';
-// import todos from '../component/todos.json';
+import {configure, observable, action, runInAction} from 'mobx';
 
-
-// mobx.configure({enforceActions: true});
+configure({enforceActions: 'observed'});
 
 class todoApp {
     
