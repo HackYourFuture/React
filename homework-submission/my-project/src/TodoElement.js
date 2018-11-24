@@ -14,7 +14,7 @@ class TodoItem extends React.Component {
                 <button className="pencil">
                     <input type='checkbox' defaultChecked={todo.done} onChange={() => checkBoxHandler(todo.id)} />
                     <FaPencilAlt /></button>
-                <span className={todo.done ? 'done' : 'notdone'}>{todo.description}, {todo.deadline}</span>
+                <span className={todo.done}>{todo.description}, {todo.deadline}</span>
                 <button onClick={this.handleEditButton}>Edit</button>
                 <button className="trash" onClick={() => deleteTodo(todo.id)}><FaTrash /></button>
             </div >

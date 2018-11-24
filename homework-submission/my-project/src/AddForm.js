@@ -9,13 +9,10 @@ import { observer, inject } from 'mobx-react';
 class AddTodo extends Component {
   state = {
     description: '',
-    deadline: '',
-    done: false,
-
   }
   newTodo = (e) => {
     this.setState({
-      [e.target.id]: e.target.value
+      description: e.target.value
     })
   }
   newDate = (date) => {
@@ -27,12 +24,9 @@ class AddTodo extends Component {
   }
   submit = (e) => {
     e.preventDefault();
-    this.props.todos.addNewTodo(this.state)
+    this.props.todos.addNewTodo(this.state.description)
     this.setState({
       description: '',
-      deadline: '',
-      done: false,
-
     })
 
   }
@@ -46,6 +40,7 @@ class AddTodo extends Component {
               type='text'
               className="newtodo"
               id='description'
+              value={this.state.description}
               onChange={this.newTodo} required />
           </div>
           <div><span>Deadline</span></div>

@@ -5,6 +5,10 @@ import { observer, inject } from 'mobx-react';
 @inject('todos')
 @observer
 class todosList extends React.Component {
+    constructor(props) {
+        super(props)
+        props.todos.getTodos()
+    }
     render() {
         const { todos } = this.props.todos;
         const list = todos.map((item) => <TodoItem todo={item} />);
