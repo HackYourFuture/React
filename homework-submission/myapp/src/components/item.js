@@ -8,7 +8,7 @@ import { observer, inject } from "mobx-react";
 @observer
 class Item extends React.Component {
   render() {
-    const { name, deadLine, id } = this.props;
+    const { description, deadline, id } = this.props;
 
     return (
       <section className="ToDos">
@@ -18,12 +18,12 @@ class Item extends React.Component {
 
         <div className="Info">
           <p>
-            Name : <span className="Color1"> {name} </span>
+            Name : <span className="Color1"> {description} </span>
           </p>
           <p>
             Deadline :
             <span className="Color2">
-              <Moment format=" DD MMMM YYYY  hh:mm A  ">{deadLine}</Moment>
+              <Moment format=" DD MMMM YYYY  hh:mm A  ">{deadline}</Moment>
             </span>
           </p>
         </div>

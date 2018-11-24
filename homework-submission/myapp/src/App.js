@@ -9,13 +9,19 @@ import { observer, inject } from "mobx-react";
 @observer
 class App extends Component {
   render() {
+    const { todoStore } = this.props;
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
-        <AddMenu Data={this.Data} value={this.value} />
-        <ItemList Data={this.Data} />
+        <AddMenu />
+        <h2>
+          {todoStore.numbersOfTodos <= 1
+            ? `You have ${todoStore.numbersOfTodos} todo in your list`
+            : `You have ${todoStore.numbersOfTodos} todos in your list`}
+        </h2>
+        <ItemList />
       </div>
     );
   }

@@ -7,24 +7,32 @@ import { observer, inject } from "mobx-react";
 @inject("todoStore")
 @observer
 class AddMenu extends React.Component {
-  state = {
-    name: "",
-    deadline: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      description: "",
+      deadline: moment()
+    };
+  }
 
-  handleChangeForm = ({ target: { name, value } }) => {
-    this.setState({ [name]: value });
+  handleChangeForm = event => {
+    this.setState({
+      description: event.target.value
+    });
   };
 
   handleChangeDate = date => {
-    this.setState({ deadline: date });
+    this.setState({
+      deadline: date
+    });
   };
 
   handleSubmitAdd = event => {
     event.preventDefault();
-    this.props.todoStore.handleAdd(this.state.name, this.state.deadline);
+    this.props.todoStore.handleAdd(this.state.description, this.state.deadline);
+
     this.setState({
-      name: "",
+      description: "",
       deadline: moment()
     });
   };
@@ -40,10 +48,8 @@ class AddMenu extends React.Component {
             <div className="col-75">
               <input
                 type="text"
-                id="formName"
-                name="name"
                 placeholder="New Todo name is ..."
-                value={this.state.name}
+                value={this.description}
                 onChange={this.handleChangeForm}
               />
             </div>

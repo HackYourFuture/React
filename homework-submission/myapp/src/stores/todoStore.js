@@ -1,31 +1,58 @@
-import { observable, action } from "mobx";
-import Data from "./../data/data";
+import { observable, computed, action, runInAction } from "mobx";
 
 class todoStore {
-  @observable Data = Data;
-
-  @action handleCheckBox = id => {
-    this.Data = this.Data.map(item => {
-      if (item.id === id) {
-        return { ...item, done: !item.done };
-      }
-      return item;
-    });
+  @observable todos = {
+    data: [],
+    status: "loading",
+    done: false
   };
 
-  @action handleRemove = id => {
-    function filterByID(item) {
-      if (item.id !== id) {
-        return true;
+  getTodosFunc() {
+    return fetch("https://hyf-react-api.herokuapp.com/todos").then(response =>
+      response.json()
+    );
+  }
+
+  @action getTodos() {
+    this.todos.data = [];
+    this.getTodos.status = "loading";
+    this.getTodosFunc()
+      .then(todos => {
+        runInAction(() => {
+          this.todos.data = todos;
+          this.todos.status = "done";
+        });
+      })
+      .catch(error => {
+        runInAction(() => {
+          this.todos.status = "error";
+        });
+      });
+  }
+
+  @computed get numbersOfTodos() {
+    return this.todos.data.length;
+  }
+
+  addNewPost(newPost) {
+    return fetch("https://hyf-react-api.herokuapp.com/todos/create", {
+      method: "POST",
+      body: JSON.stringify(newPost),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
       }
-      return false;
-    }
+    })
+      .then(response => response.json())
+      .catch(error => {
+        runInAction(() => {
+          this.todos.status = "error";
+        });
+      });
+  }
 
-    const deletedData = this.Data.filter(filterByID);
-    this.Data = deletedData;
-  };
+  @action handleAdd = (description, deadline) => {
+    this.handleAdd.status = "loading";
 
-  @action handleAdd = (name, deadline) => {
     const uniqueId = () => {
       return (
         "id-" +
@@ -35,15 +62,101 @@ class todoStore {
       );
     };
 
-    const addition = {
+    const newTodo = {
       id: uniqueId(),
-      name,
-      deadline,
+      description: description,
+      deadline: deadline,
+      __v: 1,
       done: false
     };
-    this.Data = [...this.Data, addition];
-  };
-}
 
+    this.addNewPost(newTodo)
+      .then(newTodo => {
+        runInAction(() => {
+          this.todos.data = [...this.todos.data, newTodo];
+          this.todos.status = "done";
+        });
+      })
+      .catch(error => {
+        runInAction(() => {
+          this.todos.status = "error";
+        });
+      });
+  };
+
+  deletePost(id) {
+    return fetch("https://hyf-react-api.herokuapp.com/todos/" + id, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+      .then(response => response.json())
+      .catch(error => {
+        runInAction(() => {
+          this.todos.status = "error";
+        });
+      });
+  }
+
+  @action handleRemove = id => {
+    this.handleRemove.status = "loading";
+    this.deletePost(id)
+      .then(id => {
+        runInAction(() => {
+          function filterByID(item) {
+            if (item._id !== id) {
+              return true;
+            }
+            return false;
+          }
+          this.todos.data = this.todos.data.filter(filterByID);
+          this.todos.status = "done";
+        });
+      })
+      .catch(error => {
+        runInAction(() => {
+          this.todos.status = "error";
+        });
+      });
+  };
+
+  @action handleCheckBox = id => {
+    this.handleCheckBox.status = "loading";
+    this.updatePost(id)
+      .then(id => {
+        runInAction(() => {
+          this.todos.data = this.todos.data.map(item => {
+            if (item._id === id) {
+              return { ...item, done: !item.done };
+            }
+            return item;
+          });
+          this.todos.status = "done";
+        });
+      })
+      .catch(error => {
+        runInAction(() => {
+          this.todos.status = "error";
+        });
+      });
+  };
+
+  updatePost(id, data) {
+    return fetch("https://hyf-react-api.herokuapp.com/todos/" + id, {
+      method: "PATCH",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+      .then(response => response.json())
+      .catch(error => {
+        runInAction(() => {
+          this.todos.status = "error";
+        });
+      });
+  }
+}
 const store = new todoStore();
 export default store;

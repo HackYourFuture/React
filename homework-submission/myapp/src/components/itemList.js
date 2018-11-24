@@ -5,16 +5,21 @@ import { observer, inject } from "mobx-react";
 @inject("todoStore")
 @observer
 class ItemList extends React.Component {
+  constructor(props) {
+    super(props);
+    props.todoStore.getTodos();
+  }
+
   render() {
     const { todoStore } = this.props;
 
-    const createItems = todoStore.Data.map((item, index) => {
+    const createItems = todoStore.todos.data.map((item, index) => {
       return (
         <section className="ToDoItem" key={index}>
           <Item
-            id={item.id}
-            name={item.name}
-            deadLine={item.deadline}
+            id={item._id}
+            description={item.description}
+            deadline={item.deadline}
             done={item.done}
           />
         </section>
@@ -22,7 +27,7 @@ class ItemList extends React.Component {
     });
 
     const emptyCheck =
-      todoStore.Data.length > 0 ? (
+      todoStore.todos.data.length > 0 ? (
         createItems
       ) : (
         <h2> ~ There is nothing to do :) ~ </h2>
