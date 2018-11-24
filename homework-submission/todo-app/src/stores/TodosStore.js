@@ -1,9 +1,13 @@
-import { observable, computed, action } from 'mobx';
+import { observable, computed, action, runInAction, configure } from 'mobx';
+
 import Data from './../data/data';
 
+configure({ enforceActions: "observed" })
 class TodosStore {
     
     @observable todos = [...Data];
+    @observable apiTodos = [];
+    @observable state = "pending";
 
     @computed get numberOfData() {
         //const x = this.todos.map(item => item.description);
