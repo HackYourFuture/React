@@ -10,6 +10,10 @@ import Update from "./component/update";
 @observer
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    props.myTodoApp.listTodos();
+  }
 
   render() {
     const {myTodoApp} = this.props;
@@ -17,8 +21,9 @@ class App extends Component {
     const isEmpty = myTodoApp.data.todos.length < 1 || myTodoApp.data.todos === undefined;
 
     const todoList = myTodoApp.data.todos.map((item, key)=> 
-    (key === myTodoApp.data.indexToUpdate) ?
+    (item._id === myTodoApp.idToUpdate) ?
     <Update
+    id={item._id}
     text={item.description}
     date={item.deadline}
     index={key}
@@ -32,7 +37,7 @@ class App extends Component {
     changeDone = {myTodoApp.changeDone}
     deleteTodo = {myTodoApp.deleteTodo}
     editButton={myTodoApp.editButton}
-    id={item.id}
+    id={item._id}
     text={item.description}
     date={item.deadline}
     done={item.done}
@@ -51,7 +56,7 @@ class App extends Component {
 
           <Add
             addNewTodo = {myTodoApp.addNewTodo}
-            wrongInput = {myTodoApp.data.wrongInput}
+            wrongInput = {myTodoApp.wrongInput}
           />
 
           <ul>

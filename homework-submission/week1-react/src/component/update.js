@@ -31,13 +31,13 @@ class Update extends React.Component {
 
 
     render () {
-        const {index, updateTodo} = this.props;
+        const {id, updateTodo} = this.props;
 
         return(
                 <form onSubmit={this.handleSubmit}>
                     <input className="inputTodo description" type="text" onChange={this.handleDescription} value={this.state.description}/>
-                    <input className="inputTodo deadline" type="text" onChange={this.handleDeadline} value={this.state.deadline}/> 
-                    <button className="inputTodo myButton" type="submit" onClick={()=>updateTodo('update', index, this.state)}>update</button>
+                    <input className="inputTodo deadline" type="text" onChange={this.handleDeadline} value={this.state.deadline.substr(0, 10)}/> 
+                    <button className="inputTodo myButton" type="submit" onClick={()=>updateTodo('update', id, this.state)}>update</button>
                     <button className="inputTodo myButton" type="submit" onClick={()=>updateTodo('cancel')}>cancel</button>
                 </form>
         )

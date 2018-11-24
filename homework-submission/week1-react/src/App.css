@@ -75,7 +75,7 @@ li:before {
   height: 1.4em
 }
 
-.deleteButton {
+.deleteButton, .editButton {
   margin: 1em;
   font-weight: bold;
   background-color: #1f8b99;
@@ -83,11 +83,13 @@ li:before {
   padding: 5px;
 }
 
-.deleteButton:hover {
+.deleteButton:hover, .editButton:hover {
   font-weight: normal;
   font-color: 0.7em;
-  background-color: #28b7ca
+  background-color: #28b7ca;
+  cursor: pointer
 }
+
 
 @keyframes App-logo-spin {
   from {

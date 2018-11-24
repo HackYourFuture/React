@@ -1,51 +1,137 @@
-import {observable, action} from 'mobx';
-import todos from '../component/todos.json';
+import {observable, action, runInAction} from 'mobx';
+// import todos from '../component/todos.json';
 
 
-// configure({enforceActions: true});
+// mobx.configure({enforceActions: true});
 
 class todoApp {
     
     @observable data = {
-        todos: [...todos],
-        indexToUpdate: -1,
-        wrongInput : false
-      };
+        todos: [],
+        status: 'loading'
+    };
 
-    @action changeDone = (index) => {
-        this.data.todos[index].done = !this.data.todos[index].done
+    @observable idToUpdate = 0;
+    @observable wrongInput = false;
+
+    @action async listTodos() {
+        this.data.todos = [];
+        this.data.status = 'loading';
+        try {
+            const data = await this.getItems();
+            runInAction(() => {
+                this.data.todos = data;
+                this.data.status = 'done';
+            })
+        }
+        catch {
+            runInAction(() => {
+                this.data.status = 'error';
+            }) 
+        }
+    }
+
+    @action changeDone = (id) => {
+        this.data.status = 'loading';
+
+        const index = this.data.todos.findIndex(item => item._id === id);
+        const newDone = {done: !this.data.todos[index].done}
+
+        this.patchItem(id, newDone).then(()=>{
+            runInAction(() => {
+                this.data.todos[index].done = newDone.done;
+                this.data.status = 'done'
+            })
+        })
     }
 
     @action addNewTodo = (newEntry) => {
         const dateRegExp = /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/;
     
         if(newEntry.description === '' || !dateRegExp.test(newEntry.deadline)) {
-            this.data.wrongInput = true
+            this.wrongInput = true
         } else {
-            const lastItemId = this.data.todos[this.data.todos.length-1].id
-            newEntry.id = lastItemId+1;
-            this.data.todos.push(newEntry);
-            this.data.wrongInput = false;
+            this.data.status = 'loading';
+            this.createNewItem(newEntry).then(()=>{
+                runInAction(() => {
+                    newEntry.id = Math.random().toString(36).substr(2, 12);
+                    newEntry.deadline = new Date(newEntry.deadline).toJSON();
+                    this.data.todos.push(newEntry);
+                    this.data.status = 'done';
+                    this.wrongInput = false;
+                })
+            })
         }
     }
 
-    @action deleteTodo = (index) => {    
-        this.data.todos.splice(index, 1);
+    @action deleteTodo = (id) => {    
+        this.data.status = 'loading';
+
+        const index = this.data.todos.findIndex(item => item._id === id);
+
+        this.deleteItem(id).then(()=>{
+            runInAction(() => {
+                this.data.status = 'done';
+                this.data.todos.splice(index, 1);
+            })
+        })
     }
 
-    @action editButton = (index) => {
-        this.data.indexToUpdate = index
+    @action editButton = (id) => {
+        this.idToUpdate = id
     }
 
-    @action updateTodo = (select, index, newEntry) => {
+    @action updateTodo = (select, id, newEntry) => {
         if(select === 'cancel') {
-            this.data.indexToUpdate = -1
+            this.idToUpdate = 0
         } else {
-            this.data.todos[index].description = newEntry.description;
-            this.data.todos[index].deadline = newEntry.deadline;
-            this.data.indexToUpdate = -1
+            this.data.status = 'loading';
+
+            const index = this.data.todos.findIndex(item => item._id === id);
+    
+            this.patchItem(id, newEntry).then(()=>{
+                runInAction(() => {
+                    this.data.todos[index].description = newEntry.description;
+                    this.data.todos[index].deadline = newEntry.deadline;
+                    this.data.status = 'done';
+                })
+            })
+            this.idToUpdate = 0
         }
-      }
+    }
+
+    getItems() {
+        return fetch('https://hyf-react-api.herokuapp.com/todos')
+            .then(response => response.json())
+    }
+
+    createNewItem(item) {
+        return fetch('https://hyf-react-api.herokuapp.com/todos/create', {
+            method: 'POST',
+            body: JSON.stringify(item),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8"
+            }
+          })
+          .then(response => response.json())
+    }
+
+    patchItem(id, item) {
+        return fetch(`https://hyf-react-api.herokuapp.com/todos/${id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(item),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8"
+            }
+          })
+          .then(response => response.json())        
+    }
+
+    deleteItem(id) {
+        return fetch(`https://hyf-react-api.herokuapp.com/todos/${id}`, {
+            method: 'DELETE'
+        })
+    }
 }
 
 const myTodoApp = new todoApp();
