@@ -164,7 +164,7 @@ class TodosStore {
   @computed
   get remainingTodos() {
     const remaining = this.Data.filter(todo => {
-      return todo.done !== true;
+      return !todo.done;
     }).length;
     return remaining;
   }

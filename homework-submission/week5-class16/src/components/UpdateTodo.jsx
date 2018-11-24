@@ -12,12 +12,10 @@ class UpdateTodo extends Component {
     this.setState({
       description: e.target.value
     });
-    console.log(e.target.value);
   };
 
   handleDeadlineUpdate = date => {
     this.setState({ deadline: date });
-    console.log(date);
   };
 
   handleSubmit = (todoId, event) => {
@@ -36,14 +34,13 @@ class UpdateTodo extends Component {
 
     return (
       <div>
-        <div>
-          <button
-            className="btn btn-warning btn-bg m-2"
-            onClick={() => TodosStore.handleEdit(todo._id)}
-          >
-            Edit Todo
-          </button>
-        </div>
+        <button
+          className="btn btn-warning btn-bg m-2"
+          onClick={() => TodosStore.handleEdit(todo._id)}
+        >
+          Edit Todo
+        </button>
+
         <React.Fragment>
           <Form
             stateData={this.state}

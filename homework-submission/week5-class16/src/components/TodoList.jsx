@@ -15,15 +15,12 @@ class TodoList extends Component {
     const todos = list.map((todo, i) => {
       return <Todo key={i} todo={todo} />;
     });
-    const rendering =
-      list.length === 0 ? (
-        <li className="zero_todo">
-          {" "}
-          The List IS Empty. Please add new todo....
-        </li>
-      ) : (
-        todos
-      );
+
+    const rendering = list.length ? (
+      todos
+    ) : (
+      <li className="zero_todo"> The List IS Empty. Please add new todo....</li>
+    );
 
     const loading = () => {
       if (TodosStore.state === "loading") {

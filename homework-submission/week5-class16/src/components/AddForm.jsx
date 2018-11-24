@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { observer, inject } from "mobx-react";
-// import moment from "moment";
+
 import "moment-timezone";
 
 @inject("TodosStore")
@@ -11,7 +11,6 @@ class AddForm extends Component {
   state = {
     description: "",
     deadline: Date.now()
-    // startDate: new Date()
   };
 
   handleDateChange = date => {
