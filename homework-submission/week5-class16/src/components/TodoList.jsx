@@ -25,16 +25,6 @@ class TodoList extends Component {
         todos
       );
 
-    // const load = () => {
-    //   if (state === "loading") {
-    //     console.lig(state);
-    //     return <div className="loader" />;
-    //   } else if (state === "done") {
-    //     console.log(state);
-    //     return rendering;
-    //   }
-    // };
-
     const loading = () => {
       if (TodosStore.state === "loading") {
         return <div className="loader" />;
@@ -43,7 +33,6 @@ class TodoList extends Component {
       } else {
         return rendering;
       }
-      // <li className="load"> Application still loading .....</li>
     };
 
     const leftTodos =

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import Form from "./Form";
 import { observer, inject } from "mobx-react";
-// import { action } from "mobx";
 
 @inject("TodosStore")
 @observer
@@ -29,9 +28,6 @@ class UpdateTodo extends Component {
       this.state.description,
       this.state.deadline
     );
-
-    // const i = TodosStore.Data.findIndex(todo => todo._id === todoId);
-    // TodosStore.Data[i].edit = !TodosStore.Data[i].edit;
   };
 
   render() {
