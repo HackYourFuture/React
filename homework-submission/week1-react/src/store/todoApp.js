@@ -22,7 +22,7 @@ class todoApp {
                 this.data.status = 'done';
             })
         }
-        catch {
+        catch(error) {
             runInAction(() => {
                 this.data.status = 'error';
             }) 
@@ -40,6 +40,11 @@ class todoApp {
                 this.data.todos[index].done = newDone.done;
                 this.data.status = 'done'
             })
+        })
+        .catch((error) => {
+            runInAction(() => {
+                this.data.status = 'error';
+            }) 
         })
     }
 
@@ -59,6 +64,11 @@ class todoApp {
                     this.wrongInput = false;
                 })
             })
+            .catch((error) => {
+                runInAction(() => {
+                    this.data.status = 'error';
+                }) 
+            })
         }
     }
 
@@ -72,6 +82,11 @@ class todoApp {
                 this.data.status = 'done';
                 this.data.todos.splice(index, 1);
             })
+        })
+        .catch((error) => {
+            runInAction(() => {
+                this.data.status = 'error';
+            }) 
         })
     }
 
@@ -92,9 +107,14 @@ class todoApp {
                     this.data.todos[index].description = newEntry.description;
                     this.data.todos[index].deadline = newEntry.deadline;
                     this.data.status = 'done';
+                    this.idToUpdate = 0
                 })
             })
-            this.idToUpdate = 0
+            .catch((error) => {
+                runInAction(() => {
+                    this.data.status = 'error';
+                }) 
+            })
         }
     }
 
