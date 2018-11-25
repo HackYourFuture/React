@@ -1,11 +1,13 @@
 {
-  "name": "todo-app",
+  "name": "test",
   "version": "0.3.0",
   "private": true,
   "dependencies": {
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "react-scripts": "2.0.5"
+    "create-index": "^2.3.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
+    "react-scripts": "2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

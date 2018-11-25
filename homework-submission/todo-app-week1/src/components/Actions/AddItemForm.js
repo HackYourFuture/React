@@ -1,50 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
-const AddItemForm = React.createClass({
-
-	propTypes: {
-		onAdd: React.PropTypes.func.isRequired,
-		colorList: React.PropTypes.array.isRequired,
-	},
-	
-	getInitialState() {
-		return {
+export class AddItemForm extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
 			name: '',
 			color: 'red',
-		}
-	},
+		};
+	}
 
-	onSubmit(e) {
+	onSubmit = (e) => {
 		e.preventDefault();
 
 		const name = this.state.name;
 		const color = this.state.color;
 
-		if(name != ''){
+		if (name !== '') {
 			this.props.onAdd(name, color);
 			this.setState({
 				name: '',
 				color: 'red'
 			});
 		}
-	},
+	}
 
-	onNameChange({target}) {
-		this.state.name = target.value;
-		this.setState(this.state);
-	},
+	onNameChange = ({ target }) => {
+		this.setState({
+			name: target.value
+		});
+	}
 
-	onColorChange({target}) {
-		this.state.color = target.getAttribute('data-color');
-		this.setState(this.state);
-	},
+	onColorChange = ({ target }) => {
+
+		this.setState({
+			color: target.getAttribute('data-color')
+		});
+	}
 
 	render() {
 
 		const radios = this.props.colorList.map((color, index) => {
-			if(this.state.color == color.name){
+			if (this.state.color === color.name) {
 				color.checked = true;
-			}else {
+			} else {
 				color.checked = false;
 			}
 			const checkedClass = color.checked ? 'checked' : '';
@@ -63,6 +62,9 @@ const AddItemForm = React.createClass({
 			</form>
 		);
 	}
-});
+}
 
-export default AddItemForm;
+AddItemForm.propTypes = {
+	onAdd: PropTypes.func.isRequired,
+	colorList: PropTypes.array.isRequired,
+}
