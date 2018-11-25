@@ -1,4 +1,8 @@
-import { observable, computed, action, runInAction } from "mobx";
+import { observable, computed, action, runInAction, configure } from "mobx";
+
+configure({
+  enforceActions: 'strict'
+})
 
 class todoStore {
   @observable todos = {
