@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import Element from './element';
-import AddForm from './addform';
+//import Element from './element';
+import Element from './apiElements';
+import AddForm from './addToApi';
+//import AddForm from './addform';
 import {inject, observer} from 'mobx-react';
 
 @inject('TodosStore')
 @observer
 
 class Todos extends Component {
+    constructor(props) {
+        super(props);
+        this.props.TodosStore.retrieveData();
+    }
     render() {
         return ( 
             <div className="wrapper">
@@ -33,15 +39,35 @@ class Todos extends Component {
                         );
     }
 
-    listOfElements() {
+    printApiData() {
+        const {TodosStore} = this.props;
+        return TodosStore.apiTodos.map((el, index) =>
+                            <Element 
+                            key={index + 'api'}
+                            id={el._id}
+                            description={el.description} 
+                            deadline={el.deadline}
+                            done={el.done}
+                            className="float-left"
+                             />
+                        );
+    }
+
+    listOfElements() { //{ this.extractElements() }
+        const {TodosStore} = this.props;
+        if(TodosStore.state === 'loading') return <div>Loading ...</div>;
+        else {
          return <ul className="list-group list-group-hover list-group-striped">
-                    { this.extractElements() }
+                    
+                    {this.printApiData()}
                 </ul>;
+        }
     }
 
     checkElementsMount() {
+        const {TodosStore} = this.props;
         const noElement =  <div className="alert alert-danger" role="alert">No items...!</div>;
-        return this.props.TodosStore.todos.length < 1 ? noElement : this.listOfElements();
+        return TodosStore.apiDataNumber < 1 ? noElement : this.listOfElements();
     }
 }
  
