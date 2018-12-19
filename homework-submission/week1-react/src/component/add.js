@@ -28,6 +28,7 @@ class Add extends React.Component {
 
     handleSubmit (event) {
         event.preventDefault();
+        this.props.addNewTodo(this.state);
         this.setState({
             description: '',
             deadline: ''
@@ -36,13 +37,13 @@ class Add extends React.Component {
     }
 
     render () {
-        const {addNewTodo, wrongInput} = this.props;
+        const {wrongInput} = this.props;
 
         return(
                 <form onSubmit={this.handleSubmit}>
                     <input className="inputTodo description" type="text" onChange={this.handleDescription} placeholder=" what to do"/>
                     <input className="inputTodo deadline" type="text" onChange={this.handleDeadline} placeholder=" when to do (yyyy-mm-dd)"/> 
-                    <button className= {wrongInput ? "inputTodo wrongInput" : "inputTodo"} type="submit" onClick={()=>addNewTodo(this.state)}>Add</button>
+                    <button className= {wrongInput ? "inputTodo wrongInput" : "inputTodo"} type="submit">Add</button>
                 </form>
         )
     }

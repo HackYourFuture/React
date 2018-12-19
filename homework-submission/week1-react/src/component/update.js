@@ -10,7 +10,6 @@ class Update extends React.Component {
         }
         this.handleDescription = this.handleDescription.bind(this);
         this.handleDeadline = this.handleDeadline.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
     
     handleDescription (event) {
@@ -25,21 +24,18 @@ class Update extends React.Component {
         })
     }
 
-    handleSubmit (event) {
-        event.preventDefault();
-    }
-
-
     render () {
         const {id, updateTodo} = this.props;
 
         return(
-                <form onSubmit={this.handleSubmit}>
+            <li>
+                <form>
                     <input className="inputTodo description" type="text" onChange={this.handleDescription} value={this.state.description}/>
                     <input className="inputTodo deadline" type="text" onChange={this.handleDeadline} value={this.state.deadline.substr(0, 10)}/> 
-                    <button className="inputTodo myButton" type="submit" onClick={()=>updateTodo('update', id, this.state)}>update</button>
-                    <button className="inputTodo myButton" type="submit" onClick={()=>updateTodo('cancel')}>cancel</button>
+                    <button className="inputTodo myButton" type="button" onClick={()=>updateTodo('update', id, this.state)}>update</button>
+                    <button className="inputTodo myButton" type="button" onClick={()=>updateTodo('cancel')}>cancel</button>
                 </form>
+            </li>
         )
     }
 }

@@ -50,14 +50,14 @@ class todoApp {
 
     @action addNewTodo = (newEntry) => {
         const dateRegExp = /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/;
-    
+
         if(newEntry.description === '' || !dateRegExp.test(newEntry.deadline)) {
             this.wrongInput = true
         } else {
             this.data.status = 'loading';
             this.createNewItem(newEntry).then(()=>{
                 runInAction(() => {
-                    newEntry.id = Math.random().toString(36).substr(2, 12);
+                    // newEntry.id = Math.random().toString(36).substr(2, 12);
                     newEntry.deadline = new Date(newEntry.deadline).toJSON();
                     this.data.todos.push(newEntry);
                     this.data.status = 'done';
