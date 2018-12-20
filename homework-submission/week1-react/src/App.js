@@ -20,9 +20,10 @@ class App extends Component {
 
     const isEmpty = !myTodoApp.data.todos.length || !myTodoApp.data.todos;
 
-    const todoList = myTodoApp.data.todos.map((item)=> 
+    const todoList = myTodoApp.data.todos.map((item, key)=> 
     (item._id === myTodoApp.idToUpdate) ?
     <Update
+    key={key}
     id={item._id}
     text={item.description}
     date={item.deadline}
@@ -30,6 +31,7 @@ class App extends Component {
     />
     :
     <Todo
+    key={key}
     changeDone = {myTodoApp.changeDone}
     deleteTodo = {myTodoApp.deleteTodo}
     editButton={myTodoApp.editButton}
