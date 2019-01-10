@@ -5,7 +5,7 @@ import Data from './Data'
 
 class App extends Component {
   render() {
-    const newData = Data.map(item => <TodoItem description={item.description} deadlineDate={item.deadlineDate} />)
+    const newData = Data.map(item => <TodoItem key={key.id} description={item.description} deadlineDate={item.deadlineDate} />)
     return (
       <div className="App">
         {newData}
