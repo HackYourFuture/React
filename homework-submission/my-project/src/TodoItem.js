@@ -1,12 +1,5 @@
 import React from 'react';
 
-function TodoItem(props) {
-  return (
-    <div>
-      <p>{props.description} {props.deadlineDate}</p>
-    </div>
-  )
-}
-
+const TodoItem = props => <p>{props.description} {props.deadlineDate}</p>
 
 export default TodoItem
