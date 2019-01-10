@@ -21,6 +21,11 @@
 .App-link {
   color: #61dafb;
 }
+.todo-item{
+flex-direction: row;
+width:100%
+}
+
 
 @keyframes App-logo-spin {
   from {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import TodoItem from "./TodoItem"
-import Data from './Data';
+import Data from './Data'
 
 class App extends Component {
   render() {
