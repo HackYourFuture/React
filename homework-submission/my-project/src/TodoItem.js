@@ -2,8 +2,8 @@ import React from 'react';
 
 const TodoItem = props =>
   <div className="todo-item">
-    <p1>{props.description}</p1>
-    <p2>{props.deadlineDate}</p2>
+    <p>{props.description}</p>
+    <p>{props.deadlineDate}</p>
   </div>
 
 export default TodoItem
