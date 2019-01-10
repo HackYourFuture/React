@@ -17,13 +17,16 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+p{
+    flex-direction: row;
+}
 
 .App-link {
   color: #61dafb;
 }
 .todo-item{
-flex-direction: row;
-width:100%
+display:flex;
+width:50%
 }
 
 
