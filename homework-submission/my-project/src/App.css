@@ -22,10 +22,13 @@
   color: #61dafb;
 }
 .todo-item{
-flex-direction: row;
-width:100%
+  display: flex;
+  justify-content:center;
 }
 
+p{
+  flex-direction: row;
+}
 
 @keyframes App-logo-spin {
   from {

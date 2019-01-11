@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import TodoItem from "./TodoItem"
-import Data from './Data'
+import Post from './Post';
+import Data from './Data';
+import Header from './Header';
+
 
 class App extends Component {
   render() {
-    const newData = Data.map(item => <TodoItem description={item.description} deadlineDate={item.deadlineDate} />)
+    const newData = Data.map(item => <Post key={item.description} description={item.description} deadlineDate={item.deadlineDate} />)
     return (
       <div className="App">
+        <Header />
         {newData}
       </div>
     );
