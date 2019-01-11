@@ -1,5 +1,6 @@
 import React from 'react';
 import Description from './Description';
+import DeadLines from './DeadLines';
 
 const todos = [
   {
@@ -18,15 +19,22 @@ const todos = [
 
 export default class ToDoList extends React.Component {
   render() {
+
+
     return (
       <div>
         <h2>ToDo List</h2>
         <ul>
-          {todos.map((eleTodo, index) => (<Description
-            todo={eleTodo.todo}
-            key={index}
-            deadline={eleTodo.deadline}>
-          </Description>))}
+          {todos.map((eleTodo, index) => (
+            <div key={index}>
+              <Description
+                todo={eleTodo.todo}
+                key={index}
+                deadline={<DeadLines deadline={eleTodo.deadline}></DeadLines>}
+              >
+              </Description>
+            </div>
+          ))}
         </ul>
       </div>
     );
