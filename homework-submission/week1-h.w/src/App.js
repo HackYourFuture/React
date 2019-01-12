@@ -7,7 +7,7 @@ import Header from "./Header";
 class App extends Component {
   render() {
     const Data = ItemData.map((Data, Key) => (
-      <Item text={Data.text} deadline={Data.deadline} Key={Key} />
+      <Item text={Data.text} deadline={Data.deadline} key={Key} />
     ));
     return (
       <div className="App">
