@@ -6,7 +6,7 @@ class Item extends Component {
       <li>
         <input type="checkbox" />
         <h2>{this.props.text}</h2>
-        <span>{this.props.deadline}</span>
+        <p>{this.props.deadline}</p>
       </li>
     );
   }

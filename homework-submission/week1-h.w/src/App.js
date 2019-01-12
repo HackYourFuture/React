@@ -6,10 +6,9 @@ import Header from "./Header";
 
 class App extends Component {
   render() {
-    const Data = ItemData.map(Data => (
-      <Item text={Data.text} deadline={Data.deadline} />
+    const Data = ItemData.map((Data, Key) => (
+      <Item text={Data.text} deadline={Data.deadline} Key={Key} />
     ));
-    console.log(Data);
     return (
       <div className="App">
         <Header />
