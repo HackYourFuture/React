@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import AddingTodoForm from "./adding-form";
 import RenderTodo from "./render-todo";
 import EditingForm from "./editing-form";
-import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -61,9 +60,7 @@ class App extends Component {
   }
   markAs(item) {
     this.state.todos.forEach(el => {
-      if (el.id === item.id) {
-        el.done = el.done ? (el.done = false) : (el.done = true);
-      }
+      if (el.id === item.id) el.done = el.done ? false : true;
     });
     this.setState({ todos: this.state.todos });
   }
@@ -72,18 +69,14 @@ class App extends Component {
     return this.state.todos.map(todo => {
       if (todo.id === this.state.editingMode) {
         return (
-          <EditingForm
-            key={todo.id}
-            todo={todo}
+          <EditingForm key={todo.id} todo={todo}
             updateItem={this.updateItem.bind(this)}
             cancelEditMode={this.cancelEditMode.bind(this)}
           />
         );
       } else {
         return (
-          <RenderTodo
-            key={todo.id}
-            todo={todo}
+          <RenderTodo key={todo.id} todo={todo}
             removeItem={this.removeItem.bind(this)}
             updateItem={this.updateItem.bind(this)}
             editMode={this.editMode.bind(this)}
@@ -96,11 +89,14 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <AddingTodoForm addItem={this.addItem.bind(this)} />
-        {!this.state.todos[0] ? <h2>No items...</h2> : this.renderItems()}
+        <ul className="list">
+          {!this.state.todos[0] ? <h2>No items...</h2> : this.renderItems()}
+        </ul>
       </div>
     );
   }
 }
+
 export default App;

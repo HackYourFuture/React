@@ -7,3 +7,59 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.container {
+  width: 50%;
+  margin: auto;
+}
+.adding-form {
+  padding: 10px;
+  background: rgb(114, 152, 223);
+}
+.adding-form > input {
+  margin: 5px;
+  font-size: 16px;
+}
+.add-btn {
+  background: rgb(201, 183, 183);
+  padding: 4px 10px;
+}
+
+.list {
+  background: rgb(69, 71, 71);
+  padding: 5px;
+}
+.list > li {
+  display: flex;
+  list-style-type: none;
+  padding: 10px;
+  margin: 8px 5px;
+  background: rgb(6, 117, 84);
+}
+.description {
+  flex: 5;
+  margin-right: 5px;
+}
+.deadline {
+flex:3;
+  color: rgb(194, 63, 63);
+}
+.btn, .btn, .check-box {
+  flex: 1;
+  padding: 2px;
+}
+.editing-form {
+  display: flex;
+}
+.editing-form > div {
+  flex: 8;
+  display: flex;
+}
+.editing-form, div > label {
+  flex: 1;
+}
+.editing-form, div > input {
+  flex: 3;
+  margin: 0 4px;
+}
+

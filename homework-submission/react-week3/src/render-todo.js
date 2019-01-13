@@ -1,48 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class RenderTodo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: this.props.todo.id,
-      description: this.props.todo.description,
-      deadline: this.props.todo.deadline,
-      done: this.props.todo.done
-    };
-  }
-  markAs() {
-    this.props.markAs(this.state);
-    this.state.done
-      ? this.setState({ done: false })
-      : this.setState({ done: true });
-  }
-
-  render() {
-    return (
-      <ul>
-        <li style={{ textDecoration: this.state.done ? "line-through" : "" }}>
-          <input
-            name="isGoing"
-            type="checkbox"
-            checked={this.state.done}
-            onChange={this.markAs.bind(this)}
-          />
-          <span>{this.state.description}</span>
-          <span>{this.state.deadline}</span>
-          <input
-            type="button"
-            value="Edit"
-            name="edit"
-            onClick={() => this.props.editMode(this.state)}
-          />
-          <input
-            type="button"
-            value="Remove"
-            name="remove"
-            onClick={() => this.props.removeItem(this.state)}
-          />
-        </li>
-      </ul>
-    );
-  }
+export default function RenderTodo(props) {
+  let styles = { textDecoration: props.todo.done ? "line-through" : "" }
+  return (
+    <li>
+      <input className="check-box" name="isCompleted" type="checkbox"
+        checked={props.todo.done}
+        onChange={() => props.markAs(props.todo)}
+      />
+      <span className="description" style={styles}>{props.todo.description}</span>
+      <span className="deadline" style={styles}>{props.todo.deadline}</span>
+      <input className="btn" type="button" value="Edit" name="edit"
+        onClick={() => props.editMode(props.todo)}
+      />
+      <input className="btn" type="button" value="Remove" name="remove"
+        onClick={() => props.removeItem(props.todo)}
+      />
+    </li>
+  );
 }

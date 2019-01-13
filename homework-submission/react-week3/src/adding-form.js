@@ -1,21 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class AddTodo extends Component {
-  constructor(props) {
-    super(props);
-    this.sendInput = this.props.addItem;
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.sendInput} >
-        <label htmlFor="description">description</label>
-        <input type="text" name="description" id="description" />
-        <label htmlFor="deadline" >Deadline</label>
-        <input type="date" name="deadline" id="deadline" />
-        <input type="submit" value="Add" />
-      </form >
-    );
-  }
-
+export default function AddTodo(props) {
+  return (
+    <form onSubmit={props.addItem} className="adding-form">
+      <label htmlFor="description">description: </label>
+      <input type="text" name="description" id="description" />
+      <label htmlFor="deadline">Deadline: </label>
+      <input type="date" name="deadline" id="deadline" />
+      <input type="submit" value="Add" className="add-btn" />
+    </form>
+  );
 }
