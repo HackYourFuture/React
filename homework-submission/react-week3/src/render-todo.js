@@ -12,11 +12,10 @@ export default class RenderTodo extends Component {
   }
   markAs() {
     this.props.markAs(this.state);
-    this.state.done ? this.setState({ done: false }) : this.setState({ done: true });
+    this.state.done
+      ? this.setState({ done: false })
+      : this.setState({ done: true });
   }
-  onEdit() { this.props.editMode(this.state) }
-
-  onRemove() { this.props.removeItem(this.state) }
 
   render() {
     return (
@@ -26,16 +25,24 @@ export default class RenderTodo extends Component {
             name="isGoing"
             type="checkbox"
             checked={this.state.done}
-            onChange={this.markAs.bind(this)} />
+            onChange={this.markAs.bind(this)}
+          />
           <span>{this.state.description}</span>
           <span>{this.state.deadline}</span>
-          <input type="button" value="Edit" name="edit" onClick={this.onEdit.bind(this)} />
-          <input type="button" value="Remove" name="remove" onClick={this.onRemove.bind(this)} />
+          <input
+            type="button"
+            value="Edit"
+            name="edit"
+            onClick={() => this.props.editMode(this.state)}
+          />
+          <input
+            type="button"
+            value="Remove"
+            name="remove"
+            onClick={() => this.props.removeItem(this.state)}
+          />
         </li>
-      </ul >
+      </ul>
     );
   }
 }
-
-
-

@@ -1,31 +1,31 @@
-import React, { Component } from 'react';
-import AddingTodoForm from './adding-form';
-import RenderTodo from './render-todo';
-import EditingForm from './editing-form';
-import './App.css';
+import React, { Component } from "react";
+import AddingTodoForm from "./adding-form";
+import RenderTodo from "./render-todo";
+import EditingForm from "./editing-form";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      "todos": [
+      todos: [
         {
-          "id": 1,
-          "description": "Get out of bed",
-          "deadline": "2017-09-11",
-          "done": true
+          id: 1,
+          description: "Get out of bed",
+          deadline: "2017-09-11",
+          done: true
         },
         {
-          "id": 2,
-          "description": "Brush teeth",
-          "deadline": "2017-09-10",
-          "done": false
+          id: 2,
+          description: "Brush teeth",
+          deadline: "2017-09-10",
+          done: false
         },
         {
-          "id": 3,
-          "description": "Eat breakfast",
-          "deadline": "2017-09-09",
-          "done": false
+          id: 3,
+          description: "Eat breakfast",
+          deadline: "2017-09-09",
+          done: false
         }
       ]
     };
@@ -38,7 +38,7 @@ class App extends Component {
       description: e.target.description.value,
       deadline: e.target.deadline.value,
       done: false
-    })
+    });
     this.setState({ todos: this.state.todos });
   }
   removeItem(item) {
@@ -53,7 +53,8 @@ class App extends Component {
   updateItem(item) {
     this.state.todos.forEach(el => {
       if (el.id === item.id) {
-        el.description = item.description; el.deadline = item.deadline;
+        el.description = item.description;
+        el.deadline = item.deadline;
       }
     });
     this.setState({ editingMode: false, todos: this.state.todos });
@@ -61,7 +62,7 @@ class App extends Component {
   markAs(item) {
     this.state.todos.forEach(el => {
       if (el.id === item.id) {
-        el.done = el.done ? el.done = false : el.done = true;
+        el.done = el.done ? (el.done = false) : (el.done = true);
       }
     });
     this.setState({ todos: this.state.todos });
@@ -70,22 +71,29 @@ class App extends Component {
   renderItems() {
     return this.state.todos.map(todo => {
       if (todo.id === this.state.editingMode) {
-        return <EditingForm key={todo.id}
-          todo={todo}
-          updateItem={this.updateItem.bind(this)}
-          cancelEditMode={this.cancelEditMode.bind(this)}
-        />
+        return (
+          <EditingForm
+            key={todo.id}
+            todo={todo}
+            updateItem={this.updateItem.bind(this)}
+            cancelEditMode={this.cancelEditMode.bind(this)}
+          />
+        );
       } else {
-        return <RenderTodo key={todo.id}
-          todo={todo}
-          removeItem={this.removeItem.bind(this)}
-          updateItem={this.updateItem.bind(this)}
-          editMode={this.editMode.bind(this)}
-          markAs={this.markAs.bind(this)}
-        />
+        return (
+          <RenderTodo
+            key={todo.id}
+            todo={todo}
+            removeItem={this.removeItem.bind(this)}
+            updateItem={this.updateItem.bind(this)}
+            editMode={this.editMode.bind(this)}
+            markAs={this.markAs.bind(this)}
+          />
+        );
       }
     });
   }
+
   render() {
     return (
       <div>
