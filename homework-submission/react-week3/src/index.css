@@ -42,7 +42,7 @@ body {
 }
 .deadline {
 flex:3;
-  color: rgb(194, 63, 63);
+  color: rgb(221, 178, 178);
 }
 .btn, .btn, .check-box {
   flex: 1;
