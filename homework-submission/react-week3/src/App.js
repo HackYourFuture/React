@@ -78,7 +78,6 @@ class App extends Component {
         return (
           <RenderTodo key={todo.id} todo={todo}
             removeItem={this.removeItem.bind(this)}
-            updateItem={this.updateItem.bind(this)}
             editMode={this.editMode.bind(this)}
             markAs={this.markAs.bind(this)}
           />
