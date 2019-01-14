@@ -28,7 +28,17 @@
 
 p{
   flex-direction: row;
+  margin-top: 0;
 }
+input{
+  margin-top: 6px;
+  margin-right: 10px;
+}
+header{
+  margin: 10px;
+}
+
+
 
 @keyframes App-logo-spin {
   from {

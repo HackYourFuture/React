@@ -1,16 +1,28 @@
 
 const Data = [
   {
-    description: "Get out of bed,",
-    deadlineDate: "Wed Sep 13 2017"
+    "id": 1,
+    "description": "Get out of bed",
+    "deadline": "2017-09-11",
+    "done": true
   },
   {
-    description: "Brush teeth,",
-    deadlineDate: "Thu Sep 14 2017"
+    "id": 2,
+    "description": "Brush teeth",
+    "deadline": "2017-09-10",
+    "done": false
   },
   {
-    description: "Eat breakfast,",
-    deadlineDate: "Fri Sep 15 2017"
+    "id": 3,
+    "description": "Eat breakfast",
+    "deadline": "2017-09-09",
+    "done": false
+  },
+  {
+    "id": 4,
+    "description": "Eat lunch",
+    "deadline": "2017-09-09",
+    "done": true
   }
 ]
 

@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 
 class Header extends Component {
   render() {
+
     return (
-      <div>
-        <header>Todo List</header>
-      </div>
+      <>
+        <header >Todo List</header>
+        <header style={this.props.styles2}>No items...</header>
+      </>
     );
   }
 }

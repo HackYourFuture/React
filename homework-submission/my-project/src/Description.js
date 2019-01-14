@@ -3,9 +3,7 @@ import React, { Component } from 'react';
 class Description extends Component {
   render() {
     return (
-      <div>
-        <p>{this.props.description}</p>
-      </div>
+      <p style={this.props.styles}>{this.props.description}{','}</p>
     );
   }
 }
