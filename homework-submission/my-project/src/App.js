@@ -29,13 +29,12 @@ class App extends Component {
   }
 
   render() {
-    const styles2 = {
-      display: this.state.todoData.length === 0 ? 'block' : 'none'
-    }
+    const text = this.state.todoData.length === 0 ? "No item..." : null
     const newData = this.state.todoData.map((item, key) => <Post key={key} item={item} changeHandel={this.changeHandel} />)
     return (
       <div className="App" >
-        <Header styles2={styles2} />
+        <Header/>
+        {text}
         {newData}
       </div>
     );
