@@ -6,7 +6,6 @@ class Header extends Component {
     return (
       <>
         <header >Todo List</header>
-        <header style={this.props.styles2}>No items...</header>
       </>
     );
   }
