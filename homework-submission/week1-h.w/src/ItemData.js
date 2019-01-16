@@ -1,16 +1,22 @@
-const ItemData = [
+const itemData = [
   {
-    text: "Get out of bed, ",
-    deadline: "Wed Sep 13 2017"
+    id: 1,
+    description: "Get out of bed",
+    deadline: "2017-09-11",
+    done: true
   },
   {
-    text: "Brush teeth, ",
-    deadline: "Thu Sep 14 2017"
+    id: 2,
+    description: "Brush teeth",
+    deadline: "2017-09-10",
+    done: false
   },
   {
-    text: "Eat breakfast, ",
-    deadline: "Fri Sep 15 2017"
+    id: 3,
+    description: "Eat breakfast",
+    deadline: "2017-09-09",
+    done: false
   }
 ];
 
-export default ItemData;
+export default itemData;

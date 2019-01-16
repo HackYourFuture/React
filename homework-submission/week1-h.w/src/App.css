@@ -42,3 +42,8 @@ li {
   display: flex;
   justify-content: space-evenly;
 }
+
+.done {
+  text-decoration: line-through;
+  color: lightgray;
+}
