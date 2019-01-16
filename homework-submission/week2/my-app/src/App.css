@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Asap:400,500,600,700');
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: Asap , sans-serif;
+}
+
+body {
+   background-color: #979090;
+}
+
+h1 {
+   text-align: center;
+   font-family: cursive;
+   color: bisque;
+}
+
+h2{
+   color: #1c515f;
+   width: 20%;
+}
+
+p{
+   color: rgb(47, 42, 42);
+   width: 15%;
+}
+
+.todo-list {
+   margin: 0 auto;
+   width: 70%;
+   padding: 30px;
+}
+
+.todo-item {
+   display: flex;
+   align-items: center;
+   padding: 5px;
+   width: 100%;
+   border-bottom: 2px solid #cecece;
+   color: #333333;
+}
+
+input {
+   margin-right: 30px;
+}
