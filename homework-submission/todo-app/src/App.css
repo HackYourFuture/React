@@ -1,5 +1,5 @@
 .App {
-  /* text-align: center; */
+  text-align: center;
 }
 
 .App-logo {
@@ -46,4 +46,8 @@ li {
 .done {
   text-decoration: line-through;
   color: lightgray;
+}
+.noItems {
+  text-decoration: underline;
+  font-weight: bold;
 }

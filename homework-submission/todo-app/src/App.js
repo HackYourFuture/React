@@ -14,19 +14,17 @@ class App extends Component {
   }
 
   handleChange(id) {
-    console.log("handleChange");
-    this.setState = prevState => {
+    this.setState(prevState => {
       const newState = prevState.todos.map(todo => {
         if (todo.id === id) {
           todo.done = !todo.done;
         }
         return todo;
       });
-      console.log(newState);
       return {
         todos: newState
       };
-    };
+    });
   }
 
   render() {
@@ -37,7 +35,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <ul>{Data}</ul>
+        {this.state.todos.length === 0 ? (
+          <ul className="noItems">No items...</ul>
+        ) : (
+          <ul>{Data}</ul>
+        )}
       </div>
     );
   }
