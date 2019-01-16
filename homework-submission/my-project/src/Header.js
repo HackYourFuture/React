@@ -4,9 +4,7 @@ class Header extends Component {
   render() {
 
     return (
-      <>
         <header >Todo List</header>
-      </>
     );
   }
 }
