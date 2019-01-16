@@ -29,13 +29,12 @@ class App extends Component {
   }
 
   render() {
-    const text = this.state.todoData.length === 0 ? "No item..." : null
     const newData = this.state.todoData.map((item, key) => <Post key={key} item={item} changeHandel={this.changeHandel} />)
     return (
       <div className="App" >
         <Header/>
         {text}
-        {newData}
+        {this.state.TodoData.length === 0 ? "No items..." : newData}
       </div>
     );
   }
