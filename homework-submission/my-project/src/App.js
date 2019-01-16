@@ -33,7 +33,6 @@ class App extends Component {
     return (
       <div className="App" >
         <Header/>
-        {text}
         {this.state.TodoData.length === 0 ? "No items..." : newData}
       </div>
     );
