@@ -36,7 +36,7 @@ class App extends Component {
       <div className="App">
         <Header />
         {this.state.todos.length === 0 ? (
-          <ul className="noItems">No items...</ul>
+          <p className="noItems">No items...</p>
         ) : (
           <ul>{Data}</ul>
         )}

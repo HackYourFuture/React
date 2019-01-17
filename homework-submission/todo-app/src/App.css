@@ -48,6 +48,9 @@ li {
   color: lightgray;
 }
 .noItems {
+  margin: 0;
+  padding: 5%;
+  background-color: #71c2d8;
   text-decoration: underline;
   font-weight: bold;
 }
