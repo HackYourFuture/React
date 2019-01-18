@@ -12,18 +12,12 @@ class TodoItem extends Component {
       this.onChange = this.onChange.bind(this)
    }
 
-   onChange(id) {
-      this.setState(prevState => {
-         const updatedTodos = prevState.Todos.map(todo => {
-            if (todo.id === id) {
-               todo.completed = !todo.completed
-            }
-            return todo
-         })
-         return {
-            Todos: updatedTodos
-         }
-      })
+
+   onChange(id, item) {
+      const updatedTodos = this.setState({ changed: id === item.id ? (item.completed = !item.completed) : null })
+      return {
+         Todos: updatedTodos
+      }
    }
 
    render() {
@@ -34,10 +28,12 @@ class TodoItem extends Component {
                {
                   ToDos.map((item, id) => (
                      <Post
-                        checkbox={<input type="checkbox" checked={item.completed} onChange={() => this.onChange(item.id)} />}
                         description={item.description}
                         deadline={item.deadline}
                         key={id}>
+                        <label>
+                           <input type="checkbox" checked={item.completed} onChange={() => this.onChange(item.id, item)} />
+                        </label>
                      </Post>
 
                   ))
