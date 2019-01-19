@@ -5,7 +5,7 @@ class TodoItem extends Component {
     const todo = this.props.todo;
     return (
       <li className={todo.done && 'done'}>
-        <input type="checkbox" onChange={() => this.props.handler(todo.id)} defaultChecked={todo.done} />
+        <input type="checkbox" onChange={() => this.props.handler(this.props.index)} defaultChecked={todo.done} />
         {todo.description} , {todo.deadline}
       </li>
     );

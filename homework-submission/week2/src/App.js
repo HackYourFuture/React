@@ -13,13 +13,11 @@ class App extends Component {
       data: data
     }
   }
-  checkBoxHandler = (id) => {
-    const item = this.state.data
-    const index = item.findIndex(x => x.id === id);
+  checkBoxHandler = (index) => {
+    const item = [...this.state.data]
     item[index].done = !item[index].done
     this.setState({ item })
   };
-
 
   render() {
     return (
