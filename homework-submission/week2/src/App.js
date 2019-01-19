@@ -5,6 +5,8 @@ import Description from './ToDo/Description';
 import DeadLines from './ToDo/DeadLine';
 import DoneCheckBox from './ToDo/DoneCheckBox';
 
+let isChecked = false;
+
 const todos = [
   {
     "id": 1,
@@ -33,15 +35,14 @@ class App extends Component {
         <h2>ToDo List</h2>
         <ul>
           {todos.map((eleTodo) => (
-            <div>
-              <DoneCheckBox isChecked={eleTodo.done}></DoneCheckBox>
+            <li key={eleTodo.id}>
+              <DoneCheckBox done={eleTodo.done}></DoneCheckBox>
               <Description
                 todo={eleTodo.description}
-                key={eleTodo.id}
                 deadline={<DeadLines deadline={new Date(eleTodo.deadline)}></DeadLines>}
               >
               </Description>
-            </div>
+            </li>
           ))}
         </ul>
       </div>
