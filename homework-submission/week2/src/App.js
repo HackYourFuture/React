@@ -14,23 +14,18 @@ class App extends Component {
     }
   }
   checkBoxHandler = (id) => {
-    this.setState(prevState => {
-      return {
-        items: prevState.data.map((item) => {
-          if (item.id === id) { item.done = !item.done }
-          return item
-        })
-      }
-    })
+    const item = this.state.data
+    const index = item.findIndex(x => x.id === id);
+    item[index].done = !item[index].done
+    this.setState({ item })
   };
+
 
   render() {
     return (
       <div className="App">
         <Title title="Todo List" />
-        <div>
-          <TodoList data={this.state.data} handler={this.checkBoxHandler} />
-        </div>
+        <TodoList data={this.state.data} handler={this.checkBoxHandler} />
       </div>
     );
   }

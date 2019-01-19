@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import CheckBox from './CheckBox'
 
-class Todo extends Component {
+class TodoItem extends Component {
   render() {
     const todo = this.props.todo;
     return (
       <li className={todo.done && 'done'}>
-        <CheckBox todo={todo} handler={() => this.props.handler(todo.id)} />
+        <input type="checkbox" onChange={() => this.props.handler(todo.id)} defaultChecked={todo.done} />
         {todo.description} , {todo.deadline}
       </li>
     );
   }
 }
-export default Todo;
+export default TodoItem;

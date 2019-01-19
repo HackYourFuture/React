@@ -8,11 +8,11 @@ class TodoList extends React.Component {
       <TodoItem key={key} todo={item} handler={this.props.handler} />)
       : <p> No items </p>
     return (
-      <div >
-        <ul>
-          {elements}
-        </ul>
-      </div>
+
+      <ul>
+        {elements}
+      </ul>
+
     );
   }
 }
