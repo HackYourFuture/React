@@ -26,17 +26,17 @@ class App extends Component {
         }
       ]
     };
+    this.markAs = this.markAs.bind(this);
   }
 
   markAs(item) {
-    this.state.todos.forEach(el => {
-      if (el.id === item.id) el.done = el.done ? false : true;
-    });
+    let editedItem = this.state.todos[this.state.todos.indexOf(item)];
+    editedItem.done = !editedItem.done;
     this.setState({ todos: this.state.todos });
   }
 
   render() {
-    let list = this.state.todos.map((el) => <Todo key={el.id} todo={el} markAs={this.markAs.bind(this)} />)
+    let list = this.state.todos.map((el) => <Todo key={el.id} todo={el} markAs={this.markAs} />)
     return (
       <ul>
         {this.state.todos[0] ? list : <h2>No items...</h2>}
