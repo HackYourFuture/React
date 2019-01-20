@@ -59,9 +59,8 @@ class App extends Component {
     this.setState({ editingMode: false, todos: this.state.todos });
   }
   markAs(item) {
-    this.state.todos.forEach(el => {
-      if (el.id === item.id) el.done = el.done ? false : true;
-    });
+    let Item = this.state.todos[this.state.todos.indexOf(item)];
+    Item.done = !item.done;
     this.setState({ todos: this.state.todos });
   }
 
