@@ -28,6 +28,13 @@ class App extends Component {
         }
       ]
     };
+    this.addItem = this.addItem.bind(this);
+    this.markAs = this.markAs.bind(this);
+    this.updateItem = this.updateItem.bind(this);
+    this.removeItem = this.removeItem.bind(this);
+    this.editMode = this.editMode.bind(this);
+    this.cancelEditMode = this.cancelEditMode.bind(this);
+
   }
 
   addItem(e) {
@@ -69,16 +76,16 @@ class App extends Component {
       if (todo.id === this.state.editingMode) {
         return (
           <EditingForm key={todo.id} todo={todo}
-            updateItem={this.updateItem.bind(this)}
-            cancelEditMode={this.cancelEditMode.bind(this)}
+            updateItem={this.updateItem}
+            cancelEditMode={this.cancelEditMode}
           />
         );
       } else {
         return (
           <RenderTodo key={todo.id} todo={todo}
-            removeItem={this.removeItem.bind(this)}
-            editMode={this.editMode.bind(this)}
-            markAs={this.markAs.bind(this)}
+            removeItem={this.removeItem}
+            editMode={this.editMode}
+            markAs={this.markAs}
           />
         );
       }
@@ -88,7 +95,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <AddingTodoForm addItem={this.addItem.bind(this)} />
+        <AddingTodoForm addItem={this.addItem} />
         <ul className="list">
           {!this.state.todos[0] ? <h2>No items...</h2> : this.renderItems()}
         </ul>
