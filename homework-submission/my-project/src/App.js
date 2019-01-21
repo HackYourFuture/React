@@ -14,18 +14,10 @@ class App extends Component {
     this.changeHandel = this.changeHandel.bind(this)
   }
 
-  changeHandel(id) {
-    this.setState(prevState => {
-      const updatedData = prevState.todoData.map(todo => {
-        if (todo.id === id) {
-          todo.done = !todo.done;
-        }
-        return todo
-      })
-      return {
-        todoData: updatedData
-      }
-    })
+  changeHandel(item) {
+    let i = data.indexOf(item);
+    data[i].done = !data[i].done;
+    this.setState({ data });
   }
 
   render() {
