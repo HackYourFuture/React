@@ -26,7 +26,7 @@ class Form extends Component {
       <div className="input-form">
         <form onSubmit={this.handleClick}>
           <label>Enter description </label>
-          <input type="text" name="description" required />
+          <input type="text" name="description" maxlength="20" required />
           <label>Deadline </label>
           <input type="date" name="deadline" required />
           <input type="submit" value="add" />
