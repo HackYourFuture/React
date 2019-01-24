@@ -71,7 +71,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Form onSubmit={this.handelSubmit} />
+        <Form onSubmit={this.handleSubmit} />
         {this.state.data.length === 0 ? 'No items...' : todos}
       </div>
     );
