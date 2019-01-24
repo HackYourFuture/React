@@ -38,7 +38,7 @@ class App extends Component {
 
   render() {
     const todos = this.state.data.map(item =>
-      this.state.editing === item.id ? (
+      this.state.editing === data.indexOf(item)  ? (
         <Edit
           item={item}
           key={item.id}
