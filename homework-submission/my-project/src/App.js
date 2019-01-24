@@ -26,7 +26,7 @@ class App extends Component {
     let i = data.indexOf(item);
     data[i].description = updatedItem.description;
     data[i].done = false;
-    this.setState({ data: this.state.data, editing: false });
+    this.setState({ data, editing: false });
   };
   handleRemove = item => {
     let i = data.indexOf(item);
@@ -37,8 +37,8 @@ class App extends Component {
   handleCancel = () => this.setState({ editing: false });
 
   render() {
-    const todos = this.state.data.map(item =>
-      this.state.editing === data.indexOf(item)  ? (
+    const todos = data.map(item =>
+      this.state.editing === data.indexOf(item) ? (
         <Edit
           item={item}
           key={item.id}
@@ -59,7 +59,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Form onSubmit={this.handleSubmit} />
-        {this.state.data.length === 0 ? 'No items...' : todos}
+        {data.length === 0 ? 'No items...' : todos}
       </div>
     );
   }
