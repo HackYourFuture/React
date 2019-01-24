@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 
 class Edit extends Component {
-  constructor(props) {
-    super(props);
-
-    this.onUpdate = this.onUpdate.bind(this);
-  }
-  onUpdate(event) {
+  onUpdate = event => {
     event.preventDefault();
     let newItem = {
       id: this.props.item.id,
