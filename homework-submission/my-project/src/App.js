@@ -14,14 +14,15 @@ class App extends Component {
       data,
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handelSubmit = this.handelSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
-  handelSubmit(newItem) {
-    var newData = this.state.data;
+  handleSubmit(newItem) {
+    let newData = this.state.data;
     newData.push(newItem);
     this.setState({ data: newData });
   }
@@ -30,12 +31,10 @@ class App extends Component {
     data[i].done = !data[i].done;
     this.setState({ data });
   }
-  handleUpdate(updatedItem) {
-    this.state.data.forEach(item => {
-      if (item.id === updatedItem.id) {
-        item.description = updatedItem.description;
-      }
-    });
+  handleUpdate(updatedItem, item) {
+    let i = data.indexOf(item);
+    data[i].description = updatedItem.description;
+    data[i].done = false;
     this.setState({ data: this.state.data, editing: false });
   }
   handleRemove(item) {
@@ -46,11 +45,19 @@ class App extends Component {
   handleEdit(item) {
     this.setState({ editing: item.id });
   }
+  handleCancel() {
+    this.setState({ editing: false });
+  }
 
   render() {
     const todos = this.state.data.map(item =>
       this.state.editing === item.id ? (
-        <Edit item={item} key={item.id} onUpdate={this.handleUpdate} />
+        <Edit
+          item={item}
+          key={item.id}
+          onUpdate={this.handleUpdate}
+          handleCancel={this.handleCancel}
+        />
       ) : (
         <Todo
           item={item}

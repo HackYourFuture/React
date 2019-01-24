@@ -23,13 +23,15 @@ class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleClick}>
-        <label>Enter description: </label>
-        <input type="text" name="description" required />
-        <label>Deadline: </label>
-        <input type="date" name="deadline" required />
-        <input type="submit" value="add" />
-      </form>
+      <div className="input-form">
+        <form onSubmit={this.handleClick}>
+          <label>Enter description </label>
+          <input type="text" name="description" required />
+          <label>Deadline </label>
+          <input type="date" name="deadline" required />
+          <input type="submit" value="add" />
+        </form>
+      </div>
     );
   }
 }

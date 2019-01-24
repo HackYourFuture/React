@@ -14,15 +14,27 @@ class Edit extends Component {
       deadline: this.props.item.deadline,
       done: false,
     };
-    this.props.onUpdate(newItem);
+    this.props.onUpdate(newItem, this.props.item);
   }
   render() {
     return (
-      <form onSubmit={this.onUpdate}>
-        <input type="text" name="description" defaultValue={this.props.item.description} />
-        <input type="submit" value="Update" />
-        <input type="button" value="Cancel" />
-      </form>
+      <div className="edit-form">
+        <form onSubmit={this.onUpdate}>
+          <input
+            className="edit-form"
+            type="text"
+            name="description"
+            defaultValue={this.props.item.description}
+          />
+          <input className="edit-form" type="submit" value="Update" />
+          <input
+            className="edit-form"
+            type="button"
+            value="Cancel"
+            onClick={this.props.handleCancel}
+          />
+        </form>
+      </div>
     );
   }
 }
