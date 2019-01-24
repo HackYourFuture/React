@@ -2,13 +2,7 @@ import React, { Component } from 'react';
 import data from './data';
 
 class Form extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(event) {
+  handleClick = event => {
     event.preventDefault();
     let x = Math.max(...data.map(item => item.id));
     let newItem = {
