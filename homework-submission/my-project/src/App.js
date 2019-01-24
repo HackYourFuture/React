@@ -7,47 +7,34 @@ import Todo from './Todo';
 import Edit from './Edit';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      editing: false,
-      data,
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleUpdate = this.handleUpdate.bind(this);
-    this.handleRemove = this.handleRemove.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
-  }
+  state = {
+    editing: false,
+    data,
+  };
 
-  handleSubmit(newItem) {
-    let newData = this.state.data;
+  handleSubmit = newItem => {
+    let newData = data;
     newData.push(newItem);
     this.setState({ data: newData });
-  }
-  handleChange(item) {
+  };
+  handleChange = item => {
     let i = data.indexOf(item);
     data[i].done = !data[i].done;
     this.setState({ data });
-  }
-  handleUpdate(updatedItem, item) {
+  };
+  handleUpdate = (updatedItem, item) => {
     let i = data.indexOf(item);
     data[i].description = updatedItem.description;
     data[i].done = false;
     this.setState({ data: this.state.data, editing: false });
-  }
-  handleRemove(item) {
+  };
+  handleRemove = item => {
     let i = data.indexOf(item);
     data.splice(i, 1);
     this.setState({ data });
-  }
-  handleEdit(item) {
-    this.setState({ editing: item.id });
-  }
-  handleCancel() {
-    this.setState({ editing: false });
-  }
+  };
+  handleEdit = item => this.setState({ editing: data.indexOf(item) });
+  handleCancel = () => this.setState({ editing: false });
 
   render() {
     const todos = this.state.data.map(item =>
