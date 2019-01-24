@@ -4,7 +4,9 @@ import Description from './ToDo/Description';
 import DeadLines from './ToDo/DeadLine';
 import DoneCheckBox from './ToDo/DoneCheckBox';
 import todos from './todoList';
+/** WEEK 3 */
 import NewToDoComponent from './ToDo/NewToDoComponent';
+import ControlsComponent from './ToDo/ControlsComponent';
 
 class App extends Component {
 
@@ -13,6 +15,7 @@ class App extends Component {
     this.state = {
       todos
     };
+
   }
 
   handleCheck = (x) => {
@@ -25,18 +28,27 @@ class App extends Component {
 
 
   handleSubmit = (newTodo) => {
-    //const newToDoesList = JSON.parse(JSON.stringify(todos));
-    //const newToDoesList = [...this.state.todos];
-    //newToDoesList.push(newTodo);
-    //this.setState({ this.todos: newToDoesList });
     this.setState((state) => ({
       todos: [...state.todos, newTodo]
 
     }));
-    console.log(JSON.stringify(this.state));
-    //console.log('********');
-    //console.log(newToDoesList);
+
   }
+
+
+  handleRemoveToDo = (indexToDo) => {
+    console.log('Ik ben hier', indexToDo);
+    const tempTodos = [...this.state.todos];
+    tempTodos.splice(tempTodos.findIndex(todo => todo.id === indexToDo), 1);
+
+    this.setState((state) => ({
+      todos: tempTodos
+    }))
+
+  }
+
+
+
 
   render() {
     const todos = this.state.todos;
@@ -45,14 +57,16 @@ class App extends Component {
         <h2>ToDo List</h2>
         <ul>
           {todos.map((eleTodo, key) => (
+
             <li key={eleTodo.id}>
               <DoneCheckBox index={key} done={eleTodo.done} handleCheck={this.handleCheck}></DoneCheckBox>
               <Description
                 todo={eleTodo.description}
-                deadline={<DeadLines deadline={new Date(eleTodo.deadline)}></DeadLines>}
-              >
+                deadline={<DeadLines deadline={new Date(eleTodo.deadline)}></DeadLines>}>
               </Description>
+              <ControlsComponent index={eleTodo.id} handleRemove={this.handleRemoveToDo}></ControlsComponent>
             </li>
+
           ))}
         </ul>
         <NewToDoComponent passPropToChild={this.handleSubmit}></NewToDoComponent>
