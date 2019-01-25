@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-const randomize = require("randomatic");
+import randomize from "randomatic";
 
 class MainForm extends Component {
   handleSubmit = event => {
@@ -11,6 +11,7 @@ class MainForm extends Component {
       done: false
     };
     this.props.onSubmit(newItem);
+    event.target.reset();
   };
   render() {
     return (

@@ -19,9 +19,9 @@ class App extends Component {
   };
 
   handleSubmit = newItem => {
-    const oldState = this.state.todos;
-    const ItemData = oldState.push(newItem);
-    this.setState({ ItemData });
+    const todos = [...this.state.todos];
+    todos.push(newItem);
+    this.setState({ todos });
   };
 
   handleRemove = index => {
@@ -31,10 +31,9 @@ class App extends Component {
   };
 
   handleUpdate = (newItem, index) => {
-    this.setState(prevState => {
-      prevState.todos[index] = newItem;
-      return prevState;
-    });
+    const todos = [...this.state.todos];
+    todos[index] = newItem;
+    this.setState({ todos });
   };
 
   render() {
