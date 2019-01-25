@@ -30,7 +30,6 @@ class App extends Component {
     data.splice(i, 1);
     this.setState({ data });
   };
-
   render() {
     const todos = this.state.data.map((item, index) => (
       <Todo
@@ -42,7 +41,6 @@ class App extends Component {
         handleUpdate={this.handleUpdate}
       />
     ));
-
     return (
       <div className="App">
         <Header />
