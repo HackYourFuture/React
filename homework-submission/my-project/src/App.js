@@ -1,32 +1,25 @@
-import React, { Component } from 'react';
-import './App.css';
-import data from './data';
-import Header from './Header';
-import Form from './Form';
-import Todo from './Todo';
-import Edit from './Edit';
-
 class App extends Component {
   state = {
-    editing: false,
+    editing: -1,
     data,
   };
 
   handleSubmit = newItem => {
-    let newData = data;
+    let newData = this.state.data;
     newData.push(newItem);
     this.setState({ data: newData });
   };
   handleChange = item => {
-    let i = data.indexOf(item);
+    let i = this.state.data.indexOf(item);
     data[i].done = !data[i].done;
     this.setState({ data });
   };
   handleUpdate = (updatedItem, item) => {
+    let data = [...this.state.data];
     let i = data.indexOf(item);
     data[i].description = updatedItem.description;
     data[i].done = false;
-    this.setState({ data, editing: false });
+    this.setState({ data, editing: -1 });
   };
   handleRemove = item => {
     let i = data.indexOf(item);
@@ -34,10 +27,10 @@ class App extends Component {
     this.setState({ data });
   };
   handleEdit = item => this.setState({ editing: data.indexOf(item) });
-  handleCancel = () => this.setState({ editing: false });
+  handleCancel = () => this.setState({ editing: -1 });
 
   render() {
-    const todos = data.map(item =>
+    const todos = this.state.data.map(item =>
       this.state.editing === data.indexOf(item) ? (
         <Edit
           item={item}
@@ -58,7 +51,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Form onSubmit={this.handleSubmit} />
+        <AddForm onSubmit={this.handleSubmit} />
         {data.length === 0 ? 'No items...' : todos}
       </div>
     );
