@@ -22,7 +22,7 @@
   color: #61dafb;
 }
 
-input[type=checkbox]:checked + p {
+input[type=checkbox]:checked + div  p {
   color: #f00;
   font-style: normal;
   text-decoration: line-through;

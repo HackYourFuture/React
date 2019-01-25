@@ -8,21 +8,23 @@ import todos from './todoList';
 import NewToDoComponent from './ToDo/NewToDoComponent';
 import ControlsComponent from './ToDo/ControlsComponent';
 
+let oldDescription = '';
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      todos
+      todos,
+      editMode: -1
     };
 
   }
 
   handleCheck = (x) => {
-    let todos = this.state.todos;
-    todos[x].done = !todos[x].done;
+    let tempTodos = [...this.state.todos];
+    tempTodos[x].done = !tempTodos[x].done;
     this.setState({
-      state: todos
+      todos: tempTodos
     })
   }
 
@@ -37,9 +39,8 @@ class App extends Component {
 
 
   handleRemoveToDo = (indexToDo) => {
-    console.log('Ik ben hier', indexToDo);
     const tempTodos = [...this.state.todos];
-    tempTodos.splice(tempTodos.findIndex(todo => todo.id === indexToDo), 1);
+    tempTodos.splice(indexToDo, 1);
 
     this.setState((state) => ({
       todos: tempTodos
@@ -47,9 +48,45 @@ class App extends Component {
 
   }
 
+  handleEdit = (indexToDo) => {
+    this.setState({ editMode: indexToDo });
+  }
+
+  handleUpdate = (updateToDo, indexToDo) => {
+    const tempToDos = [...this.state.todos];
+    tempToDos[indexToDo].description = updateToDo;
+    oldDescription = '';
+
+    this.setState({
+      todos: tempToDos,
+      editMode: -1
+    });
+  }
+  handleCancel = (description, index) => {
+    const tempToDos = [...this.state.todos];
+    tempToDos[index].description = oldDescription;
+    oldDescription = '';
+
+    this.setState(
+      {
+        todos: tempToDos,
+        editMode: -1
+      }
+    )
+    this.setState({ editMode: -1 });
+  }
+  onValueChange = (e, index) => {
+    const tempToDos = [...this.state.todos];
+    if (oldDescription === '') { oldDescription = tempToDos[index].description; }
+    tempToDos[index].description = e.target.value;
 
 
-
+    this.setState(
+      {
+        todos: tempToDos
+      }
+    )
+  }
   render() {
     const todos = this.state.todos;
     return (
@@ -61,10 +98,11 @@ class App extends Component {
             <li key={eleTodo.id}>
               <DoneCheckBox index={key} done={eleTodo.done} handleCheck={this.handleCheck}></DoneCheckBox>
               <Description
-                todo={eleTodo.description}
+                mode={this.state.editMode} todo={eleTodo.description} index={key} handleUpdate={this.handleUpdate}
+                onValueChange={this.onValueChange} handleCancel={this.handleCancel}
                 deadline={<DeadLines deadline={new Date(eleTodo.deadline)}></DeadLines>}>
               </Description>
-              <ControlsComponent index={eleTodo.id} handleRemove={this.handleRemoveToDo}></ControlsComponent>
+              <ControlsComponent mode={this.state.editMode} index={key} handleRemove={this.handleRemoveToDo} handleEdit={this.handleEdit}></ControlsComponent>
             </li>
 
           ))}
