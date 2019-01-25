@@ -45,7 +45,6 @@ class App extends Component {
         onCompleted={this.handleCompleted}
         onEdit={this.handleEdit}
         onRemove={this.handleRemove}
-        onCancel={this.handleCancel}
         onUpdate={this.handleUpdate}
       />
     ));
