@@ -48,7 +48,9 @@ Also review the Git [workflow material](https://github.com/HackYourFuture/Git/bl
 
 Find the slides used in class here:
 
-https://slides.com/joostlubach/react-class/live
+* [Slides Week 1](https://docs.google.com/presentation/d/1Uack4RWXgFj5ZoP9lheZmagY1KDP_Swnerul2PO9f8o/edit)
+
+For reference, slides from HYF NL: https://slides.com/joostlubach/react-class/live
 
 ## Learning examples
 
