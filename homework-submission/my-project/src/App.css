@@ -43,6 +43,9 @@ header {
 label {
   font-size: 17px;
 }
+.done-item {
+  text-decoration: line-through;
+}
 
 @keyframes App-logo-spin {
   from {

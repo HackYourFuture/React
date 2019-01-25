@@ -8,8 +8,9 @@ class Edit extends Component {
       description: event.target.description.value,
       deadline: this.props.item.deadline,
       done: false,
+      editing: false,
     };
-    this.props.onUpdate(newItem, this.props.item);
+    this.props.onUpdate(newItem, this.props.index);
   };
   render() {
     return (
