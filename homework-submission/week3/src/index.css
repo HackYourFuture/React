@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", "Roboto";
+ }
+ 
+h1 {
+  width: 80%;
+  margin: 10px auto 10px;
+  padding: 0 20px;
+  color : #1a75ff;
+}
+
+ul {
+  width: 100%;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  
+    margin: auto;
+    margin-top : 15px; 
+    padding: 10px 10px;
+    width: 40%;
+    box-shadow:  0 6px 20px 0 #80aaff;
+  
+}
+.done {
+  text-decoration: line-through;
+  color :  #99c2ff;
+}
+
+ #addTodo {
+  margin: auto;
+  margin-top : 15px; 
+  padding: 10px 10px;
+  width: 40%;
+  box-shadow:  0 6px 20px 0 #80aaff;
+}
+#list-button{
+  margin-left: 10px;
+  color:#003399
+}
+
+label{
+  color:#003399;
+}
+
+#box{
+margin-left: 5px;
+
+}
+
+
