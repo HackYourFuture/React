@@ -1,13 +1,12 @@
 import React, { Component } from "react"
 const uuid = require('uuid');
-var moment = require('moment');
 
 class Form extends Component {
 
    state = {
       id: uuid(),
       description: "",
-      deadline: moment(),
+      deadline: "",
       completed: false
    }
 
@@ -34,7 +33,7 @@ class Form extends Component {
 
                <label className="input-container">
                   <p className="input-d">Deadline: </p>
-                  <input className="input-bar" name="deadline" type="text" value={this.state.Deadline} onChange={this.onValueChange} />
+                  <input className="input-bar" name="deadline" type="date" value={this.state.Deadline} onChange={this.onValueChange} />
                </label>
 
                <label className="button">

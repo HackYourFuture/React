@@ -18,7 +18,7 @@ class Post extends Component {
    };
 
    handelDelete = () => {
-      this.props.onDelete(this.props.index)
+      this.props.onDelete()
       this.setState({ editMode: false });
    }
 

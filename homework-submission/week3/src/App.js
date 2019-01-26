@@ -19,19 +19,20 @@ class App extends Component {
    }
 
    checkedTodo = (index) => {
-      const ToDoList = [...this.state.ToDoList]
       ToDoList[index].completed = !ToDoList[index].completed
       this.setState({ ToDoList })
    }
 
    onDelete = (index) => {
+      const newToDoList = ToDoList.splice(index, 1)
       this.setState({
-         ToDoList: ToDoList.splice(index, 1)
+         ToDoList: newToDoList
       })
+      console.log(this.state)
    }
 
    onUpdate = (newDescription, index) => {
-      const newToDoList = [...this.state.ToDoList]
+      const newToDoList = this.state.ToDoList
       console.log(newToDoList)
       newToDoList[index].description = newDescription;
       this.setState({ ToDoList: newToDoList })
@@ -63,7 +64,9 @@ class App extends Component {
       ))
 
       return (
-         this.state.ToDoList.length === 0 ? blank :
+         this.state.ToDoList.length ===
+         
+            0 ? blank :
             <div className="container">
                <Header />
                <Form onFormSubmit={this.onFormSubmit} />
