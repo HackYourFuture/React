@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Asap:400,500,600,700');
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: Asap , sans-serif;
+}
+
+body {
+   background-color: #979090;
+}
+
+.container {
+   margin: 0 auto;
+   padding: 10px;
+   width: 65%;
+}
+
+h1 {
+   text-align: center;
+   font-family: cursive;
+   color: #bd9d76;
+}
+
+h2{
+   color: #1c515f;
+   width: 25%;
+}
+
+.deadline{
+   color: rgb(47, 42, 42);
+   width: 15%;
+}
+
+.todo-list {
+   margin: 0 auto;
+   width: 70%;
+   padding: 30px;
+}
+
+.todo-item {
+   display: flex;
+   align-items: center;
+   padding: 5px;
+   width: 100%;
+   border-bottom: 2px solid #cecece;
+   color: #333333;
+}
+
+.head-container {
+   display: inline;
+}
+
+.form {
+   display: flex;
+   margin: 2em 0;
+   padding: 10px;
+   box-shadow: -11px 9px 18px -2px #bd9d76;
+}
+.input-container {
+   display: flex;
+   margin: 5px;
+}
+
+h3 {
+   padding: 2px;
+   letter-spacing: 0.5px;
+}
+
+
+.submit-button {
+   height: 33px;
+   width: 45px;
+   font-weight: bold;
+   font-family: cursive;
+   background-color: #1c515f;
+   color: #bd9d76;
+}
+.edit-button{
+   padding: 5px;
+   font-weight: 500;
+   margin: 0 4em;
+   background-color: #1c515f;
+   color: #bd9d76;
+   width: 100px;
+}
+
+.input-d {
+   text-align: center;
+   font-family: cursive;
+   color: #1f170e;
+}
+
+.checked {
+   text-decoration: line-through;
+   color: #1f170e;
+}
+
+.input-bar {
+   border: 1px solid black;
+   width: 11em;
+}
+
+.checkbox {
+   margin-right: 4em;
+}
