@@ -29,7 +29,7 @@ class Todo extends React.Component {
         <p className={this.props.item.done ? 'done-item' : ''}>{this.props.item.description}</p>
         <p className={this.props.item.done ? 'done-item' : ''}>{this.props.item.deadline}</p>
         <input type="button" value="edit" onClick={this.handleEdit} />
-        <input type="button" value="remove" onClick={() => this.props.onRemove(this.props.item)} />
+        <input type="button" value="remove" onClick={() => this.props.onRemove(this.props.index)} />
       </div>
     );
   }

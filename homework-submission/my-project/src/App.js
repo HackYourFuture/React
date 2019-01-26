@@ -25,27 +25,44 @@ class App extends Component {
     data[i].done = false;
     this.setState({ data });
   };
-  handleRemove = item => {
-    let i = data.indexOf(item);
-    data.splice(i, 1);
+  handleRemove = i => {
+    this.state.data.splice(i, 1);
     this.setState({ data });
   };
   render() {
-    const todos = this.state.data.map((item, index) => (
-      <Todo
-        item={item}
-        key={item.id}
-        index={index}
-        handleChange={this.handleChange}
-        onRemove={this.handleRemove}
-        handleUpdate={this.handleUpdate}
-      />
-    ));
+    const todos1 = [];
+    const todos2 = [];
+    data.forEach((item, index) =>
+      item.done
+        ? todos1.push(
+            <Todo
+              item={item}
+              key={item.id}
+              index={index}
+              handleChange={this.handleChange}
+              onRemove={this.handleRemove}
+              handleUpdate={this.handleUpdate}
+            />
+          )
+        : todos2.push(
+            <Todo
+              item={item}
+              key={item.id}
+              index={index}
+              handleChange={this.handleChange}
+              onRemove={this.handleRemove}
+              handleUpdate={this.handleUpdate}
+            />
+          )
+    );
     return (
-      <div className="App">
-        <Header />
-        <AddForm onSubmit={this.handleSubmit} />
-        {data.length === 0 ? 'No items...' : todos}
+      <div id="main">
+        <div className="adding-form">
+          <Header />
+          <AddForm onSubmit={this.handleSubmit} />
+        </div>
+        <div className="undone">{data.length === 0 ? 'No items...' : todos1}</div>
+        <div className="done">{data.length === 0 ? 'No items...' : todos2}</div>
       </div>
     );
   }

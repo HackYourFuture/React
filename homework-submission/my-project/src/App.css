@@ -1,15 +1,28 @@
-.App {
-  text-align: center;
-}
 body {
   background: rgba(2, 0, 0, 0.815);
   color: aliceblue;
+  text-align: center;
+}
+#main {
+  display: flex;
+  flex-flow: wrap;
+}
+.adding-form {
+  width: 100%;
+  align-content: center;
+  margin-bottom: 20px;
 }
 
+.undone {
+  flex: 5;
+  border-right: 3px solid orange;
+}
+.done {
+  flex: 5;
+}
 .todo-item {
   display: flex;
   justify-content: center;
-  width: 100%;
 }
 .input-form {
   margin: 20px;
@@ -22,7 +35,7 @@ body {
 }
 p {
   flex-direction: row;
-  width: 10%;
+  width: 20%;
 }
 .checkbox {
   margin-top: 20px;
@@ -45,6 +58,10 @@ label {
 }
 .done-item {
   text-decoration: line-through;
+}
+
+.done p {
+  text-align: center;
 }
 
 @keyframes App-logo-spin {
