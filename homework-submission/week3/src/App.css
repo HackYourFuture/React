@@ -13,29 +13,29 @@ body {
 .container {
    margin: 0 auto;
    padding: 10px;
-   width: 65%;
+   width: 90%;
 }
 
 h1 {
    text-align: center;
    font-family: cursive;
-   color: #bd9d76;
+   color: #3d1d1d;
 }
 
 h2{
    color: #1c515f;
-   width: 25%;
+   width: 18%;
 }
 
 .deadline{
    color: rgb(47, 42, 42);
-   width: 15%;
+   width: 11%;
 }
 
 .todo-list {
    margin: 0 auto;
-   width: 70%;
-   padding: 30px;
+   width: 85%;
+   padding: 20px;
 }
 
 .todo-item {
@@ -47,15 +47,13 @@ h2{
    color: #333333;
 }
 
-.head-container {
-   display: inline;
-}
-
 .form {
    display: flex;
-   margin: 2em 0;
-   padding: 10px;
-   box-shadow: -11px 9px 18px -2px #bd9d76;
+   width: 45%;
+   margin: 1.5em auto;
+   align-items: center;
+   padding: 12px;
+   box-shadow: -11px 9px 18px -2px #3d1d1d;
 }
 .input-container {
    display: flex;
@@ -69,8 +67,8 @@ h3 {
 
 
 .submit-button {
-   height: 33px;
-   width: 45px;
+   height: 30px;
+   width: 32px;
    font-weight: bold;
    font-family: cursive;
    background-color: #1c515f;
@@ -79,28 +77,53 @@ h3 {
 .edit-button{
    padding: 5px;
    font-weight: 500;
-   margin: 0 4em;
+   margin: 0 1.2em;
    background-color: #1c515f;
    color: #bd9d76;
-   width: 100px;
+   width: 55px;
 }
 
 .input-d {
-   text-align: center;
    font-family: cursive;
-   color: #1f170e;
+   color: #3b2c1a;
+   font-size: 16px;
 }
 
 .checked {
    text-decoration: line-through;
    color: #1f170e;
+   border:  solid slategrey;
+   box-shadow: -3px 5px 8px -4px #1c515f;
+   opacity: 0.4;
 }
 
 .input-bar {
-   border: 1px solid black;
-   width: 11em;
+   border: 1px solid #3d1d1d;
+   width: 3em;
+}
+
+.input-bar-deadline {
+   border: 2px dashed #1c515f;
+   height: 25px;
+   margin-left: 4px;
+   text-align: center;
 }
 
 .checkbox {
-   margin-right: 4em;
+   margin-right: 2em;
 }
+
+.input-bar[type=text] {
+   -webkit-transition: width 0.4s ease-in-out;
+   transition: width 0.4s ease-in-out;
+ }
+ 
+ .input-bar[type=text]:focus {
+   width: 90%;
+   border: 2px dotted #1c515f;
+ }
+
+ input {
+    background: #979090;
+    border: 3px groove #1c515f;
+ }

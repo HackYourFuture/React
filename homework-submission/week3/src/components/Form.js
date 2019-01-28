@@ -23,25 +23,21 @@ class Form extends Component {
 
    render() {
       return (
-         <div className="head-container">
-            <form onSubmit={this.onSubmit} className="form">
+         <form onSubmit={this.onSubmit} className="form">
+            <label className="input-container">
+               <p className="input-d">Description: </p>
+               <input className="input-bar" name="description" type="text" value={this.state.Description} onChange={this.onValueChange} required />
+            </label>
 
-               <label className="input-container">
-                  <p className="input-d">Description: </p>
-                  <input className="input-bar" name="description" type="text" value={this.state.Description} onChange={this.onValueChange} />
-               </label>
+            <label className="input-container">
+               <p className="input-d">Deadline: </p>
+               <input className="input-bar-deadline" name="deadline" type="date" value={this.state.Deadline} onChange={this.onValueChange} required />
+            </label>
 
-               <label className="input-container">
-                  <p className="input-d">Deadline: </p>
-                  <input className="input-bar" name="deadline" type="date" value={this.state.Deadline} onChange={this.onValueChange} />
-               </label>
-
-               <label className="button">
-                  <button className="edit-button">Add</button>
-               </label>
-
-            </form>
-         </div>
+            <label className="button">
+               <button className="edit-button">Add</button>
+            </label>
+         </form>
       )
    }
 }

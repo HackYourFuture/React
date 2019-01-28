@@ -17,6 +17,18 @@ const ToDoList = [
       description: "Brush teeth",
       deadline: "Fri Sep 15 2017",
       completed: false
+   },
+   {
+      id: 4,
+      description: "Have lunch",
+      deadline: "thu Sep 15 2017",
+      completed: false
+   },
+   {
+      id: 5,
+      description: "do homework",
+      deadline: "wed Sep 15 2017",
+      completed: false
    }
 ]
 

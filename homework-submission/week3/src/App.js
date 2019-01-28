@@ -4,14 +4,13 @@ import './App.css';
 import Form from './components/Form';
 import Header from './components/Header';
 import Post from "./components/Post"
-import ToDoList from './ToDoList';
-
+import ToDos from './ToDoList';
 
 class App extends Component {
    constructor(props) {
       super(props)
       this.state = {
-         ToDoList: ToDoList
+         ToDoList: ToDos
       }
       this.checkedTodo = this.checkedTodo.bind(this)
       this.onDelete = this.onDelete.bind(this)
@@ -19,29 +18,28 @@ class App extends Component {
    }
 
    checkedTodo = (index) => {
-      ToDoList[index].completed = !ToDoList[index].completed
-      this.setState({ ToDoList })
+      const newToDoList = this.state.ToDoList
+      newToDoList[index].completed = !newToDoList[index].completed
+      this.setState({ newToDoList })
    }
 
    onDelete = (index) => {
-      const newToDoList = ToDoList.splice(index, 1)
+      let newToDoList = this.state.ToDoList
+      newToDoList.splice(index, 1)
       this.setState({
          ToDoList: newToDoList
       })
-      console.log(this.state)
    }
 
-   onUpdate = (newDescription, index) => {
+   onUpdate = (newDescription, newDeadline, index) => {
       const newToDoList = this.state.ToDoList
-      console.log(newToDoList)
-      newToDoList[index].description = newDescription;
-      this.setState({ ToDoList: newToDoList })
+      newToDoList[index].description = newDescription
+      newToDoList[index].deadline = newDeadline
    }
 
    onFormSubmit = (newTodo) => {
-      let newToDoList = this.state.ToDoList
-      newToDoList.push(newTodo);
-      this.setState({ ToDoList: newToDoList });
+      let newToDoList = this.state.ToDoList.push(newTodo);
+      this.setState({ ToDo: newToDoList });
    }
 
    render() {
@@ -51,7 +49,7 @@ class App extends Component {
          <h2>No items...</h2>
       </div>
 
-      let todos = ToDoList.map((item, id) => (
+      let todos = ToDos.map((item, id) => (
          < Post
             index={id}
             key={id}
@@ -59,14 +57,11 @@ class App extends Component {
             checkedTodo={this.checkedTodo}
             onDelete={this.onDelete}
             onUpdate={this.onUpdate}
-         >
-         </Post >
+         />
       ))
 
       return (
-         this.state.ToDoList.length ===
-         
-            0 ? blank :
+         this.state.ToDoList.length === 0 ? blank :
             <div className="container">
                <Header />
                <Form onFormSubmit={this.onFormSubmit} />
