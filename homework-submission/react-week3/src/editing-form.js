@@ -3,22 +3,22 @@ import React, { Component } from "react";
 export default class EditingForm extends Component {
   constructor(props) {
     super(props);
-    this.update = this.props.updateItem;
+    this.onUpdate = this.props.onUpdate;
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  onUpdate(e) {
+  handleSubmit(e) {
     e.preventDefault();
-    this.update({
-      id: this.props.todo.id,
+    this.onUpdate({
+      index: this.props.index,
       description: e.target.description.value,
-      deadline: e.target.deadline.value,
-      done: this.props.todo.done
+      deadline: e.target.deadline.value
     });
   }
 
   render() {
     return (
-      <form onSubmit={this.onUpdate.bind(this)} className="editing-form">
+      <form onSubmit={this.handleSubmit} className="editing-form">
         <div>
           <label htmlFor="description">description: </label>
           <input type="text" name="description" id="description"
@@ -32,7 +32,7 @@ export default class EditingForm extends Component {
 
         <input type="submit" value="Update" className="btn" />
         <input className="btn" type="button" value="Cancel"
-          onClick={this.props.cancelEditMode}
+          onClick={this.props.cancelEditingMode}
         />
       </form>
     );

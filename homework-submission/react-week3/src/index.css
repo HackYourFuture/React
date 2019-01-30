@@ -44,6 +44,9 @@ body {
 flex:3;
   color: rgb(221, 178, 178);
 }
+.mark-as-done {
+  text-decoration: line-through;
+}
 .btn, .btn, .check-box {
   flex: 1;
   padding: 2px;
