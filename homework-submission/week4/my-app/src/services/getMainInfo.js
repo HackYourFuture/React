@@ -29,13 +29,13 @@ export default class getInfo {
          .then(response => this.checkStatusCode(response))
    }
 
-   static checkLiked(id, info) {
+   static checkLiked(id, data) {
       return fetch(`https://hyf-react-api.herokuapp.com/blog/comments/${id}`, {
          method: "PATCH",
          headers: {
             "Content-Type": "application/json"
          },
-         body: JSON.stringify(info),
+         body: JSON.stringify(data),
 
       })
 
@@ -44,7 +44,6 @@ export default class getInfo {
 
 
    static checkStatusCode(response) {
-      console.log(this)
       if (response.status === 200) {
 
          return response.json();
