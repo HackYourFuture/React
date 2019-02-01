@@ -5,7 +5,7 @@ class TodoList extends React.Component {
   render() {
     const todos = this.props.data;
     const elements = todos.length > 0 ? todos.map((item, key) =>
-      <TodoItem key={key} index={key} todo={item} handler={this.props.handler}
+      <TodoItem key={key} index={key} todo={item} handler={() => this.props.handler(this.props.index)}
         deleteHandler={this.props.deleteHandler}
         updateHandler={this.props.updateHandler}
       />)

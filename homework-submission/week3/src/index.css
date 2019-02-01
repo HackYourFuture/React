@@ -53,3 +53,15 @@ margin-left: 5px;
 }
 
 
+
+  .donebox{
+    align-items: right;
+    width : 40%;
+  }
+
+  .notdonebox{
+    align-items: left;
+    width: 40;
+  }
+  
+  

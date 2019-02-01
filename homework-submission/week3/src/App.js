@@ -14,6 +14,7 @@ class App extends Component {
 
   checkBoxHandler = (index) => {
     const item = [...this.state.data]
+    console.log(index);
     item[index].done = !item[index].done
     this.setState({ item })
   };
@@ -40,14 +41,33 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <div className="App">
-        <Title title="Todo List" />
-        <TodoList data={this.state.data}
+    let doneTasks = [...this.state.data].filter((i) => { return i.done })
+    let notDoneTasks = [...this.state.data].filter((i) => { return !i.done })
+    console.log(doneTasks)
+    console.log(notDoneTasks)
+    const doneTodo = doneTasks.map((item, index) => {
+      return (
+        (<TodoList index={index} data={[item]}
           handler={this.checkBoxHandler}
           deleteHandler={this.onDelete}
           updateHandler={this.onUpdateSubmit}
-        />
+        />)
+      )
+    }
+    )
+    const notdoneTodo = notDoneTasks.map((item, index) =>
+      (<TodoList index={index} data={[item]}
+        handler={this.checkBoxHandler}
+        deleteHandler={this.onDelete}
+        updateHandler={this.onUpdateSubmit}
+      />)
+    )
+
+    return (
+      <div className="App">
+        <Title title="Todo List" />
+        <div className="donebox"> {doneTodo}</div>
+        <div className='notdonebox'> {notdoneTodo}</div>
         <AddTodo onAdd={this.onAdd} />
       </div>
     );
