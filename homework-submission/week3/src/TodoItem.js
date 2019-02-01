@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class TodoItem extends Component {
   state = {
     description: "",
@@ -50,10 +49,10 @@ class TodoItem extends Component {
         <button id="list-button" onClick={this.onCancel} >Cancel</button>
       </React.Fragment>
     ) : (
-        <React.Fragment>
+        <>
           {todo.description} , {todo.deadline}
           <input id="list-button" type="button" value="edit" onClick={this.onEdit} />
-        </React.Fragment>
+        </>
       );
     return (
       <li className={todo.done && 'done'}>
