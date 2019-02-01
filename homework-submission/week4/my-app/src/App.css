@@ -1,75 +1,122 @@
 @import url('https://fonts.googleapis.com/css?family=Asap:400,500,600,700');
 .App {
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   font-family: Asap , sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
+h1 {
+  flex-basis: 100%;
+}
 body {
-   background-color: #6b707460;
+  background-color: #6b707460;
 }
 
 .main-form {
-   text-align: center
+  flex-basis: 100%;
 }
 
-.items{
-   display: flex;
-   width: 80%;
-   margin: 5px auto;
-   padding: 10px;
-   align-items: center;
-   box-shadow: 4px 4px 12px -3px #3d1d1d;
+.items {
+  display: flex;
+  width: 48%;
+  height: 19em;
+  margin: 5px auto;
+  padding: 12px;
+  align-items: center;
+  border-radius: 5%;
+  box-shadow: 8px 8px 12px -3px #3d1d1d;
+  background-color: rgba(20, 63, 95, 0.523);
 }
 
 .edit-button {
-   flex-basis: 130px;
-   height: 30px;
-   margin: 10px 20px;
-   margin-right: 30px;
-   background-color: #598b8d;
+  flex-basis: 45px;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  height: 40px;
+  margin: 30px 5px;
+  margin-right: 10px;
+  padding: 3px;
+  background-color: rgb(53, 122, 87);
+  align-self: flex-end;
 }
 
 .checkbox {
-   flex-basis: 150px;
+  position: relative;
+  height: 25px;
+  margin: 30px 20px;
+  margin-right: 30px;
 }
-.text{
-   flex-basis:  60%;
+.text {
+  flex-basis: 90%;
+  height: 90%;
 }
 
 .input {
-   background: goldenrod;
-   margin: 30px 10px;
-   height: 30px;
-   width: 17em;
+  background: rgb(9, 46, 27);
+  color: rgb(212, 206, 206);
+  margin: 30px 10px;
+  height: 30px;
+  width: 17em;
 }
 
 .button {
-   background: #6b707460;
-   width: 120px;
-   height: 30px;
-   border-radius: 20%;
+  background: #6b707460;
+  width: 120px;
+  height: 30px;
+  border-radius: 20%;
 }
 
 .avatar {
-   border: 1px solid black;
-   width: 60px;
-   height: 40px;
-   margin: 3px auto;
+  border: 1px solid black;
+  width: 120px;
+  height: 100px;
+  margin: 3px auto;
 }
 
 p {
-   font-family: Arial, Helvetica, sans-serif;
-   font-weight: bold;
-   color: #598b8d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #598b8d;
+  border: 1px ridge rgb(53, 122, 87);
+  margin: 7px;
+  padding: 7px;
 }
 
 span {
-   font-weight: bold;
-   color: #172a2a;
+  font-weight: bold;
+  color: #172a2a;
+}
+
+.edit-input {
+  width: 45%;
+  height: 40px;
+  display: block;
+  margin: 10px auto;
+}
+
+.full-name {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 17px;
+  padding: 10px;
+  margin: 10px;
+  letter-spacing: 1px;
+  color: #1c2525;
+}
+
+.user-text {
+  padding: 2px;
+  margin: 2px;
+  height: 80px;
+  text-align: left;
+  background-color: rgb(245, 245, 245);
+}
+
+label {
+  align-self: flex-end;
 }
