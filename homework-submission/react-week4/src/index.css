@@ -1,0 +1,129 @@
+* {box-sizing: border-box;}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#error-message {text-align: center; color: brown;}
+
+#addingForm {
+  width: 400px;
+  margin: 8vh auto 10px auto;
+  padding: 5px;
+  background: rgb(112, 135, 143);
+  border-radius: 5px;
+}
+#name-inputs {
+  display: flex;
+  width: 100%;
+}
+#name-inputs > input {
+  flex: 5;
+  margin: 5px;
+  padding: 6px;
+  border-radius: 3px;
+  border: black 1px solid;
+}
+#comment-cont {
+  position: relative;
+  width: 100%;
+}
+#comment-cont > .textarea {
+  display: block;
+  resize: none;
+  width: 340px;
+  height: 50px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+}
+#comment-cont > .add-btn {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  bottom: 8px;
+  right: 5px;
+  text-align: center;
+  border-radius: 100%;
+}
+
+.comment-box {
+  width: 400px;
+  margin: 20px auto;
+  padding: 0 0 10px 0;
+  border-bottom: rgb(211, 211, 211) 1px solid;
+}
+.author {
+  position: relative;
+  height: 50px;
+}
+.author > .avatar {
+  display: inline-block;
+  width: 50px;
+  height: 100%;
+}
+.author > .name {
+  position: absolute;
+  top: 12px;
+  left: 55px;
+  padding: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+.author > .date {
+  position: absolute;
+  top: 35px;
+  left: 55px;
+  font-size: 12px;
+  padding: 0;
+  color: slateblue;
+}
+.comment-box > .text {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+.btns {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.btns > .left-btn {
+  position: absolute;
+  top: 0;
+  right:  70px;
+  padding: 0;
+}
+.btns > .right-btn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  padding: 0;
+}
+.btns > .material-icons {
+  font-size: 20px;
+  padding: 0;
+  margin: 0 10px 0 0;
+  border: none;
+  background: none;
+  color: rgb(16, 216, 156);
+  
+}
+.material-icons:hover, .left-btn:hover,
+.right-btn:hover, .add-btn:hover { cursor: pointer; }
+.material-icons:focus, .textarea:focus, input:focus, .add-btn:focus { outline: rgb(152, 160, 230); }
+.liked { color: cornflowerblue; }
+
+.comment-box > .textarea {
+  display: block;
+  resize: none;
+  width: 350px;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px 0.1px;
+}
