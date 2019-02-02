@@ -7,6 +7,7 @@
     "react": "^16.7.0",
     "react-avatar": "^3.5.0",
     "react-dom": "^16.7.0",
+    "react-loading-screen": "0.0.17",
     "react-random-squares-avatar": "^1.0.1",
     "react-scripts": "2.1.3"
   },

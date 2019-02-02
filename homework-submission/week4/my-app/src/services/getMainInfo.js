@@ -37,7 +37,10 @@ export default class GetInfo {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        text: data.text,
+        author: data.author,
+      }),
     }).then(response => this.checkStatusCode(response));
   }
 

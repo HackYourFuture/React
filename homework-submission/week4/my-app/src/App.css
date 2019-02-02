@@ -15,7 +15,7 @@ h1 {
   flex-basis: 100%;
 }
 body {
-  background-color: #6b707460;
+  background-color: #223e57ce;
 }
 
 .main-form {
@@ -24,11 +24,10 @@ body {
 
 .items {
   display: flex;
-  width: 48%;
-  height: 19em;
+  width: 46%;
+  height: 19.2em;
   margin: 5px auto;
   padding: 12px;
-  align-items: center;
   border-radius: 5%;
   box-shadow: 8px 8px 12px -3px #3d1d1d;
   background-color: rgba(20, 63, 95, 0.523);
@@ -42,15 +41,15 @@ body {
   margin: 30px 5px;
   margin-right: 10px;
   padding: 3px;
-  background-color: rgb(53, 122, 87);
+  background-color: rgb(30, 51, 41);
   align-self: flex-end;
 }
 
 .checkbox {
   position: relative;
   height: 25px;
-  margin: 30px 20px;
-  margin-right: 30px;
+  margin: 10px 24px;
+  opacity: 0;
 }
 .text {
   flex-basis: 90%;
@@ -58,7 +57,7 @@ body {
 }
 
 .input {
-  background: rgb(9, 46, 27);
+  background: rgb(30, 51, 41);
   color: rgb(212, 206, 206);
   margin: 30px 10px;
   height: 30px;
@@ -77,6 +76,8 @@ body {
   width: 120px;
   height: 100px;
   margin: 3px auto;
+  padding: 4px;
+  background-color: rgba(18, 49, 33, 0.598);
 }
 
 p {
@@ -94,8 +95,15 @@ span {
 }
 
 .edit-input {
-  width: 45%;
-  height: 40px;
+  width: 35%;
+  height: 24px;
+  display: block;
+  margin: 10px auto;
+}
+
+.edit-input-text {
+  width: 55%;
+  height: 70px;
   display: block;
   margin: 10px auto;
 }
@@ -119,4 +127,22 @@ span {
 
 label {
   align-self: flex-end;
+}
+
+.fa {
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+  color: rgba(18, 49, 33, 0.598);
+}
+i {
+  margin: auto;
+}
+
+.fa:hover {
+  color: wheat;
+}
+
+.fa-thumbs-up {
+  color: rgb(31, 31, 80);
 }
