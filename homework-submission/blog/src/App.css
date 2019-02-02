@@ -1,0 +1,44 @@
+body {
+  text-align: center;
+  background-color: rgb(68, 2, 2);
+  color: white;
+  font-size: 20px;
+}
+.mean {
+  display: flex;
+  flex-flow: wrap;
+  margin-top: 20px;
+}
+.update-form {
+  width: 30%;
+  font-size: 15px;
+  background: rgb(41, 4, 4);
+}
+input {
+  margin: 5px;
+  margin-bottom: 15px;
+}
+.add-form {
+  padding: 40px 0 40px 0;
+  width: 100%;
+  background: rgb(68, 62, 62);
+}
+.comment {
+  flex-direction: row;
+  width: 30%;
+  margin: 15px;
+  font-size: 15px;
+  background: rgb(41, 4, 4);
+}
+.like {
+  width: 35px;
+  height: 25px;
+  color: white;
+}
+.avatar {
+  margin-top: 20px;
+  width: 40%;
+}
+.date {
+  font-size: 13px;
+}
