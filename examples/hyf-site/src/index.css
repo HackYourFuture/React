@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.site {
+  min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.site {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+header {
+  background: #1C1D21;
+  color: rgba(255, 255, 255, 0.87);
+  padding: 2rem;
+}
+
+.site__title {
+  margin: 0 0 3rem 0;
+  padding: 0;
+  font-size: 1.5rem;
+}
+
+.site__nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.site__nav-item {
+  list-style: none;
+  margin: 0 0 2rem 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.site__nav-item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site__nav-item a.active {
+  border-bottom: 2px solid red;
+  padding-bottom: 0.3rem;
+}
+
+main {
+  flex: 1;
+  padding: 5rem 4rem;
+}
+
+.page__title {
+  display: inline-block;
+  color: #FC5C5D;
+  margin: 0 0 2rem 0;
+  padding: 0 0 0.75rem 0;
+  border-bottom: 6px #1C1D21 solid;
+}
+
+.page__body {
+  max-width: 40rem;
+  margin-bottom: 2rem;
+}
+
+.page__blocks {
+  max-width: 40rem;
+  display: flex;
+  flex-wrap: wrap;
+ }
+
+.block {
+  border: 1px solid #666;
+  width: 40%;
+  padding: 1rem;
+  margin: 0 2rem 2rem 0;
+}
+
+.block__title {
+  font-size: 1.1rem;
+  margin: 0 0 0.6rem 0;
+}
