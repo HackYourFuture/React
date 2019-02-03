@@ -1,5 +1,11 @@
 # Homework Week 2
 
+## Review
+
+Watch my video on how to make a [todo app from scratch using React](https://youtu.be/vLTtAT-DXzQ). Follow along at your own pace to reinforce the concepts we learned in class.
+
+## Contacts App
+
 We're going to build an application where we can list our contacts, and search/edit/create them. 
 
 * [Contacts App Demo](https://hyf-contacts.netlify.com/).
