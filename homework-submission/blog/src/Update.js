@@ -6,8 +6,9 @@ class Update extends React.Component {
     let newItem = {
       author: { firstName: event.target.firstName.value, lastName: event.target.lastName.value },
       text: event.target.text.value,
+      _id: this.props.item._id,
     };
-    this.props.handleUpdate(newItem, this.props.item._id);
+    this.props.handleUpdate(newItem, this.props.index);
   };
 
   render() {

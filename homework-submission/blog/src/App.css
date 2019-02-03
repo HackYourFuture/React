@@ -10,7 +10,8 @@ body {
   margin-top: 20px;
 }
 .update-form {
-  width: 30%;
+  width: 31%;
+  margin: 15px;
   font-size: 15px;
   background: rgb(41, 4, 4);
 }
@@ -25,7 +26,7 @@ input {
 }
 .comment {
   flex-direction: row;
-  width: 30%;
+  width: 31%;
   margin: 15px;
   font-size: 15px;
   background: rgb(41, 4, 4);

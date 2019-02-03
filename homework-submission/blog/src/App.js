@@ -8,23 +8,19 @@ class App extends Component {
     data: [],
   };
   componentDidMount() {
-    this.reset();
+    fetch('https://hyf-react-api.herokuapp.com/blog/comments')
+      .then(response => this.checkStatusCode(response))
+      .then(data => this.setState({ data }));
   }
 
-  reset = () => {
-    fetch('https://hyf-react-api.herokuapp.com/blog/comments')
-      .then(response => response.json())
-      .then(data => this.setState({ data }));
-  };
-
-  deleteComment = id => {
+  deleteComment = (id, i) => {
     fetch(`https://hyf-react-api.herokuapp.com/blog/comments/${id}`, {
       method: 'DELETE',
     })
       .then(response => response.json())
-      .then(response => {
-        let newData = this.state.data.filter(comment => response._id !== comment._id);
-        this.setState({ data: newData });
+      .then(() => {
+        this.state.data.splice(i, 1);
+        this.setState({ data: [...this.state.data] });
       });
   };
 
@@ -42,8 +38,8 @@ class App extends Component {
       });
   };
 
-  handleUpdate = (updatedItem, id) => {
-    fetch(`https://hyf-react-api.herokuapp.com/blog/comments/${id}`, {
+  handleUpdate = (updatedItem, i) => {
+    fetch(`https://hyf-react-api.herokuapp.com/blog/comments/${updatedItem._id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -52,22 +48,24 @@ class App extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        this.state.data.map(comment => {
-          if (comment._id === response._id) {
-            response.text = comment.text;
-            response.date = comment.date;
-            response.author.firstName = comment.author.firstName;
-            response.author.lastName = comment.author.lastName;
-          }
-          return comment;
-        });
-        this.reset();
+        let newComments = [...this.state.data];
+        newComments[i] = response;
+        this.setState({ data: newComments });
       });
   };
+  checkStatusCode = response => {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      throw response.json();
+    }
+  };
+
   render() {
-    let newComments = this.state.data.map(item => (
+    let newComments = this.state.data.map((item, index) => (
       <Comments
         key={item._id}
+        index={index}
         item={item}
         handleDelete={this.deleteComment}
         handleUpdate={this.handleUpdate}
