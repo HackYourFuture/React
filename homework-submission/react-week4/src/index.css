@@ -116,7 +116,7 @@ body {
 .material-icons:hover, .left-btn:hover,
 .right-btn:hover, .add-btn:hover { cursor: pointer; }
 .material-icons:focus, .textarea:focus, input:focus, .add-btn:focus { outline: rgb(152, 160, 230); }
-.liked { color: cornflowerblue; }
+.material-icons.liked { color: cornflowerblue; }
 
 .comment-box > .textarea {
   display: block;

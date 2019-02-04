@@ -34,14 +34,7 @@ class App extends Component {
     isEditing ? this.setState({ editing: id }) : this.setState({ editing: "" });
   }
 
-  handleUpdate(e, id) {
-    let item;
-    if (e.target) {
-      e.preventDefault();
-      item = { text: e.target.comment.value };
-    } else {
-      item = { isLiked: !e };
-    }
+  handleUpdate(item, id) {
     Util.updateItem(`https://hyf-react-api.herokuapp.com/blog/comments/${id}`, item)
       .then(res => this.refreshPage()).catch(err => this.handleError(err));
   }
