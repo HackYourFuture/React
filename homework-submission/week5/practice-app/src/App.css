@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+img {
+  width: 320px;
+  height: 230px;
+  padding: 5px 10px;
+}
+
+.add-div {
+  width: 100%;
+  height: 14em;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.add-button {
+  margin: 0 auto;
+}
