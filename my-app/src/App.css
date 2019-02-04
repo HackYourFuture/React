@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+}
+
+img {
+  width: 30%;
+}
+.sign-in-page {
+  text-align: center;
+}
+.sign-in-page img {
+  width: 20%;
+  margin-top: 40px;
+}
+input {
+  margin: 20px;
+}
