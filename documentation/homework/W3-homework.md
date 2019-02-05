@@ -51,11 +51,10 @@ Enter description: [           ] Deadline: [           ] [Add]
 * [ ] Eat breakfast, Fri Sep 15 2017 [remove]
 ```
 
+## Extra materials to practice:
 
-## Extra assignment
-
-Make the exercises in [chat-app](/documentation/chat-app/Exercises.md)!
-
+- Project: [Chat App](https://www.youtube.com/watch?v=jFNHerJqvFw)
+-
 
 ## Scoring
 

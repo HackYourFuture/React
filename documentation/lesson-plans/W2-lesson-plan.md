@@ -1,70 +1,58 @@
 # Lesson Plan Week 2
 
+The purpose of this class is to teach the student about `state` and
+
 ## Agenda
 
-### Lifecycle Methods
-
-- Full list [here](https://reactjs.org/docs/react-component.html)
-
-- Lifecycle methods are used when render is not enough on its own
-
-- Cover each, giving examples of when they might be useful
-  - componentWillMount: SSR
-  - componentDidMount: data fetching in client-side-only apps
-  - shouldComponentUpdate: performance debugging
-  - componentWillUnmount: teardown (payment SDKs, intervals, etc)
-
-- Question: in which of these lifecycle methods is it OK to call setState? (watch out for stack overflows)
-
-### Component State
+## Core concepts
 
 1. State vs. Props
-    - Both props and state are plain JS objects
-    - Both props and state trigger a render update when they change
-    - How to determine if data should be props or state?
-      - Props are “configuration options” for components
-      - State is completely optional
-      - State increases complexity and reduces predictability
-      - Use props unless you definitely need to use state
-      - State is single-level only. Components can read and set their own state, but cannot read or set the state of their children
-    - Later, we are going to remove state from our React applications completely, and use a state-management tool (mobx)
+
+   - Both props and state are plain JS objects
+   - Both props and state trigger a render update when they change
+   - How to determine if data should be props or state?
+   - Props are “configuration options” for components
+   - State is completely optional
+   - State increases complexity and reduces predictability
+   - Use props unless you definitely need to use state
+   - State is single-level only. Components can read and set their own state, but cannot read or set the state of their children
+   - Later, we are going to remove state from our React applications completely, and use a state-management tool (mobx)
 
 2. Using state correctly
-    - Do not modify state directly, always use setState
-        - Give an example of how mutating state directly doesn’t work
-    - State updates are merged (note that merging is shallow)
-    - setState is an asynchronously-executed _request_ to change state
+   - Do not modify state directly, always use setState
+   - Give an example of how mutating state directly doesn’t work
+   - State updates are merged (note that merging is shallow)
+   - setState is an asynchronously-executed _request_ to change state
 
-### Notes
+## Build with students
 
-- If you don’t want to use class properties for state and “public class fields syntax” for arrow-function handlers, you must bind use a constructor and bind `this`. See [this link](https://reactjs.org/docs/handling-events.html) for more info.
+To illustrate the core concepts of state, props and components build the following 2 small apps with the students
 
-## Examples
+1. [Counter](../../examples/counter)
 
-### Counter
+-
 
-- Show basic state (as a class property, not in a constructor)
+## Learning examples
 
-- Show basic event on button click (handleIncreaseCount)
+### Counter []
 
-- Show how state change causes lifecycle methods to fire 
+Demonstrates:
 
-### Clock
+1. Most basic implementation of component state
+2. Handler functions bound to `onClick`
 
-- Follow React docs clock example [here](https://reactjs.org/docs/state-and-lifecycle.html)
+![Clocks Example Screenshot](/documentation/example-screenshots/counter.png)
 
-- Add timezone support (if time allows)
+### Clocks [[source](../../examples/clocks)]
 
-## In-Class Blog App
+Follows the React docs clock example [here](https://reactjs.org/docs/state-and-lifecycle.html). Uses [momentjs](https://github.com/moment/moment) and [moment-timezone](https://github.com/moment/moment-timezone) for datetime functionality.
 
-### TODOs
+Demonstrates:
 
-- Add comments list
+1. Using both state and props in a component tree
+2. Passing event handlers as props
+3. Rendering components in a loop
+4. Conditional JSX rendering (header count)
+5. State-bound lifecycle and lifecycle events (clock interval)
 
-- Add ability to create new comments
-
-- Move our application data into a JSON file, and load it as props from there
-
-- Add the ability to “favourite” each comment (store this as local state)
-
-- Add the ability to sort comments by creation date
+![Clocks Example Screenshot](/documentation/example-screenshots/clocks.png)
