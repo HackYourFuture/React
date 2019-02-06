@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ListPosts from './list-posts'
+import PostsList from './posts-list'
 import AddForm from './add-from'
 import Service from './Service'
 
@@ -18,9 +18,11 @@ class Post extends Component {
     })
   }
   render() {
-    // let lists = 
+    let lists = this.state.posts.map((post) => { return <PostsList key={post.id} posts={post} /> })
     return (
-      this.state.loading === true ? <h2>Loading...</h2> : <p>lists</p>
+      <div>
+        this.state.loading === true ? <h2>Loading...</h2> : lists
+      </div>
     )
   }
 }
