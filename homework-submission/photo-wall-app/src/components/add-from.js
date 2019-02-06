@@ -6,7 +6,7 @@ class AddForm extends Component {
   }
 
   render() {
-    return (<p>Bla</p>)
+    return (<p>I'm Add Form Comp.</p>)
   }
 }
 

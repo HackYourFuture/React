@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Header from './header'
 
 class LoginForm extends Component {
   state = {
@@ -11,17 +12,21 @@ class LoginForm extends Component {
   }
   handleLogin = (event) => {
     event.preventDefault();
-    this.state.user.length > 0 ? this.props.onLogin(this.state.user) : alert('type your User Name')
+    (this.state.user.length > 0 && this.state.user !== 'User Name') ? this.props.onLogin(this.state.user) : alert('type your User Name')
   }
 
   render() {
     return (
-      <form className='login-form' onSubmit={this.handleLogin}>
-        User Name :
-      <input type='text' placeholder='User Name' name='userName' value={this.state.user.value} onChange={this.handleInputChange} />
-        <input type='submit' value='log in' />
-      </form>
+      <div>
+        <Header />
 
+        <form className='login-form' onSubmit={this.handleLogin}>
+          User Name :
+      <input type='text' placeholder='User Name' name='userName' value={this.state.user.value} onChange={this.handleInputChange} />
+          <input type='submit' value='log in' />
+        </form>
+
+      </div>
     )
   }
 }

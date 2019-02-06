@@ -7,7 +7,7 @@ export default class Header extends Component {
     return (
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>
+        <h1 onClick={this.props.backToHomePage}>
           Photo Wall
           </h1>
       </header>
