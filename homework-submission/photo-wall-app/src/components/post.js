@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PostsList from './posts-list'
 import AddForm from './add-from'
-import Service from './Service'
+import Service from './service'
 import Header from './header'
 
 class Post extends Component {
@@ -21,6 +21,13 @@ class Post extends Component {
       .then(posts => {
         this.setState({ posts, loading: false })
       })
+  }
+
+  handleAdd = (postInfo) => {
+    this.setState({
+      posts: [...this.state.posts, postInfo],
+      form: 'list'
+    })
   }
 
   switchToAddForm = () => {
@@ -45,7 +52,7 @@ class Post extends Component {
     return (
       <div>
         <Header backToHomePage={this.switchToHome} />
-        {this.state.form === 'add' ? <AddForm /> : ShowPosts}
+        {this.state.form === 'add' ? <AddForm onAdd={this.handleAdd} author={this.state.author} /> : ShowPosts}
       </div>
     )
 
