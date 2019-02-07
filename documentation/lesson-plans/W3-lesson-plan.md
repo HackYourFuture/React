@@ -14,6 +14,10 @@
 
 - React controls the state of the input, not the browser
 
+### Simple Form example
+
+- [Simple form example](https://codepen.io/fdb/pen/JxMyPP?editors=0010)
+
 ### Lifting State
 
 - Docs [here](https://reactjs.org/docs/lifting-state-up.html)
@@ -46,7 +50,7 @@
 
 - Show controlled components with event handlers as props
 
-## In-Class Blog App
+## In-Class Todo App
 
 ### TODOs
 
