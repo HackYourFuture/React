@@ -2,94 +2,128 @@ import React, { Component } from 'react';
 import Util from './utility.js';
 import Login from "./login-form.js";
 import AddingForm from "./add-form.js";
-import Photo from "./photo.js";
+import Post from "./post.js";
+import PostView from './post-view';
 
-
-class App extends Component {
-
+export default class App extends Component {
   state = {
-    userName: "no user",
+    userName: "",
     login: false,
-    users: []
+    posts: [],
+    postView: null
   }
-
-  getContent = () =>{
-    Util.fetchJSON("http://localhost:4000/photos")
-      .then(users => this.setState({ users })).catch(err => console.error(err));
-  }
-
-  componentDidMount() { this.getContent() }
 
   loginLogout = (e) => {
-    if (e.target) {
+    if (this.state.login) {
+      this.setState({ login: false, userName: "", posts: [] });
+    } else {
       e.preventDefault();
-      this.setState({ userName: e.target.userName.value });
+      let name = e.target.userName.value.toLowerCase();
+      Util.fetchJSON("http://localhost:4000/photos")
+        .then(posts => this.setState({
+          userName: name,
+          login: true,
+          posts
+        }))
+        .catch(err => console.error(err));
     }
-    this.setState({login: !this.state.login});
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    let newPost = {
-     
-      photoUrl: e.target.url.value,
-      author: this.state.userName,
-      description: e.target.description.value,
-      comment: [
-        {
-          author: "jalal",
-          text: "I like the place"
+  updateState = (newPost, updated) => {
+    let posts
+    if (!newPost.id) {
+      posts = this.state.posts.filter(post => post.id !== newPost);
+    } else if (updated === "add") {
+      posts = this.state.posts;
+      posts.push(newPost);
+    } else {
+      posts = this.state.posts;
+      posts.forEach(post => {
+        if (post.id === newPost.id) {
+          post.author = newPost.author;
+          post.description = newPost.description;
+          post.comment = newPost.comment;
+          post.like = newPost.like;
         }
-      ],
-      like: [
-        "jalal",
-        "karam"
-      ]
+      });
     }
-    Util.postJSON("http://localhost:4000/photos", newPost)
-      .then(res => this.getContent()).catch(err => console.error(err));
-    e.target.reset()
+    this.setState({ posts });
   }
 
+  handleAdd = (newPost) => {
+    Util.postJSON("http://localhost:4000/photos", "POST", newPost)
+      .then(res => this.updateState(res, "add")).catch(err => console.error(err));
+  }
+
+  handleUpdate = (item) => {
+    let updatedPost;
+    if (item.updatedPost) updatedPost = { description: item.updatedPost };
+    if (item.comment) {
+      let like = this.state.posts.find(el => el.id === item.id).like;
+      let index = like.indexOf(this.state.userName);
+      index !== -1 ? like.splice(index, 1) : like.push(this.state.userName);
+      updatedPost = { like };
+    } else if (item.newComment) {
+      let comment = this.state.posts.find(el => el.id === item.id).comment;
+      comment.push({ author: item.author, text: item.newComment });
+      updatedPost = { comment };
+    } else if (item.updatedComment) {
+      let comment = this.state.posts.find(el => el.id === item.id).comment;
+      comment[item.index].text = item.updatedComment;
+      updatedPost = { comment };
+    } else if (item.index) {
+      let comment = this.state.posts.find(el => el.id === item.id).comment;
+      comment.splice(item.index, 1);
+      updatedPost = { comment };
+    }
+    Util.postJSON(`http://localhost:4000/photos/${item.id}`, "PATCH", updatedPost)
+      .then(res => this.updateState(res)).catch(err => console.error(err));
+  }
+
+  handleDelete = (id) => {
+    Util.deleteJSON(`http://localhost:4000/photos/${id}`)
+      .then(res => this.updateState(id, res)).catch(err => console.error(err));
+  }
+
+  showPost = (id) => {
+    if (id) {
+      let postView = this.state.posts.find(post => post.id === id);
+      this.setState({ postView });
+    } else {
+      this.setState({ postView: null });
+    }
+  }
+
+  userPage = () => {
+    if (this.state.postView) {
+      return (
+        <div id="user-page">
+          <PostView post={this.state.postView} userName={this.state.userName}
+            onShowPost={this.showPost} onUpdate={this.handleUpdate} />
+          <button onClick={this.loginLogout} id="logout">Logout</button>
+          <span id="welcome-user">Welcome {this.state.userName}</span>
+        </div>
+      );
+    } else {
+      return (
+        <div id="user-page">
+          {<AddingForm userName={this.state.userName} onAdd={this.handleAdd} />}
+          {this.state.posts[0] ? this.state.posts.map(post => <Post key={post.id}
+            post={post} userName={this.state.userName} onShowPost={this.showPost}
+            onUpdate={this.handleUpdate} onDelete={this.handleDelete} />) : <h1>No posts...</h1>}
+          <button onClick={this.loginLogout} id="logout">Logout</button>
+          <span id="welcome-user">Welcome {this.state.userName}</span>
+        </div>
+      );
+    }
+  }
 
   render() {
     return (
       <div id="container">
-        {this.state.login ? <AddingForm handleSubmit={this.handleSubmit}/> : <Login onLogin={this.loginLogout}/>}
-        {this.state.login && this.state.users.map(user => <Photo key={user.id} user={user} />)}
+        {this.state.login ? this.userPage() : <Login onLogin={this.loginLogout} />}
       </div>
     );
   }
-    
+
 }
-    
-    export default App;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*
-  componentDidMount() {
-          Util.fetchJSON("https://hyf-react-api.herokuapp.com/todos")
-            .then(todoList => {
-              this.setState({ todoList });
-            });
-        }
-      
-handleAdd = (item) => {
-          this.setState({ todoList: [...this.state.todoList, item] });
-        }
-      
-    const todos = this.state.todoList[0] ? this.state.todoList.map(todo => <Todo key={todo._id} item={todo} />) : "No items...";
-        return (
-      <div className="App">
-          <AddingForm onAdd={this.handleAdd} />
-          <ul>{todos}</ul>
-        </div>
-        );
-*/
