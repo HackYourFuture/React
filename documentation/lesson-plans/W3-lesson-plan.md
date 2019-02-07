@@ -23,9 +23,22 @@
 - `https://unpkg.com/react/umd/react.development.js`
 - `https://unpkg.com/react-dom/umd/react-dom.development.js`
 
+### Multiple Form Inputs
+
+- [Documentation: Handling Multiple Inputs](https://reactjs.org/docs/forms.html#handling-multiple-inputs)
+- [Multiple form inputs example](https://codepen.io/fdb/pen/pGprPq?editors=0010)
+
+To avoid duplicating so much code, we'll use [computed property names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names):
+
+```
+this.setState({
+  [name]: value
+});
+```
+
 ### Lifting State
 
-- Docs [here](https://reactjs.org/docs/lifting-state-up.html)
+- [Documentation: Lifting State Up](https://reactjs.org/docs/lifting-state-up.html)
 
 - Often, several components need to reflect the same data. In these cases, we lift the shared state up to their closest common ancestor
 
