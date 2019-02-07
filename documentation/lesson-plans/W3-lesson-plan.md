@@ -4,7 +4,7 @@
 
 ### Controlled Inputs
 
-- Docs [here](https://reactjs.org/docs/forms.html#controlled-components)
+- [Documentation: Controlled Components](https://reactjs.org/docs/forms.html#controlled-components)
 
 - Uncontrolled inputs are almost never useful to us
 
@@ -16,7 +16,7 @@
 
 ### Simple Form example
 
-- [Simple form example](https://codepen.io/fdb/pen/JxMyPP?editors=0010)
+- [CodePen: Simple form](https://codepen.io/fdb/pen/JxMyPP?editors=0010)
 
 *Note*: to set up CodePen, click the gear icon in the "JS" tab, then in the "external scripts" add these two external scripts:
 
@@ -26,9 +26,9 @@
 ### Multiple Form Inputs
 
 - [Documentation: Handling Multiple Inputs](https://reactjs.org/docs/forms.html#handling-multiple-inputs)
-- [Multiple form inputs example](https://codepen.io/fdb/pen/pGprPq?editors=0010)
+- [CodePen: Multiple form inputs](https://codepen.io/fdb/pen/pGprPq?editors=0010)
 
-To avoid duplicating so much code, we'll use [computed property names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names):
+To avoid duplicating input handling we'll use [computed property names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names):
 
 ```
 this.setState({
