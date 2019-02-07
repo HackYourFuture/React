@@ -18,6 +18,11 @@
 
 - [Simple form example](https://codepen.io/fdb/pen/JxMyPP?editors=0010)
 
+*Note*: to set up CodePen, click the gear icon in the "JS" tab, then in the "external scripts" add these two external scripts:
+
+- `https://unpkg.com/react/umd/react.development.js`
+- `https://unpkg.com/react-dom/umd/react-dom.development.js`
+
 ### Lifting State
 
 - Docs [here](https://reactjs.org/docs/lifting-state-up.html)
