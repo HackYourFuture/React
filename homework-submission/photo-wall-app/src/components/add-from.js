@@ -4,7 +4,9 @@ import Service from './service'
 class AddForm extends Component {
   state = {
     photoUrl: '',
-    description: ''
+    description: '',
+    comment: [],
+    like: []
   }
 
   handleInputChange = (event) => {
@@ -23,18 +25,15 @@ class AddForm extends Component {
       .then(
         this.setState({
           photoUrl: '',
-          description: '',
-          form: 'list'
+          description: ''
         })
       )
     this.props.onAdd(this.state)
-    console.log('addFormProps ', this.props);
   }
 
   render() {
     return (
       <form onSubmit={this.handleAdd}>
-        <p onClick={this.handleBack}>Photo Wall</p>
         <input type='text' placeholder='Image source' name='photoUrl' onChange={this.handleInputChange} />
         <input type='text' placeholder='Description' name='description' onChange={this.handleInputChange} />
         <input type='submit' value='add' />

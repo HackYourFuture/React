@@ -7,12 +7,11 @@ class LoginForm extends Component {
   }
   handleInputChange = (event) => {
     this.setState({ user: event.target.value })
-    console.log(this.state.user);
 
   }
   handleLogin = (event) => {
     event.preventDefault();
-    (this.state.user.length > 0 && this.state.user !== 'User Name') ? this.props.onLogin(this.state.user) : alert('type your User Name')
+    this.state.user ? this.props.onLogin(this.state.user) : alert('type your User Name to log in')
   }
 
   render() {
@@ -21,8 +20,8 @@ class LoginForm extends Component {
         <Header />
 
         <form className='login-form' onSubmit={this.handleLogin}>
-          User Name :
-      <input type='text' placeholder='User Name' name='userName' value={this.state.user.value} onChange={this.handleInputChange} />
+          User Name
+      <input type='text' name='userName' value={this.state.user.value} onChange={this.handleInputChange} />
           <input type='submit' value='log in' />
         </form>
 
