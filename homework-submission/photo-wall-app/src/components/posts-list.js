@@ -1,31 +1,50 @@
 import React, { Component } from "react";
 import Comments from "./comments";
 import Service from "./service";
+import EditPost from "./edit-delete-post";
 
 class List extends Component {
+  state = {
+    zoom: true
+  };
   handleLike = () => {
-    const id = this.props.post.id;
-    const add = [...this.props.post.like, this.props.author];
-    let remove = this.props.post.like.filter(
-      name => name !== this.props.author
-    );
-
-    const newLikes = this.props.post.like.includes(this.props.author)
-      ? remove
-      : add;
-
-    Service.updatePost(id, {
-      like: newLikes
-    }).then(response => {
+    const { id, like } = this.props.post;
+    const add = [...like, this.props.user];
+    let remove = like.filter(name => name !== this.props.user);
+    const newLikes = like.includes(this.props.user) ? remove : add;
+    Service.updatePost(id, { like: newLikes }).then(response => {
       this.props.onAnyUpdate(response);
     });
   };
 
+  passUpdates = updatedItem => {
+    this.props.onAnyUpdate(updatedItem);
+  };
+
+  passDeletes = updatedItem => {
+    this.props.onDelete(updatedItem);
+  };
+
+  zoomPost = () => {};
+
   render() {
-    const { photoUrl, like, comment, description } = this.props.post;
+    const { photoUrl, like, comment, description, author } = this.props.post;
+
     return (
       <div className="single-post">
-        <img className="post-image" alt="img" src={photoUrl} />
+        {this.props.user === author && (
+          <EditPost
+            post={this.props.post}
+            onUpdate={this.passUpdates}
+            onDelete={this.passDeletes}
+          />
+        )}
+        <img
+          className="post-image"
+          alt="img"
+          src={photoUrl}
+          onClick={this.zoomPost}
+        />
         <h3>{description}</h3>
         <div className="post-base">
           <div className="post-info">

@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.state.user.length > 0 ? (
-          <Main state={this.state} />
+          <Main user={this.state.user} onRefresh={this.handleRefresh} />
         ) : (
           <LoginForm onLogin={this.handleLogin} />
         )}

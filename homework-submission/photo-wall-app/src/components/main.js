@@ -7,27 +7,36 @@ import Header from "./header";
 class Post extends Component {
   state = {
     loading: false,
-    author: "",
+    user: "",
     posts: [],
-    form: "home",
-    like: []
+    form: "home"
   };
 
   componentDidMount() {
     this.setState({
       loading: true,
-      author: this.props.state.user
+      user: this.props.user
     });
 
     Service.getPosts().then(posts => {
       this.setState({ posts, loading: false });
     });
   }
+
   handleAdd = postInfo => {
     this.setState({
       posts: [...this.state.posts, postInfo],
       form: "home"
     });
+  };
+  handleDelete = post => {
+    const index = post.id - 1;
+
+    const posts = [
+      ...this.state.posts.slice(0, index),
+      ...this.state.posts.slice(index + 1)
+    ];
+    this.setState({ posts });
   };
 
   switchForm = () => {
@@ -54,8 +63,9 @@ class Post extends Component {
             <PostsList
               key={post.id}
               post={post}
-              author={this.state.author}
+              user={this.state.user}
               onAnyUpdate={this.handleAnyUpdate}
+              onDelete={this.handleDelete}
               like={this.state.like}
             />
           );
@@ -74,7 +84,7 @@ class Post extends Component {
       <div>
         <Header backToHomePage={this.switchForm} />
         {this.state.form === "add" ? (
-          <AddForm onAdd={this.handleAdd} author={this.state.author} />
+          <AddForm onAdd={this.handleAdd} author={this.state.user} />
         ) : (
           showPosts
         )}

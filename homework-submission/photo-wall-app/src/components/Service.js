@@ -1,30 +1,33 @@
 class Service {
-
   static getPosts() {
-    return fetch(`http://localhost:4000/photos/`)
-      .then(response => this.checkStatusCode(response));
+    return fetch(`http://localhost:4000/photos/`).then(response =>
+      this.checkStatusCode(response)
+    );
   }
 
   static addPost(newPost) {
     return fetch(`http://localhost:4000/photos`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(newPost)
-    }
-    ).then(response => this.checkStatusCode(response));
+    }).then(response => this.checkStatusCode(response));
   }
 
   static updatePost(id, updatedItem) {
     return fetch(`http://localhost:4000/photos/${id}`, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(updatedItem)
-    }
-    ).then(response => this.checkStatusCode(response));
+    }).then(response => this.checkStatusCode(response));
+  }
+  static deletePost(id) {
+    return fetch(`http://localhost:4000/photos/${id}`, {
+      method: "DELETE"
+    }).then(response => this.checkStatusCode(response));
   }
 
   static checkStatusCode(response) {
