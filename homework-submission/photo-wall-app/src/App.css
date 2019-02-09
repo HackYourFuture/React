@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #9ed3da49;
 }
 
 .App-logo {
@@ -8,15 +9,14 @@
 }
 
 .App-header {
-  /* background-color: #343944c9; */
   background-color: #1d9aaaaf;
-  min-height: 40vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: rgba(255, 255, 255, 0.808);
+  color: rgba(232, 246, 255, 0.856);
 }
 
 .App-link {
@@ -30,4 +30,88 @@
   to {
     transform: rotate(360deg);
   }
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(215, 226, 235);
+}
+.grow {
+  display: flex;
+  /* width: 100%; */
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(5, 58, 102, 0.616);
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  min-width: 60vmax;
+  align-items: center;
+  background-color: rgba(203, 219, 240, 0);
+}
+.single-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 35vmax;
+  background-color: rgb(221, 238, 247);
+  margin-bottom: 2%;
+  padding: 4px;
+  border-radius: 10px;
+}
+.hidden {
+  display: none;
+}
+.post-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.post-base {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #7a8491;
+  font-size: 11px;
+  border-radius: 10px;
+}
+.post-info {
+  display: flex;
+  background-color: #ddeeffa1;
+  border-radius: 10px;
+}
+p {
+  padding: 1px;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-family: Georgia, serif;
+  border-radius: 10px;
+}
+form {
+  padding: 10px;
+  align-self: center;
+}
+.comments-list {
+  width: 90%;
+  align-self: center;
+  border-radius: 10px;
+}
+.comment {
+  width: 30vmax;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  justify-content: stretch;
+  font-family: Georgia, serif;
+  border-radius: 10px;
+}
+
+h4 {
+  padding-left: 2px;
+}
+h6 {
+  justify-self: start;
+  text-decoration: underline;
 }

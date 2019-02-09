@@ -39,7 +39,12 @@ class Post extends Component {
     this.setState({ posts });
   };
 
-  switchForm = () => {
+  switchZoom = post => {
+    this.state.form !== post
+      ? this.setState({ form: post })
+      : this.setState({ form: "home" });
+  };
+  switchAdd = () => {
     this.state.form === "home"
       ? this.setState({ form: "add" })
       : this.setState({ form: "home" });
@@ -56,6 +61,19 @@ class Post extends Component {
   };
 
   render() {
+    let zoom = (
+      <div className="grow">
+        <PostsList
+          post={this.state.form}
+          user={this.state.user}
+          onAnyUpdate={this.handleAnyUpdate}
+          onDelete={this.handleDelete}
+          onSwitch={this.switchZoom}
+          like={this.state.like}
+        />
+      </div>
+    );
+
     let lists = (
       <div className="posts-list">
         {this.state.posts.map(post => {
@@ -66,6 +84,7 @@ class Post extends Component {
               user={this.state.user}
               onAnyUpdate={this.handleAnyUpdate}
               onDelete={this.handleDelete}
+              onSwitch={this.switchZoom}
               like={this.state.like}
             />
           );
@@ -75,19 +94,23 @@ class Post extends Component {
 
     let showPosts = (
       <div className="main">
-        <h2 onClick={this.switchForm}>Add New Post</h2>
+        <h2 onClick={this.switchAdd}>Add New Post</h2>
         {this.state.loading === true ? <h2>Loading...</h2> : lists}
       </div>
     );
 
+    let page =
+      this.state.form === "add" ? (
+        <AddForm onAdd={this.handleAdd} author={this.state.user} />
+      ) : (
+        showPosts
+      );
+
     return (
       <div>
-        <Header backToHomePage={this.switchForm} />
-        {this.state.form === "add" ? (
-          <AddForm onAdd={this.handleAdd} author={this.state.user} />
-        ) : (
-          showPosts
-        )}
+        <Header backToHomePage={this.switchAdd} />
+
+        {typeof this.state.form === "object" ? zoom : page}
       </div>
     );
   }

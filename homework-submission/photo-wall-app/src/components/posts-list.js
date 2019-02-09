@@ -5,7 +5,7 @@ import EditPost from "./edit-delete-post";
 
 class List extends Component {
   state = {
-    zoom: true
+    zoom: false
   };
   handleLike = () => {
     const { id, like } = this.props.post;
@@ -25,11 +25,12 @@ class List extends Component {
     this.props.onDelete(updatedItem);
   };
 
-  zoomPost = () => {};
+  zoomPost = () => {
+    this.props.onSwitch(this.props.post);
+  };
 
   render() {
     const { photoUrl, like, comment, description, author } = this.props.post;
-
     return (
       <div className="single-post">
         {this.props.user === author && (
