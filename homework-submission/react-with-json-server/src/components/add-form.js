@@ -1,9 +1,9 @@
 import React from 'react';
+import Util from '../utility.js';
+
 
 export default class AddingForm extends React.Component {
-
   state = { showFrom: false };
-  addBtn = <button onClick={() => this.setState({ showFrom: true })}> Add a photo</button >;
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +14,8 @@ export default class AddingForm extends React.Component {
       comment: [],
       like: []
     }
-    this.props.onAdd(newPost);
+    Util.postJSON("http://localhost:4000/photos", "POST", newPost)
+      .then(res => this.props.updateState(res, "add")).catch(err => console.error(err));
     e.target.reset()
   }
 
@@ -34,7 +35,7 @@ export default class AddingForm extends React.Component {
     return (
       <div id="header">
         <h1 onClick={() => this.setState({ showFrom: false })}>Photo Wall</h1>
-        {this.state.showFrom ? this.showForm() : this.addBtn}
+        {this.state.showFrom ? this.showForm() : <button onClick={() => this.setState({ showFrom: true })}> Add a photo</button >}
       </div>
     );
   }

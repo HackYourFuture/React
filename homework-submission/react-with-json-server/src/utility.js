@@ -16,6 +16,7 @@ export default class Util {
       return res.status < 400 ? res.json() : res;
     });
   }
+
   static deleteJSON(url) {
     return fetch(url, { method: "DELETE" }).then(res => {
       return res.status < 400 ? res.json() : res;
