@@ -64,6 +64,8 @@ this.setState({
 
 ## Examples
 
+### Currency Calculator [Source](https://github.com/HackYourFutureBelgium/React/tree/master/examples/currency-calculator)
+
 ### Temperature Conversion
 
 - Follow guide [here](https://reactjs.org/docs/lifting-state-up.html)
