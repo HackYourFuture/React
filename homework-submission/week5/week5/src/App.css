@@ -66,9 +66,11 @@
   padding:1px;
    border:1px solid #021a40;
    background-color:#ff0;
+   cursor: pointer;
 }
 .button-box{
   margin-top : 20px;
+  margin-bottom:  20px;
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
@@ -93,6 +95,27 @@
   padding: 12px 20px;
   margin-top : 50px;
   box-sizing: border-box;
+}
+
+.like-button{
+  background-color:  #4CAF50;
+  margin-right : 20px;
+  margin-bottom:  20px;
+  color: white;
+  padding: 8px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.comments {
+   color : #003300;
+}
+.box{
+  background-color:  #f2f2f2;
+  margin: 10px;
+  color:black;
+   cursor: pointer;
 }
 
 @keyframes App-logo-spin {

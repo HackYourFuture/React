@@ -7,14 +7,10 @@ export default class AddPost extends React.Component {
     "author": "",
     "description": '',
     "comment": [
-      {
-        "author": "",
-        "text": ""
-      }
+
     ],
     "like": [
-      "",
-      ""
+
     ],
   }
   onFill = (e) => {
@@ -30,14 +26,9 @@ export default class AddPost extends React.Component {
         "author": this.props.author,
         "description": this.state.description,
         "comment": [
-          {
-            "author": '',
-            "text": ""
-          }
         ],
         "like": [
-          "",
-          ""
+
         ],
       }).then(post => {
         this.props.onAddSubmit(post)
@@ -51,13 +42,11 @@ export default class AddPost extends React.Component {
         "description": "",
         "comment": [
           {
-            "author": "",
-            "text": ""
+
           }
         ],
         "like": [
-          "",
-          ""
+
         ],
       })
 
