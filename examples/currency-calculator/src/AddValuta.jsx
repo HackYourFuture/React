@@ -35,7 +35,7 @@ class AddValuta extends Component {
           placeholder="Value compared to Euro"
           onChange={(event) => this.setState({ value: event.target.value })}
         />
-        <input type="submit" />
+        <input type="submit" value="Add valuta" />
       </form>
     );
   }
