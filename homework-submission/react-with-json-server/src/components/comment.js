@@ -12,10 +12,11 @@ export default class Comment extends React.Component {
   }
 
   showEditBtns() {
+    const { comment, i } = this.props;
     if (this.state.isEditing) {
       return (
         <form onSubmit={this.handleUpdate} className="edit-com-form">
-          <textarea name="comment" defaultValue={this.props.comment.text}></textarea>
+          <textarea name="comment" defaultValue={comment.text}></textarea>
           <button type="submit" className="edit-com">Update</button>
           <button type="button" className="del-com" onClick={this.cancelEditingMode} >Cancel</button>
         </form >
@@ -24,19 +25,19 @@ export default class Comment extends React.Component {
     return (
       <div>
         <button onClick={this.cancelEditingMode} className="edit-com">Edit</button>
-        <button onClick={() => this.props.onUpdate(this.props.i)} className="del-com">Delete</button>
-        <p className="comment-txt">{this.props.comment.text}</p>
+        <button onClick={() => this.props.onUpdate(i)} className="del-com">Delete</button>
+        <p className="comment-txt">{comment.text}</p>
       </div >
     );
   }
 
   render() {
-    let isUser = this.props.comment.author === this.props.userName;
+    const { comment, userName } = this.props;
     return (
       <div className="comments">
         <i className="material-icons">person</i>
-        <span className="user-name">{this.props.comment.author}</span>
-        {isUser ? this.showEditBtns() : <p className="comment-txt">{this.props.comment.text}</p>}
+        <span className="user-name">{comment.author}</span>
+        {comment.author === userName ? this.showEditBtns() : <p className="comment-txt">{comment.text}</p>}
       </div>
     );
   }

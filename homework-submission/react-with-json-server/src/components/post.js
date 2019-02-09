@@ -5,17 +5,17 @@ export default class Post extends React.Component {
   state = { editingMode: false }
 
   handleUpdate = (e) => {
+    const { post, userName } = this.props;
     let updatedItem;
     if (e === "like") {
-      let like = this.props.post.like;
-      let index = like.indexOf(this.props.userName);
-      index !== -1 ? like.splice(index, 1) : like.push(this.props.userName);
+      let like = post.like, index = like.indexOf(userName);
+      index !== -1 ? like.splice(index, 1) : like.push(userName);
       updatedItem = { like };
     } else {
       e.preventDefault();
       updatedItem = { description: e.target.comment.value };
     }
-    Util.postJSON(`http://localhost:4000/photos/${this.props.post.id}`, "PATCH", updatedItem)
+    Util.postJSON(`http://localhost:4000/photos/${post.id}`, "PATCH", updatedItem)
       .then(res => this.props.updateState(res)).catch(err => console.error(err));
     this.setState({ editingMode: false });
   }
@@ -48,22 +48,21 @@ export default class Post extends React.Component {
   handleShowPost = () => { this.props.onShowPost(this.props.post.id) };
 
   render() {
-    let isUser = this.props.post.author === this.props.userName && !this.state.editingMode;
-    let likes = this.props.post.like.length > 0 ? this.props.post.like.length : "";
-    let isLiked = this.props.post.like.indexOf(this.props.userName) !== -1 ? "liked" : "";
-    let comments = this.props.post.comment.length > 0 ? this.props.post.comment.length : "";
+    const { post, userName } = this.props;
+    let isLiked = post.like.indexOf(userName) !== -1 ? "liked" : "";
+    let comments = post.comment.length > 0 ? post.comment.length : "";
 
     return (
       <div className="post">
         <i className="material-icons">person</i>
-        <span className="user-name">{this.props.post.author}</span>
-        {isUser ? this.sowEditingBtns() : ""}
-        <img onClick={this.handleShowPost} src={this.props.post.photoUrl} alt="user" />
-        {this.state.editingMode ? this.showForm() : <p>{this.props.post.description}</p>}
+        <span className="user-name">{post.author}</span>
+        {post.author === userName && !this.state.editingMode ? this.sowEditingBtns() : ""}
+        <img onClick={this.handleShowPost} src={post.photoUrl} alt="user" />
+        {this.state.editingMode ? this.showForm() : <p>{post.description}</p>}
         <div className="likes-comments">
           <p>
             <button onClick={() => this.handleUpdate("like")} className={"material-icons like " + isLiked}>thumb_up</button>
-            <span className="likes-num">{likes}</span>
+            <span className="likes-num">{post.like.length > 0 ? post.like.length : ""}</span>
           </p>
           <p onClick={this.handleShowPost} className="comment-num">Comments {comments}</p>
         </div>
