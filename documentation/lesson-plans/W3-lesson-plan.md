@@ -16,7 +16,7 @@
 
 ### Simple Form example
 
-- [CodePen: Simple form](https://codepen.io/fdb/pen/JxMyPP?editors=0010)
+- [CodePen: Simple form](https://codepen.io/fdb/pen/ZwrqRQ?editors=0010)
 
 *Note*: to set up CodePen, click the gear icon in the "JS" tab, then in the "external scripts" add these two external scripts:
 
