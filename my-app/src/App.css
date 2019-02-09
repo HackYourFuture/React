@@ -1,9 +1,12 @@
 .App {
   text-align: center;
+  /* justify-content: center; */
 }
-
+body {
+  background: rgb(2, 82, 128);
+}
 img {
-  width: 30%;
+  width: 90%;
 }
 .sign-in-page {
   text-align: center;
@@ -13,5 +16,65 @@ img {
   margin-top: 40px;
 }
 input {
-  margin: 20px;
+  margin: 5px;
+}
+.all-posts {
+  justify-content: center;
+}
+.posts {
+  background-color: rgb(162, 179, 187);
+  width: 100%;
+  margin: 15px;
+  height: 100%;
+  margin-left: 70%;
+}
+.mean {
+  width: 40%;
+  margin-right: 20px;
+}
+.add-form img {
+  width: 20%;
+  margin: 30px 0px 30px 0px;
+}
+.add-form {
+  text-align: center;
+  margin-left: 25%;
+}
+.container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.adding-button {
+  height: 20px;
+}
+.user {
+  border-radius: 100px;
+  background: rgb(65, 63, 63);
+  color: white;
+  padding: 5px 7px;
+  font-size: 15px;
+  margin: 5px;
+}
+.comment {
+  font-size: 18px;
+  border: 5px;
+}
+.comment-div {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  justify-content: center;
+}
+/* .liker {
+  margin-bottom: 10px;
+} */
+.like-img {
+  width: 5%;
+}
+.maxPho {
+  width: 90%;
+}
+.edit-delete-comment input {
+  /* width: 10px; */
 }
