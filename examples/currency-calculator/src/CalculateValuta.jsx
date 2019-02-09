@@ -11,7 +11,7 @@ class CalculateValuta extends Component {
     return (
       <form>
         <input type="number" onChange={(event) => onChange('euro', event.target.value)} value={euro} placeholder="Euro" />
-        <select onChange={(event) => onChange('selectedCurrency', JSON.parse(event.target.value))} value={selectedCurrency}>
+        <select onChange={(event) => onChange('selectedCurrency', JSON.parse(event.target.value))} value={JSON.stringify(selectedCurrency)}>
           <option>Select currency</option>
           {this.generateValutas(valutas)}
         </select>
