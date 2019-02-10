@@ -11,7 +11,6 @@ export default class Employees extends React.Component {
     EmployeeService.getEmployeeList()
       .then(employeeList => {
         this.setState({ employeeList: employeeList.data })
-        console.log(this.state.employeeList);
       }).catch(err => { console.log("ERROR:", err) });
   }
 
