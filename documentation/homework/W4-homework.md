@@ -8,7 +8,6 @@ By doing this homework you will achieve the following:
 
 - Understand `how backend and frontend connect`
 - Learn about what `endpoints` are
--
 
 ## Outline
 

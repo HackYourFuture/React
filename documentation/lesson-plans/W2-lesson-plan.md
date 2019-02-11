@@ -1,6 +1,6 @@
 # Lesson Plan Week 2
 
-The purpose of this class is to teach the student about `state` and
+The purpose of this class is to teach the student about `state`, how to `pass it down as props` and extracting data from forms (the React way).
 
 ## Agenda
 
@@ -8,51 +8,44 @@ The purpose of this class is to teach the student about `state` and
 
 1. State vs. Props
 
-   - Both props and state are plain JS objects
-   - Both props and state trigger a render update when they change
-   - How to determine if data should be props or state?
-   - Props are “configuration options” for components
-   - State is completely optional
-   - State increases complexity and reduces predictability
-   - Use props unless you definitely need to use state
-   - State is single-level only. Components can read and set their own state, but cannot read or set the state of their children
-   - Later, we are going to remove state from our React applications completely, and use a state-management tool (mobx)
+- Both props and state are plain JavaScript objects
+- State holds all the dynamic data of the app
+- Whenever data from the state object gets passed down it becomes a prop
+- State can only be defined in class-based components
+- While props can be widespread, state should only be defined in the top parent component
 
-2. Using state correctly
-   - Do not modify state directly, always use setState
-   - Give an example of how mutating state directly doesn’t work
-   - State updates are merged (note that merging is shallow)
-   - setState is an asynchronously-executed _request_ to change state
+_Show example of (1) state initialization, (2) passing state down (and showing how it becomes props). Then let students do the same_
+
+2. Changing state
+
+- Do not modify state directly, always use the React function setState()
+- State gets changed through self-defined functions (within the class component) that include setState()
+- setState() is an asynchronously-executed request to change state
+- Changing state will re-render the component
+
+_Show example of directly modifying state (and how it doesn't work). Then show an example of a self-defined function that uses setState. Finally, ask students to do the same_
+
+3. Forms
+
+- The natural behavior of forms is that they keep their own state and send it to a backend
+- React takes control of this behavior, by preventing the default and moving state to the class component
+- Form state can be updated in real-time, using the onChange attribute combined with the value attribute
+- The easiest way form data can be extracted is by using the `name` attribute: event.target._inputName_.value
+
+_Show example of making a form with a text input and using this to change state_
 
 ## Build with students
 
-To illustrate the core concepts of state, props and components build the following 2 small apps with the students
+To illustrate the core concepts of state, props and components build the following small app with the students.
 
 1. [Counter](../../examples/counter)
 
--
+Create a number counter, that the user can increase or decrease by one.
 
-## Learning examples
+- Create a Counter class-based component
+- Initialize state
+- Create reusable components for the increase/decrease buttons
+- Create 2 functions that change the counter state: 1 for increasing and 1 for decreasing the counter
+- Add onClick to Button instances with clickhandlers
 
-### Counter []
-
-Demonstrates:
-
-1. Most basic implementation of component state
-2. Handler functions bound to `onClick`
-
-![Clocks Example Screenshot](/documentation/example-screenshots/counter.png)
-
-### Clocks [[source](../../examples/clocks)]
-
-Follows the React docs clock example [here](https://reactjs.org/docs/state-and-lifecycle.html). Uses [momentjs](https://github.com/moment/moment) and [moment-timezone](https://github.com/moment/moment-timezone) for datetime functionality.
-
-Demonstrates:
-
-1. Using both state and props in a component tree
-2. Passing event handlers as props
-3. Rendering components in a loop
-4. Conditional JSX rendering (header count)
-5. State-bound lifecycle and lifecycle events (clock interval)
-
-![Clocks Example Screenshot](/documentation/example-screenshots/clocks.png)
+_After showing the example, hide your code and ask students to recreate the same thing_

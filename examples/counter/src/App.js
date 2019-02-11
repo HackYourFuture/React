@@ -1,28 +1,34 @@
-import React from 'react';
+import React from "react";
+
+import CounterPanel from "./components/CounterPanel";
+import InitCount from "./components/InitCount";
 
 class App extends React.Component {
-
   state = {
-    count: 0,
+    count: null
   };
 
   handleIncreaseCount = () => this.setState({ count: this.state.count + 1 });
   handleDecreaseCount = () => this.setState({ count: this.state.count - 1 });
+  handleSubmit = event => {
+    event.preventDefault();
+    this.setState({
+      count: event.target.number.value
+    });
+    event.target.number.value = null;
+  };
 
   render() {
-
+    const { count } = this.state;
     return (
-      <div className='panel'>
-        <h1>
-          Counter
-          <span className='header-count'>| {this.state.count}</span>
-        </h1>
-        <button onClick={this.handleIncreaseCount}>
-          Increase
-        </button>
-        <button onClick={this.handleDecreaseCount}>
-          Decrease
-        </button>
+      <div className="buttonContainer panel">
+        <InitCount setNumber={this.handleSubmit} />
+        <CounterPanel
+          count={count}
+          counterName="Counter"
+          handleIncreaseCount={this.handleIncreaseCount}
+          handleDecreaseCount={this.handleDecreaseCount}
+        />
       </div>
     );
   }

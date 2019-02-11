@@ -41,24 +41,12 @@ The purpose of this class is to
 
 - There should be a single “source of truth” for any data that changes in a React application
 
-## Examples
+## Build with students
 
-### Temperature Conversion
+1. Temperature Conversion
 
 - Follow guide [here](https://reactjs.org/docs/lifting-state-up.html)
 
 - Show example where state needs to be lifted
 
 - Show controlled components with event handlers as props
-
-## In-Class Blog App
-
-### TODOs
-
-- Add liking functionality
-
-- Persist data to localStorage
-
-- Add comment creation functionality
-
-- Lift state to highest-level component

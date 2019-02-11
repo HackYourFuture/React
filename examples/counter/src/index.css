@@ -4,7 +4,7 @@ body {
   padding: 50px;
   font-family: sans-serif;
   text-align: left;
-  background: rgba(200,200,200,0.2);
+  background: rgba(200, 200, 200, 0.2);
   font-family: "Montserrat", "Helvetica", "Open Sans", "Arial";
 }
 
@@ -19,7 +19,15 @@ body {
   margin: 0 auto;
   position: relative;
   padding: 30px 50px 50px 50px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.panel form {
+  text-align: center;
+}
+
+.panel form input {
+  margin-bottom: 1em;
 }
 
 /* Header styles */
