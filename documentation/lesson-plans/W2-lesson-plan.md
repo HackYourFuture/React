@@ -32,13 +32,13 @@ _Show example of directly modifying state (and how it doesn't work). Then show a
 - Form state can be updated in real-time, using the onChange attribute combined with the value attribute
 - The easiest way form data can be extracted is by using the `name` attribute: event.target._inputName_.value
 
-_Show example of making a form with a text input and using this to change state_
+_Show example of a form with a text input, that after submission shows the value in a <p> tag. After, ask the students to do the same_
 
 ## Build with students
 
 To illustrate the core concepts of state, props and components build the following small app with the students.
 
-1. [Counter](../../examples/counter)
+1. [Counter](../../examples/simpleCounter)
 
 Create a number counter, that the user can increase or decrease by one.
 

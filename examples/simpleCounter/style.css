@@ -23,11 +23,17 @@ body {
 }
 
 .panel form {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .panel form input {
   margin-bottom: 1em;
+}
+
+/* Counter styles */
+.counterContainer {
+  text-align: center;
 }
 
 /* Header styles */

@@ -3,13 +3,10 @@
 Fork this repository and create a basic folder structure that includes:
 
 - Download the [example](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda/archive/9d0dd0ee941fea05fd1357502e5aa348abb84c12.zip) and put the project folder with a custom name inside the `homework-submission` directory.
--
-
-When you are done issue a PR with your homework as explained in [this video](https://www.youtube.com/watch?v=-o0yomUVVpU&index=2&list=PLVYDhqbgYpYUGxRdtQdYVE5Q8h3bt6SIA) made by Daan.
 
 ## Learning goals
 
-By doing this homework you will achieve the following:
+By doing this homework you will learn:
 
 - How to create your own custom components
 - How to nest components
@@ -78,3 +75,7 @@ You will be scored on:
 - Correct functionality
 - Code organisation
 - Cleanliness of code
+
+## Submit homework
+
+When you are done issue a PR with your homework as explained in [this video](https://www.youtube.com/watch?v=-o0yomUVVpU&index=2&list=PLVYDhqbgYpYUGxRdtQdYVE5Q8h3bt6SIA) made by Daan.

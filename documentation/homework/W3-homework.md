@@ -1,8 +1,11 @@
 # Homework Week 3
 
-Base your week 3 homework on the result of week 2.
+## Learning goals
 
-When you are done, update your PR from week 2.
+By doing this homework you will learn:
+
+- 
+
 
 ## Outline
 

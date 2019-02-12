@@ -49,13 +49,13 @@ _Show example of both JSX and createElement component and ask students to do the
 - Passed down using an identifier, a self-defined attribute name
 - Can be given to multiple instances of components
 
-_Show example and ask the students to make their own props (and pass to their components)_
+_Show example of a prop and ask the students to make their own props (and pass to their components)_
 
 ## Build with students
 
 Ask each student to follow along. You'll be showing them how it's done and explaining your thought process along the way. In the second exercise the student needs to remake the app.
 
-1. A navigation bar
+1. [Navigation Bar](../../examples/navigationbar)
 
 Make a navigation bar with 3 items. Each item should have a text prop.
 
