@@ -4,7 +4,7 @@
 
 The purpose of this class is ... TBD
 
-## Core concepts
+## Core Concepts
 
 TBD
 

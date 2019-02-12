@@ -28,9 +28,15 @@ Static List
 ```
 
 - `Divide the list` into reusable components (create at least 2)
+- Make sure the `container component is class-based`
 - `Reuse one component` at least 3 times
-- Each list item should have a prop of `description` and `deadline date`
+- Each list item should have a prop of `description` and `deadline`
 - Write for each component `a short summary` of what it does and the role of the prop (in case there is one) in a JavaScript comment
+
+```
+const RandomHello = () => { return <h1>Hello there!</h1> }
+// The goal of this component is to insert a random greeting in page
+```
 
 2. Create a second todo list underneath the first (reuse the same components) called `Dynamic List`, but this time pass the props dynamically using the following JSON code:
 
@@ -59,7 +65,7 @@ Static List
 
 - Import the JSON code
 - Use the `map()` function to dynamically render components
-- Using CSS and conditional rendering, cross out the item if `done` is true
+- Using CSS (a conditional className) , cross out the item if `done` is true
 
 ## Extra materials to practice
 

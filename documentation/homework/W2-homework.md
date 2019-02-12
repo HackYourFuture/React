@@ -7,7 +7,7 @@ By doing this homework you will learn:
 - What the role and use of `state` is
 - How to `change the presented data in the user interface` depending on the state (that's changed through the user input)
 - How to `make forms and extract data` from it in React
-
+- How to `add and remove items from an array in state`
 
 ## Outline
 
@@ -37,3 +37,6 @@ Tip: when adding or removing an item, think in terms of manipulating data types.
 - [Codecademy](https://www.codecademy.com/learn/react-102)
 - Project: [Recipe Box](https://www.youtube.com/watch?v=v6Q5NryHN5s)
 
+## Submit homework
+
+When you are done issue a PR with your homework as explained in [this video](https://www.youtube.com/watch?v=-o0yomUVVpU&index=2&list=PLVYDhqbgYpYUGxRdtQdYVE5Q8h3bt6SIA) made by Daan.
