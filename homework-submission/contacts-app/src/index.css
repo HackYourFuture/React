@@ -1,0 +1,237 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #2a2730;
+  color: #fbf7f7;
+}
+
+img {
+  max-width: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* BUTTON
+ *****************************************************************************/
+.button_logo {
+  padding: 5px;
+}
+
+.btn {
+  border-radius: 8px;
+  background: rgba(19, 152, 241, 0.1);
+  padding: 0 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* MAIN APP
+ *****************************************************************************/
+
+#root {
+  height: 100%;
+}
+
+.contact-app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* HEADER
+ *****************************************************************************/
+
+.header {
+  background: #6d5dc4;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.contact-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  color: white;
+  margin-right: 15px;
+}
+
+.contact_title {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 0%;
+}
+
+.container {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+/* CONTACT LIST
+ *****************************************************************************/
+
+.contact_list {
+  background: #6d5dc4;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 100%;
+}
+
+.contact_search {
+  background: #2a293f;
+  height: 42px;
+  margin: 15px 15px 0 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.search_icon {
+  font-size: 22px;
+  margin-right: 10px;
+}
+
+.input_search {
+  font: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  color: inherit;
+  flex: 1;
+}
+
+.contacts_list {
+  overflow-y: auto;
+  flex: 1;
+  height: 100%;
+  padding: 15px 0;
+}
+
+.rendered_contacts {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+.rendered_contacts.active {
+  background: #535283;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.contacts_icon {
+  border-radius: 100%;
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.contact_firstName {
+  margin-right: 0.3em;
+}
+
+.contact_lastName {
+  font-weight: bold;
+}
+
+/* CONTACT DETAILS
+ *****************************************************************************/
+
+.contact_details {
+  flex: 1;
+  margin-top: 4rem;
+  margin-left: 4rem;
+}
+
+.contact_title {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.contact_icon {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  margin-right: 30px;
+}
+
+.contactdetail_name {
+  font-size: 48px;
+  flex: 1;
+}
+
+.first_name {
+  margin-right: 0.3em;
+}
+
+.last_name {
+  font-weight: bold;
+}
+
+.details_info {
+  margin: 30px 12px;
+}
+
+.details_row {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0;
+}
+
+.details_label {
+  text-transform: uppercase;
+  color: #7a7a7a;
+  width: 150px;
+  text-align: right;
+  margin-right: 20px;
+}
+
+/* CONTACT FORM
+ *****************************************************************************/
+
+.form__field {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  padding: 5px;
+  outline: none;
+}
+
+.form__field:focus {
+  border-color: #7a7a7a;
+}
