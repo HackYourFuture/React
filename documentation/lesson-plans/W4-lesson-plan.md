@@ -34,7 +34,7 @@ npm install
 npm start
 ```
 
-Then follow the instructions on the page to make Fetch work. 
+You should be able to access the site on <http://localhost:8081>. Then, follow the instructions on the page to make Fetch work. 
 
 ### React + Fetch
 
