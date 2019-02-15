@@ -38,7 +38,8 @@ You should be able to access the site on <http://localhost:8081>. Then, follow t
 
 ### React + Fetch
 
-- **README** Read the short introcuction on [using APIs in React](https://reactjs.org/docs/faq-ajax.html). 
+- **README** Read about [the component lifecycle](https://reactjs.org/docs/react-component.html#the-component-lifecycle) to understand when React components do their thing.
+- **README** Read the short introduction on [using APIs in React](https://reactjs.org/docs/faq-ajax.html). 
 - We'll build a simple weather fetching app.
 
 ### React + Fetch + Backend
