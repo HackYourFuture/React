@@ -2,37 +2,45 @@
 
 ## Agenda
 
+_The beginning of this class is a refresher of the JavaScript 3 module_
+
 ### Asynchronous JavaScript (Promises)
 
 - For a long time, developers had to live in [callback hell](http://callbackhell.com/)
 - Now, Promises are native to JavaScript.
 - The `Promise` constructor takes one argument, a callback with two arguments, resolve and reject. Do something within the callback, typically async, then call resolve if everything worked, otherwise call reject.
-- [In-depth explanation here](https://developers.google.com/web/fundamentals/primers/promises)
+- **README** [In-depth explanation about promises](https://developers.google.com/web/fundamentals/primers/promises)
 
 
 ### Async/await 
 - User-friendly layer on top of Promises.
-- [Documentation](https://javascript.info/async-await)
+- **README** [Documentation on async/await](https://javascript.info/async-await)
 - Not all browsers support this natively, but Webpack/Babel will provide a compatibility layer so we don't have to worry about it.
 
 ### Fetch API
-
 - This is a _browser_ API only, will not work in Node environments (although there's of course a [node module](https://www.npmjs.com/package/node-fetch))
 - The new version of XMLHttpRequest.
 - Fetch uses Promises
-- In-depth explanation [here](https://developers.google.com/web/updates/2015/03/introduction-to-fetch)
-- Examples of fetch usage [here](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+- **WATCHME** Watch a [short video introduction to fetch](https://www.youtube.com/watch?v=g6-ZwZmRncs)
+- **README** Read [Working with the Fetch API](https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api)
+- More examples of fetch usage [here](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
-- Alternatives (isomorphic):
-  - [superagent](https://www.npmjs.com/package/superagent)
-  - [axios](https://www.npmjs.com/package/axios)
-  - [request](https://www.npmjs.com/package/request)
+- **OPTIONAL, RECOMMENDED** Run [Google's Fetch API code lab](https://developers.google.com/web/ilt/pwa/lab-fetch-api):
 
-- We will use fetch for our purposes, because it is standard to all modern browsers and does not require any third-party code
-- Fetch requires a little more boilerplate than some alternatives, but overall the API is basically the same
+```
+git clone https://github.com/google-developer-training/pwa-training-labs.git
+cd pwa-training-labs/fetch-api-lab/app
+npm install
+npm start
+```
 
-## In-Class Blog App
+Then follow the instructions on the page to make Fetch work. 
 
-### TODOs
+### React + Fetch
 
-- Convert application to read/write data from API instead of local state or localStorage
+- **README** Read the short introcuction on [using APIs in React](https://reactjs.org/docs/faq-ajax.html). 
+- We'll build a simple weather fetching app.
+
+### React + Fetch + Backend
+
+- We'll implement fetch to get data from a Node.js backend. 
