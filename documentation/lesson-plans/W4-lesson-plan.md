@@ -1,84 +1,64 @@
+
 # Lesson Plan Week 4
 
 ## Agenda
 
-### Flux Concepts
+### MobX Actions
 
-- Docs [here](https://facebook.github.io/flux/docs/in-depth-overview.html#content), but they are pretty long and overly complicated
+- Actions, generally speaking, are things that modify state
 
-- _Flux is just an idea, not a framework or library_
+- In the case of MobX, actions (and only actions) are what mutate our store(s)
 
-- Why do we need state management outside React?
-  - Joost’s slideshow [here](http://slides.com/joostlubach/react-3#/)
+- Using actions is mandatory in strict mode (this is a good thing)
 
-- Unidirectional data flow, just like React component trees
-  - This is sometimes called “one-way data binding”
-  - Other frameworks, like Angular, use two-way binding
-  - Facebook decided that two-way binding leads to increased complexity and therefore more bugs
+- _The action wrapper / decorator only affects the currently running function, not functions that are scheduled (but not invoked) by the current function_
+  - This is very important in the context of async actions
+  - If you have a setTimeout, Promise.then or async construction, and want to change the state in those callbacks, they should be wrapped in action as well
+  - [More info](https://mobx.js.org/best/actions.html#writing-asynchronous-actions)
 
-- But, any component anywhere in the React tree can listen directly to the store for changes
+### Asynchronous JavaScript (Promises)
 
-- Actions, and _only_ actions, change our application state, so it’s very clear where changes happen
-  - Easier to isolate logic
-  - Easier to track down bugs
+- For a long time, developers had to live in [callback hell](http://callbackhell.com/)
 
-![flux](img/flux.png "Flux")
+- Now, Promises are native to JavaScript
 
-- Store, or stores?
-  - Flux doesn’t care, this is an implementation decision
-  - Redux: one, big store
-  - MobX: many, smaller stores
+- The Promise constructor takes one argument, a callback with two arguments, resolve and reject. Do something within the callback, typically async, then call resolve if everything worked, otherwise call reject
 
-- The “View” is simply our React tree - any component can listen for store changes or get store changes as props from another listener
+- [In-depth explanation here](https://developers.google.com/web/fundamentals/primers/promises)
 
-- In Redux, we have separated concerns into actions, reducers, etc, with their own files (it gets complicated)
+- Discuss async/await, decide whether or not class wants to use it
 
-- In MobX, Action/Dispatcher/Store all live in one class for us
+### Fetch API
 
-## MobX
+- This is a _browser_ API only, will not work in Node environments
 
-- Docs [here](https://mobx.js.org/)
+- The new version of XMLHttpRequest
 
-- MobX is a flux implementation
+- Fetch uses Promises
 
-- In the most simple example, we have “observables” and “observers”
-  - “Observables” are state data that can be “listened to”
-  - “Observers” are React components that “listen to” observables
+- In-depth explanation [here](https://developers.google.com/web/updates/2015/03/introduction-to-fetch)
 
-- Actions update observable values, which then update components
+- Examples of fetch usage [here](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
-- Components trigger actions (eg on a button click)
+- Alternatives (isomorphic):
+  - [superagent](https://www.npmjs.com/package/superagent)
+  - [axios](https://www.npmjs.com/package/axios)
+  - [request](https://www.npmjs.com/package/request)
 
-![mobx](img/mobx.png "MobX")
+- We will use fetch for our purposes, because it is standard to all modern browsers and does not require any third-party code
 
-- We need two libraries: `mobx` and `mobx-react`
-  - `mobx` is the core library that just handles reactive classes, and is not opinionated about React
-  - `mobx-react` is the helper utility that provides bindings for React… which means it lets our React components connect to MobX stores
+- Fetch requires a little more boilerplate than some alternatives, but overall the API is basically the same
 
-- Decorators
-  - A little bit controversial, as the spec is not formalised yet
-  - Not officially part of JavaScript… yet
-  - Syntatic sugar to wrap classes (and only classes) in functions
-  - Read more [here](https://survivejs.com/react/appendices/understanding-decorators/)
-  - Will make our MobX code shorter and easier to read
+### Data-Fetching MobX Actions
 
-- Ejecting from `create-react-app`
-  - So, `create-react-app` is really simple, and hides a lot of complexity behind the scenes
-  - We need more control over our projects to enable decorators, so we need to eject
-  - To eject and enable decorators, follow [this easy guide](https://swizec.com/blog/mobx-with-create-react-app/swizec/7158)
+- Remember, fetch returns a Promise, which in turn does its work inside a callback function, so a single `@action` decorator at the top will not work
 
-## Examples
-
-### Counter
-
-- Refactor our previous super simple counter example to use MobX for state management
+- Two options:
+  - Use action() or runInAction() inside nested MobX actions
+  - Perform network requests outside MobX actions, and only use MobX actions to actually mutate with the new data once it’s received
 
 ## In-Class Blog App
 
 ### TODOs
 
-- Install mobx and mobx-react
-
-- Eject from CRA and enable decorators
-
-- Move all state into MobX store(s)
+- Convert application to read/write data from API instead of local state or localStorage
