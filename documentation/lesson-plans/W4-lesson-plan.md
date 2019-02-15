@@ -44,3 +44,4 @@ You should be able to access the site on <http://localhost:8081>. Then, follow t
 ### React + Fetch + Backend
 
 - We'll implement fetch to get data from a Node.js backend. 
+- **WATCHME** Quick whirlwind demo of a backend and front-end app: [YouTube video](https://www.youtube.com/watch?v=HPIjjFGYSJ4). **Warning:** don't use this approach in production because it's vulnerable to a [SQL injection attack](https://en.wikipedia.org/wiki/SQL_injection). We'll talk about how to mitigate that.
