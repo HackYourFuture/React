@@ -58,7 +58,13 @@ this.setState({
 
 - There should be a single “source of truth” for any data that changes in a React application
 
+### Form Frameworks
+
+- [Formik](https://jaredpalmer.com/formik/)
+
 ## Examples
+
+### Currency Calculator [Source](https://github.com/HackYourFutureBelgium/React/tree/master/examples/currency-calculator)
 
 ### Temperature Conversion
 

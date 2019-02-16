@@ -6,61 +6,34 @@ When you are done, update your PR from week 2.
 
 ## Outline
 
-Extend your todo list app with the ability to add new todo items and remove existing ones.
+Extend your contacts app with the ability to **view item details** and **search items**.
 
-Create an add button and a text input. When the add button is clicked a new todo item is created with the given
-description and deadline. Create also a remove button, which when clicked it should remove the todo item from the list.
+You should already have a search field, based on the HTML code from the [demo app](https://hyf-contacts.netlify.com). You should also have the details pane.
 
-> Challenge: figure out a way for users to enter the deadline date. This is a great opportunity to think like a community in a wider development community. Perhaps there are some **react** libraries out there that provide some kind of **date picker**? Also, look at **momentjs** to see if it could be useful.
+### Search
 
-A mockup of the end result is the following:
+To add search functionality, add an `onChange` handler to the search field. In the handler, update a state variable that contains the `searchText`. Then, there are two ways to implement this:
 
-```
-Todo List
+- Search the contact list in the search handler by creating a second list (e.g. filteredContacts) in state, and using that list to render. Make sure that you update your constructor and render method too.
+- Search the contact list right before you render (so in the body of the `render` method), and turn the `filteredContacts` into contact elements.
 
-Enter description: [           ] Deadline: [            ] [Add]
+When searching, make sure the following cases work:
 
-* [x] Get out of bed, Wed Sep 13 2017 [remove]
-* [ ] Brush teeth, Thu Sep 14 2017 [remove]
-* [ ] Eat breakfast, Fri Sep 15 2017 [remove]
-```
+- Searching should work for both first name and last name
+- Searching should be case-insensitive, e.g. searching for `"BOB"` will also return `"Bob"`.
+- Searching for nothing (empty string) should return all contacts.
+- Bonus points if you figure out how to return all contacts if your search string is just spaces (e.g. searching for `"  "`)
 
-Before you start draw a mockup and identify the components with colours.
+### View item details
 
-As a bonus, have the option to edit the description of a todo item. A mockup of the end result, in this case, should be the following:
+Clicking on a contact should show their details in the details pane. 
 
-```
-Todo List
+We've already seen the main "trick" to make this work, which is to remember the **index** of the contact you clicked on. Use the [indexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) function to figure out the index of the item, and use standard [array indexing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections) to get back that item.
 
-Enter description: [           ] Deadline: [            ] [Add]
+### Bonus: refactoring
 
-* [x] Get out of bed, Wed Sep 13 2017 [edit] [remove]
-* [ ] Brush teeth, Thu Sep 14 2017 [edit] [remove]
-* [ ] Eat breakfast, Fri Sep 15 2017 [edit] [remove]
-```
+As your app grows, this is a good time to structure the source code in multiple files. The `App.js` is the container that calls out to `ContactList.js` and `ContactDetails.js`. There could also be a `Header.js` that contains the header. 
 
-And when edit is clicked in one of the components:
+To make sure this works, look again at the docs for [lifting state up](https://reactjs.org/docs/lifting-state-up.html). Specifically, you need to store the search text and active contact in the App component. Pass down the state using render props, and also pass down the handlers that trigger when the user is searching or selecting a contact.
 
-```
-Todo List
-
-Enter description: [           ] Deadline: [           ] [Add]
-
-* [x] [Get out of bed    ] [update] [cancel] [remove]
-* [ ] Brush teeth, Thu Sep 14 2017 [remove]
-* [ ] Eat breakfast, Fri Sep 15 2017 [remove]
-```
-
-
-## Extra assignment
-
-Make the exercises in [chat-app](/documentation/chat-app/Exercises.md)!
-
-
-## Scoring
-
-You will be scored on:
-
-- Correct functionality
-- Code organisation
-- Cleanliness of code
+Good luck! ✨
