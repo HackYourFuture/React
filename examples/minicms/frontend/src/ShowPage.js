@@ -34,8 +34,10 @@ export default class ShowPage extends Component {
     this.loadPage();
   }
 
-  componentDidUpdate() {
-    this.loadPage();
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.slug !== this.props.match.params.slug) {
+      this.loadPage();
+    }
   }
 
   render() {
