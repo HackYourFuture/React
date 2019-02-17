@@ -28,9 +28,15 @@ header h1 {
   padding: 0;
 }
 
+header h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+
 header nav {
 
 }
+
 header nav a {
   margin-right: 1rem;
   color: white;

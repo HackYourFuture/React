@@ -9,7 +9,7 @@ export default class App extends Component {
       <Router>
         <div className="app">
           <header>
-            <h1>ACME Inc</h1>
+            <h1><Link to="/">ACME Inc</Link></h1>
             <nav>
               <Link to="/">Home</Link>
               <Link to="/about">About</Link>
