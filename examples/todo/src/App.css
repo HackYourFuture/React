@@ -1,0 +1,65 @@
+body {
+  background-color: #F7F7F7;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.content_wrapper {
+  max-width: 700px;
+  width: calc(100% - 20px);
+  height: 80%;
+}
+
+.add_todo__form input{
+  width: calc(100% - 90px);
+  font-size: 14pt;
+  padding: 5px;
+  border: none;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  padding-left: 15px;
+}
+
+.add_todo__form button{
+  color: white;
+  background-color: #FC5C5D;
+  border: none;
+  font-size: 14pt;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.to_do__list_wrapper {
+  height: calc(100% - 32px);
+  margin-top: 10px;
+  width: 100%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  background-color: white;
+}
+
+.to_do__list_wrapper ul {
+  padding-left: 0;
+}
+
+.to_do__list_wrapper li {
+  padding: 15px;
+  list-style-type: none;
+  border-bottom: 1px solid #CBCBCB;
+}
+
+.to_do__list_wrapper label {
+  margin-left: 10px;
+  font-size: 14pt;
+  margin-top: 2px;
+}
+
+input[type=checkbox] {
+  transform: scale(1.5);
+}
