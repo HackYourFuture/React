@@ -50,6 +50,7 @@ export default class EditPage extends Component {
       body: JSON.stringify(this.state.page)
     });
     const json = await res.json();
+    console.assert(json.status === 'ok');
     this.setState({ isSaved: true });
   }
 
@@ -71,7 +72,7 @@ export default class EditPage extends Component {
           <label>
             <span className="edit__label">Body</span>
             <textarea className="edit__textarea" name="body" value={ page.body } onChange={this.handleChange} placeholder="Welcome to ACME, Inc." />
-            <div className="edit__help">Pages are written using <a href="https://commonmark.org/help/" target="_blank">Markdown</a>.</div>
+            <div className="edit__help">Pages are written using <a href="https://commonmark.org/help/" target="_blank" rel="noopener noreferrer">Markdown</a>.</div>
            </label>
         </div>
         <div className="edit__row">

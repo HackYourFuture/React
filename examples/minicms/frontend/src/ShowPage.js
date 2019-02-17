@@ -17,7 +17,7 @@ export default class ShowPage extends Component {
     }
   }
 
-  async componentDidMount() {
+  async loadPage() {
     const slug = this.getSlug();
     const res = await fetch(`${API_PREFIX_URL}/${slug}`);
     const json = await res.json();
@@ -28,6 +28,14 @@ export default class ShowPage extends Component {
     } else {
       this.setState({ error: 'Unknown error', isLoading: false });
     }
+  }
+
+  componentWillMount() {
+    this.loadPage();
+  }
+
+  componentDidUpdate() {
+    this.loadPage();
   }
 
   render() {

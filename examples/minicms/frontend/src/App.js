@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import ShowPage from './ShowPage';
 import EditPage from './EditPage';
 
@@ -16,9 +16,11 @@ export default class App extends Component {
             </nav>
           </header>
           <main>
-           <Route path="/edit/:slug" component={EditPage} />
-           <Route exact path="/:slug" component={ShowPage} />
-           <Route exact path="/" component={ShowPage} />
+           <Switch>
+             <Route path="/edit/:slug" component={EditPage} />
+             <Route exact path="/:slug" component={ShowPage} />
+             <Route exact path="/" component={ShowPage} />
+           </Switch>
           </main>
         </div>
       </Router>
