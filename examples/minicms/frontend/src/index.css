@@ -46,6 +46,7 @@ main {
   padding: 1rem;
   max-width: 1000px;
   margin: 0 auto;
+  margin-bottom: 5rem;
 }
 
 .page__actions {
@@ -98,4 +99,11 @@ main {
 
 .edit__help a {
   color: inherit;
+}
+
+footer {
+  background: #ddd;
+  color: #999;
+  font-size: 0.8rem;
+  padding: 2rem 1rem;
 }

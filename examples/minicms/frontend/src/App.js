@@ -22,6 +22,7 @@ export default class App extends Component {
              <Route exact path="/" component={ShowPage} />
            </Switch>
           </main>
+          <footer>&copy; 2019 ACME Inc.</footer>
         </div>
       </Router>
     );
