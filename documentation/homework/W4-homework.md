@@ -32,6 +32,10 @@ ACME Inc is the largest distributor of things.
 
 The first line (without the hashtag) is the page title. The rest of the page is the body. 
 
+Here's the default content of my website:
+* [index.md](https://raw.githubusercontent.com/HackYourFutureBelgium/React/master/examples/minicms/backend/data/index.md)
+* [about.md](https://raw.githubusercontent.com/HackYourFutureBelgium/React/master/examples/minicms/backend/data/about.md)
+
 To extract out the title and body, [split](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) the string into a list of lines, then take out the first line and use [slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) to put the list back together.
 
 Make sure to handle errors from fs properly. If the page doesn't exist, don't just throw an error. Instead, return a JSON object with a `error` status code.
