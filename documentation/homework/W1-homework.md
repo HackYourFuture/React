@@ -21,7 +21,7 @@ Fork this repository and create a basic folder structure that includes:
 
 `<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>`
 
-- A simple JavaScript file that will contain all your React code. When including it into the HTML file, add `type=text/babel` (this will you to write JSX code).
+- A simple JavaScript file that will contain all your React code. When including it into the HTML file, add `type=text/babel` (this will allow you to write JSX code).
 
 For an example look [here](https://reactjs.org/docs/add-react-to-a-website.html).
 
