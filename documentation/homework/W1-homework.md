@@ -1,9 +1,5 @@
 # Homework Week 1
 
-Fork this repository and create a basic folder structure that includes:
-
-- Download the [example](https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda/archive/9d0dd0ee941fea05fd1357502e5aa348abb84c12.zip) and put the project folder with a custom name inside the `homework-submission` directory.
-
 ## Learning goals
 
 By doing this homework you will learn:
@@ -12,6 +8,24 @@ By doing this homework you will learn:
 - How to nest components
 - Better understand the role of `props` and how to pass them to components
 - Reuse components and give them different data
+
+## Getting started
+
+Fork this repository and create a basic folder structure that includes:
+
+- A simple HTML file, with one <div> that has an id of `thisIsWhereReactIsInjected` and the following scripts included in the <body>:
+
+`<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin><script>`
+
+`<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>`
+
+`<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>`
+
+- A simple JavaScript file that will contain all your React code. When including it into the HTML file, add `type=text/babel` (this will you to write JSX code).
+
+For an example look [here](https://reactjs.org/docs/add-react-to-a-website.html).
+
+Put the project folder with a custom name inside the `homework-submission` directory.
 
 ## Outline
 
