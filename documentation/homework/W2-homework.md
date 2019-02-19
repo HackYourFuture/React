@@ -1,58 +1,42 @@
 # Homework Week 2
 
-Base your week 2 homework on the result of week 1.
+## Learning goals
 
-When you are done update your PR from week 1.
+By doing this homework you will learn:
+
+- What the role and use of `state` is
+- How to `change the presented data in the user interface` depending on the state (that's changed through the user input)
+- How to `make forms and extract data` from it in React
+- How to `add and remove items from an array in state`
 
 ## Outline
 
-Extend your todo list app with dynamic rendering of items based on the following JSON list:
+This week's homework will extend your Todo List app from week 1. You can remove the `Static List` and continue on with the `Dynamic List`.
 
-```json
-[
-  {
-    "id": 1,
-    "description": "Get out of bed",
-    "deadline": "2017-09-11",
-    "done": true
-  },
-  {
-    "id": 2,
-    "description": "Brush teeth",
-    "deadline": "2017-09-10",
-    "done": false
-  },
-  {
-    "id": 3,
-    "description": "Eat breakfast",
-    "deadline": "2017-09-09",
-    "done": false
-  }
-]
-```
+1. Integrate state into your app
 
-The JSON list should be in the **state** of the `App` component. Create a checkbox in each todo item. When you click the checkbox, the done state of the item should change. When an item is marked as done, it should be rendered with a `line-through` decoration. A mockup of the end result is the following:
+Instead of loading in a JSON file we want to put it into the application state. This creates a copy of it that we can change.
 
-```
-Todo List
+- Create a `state object`
+- Import and `move your JSON content to state`
+- `Pass JSON from state` to the components as props
 
-* [x] Get-out-of-bed,-Wed-Sep-13-2017
-* [ ] Brush teeth, Thu Sep 14 2017
-* [ ] Eat breakfast, Fri Sep 15 2017
-```
+2. Change the state
 
-When there are no items, the todo app should render the text "No items...":
+We can change the state by using a function called `setState()`. We'll start learning this by adding/removing new data to our state: by `adding` and `removing` a todo list item.
 
-```
-Todo List
+- Create a form that takes an `Input field component`
+- Create a `Button component` to be used for adding new elements
+- Define a `function inside the class component` that changes the JSON content to add a new entry
+- Define a `function inside the class component` that changes the JSON content to remove the clicked entry
 
-No items...
-```
+Tip: when adding or removing an item, think in terms of manipulating data types. In this case, think about how to add or remove an item from an array.
 
-## Scoring
+## Extra materials to practice
 
-You will be scored on:
+- [Codecademy](https://www.codecademy.com/learn/react-102)
+- Project: [Recipe Box](https://www.youtube.com/watch?v=v6Q5NryHN5s)
 
-- Correct functionality
-- Code organisation
-- Cleanliness of code
+## Submit homework
+
+When you are done issue a PR with your homework as explained in [this video](https://www.youtube.com/watch?v=-o0yomUVVpU&index=2&list=PLVYDhqbgYpYUGxRdtQdYVE5Q8h3bt6SIA) made by Daan.

@@ -1,20 +1,21 @@
 # Homework Week 4
 
-Base your week 4 homework on the result of week 3.
+Base your week 4 homework on the result of week 3. We are going to connect your React code to a basic Node.js backend, using Express.js.
 
-When you are done, create a new PR for week 4.
+## Learning goals
+
+By doing this homework you will achieve the following:
+
+- Understand `how backend and frontend connect`
+- Learn about what `endpoints` are
 
 ## Outline
 
-Refactor your todo list app so that all state is handled by MobX stores. You _may_ want to keep some form state as local state inside React components. But think carefully about this.
+TBD
 
-Make sure to only mutate your store(s) with MobX actions - you will need to move all your handler functions inside your MobX store(s).
+## Extra material to practice
 
-To use decorators (the `@` syntax) with `create-react-app`, follow this [tutorial](https://swizec.com/blog/mobx-with-create-react-app/swizec/7158).
-
- _You must have MobX strict mode enabled. Any homework submitted without strict mode on will be rejected. You enable strict mode like this:_
- 
-    configure({ enforceActions: 'observed' })
+TBD
 
 ## Scoring
 
@@ -23,3 +24,7 @@ You will be scored on:
 - Correct functionality
 - Code organisation
 - Cleanliness of code
+
+## Submit homework
+
+When you are done issue a PR with your homework as explained in [this video](https://www.youtube.com/watch?v=-o0yomUVVpU&index=2&list=PLVYDhqbgYpYUGxRdtQdYVE5Q8h3bt6SIA) made by Daan.
