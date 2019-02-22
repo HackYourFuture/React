@@ -1,0 +1,14 @@
+.completed-todo {
+  text-decoration: line-through;
+  color: red;
+}
+h1 {
+  color: blue;
+}
+ul {
+  display: inline-block;
+  margin: 10px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 2px rgb(214, 117, 117);
+  width: 200px;
+}
