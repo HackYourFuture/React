@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  max-width: 1000px;
+  font-family: Oswald, Helvetica, sans-serif;
+  line-height: 50px;
+  font-size: 20px;
+}
+
+nav {
+  border: 1px solid;
+  border-radius: 5px;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  right: 30%;
+  width: 600px;
+  background-color: aqua;
+  display: inline-block;
+  text-align: center;
+}
+
+nav ul li {
+  list-style: none;
+  border-bottom: 1px solid;
+}

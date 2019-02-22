@@ -1,0 +1,27 @@
+.app {
+  text-align: center;
+}
+
+header {
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #333;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(15px + 2vmin);
+  color: white;
+}
+
+.app ul {
+  padding: 20px;
+}
+.app ul li {
+  line-height: 30px;
+  background-color: aqua;
+  list-style: none;
+  padding: 15px;
+  border: 1px solid;
+}
