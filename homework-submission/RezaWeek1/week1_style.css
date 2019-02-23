@@ -3,3 +3,7 @@
   font-size: 1.1rem;
   border-bottom: 1px solid gray;
 }
+.done {
+  text-decoration: line-through;
+  font-style: italic;
+}
