@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Data from './Data';
+import Data from './Data.json';
 import Header from './Header';
 import Todo from './Todo';
 
