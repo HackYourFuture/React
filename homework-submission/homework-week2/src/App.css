@@ -1,0 +1,31 @@
+body {
+  color: rgb(69, 58, 74);
+  background-color: rgb(227, 227, 215);
+  font-family: sans-serif;
+  padding: 1vw;
+}
+
+table {
+  border: 1px solid black;
+  margin: 3px;
+}
+
+td {
+  font-size: 15px;
+  background-color: rgb(237, 222, 140);
+  padding: 3px;
+  border: 1px dotted black;
+  width: 215px;
+}
+
+th {
+  font-size: 15px;
+  margin-left: 5px;
+  border: 1px dotted black;
+  width: 100px;
+}
+input {
+  width: 300px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
