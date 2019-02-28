@@ -2,11 +2,11 @@
 
 ## Agenda
 
-The purpose of this class is to teach the student about more advanced React concepts. To make this more realistic (and efficient) they'll be using `create-react-app`, which will make the workflow easier.
+The purpose of this class is to teach the student about more advantage React usage and how to connect a React client to a Express-based Node.js server. To make this more realistic (and efficient) the student will be using `create-react-app`, which will make the workflow easier.
 
-They will learn about `component lifecycle` and and how to use `componentDidMount()`. The student will make an `API call` using this lifecycle method.
+The student will learn about `component lifecycle` and and how to use `componentDidMount()`. The student will make an `API call` using this lifecycle method.
 
-They will also learn about client-side routing, using `React-Router`. This class will be a refresher on the concept of routing, and teach the student about the value of frontend routing when making SPAs.
+Lastly, the student will learn how to connect a React frontend to a Node.js backend.
 
 ## Core Concepts
 
@@ -35,18 +35,10 @@ _Show the following [image](https://cdn-images-1.medium.com/max/2000/1*cEWErpe-o
 
 _Show example of how to make an API call in `componentDidMount()` and put the data in state. Make use of the following API: `https://reqres.in/api/users`. Then present the data through newly created components_
 
-3. Frontend routing
+3. Connecting React with an Express-based Node.js server
 
-- Routing refresher: the mechanism by which **requests (as specified by a URL or HTTP method) are routed to the code that handles them**.
-- Server-side routing is the norm, but with rise of modern JavaScript and SPAs came **client-side routing**
-- On URL change **no request to server** (and thus no page refresh), **only changed state of app and URL adjustment**
-- For React, third-party library **React-Router** is most popular
-- Most important concepts: `<BrowserRouter />`, `<Route />`, `<Link />`, `<Switch />`, the `location` prop and `history` object
+- React can be connected to any type of backend (writting in Node.js, Java, Ruby,etc.)
+- A (web) server only serves files to a client. A React frontend, ultimately, is just an HTML file with injected JavaScript Thi HTML is what Express will serve.
+- Connection takes place by calling upon `endpoints`
 
-_Explain the following example: [Basic Example](https://reacttraining.com/react-router/web/example/basic)_
-
-_Exercise: help students recreate the Basic Example (without looking at the code)_
-
-## Build with students
-
-TBD
+_Show how to build a simple Express server and React client from scratch, connect them using a single endpoint, and explain every step in the process_
