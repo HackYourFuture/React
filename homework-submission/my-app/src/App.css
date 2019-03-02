@@ -1,0 +1,19 @@
+.App {
+  width: 400px;
+  margin: 20px auto;
+  background-color: rgba(219, 240, 248, 0.89);
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #fff;
+}
+.buttons {
+  border-radius: 8px;
+  padding: 4px;
+}
