@@ -14,7 +14,7 @@ export default class TodoForm extends Component {
   }
   submitData(event) {
     event.preventDefault();
-    this.props.updateTodoList(this.state);
+    this.props.addTodo(this.state);
   }
   render() {
     return (

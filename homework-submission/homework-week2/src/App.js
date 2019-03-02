@@ -9,12 +9,14 @@ class App extends Component {
     super(props);
     this.state = { todo: arr };
     this.deleteTodo = this.deleteTodo.bind(this);
-    this.updateTodoList = this.updateTodoList.bind(this);
+    this.updateTodoList = this.addTodo.bind(this);
   }
   deleteTodo(index) {
-    this.setState({ todo: this.state.todo.filter(elem => elem !== this.state.todo[index]) });
+    const todo = [...this.state.todo];
+    todo.splice(index, 1);
+    this.setState({ todo });
   }
-  updateTodoList(newTodo) {
+  addTodo(newTodo) {
     const newTodoArray = this.state.todo.slice();
     newTodoArray.push(newTodo);
     this.setState({ todo: newTodoArray });
@@ -23,7 +25,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TodoForm updateTodoList={data => this.updateTodoList(data)} />
+        <TodoForm addTodo={data => this.addTodo(data)} />
         <DynamicList todo={this.state.todo} deleteTodo={index => this.deleteTodo(index)} />
       </div>
     );
