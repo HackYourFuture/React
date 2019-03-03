@@ -1,0 +1,31 @@
+.title {
+
+  color : red ; 
+  padding-left : 30px ; 
+  font-size :50px;
+}
+
+
+.ul {
+
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+font-size :30px;
+line-height: 2em ;
+
+}
+
+
+.data {
+  font-size :30px;
+  line-height: 2em ;
+  
+
+}
+
+.done {
+
+  text-decoration: line-through red;
+}
+span{
+  font-size: 24px;
+}
