@@ -1,0 +1,25 @@
+.todoWrapper {
+  border-bottom: 1px solid #efefef;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.removeTodo {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  outline: none;
+  box-shadow: none;
+  border-width: 2px;
+  border-radius: 3px;
+  border-style: solid;
+  padding: 8px;
+  color: rgb(236, 14, 29);
+  border-color: rgb(236, 14, 29);
+  background-color: transparent;
+}
+
+.removeTodo:hover {
+  background-color: rgb(236, 14, 29);
+  color: #fff;
+  transition: all 0.15s;
+}

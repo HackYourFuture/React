@@ -1,0 +1,37 @@
+.btn {
+  outline: none;
+  box-shadow: none;
+  border-width: 2px;
+  border-radius: 3px;
+  border-style: solid;
+  padding: 8px;
+}
+
+.btn-primary {
+  color: rgba(14, 138, 255, 1);
+  border-color: rgba(14, 138, 255, 1);
+  background-color: transparent;
+}
+.btn-primary:hover {
+  color: #fff;
+  border-color: rgba(14, 138, 255, 1);
+  background-color: rgba(14, 138, 255, 1);
+  transition: all 0.125s;
+}
+
+input {
+  width: 80%;
+  border: none;
+  border-top: 2px solid rgba(14, 138, 255, 1);
+  border-bottom: 2px solid rgba(14, 138, 255, 1);
+  margin-right: 10px;
+  padding: 5px;
+  line-height: 20px;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+  border-top: 2px solid rgba(73, 204, 249, 1);
+  border-bottom: 2px solid rgba(73, 204, 249, 1);
+}
