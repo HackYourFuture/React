@@ -82,17 +82,6 @@ class App extends Component {
     });
   };
 
-  // deleteTodo = key => {
-  //   const todos = [...this.state.todos];
-  //   console.log(todos);
-  //   const filteredItems = this.state.todos.filter(item => {
-  //     return item.key !== key;
-  //   });
-  //   this.setState({
-  //     todos: filteredItems,
-  //   });
-  // };
-
   render() {
     return (
       <div className="TodoListMain">
