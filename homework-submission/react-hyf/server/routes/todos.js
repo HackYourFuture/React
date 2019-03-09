@@ -1,37 +1,47 @@
 let todos = [
   {
-    id: 1,
+    id: 0,
     text: 'Practice for staatsexamen',
   },
   {
-    id: 2,
+    id: 1,
     text: 'Jogging.',
   },
   {
-    id: 3,
+    id: 2,
     text: "Do the HYF's homework",
   },
   {
-    id: 4,
+    id: 3,
     text: 'Feed my cat',
   },
 ];
 
 module.exports = app => {
-  console.log(todos);
   app.get('/todos', (req, res) => {
     res.json(todos);
   });
 
-  app.post('/todos', (req, res) => {
-    console.log(req.body);
-    console.log('Creating a new animal');
-    res.send('New Todo');
+  app.get('/todos/:id', (req, res) => {
+    const id = req.params.id;
+    res.json(todos[id]);
   });
 
-  app.delete('/todos', (req, res) => {
-    todos = [];
+  app.post('/todos/:item/:id', (req, res) => {
+    const newData = {
+      id: req.params.id,
+      text: req.params.item,
+    };
+    todos.push(newData);
+    console.log(req.body);
+    console.log('Creating a new animal');
+    res.json(todos);
+  });
+
+  app.delete('/todos/:id', (req, res) => {
+    let id = Number(req.params.id);
+    todos.splice(id, 1);
     console.log('deleting a todo');
-    res.send('Deleting animal');
+    res.json(todos);
   });
 };

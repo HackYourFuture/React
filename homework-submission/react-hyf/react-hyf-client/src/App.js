@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       todos: [],
-      nextId: 5,
+      nextId: 4,
     };
 
     this.addTodo = this.addTodo.bind(this);
