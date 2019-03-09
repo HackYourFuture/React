@@ -1,0 +1,16 @@
+.Name {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 35px;
+}
+.Info {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.details {
+  text-align: center;
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 10px;
+  width: 42.5%;
+  float: left;
+  border-radius: 5px;
+}
