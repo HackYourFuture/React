@@ -1,0 +1,83 @@
+.TodoListMain .header input {
+  padding: 10px;
+  font-size: 15px;
+  border: 2px solid rgb(139, 49, 49);
+  width: 200px;
+}
+.TodoListMain .header button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+  margin-rigt: 0px;
+  background-color: #0066ff;
+  color: white;
+  border: 2px solid #0066ff;
+}
+form {
+  display: flex;
+  align-items: center; /* Vertical alignment */
+}
+.row {
+  display: flex;
+  align-items: center; /* Vertical alignment */
+}
+
+.listItem {
+  font-size: 13px;
+  display: block;
+  margin: 15px auto;
+  max-width: 500px;
+  width: 100%;
+}
+
+.listItem .deleteButton {
+  background-color: #bd2626;
+  color: #fff;
+  width: auto;
+  height: auto;
+}
+.deleteButton {
+  padding: 10px;
+  font-size: 12px;
+  margin: 10px;
+  background-color: brown;
+  color: white;
+  border: 2px solid #f7f3f3;
+}
+.deleteButton:hover {
+  background-color: darkred;
+  border: 2px solid greenyellow;
+  cursor: pointer;
+}
+
+.TodoListMain .header button:hover {
+  background-color: blue;
+  border: 2px solid greenyellow;
+  cursor: pointer;
+}
+.TodoListMain .thelist li {
+  color: green;
+  background-color: lightcyan;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: radius 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  list-style: none;
+  transition: background-color 0.2s ease-out;
+}
+.TodoListMain .thelist li:hover {
+  background-color: pink;
+  cursor: pointer;
+}
+ul.thelist {
+  padding: 0;
+}
+.fetch-Items {
+  font-size: 13px;
+  padding: 10px;
+  font-size: 12px;
+  margin: 10px;
+}
