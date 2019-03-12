@@ -11,9 +11,17 @@ class App extends Component {
     this.state = { data: [] };
   }
   componentDidMount() {
-    fetch(url)
-      .then(data => data.json())
-      .then(results => this.setState({ data: results }));
+    this.fetchApi()
+      .then(results => this.setState({ data: results }))
+      .catch(err => console.error(err));
+  }
+  async fetchApi() {
+    const data = await fetch(url);
+    const parsedData = await data.json();
+    if (data.status !== 200) {
+      throw Error(parsedData.message);
+    }
+    return parsedData;
   }
   render() {
     return (
