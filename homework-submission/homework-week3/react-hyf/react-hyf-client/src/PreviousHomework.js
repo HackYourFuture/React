@@ -12,9 +12,9 @@ export default class PreviousHomework extends Component {
   }
 
   deleteTodo(index) {
-    const todo = [...this.state.todo];
-    todo.splice(index, 1);
-    this.setState({ todo });
+    const newTodoArray = this.state.todo.slice();
+    newTodoArray.splice(index, 1);
+    this.setState({ todo: newTodoArray });
   }
   addTodo(newTodo) {
     const newTodoArray = this.state.todo.slice();
