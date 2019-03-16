@@ -17,10 +17,10 @@ class App extends Component {
   }
   async fetchApi() {
     const data = await fetch(url);
-    const parsedData = await data.json();
     if (data.status !== 200) {
-      throw Error(parsedData.message);
+      throw new Error('An error has occured!');
     }
+    const parsedData = await data.json();
     return parsedData;
   }
   render() {
