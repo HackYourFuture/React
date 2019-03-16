@@ -4,8 +4,8 @@ import OtherInformation from './components/OtherInformation';
 
 export default class HomeworkWeek3 extends Component {
   render() {
-    return this.props.data.map(elem => (
-      <div className="individual" key={elem.name}>
+    return this.props.data.map((elem, i) => (
+      <div className="individual" key={i}>
         <FullName name={elem.name} surname={elem.surname} />
         <OtherInformation gender={elem.gender} region={elem.region} />
       </div>
