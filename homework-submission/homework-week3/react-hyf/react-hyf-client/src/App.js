@@ -18,7 +18,7 @@ class App extends Component {
   async fetchApi() {
     const data = await fetch(url);
     if (data.status !== 200) {
-      throw new Error('An error has occured!');
+      throw new Error('An error has occurred!');
     }
     const parsedData = await data.json();
     return parsedData;
