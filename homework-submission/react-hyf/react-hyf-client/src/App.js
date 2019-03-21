@@ -3,13 +3,13 @@ import './App.css';
 import Header from './components/Header';
 import TodoInput from './components/TodoInput';
 import TodoItem from './components/TodoItem';
+import { getAll, create, remove } from './api/todos';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       todos: [],
-      nextId: 4,
     };
 
     this.addTodo = this.addTodo.bind(this);
@@ -17,32 +17,37 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchTodos().then(todos => {
+    getAll().then(todos => {
       this.setState({
         todos,
       });
     });
   }
 
-  fetchTodos = async () => {
-    const response = await fetch('/todos');
-    const data = await response.json();
-    return data;
-  };
-
-  addTodo(todoText) {
-    let todos = [...this.state.todos];
-    todos.push({ id: this.state.nextId, text: todoText });
-    this.setState({
-      todos: todos,
-      nextId: this.state.nextId + 1,
-    });
+  addTodo(text) {
+    create(text)
+      .then(todo => {
+        const todos = [...this.state.todos];
+        todos.push(todo);
+        this.setState({
+          todos,
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   removeTodo(id) {
-    this.setState({
-      todos: this.state.todos.filter((todo, index) => todo.id !== id),
-    });
+    remove(id)
+      .then(todos => {
+        this.setState({
+          todos,
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   render() {
