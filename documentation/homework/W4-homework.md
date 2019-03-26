@@ -7,7 +7,6 @@ Base your week 4 homework on the result of week 3. We are going to implement cli
 By doing this homework you will learn:
 
 - How the `concept of routing` is applied to a SPA
-- `Create structure` for your frontend app
 
 ## Outline
 

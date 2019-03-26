@@ -38,7 +38,7 @@ _Show example of a form with a text input, that after submission shows the value
 
 To illustrate the core concepts of state, props and components build the following small app with the students.
 
-1. [Counter](../../examples/simpleCounter)
+- [Counter](../../examples/simpleCounter)
 
 Create a number counter, that the user can increase or decrease by one.
 

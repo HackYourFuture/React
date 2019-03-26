@@ -24,12 +24,12 @@ In order to make use of CRA, you need to install it to your machine through the 
 - Manually move the code from your old homeworks into a new `<PreviousHomeworks />` component. Divide it up into smaller components if needed.
 - Add the `<PreviousHomeworks />` component inside the `<App />` component
 
-2. Make an API call to the following URL: https://uinames.com/api/?amount=10
+2. Make an API call to the following URL: https://uinames.com/api/?amount=10 and present the users in the same way as [shown](https://uinames.com/) in the API.
 
 - Make use of `componentDidMount()`
 - Put the returned JSON in state
 - Create reusable components, at least 3
-- Present the returned data inside a container component called `<HomeworkWeek3 />`
+- Present the complete week 3 homework inside a container component called `<HomeworkWeek3 />`
 - Write as little (repeated) code as possible (tip: make use of the `map()` function)
 
 3. Connect your CRA with a Express-based Node.js backend (Development server)
