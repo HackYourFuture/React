@@ -52,34 +52,33 @@ const RandomHello = () => { return <h1>Hello there!</h1> }
 // The goal of this component is to insert a random greeting in page
 ```
 
-2. Create a second todo list underneath the first (reuse the same components) called `Dynamic List`, but this time pass the props dynamically using the following JSON code:
+2. Create a second todo list underneath the first (reuse the same components) called `Dynamic List`, but this time pass the props dynamically using the following array of objects:
 
-```JSON
+```js
 [
   {
-    "id": 1,
-    "description": "Get out of bed",
-    "deadline": "2017-09-11",
-    "done": true
+    id: 1,
+    description: "Get out of bed",
+    deadline: "2017-09-11",
+    done: true
   },
   {
-    "id": 2,
-    "description": "Brush teeth",
-    "deadline": "2017-09-10",
-    "done": false
+    id: 2,
+    description: "Brush teeth",
+    deadline: "2017-09-10",
+    done: false
   },
   {
-    "id": 3,
-    "description": "Eat breakfast",
-    "deadline": "2017-09-09",
-    "done": false
+    id: 3,
+    description: "Eat breakfast",
+    deadline: "2017-09-09",
+    done: false
   }
-]
+];
 ```
 
-- Import the JSON code
 - Use the `map()` function to dynamically render components
-- Using CSS (a conditional className) , cross out the item if `done` is true
+- Using CSS (a conditional className), cross out the item if `done` is true
 
 ## Extra materials to practice
 
