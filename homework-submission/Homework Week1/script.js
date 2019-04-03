@@ -42,16 +42,24 @@ const Data = [
 
 const Items = Data.map(elem => {
   return (
-    <li
-      key={elem.id}
-      style={elem.done === true ? { textDecoration: 'line-through' } : { textDecoration: '' }}
-    >
-      {elem.description} ,{elem.deadline}
-    </li>
+    <div>
+      <li
+        key={elem.id}
+        style={elem.done === true ? { textDecoration: 'line-through' } : { textDecoration: '' }}
+      >
+        {elem.description} ,{elem.deadline}
+      </li>
+    </div>
   );
 });
 
-const ToDoListDynamic = () => <ul className="list">{Items}</ul>;
+const ToDoListDynamic = () => (
+  <div>
+    <h1>Dynamic List</h1>
+
+    <ul className="list">{Items}</ul>
+  </div>
+);
 
 class App extends React.Component {
   render() {
