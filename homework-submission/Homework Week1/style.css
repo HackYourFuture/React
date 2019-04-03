@@ -1,0 +1,23 @@
+.list {
+  list-style: none;
+  font-size: 30px;
+  font-style: oblique;
+  border-radius: 40px;
+  border-color: gray;
+  border-style: double;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+li::before {
+  content: '•';
+  padding-right: 8px;
+  color: palevioletred;
+}
+h1 {
+  font-size: 40px;
+  font-style: initial;
+  color: palevioletred;
+  margin-top: 60px;
+  margin-left: 80px;
+}
