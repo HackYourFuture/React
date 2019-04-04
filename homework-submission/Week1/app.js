@@ -1,3 +1,4 @@
+// This component is to create todoList Table.
 class Table extends React.Component {
   render() {
     const description = this.props.description;
@@ -17,6 +18,7 @@ class Table extends React.Component {
   }
 }
 
+// This component is to create a todoList by using Table component (nested component).
 class StaticList extends React.Component {
   render() {
     return (
@@ -30,6 +32,7 @@ class StaticList extends React.Component {
   }
 }
 
+// This component is to create a todoList by using Table component (nested component) and the data pass dynamically.
 class DynamicList extends React.Component {
   constructor(props) {
     super(props);
