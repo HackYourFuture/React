@@ -15,13 +15,13 @@ Fork this repository and create a basic folder structure that includes:
 
 - A simple HTML file, with one `<div>` that has an id of `thisIsWhereReactIsInjected` and the following scripts included in the `<body>`:
 
-`<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin><script>`
+`<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>`
 
 `<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>`
 
 `<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>`
 
-- A simple JavaScript file that will contain all your React code. When including it into the HTML file, add `type=text/babel` (this will allow you to write JSX code).
+- A simple JavaScript file that will contain all your React code. When including it into the HTML file, add ` type="text/babel"` (this will allow you to write JSX code).
 
 For an example look [here](https://reactjs.org/docs/add-react-to-a-website.html).
 
