@@ -32,7 +32,7 @@ class App extends React.Component {
   handleSubmit = formValues => {
     formValues.preventDefault();
     this.setState({
-      count: formValues.target.initCount.value
+      count: formValues.target.initCount.value * 1
     });
   };
 
