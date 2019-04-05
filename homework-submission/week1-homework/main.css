@@ -1,0 +1,15 @@
+.title {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+
+.crossed {
+  text-decoration: line-through;
+}
+
+.ul {
+  list-style-type: none;
+}
