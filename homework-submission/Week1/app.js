@@ -78,10 +78,12 @@ class DynamicList extends React.Component {
   }
 }
 
+const root = document.getElementById('thisIsWhereReactIsInjected');
+
 ReactDOM.render(
   <div>
     <StaticList />
     <DynamicList />
   </div>,
-  document.getElementById('thisIsWhereReactIsInjected')
+  root
 );
