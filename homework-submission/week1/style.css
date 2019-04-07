@@ -1,0 +1,61 @@
+ul li {
+  list-style: none;
+  padding: 12px 8px 12px 40px;
+  font-size: 18px;
+}
+
+.list {
+  display: block;
+  position: relative;
+  padding: 3em;
+  width: 300px;
+  min-height: 200px;
+  box-shadow: 5px 5px 10px -2px rgba(33, 33, 33, 0.3);
+  transition: transform 0.15s;
+}
+
+.static {
+  background-color: rgb(245, 242, 50);
+  transform: rotate(1deg);
+}
+
+.dynamic {
+  background-color: rgb(247, 26, 99);
+  transform: rotate(-1deg);
+}
+
+.static .done {
+  text-decoration: line-through;
+}
+
+.static .not-done {
+  text-decoration: none;
+}
+
+.dynamic li {
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s;
+}
+
+.dynamic li:hover {
+  background: rgb(243, 91, 142);
+}
+
+.dynamic .done {
+  color: rgba(250, 167, 195, 0.835);
+  text-decoration: line-through;
+}
+
+.dynamic .done::before {
+  content: '';
+  position: absolute;
+  border-color: rgb(209, 243, 200);
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
