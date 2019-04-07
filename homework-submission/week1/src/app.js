@@ -83,8 +83,9 @@ class TodoApp extends React.Component {
   };
 
   toggleDone = index => {
-    this.state.dynamicList[index].done = !this.state.dynamicList[index].done;
-    this.setState(this.state);
+    const newState = this.state;
+    newState.dynamicList[index].done = !newState.dynamicList[index].done;
+    this.setState(newState);
   };
 
   render() {
@@ -98,6 +99,6 @@ class TodoApp extends React.Component {
   }
 }
 
-const domContainer = document.querySelector('#root');
+const domContainer = document.querySelector('#thisIsWhereReactIsInjected');
 
 ReactDOM.render(<TodoApp />, domContainer);
