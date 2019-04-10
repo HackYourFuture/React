@@ -1,0 +1,17 @@
+body {
+  background: #800000;
+  color: #eee;
+}
+
+h2 {
+  text-align: center;
+  background: #222;
+  line-height: 200%;
+}
+
+li {
+  font-size: 150%;
+  color: #222;
+  font-weight: bold;
+  line-height: 150%;
+}
