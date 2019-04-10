@@ -12,7 +12,7 @@ class App extends React.Component {
           id: 1,
           description: 'Get out of bed',
           deadline: '2017-09-11',
-          done: true,
+          done: false,
         },
         {
           id: 2,
