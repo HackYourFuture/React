@@ -48,7 +48,7 @@ class App extends React.Component {
         done: false
       };
       todos.push(newTodo);
-      this.setState({ todos: todos });
+      this.setState({ todos });
       e.preventDefault();
     }
   }
