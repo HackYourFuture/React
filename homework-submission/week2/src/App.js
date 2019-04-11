@@ -52,7 +52,7 @@ class App extends React.Component {
     this.setState({ todos: newTodos });
   };
 
-  newTodo = async event => {
+  newTodo = async (event, index) => {
     event.preventDefault();
     if (document.querySelector('.todo').value === '') {
       alert('Please enter a todo!');
@@ -61,7 +61,7 @@ class App extends React.Component {
     } else {
       const newTodos = [...this.state.todos];
       await newTodos.push({
-        id: this.state.todos[this.state.todos.length - 1].id + 1,
+        id: index,
         description: document.querySelector('.todo').value,
         deadline: document.querySelector('.date').value,
         done: false,
@@ -76,7 +76,7 @@ class App extends React.Component {
         <div className="todo-list">
           {this.state.todos.map((todo, index) => {
             return (
-              <div key={todo.id} id={todo.id} className={`${todo.done}`}>
+              <div key={index} id={index} className={`${todo.done}`}>
                 <ul>
                   <ListItem
                     description={todo.description}
