@@ -46,10 +46,9 @@ class App extends React.Component {
     }
   };
 
-  removeTodo = e => {
-    const idOfListItem = e.target.parentElement.parentElement.parentElement.id;
+  removeTodo = index => {
     const newTodos = [...this.state.todos];
-    newTodos.splice(idOfListItem - 1, 1);
+    newTodos.splice(index, 1);
     this.setState({ todos: newTodos });
   };
 
@@ -75,7 +74,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <div className="todo-list">
-          {this.state.todos.map(todo => {
+          {this.state.todos.map((todo, index) => {
             return (
               <div key={todo.id} id={todo.id} className={`${todo.done}`}>
                 <ul>
@@ -83,7 +82,7 @@ class App extends React.Component {
                     description={todo.description}
                     deadline={todo.deadline}
                     toggleDone={this.toggleDone}
-                    remove={this.removeTodo}
+                    remove={event => this.removeTodo(index)}
                   />
                 </ul>
               </div>
