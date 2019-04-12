@@ -36,26 +36,15 @@ class App extends React.Component {
     this.setState({ todos });
   };
 
-  toggleDone = (event, index) => {
-    const listItem = event.target.parentElement;
-    const todos = [...this.state.todos];
-    const selectedTodo = todos.find(
-      todo => `${todo.description}, ${todo.deadline}` === listItem.innerText
-    );
-    const toggle = () => (selectedTodo.done = !selectedTodo.done);
-    toggle();
-    todos.splice(index, 1, selectedTodo);
-    this.setState({ todos });
-
-    if (selectedTodo.done) {
-      listItem.style.textDecoration = 'line-through';
-      event.target.style.background = '#43853d';
-      event.target.style.fill = 'white';
-    } else {
-      listItem.style.textDecoration = 'none';
-      event.target.style.background = 'transparent';
-      event.target.style.fill = '#43853d';
-    }
+  toggleDone = index => {
+    const { todos } = this.state;
+    const newTodos = todos.map((todo, i) => {
+      if (index === i) {
+        todo.done = !todo.done;
+      }
+      return todo;
+    });
+    this.setState({ todos: newTodos });
   };
 
   removeTodo = index => {
@@ -70,13 +59,14 @@ class App extends React.Component {
         <div className="todo-list">
           {this.state.todos.map((todo, index) => {
             return (
-              <div key={index} id={index} className={`${todo.done}`}>
+              <div key={index} id={index}>
                 <ul>
                   <ListItem
                     description={todo.description}
                     deadline={todo.deadline}
-                    toggleDone={event => this.toggleDone(event, index)}
-                    removeTodo={event => this.removeTodo(index)}
+                    toggleDone={() => this.toggleDone(index)}
+                    removeTodo={() => this.removeTodo(index)}
+                    done={todo.done}
                   />
                 </ul>
               </div>

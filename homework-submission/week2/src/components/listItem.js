@@ -13,11 +13,11 @@ class ListItem extends React.Component {
 
   render() {
     return (
-      <li className="list-item">
+      <li className={'list-item ' + (this.props.done ? 'true' : 'false')}>
         <IosCheckmarkCircleOutline
           fontSize="30px"
           color="#43853d"
-          className="check"
+          className={'check ' + (this.props.done ? 'check-true' : 'check-false')}
           beat={true}
           onClick={this.toggleDone}
         />
