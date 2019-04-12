@@ -30,44 +30,38 @@ class App extends React.Component {
     };
   }
 
-  toggleDone = e => {
-    const wrapperDivOfListItem = e.target.parentElement.parentElement.parentElement;
-    const listItem = e.target.parentElement;
-    if (wrapperDivOfListItem.className === 'false') {
-      wrapperDivOfListItem.className = 'true';
+  addTodo = todo => {
+    const todos = [...this.state.todos];
+    todos.push(todo);
+    this.setState({ todos });
+  };
+
+  toggleDone = (event, index) => {
+    const listItem = event.target.parentElement;
+    const todos = [...this.state.todos];
+    const selectedTodo = todos.find(
+      todo => `${todo.description}, ${todo.deadline}` === listItem.innerText
+    );
+    const toggle = () => (selectedTodo.done = !selectedTodo.done);
+    toggle();
+    todos.splice(index, 1, selectedTodo);
+    this.setState({ todos });
+
+    if (selectedTodo.done) {
       listItem.style.textDecoration = 'line-through';
-      e.target.style.background = '#43853d';
-      e.target.style.fill = 'white';
+      event.target.style.background = '#43853d';
+      event.target.style.fill = 'white';
     } else {
-      wrapperDivOfListItem.className = 'false';
       listItem.style.textDecoration = 'none';
-      e.target.style.background = 'transparent';
-      e.target.style.fill = '#43853d';
+      event.target.style.background = 'transparent';
+      event.target.style.fill = '#43853d';
     }
   };
 
   removeTodo = index => {
-    const newTodos = [...this.state.todos];
-    newTodos.splice(index, 1);
-    this.setState({ todos: newTodos });
-  };
-
-  newTodo = async (event, index) => {
-    event.preventDefault();
-    if (document.querySelector('.todo').value === '') {
-      alert('Please enter a todo!');
-    } else if (document.querySelector('.date').value === '') {
-      alert('Please enter a due date!');
-    } else {
-      const newTodos = [...this.state.todos];
-      await newTodos.push({
-        id: index,
-        description: document.querySelector('.todo').value,
-        deadline: document.querySelector('.date').value,
-        done: false,
-      });
-      await this.setState({ todos: newTodos });
-    }
+    const todos = [...this.state.todos];
+    todos.splice(index, 1);
+    this.setState({ todos });
   };
 
   render() {
@@ -81,8 +75,8 @@ class App extends React.Component {
                   <ListItem
                     description={todo.description}
                     deadline={todo.deadline}
-                    toggleDone={this.toggleDone}
-                    remove={event => this.removeTodo(index)}
+                    toggleDone={event => this.toggleDone(event, index)}
+                    removeTodo={event => this.removeTodo(index)}
                   />
                 </ul>
               </div>
@@ -91,7 +85,7 @@ class App extends React.Component {
         </div>
 
         <div className="add-todo">
-          <NewTodo addTodo={this.newTodo} />
+          <NewTodo addTodo={this.addTodo} />
         </div>
       </React.Fragment>
     );
