@@ -1,0 +1,78 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 30vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.App-title {
+  font-size: 1.5em;
+}
+
+.Add {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 500px;
+  height: 30px;
+  padding: 25px;
+}
+.AddingInput {
+  font-size: 16px;
+}
+
+.AddingButton {
+  font-size: 14px;
+  background-color: pink;
+  color: black;
+  width: 60px;
+  font-weight: bold;
+}
+
+.RemoveInput {
+  font-size: 14px;
+
+  background-color: pink;
+  color: black;
+  width: 70px;
+  height: 20px;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 30px;
+}
+
+.listContent {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  font-size: 20px;
+
+  text-align: center;
+
+  margin-top: 10px;
+}
