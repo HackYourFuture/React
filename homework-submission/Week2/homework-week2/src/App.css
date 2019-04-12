@@ -5,11 +5,11 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-    position:                        absolute;
-    max-height:                             758px;
-    width:                             1024px;
-    left:                                 22%;
-    top:                                  8%;
+  position: absolute;
+  max-height: 758px;
+  width: 1024px;
+  left: 22%;
+  top: 8%;
 }
 
 .App {
