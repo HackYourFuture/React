@@ -6,9 +6,7 @@
     "node": true,
     "jest": true
   },
-  "plugins": [
-    "babel"
-  ],
+  "plugins": ["babel"],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2017,
@@ -17,10 +15,7 @@
     },
     "sourceType": "module"
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "rules": {
     "babel/semi": 1,
     "no-const-assign": "error",
@@ -35,10 +30,7 @@
     "no-multiple-empty-lines": "error",
     "jsx-a11y/href-no-hash": "off",
     "react/prop-types": "off",
-    "eol-last": [
-      "error",
-      "always"
-    ],
+    "eol-last": ["error", "always"],
     "no-console": "off",
     "eqeqeq": [
       "error",
@@ -47,9 +39,9 @@
         "null": "ignore"
       }
     ],
-    "semi": [
-      "error",
-      "always"
-    ]
+    "semi": ["error", "always"],
+    "rules": {
+      "react/react-in-jsx-scope": "off"
+    }
   }
 }

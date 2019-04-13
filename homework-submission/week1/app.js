@@ -1,12 +1,11 @@
 'use strict';
 
-// The goal of this component is to get the description and deadline values from the TodoList static and dynamic which extends from React Component
 const Item = props => {
   return (
-    <div>
-      <h1 className={props.done === true ? 'activate' : ''}>
-        {props.description} {props.deadline}
-      </h1>
+    <div className="card">
+      <h1>{props.title}</h1>
+      <p>{props.description}</p>
+      <span onClick={props.clicked}>X</span>
     </div>
   );
 };
@@ -14,61 +13,88 @@ const Item = props => {
 const e = React.createElement;
 
 class TodoList extends React.Component {
-  // Here is static todo list
-  staticTodoList = [
-    { description: 'Get out of bed', deadline: 'Wed Sep 13 2017' },
-    { description: 'Brush teeth', deadline: 'Thu Sep 14 2017' },
-    { description: 'Eat breakfast', deadline: 'Fri Sep 15 2017' },
-  ];
+  state = {
+    todoList: [
+      {
+        title: 'either to reject the provision blinded welcome the option to find ',
+        description: 'the pain he may please the some of the things the power of life',
+      },
+      {
+        title: 'it will be blinded',
+        description: 'any and often rejecting a pleasure to get  mānsit film will take to provide',
+      },
+      {
+        title: ' do you hate',
+        description: 'rationally come to seek out and  nal or to avoid it,',
+      },
+    ],
+    todoValue: { title: '', description: '' },
+  };
 
-  // Here is dynamic todo list
-  dynamicTodoList = [
-    {
-      id: 1,
-      description: 'Get out of bed',
-      deadline: '2017-09-11',
-      done: true,
-    },
-    {
-      id: 2,
-      description: 'Brush teeth',
-      deadline: '2017-09-10',
-      done: false,
-    },
-    {
-      id: 3,
-      description: 'Eat breakfast',
-      deadline: '2017-09-09',
-      done: false,
-    },
-  ];
+  handleChange = ({ target: input }) => {
+    const todoValue = { ...this.state.todoValue };
+
+    todoValue[input.name] = input.value;
+    this.setState({ todoValue });
+  };
+
+  handleDelete = todo => {
+    const { todoList } = this.state;
+    const filteredData = todoList.indexOf(todo);
+    todoList.splice(filteredData, 1);
+
+    this.setState({ todoList });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+
+    const { todoList, todoValue } = this.state;
+    if (todoValue.title !== '' && todoValue.description !== '') {
+      todoList.push(todoValue);
+      this.setState({ todoList });
+    } else {
+      alert('Please fill all fields');
+    }
+  };
 
   render() {
+    let message;
+    const { length: count } = this.state.todoList;
+    if (count === 0) {
+      message = <p className="head">There are no todos to display.</p>;
+    } else {
+      message = <p className="head">Showing {count} todos.</p>;
+    }
+
     return (
       <div>
-        <Item
-          description={this.staticTodoList[0].description}
-          deadline={this.staticTodoList[0].deadline}
-        />
-        <Item
-          description={this.staticTodoList[1].description}
-          deadline={this.staticTodoList[1].deadline}
-        />
-        <Item
-          description={this.staticTodoList[2].description}
-          deadline={this.staticTodoList[2].deadline}
-        />
-
+        {message}
         <div className="secondWrapper">
-          {this.dynamicTodoList.map(todoList => (
-            <Item
-              key={todoList.id}
-              done={todoList.done}
-              description={todoList.description}
-              deadline={todoList.deadline}
-            />
-          ))}
+          {this.state.todoList.map((todo, i) => {
+            return (
+              <React.Fragment key={i}>
+                <Item
+                  title={todo.title}
+                  description={todo.description}
+                  clicked={() => this.handleDelete(todo)}
+                />
+              </React.Fragment>
+            );
+          })}
         </div>
+
+        <form onSubmit={this.handleSubmit}>
+          <h1>Insert your data</h1>
+          <input type="text" placeholder="Title Field" name="title" onChange={this.handleChange} />
+          <input
+            type="text"
+            placeholder="Description Field"
+            name="description"
+            onChange={this.handleChange}
+          />
+          <button>Save</button>
+        </form>
       </div>
     );
   }
