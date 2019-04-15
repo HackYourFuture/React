@@ -5,7 +5,6 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.addTodo = this.addTodo.bind(this);
   }
 
   state = {
@@ -31,7 +30,7 @@ class App extends React.Component {
     ]
   };
 
-  addTodo(e) {
+  addTodo = e => {
     if (!this.desc.value || !this.date.value) {
       alert('Each field must be filled.\nPlease check your input !');
       e.preventDefault();
@@ -51,7 +50,7 @@ class App extends React.Component {
       this.setState({ todos });
       e.preventDefault();
     }
-  }
+  };
 
   doneUndone = index => {
     const { todos } = this.state;
@@ -67,7 +66,7 @@ class App extends React.Component {
 
   deleteTodo = index => {
     const { todos } = this.state;
-    delete todos[index];
+    todos.splice(index, 1);
     this.setState({ todos });
   };
 
