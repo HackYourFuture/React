@@ -14,4 +14,4 @@ $ npm i
 $ npm run go
 ```
 
-After that, you can check both localhost:5000(server-side) and localhost:3000(client-side) on your browser.
+After that, you can check both localhost:5000/index(server-side) and localhost:3000(client-side) on your browser.
