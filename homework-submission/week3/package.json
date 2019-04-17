@@ -1,0 +1,17 @@
+{
+  "name": "week3",
+  "version": "1.0.0",
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "cd server && nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.11",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
