@@ -1,0 +1,37 @@
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #6a2c77;
+  background: linear-gradient(312deg, #6a2c77 0%, #6b4eaa 51%, #442c77 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .spinner {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  border-width: 50px;
+  border-color: transparent;
+  border-style: solid;
+  border-top-color: #b7a3df;
+  box-sizing: border-box;
+  animation: opacity 0.5s linear infinite;
+}
+@keyframes opacity {
+  0% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
