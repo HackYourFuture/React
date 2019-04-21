@@ -142,6 +142,24 @@ body {
   transform: matrix(-1, -0.1, 0, 1, 0, 0);
 }
 
+.true {
+  text-decoration: line-through;
+}
+
+.false {
+  text-decoration: none;
+}
+
+.check-true {
+  background: #43853d;
+  fill: white;
+}
+
+.check-false {
+  background: transparent;
+  fill: #43853d;
+}
+
 span {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;

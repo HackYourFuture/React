@@ -3,21 +3,29 @@ import IosCheckmarkCircleOutline from 'react-ionicons/lib/IosCheckmarkCircleOutl
 import IosCloseCircleOutline from 'react-ionicons/lib/IosCloseCircleOutline';
 
 class ListItem extends React.Component {
+  removeTodo = index => {
+    this.props.removeTodo(index);
+  };
+
+  toggleDone = todo => {
+    this.props.toggleDone(todo);
+  };
+
   render() {
     return (
-      <li className="list-item">
+      <li className={'list-item ' + (this.props.done ? 'true' : 'false')}>
         <IosCheckmarkCircleOutline
           fontSize="30px"
           color="#43853d"
-          className="check"
+          className={'check ' + (this.props.done ? 'check-true' : 'check-false')}
           beat={true}
-          onClick={this.props.toggleDone}
+          onClick={this.toggleDone}
         />
         <IosCloseCircleOutline
           fontSize="30px"
           color="red"
           className="remove"
-          onClick={this.props.remove}
+          onClick={this.removeTodo}
         />
         {this.props.description}, {this.props.deadline}
       </li>
