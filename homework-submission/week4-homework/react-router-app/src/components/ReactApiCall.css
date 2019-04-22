@@ -4,56 +4,21 @@ html {
   justify-content: center;
 }
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.parent {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 700px;
+/* .parent {
+  width: 1300px;
   height: 500px;
-
   margin: auto;
   padding: 20px;
   border: 2px solid black;
   background-color: coral;
-}
+} */
 
 .child {
   margin: auto;
-  background: black;
+  background: #2b2f3f;
   color: white;
   padding: 40px 20px 20px 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
+  width: 800px;
   height: 400px;
 }
 

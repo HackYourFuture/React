@@ -4,7 +4,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h1>You can see all of the React Module homeworks here.</h1>
+        <h1>Welcome to the React Module Homework Page</h1>
+        <h3>You can see all of the results of React Module homeworks here.</h3>
       </div>
     );
   }

@@ -30,7 +30,7 @@ class ReactApiCall extends Component {
     const personInfo = this.state.personInfo;
     const personInfoValues = Object.values(personInfo);
     return (
-      <div className="parent">
+      <div>
         <div className="child">
           {this.state.isLoading ? (
             <Spinner />
@@ -49,11 +49,11 @@ class ReactApiCall extends Component {
                   🌐 {personInfoValues[3]}
                 </span>
               </div>
+              <div>
+                <button onClick={this.handleClick}>Next</button>
+              </div>
             </div>
           )}
-          <div>
-            <button onClick={this.handleClick}>Next</button>
-          </div>
         </div>
       </div>
     );

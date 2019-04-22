@@ -31,3 +31,56 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-color: #b9dedf;
+  padding: 20px;
+  margin: 0;
+}
+h1,
+h2,
+p,
+ul,
+li {
+  font-family: sans-serif;
+}
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+ul.header {
+  background-color: #2b2f3f;
+  padding: 0;
+  -webkit-box-shadow: 3px 7px 10px 0px rgba(45, 46, 67, 0.85);
+  -moz-box-shadow: 3px 7px 10px 0px rgba(45, 46, 67, 0.85);
+  box-shadow: 3px 7px 10px 0px rgba(45, 46, 67, 0.85);
+}
+ul.header li a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+}
+.content {
+  background-color: #fff;
+  padding: 20px;
+  -webkit-box-shadow: 2px 4px 8px 0px rgba(45, 46, 67, 0.85);
+  -moz-box-shadow: 2px 4px 8px 0px rgba(45, 46, 67, 0.85);
+  box-shadow: 2px 4px 8px 0px rgba(45, 46, 67, 0.85);
+}
+h1 {
+  color: #29303d;
+}
+.content h2 {
+  padding: 0;
+  margin: 0;
+}
+.content li {
+  margin-bottom: 10px;
+}
+
+.active {
+  background-color: #5ea1a6;
+}

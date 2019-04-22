@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <ul>
+          <ul className="header">
             <li>
               <NavLink exact to="/">
                 Home
