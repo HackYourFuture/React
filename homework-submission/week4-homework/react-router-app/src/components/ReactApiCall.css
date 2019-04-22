@@ -1,0 +1,96 @@
+html {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.parent {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 700px;
+  height: 500px;
+
+  margin: auto;
+  padding: 20px;
+  border: 2px solid black;
+  background-color: coral;
+}
+
+.child {
+  margin: auto;
+  background: black;
+  color: white;
+  padding: 40px 20px 20px 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 400px;
+}
+
+button {
+  font-size: 30px;
+  margin: 60px 0 0 20px;
+  padding: 10px;
+}
+
+/* .elements:nth-child(2n) {
+  height: 500px;
+  font-size: 200px;
+} */
+
+.element {
+  margin: 10px 0 10px 10px;
+  font-size: 20px;
+  height: 30px;
+}
+
+.element:first-child {
+  padding: 10px 10px 10px 0;
+  font-size: 50px;
+  height: 60px;
+  font-weight: bold;
+}
+
+.elements:not(:first-child) {
+  height: 30px;
+  padding: 0 0 0 50px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
