@@ -1,0 +1,121 @@
+body {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 1)),
+    url('https://i0.wp.com/www.thenextfact.com/wp-content/uploads/2017/10/reactjs.png?fit=1920%2C1080');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+
+}
+.App{
+  text-align: center;
+  position: relative;
+  left: 40%;
+}
+h1 {
+  color: #2f9296;
+  text-decoration: underline;
+  font-size: 50px;
+  font-family: cursive;
+}
+
+label {
+  color: #11999e;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+input {
+  text-align: center;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+.add-todo {
+  padding: 10px 14px;
+  margin-left: 9px;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4caf50;
+  border-radius: 4px;
+}
+
+.add-todo:hover {
+  background-color: #3e8e41;
+}
+
+.add-todo:active {
+  background-color: #4caf50;
+  transform: translateY(4px);
+}
+
+.add-todo:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.todo-table {
+  color: #dff5f2;
+  background-color: #2f9296;
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+.todo-table:hover {
+  background-color: #00d1cd;
+}
+
+.todo-table td {
+  font-size: 23px;
+  padding: 9px;
+  width: 300px;
+  font-family: system-ui, Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+.delete {
+  background-color: #ff165d;
+  position: relative;
+  top: 40.5px;
+  left: 36.4%;
+  padding: 9px;
+  border-radius: 4px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0.5;
+  outline: none;
+}
+
+.delete:hover {
+  opacity: 1;
+}
+
+p {
+  margin-top: 10%; 
+  color: #0d7377;
+  font-size: 34px;
+  text-align: center;
+}
+
+.profile-table {
+  margin: 0 auto;
+  padding: 10px 15px;
+  width:320px;
+  text-align: left;
+  background: rgba(255,255,255,.5);
+  border-radius: 5px;
+  box-shadow: 0 6px 4px rgba(0,0,0,.05);
+  margin-bottom: 10px;
+  margin-top: 25px;
+}
+
+.tr td {
+  padding-bottom: 12px;
+}
