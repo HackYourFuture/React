@@ -1,33 +1,104 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  background: rgba(33, 33, 33, 0.3);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.app-header {
+  margin: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.list {
+  display: block;
+  position: relative;
+  padding: 20px;
+  margin: 20px;
+  width: 400px;
+  min-height: 200px;
+  box-shadow: 5px 5px 10px -2px rgba(33, 33, 33, 0.3);
+  transition: transform 0.15s;
 }
 
-.App-link {
-  color: #61dafb;
+.static {
+  background-color: rgb(245, 122, 50);
+  transform: rotate(1deg);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+span {
+  display: inline-block;
+  width: 100%;
+}
+
+.todo {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  list-style: none;
+  padding: 10px 40px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.todo:hover {
+  background: rgb(255, 238, 5);
+}
+
+.color {
+  background-color: rgb(247, 207, 26);
+  transform: rotate(-1deg);
+}
+
+.not-done {
+  text-decoration: none;
+}
+
+.done {
+  color: rgba(105, 91, 7, 0.835);
+  text-decoration: line-through;
+}
+
+.done::before {
+  content: '';
+  position: absolute;
+  border-color: rgb(202, 101, 6);
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+.remove {
+  position: absolute;
+  width: 10%;
+  height: 100%;
+  top: 0px;
+  right: 0px;
+  background: inherit;
+  border: none;
+}
+
+.remove:hover {
+  background: rgb(255, 72, 0);
+  color: rgb(239, 247, 236);
+  font-weight: bold;
+}
+
+.input {
+  border: 1px solid rgba(105, 91, 7, 0.835);
+  background: rgb(247, 242, 172);
+  height: 24px;
+  width: 50%;
+}
+
+.add-button {
+  width: 100%;
+  height: 24px;
 }

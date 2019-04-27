@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import PreviousHomeworks from './components/previousHomeworks';
+import HomeworkWeek3 from './components/users';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    data: [],
+    isLoading: true,
+    error: '',
+  };
+
+  componentDidMount() {
+    fetch('https://uinames.com/api/?amount=10')
+      .then(response => response.json())
+      .then(result => this.setState({ data: result, isLoading: false }))
+      .catch(error => this.setState({ error: error.message }));
+  }
+  render() {
+    return (
+      <React.Fragment>
+        <PreviousHomeworks />
+        <HomeworkWeek3 data={this.state.data} error={this.state.error} />
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
