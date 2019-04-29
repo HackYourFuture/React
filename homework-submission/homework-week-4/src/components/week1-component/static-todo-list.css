@@ -1,0 +1,37 @@
+body {
+  text-align: center;
+}
+
+ul {
+  padding: 0;
+  margin-bottom: 50px;
+}
+
+li {
+  padding: 5px 0;
+  list-style-type: none;
+  border: 2px solid black;
+  border-radius: 30px;
+  margin: 5px auto;
+  width: 280px;
+}
+
+div:nth-child(2) ul li:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+.header {
+  font-size: 1.5em;
+}
+
+.item-done-true {
+  text-decoration: line-through;
+  color: gray;
+  border: 2px solid gray;
+  background-color: aliceblue;
+}
+
+.item-done-false {
+  text-decoration: none;
+}
