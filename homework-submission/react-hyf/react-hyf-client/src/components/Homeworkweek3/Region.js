@@ -11,5 +11,4 @@ const Region = ({ region }) => {
     </td>
   );
 };
-
 export default Region;

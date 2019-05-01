@@ -3,22 +3,21 @@ import Gender from './Gender';
 import Region from './Region';
 import FullName from './Name';
 
-const List = ({ gender, region, name, surname }) => {
+const List = ({ name, surname, gender, region }) => {
   return (
     <div className="list">
-      <table>
-        <tbody>
-          <tr>
-            <FullName name={name} surname={surname} />
-          </tr>
-          <tr>
-            <Gender gender={gender} />
-          </tr>
-          <tr>
-            <Region region={region} />
-          </tr>
-        </tbody>
-      </table>
+      <ul>
+        <li>
+          <FullName name={name} surname={surname} />
+        </li>
+
+        <li>
+          <Gender gender={gender} />
+        </li>
+        <li>
+          <Region region={region} />
+        </li>
+      </ul>
     </div>
   );
 };

@@ -41,7 +41,7 @@
 
   text-align: center;
 
-  margin-top: 10px;
+  margin-top: 30px;
 }
 .list {
   text-align: center;
@@ -52,11 +52,15 @@
   color: palevioletred;
 }
 span {
-  padding-left: 300px;
+  padding-left: 100px;
 }
 .name {
-  padding-left: 350px;
+  padding-left: 100px;
   font-family: initial;
   font-style: italic;
-  font-size: 1.5em;
+  font-size: 1.2em;
+  padding-top: 60px;
+}
+ul {
+  list-style: none;
 }

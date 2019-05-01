@@ -1,45 +1,53 @@
 import React, { Component } from 'react';
-
 import List from './List';
-
-const url = ' https://uinames.com/api/?amount=10';
 
 class HomeworkWeek3 extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: [],
+    };
   }
 
   componentDidMount() {
-    fetch(url)
-      .then(response => response.json())
-      .then(json =>
-        json.map(elem =>
-          this.setState({
-            data: elem,
-          }),
+    fetch('https://uinames.com/api/?amount=10')
+      .then(res => res.json())
+      .then(items =>
+        this.setState(
+          {
+            isLoaded: true,
+            items,
+          },
+          () => console.log(items),
         ),
       );
   }
 
-  componentWillMount() {
-    document.addEventListener('keydown', this.onKeyPressed.bind(this));
-  }
-
-  onKeyPressed(e) {
-    if (e.keyCode === 32) {
-      this.componentDidMount();
-    }
-  }
-
   render() {
-    const { data } = this.state;
-
-    return (
-      <div>
-        <List name={data.name} surname={data.surname} gender={data.gender} region={data.region} />
-      </div>
-    );
+    if (!this.state.isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <div>
+          <ul>
+            {this.state.items.map((item, i) => (
+              <div>
+                <div>
+                  <List
+                    key={i}
+                    name={'Name:' + item.name + ' ' + item.surname}
+                    gender={item.gender}
+                    region={item.region}
+                  />
+                </div>
+              </div>
+            ))}
+          </ul>
+        </div>
+      );
+    }
   }
 }
 

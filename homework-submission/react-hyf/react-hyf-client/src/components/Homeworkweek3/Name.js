@@ -7,5 +7,4 @@ const FullName = ({ name, surname }) => {
     </td>
   );
 };
-
 export default FullName;
