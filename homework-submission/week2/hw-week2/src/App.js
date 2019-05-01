@@ -4,7 +4,6 @@ import './App.css';
 // Components
 import Input from './components/input/index';
 import Form from './components/form/index';
-import Item from './components/listItem/index';
 
 class App extends Component {
   constructor(props) {
@@ -22,7 +21,8 @@ class App extends Component {
 
   handleChange = e => {
     const { newTodo } = { ...this.state };
-    const { value, name } = e.target;
+    const { name } = e.target;
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
 
     newTodo[name] = value;
     this.setState({
@@ -42,17 +42,17 @@ class App extends Component {
 
   toggleDone = e => {
     const { todos } = { ...this.state };
-    const { value } = e.target;
+    const { value, checked } = e.target;
     const index = todos.indexOf(value);
 
     const newTodos = todos.map((todo, i) => {
       if (index === i) {
-        todo.done = true;
+        todo.done = checked;
       }
-      return true;
+      return todo.done;
     });
     this.setState({
-      todos: newTodos,
+      todos: { ...newTodos },
     });
   };
 
@@ -75,9 +75,9 @@ class App extends Component {
     const todoList = todos.map((todo, index) => {
       console.log(todo);
       return (
-        <Item key={index} className={todo.done ? 'done' : null} handleDone={this.toggleDone}>
-          {todo.desc} - {todo.deadline}
-        </Item>
+        <li key={index} className={todo.done ? 'done' : 'undone'} onClick={this.toggleDone}>
+          {todo.desc} ==> {todo.deadline}
+        </li>
       );
     });
     console.log(this.state);
@@ -97,7 +97,7 @@ class App extends Component {
             placeholder="DD-MM-YYYY"
             handleChange={this.handleChange}
           />
-          <Input name="done" type="text" handleChange={this.handleChange} />
+          <Input name="done" type="checkbox" handleChange={this.handleChange} />
           <Input
             name="submit"
             type="submit"

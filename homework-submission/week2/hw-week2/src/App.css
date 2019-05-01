@@ -35,3 +35,7 @@
 .done {
   text-decoration: line-through;
 }
+
+.undone {
+  text-decoration: initial;
+}
