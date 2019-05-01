@@ -21,7 +21,6 @@ class Header extends React.Component {
     return <H1>{this.props.title}</H1>;
   }
 }
-// This component shows the title of the list as h1 element in the DOM.
 
 class ListItem extends React.Component {
   render() {
@@ -36,8 +35,6 @@ class ListItem extends React.Component {
     );
   }
 }
-// This component shows the todo list item as li in the DOM.
-// There are 2 props which are "description" and "deadline". Description shows what todo is about.And the deadline shows the due date of the todo.
 
 class App extends React.Component {
   constructor(props) {
