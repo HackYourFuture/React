@@ -21,8 +21,8 @@ class App extends Component {
 
   handleChange = e => {
     const { newTodo } = { ...this.state };
-    const { name } = e.target;
-    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    const { name, type, checked } = e.target;
+    const value = type === 'checkbox' ? checked : e.target.value;
 
     newTodo[name] = value;
     this.setState({
@@ -40,33 +40,25 @@ class App extends Component {
     });
   };
 
-  toggleDone = e => {
+  toggleDone = index => {
     const { todos } = { ...this.state };
-    const { value, checked } = e.target;
-    const index = todos.indexOf(value);
 
     const newTodos = todos.map((todo, i) => {
       if (index === i) {
-        todo.done = checked;
+        todo.done = !todo.done;
       }
-      return todo.done;
+      return todo;
     });
-    this.setState({
-      todos: { ...newTodos },
-    });
+    this.setState({ todos: [...newTodos] });
   };
 
-  deleteTodo = e => {
+  deleteTodo = index => {
     const { todos } = { ...this.state };
-    const { value } = e.target;
-    const index = todos.indexOf(value);
 
-    const newTodos = todos.map((todo, i) => {
-      return index === i;
+    const newTodos = todos.filter((todo, i) => {
+      return index !== i;
     });
-    this.setState({
-      todos: newTodos,
-    });
+    this.setState({ todos: newTodos });
   };
 
   render() {
@@ -75,7 +67,12 @@ class App extends Component {
     const todoList = todos.map((todo, index) => {
       console.log(todo);
       return (
-        <li key={index} className={todo.done ? 'done' : 'undone'} onClick={this.toggleDone}>
+        <li
+          key={index}
+          className={todo.done ? 'done' : 'undone'}
+          onClick={() => this.toggleDone(index)}
+          onDoubleClick={() => this.deleteTodo(index)}
+        >
           {todo.desc} ==> {todo.deadline}
         </li>
       );
