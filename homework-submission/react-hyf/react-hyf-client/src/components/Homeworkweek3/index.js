@@ -12,7 +12,15 @@ class HomeworkWeek3 extends Component {
   }
 
   componentDidMount() {
+    const handleErrors = response => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response;
+    };
+
     fetch('https://uinames.com/api/?amount=10')
+      .then(handleErrors)
       .then(res => res.json())
       .then(items =>
         this.setState(
@@ -22,7 +30,8 @@ class HomeworkWeek3 extends Component {
           },
           () => console.log(items),
         ),
-      );
+      )
+      .catch(error => console.log(error));
   }
 
   render() {
@@ -34,14 +43,12 @@ class HomeworkWeek3 extends Component {
           <ul>
             {this.state.items.map((item, i) => (
               <div>
-                <div>
-                  <List
-                    key={i}
-                    name={'Name:' + item.name + ' ' + item.surname}
-                    gender={item.gender}
-                    region={item.region}
-                  />
-                </div>
+                <List
+                  key={i}
+                  name={'Name:' + item.name + ' ' + item.surname}
+                  gender={item.gender}
+                  region={item.region}
+                />
               </div>
             ))}
           </ul>
