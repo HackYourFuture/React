@@ -1,0 +1,80 @@
+.secondWrapper {
+  width: 70%;
+  margin: 20px auto;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.head {
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.activate {
+  text-decoration: line-through;
+}
+
+form {
+  width: 30%;
+  margin: 20px auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+form input {
+  display: block;
+  margin: 10px 0;
+  padding: 8px;
+}
+
+form button {
+  padding: 7px;
+  color: #fff;
+  background: crimson;
+  font-weight: bold;
+}
+
+.card {
+  background: crimson;
+  color: #fff;
+  padding: 10px;
+  margin: 10px;
+  max-width: 33%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.card span {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  font-size: 23px;
+  background: #fff;
+  color: crimson;
+  padding: 7px;
+  cursor: pointer;
+  width: 17px;
+  height: 20px;
+}
+
+@media (max-width: 499px) {
+  .secondWrapper {
+    width: 100%;
+    flex-flow: column;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  form {
+    width: 100%;
+  }
+}

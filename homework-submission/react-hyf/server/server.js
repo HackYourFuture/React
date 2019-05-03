@@ -1,11 +1,8 @@
 const express = require('express');
 const path = require('path');
-const buildFolder = '../react-hyf-client/build';
-const cors = require('cors');
-
+const buildFolder = '../client/build';
 const app = express();
 
-app.use(cors());
 app.use(express.static(path.join(__dirname, buildFolder)));
 
 app.get('/', (req, res) => {

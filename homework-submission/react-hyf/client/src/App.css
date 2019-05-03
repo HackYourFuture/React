@@ -1,0 +1,13 @@
+body {
+  padding: 0;
+  margin: 0;
+  background: #8fc06c;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.App {
+  padding: 20px;
+  overflow: hidden;
+}

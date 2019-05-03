@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  font-size: 35px;
+  text-align: center;
+}
+
+.wrapper div {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+}
+
+p {
+  margin-bottom: -10px;
+  text-align: center;
+}
