@@ -39,20 +39,16 @@ class HomeworkWeek3 extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div>
-          <ul>
-            {this.state.items.map((item, i) => (
-              <div>
-                <List
-                  key={i}
-                  name={'Name:' + item.name + ' ' + item.surname}
-                  gender={item.gender}
-                  region={item.region}
-                />
-              </div>
-            ))}
-          </ul>
-        </div>
+        <ul>
+          {this.state.items.map((item, i) => (
+            <List
+              key={i}
+              name={'Name:' + item.name + ' ' + item.surname}
+              gender={item.gender}
+              region={item.region}
+            />
+          ))}
+        </ul>
       );
     }
   }
