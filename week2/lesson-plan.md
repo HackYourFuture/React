@@ -44,7 +44,7 @@ Transform a todolist sketch into components on white board.
 - Lifecycle methods are used when render is not enough on its own
 
 - Cover each, giving examples of when they might be useful
-  - componentWillMount: SSR
+  - UNSAFE_componentWillMount(): deprecated should not be used
   - componentDidMount: data fetching in client-side-only apps
   - shouldComponentUpdate: performance debugging
   - componentWillUnmount: teardown (payment SDKs, intervals, etc)
