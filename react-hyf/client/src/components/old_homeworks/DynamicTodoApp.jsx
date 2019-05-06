@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Todos from './todos/Todos';
 import uuid from 'uuid/v4';
 
-class PreviousHomeworks extends Component {
+class DynamicTodoApp extends Component {
   state = {
     todos: [
       {
@@ -76,4 +76,4 @@ class PreviousHomeworks extends Component {
   }
 }
 
-export default PreviousHomeworks;
+export default DynamicTodoApp;
