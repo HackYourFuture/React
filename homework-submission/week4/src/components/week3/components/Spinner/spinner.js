@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const Body = styled.body`
+const StyledDiv1 = styled.div`
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -16,7 +16,7 @@ const loadingspin = keyframes`
   }
 `;
 
-const Div = styled.div`
+const StyledDiv2 = styled.div`
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -36,9 +36,9 @@ const Div = styled.div`
 class Spinner extends React.Component {
   render() {
     return (
-      <Body>
-        <Div />
-      </Body>
+      <StyledDiv1>
+        <StyledDiv2 />
+      </StyledDiv1>
     );
   }
 }

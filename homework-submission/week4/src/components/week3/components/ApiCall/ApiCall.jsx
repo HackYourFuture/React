@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Body = styled.body`
+const StyledDiv = styled.div`
   background: #8fc06b;
   color: #fff;
   cursor: default;
@@ -13,7 +13,7 @@ const Body = styled.body`
   align-items: center;
 `;
 
-const Ul = styled.ul`
+const StyledUl = styled.ul`
   margin: 0 auto;
   padding: 10px 15px;
   text-align: left;
@@ -27,7 +27,7 @@ const Ul = styled.ul`
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 `;
 
-const H1 = styled.h1`
+const StyledH1 = styled.h1`
   margin-top: 3%;
   margin: 0 auto;
   font-size: 48px;
@@ -42,12 +42,12 @@ const H1 = styled.h1`
   }
 `;
 
-const Li = styled.li`
+const StyledLi = styled.li`
   list-style: none;
   font-size: 14px;
 `;
 
-const Span = styled.span`
+const StyledSpan = styled.span`
   :hover {
     cursor: ${props => (props.text ? 'default' : 'none')};
     background: ${props => (props.text ? 'rgba(255, 255, 255, 0.2)' : 'none')};
@@ -63,65 +63,65 @@ class ApiCall extends React.Component {
     const randomNumber = Math.floor(Math.random() * 9000000000) + 1000000000;
     const date = new Date(+new Date(1989, 1, 1) - Math.floor(Math.random() * 10000000000));
     return (
-      <Body>
+      <StyledDiv>
         <div>
           {
             data.map(item => {
               return (
                 <div key={item.surname}>
-                  <H1 text>
+                  <StyledH1 text>
                     {item.name} {item.surname}
-                  </H1>
+                  </StyledH1>
                   <div>
-                    <Ul>
-                      <Li>
+                    <StyledUl>
+                      <StyledLi>
                         <span role="img" aria-label="person-emoji">
                           👤
                         </span>
-                        <Span text>{item.gender}</Span>
-                      </Li>
-                      <Li>
+                        <StyledSpan text>{item.gender}</StyledSpan>
+                      </StyledLi>
+                      <StyledLi>
                         <span role="img" aria-label="world-emoji">
                           🌐
                         </span>
-                        <Span text>{item.region}</Span>
-                      </Li>
-                      <Li>
+                        <StyledSpan text>{item.region}</StyledSpan>
+                      </StyledLi>
+                      <StyledLi>
                         <span role="img" aria-label="phone-emoji">
                           📞
                         </span>
-                        <Span text>{randomNumber}</Span>
-                      </Li>
-                      <Li>
+                        <StyledSpan text>{randomNumber}</StyledSpan>
+                      </StyledLi>
+                      <StyledLi>
                         <span role="img" aria-label="birthday cake-emoji">
                           🎂
                         </span>
-                        <Span text>{date.toISOString().slice(0, 10)}</Span>
-                      </Li>
-                      <Li>
+                        <StyledSpan text>{date.toISOString().slice(0, 10)}</StyledSpan>
+                      </StyledLi>
+                      <StyledLi>
                         <span role="img" aria-label="mail-emoji">
                           ✉️
                         </span>
-                        <Span text>
+                        <StyledSpan text>
                           {item.name}-{item.surname}@example.com
-                        </Span>
-                      </Li>
-                      <Li>
+                        </StyledSpan>
+                      </StyledLi>
+                      <StyledLi>
                         <span role="img" aria-label="key-emoji">
                           🔑
                         </span>
-                        <Span text>
+                        <StyledSpan text>
                           {item.name}-{date.toISOString().slice(2, 4)}
-                        </Span>
-                      </Li>
-                    </Ul>
+                        </StyledSpan>
+                      </StyledLi>
+                    </StyledUl>
                   </div>
                 </div>
               );
             })[Math.floor(Math.random() * 10)]
           }
         </div>
-      </Body>
+      </StyledDiv>
     );
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Ul = styled.ul`
+const StyledUl = styled.ul`
   background: #8e24aa;
   color: whitesmoke;
   display: flex;
@@ -28,7 +28,7 @@ const Link = styled(NavLink)`
 
 const NavBar = () => {
   return (
-    <Ul>
+    <StyledUl>
       <li>
         <Link to="/" exact>
           Home
@@ -43,7 +43,7 @@ const NavBar = () => {
       <li>
         <Link to="/api-call">Week 3</Link>
       </li>
-    </Ul>
+    </StyledUl>
   );
 };
 

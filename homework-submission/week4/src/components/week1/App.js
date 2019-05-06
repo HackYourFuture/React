@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Body = styled.body`
+const StyledDiv = styled.div`
   background: white;
   color: black;
   height: 100vh;
@@ -11,14 +11,14 @@ const Body = styled.body`
   align-items: center;
 `;
 
-const H1 = styled.h1`
+const StyledH1 = styled.h1`
   margin-top: 2rem;
   font-weight: 400;
 `;
 
 class Header extends React.Component {
   render() {
-    return <H1>{this.props.title}</H1>;
+    return <StyledH1>{this.props.title}</StyledH1>;
   }
 }
 
@@ -65,7 +65,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Body>
+      <StyledDiv>
         <Header title="Static List" />
         <ListItem description="Get out of bed" deadline="Wed Sep 13 2017" />
         <ListItem description="Brush teeth" deadline="Thu Sep 14 2017" />
@@ -79,7 +79,7 @@ class App extends React.Component {
             </div>
           );
         })}
-      </Body>
+      </StyledDiv>
     );
   }
 }

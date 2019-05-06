@@ -6,7 +6,7 @@ import StaticTodoList from './week1/App';
 import DynamicTodList from './week2/App';
 import ApiCall from './week3/App';
 
-const H3 = styled.h3`
+const StyledH3 = styled.h3`
   margin-top: 1rem;
   height: 80vh;
   margin: 0;
@@ -25,7 +25,7 @@ const RouterContainer = () => {
         <Route
           exact
           path="/"
-          render={() => <H3>TO SEE THE HOMEWORKS PLEASE CLICK THE LINKS IN NAVBAR</H3>}
+          render={() => <StyledH3>TO SEE THE HOMEWORKS PLEASE CLICK THE LINKS IN NAVBAR</StyledH3>}
         />
         <Route exact path="/static-todo-list" component={StaticTodoList} />
         <Route exact path="/dynamic-todo-list" component={DynamicTodList} />
