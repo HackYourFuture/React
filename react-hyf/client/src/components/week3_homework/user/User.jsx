@@ -25,7 +25,7 @@ export class User extends Component {
 // STYLES
 // user_info_list_style
 const user_info_list_style = {
-  width: '15%',
+  width: '40%',
   margin: 'auto auto 7%',
   listStyle: 'none',
   fontSize: '150%',

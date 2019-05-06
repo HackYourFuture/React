@@ -20,7 +20,8 @@ export class HomeworkWeek3 extends Component {
   componentDidMount() {
     fetch('https://uinames.com/api/?amount=10')
       .then(res => res.json())
-      .then(users => this.setState({ users, isLoading: false }, () => console.log(users)));
+      .then(users => this.setState({ users, isLoading: false }))
+      .catch(err => console.log(err.message));
   }
 
   render() {
