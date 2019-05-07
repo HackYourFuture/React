@@ -10,12 +10,15 @@
 - Can display JavaScript values in the HTML, using the { } symbols
 - Class component vs. functional component
 - Always returns HTML (in the form of JSX)
+- Render an array in `.map`
 
 ## JSX
 - A way to write dynamic HTML code with JavaScript
 - It is a more intuitive version of the function createElement()
+  - show https://babeljs.io/repl write <div></div> converted to `"use strict"; React.createElement("div", null);`
 - A component should always return JSX
 - These are the parts that will build the DOM structure
+- `ReactDOM.render`
 
 ## Props
 - Props is short for property (like a regular HTML attribute)
@@ -23,12 +26,14 @@
 - Passed down using an identifier, a self-defined attribute name
 - Can be given to multiple instances of components
 
-## State vs. Props
-- Both props and state are plain JavaScript objects
+## State
 - State holds all the dynamic data of the app
-- Whenever data from the state object gets passed down it becomes a prop
 - State can only be defined in class-based components
-- While props can be widespread, state should only be defined in the top parent component
+- Initialization of state in constructor
+- Easy example is changing state with `setTimeout`
+
+
+Both props and state are plain JavaScript objects
 
 Teacher suggestion: 
 - Make a jquery app first and then change it into dom	
