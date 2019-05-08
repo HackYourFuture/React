@@ -1,38 +1,5 @@
 import React from 'react';
 
-class TodoStatic extends React.Component {
-  render() {
-    const { todo } = this.props;
-    const { description, deadline, done } = todo;
-
-    return (
-      <li className={done ? 'todo done' : 'todo not-done'}>
-        {description},{deadline}
-      </li>
-    );
-  }
-}
-
-class StaticList extends React.Component {
-  render() {
-    const { name } = this.props;
-    return (
-      <ul className="static list">
-        <h2>{name}</h2>
-        <TodoStatic
-          todo={{ id: 1, description: 'Get out of bed', deadline: '13.9.2017', done: false }}
-        />
-        <TodoStatic
-          todo={{ id: 2, description: 'Brush teeth', deadline: '14.9.2017', done: false }}
-        />
-        <TodoStatic
-          todo={{ id: 3, description: 'Eat breakfast', deadline: '15.9.2017', done: true }}
-        />
-      </ul>
-    );
-  }
-}
-
 // This component renders form element
 const TodoForm = ({ children, name, styleName }) => (
   <form name={name} className={styleName}>
@@ -145,7 +112,6 @@ export default class PreviousHomeworks extends React.Component {
     return (
       <React.Fragment>
         <h1 className="app-header">Welcome to Todo App</h1>
-        <StaticList name="Static List" />
         <TodoList name="Dynamic List" styleName="color list">
           {this.state.dynamicList.map((todo, index) => (
             <Todo

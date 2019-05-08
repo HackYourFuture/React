@@ -1,0 +1,38 @@
+.navbar {
+  list-style-type: none;
+  width: 100%;
+  background: rgb(116, 115, 107);
+  border-bottom: 3px solid rgb(55, 60, 66);
+  height: 50px;
+}
+
+.nav-element {
+  padding: 10px 24px;
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 100%;
+}
+
+.nav-element a {
+  background: rgb(116, 115, 107);
+  color: rgb(15, 17, 19);
+  transition: background 1s ease;
+}
+
+.nav-element a:hover {
+  background: rgb(83, 87, 92);
+  color: rgb(226, 233, 241);
+  text-decoration: none;
+}
+
+.nav-link {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 10px;
+}

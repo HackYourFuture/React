@@ -1,0 +1,16 @@
+.weeks {
+  margin: 3px 3%;
+}
+
+li {
+  line-height: 1.8;
+}
+
+.weeks-item {
+  color: rgb(1, 1, 1);
+  text-decoration: none;
+}
+
+.weeks-item:hover {
+  color: rgb(253, 19, 11);
+}
