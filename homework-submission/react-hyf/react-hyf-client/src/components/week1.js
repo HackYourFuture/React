@@ -15,7 +15,6 @@ class TodoStatic extends React.Component {
 
 export default class StaticList extends React.Component {
   render() {
-    const { name } = this.props;
     return (
       <ul className="static list">
         <h2>Static Todolist</h2>

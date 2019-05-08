@@ -10,7 +10,7 @@ const Main = ({ elements }) => {
       <h1>HackYourFuture - React.js</h1>
       <ul className="weeks">
         {Object.keys(weeks).map(key => (
-          <li>
+          <li key={key}>
             <Link className="weeks-item" to={weeks[key].path}>
               {key}:{weeks[key].description}
             </Link>
