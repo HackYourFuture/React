@@ -15,8 +15,8 @@ Transform a todolist sketch into components on white board.
 *Exercise:* transform another ui into components in pairs.
 
 ## stateful logic
-1. State vs. Props
-    - Both props and state are plain JS objects
+1. Using destructuring in React
+2. State vs. Props
     - Both props and state trigger a render update when they change
     - How to determine if data should be props or state?
       - Props are "configuration options" for components
@@ -26,7 +26,7 @@ Transform a todolist sketch into components on white board.
       - State is single-level only. Components can read and set their own state, but cannot read or set the state of their children
     - Later, we are going to be using a state-management tool
 
-2. Using state correctly
+3. Using state correctly
     - Do not modify state directly, always use setState
         - Give an example of how mutating state directly doesn’t work
     - State updates are merged (note that merging is shallow)
@@ -44,7 +44,6 @@ Transform a todolist sketch into components on white board.
 - Lifecycle methods are used when render is not enough on its own
 
 - Cover each, giving examples of when they might be useful
-  - UNSAFE_componentWillMount(): deprecated should not be used
   - componentDidMount: data fetching in client-side-only apps
   - shouldComponentUpdate: performance debugging
   - componentWillUnmount: teardown (payment SDKs, intervals, etc)
