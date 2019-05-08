@@ -1,0 +1,36 @@
+ body {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 1)),
+    url('https://i0.wp.com/www.thenextfact.com/wp-content/uploads/2017/10/reactjs.png?fit=1920%2C1080');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.App{
+  text-align: center;
+  position: relative;
+}
+
+ul {
+    background-color: #cbf1f5;
+    margin: 0 auto;
+}
+
+ul li {
+  display: inline-block;
+  margin: 20px;
+  font-size: 25px;
+}
+
+li a {
+  text-decoration: none;
+  color: #3d84a8;
+  font-family: cursive;;
+}
+
+h3 {
+  margin-top: 10%;
+  color: #11999e;
+  font-size: 30px;
+}
+

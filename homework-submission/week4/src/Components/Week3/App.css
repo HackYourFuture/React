@@ -1,0 +1,17 @@
+
+.profile-table {
+  margin: 0 auto;
+  padding: 10px 15px;
+  width:320px;
+  text-align: left;
+  background: rgba(255,255,255,.5);
+  border-radius: 5px;
+  box-shadow: 0 6px 4px rgba(0,0,0,.05);
+  margin-top: 48px;
+}
+
+.profile-row td {
+  padding-bottom: 14px;
+  color: #11999e;
+  font-size: 22px;
+}
