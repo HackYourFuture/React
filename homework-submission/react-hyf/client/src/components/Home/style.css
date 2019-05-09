@@ -1,0 +1,10 @@
+div.head {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 70px;
+  padding: 0;
+  color: cadetblue;
+}

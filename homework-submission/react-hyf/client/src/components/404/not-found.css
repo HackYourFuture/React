@@ -1,0 +1,10 @@
+.not_found {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  font-size: 72px;
+  color: #6f6767;
+  box-shadow: 83px 8px 67px 37px rgba(1, 1, 1, 0.8);
+}

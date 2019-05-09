@@ -5,13 +5,14 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  background: none;
 }
 
 .head {
   text-align: center;
   font-size: 35px;
   font-weight: bold;
-  color: #ccc;
+  color: #aaa;
 }
 
 .activate {
@@ -46,7 +47,7 @@ form button {
   color: #fff;
   padding: 10px;
   margin: 10px;
-  max-width: 33%;
+  max-width: 31%;
   box-sizing: border-box;
   position: relative;
 }

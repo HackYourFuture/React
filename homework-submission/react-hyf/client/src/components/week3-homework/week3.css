@@ -2,19 +2,11 @@
   display: none;
 }
 
-.user_data_wrapper {
-  background: #8fc06c;
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  top: 0px;
-  left: 0;
-  z-index: 999;
-  display: block;
+.header {
+  display: flex;
+  justify-content: center;
 }
 
-.header {
-  position: absolute;
-  left: 36rem;
-  bottom: 100px;
+.user_data_wrapper {
+  width: 100%;
 }

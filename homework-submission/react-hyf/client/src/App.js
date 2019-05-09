@@ -1,15 +1,14 @@
 import React from 'react';
-// import PreviousHomeworks from './components/TodoList';
-import Week3 from './components/week3-homework/week3';
 import './App.css';
+import Layout from './hoc/Layout/layout';
+import Routes from './routes';
 
 function App() {
   return (
     <div className="App" id="App">
-      <header className="App-header">
-        {/* <PreviousHomeworks /> */}
-        <Week3 />
-      </header>
+      <Layout>
+        <Routes />
+      </Layout>
     </div>
   );
 }

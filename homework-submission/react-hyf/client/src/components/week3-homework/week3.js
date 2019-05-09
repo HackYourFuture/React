@@ -4,7 +4,7 @@ import Spinner from './spinner/spinner';
 import './week3.css';
 
 class Week3 extends Component {
-  state = { users: [], loading: true, show: true };
+  state = { users: [], loading: true, show: true, error: '' };
 
   componentDidMount() {
     this.setFocus();
@@ -18,6 +18,9 @@ class Week3 extends Component {
         .then(result => {
           const amount = result.slice(1, 2);
           this.setState({ users: amount, loading: false, show: false });
+        })
+        .catch(err => {
+          console.log(err.message);
         });
     }
   };
