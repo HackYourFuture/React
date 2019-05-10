@@ -8,7 +8,8 @@ fetch('https://uinames.com/api/?amount=10')
     router.get('/', (req, res, next) => {
       res.send(data);
     })
-  );
+  )
+  .catch(err => err);
 
 // router.get('/', (req, res, next) => {
 //   res.send(JSON.stringify(sendData));

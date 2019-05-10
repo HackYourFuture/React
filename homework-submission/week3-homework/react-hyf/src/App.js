@@ -8,12 +8,10 @@ class App extends Component {
     personInfo: {},
     isLoading: true,
   };
-  // https://uinames.com/api/?amount=10
-  componentWillMount() {
+  componentDidMount() {
     fetch('http://localhost:4000/fetchAPI')
       .then(fetchedData => fetchedData.json())
       .then(data => {
-        // console.log(data);
         this.setState({ personInfos: data, personInfo: data[0], isLoading: false });
       })
       .catch(err => err);
@@ -29,7 +27,6 @@ class App extends Component {
   render() {
     const personInfo = this.state.personInfo;
     const personInfoValues = Object.values(personInfo);
-    // const randomInfo = Object.values(infos[Math.floor(Math.random() * Math.floor(10))]);
     return (
       <div className="parent">
         <div className="child">

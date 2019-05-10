@@ -63,11 +63,6 @@ button {
   padding: 10px;
 }
 
-/* .elements:nth-child(2n) {
-  height: 500px;
-  font-size: 200px;
-} */
-
 .element {
   margin: 10px 0 10px 10px;
   font-size: 20px;
@@ -77,13 +72,12 @@ button {
 .element:first-child {
   padding: 10px 10px 10px 0;
   font-size: 50px;
-  height: 60px;
+  height: auto;
   font-weight: bold;
 }
 
-.elements:not(:first-child) {
-  height: 30px;
-  padding: 0 0 0 50px;
+.element:not(:first-child) {
+  height: auto;
 }
 
 @keyframes App-logo-spin {
