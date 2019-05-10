@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+}
+li {
+  color: blueviolet;
+  list-style: none;
+  font-size: 1em;
+}

@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+}
+
+.AddingInput {
+  font-size: 16px;
+}
+
+.AddingButton {
+  font-size: 14px;
+  background-color: pink;
+  color: black;
+  width: 60px;
+  font-weight: bold;
+}
+
+.RemoveInput {
+  font-size: 14px;
+
+  background-color: pink;
+  color: black;
+  width: 70px;
+  height: 20px;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 30px;
+}
+
+.listContent {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  font-size: 20px;
+
+  text-align: center;
+
+  margin-top: 10px;
+}
