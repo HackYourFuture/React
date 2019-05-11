@@ -25,13 +25,14 @@ class HomeworkWeek3 extends Component {
       .then(items =>
         this.setState(
           {
+            error: handleErrors,
             isLoaded: true,
             items,
           },
           () => console.log(items),
         ),
       )
-      .catch(error => console.log(error));
+      .catch(error => this.setState({ error, isLoading: false }));
   }
 
   render() {
