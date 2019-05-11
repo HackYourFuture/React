@@ -9,4 +9,12 @@
 
 .user_data_wrapper {
   width: 100%;
+  height: 90vh;
+}
+
+.alert-danger {
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-size: 40px;
 }

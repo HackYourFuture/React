@@ -20,9 +20,28 @@ class Week3 extends Component {
           this.setState({ users: amount, loading: false, show: false });
         })
         .catch(err => {
-          console.log(err.message);
+          this.setState({ error: err.message });
         });
+    } else {
+      this.setState({ error: 'Please press space' });
     }
+  };
+
+  handleError = () => {
+    return this.state.error !== '' ? (
+      <div>
+        <div className="alert-danger">{this.state.error}</div>
+        {this.clearErrorMsg()}
+      </div>
+    ) : (
+      ''
+    );
+  };
+
+  clearErrorMsg = () => {
+    setTimeout(() => {
+      this.setState({ error: '' });
+    }, 2000);
   };
 
   setFocus = () => {
@@ -30,19 +49,19 @@ class Week3 extends Component {
   };
 
   render() {
-    let userData = <Spinner />;
-    if (this.state.loading === false) {
-      userData = this.state.users.map(user => {
-        return <User key={user.name} data={user} />;
-      });
-    }
+    let userData;
+    userData = this.state.users.map(user => {
+      return user ? <User key={user.name} data={user} /> : <Spinner />;
+    });
     return (
       <div className="container" onClick={this.setFocus}>
         <div className="user_data_wrapper" onClick={this.setFocus}>
+          {this.handleError()}
+
           {userData}
           <h1 className={`header ${this.state.show === false ? 'hidden' : ''}`}>Press Spacebar</h1>
         </div>
-        <div ref="component" tabIndex="1" onKeyDown={this.handleKeyPress} />
+        <div ref="component" tabIndex="1" onKeyDown={this.handleKeyPress} className="component" />
       </div>
     );
   }
