@@ -1,0 +1,88 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #ccc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.App-link {
+  color: black;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  background-color: #eee;
+  padding: 20px;
+  margin: 0;
+}
+h1,
+h2,
+p,
+ul,
+li {
+  font-family: sans-serif;
+}
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+ul.header {
+  background-color: #ccc;
+  padding: 0;
+  border: 2px solid #ccc;
+  -webkit-box-shadow: 3px 7px 10px 0px #ccc;
+  -moz-box-shadow: 3px 7px 10px 0px #ccc;
+  box-shadow: 3px 7px 10px 0px #ccc;
+}
+ul.header li a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+}
+.weeks {
+  background-color: #ccc;
+  padding: 20px;
+  border: 2px solid #ccc;
+  -webkit-box-shadow: 3px 7px 10px 0px #ccc;
+  -moz-box-shadow: 3px 7px 10px 0px #ccc;
+  box-shadow: 3px 7px 10px 0px #ccc;
+}
+h1 {
+  color: black;
+}
+.weeks h2 {
+  padding: 0;
+  margin: 0;
+}
+.weeks li {
+  margin-bottom: 10px;
+}
+
+.active {
+  background-color: #eee;
+}
