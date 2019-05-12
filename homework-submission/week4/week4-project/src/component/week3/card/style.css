@@ -1,0 +1,29 @@
+* {
+  box-sizing: content-box;
+}
+
+#card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#card {
+  width: fit-content;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 5%;
+  box-shadow: 5px 5px 7px;
+  margin: auto;
+  padding: 2%;
+  align-self: center;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}

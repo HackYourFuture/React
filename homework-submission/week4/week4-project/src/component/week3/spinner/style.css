@@ -1,0 +1,164 @@
+.wrapper {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  background: coral;
+}
+
+.loader {
+  display: flex;
+  position: relative;
+  width: 250px;
+  height: 88px;
+}
+
+.wave {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  perspective: 100px;
+}
+
+.wave > div {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+}
+
+.wave > div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.top-wave > div::before {
+  background-color: red;
+}
+
+.top-wave > div {
+  animation: move 3s ease-in-out infinite reverse;
+}
+
+.top-wave > div::before {
+  animation: grow 3s linear infinite reverse;
+}
+
+.bottom-wave > div {
+  animation: move 3s ease-in-out infinite;
+}
+
+.bottom-wave > div::before {
+  animation: grow 3s linear infinite;
+}
+
+.wave > div:nth-child(10) {
+  animation-delay: 0s;
+}
+.wave > div:nth-child(9) {
+  animation-delay: -0.1s;
+}
+.wave > div:nth-child(8) {
+  animation-delay: -0.2s;
+}
+.wave > div:nth-child(7) {
+  animation-delay: -0.3s;
+}
+.wave > div:nth-child(6) {
+  animation-delay: -0.4s;
+}
+.wave > div:nth-child(5) {
+  animation-delay: -0.5s;
+}
+.wave > div:nth-child(4) {
+  animation-delay: -0.6s;
+}
+.wave > div:nth-child(3) {
+  animation-delay: -0.7s;
+}
+.wave > div:nth-child(2) {
+  animation-delay: -0.8s;
+}
+.wave > div:nth-child(1) {
+  animation-delay: -0.9s;
+}
+
+.bottom-wave > div:nth-child(10) {
+  animation-delay: 0.75s;
+}
+.bottom-wave > div:nth-child(9) {
+  animation-delay: 0.65s;
+}
+.bottom-wave > div:nth-child(8) {
+  animation-delay: 0.55s;
+}
+.bottom-wave > div:nth-child(7) {
+  animation-delay: 0.45s;
+}
+.bottom-wave > div:nth-child(6) {
+  animation-delay: 0.35s;
+}
+.bottom-wave > div:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.bottom-wave > div:nth-child(4) {
+  animation-delay: 0.15s;
+}
+.bottom-wave > div:nth-child(3) {
+  animation-delay: 0.05s;
+}
+.bottom-wave > div:nth-child(2) {
+  animation-delay: -0.05s;
+}
+.bottom-wave > div:nth-child(1) {
+  animation-delay: -0.15s;
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(88px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(88px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes grow {
+  0%,
+  50%,
+  75%,
+  100% {
+    transform: scaleX(0.7) scaleY(0.7);
+  }
+  10%,
+  60% {
+    transform: scaleX(1) scaleY(1);
+  }
+  35%,
+  85% {
+    transform: scaleX(0.4) scaleY(0.4);
+  }
+}
