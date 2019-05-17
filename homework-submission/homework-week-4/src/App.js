@@ -9,30 +9,28 @@ import { Route, NavLink, BrowserRouter } from 'react-router-dom';
 function App() {
   return (
     <BrowserRouter>
-      <React.Fragment>
-        <div>
-          <Route exact path="/" component={Root} />
-          <ul>
-            <li>
-              <NavLink exact to="/">
-                Root
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/week1">Week 1</NavLink>
-            </li>
-            <li>
-              <NavLink to="/week2">Week 2</NavLink>
-            </li>
-            <li>
-              <NavLink to="/week3">Week 3</NavLink>
-            </li>
-          </ul>
-          <Route path="/week1" component={Week1} />
-          <Route path="/week2" component={Week2} />
-          <Route path="/week3" component={Week3} />
-        </div>
-      </React.Fragment>
+      <div>
+        <Route exact path="/" component={Root} />
+        <ul>
+          <li>
+            <NavLink exact to="/">
+              Root
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/week1">Week 1</NavLink>
+          </li>
+          <li>
+            <NavLink to="/week2">Week 2</NavLink>
+          </li>
+          <li>
+            <NavLink to="/week3">Week 3</NavLink>
+          </li>
+        </ul>
+        <Route path="/week1" component={Week1} />
+        <Route path="/week2" component={Week2} />
+        <Route path="/week3" component={Week3} />
+      </div>
     </BrowserRouter>
   );
 }

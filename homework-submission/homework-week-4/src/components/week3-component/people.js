@@ -22,7 +22,8 @@ class People extends Component {
           },
           () => console.log('People fetched..', people)
         )
-      );
+      )
+      .catch(error => alert('Fetch Unsuccessful\n' + error));
   }
 
   render() {
@@ -37,10 +38,10 @@ class People extends Component {
         </header>
         <ul>
           {this.state.people.map((person, i) => (
-            <div>
-              <HeaderElement key={i} content={person.name + ' ' + person.surname} />
-              <ListElement key={i} title="Gender" content={person.gender} />
-              <ListElement key={i} title="Region" content={person.region} />
+            <div key={i}>
+              <HeaderElement content={person.name + ' ' + person.surname} />
+              <ListElement title="Gender" content={person.gender} />
+              <ListElement title="Region" content={person.region} />
             </div>
           ))}
         </ul>

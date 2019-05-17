@@ -63,6 +63,7 @@ class Week1 extends React.Component {
               {todos.map((todo, index) => {
                 return (
                   <ListItem
+                    key={index}
                     handler={() => this.click(index)}
                     description={todo.description}
                     deadline={todo.deadline}
