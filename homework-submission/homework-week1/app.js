@@ -1,4 +1,5 @@
 const Item = ({ id, description, deadline, done }) => {
+  // a component has li element and the data which comes from another components(static and dynamic)
   if (done == true) {
     return (
       <li className="true">
@@ -14,6 +15,7 @@ const Item = ({ id, description, deadline, done }) => {
   }
 };
 
+// a component has static data that will be passed to Item component
 const StaticList = () => {
   return (
     <ul className="static-list">
@@ -27,6 +29,7 @@ const StaticList = () => {
   );
 };
 
+// a component has static data that comes from App class then will be passed to Item component
 const DynamicList = ({ data }) => {
   const result = data.map(({ id, done, description, deadline }) => {
     return <Item key={id} id={id} description={description} deadline={deadline} done={done} />;
@@ -34,6 +37,7 @@ const DynamicList = ({ data }) => {
   return <ul className="dynamic-list">{result}</ul>;
 };
 
+// a class component inherits all methods from react component, it works as container for all above components
 class App extends React.Component {
   todoObject = [
     {

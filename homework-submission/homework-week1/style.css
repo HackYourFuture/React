@@ -27,4 +27,5 @@ li {
 }
 li.true {
   background-color: #03a9f4;
+  text-decoration: line-through;
 }
