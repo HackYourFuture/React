@@ -2,24 +2,27 @@ const Item = ({ id, description, deadline, done }) => {
   if (done == true) {
     return (
       <li className="true">
-        {id} {description} {deadline} <strong>{done}</strong>
+        {id} {description} {deadline}
       </li>
     );
   } else {
     return (
       <li>
-        {id} {description} {deadline} <strong>{done}</strong>
+        {id} {description} {deadline}
       </li>
     );
   }
 };
 
-const StaticList = props => {
+const StaticList = () => {
   return (
     <ul className="static-list">
       <Item description={'Get out of bed'} deadline={'Wed Sep 13 2017'} />
       <Item description={'Brush teeth'} deadline={'Thu Sep 14 2017'} />
       <Item description={'Eat breakfast'} deadline={'Fri Sep 15 2017'} />
+      <Item description={'Play sport'} deadline={'Sat Sep 16 2017'} />
+      <Item description={'Do homework'} deadline={'Sun Sep 17 2017'} />
+      <Item description={'Go to party'} deadline={'Mon Sep 18 2017'} />
     </ul>
   );
 };
