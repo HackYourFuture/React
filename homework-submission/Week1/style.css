@@ -1,0 +1,14 @@
+* {
+  list-style: none;
+}
+.cross:before {
+  content: '\2717';
+  color: crimson;
+  padding-right: 10px;
+}
+
+.tick:before {
+  content: '\2713';
+  color: darkgreen;
+  padding-right: 10px;
+}
