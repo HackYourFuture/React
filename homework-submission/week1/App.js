@@ -18,9 +18,9 @@ const List = ({ description, deadline, className }) => {
 const UnorderedStaticList = () => {
   return (
     <ul>
-      <List description="Get out of bed" deadline="Wed Sep 13 2017" className="true" />
-      <List description="Brush teeth" deadline="Thu Sep 14 2017" className="false" />
-      <List description="Eat breakfast" deadline="Fri Sep 15 2017" className="false" />
+      <List description="Get out of bed" deadline="Wed Sep 13 2017" className="finished" />
+      <List description="Brush teeth" deadline="Thu Sep 14 2017" className="" />
+      <List description="Eat breakfast" deadline="Fri Sep 15 2017" className="" />
     </ul>
   );
 };
@@ -71,7 +71,7 @@ const UnorderedDynamicList = () => {
       description={todo.description}
       deadline={todo.deadline}
       key={todo.id}
-      className={todo.done ? 'true' : 'false'}
+      className={todo.done ? 'finished' : ''}
     />
   ));
 
