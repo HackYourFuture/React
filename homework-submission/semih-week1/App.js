@@ -1,4 +1,4 @@
-#this function creates a <li> tag and adds description and deadline of the todo item.
+//this function creates a <li> tag and adds description and deadline of the todo item.
 const TodoItem = (props) => {
     return (
             <li className={props.className}>
@@ -7,7 +7,7 @@ const TodoItem = (props) => {
     )
 }
 
-#this function creates <ul> tags for both static and dynamic todo lists.
+//this function creates <ul> tags for both static and dynamic todo lists.
 const Todos = () => {
     const todoItems = [
         {
