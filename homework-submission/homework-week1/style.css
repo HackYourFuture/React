@@ -17,7 +17,7 @@ ul {
   text-align: center;
   text-decoration: none;
 }
-li {
+ul {
   border-radius: 7px;
   font-size: 20px;
   margin: 20px auto;
