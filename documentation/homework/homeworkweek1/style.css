@@ -1,0 +1,50 @@
+.done {
+  text-decoration: line-through;
+  background-color: #98fb98;
+}
+.not-done {
+  text-decoration: none;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 20px;
+  color: #435757;
+  background: linear-gradient(-20deg, #ff7f50 20%, #00ff7f 80%);
+  font: 500 1.2em/1.2 'Roboto', sans-serif;
+}
+
+html {
+  max-width: 450px;
+  margin: 0 auto;
+  border-top: 5px solid #435757;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+li {
+  margin: 0;
+  padding: 20px;
+  background-color: #40E0D0(250, 178, 0);
+  font-size: 1.8em;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  counter-reset: done-items undone-items;
+}
+
+.static-list,
+.dynamic-list {
+  display: block;
+  position: relative;
+  padding: 15px 0 15px 45px;
+  border-top: 1px dashed #fff;
+  order: 4;
+  cursor: pointer;
+}
