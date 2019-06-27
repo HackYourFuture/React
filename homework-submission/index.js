@@ -8,16 +8,20 @@ const ListItem = ({ description, deadline, className }) => {
   );
 };
 
+// to create a static list that is filled with listitem as its components. props are well obviously added
+
 const StaticList = () => {
   return (
     <ul>
-      <p>This is the Static List</p>
+      This is the Static List
       <ListItem description="Get out of bed" deadline="2017-09-11" className="strike_through" />
       <ListItem description="Brush teeth" deadline="Brush teeth" className="" />
       <ListItem description="Eat breakfast" deadline="2017-09-09" className="" />
     </ul>
   );
 };
+
+// to create a dynamic list that is filled with listitem as its components. props are now dynamically added with map function
 
 const DynamicList = () => {
   const dynamicData = [
@@ -42,7 +46,7 @@ const DynamicList = () => {
   ];
   return (
     <ul>
-      <p>This is the Dynamic List</p>
+      This is the Dynamic List
       {dynamicData.map(({ id, description, deadline, done }) => {
         return (
           <ListItem
@@ -57,18 +61,16 @@ const DynamicList = () => {
   );
 };
 
-const Container_List = () => {
-  return (
-    <div>
-      <StaticList />
-      <DynamicList />
-    </div>
-  );
-};
+//container list is created as a class to render static and dynamic lists.
 
 class ContainerList extends React.Component {
   render() {
-    return <Container_List />;
+    return (
+      <div>
+        <StaticList />
+        <DynamicList />
+      </div>
+    );
   }
 }
 
