@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome to React World</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const todoListStatic = [
+        {
+          description: '* Get out of bed',          
+          deadline: 'Wed Sep 13 2017',
+          done: ''
+        },
+        {
+          description: '* Brush teeth',          
+          deadline: 'Thu Sep 14 2017',
+          done: ''
+        },
+        {
+          description: '* Eat breakfast',          
+          deadline: 'Fri Sep 15 2017',
+          done: ''
+        }
+      ];
+      
+         const todoListDynamic = [
+        {
+          id: 1,
+          description: 'Get out of bed',
+          deadline: '2017-09-11',
+          done: true,
+        },
+        {
+          id: 2,
+          description: 'Brush teeth',
+          deadline: '2017-09-10',
+          done: false,
+        },
+        {
+          id: 3,
+          description: 'Eat breakfast',
+          deadline: '2017-09-09',
+          done: false,
+        },
+      ];
+
+// TableTitle Component used by both static and dynamic todo list
+      const TableTitle = () => {
+        return (
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Deadline</th>
+              <th>Done</th>
+            </tr>
+          </thead>
+        );
+      }
+
+      class StaticTodoContent extends React.Component {
+        render () {
+          return (
+            <tbody>
+              <tr>
+                <td>{todoListStatic[0].description}</td>
+                <td>{todoListStatic[0].deadline}</td>
+                <td>{todoListStatic[0].done}</td>
+              </tr>
+              <tr>
+                <td>{todoListStatic[1].description}</td>
+                <td>{todoListStatic[1].deadline}</td>
+                <td>{todoListStatic[1].done}</td>
+              </tr>
+              <tr>
+                <td>{todoListStatic[2].description}</td>
+                <td>{todoListStatic[2].deadline}</td>
+                <td>{todoListStatic[2].done}</td>
+              </tr>
+            </tbody>
+          );
+        }
+      }
+
+
+// Static todo list used TableTitle component
+      class StaticTodo extends React.Component {
+        render () {
+          return (
+            <div>
+              <h2> Todo list as static</h2>
+              <table>
+                <TableTitle />
+                <StaticTodoContent />
+              </table>
+            </div>
+          );
+        }
+      }
+
+// ContentDynamicTodo component is for map function and used props
+      const ContentDynamicTodo= ({ description, deadline, className, done } )=> {
+        return (
+          <tbody>
+            <tr className={className}>
+              <td>{description}</td>
+              <td>{deadline}</td>
+              <td>{className}</td>
+            </tr>
+          </tbody>
+        );
+      };
+      
+// Dynamic todo list used map function component (ContentDynamicTodo) and TableTitle component 
+      const DynamicTodo = () => {
+        return (
+          <div>
+            <h2>Todo list as dynamic</h2>
+           <table>
+              <TableTitle />
+              {todoListDynamic.map(({ id, description, deadline, done }) => ( 
+                <ContentDynamicTodo key={id} description={description} deadline={deadline} className={done ? '√' : 'x'}/>))
+              }
+            </table>
+          </div>
+        );
+      };
+
+      class AppTodo extends React.Component {
+        render () {
+          return (
+            <div>
+              <h1>Static Todo List</h1>
+              <StaticTodo />
+              <h1>Dynamic Todo List</h1>
+              <DynamicTodo />
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<AppTodo />, document.getElementById('root'));
+  </script>
+</body>
+
+</html>

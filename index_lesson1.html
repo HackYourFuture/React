@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome to React World</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      const NavItem = ({ url, name }) => {
+                return (
+                    <div>
+                        <a href={url} target="_blank">{name}</a>
+                    </div>
+                )
+            }
+
+            const NavBar = ({ navItemList }) => {
+                return (
+                    <div>
+                        this is nav bar
+                        {
+                            navItemList.map(({url, name, id}) => 
+                                (<NavItem key={id} url={url} name={name} />))
+                        }
+                    </div>
+                )
+            }
+
+            class App extends React.Component {
+                navItemList = [
+                    {url: 'https://www.google.com/' , name: 'google', id: '1'},
+                    {url: 'https://www.facebook.com' , name: 'facebook', id: '2'},
+                    {url: 'https://www.stackoverflow.com' , name: 'stack overflow', id: '3'},
+                ]
+                render () {
+                    return (
+                        <div>
+                            <NavBar navItemList={this.navItemList} />
+                        </div>
+                    )
+                }
+            }
+
+            ReactDOM.render(
+                <App />,
+                document.getElementById('root')
+            )
+
+        </script>
+  </body>
+</body>
+
+</html>
