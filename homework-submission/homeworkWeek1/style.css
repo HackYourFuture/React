@@ -1,0 +1,44 @@
+body {
+  min-width: 300px;
+}
+
+.lists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+h2,
+ul {
+  text-align: center;
+}
+ul,
+li {
+  list-style: none;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 10px;
+  background-color: rgb(150, 150, 150);
+  cursor: pointer;
+}
+
+.list {
+  margin: 20px;
+  box-shadow: 0 0 30px rgba(25, 0, 255, 0.3);
+}
+
+.not-done {
+  text-decoration: none;
+}
+
+.dynamic li:hover,
+.static li:hover {
+  background: rgb(255, 255, 255);
+}
+
+.done {
+  color: rgba(189, 184, 184, 0.835);
+  text-decoration: line-through;
+}
