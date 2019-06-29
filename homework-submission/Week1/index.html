@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Welcome to React World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div id="thisIsWhereReactIsInjected"></div>
+    <script src="App.js" type="text/babel">
+      // const TodoItem = ({ description, deadline, className }) => {
+      //   return (
+      //     <li className={className}>
+      //       {description}, {deadline}
+      //     </li>
+      //   );
+      // };
+
+      // const StaticList = () => {
+      //   return (
+      //     <div>
+      //       <h1>Static List</h1>
+      //       <ul>
+      //         <TodoItem description="Get out of bed" deadline="Wed Sep 13 2017" />
+      //         <TodoItem description="Brush teeth" deadline="Thu Sep 14 2017" />
+      //         <TodoItem description="Eat breakfast" deadline="Fri Sep 15 2017" />
+      //       </ul>
+      //     </div>
+      //   );
+      // };
+
+      // const todoItems = [
+      //   {
+      //     id: 1,
+      //     description: 'Get out of bed',
+      //     deadline: '2017-09-11',
+      //     done: true,
+      //   },
+      //   {
+      //     id: 2,
+      //     description: 'Brush teeth',
+      //     deadline: '2017-09-10',
+      //     done: false,
+      //   },
+      //   {
+      //     id: 3,
+      //     description: 'Eat breakfast',
+      //     deadline: '2017-09-09',
+      //     done: false,
+      //   },
+      // ];
+      // const DynamicList = () => {
+      //   return (
+      //     <div>
+      //       <h1>Dynamic List</h1>
+      //       <ul>
+      //         {todoItems.map(({ id, description, deadline, done }) => {
+      //           return (
+      //             <TodoItem
+      //               key={id}
+      //               description={description}
+      //               deadline={deadline}
+      //               className={done ? 'done' : ''}
+      //             />
+      //           );
+      //         })}
+      //       </ul>
+      //     </div>
+      //   );
+      // };
+
+      // class App extends React.Component {
+      //   render() {
+      //     return (
+      //       <div>
+      //         <StaticList />
+      //         <DynamicList />
+      //       </div>
+      //     );
+      //   }
+      // }
+
+      // ReactDOM.render(<App />, document.getElementById('thisIsWhereReactIsInjected'));
+    </script>
+  </body>
+</html>
