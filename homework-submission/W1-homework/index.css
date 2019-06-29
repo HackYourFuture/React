@@ -1,0 +1,56 @@
+.app {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: cyan;
+  border-radius: 10vw;
+  padding: 2vw;
+  margin: 3vw;
+  font-size: 3vw;
+}
+
+.header {
+  text-align: center;
+  background-color: gray;
+  color: orange;
+  border-radius: 25vw;
+  padding: 4vw 5vw;
+  margin: 2vw;
+}
+
+.sub-header {
+  background-color: orange;
+  color: gray;
+  border-radius: 25vw;
+  padding: 2vw 5vw;
+  margin: 2vw;
+  cursor: pointer;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left;
+  background-color: rgb(87, 187, 87);
+  border-radius: 25vw;
+  padding: 2vw 10vw;
+  margin: 2vw;
+  cursor: pointer;
+}
+
+li:hover,
+.sub-header:hover {
+  background-color: rgb(245, 187, 187);
+  box-shadow: 5px 5px 10px rgb(87, 0, 0);
+  opacity: 0.9;
+}
+
+span {
+  margin-left: 2vw;
+}
+
+.todo-item-done {
+  text-decoration: line-through;
+  font-style: italic;
+  text-decoration-color: red;
+}
