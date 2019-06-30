@@ -5,9 +5,9 @@
  * @param {props} param0 The destructured properties description and deadline
  * @return List item with the values of the properties
  */
-const StaticTodoItem = ({ description, deadline }) => {
+const StaticTodoItem = ({ description, deadline, className }) => {
   return (
-    <li>
+    <li className={className}>
       <h3>{description}</h3>
       <span>{deadline}</span>
     </li>
@@ -17,25 +17,20 @@ const StaticTodoItem = ({ description, deadline }) => {
 /**
  * A function component that inserts a dynamic item in a list
  * @param {props} param0 The array of todoItems
- * @return List item with the values of the todoItems of the array if todoItem is not done yet (false)
- * @return List item with the values of the todoItems of the array if todoItem is done (true)
- * @return The dynamic list of todoItems
+ * @return
+ *  - List item with the values of the todoItems of the array if todoItem is not done yet (false)
+ *  - List item with the values of the todoItems of the array if todoItem is done (true)
+ *  - The dynamic list of todoItems
  */
 const DynamicTodoItem = ({ todoItems }) => {
   const items = todoItems.map(({ id, description, deadline, done }) => {
-    if (!done) {
-      return (
-        <li key={id}>
-          <h3>{description}</h3>
-          <span>{deadline}</span>
-        </li>
-      );
-    }
     return (
-      <li className="todo-item-done" key={id}>
-        <h3>{description}</h3>
-        <span>{deadline}</span>
-      </li>
+      <StaticTodoItem
+        className={done ? 'todo-item-done' : ''}
+        key={id}
+        description={description}
+        deadline={deadline}
+      />
     );
   });
   return <ul>{items}</ul>;
