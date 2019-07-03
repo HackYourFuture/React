@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: rgb(0, 0, 0);
+  min-width: 700px;
+}
+
+.header {
+  margin: 10px;
+  text-align: center;
+  color: rgb(255, 251, 1);
+}
+
+.list {
+  color: rgb(251, 255, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  width: 60%;
+  min-width: 500px;
+  min-height: 200px;
+  box-shadow: 0 0 10px rgb(251, 255, 0);
+  border-radius: 7px;
+  transition: transform 0.15s;
+  background-color: rgb(0, 0, 0);
+}
+
+.task-list {
+  margin: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 20px 40px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+p {
+  display: inline;
+}
+
+.not-done {
+  text-decoration: none;
+}
+
+.not-done:hover,
+.done:hover {
+  transition-duration: 150ms;
+  box-shadow: 0 0 10px rgb(251, 255, 0);
+  padding: 5px;
+  border-radius: 4px;
+  padding-right: 10px;
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 5, 0, 1);
+}
+
+.mark-done::before {
+  content: '✔️';
+}
+
+.done {
+  color: rgb(105, 105, 105);
+  text-decoration: line-through;
+}
+
+.delete-button {
+  display: inline;
+  border-radius: 3px;
+  margin: 10px;
+  width: 22px;
+  height: 22px;
+  top: 7px;
+  background: rgb(209, 0, 0);
+}
+
+.delete-button:hover {
+  transition-duration: 250ms;
+  box-shadow: 0 0 10px rgb(255, 0, 0);
+  color: rgb(239, 247, 236);
+  font-weight: bold;
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 5, 0, 1);
+}
+
+.input-field {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-align: center;
+  background: rgb(255, 241, 51);
+  height: 24px;
+  width: 35%;
+}
+
+.add-button {
+  width: 100%;
+  height: 24px;
+  margin-top: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-weight: bolder;
+}
+
+.add-button:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+strong {
+  color: rgb(151, 0, 0);
+}
