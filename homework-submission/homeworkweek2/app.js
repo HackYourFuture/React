@@ -9,8 +9,8 @@ const TasksList = props => {
   return (
     <div className="task-list">
       {dynamicList.map((item, index) => (
-        <div key={index} className={item.done ? 'mark-done' : null}>
-          <p onClick={() => props.markAsDone(index)} className={item.done ? 'done' : 'not-done'}>
+        <div key={item.id} className={item.done ? 'mark-done' : null}>
+          <p className={item.done ? 'done' : 'not-done'}>
             <strong> Task:</strong> {item.description}, <strong>deadline :</strong> {item.deadline}
           </p>
           <button className="delete-button" onClick={() => props.deleteTask(index)}>
@@ -25,7 +25,6 @@ const TasksList = props => {
 const InputField = ({ onchangeHandler, type, placeholder, name, children }) => {
   return (
     <React.Fragment>
-      <label>{children} </label>
       <input
         className="input-field"
         onChange={onchangeHandler}
@@ -40,17 +39,16 @@ const InputField = ({ onchangeHandler, type, placeholder, name, children }) => {
 const InputFields = props => {
   return (
     <div>
+      <label> Task : </label>
       <InputField
         onchangeHandler={props.onchangeHandler}
         type="text"
         name="description"
         placeholder="Enter the task here "
-      >
-        Task :
-      </InputField>
-      <InputField onchangeHandler={props.onchangeHandler} type="date" name="deadline">
-        Deadline :
-      </InputField>
+      />
+      <label> Deadline : </label>
+
+      <InputField onchangeHandler={props.onchangeHandler} type="date" name="deadline" />
     </div>
   );
 };
@@ -96,12 +94,6 @@ class App extends Component {
     },
   };
 
-  markAsDone = index => {
-    let updateState = this.state.dynamicList[index];
-    updateState.done = !updateState.done;
-    this.setState(updateState);
-  };
-
   onchangeHandler = event => {
     event.preventDefault();
     const inputData = { ...this.state.inputData };
@@ -112,9 +104,9 @@ class App extends Component {
 
   addTask = event => {
     event.preventDefault();
-    let inputData = { ...this.state.inputData };
+    const inputData = { ...this.state.inputData };
     const dynamicList = [...this.state.dynamicList];
-    let today = new Date()
+    const today = new Date()
       .toJSON()
       .slice(0, 10)
       .replace(/-/g, '/');
@@ -128,12 +120,12 @@ class App extends Component {
   };
 
   deleteTask = index => {
-    if (
-      confirm(`Do you want to delete this task : (${this.state.dynamicList[index].description}) ?`)
-    ) {
+    const confirmMassage = `Do you want to delete this task : (${
+      this.state.dynamicList[index].description
+    }) ?`;
+    if (confirm(confirmMassage)) {
       event.preventDefault();
-      const newState = [...this.state.dynamicList];
-      const newList = newState.filter((item, itemIndex) => itemIndex !== index);
+      const newList = this.state.dynamicList.filter((item, itemIndex) => itemIndex !== index);
       this.setState({ dynamicList: newList });
     }
   };
@@ -143,7 +135,7 @@ class App extends Component {
       <React.Fragment>
         <Header />
         <div className="list">
-          <TasksList data={this.state} markAsDone={this.markAsDone} deleteTask={this.deleteTask} />
+          <TasksList data={this.state} deleteTask={this.deleteTask} />
           <TaskForm onchangeHandler={this.onchangeHandler} addTask={this.addTask} />
         </div>
       </React.Fragment>
