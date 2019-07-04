@@ -47,12 +47,12 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      warning: false,
       draft: {
         id: '',
         description: '',
         deadline: '',
         done: false,
-        warning: false,
       },
       todos: [
         {
@@ -101,11 +101,11 @@ class App extends React.Component {
       elem => elem.description.toUpperCase() == newItem.description.toUpperCase(),
     );
     if (ifExists.length || newItem.description == '') {
-      this.setState({ draft: { warning: true } });
+      this.setState({ warning: true });
     } else {
       this.setState({
         todos: [...todos, newItem],
-        draft: { warning: false },
+        warning: false,
       });
     }
   };
@@ -152,7 +152,9 @@ class App extends React.Component {
             onChange={this.handleChange}
           />
           <button onClick={this.handleAddClick}> Add</button>
-          {draft.warning ? <span>Please enter a valid and nonrecurrent todo item !</span> : null}
+          {this.state.warning ? (
+            <span>Please enter a valid and nonrecurrent todo item !</span>
+          ) : null}
         </form>
       </div>
     );
