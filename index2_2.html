@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome to React World</title>
+
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const validateWeight = (weight) => {if(weight>120) { 
+      return false;
+    } else {
+        return true;
+      }
+    };
+    class BMIApp extends React.Component { 
+      state = {
+        weight: 70,
+        height: 0,
+        warning: false
+      };
+      
+      render() {
+      const {weight,height} = this.state;      
+      return (<div>
+        {warning ? <div>Sorry you are overweight</div>: null}
+        <p>weight: {weight}</p>
+        <p>height: {height}</p>
+        <label htmlFor="">weight</label>
+        <input
+        type="number"
+        value={this.state.weight}
+        onChange = {event => {
+          const inputValue =  parseInt(event.target.value, 10);
+          if (validateWeight(inputValue)) {
+ this.setState({weight: inputValue});
+          } else {
+            this.setState({warning: true})
+          }
+         
+        }} >
+        </input>
+        </div>)
+    }
+    }
+
+
+  const container = document.querySelector('#app');
+  ReactDOM.render(<BMIApp />, document.getElementById('root')); </script>
+</body>
+
+</html>

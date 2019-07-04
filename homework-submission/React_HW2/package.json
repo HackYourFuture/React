@@ -1,0 +1,25 @@
+{
+  "name": "hyf_react_w2",
+  "version": "1.0.0",
+  "description": "React todo list",
+  "main": "todoApp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackYourFuture/React.git"
+  },
+  "keywords": [
+    "React",
+    "todo",
+    "app",
+    "hyf"
+  ],
+  "author": "Ramazan Ince",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HackYourFuture/React/issues"
+  },
+  "homepage": "https://github.com/HackYourFuture/React#readme"
+}

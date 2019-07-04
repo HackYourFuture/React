@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome to React World</title>
+
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+
+    const validateWeight = weight => {
+  if (weight > 120) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+const validateHeight = height => {
+  if (height > 200) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+function NumberInput({ value, onValueChange, onWarningChange, label, validation }) {
+  const onChange = event => {
+    const inputValue = parseInt(event.target.value, 10);
+    const value = Number.isNaN(inputValue) ? 0 : inputValue;
+
+    const hasWarning = validation(value);
+
+    onWarningChange(hasWarning);
+    onValueChange(value);
+  };
+
+  return (
+    <div>
+      <label htmlFor="">{label}</label>
+      <input type="number" value={value} onChange={onChange} />
+    </div>
+  );
+}
+
+class BMIApp extends React.Component {
+  state = {
+    weight: 70,
+    height: 0,
+    warning: false,
+  };
+
+  render() {
+    const { weight, height, warning } = this.state;
+
+    return (
+      <div>
+        {warning ? <div>Sorry you are overweight</div> : null}
+        <p>weight: {weight}</p>
+        <p>height: {height}</p>
+        <label htmlFor="">weight</label>
+        <input
+          type="number"
+          value={this.state.weight}
+          onChange={event => {
+            const inputValue = parseInt(event.target.value, 10);
+            const value = Number.isNaN(inputValue) ? 0 : inputValue;
+
+            this.setState({
+              weight: value,
+              warning: !validateWeight(value),
+            });
+          }}
+        />
+        <br />
+        <label htmlFor="">height</label>
+        <input
+          type="number"
+          value={this.state.height}
+          onChange={event => {
+            const inputValue = parseInt(event.target.value, 10);
+
+            const value = Number.isNaN(inputValue) ? 0 : inputValue;
+
+            this.setState({
+              height: value,
+              warning: !validateHeight(inputValue),
+            });
+          }}
+        />
+      </div>
+    );
+  }
+}
+
+const container = document.querySelector('#app');
+
+ReactDOM.render(<BMIApp />, document.getElementById('root')); </script>
+</body>
+
+</html>
