@@ -1,0 +1,49 @@
+.list-items {
+  background: #fff;
+  color: #46529d;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.list-items p {
+  margin: 0;
+  text-align: center;
+  padding: 10px 0px;
+}
+
+.list-items span {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 2vw;
+  border: 0.3px solid #ccc;
+}
+
+.list-items span.title {
+  background: #2ebaee;
+  color: #fff;
+  font-weight: bold;
+}
+
+.list-items span.description {
+  width: 60%;
+}
+
+.list-items span.deadline {
+  width: 25%;
+}
+
+.list-items span.action {
+  width: 15%;
+}
+
+.list-items span.icon {
+  color: #f00;
+  cursor: pointer;
+}
+
+.todo-item-done {
+  text-decoration: line-through;
+  font-style: italic;
+  text-decoration-color: red;
+}
