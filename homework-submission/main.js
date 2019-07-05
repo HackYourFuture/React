@@ -1,8 +1,8 @@
 const List = props => {
   return (
-    <li>
+    <div>
       {props.description},{props.deadline}
-    </li>
+    </div>
   );
 };
 
@@ -38,24 +38,23 @@ class TodoList extends React.Component {
     return (
       <div>
         <h1>static List</h1>
+
         <List description={this.staticList[0].description} deadline={this.staticList[0].deadline} />
+
         <List description={this.staticList[1].description} deadline={this.staticList[1].deadline} />
+
         <List description={this.staticList[2].description} deadline={this.staticList[2].deadline} />
 
         <div>
           <h1>Dynamic List</h1>
           {this.dynamicList.map(todoList => (
-            <div>
-              <li
-                key={todoList.id}
-                style={
-                  todoList.done === true
-                    ? { textDecoration: 'line-through' }
-                    : { textDecoration: '' }
-                }
-              >
-                {todoList.description},{todoList.deadline}
-              </li>
+            <div
+              key={todoList.id}
+              style={
+                todoList.done === true ? { textDecoration: 'line-through' } : { textDecoration: '' }
+              }
+            >
+              {todoList.description},{todoList.deadline}
             </div>
           ))}
         </div>
