@@ -1,126 +1,108 @@
 const TodoItems = ({ toDoList, removeItem }) => {
-  let length = toDoList.length;
-
-  // let xxx = 1 > 2 ? 7 : 10;
-  // console.log(xxx);
+  const length = toDoList.length;
   const ListItems = length ? (
-    toDoList.map(({ id, description, deadline, name, age }) => {
+    toDoList.map(({ id, description, deadline, done }) => {
       return (
-        <div key={id}>
-          <span>{name}</span>
-          <span>{age}</span>
-          <span onClick={() => removeItem(id)}>&times;</span>
-        </div>
+        <li key={id} className={done === true ? 'true' : ''}>
+          {description} {deadline} {done}
+          <span className="delete" onClick={() => removeItem(id)}>
+            DELETE
+          </span>
+        </li>
       );
     })
   ) : (
-    <p>there is no items</p>
+    <p>There is no items</p>
   );
 
-  return (
-    <div>
-      <div>
-        <span>Name</span>
-        <span>age</span>
-        <span>action </span>
-      </div>
-      {ListItems}
-    </div>
-  );
+  return <ul className="todo-items">{ListItems}</ul>;
 };
 
-class Add extends React.Component {
+class AddItems extends React.Component {
   state = {
-    name: '',
-    age: '',
+    description: '',
+    deadline: '',
   };
 
   handelChange = e => {
-    this.state = {
+    this.setState({
       [e.target.id]: e.target.value,
-    };
+    });
   };
+
+  myFunction() {
+    let element = document.getElementById('error');
+    element.classList.remove('hidde');
+  }
+
   handelSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
-    // this.props.addItem(this.state);
+    if (e.target['description'].value !== '' && e.target['deadline'].value !== '') {
+      this.props.addItem(this.state);
+      this.setState({
+        description: '',
+        deadline: '',
+      });
+    } else {
+      // console.log('There is empty filed');
+      // alert('All fields are required');
+      this.myFunction();
+    }
   };
 
   render() {
     return (
       <div>
         <form onSubmit={this.handelSubmit}>
-          <input type="text" id="name" placeholder="Enter Name" onChange={this.handelChange} />
-          <br />
-          <input type="number" id="age" placeholder="Enter Age" onChange={this.handelChange} />
-          <br />
-          {/* <input
+          <label>Description: </label>
+          <input
             type="text"
-            id="Description"
-            placeholder="Description"
+            id="description"
+            value={this.state.description}
+            placeholder="Enter a short description here..."
             onChange={this.handelChange}
           />
-          <br />
-          <input type="date" id="Deadline" placeholder="Deadline" onChange={this.handelChange} />
-          <br />
-          <input type="boolean" id="Done" placeholder="Done" onChange={this.handelChange} />
-          <br /> */}
-          <input type="submit" value="Add" />
+
+          <label>Deadline: </label>
+          <input
+            type="date"
+            id="deadline"
+            placeholder="Enter deadline..."
+            value={this.state.deadline}
+            onChange={this.handelChange}
+          />
+          <input type="submit" value="Add" className="add" />
         </form>
       </div>
     );
   }
 }
 
-const Item = ({ id, description, deadline, done }) => {
-  // a component has li element and the data which comes from another components(static and dynamic)
-  if (done === true) {
-    return (
-      <li className="true">
-        {id} {description} {deadline}
-      </li>
-    );
-  } else {
-    return (
-      <li>
-        {id} {description} {deadline}
-      </li>
-    );
-  }
-};
+// i am testing
+function errorMessage() {
+  return {
+    // error component function
+  };
+}
 
-// a component has static data that comes from App class then will be passed to Item component
-const DynamicList = ({ data }) => {
-  const result = data.map(({ id, done, description, deadline }) => {
-    return <Item key={id} id={id} description={description} deadline={deadline} done={done} />;
-  });
-  return <ul className="dynamic-list">{result}</ul>;
-};
-
-// a class component inherits all methods from react component, it works as container for all above components
 class App extends React.Component {
   state = {
     toDoList: [
       {
         id: 1,
-        name: 'Muhannad',
-        age: 29,
         description: 'Get out of bed',
         deadline: '2017-09-11',
         done: true,
       },
       {
         id: 2,
-        name: 'Hiba',
-        age: 28,
+
         description: 'Brush teeth',
         deadline: '2017-09-10',
         done: false,
       },
       {
         id: 3,
-        name: 'Razan',
-        age: 25,
         description: 'Eat breakfast',
         deadline: '2017-09-09',
         done: false,
@@ -129,28 +111,44 @@ class App extends React.Component {
   };
 
   removeItem = id => {
-    let toDoList = this.state.toDoList.filter(item => {
+    const toDoList = this.state.toDoList.filter(item => {
       return item.id !== id;
     });
-    // let index = items.findIndex(item => item.id === id);
-    // items.splice(index, 1);
-    this.setState({ toDoList: toDoList });
+    this.setState({ toDoList });
   };
 
   addItem = item => {
-    item.id = Math.random();
+    const random = Math.random(Math.random() * 9999);
+    item.id = random;
     let items = this.state.toDoList;
     items.push(item);
-    this.setState({ items: items });
+    this.setState({ items });
+  };
+
+  hidde = () => {
+    let ele = document.getElementById('error');
+    ele.classList.add('hidde');
   };
 
   render() {
     return (
       <div>
-        <h2>Dynamic List</h2>
-        {/* <DynamicList data={this.toDoList} /> */}
+        <h2>To Do App</h2>
+        <AddItems addItem={this.addItem} />
+        <h2>To Do List</h2>
+
         <TodoItems toDoList={this.state.toDoList} removeItem={this.removeItem} />
-        <Add addItem={this.addItem} />
+        <div className="error hidde" id="error">
+          <div className="message_box ">
+            <p>
+              All fields are required please insert all fields{'  '}
+              <i class="fa fa-exclamation-triangle" />
+            </p>
+            <button className="ok" onClick={this.hidde}>
+              OK
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
