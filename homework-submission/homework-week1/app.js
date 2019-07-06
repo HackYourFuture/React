@@ -30,7 +30,7 @@ class AddItems extends React.Component {
     });
   };
 
-  myFunction() {
+  error() {
     let element = document.getElementById('error');
     element.classList.remove('hidde');
   }
@@ -44,9 +44,7 @@ class AddItems extends React.Component {
         deadline: '',
       });
     } else {
-      // console.log('There is empty filed');
-      // alert('All fields are required');
-      this.myFunction();
+      this.error();
     }
   };
 
@@ -76,13 +74,6 @@ class AddItems extends React.Component {
       </div>
     );
   }
-}
-
-// i am testing
-function errorMessage() {
-  return {
-    // error component function
-  };
 }
 
 class App extends React.Component {
