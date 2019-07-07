@@ -1,14 +1,27 @@
+const Item = ({ id, description, deadline, done, removeItem }) => {
+  return (
+    <li key={id} className={done === true ? 'true' : ''}>
+      {description} {deadline} {done}
+      <span className="delete" onClick={() => removeItem(id)}>
+        DELETE
+      </span>
+    </li>
+  );
+};
+
 const TodoItems = ({ toDoList, removeItem }) => {
   const length = toDoList.length;
   const ListItems = length ? (
-    toDoList.map(({ id, description, deadline, done }) => {
+    toDoList.map(({ id, done, description, deadline }) => {
       return (
-        <li key={id} className={done === true ? 'true' : ''}>
-          {description} {deadline} {done}
-          <span className="delete" onClick={() => removeItem(id)}>
-            DELETE
-          </span>
-        </li>
+        <Item
+          key={id}
+          id={id}
+          description={description}
+          deadline={deadline}
+          done={done}
+          removeItem={removeItem}
+        />
       );
     })
   ) : (
