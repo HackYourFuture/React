@@ -29,7 +29,7 @@ _Show the student how to setup a basic CRA application_
 - 4 groups of lifecycle methods: **mounting**, **updating**, **unmounting** and **errors**
 - Ideally, a React application should work completely only using state and props. Use lifecycle methods as a **last resort**
 
-_Show the following [image](https://cdn-images-1.medium.com/max/2000/1*cEWErpe-oY-_S1dOaT1NtA.jpeg) to illustrate the place and purpose of each lifecycle method. Then show how to access the methods in a class-based component_
+_Show the following [lifecycles](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) and [lifecycle simulator](https://reactarmory.com/guides/lifecycle-simulators) to illustrate the place and purpose of each lifecycle method. Then show how to access the methods in a class-based component_
 
 - API calls are done in `componentDidMount()`
 
