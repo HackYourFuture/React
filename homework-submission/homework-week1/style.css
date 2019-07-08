@@ -80,10 +80,10 @@ li.true {
   background-color: #f44336;
   text-decoration: line-through;
 }
-.hidde {
+.displayMessage {
   display: none;
 }
-.ok {
+.ok-button {
   background-color: #03a9f4;
   width: 80px;
   font-size: 18px;
@@ -132,7 +132,7 @@ input {
   cursor: pointer;
 }
 
-.ok:hover {
+.ok-button:hover {
   cursor: pointer;
 }
 

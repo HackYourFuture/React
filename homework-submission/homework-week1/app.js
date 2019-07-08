@@ -1,6 +1,6 @@
 const Item = ({ id, description, deadline, done, removeItem }) => {
   return (
-    <li key={id} className={done === true ? 'true' : ''}>
+    <li className={done === true ? 'true' : ''}>
       {description} {deadline} {done}
       <span className="delete" onClick={() => removeItem(id)}>
         DELETE
@@ -43,9 +43,9 @@ class AddItems extends React.Component {
     });
   };
 
-  error() {
+  errorMessage() {
     let element = document.getElementById('error');
-    element.classList.remove('hidde');
+    element.classList.remove('displayMessage');
   }
 
   handelSubmit = e => {
@@ -57,7 +57,7 @@ class AddItems extends React.Component {
         deadline: '',
       });
     } else {
-      this.error();
+      this.errorMessage();
     }
   };
 
@@ -122,16 +122,16 @@ class App extends React.Component {
   };
 
   addItem = item => {
-    const random = Math.random(Math.random() * 9999);
+    const random = Math.round(Math.random() * 9999);
     item.id = random;
     let items = this.state.toDoList;
     items.push(item);
-    this.setState({ items });
+    this.setState({ items: [...items] });
   };
 
-  hidde = () => {
+  displayMessage = () => {
     let ele = document.getElementById('error');
-    ele.classList.add('hidde');
+    ele.classList.add('displayMessage');
   };
 
   render() {
@@ -142,13 +142,13 @@ class App extends React.Component {
         <h2>To Do List</h2>
 
         <TodoItems toDoList={this.state.toDoList} removeItem={this.removeItem} />
-        <div className="error hidde" id="error">
+        <div className="error displayMessage" id="error">
           <div className="message_box ">
             <p>
               All fields are required please insert all fields{'  '}
-              <i class="fa fa-exclamation-triangle" />
+              <i className="fa fa-exclamation-triangle" />
             </p>
-            <button className="ok" onClick={this.hidde}>
+            <button className="ok-button" onClick={this.displayMessage}>
               OK
             </button>
           </div>
