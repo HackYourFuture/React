@@ -1,6 +1,6 @@
 const Item = ({ id, description, deadline, done, removeItem }) => {
   return (
-    <li key={id} className={done === true ? 'true' : ''}>
+    <li className={done === true ? 'true' : ''}>
       {description} {deadline} {done}
       <span className="delete" onClick={() => removeItem(id)}>
         DELETE
@@ -146,7 +146,7 @@ class App extends React.Component {
           <div className="message_box ">
             <p>
               All fields are required please insert all fields{'  '}
-              <i class="fa fa-exclamation-triangle" />
+              <i className="fa fa-exclamation-triangle" />
             </p>
             <button className="ok" onClick={this.hidde}>
               OK
