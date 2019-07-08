@@ -1,10 +1,9 @@
 function readFile(path) {
-  return new Promise((resolve, reject) => {
-    fetch(path)
-      .then(data => data.json())
-      .then(response => {
-        resolve(response);
-      })
-      .catch(error => reject(error));
-  });
+  return fetch(path);
+}
+
+function classChanger(event) {
+  event.target.className === ''
+    ? (event.target.className = 'strike_through')
+    : (event.target.className = '');
 }
