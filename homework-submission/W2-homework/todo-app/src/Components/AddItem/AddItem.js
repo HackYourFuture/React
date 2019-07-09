@@ -22,13 +22,12 @@ class AddItem extends Component {
     e.preventDefault();
     if (e.target.description.value === '') {
       return false;
-    } else {
-      this.props.addTodoItem(this.state);
-      this.setState({
-        description: '',
-        deadline: '',
-      });
     }
+    this.props.addTodoItem(this.state);
+    this.setState({
+      description: '',
+      deadline: '',
+    });
   };
 
   render() {

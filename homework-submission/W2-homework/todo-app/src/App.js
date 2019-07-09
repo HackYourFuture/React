@@ -39,10 +39,15 @@ class App extends Component {
   };
 
   addTodoItem = todoItem => {
-    let todoItems = this.state.todoItems;
-    todoItem.id = Math.random() * 10 + 1;
-    todoItems.push(todoItem);
-    this.setState({ todoItems });
+    this.setState({
+      todoItems: [
+        ...this.state.todoItems,
+        {
+          ...todoItem,
+          id: Math.random() * 10 + 1,
+        },
+      ],
+    });
   };
 
   render() {
