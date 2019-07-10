@@ -6,6 +6,7 @@
   "author": "HYF",
   "license": "MIT",
   "scripts": {
+    "start": "react-scripts start",
     "lint": "eslint */src */*/src --fix",
     "test": "npm run lint"
   },
