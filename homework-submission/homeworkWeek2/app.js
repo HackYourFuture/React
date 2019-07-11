@@ -1,27 +1,8 @@
 
-const addTodo = (e => {
-    e.preventDefault();
-    const addingTodo = {
-        id: this.state.toDos,
-        description: e.target.description.value,
-        deadline: e.target.deadLine.value,
-        done: false
-    }
-    this.setState({toDos: this.state.toDos.concat(addingTodo) })
-  })
-  
-  const removeTodo = (index => {
-    const removingTodo = this.state.toDos.splice(index, 1)
-    this.setState({ removingTodo })
-  })
-  
-  
-  
-  class DynamicList extends React.Component{
-    constructor() {
-      super()
-      this.state = {
-        toDos : [
+class DynamicList extends React.Component {
+ 
+  state = {
+          toDos : [
             {
               id: 1,
               description: "Get out of bed",
@@ -41,47 +22,62 @@ const addTodo = (e => {
               done: false
             }
         ]
-      }
-  
+
     }
-    render() {
-      return (
-        <div>
-          <form >
-              <input type="text" placeholder="Description" name="description"></input>
-              <input type="Date" placeholder="DeadLine" name="deadLine"></input>
-              <input type="submit" value="Submit" name="add" ></input>
-          </form>
-              {this.state.toDos.map((todoList) =>
-            <div>
-                <li key={todoList.id}>
-                  {todoList.description},{todoList.deadline}
-                  <button onClick={() => this.removeTodo}>remove</button>
-                </li>
-            </div>
-            )}
+  addTodo = (e => {
+    e.preventDefault();
+    const addingTodo = {
+        id: this.state.toDos,
+        description: e.target.description.value,
+        deadline: e.target.deadLine.value,
+        done: false
+    }
+    this.setState({toDos: this.state.toDos.concat(addingTodo) })
+  })
+  
+  removeTodo = (index => {
+    const removingTodo = this.state.toDos.filter(item => item.id !== index);
+    this.setState({ toDos: removingTodo })
+  })
+  
+
+render() {
+  return (
+    <div>
+      <form onSubmit={this.addTodo}>
+          <input type="text" placeholder="Description" name="description"></input>
+          <input type="Date" placeholder="DeadLine" name="deadLine"></input>
+          <input type="submit" value="Submit" ></input>
+      </form>
+          {this.state.toDos.map((todoList) =>
+        <div key={todoList.id}>
+            <li >
+              {todoList.description},{todoList.deadline}
+              <button onClick={() => this.removeTodo(todoList.id)}>remove</button>
+            </li>
         </div>
-      )
-    }
-  
-  }
-  
-  
-  class App extends React.Component {
-    name = "Todos"
-    render () {
-        return (
-            <div>
-                <h1>React {this.name}</h1>  
-                <DynamicList />
-            </div>
-  
-        )
-    }
-  }
-  
-  ReactDOM.render(
-    <App />,
-    document.getElementById('thisIsWhereReactIsInjected')
-  );
-  
+        )}
+    </div>
+  )
+}
+
+}
+
+
+class App extends React.Component {
+name = "Todos"
+render () {
+    return (
+        <div>
+            <h1>React {this.name}</h1>  
+            <DynamicList />
+        </div>
+
+    )
+}
+}
+
+ReactDOM.render(
+<App />,
+document.getElementById('thisIsWhereReactIsInjected')
+);
