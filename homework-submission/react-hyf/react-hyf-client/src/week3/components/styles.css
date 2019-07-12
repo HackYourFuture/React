@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+
+.name-surname {
+  height: 200px;
+  width: 12.5%;
+}
+
+.logo {
+  height: 200px;
+  width: 12.5%px;
+}
