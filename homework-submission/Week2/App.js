@@ -39,8 +39,14 @@ class App extends React.Component {
     },
   };
 
+  // Gets info from input element in onChange event
+  GetNewTodoItemInfo = event => {
+    const inputValue = event.target.value;
+    const inputName = event.target.name;
+    this.setState({ newTodo: { ...this.state.newTodo, [inputName]: inputValue } });
+  };
+
   AddNewTodo = event => {
-    event.preventDefault();
     const newTodo = {
       id: Date.now(),
       description: this.state.newTodo.description,
@@ -52,16 +58,14 @@ class App extends React.Component {
 
   DeleteItem = id => {
     const { todoList } = this.state;
-    const indexOfItem = todoList.findIndex(elem => elem.id === id);
-    todoList.splice(indexOfItem, 1);
-    this.setState({ todoList: todoList });
+    this.setState({ todoList: [...todoList].filter(elem => elem.id !== id) });
   };
 
   RenderList = () => {
     return (
       <ul>
-        {this.state.todoList.map(props => {
-          const { id, description, deadline, done } = props;
+        {this.state.todoList.map(elem => {
+          const { id, description, deadline, done } = elem;
           return (
             <TodoItem
               key={id}
@@ -78,30 +82,24 @@ class App extends React.Component {
 
   RenderForm = () => {
     return (
-      <form>
+      <React.Fragment>
         <label>New Todo: </label>
         <input
           type="text"
           name="description"
           value={this.state.newTodo.description}
-          onChange={event => {
-            const inputValue = event.target.value;
-            this.setState({ newTodo: { ...this.state.newTodo, description: inputValue } });
-          }}
+          onChange={this.GetNewTodoItemInfo}
         />
         <input
           type="date"
           name="deadline"
           value={this.state.newTodo.deadline}
-          onChange={event => {
-            const inputValue = event.target.value;
-            this.setState({ newTodo: { ...this.state.newTodo, deadline: inputValue } });
-          }}
+          onChange={this.GetNewTodoItemInfo}
         />
         <button type="submit" onClick={this.AddNewTodo}>
           Add New Todo Item
         </button>
-      </form>
+      </React.Fragment>
     );
   };
 
