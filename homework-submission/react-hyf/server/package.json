@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    // "client": "npm start client",
-    // "dev": "concurrently \"npm run server\" \"npm run client\""
+    "client": "cd .. && cd react-hyf-client && npm start",
+    "dev": "concurrently \"npm run server\"  \"npm run client\""
   },
   "author": "",
   "license": "ISC",
