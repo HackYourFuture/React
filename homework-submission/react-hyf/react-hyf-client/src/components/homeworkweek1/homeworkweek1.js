@@ -1,4 +1,5 @@
 import React from 'react';
+import './homeworkweek1.css';
 
 const Item = ({ id, description, deadline, done }) => {
   // a component has li element and the data which comes from another components(static and dynamic)
@@ -56,7 +57,7 @@ class HomeworkWeek1 extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="week1">
         <h2>Static List</h2>
         <StaticList />
         <h2>Dynamic List</h2>

@@ -1,4 +1,5 @@
 import React from 'react';
+import './homeworkweek2.css';
 
 const Item = ({ id, description, deadline, done, removeItem }) => {
   return (
@@ -138,7 +139,7 @@ class HomeworkWeek2 extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="week2">
         <h2>To Do App</h2>
         <AddItems addItem={this.addItem} />
         <h2>To Do List</h2>

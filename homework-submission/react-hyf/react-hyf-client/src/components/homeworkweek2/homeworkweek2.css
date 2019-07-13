@@ -17,7 +17,7 @@ body {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.todo-items {
+.week2 .todo-items {
   background-color: #242426;
   width: 600px;
   padding: 20px;
@@ -26,20 +26,20 @@ body {
   overflow: hidden;
 }
 
-h2 {
+.week2 h2 {
   text-align: center;
   color: white;
   margin-left: 40px;
   padding: 15px;
 }
-li {
+.week2 li {
   padding: 10px;
   /* border: 1px solid; */
   margin: 10px auto;
   border-radius: 5px;
   transition: all 0.1s ease-in-out;
 }
-li:hover {
+.week2 li:hover {
   background: white;
   font-size: 22px;
   color: #e21a47;
@@ -48,7 +48,7 @@ li:hover {
   transition: all 0.1s ease-in-out;
 }
 
-ul {
+.week2 ul {
   list-style: none;
   text-align: center;
   text-decoration: none;
@@ -59,7 +59,7 @@ ul {
   border: 1px solid black;
   padding: 5px;
 }
-.delete {
+.week2 .delete {
   background: #03a9f4;
   color: white;
   float: right;
@@ -70,20 +70,20 @@ ul {
   padding: 8px;
   margin-top: -5px;
 }
-.delete:hover {
+.week2 .delete:hover {
   background: red;
   color: white;
   cursor: pointer;
 }
 /**********/
-li.true {
+.week2 li.true {
   background-color: #f44336;
   text-decoration: line-through;
 }
-.displayMessage {
+.week2 .displayMessage {
   display: none;
 }
-.ok-button {
+.week2 .ok-button {
   background-color: #03a9f4;
   width: 80px;
   font-size: 18px;
@@ -91,12 +91,12 @@ li.true {
   padding: 5px;
   border-radius: 5px;
 }
-.ok:hover {
+.week2 .ok:hover {
   color: white;
   background: #32bfff;
 }
 /**********/
-form {
+.week2 form {
   background-color: #242426;
   width: 900px;
   padding: 20px;
@@ -105,12 +105,12 @@ form {
   overflow: hidden;
 }
 
-label {
+.week2 label {
   font-size: 22px;
   display: inline-block;
   margin: 0px 10px;
 }
-input {
+.week2 input {
   width: 200px;
   border: none;
   border-radius: 5px;
@@ -118,13 +118,13 @@ input {
   margin: 5px auto;
 }
 
-.add {
+.week2 .add {
   background-color: #03a9f4;
   margin-left: 120px;
   width: 77px;
   font-size: 18px;
 }
-.add:hover {
+.week2 .add:hover {
   transform: scale(1.03);
   transition: all 0.2s ease-in-out;
   background: #32bfff;
@@ -132,11 +132,11 @@ input {
   cursor: pointer;
 }
 
-.ok-button:hover {
+.week2 .ok-button:hover {
   cursor: pointer;
 }
 
-.message_box {
+.week2 .message_box {
   width: 400px;
   margin: 250px auto;
   font-size: 20px;
@@ -145,10 +145,10 @@ input {
   border-radius: 15px;
   padding: 40px;
 }
-.message_box p {
+.week2 .message_box p {
   margin: 0px auto 25px;
 }
-.hidden-message {
+.week2 .hidden-message {
   background-color: red;
   display: inline-block;
   color: #242426;
