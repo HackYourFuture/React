@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "cd .. && cd react-hyf-client && npm start",
+    "client": " npm start --prefix ../react-hyf-client ",
     "dev": "concurrently \"npm run server\"  \"npm run client\""
   },
   "author": "",
