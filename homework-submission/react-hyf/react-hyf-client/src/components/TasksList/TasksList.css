@@ -1,0 +1,57 @@
+.task-list {
+  margin: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 20px 40px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+p {
+  display: inline;
+}
+
+.not-done {
+  text-decoration: none;
+}
+
+.not-done:hover,
+.done:hover {
+  transition-duration: 150ms;
+  box-shadow: 0 0 10px rgb(251, 255, 0);
+  padding: 5px;
+  border-radius: 4px;
+  padding-right: 10px;
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 5, 0, 1);
+}
+
+.done {
+  color: rgb(105, 105, 105);
+  text-decoration: line-through;
+}
+
+.delete-button {
+  display: inline;
+  border-radius: 3px;
+  margin: 10px;
+  width: 22px;
+  height: 22px;
+  top: 7px;
+  background: rgb(209, 0, 0);
+}
+
+.delete-button:hover {
+  transition-duration: 250ms;
+  box-shadow: 0 0 10px rgb(255, 0, 0);
+  color: rgb(239, 247, 236);
+  font-weight: bold;
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 5, 0, 1);
+}
+
+strong {
+  color: rgb(151, 0, 0);
+}

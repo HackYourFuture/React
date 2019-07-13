@@ -1,0 +1,28 @@
+.avatar-box {
+  box-shadow: 0 0 10px rgb(255, 0, 0);
+  margin: 10px;
+  padding: 10px;
+  width: calc(100% / 5 - 20px);
+  border-radius: 10px;
+}
+.avatar-box:hover {
+  transition-duration: 350ms;
+  box-shadow: 0 0 50px rgb(255, 0, 0);
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 5, 0, 1);
+}
+.users {
+  width: 100%;
+  padding: 20px;
+  margin: 0 10px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  color: rgb(255, 255, 7);
+}
+
+.users {
+  display: flex;
+  flex-wrap: wrap;
+}
