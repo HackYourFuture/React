@@ -3,6 +3,10 @@ import './Homework3.css';
 import { getUsers } from './services/usersServices';
 import UserList from './Components/UserList/UserList';
 
+/**
+ * This class component is the container of the Users List
+ * @return Here is the return of the Users List
+ */
 class Homework3 extends Component {
   state = {};
 

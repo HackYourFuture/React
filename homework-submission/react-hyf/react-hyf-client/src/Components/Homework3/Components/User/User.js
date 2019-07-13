@@ -1,6 +1,11 @@
 import React from 'react';
 import './User.css';
 
+/**
+ * A function component of a `User` to be used in the list of users
+ * @param {props} param0 The destructured properties `name`, `surname`, `gender`, `region`, `className`
+ * @return `User` with the values of the properties
+ */
 const User = ({ name, surname, gender, region, className }) => {
   return (
     <li className={className}>

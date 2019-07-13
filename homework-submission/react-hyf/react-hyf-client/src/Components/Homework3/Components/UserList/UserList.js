@@ -2,6 +2,13 @@ import React from 'react';
 import './UserList.css';
 import User from '../User/User';
 
+/**
+ * A function component that inserts a dynamic `User` component in the `UserList` component
+ * @param {props} param0 `users` The array of users
+ * @return
+ *  - `User` with the values of the users of the array
+ *  - The dynamic list of users
+ */
 const UserList = ({ users }) => {
   const usersList = users ? (
     users.map(({ name, surname, gender, region }) => (

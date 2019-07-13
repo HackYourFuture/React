@@ -4,6 +4,10 @@ import Homework1 from './Components/Homework1/Homework1';
 import Homework2 from './Components/Homework2/Homework2';
 import Homework3 from './Components/Homework3/Homework3';
 
+/**
+ * This class component is the container of the application
+ * @return Here is the return of the application
+ */
 class App extends Component {
   render() {
     return (
