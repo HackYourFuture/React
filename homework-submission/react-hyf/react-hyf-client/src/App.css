@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.homework-header {
+  color: blueviolet;
+  margin: 5% 0;
+  padding: 3%;
+  font-size: 5vw;
+  border: 1px dotted #777;
+  background-color: beige;
+}
