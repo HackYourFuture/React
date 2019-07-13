@@ -3,8 +3,8 @@ import fetchUsers from './Components/fetchData';
 import RenderUser from './Components/renderUser';
 
 class Users extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
