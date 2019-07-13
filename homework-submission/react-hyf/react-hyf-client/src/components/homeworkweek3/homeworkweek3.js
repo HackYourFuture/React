@@ -16,23 +16,21 @@ class HomeworkWeek3 extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>I am users Component</h1>
-        <div onClick={this.changeUsersList}>
-          {this.state.users ? (
-            this.state.users.map((user, index) => (
-              <ul key={index}>
-                <li>Name: {user.name}</li>
-                <li>surname: {user.surname}</li>
-                <li>gender: {user.gender} </li>
-                <li>region: {user.region} </li>
-              </ul>
-            ))
-          ) : (
-            <h1>Data Loading...</h1>
-          )}
-        </div>
-      </div>
+      <React.Fragment>
+        {this.state.users ? (
+          this.state.users.map(({ name, surname, gender, region }, index) => (
+            <tr>
+              <th scope="row">{index + 1}</th>
+              <td>{name}</td>
+              <td>{surname}</td>
+              <td>{gender}</td>
+              <td>{region}</td>
+            </tr>
+          ))
+        ) : (
+          <h1>Data Loading...</h1>
+        )}
+      </React.Fragment>
     );
   }
 }

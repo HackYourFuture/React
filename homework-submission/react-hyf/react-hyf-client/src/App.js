@@ -16,7 +16,22 @@ function App() {
         <h2>HomeworkWeek2</h2>
         <HomeworkWeek2 />
         <h2>HomeworkWeek3</h2>
-        <HomeworkWeek3 />
+        <div className="container week3">
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Region</th>
+              </tr>
+            </thead>
+            <tbody>
+              <HomeworkWeek3 />
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
