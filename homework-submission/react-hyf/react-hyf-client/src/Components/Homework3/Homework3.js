@@ -8,7 +8,9 @@ import UserList from './Components/UserList/UserList';
  * @return Here is the return of the Users List
  */
 class Homework3 extends Component {
-  state = {};
+  state = {
+    users: [],
+  };
 
   componentDidMount() {
     getUsers().then(users => this.setState({ users }));

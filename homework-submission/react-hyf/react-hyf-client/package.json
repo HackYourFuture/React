@@ -8,7 +8,6 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "client-install": "cd .. && cd react-hyf-client && npm install",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

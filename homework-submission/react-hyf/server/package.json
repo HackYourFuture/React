@@ -4,9 +4,10 @@
   "description": "Express server of react-hyf",
   "main": "server.js",
   "scripts": {
+    "client-install": "cd ../react-hyf-client && npm install",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "cd .. && cd react-hyf-client && npm start",
+    "client": "cd ../react-hyf-client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
