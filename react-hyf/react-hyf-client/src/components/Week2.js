@@ -1,7 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import '../App.css';
-export class PreviousHomeworks extends React.Component {
+import 'bootstrap/dist/css/bootstrap.css';
+export class Week2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,35 +45,45 @@ export class PreviousHomeworks extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="form-group">
         <p id="todo">Todo</p>
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <form onSubmit={this.handleSubmit.bind(this)} class="form-group">
           <label id="title">Description:</label>
           <input
             id="input"
             type="text"
             onChange={this.handleChange.bind(this)}
             name="description"
+            class="form-control"
           />
           <label id="title">Deadline:</label>
-          <input id="input" type="date" onChange={this.handleChange.bind(this)} name="deadline" />
-          <button id="add">Add</button>
+          <input
+            id="input"
+            type="date"
+            onChange={this.handleChange.bind(this)}
+            name="deadline"
+            class="form-control"
+          />
+          <button id="add" class="btn btn-dark list-group-item active">
+            Add
+          </button>
         </form>
 
         {this.state.items.map((item, index) => (
           <ul id="unordered-list" key={index}>
-            <li className={item.done ? 'done' : 'not-done'}>
+            <li className={item.done ? 'done' : 'not-done'} class="list-group-item active">
               {item.description},{item.deadline}
             </li>
             <li>
-              <a
+              <button
                 href="#"
                 onClick={() => {
                   this.handleDelete.call(this, index);
                 }}
+                class="btn btn-dark list-group-item active"
               >
-                [X]
-              </a>
+                Delete
+              </button>
             </li>
           </ul>
         ))}
@@ -82,3 +91,4 @@ export class PreviousHomeworks extends React.Component {
     );
   }
 }
+export default Week2;

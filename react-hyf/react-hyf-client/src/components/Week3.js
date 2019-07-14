@@ -1,6 +1,7 @@
 import React from 'react';
-import '../App.css';
-export class Homeworkweek3 extends React.Component {
+
+import 'bootstrap/dist/css/bootstrap.css';
+class Week3 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,16 +32,16 @@ export class Homeworkweek3 extends React.Component {
     const { isLoading, users, error } = this.state;
     return (
       <React.Fragment>
-        <h1 id="user"> Users</h1>
+        <h1 class="list-group"> Users</h1>
         {error ? <p>{error.message}</p> : null}
         {!isLoading ? (
           users.map(user => {
             const { first_name, last_name, email, avatar } = user;
             return (
               <div key={email}>
-                <p>Name: {first_name}</p>
-                <p>surname:{last_name}</p>
-                <p>email: {email}</p>
+                <p class="list-group-item">Name: {first_name}</p>
+                <p class="list-group-item active">surname:{last_name}</p>
+                <p class="list-group-item active">email: {email}</p>
                 <img alt="avatar" src={avatar} />
                 <hr />
               </div>
@@ -53,3 +54,4 @@ export class Homeworkweek3 extends React.Component {
     );
   }
 }
+export default Week3;
