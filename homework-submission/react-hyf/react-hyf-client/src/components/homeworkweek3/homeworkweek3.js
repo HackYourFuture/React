@@ -10,16 +10,12 @@ class HomeworkWeek3 extends React.Component {
     getUsers().then(users => this.setState({ users }));
   }
 
-  changeUsersList() {
-    console.log('text');
-  }
-
   render() {
     return (
       <React.Fragment>
         {this.state.users ? (
           this.state.users.map(({ name, surname, gender, region }, index) => (
-            <tr>
+            <tr key={index}>
               <th scope="row">{index + 1}</th>
               <td>{name}</td>
               <td>{surname}</td>
@@ -28,7 +24,9 @@ class HomeworkWeek3 extends React.Component {
             </tr>
           ))
         ) : (
-          <h1>Data Loading...</h1>
+          <tr>
+            <td>Data Loading...</td>
+          </tr>
         )}
       </React.Fragment>
     );

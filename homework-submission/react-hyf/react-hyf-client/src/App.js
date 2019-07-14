@@ -17,7 +17,7 @@ function App() {
         <HomeworkWeek2 />
         <h2>HomeworkWeek3</h2>
         <div className="container week3">
-          <table class="table table-dark">
+          <table className="table table-dark">
             <thead>
               <tr>
                 <th scope="col">#</th>
