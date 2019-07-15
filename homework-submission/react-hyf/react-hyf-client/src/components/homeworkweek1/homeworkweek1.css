@@ -13,9 +13,10 @@
   border-radius: 7px;
   font-size: 20px;
   margin: 20px auto;
-  /* width: 100%; */
   border: 1px solid black;
   padding: 5px;
+  background: #cd5c5c;
+  width: 500px;
 }
 .week1 li.true {
   background-color: #03a9f4;

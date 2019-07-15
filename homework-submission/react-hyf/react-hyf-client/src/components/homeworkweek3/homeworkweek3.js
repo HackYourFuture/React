@@ -1,10 +1,13 @@
 import React from 'react';
 import './homeworkweek3.css';
+import Table from './components/table';
 
 import { getUsers } from './services/getUsers';
 
 class HomeworkWeek3 extends React.Component {
-  state = {};
+  state = {
+    users: [],
+  };
 
   componentDidMount() {
     getUsers().then(users => this.setState({ users }));
@@ -13,21 +16,10 @@ class HomeworkWeek3 extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {this.state.users ? (
-          this.state.users.map(({ name, surname, gender, region }, index) => (
-            <tr key={index}>
-              <th scope="row">{index + 1}</th>
-              <td>{name}</td>
-              <td>{surname}</td>
-              <td>{gender}</td>
-              <td>{region}</td>
-            </tr>
-          ))
-        ) : (
-          <tr>
-            <td>Data Loading...</td>
-          </tr>
-        )}
+        <h2>HomeworkWeek3</h2>
+        <div className="container week3">
+          <Table users={this.state.users} />
+        </div>
       </React.Fragment>
     );
   }
