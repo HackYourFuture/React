@@ -28,10 +28,10 @@ class HomeworkWeek3 extends Component {
             isLoaded: true,
             items,
           },
-          () => console.log(items),
+       
         ),
       )
-      .catch(error => console.log(error));
+    
   }
 
   render() {
