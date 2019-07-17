@@ -1,6 +1,6 @@
 import React from 'react'
 
-class DynamicList extends component {
+class DynamicList extends React.Component {
  
     state = {
             toDos : [

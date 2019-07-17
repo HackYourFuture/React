@@ -1,15 +1,15 @@
-import React, { component } from 'react';
+import React, { Component } from 'react';
 
 
-const User = () => {
-    return (
-        <li>
+// const User = () => {
+//     return (
+//         <li>
             
-        </li>
-    )
-}
+//         </li>
+//     )
+// }
 
-class Homeworkweek3 extends component {
+class Homeworkweek3 extends Component {
     state = {
         users: []
     }
@@ -18,16 +18,22 @@ class Homeworkweek3 extends component {
         const url = 'https://uinames.com/api/?amount=10';
         fetch(url)
         .then(res => res.json())
-        .then(users => {
-            this.setState({ users })
+        .then(data => {this.setState({ users: data })
         })
     }
 
     render() {
+        console.log(this.state.users)
         return (
             <div>
                 <h1>Users</h1>
-                {this.state.users}
+                <ul>
+                    {this.state.users.map(userInfo => {
+                        return <li key={userInfo.index}>name: {userInfo.name}, 
+                        surname: {userInfo.surname},
+                        gender: {userInfo.gender}</li>
+                    })}
+                </ul>
             </div>
         )
     }
