@@ -1,8 +1,11 @@
 {
-  "name": "React",
+  "name": "react",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/HackYourFuture/React.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackYourFuture/React.git"
+  },
   "author": "HYF",
   "license": "MIT",
   "scripts": {
@@ -17,9 +20,18 @@
     "eslint-plugin-flowtype": "^2.46.3",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^5.1.0",
-    "eslint-plugin-react": "^7.7.0"
+    "eslint-plugin-react": "^7.7.0",
+    "fs": "0.0.1-security"
   },
   "eslintIgnore": [
     "node_modules"
-  ]
+  ],
+  "description": "> Please help us improve and share your feedback! If you find better tutorials\r > or links, please share them by [opening a pull request](https://github.com/HackYourFuture/React/pulls).",
+  "bugs": {
+    "url": "https://github.com/HackYourFuture/React/issues"
+  },
+  "homepage": "https://github.com/HackYourFuture/React#readme",
+  "directories": {
+    "example": "examples"
+  }
 }
