@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/HackYourFuture/React/issues"
   },
-  "homepage": "https://github.com/HackYourFuture/React#readme"
+  "homepage": "https://github.com/HackYourFuture/React#readme",
+  "dependencies": {
+    "uuid": "^3.3.2"
+  }
 }
