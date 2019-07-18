@@ -3,14 +3,27 @@ import React from 'react';
 class HomeworkWeek3 extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      users: [],
+      error: false,
+    };
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(data => data.json())
-      .then(users => {
-        this.setState({ users });
+    const apiURL = '/';
+    fetch(apiURL, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ users: data });
+      })
+      .catch(error => {
+        this.setState({ error: true });
       });
   }
 
