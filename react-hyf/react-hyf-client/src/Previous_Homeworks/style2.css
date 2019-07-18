@@ -18,11 +18,12 @@ html {
   color: darkgreen;
   padding-right: 10px;
 }
-
-#root {
+.container {
+  display: block;
   width: 50%;
   margin: 100px auto;
 }
+
 form {
   max-width: 450px;
   background: #fafafa;

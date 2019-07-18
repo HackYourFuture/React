@@ -4,8 +4,10 @@
   "private": true,
   "proxy": "http://localhost:9000/",
   "dependencies": {
+    "materialize-css": "^1.0.0-rc.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1"
   },
   "scripts": {

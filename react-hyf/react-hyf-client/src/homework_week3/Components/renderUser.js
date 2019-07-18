@@ -5,7 +5,7 @@ import './renderUser.css';
 
 const RenderUser = props => {
   return (
-    <div className="container">
+    <div className="container3">
       {props.data.map(({ gender, name, surname, region }, index) => {
         return (
           <div key={index} className="renderUser">

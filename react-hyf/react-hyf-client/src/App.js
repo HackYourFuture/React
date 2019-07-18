@@ -1,14 +1,20 @@
 import React from 'react';
-import HomeworkWeek3 from './homework_week3/users';
-// import PreviousHomeworks from './Previous_Homeworks/previousHomeworks';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import HomeworkRouter from './Router/HomeworkRouter';
+import NotFound from './Router/NotFound';
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <HomeworkWeek3 />
-        {/* <PreviousHomeworks /> */}
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={HomeworkRouter} />
+          <Route path="/week1" component={HomeworkRouter} />
+          <Route path="/week2" component={HomeworkRouter} />
+          <Route path="/week3" component={HomeworkRouter} />
+          <Route component={NotFound} />
+        </Switch>
+      </BrowserRouter>
     );
   }
 }

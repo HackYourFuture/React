@@ -1,5 +1,5 @@
-img {
-  width: 100px;
+.container3 img {
+  width: 150px;
   display: block;
   margin: auto;
 }
@@ -11,7 +11,7 @@ img {
   box-sizing: border-box;
 }
 
-.container {
+.container3 {
   display: flex;
   flex-wrap: wrap;
   margin: auto;
