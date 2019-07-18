@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "dev": "concurrently \"npm start  \"cd ../react-hyf-client && npm start\""
+    "dev": "concurrently \"nodemon server.js\" \"npm start --prefix ../react-hyf-client\""
   },
   "author": "",
   "license": "ISC",
