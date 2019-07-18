@@ -1,0 +1,7 @@
+.not-found {
+  margin: 10% 20%;
+  padding: 3%;
+  background-color: red;
+  color: black;
+  opacity: 0.8;
+}

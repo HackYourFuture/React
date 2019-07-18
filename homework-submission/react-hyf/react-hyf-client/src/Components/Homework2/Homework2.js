@@ -52,11 +52,14 @@ class Homework2 extends Component {
 
   render() {
     return (
-      <div className="homework2">
-        <h2 className="header-week2">Todo App</h2>
-        <TodoItems todoItems={this.state.todoItems} deleteTodoItem={this.deleteTodoItem} />
-        <AddItem addTodoItem={this.addTodoItem} />
-      </div>
+      <React.Fragment>
+        <h2 className="homework-header">Homework 2</h2>
+        <div className="homework2">
+          <h3 className="header-week2">Todo App</h3>
+          <TodoItems todoItems={this.state.todoItems} deleteTodoItem={this.deleteTodoItem} />
+          <AddItem addTodoItem={this.addTodoItem} />
+        </div>
+      </React.Fragment>
     );
   }
 }

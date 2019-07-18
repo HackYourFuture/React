@@ -18,10 +18,13 @@ class Homework3 extends Component {
 
   render() {
     return (
-      <div className="homework3">
-        <h2 className="users-header">Users</h2>
-        <UserList users={this.state.users} />
-      </div>
+      <React.Fragment>
+        <h2 className="homework-header">Homework 3</h2>
+        <div className="homework3">
+          <h3 className="users-header">Users</h3>
+          <UserList users={this.state.users} />
+        </div>
+      </React.Fragment>
     );
   }
 }

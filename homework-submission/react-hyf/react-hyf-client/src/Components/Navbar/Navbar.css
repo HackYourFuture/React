@@ -1,0 +1,27 @@
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.nav-item {
+  border: 0.2px solid rgb(95, 94, 94);
+  padding: 15px;
+  background-color: rgb(250, 195, 128);
+  opacity: 0.75;
+  font-size: 1.5em;
+  flex-grow: 1;
+}
+
+.nav-item:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: rgb(95, 94, 94);
+  font-weight: bold;
+  display: block;
+}

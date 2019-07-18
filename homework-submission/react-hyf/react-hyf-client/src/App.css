@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.app-header {
+  font-family: cursive;
+  margin: 3%;
+  text-shadow: 3px 3px orange;
+  font-size: 4em;
+}
+
 .homework-header {
   color: blueviolet;
   margin: 5% 0;

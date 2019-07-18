@@ -99,10 +99,13 @@ class TodoList extends React.Component {
 class Homework1 extends Component {
   render() {
     return (
-      <div className="homework1">
-        <h2 className="header">Todo Lists</h2>
-        <TodoList />
-      </div>
+      <React.Fragment>
+        <h2 className="homework-header">Homework 1</h2>
+        <div className="homework1">
+          <h3 className="header">Todo Lists</h3>
+          <TodoList />
+        </div>
+      </React.Fragment>
     );
   }
 }
