@@ -1,5 +1,12 @@
 'use strict';
 
+function guidGenerator() {
+  var S4 = function() {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+  };
+  return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
+}
+
 // ContentDynamicTodo component is for map function to use
 const ContentDynamicTodo = ({ description, deadline, className, deleteItem }) => {
   return (
@@ -53,15 +60,14 @@ class AppTodo2 extends React.Component {
           done: false,
         },
       ],
+      newTodo: {
+        id: '',
+        description: 'Description',
+        deadline: 'No Deadline Entry',
+        done: false,
+      },
     };
   }
-
-  newTodo = {
-    id: '',
-    description: 'Description',
-    deadline: 'No Deadline Entry',
-    done: false,
-  };
 
   NewTodoDescriptionAndDeadline = () => {
     return (
@@ -77,7 +83,6 @@ class AppTodo2 extends React.Component {
                   newTodo: {
                     ...this.state.newTodo,
                     description: inputValue,
-                    id: Math.random(),
                   },
                 });
               }}
@@ -88,7 +93,6 @@ class AppTodo2 extends React.Component {
           <label htmlFor=""> Deadline </label>
           <div id="containerDateInput">
             <input
-              id="inputDate"
               type="date"
               onChange={event => {
                 const inputValue = event.target.value;
@@ -109,9 +113,13 @@ class AppTodo2 extends React.Component {
   // function for adding todo
   addState = () => {
     const toDos = this.state.todoList;
-    if (this.state.newTodo === toDos[toDos.length - 1]) {
-      return;
-    }
+
+    this.setState({
+      newTodo: {
+        ...this.state.newTodo,
+        id: guidGenerator(),
+      },
+    });
 
     this.setState({
       todoList: [...toDos, this.state.newTodo],

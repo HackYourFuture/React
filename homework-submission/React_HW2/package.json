@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/HackYourFuture/React#readme",
   "dependencies": {
+    "react-html-id": "^0.1.5",
     "uuid": "^3.3.2"
   }
 }
