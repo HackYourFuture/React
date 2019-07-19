@@ -1,0 +1,30 @@
+.todoList {
+  margin-left: 30px;
+  font-size: 1.5em;
+  font-family: inherit;
+  margin-top: 30px;
+}
+button {
+  background-color: palevioletred;
+  margin-left: 10px;
+  font-size: 0.7em;
+  border-radius: 20px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.form {
+  margin-left: 30px;
+}
+h1 {
+  color: palevioletred;
+  margin-left: 50px;
+}
+.AddingList {
+  padding-bottom: 3px;
+}
+.submit {
+  font-size: 1em;
+}
+button:hover {
+  background-color: pink;
+}
