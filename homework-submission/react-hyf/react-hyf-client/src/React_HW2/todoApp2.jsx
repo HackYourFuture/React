@@ -3,14 +3,10 @@ import React from 'react';
 // ContentDynamicTodo component is for map function to use
 const ContentDynamicTodo = ({ description, deadline, className, deleteItem }) => {
   return (
-    <tbody>
-      <tr className={className} onClick={deleteItem}>
-        <td class="evenBackgroundColor">
-          <td class="content"> {description} </td> <td class="content"> {deadline} </td>{' '}
-          <td class="content"> {className} </td>{' '}
-        </td>{' '}
-      </tr>{' '}
-    </tbody>
+    <tr className={className} onClick={deleteItem}>
+      <td className="content"> {description} </td> <td className="content"> {deadline} </td>{' '}
+      <td className="content"> {className} </td>{' '}
+    </tr>
   );
 };
 
@@ -27,7 +23,7 @@ const DynamicList = ({ list, deleteItem }) => {
       }}
     />
   ));
-  return <tbody> {runTodoList} </tbody>;
+  return runTodoList;
 };
 
 // Here is our main Application component as a class
@@ -56,98 +52,70 @@ class AppTodoW2 extends React.Component {
           done: false,
         },
       ],
-      newTodo: {
-        id: '',
-        description: 'Description',
-        deadline: 'No Deadline Entry',
-        done: false,
-      },
     };
   }
 
-  NewListItem = props => {
-    // since we are using props here too!
-    return (
-      <p>
-        <label htmlFor=""> Deadline </label>{' '}
-        <div id="containerDateInput">
-          {' '}
-          <input
-            id="inputDate"
-            type="date"
-            name={props.name} // since this is a component we can specify the name via props
-            onChange={event => {
-              const inputValue = event.target.value;
-              this.setState({
-                // using the name in this kind of use allowing use to modify the key name to be as we specify the value of it
-                newTodo: {
-                  ...this.state.newTodo,
-                  deadline: inputValue,
-                  id: Math.random(),
-                },
-              });
-            }}
-          />{' '}
-        </div>{' '}
-      </p>
-    );
+  newTodo = {
+    id: '',
+    description: 'Description',
+    deadline: 'No Deadline Entry',
+    done: false,
   };
 
-  // Adding a description for new todo.
-  NewTodoDescription = () => {
+  NewTodoDescriptionAndDeadline = () => {
     return (
-      <p>
-        <label> Description </label>{' '}
-        <div id="containerDescriptionInput">
-          <input
-            type="text"
-            onChange={event => {
-              const inputValue = event.target.value;
-              this.setState({
-                newTodo: {
-                  ...this.state.newTodo,
-                  description: inputValue,
-                  id: Math.random(),
-                },
-              });
-            }}
-          />{' '}
+      <div>
+        <div>
+          <label> Description </label>{' '}
+          <div id="containerDescriptionInput">
+            <input
+              type="text"
+              onChange={event => {
+                const inputValue = event.target.value;
+                this.setState({
+                  newTodo: {
+                    ...this.state.newTodo,
+                    description: inputValue,
+                    id: Math.random(),
+                  },
+                });
+              }}
+            />{' '}
+          </div>{' '}
         </div>{' '}
-      </p>
-    );
-  };
-
-  // Adding a deadline for new todo.
-  NewTodoDeadline = () => {
-    return (
-      <p>
-        <label htmlFor=""> Deadline </label>{' '}
-        <div id="containerDateInput">
-          {' '}
-          <input
-            id="inputDate"
-            type="date"
-            onChange={event => {
-              const inputValue = event.target.value;
-              this.setState({
-                newTodo: {
-                  ...this.state.newTodo,
-                  deadline: inputValue,
-                  id: Math.random(),
-                },
-              });
-            }}
-          />{' '}
+        <div>
+          <label htmlFor=""> Deadline </label>{' '}
+          <div id="containerDateInput">
+            <input
+              id="inputDate"
+              type="date"
+              onChange={event => {
+                const inputValue = event.target.value;
+                this.setState({
+                  newTodo: {
+                    ...this.state.newTodo,
+                    deadline: inputValue,
+                  },
+                });
+              }}
+            />{' '}
+          </div>{' '}
         </div>{' '}
-      </p>
+      </div>
     );
   };
 
   // function for adding todo
   addState = () => {
+    const toDos = this.state.todoList;
+    if (this.state.newTodo === toDos[toDos.length - 1]) {
+      return;
+    }
+
     this.setState({
-      todoList: [...this.state.todoList, this.state.newTodo],
+      todoList: [...toDos, this.state.newTodo],
     });
+    console.log(this.state);
   };
 
   // function for deleting todo
@@ -165,19 +133,19 @@ class AppTodoW2 extends React.Component {
         <table>
           <thead>
             <tr>
-              <th>
-                <th class="contentTitle"> Description </th> <th class="contentTitle"> Deadline </th>{' '}
-                <th class="contentTitle"> Done </th>{' '}
-              </th>{' '}
+              <th className="contentTitle"> Description </th>{' '}
+              <th className="contentTitle"> Deadline </th> <th className="contentTitle"> Done </th>{' '}
             </tr>{' '}
           </thead>{' '}
-          <DynamicList list={this.state.todoList} deleteItem={this.deleteItem} />{' '}
-          <this.NewTodoDescription />
-          <this.NewTodoDeadline />
-          <button onClick={this.addState}> Add </button>{' '}
+          <tbody>
+            <DynamicList list={this.state.todoList} deleteItem={this.deleteItem} />{' '}
+          </tbody>{' '}
         </table>{' '}
+        <this.NewTodoDescriptionAndDeadline />
+        <button onClick={this.addState}> Add </button>{' '}
       </div>
     );
   }
 }
+
 export default AppTodoW2;

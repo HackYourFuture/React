@@ -1,8 +1,8 @@
 import React from 'react';
 
 class HomeworkWeek3 extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
@@ -19,7 +19,7 @@ class HomeworkWeek3 extends React.Component {
   RenderReposData = () => {
     return (
       <div>
-        <h1>Repository Informations</h1>
+        <h1>Repository Information''s</h1>
         {this.state.repos ? (
           this.state.repos.map(repo => (
             <div key={repo.id}>
