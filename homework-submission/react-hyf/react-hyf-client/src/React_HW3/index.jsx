@@ -3,7 +3,10 @@ import React from 'react';
 class HomeworkWeek3 extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      users: [],
+      error: false,
+    };
   }
 
   componentDidMount() {
@@ -20,30 +23,34 @@ class HomeworkWeek3 extends React.Component {
     return (
       <div>
         <h1>Repository Information''s</h1>
-        {this.state.repos ? (
-          this.state.repos.map(repo => (
-            <div key={repo.id}>
-              <table class="w3-table">
-                <tr>
-                  <th>Repository ID</th>
-                  <th>Repository Name</th>
-                  <th>Number of Forks</th>
-                  <th>Repository Created at</th>
-                  <th>Repository Description</th>
-                </tr>
-                <tr>
-                  <td>{repo.id}</td>
-                  <td>{repo.name}</td>
-                  <td>{repo.forks_count}</td>
-                  <td>{repo.created_at}</td>
-                  <td>{repo.description}</td>
-                </tr>
-              </table>
-            </div>
-          ))
-        ) : (
-          <h1>Data is loading...</h1>
-        )}
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Repository ID</th>
+                <th>Repository Name</th>
+                <th>Number of Forks</th>
+                <th>Repository Created at</th>
+                <th>Repository Description</th>
+              </tr>
+            </thead>
+            {this.state.repos ? (
+              this.state.repos.map(repo => (
+                <tbody key={repo.id}>
+                  <tr class="w3-table">
+                    <td>{repo.id}</td>
+                    <td>{repo.name}</td>
+                    <td>{repo.forks_count}</td>
+                    <td>{repo.created_at}</td>
+                    <td>{repo.description}</td>
+                  </tr>
+                </tbody>
+              ))
+            ) : (
+              <h1>Data is loading...</h1>
+            )}
+          </table>
+        </div>
       </div>
     );
   };
