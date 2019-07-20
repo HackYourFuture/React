@@ -1,0 +1,43 @@
+.navbar {
+  list-style-type: none;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  height: 50px;
+}
+
+.nav-element {
+  padding: 10px 24px;
+  display: inline-block;
+  position: relative;
+  width: 20%;
+  height: 100%;
+  margin: 10px;
+  text-align: center;
+}
+
+.nav-element a {
+  background: rgb(0, 0, 0);
+  color: rgb(255, 0, 0);
+  transition: 1s ease;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 8px rgb(251, 255, 0);
+}
+
+.nav-element a:link {
+  text-decoration: none;
+}
+.nav-element a:hover {
+  background: rgb(0, 0, 0);
+  box-shadow: 0 0 25px rgb(255, 247, 0);
+  text-decoration: none;
+}
+
+.nav-link {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 10;
+  padding-top: 10px;
+}

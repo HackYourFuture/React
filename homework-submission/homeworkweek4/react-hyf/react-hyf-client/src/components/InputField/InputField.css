@@ -1,0 +1,8 @@
+.input-field {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-align: center;
+  background: rgb(255, 241, 51);
+  height: 24px;
+  width: 35%;
+}

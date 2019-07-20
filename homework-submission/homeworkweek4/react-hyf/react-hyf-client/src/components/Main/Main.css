@@ -1,0 +1,25 @@
+.weeks {
+  margin: 10px;
+}
+ul {
+  list-style: none;
+}
+
+.weeks-item {
+  display: flex;
+  justify-content: center;
+  color: rgb(255, 238, 0);
+  text-decoration: none;
+  box-shadow: 0 0 7px rgb(253, 19, 11);
+  /* padding: 30px; */
+  line-height: 60px;
+  margin-top: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 1s ease;
+  font-size: 30px;
+}
+
+.weeks-item:hover {
+  box-shadow: 0 0 30px rgb(253, 19, 11);
+}
