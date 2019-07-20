@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+.container {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+
+.user {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  max-width: 100px;
+}
+
+.name-surname {
+  display: flex;
+  flex-flow: column;
+}
+
+.logo {
+  width: 100%;
+}
