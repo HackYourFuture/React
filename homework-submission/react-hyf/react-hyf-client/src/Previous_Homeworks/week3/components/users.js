@@ -1,8 +1,8 @@
 import React from 'react';
 import Navigation from '../../../Navigation/Navigation';
 import { API } from '../apiCalls/apiCalls';
-import male from '../logos/male.jpg';
-import female from '../logos/female.jpg';
+import male from '../logos/for_male.jpg';
+import female from '../logos/for_female.jpg';
 import './styles.css';
 
 const UserName = ({ name }) => {

@@ -152,5 +152,4 @@ class Todos extends React.Component {
     );
   }
 }
-
 export default Todos;
