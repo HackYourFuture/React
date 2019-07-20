@@ -4,7 +4,6 @@ import Week2 from './Previous_Homeworks/week2';
 import Week3 from './Previous_Homeworks/week3/components/users';
 import Navigation from './Navigation/Navigation.js';
 import NotFound from './NotFound/NotFound.js';
-
 import React from 'react';
 
 const Router = () => {
@@ -20,4 +19,5 @@ const Router = () => {
     </BrowserRouter>
   );
 };
+
 export default Router;
