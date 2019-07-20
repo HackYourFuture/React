@@ -14,17 +14,17 @@ const Navbar = () => {
           <Link className="nav-link" to="/">
             Home
           </Link>
-        </li>{' '}
+        </li>
         <li className="nav-item">
           <Link className="nav-link" to="/week1">
             Homework 1
           </Link>
-        </li>{' '}
+        </li>
         <li className="nav-item">
           <Link className="nav-link" to="/week2">
             Homework 2
           </Link>
-        </li>{' '}
+        </li>
         <li className="nav-item">
           <Link className="nav-link" to="/week3">
             Homework 3

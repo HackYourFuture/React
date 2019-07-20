@@ -7,7 +7,6 @@
 
 .nav-item {
   border: 0.2px solid rgb(95, 94, 94);
-  padding: 15px;
   background-color: rgb(250, 195, 128);
   opacity: 0.75;
   font-size: 1.5em;
@@ -24,4 +23,5 @@
   color: rgb(95, 94, 94);
   font-weight: bold;
   display: block;
+  padding: 15px;
 }
