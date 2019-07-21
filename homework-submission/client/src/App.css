@@ -1,0 +1,47 @@
+body{
+  background-color: #282c34;
+}
+.home {
+  text-align: center;
+}
+
+.home-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.home-header,.week3,.week2,.weatherChart {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+
+ul#horizontal-list {
+	min-width: 696px;
+	list-style: none;
+  padding-top: 20px;
+
+	}
+	ul#horizontal-list li {
+    display: inline;
+    margin-right: 10px;
+
+	}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
