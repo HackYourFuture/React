@@ -6,5 +6,5 @@ Homework is then submitted via PR in the normal way.
 
 Homework will not be reviewed unless:
 
-1. Your PR _only_ modifies the `homework-submission` directory
+1. Your PR _only_ modifies the `homework-submission` 
 2. Your PR passes linting
