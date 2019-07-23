@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "serve": "nodemon server.js",
+    "dev": "concurrently \"npm run serve\" \"cd ../react-hyf-client && npm start\""
   },
   "author": "",
   "license": "ISC",
