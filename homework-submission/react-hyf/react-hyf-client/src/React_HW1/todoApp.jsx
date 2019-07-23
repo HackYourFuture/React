@@ -26,8 +26,10 @@ const TableTitle = () => {
   return (
     <thead>
       <tr>
-        <th> Description </th> <th> Deadline </th> <th> Done </th>{' '}
-      </tr>{' '}
+        <th> Description </th>
+        <th> Deadline </th>
+        <th> Done </th>
+      </tr>
     </thead>
   );
 };
@@ -52,9 +54,9 @@ const todoListStatic = [
 const StaticTodoContent = () => {
   return (
     <tbody>
-      <StaticTodoTableContent link={todoListStatic[0]} />{' '}
-      <StaticTodoTableContent link={todoListStatic[1]} />{' '}
-      <StaticTodoTableContent link={todoListStatic[2]} />{' '}
+      <StaticTodoTableContent link={todoListStatic[0]} />
+      <StaticTodoTableContent link={todoListStatic[1]} />
+      <StaticTodoTableContent link={todoListStatic[2]} />
     </tbody>
   );
 };
@@ -62,7 +64,9 @@ const StaticTodoContent = () => {
 const StaticTodoTableContent = ({ link }) => {
   return (
     <tr>
-      <td> {link.description} </td> <td> {link.deadline} </td> <td> {link.done} </td>{' '}
+      <td> {link.description} </td>
+      <td> {link.deadline} </td>
+      <td> {link.done} </td>
     </tr>
   );
 };
@@ -72,11 +76,11 @@ class StaticTodo extends React.Component {
   render() {
     return (
       <div>
-        <h2> Todo list as static </h2>{' '}
+        <h2> Todo list as static </h2>
         <table>
           <TableTitle />
           <StaticTodoContent />
-        </table>{' '}
+        </table>
       </div>
     );
   }
@@ -87,8 +91,10 @@ const ContentDynamicTodo = ({ description, deadline, className, done }) => {
   return (
     <tbody>
       <tr className={className}>
-        <td> {description} </td> <td> {deadline} </td> <td> {className} </td>{' '}
-      </tr>{' '}
+        <td> {description} </td>
+        <td> {deadline} </td>
+        <td> {className} </td>
+      </tr>
     </tbody>
   );
 };
@@ -97,9 +103,9 @@ const ContentDynamicTodo = ({ description, deadline, className, done }) => {
 const DynamicTodo = () => {
   return (
     <div>
-      <h2> Todo list as dynamic </h2>{' '}
+      <h2> Todo list as dynamic </h2>
       <table>
-        <TableTitle />{' '}
+        <TableTitle />
         {todoListDynamic.map(({ id, description, deadline, done }) => (
           <ContentDynamicTodo
             key={id}
@@ -107,8 +113,8 @@ const DynamicTodo = () => {
             deadline={deadline}
             className={done ? '√' : 'x'}
           />
-        ))}{' '}
-      </table>{' '}
+        ))}
+      </table>
     </div>
   );
 };

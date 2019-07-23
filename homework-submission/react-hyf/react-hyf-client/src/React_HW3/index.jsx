@@ -14,7 +14,6 @@ class HomeworkWeek3 extends React.Component {
     fetch('https://api.github.com/orgs/HackYourFuture/repos?per_page=100')
       .then(data => data.json())
       .then(repos => {
-        console.log(repos);
         this.setState({ repos });
       });
   }
@@ -37,7 +36,7 @@ class HomeworkWeek3 extends React.Component {
             {this.state.repos ? (
               this.state.repos.map(repo => (
                 <tbody key={repo.id}>
-                  <tr class="w3-table">
+                  <tr className="w3-table">
                     <td>{repo.id}</td>
                     <td>{repo.name}</td>
                     <td>{repo.forks_count}</td>
@@ -47,7 +46,11 @@ class HomeworkWeek3 extends React.Component {
                 </tbody>
               ))
             ) : (
-              <h1>Data is loading...</h1>
+              <tbody>
+                <tr>
+                  <td>Data is loading...</td>
+                </tr>
+              </tbody>
             )}
           </table>
         </div>
