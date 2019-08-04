@@ -6,7 +6,7 @@ When you are done update your PR from week 1.
 
 ## Outline
 
-Extend your todo list app with the ability to add new todo items. Also your todo list should start rendering todo items using the following JSON format:
+Extend your todo list app with the ability to add new random todo items. Also your todo list should start rendering todo items using the following array:
 
 ```json
 [
@@ -27,13 +27,13 @@ Extend your todo list app with the ability to add new todo items. Also your todo
   }
 ]
 ```
-This also means that new todo items should be added to this JSON array.
+This also means that new todo items should be added to this array.
 
 Create a checkbox in each todo item. When you click the checkbox, the done state of the item should change. When an item is marked as done, it should be rendered with a `line-through` decoration. A mockup of the end result is the following:
 
 ### Todo List
 
-Enter description: [____________]   [Add]
+ add a random todo item [Add]
 
 * [x] ~~Get-out-of-bed~~
 * [ ] Brush teeth
