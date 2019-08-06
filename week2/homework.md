@@ -8,8 +8,8 @@ When you are done update your PR from week 1.
 
 Extend your todo list app with the ability to add new random todo items. Also your todo list should start rendering todo items using the following array:
 
-```json
-[
+```js
+const todos = [
   {
     "id": 1,
     "description": "Get out of bed",
@@ -31,24 +31,16 @@ This also means that new todo items should be added to this array.
 
 Create a checkbox in each todo item. When you click the checkbox, the done state of the item should change. When an item is marked as done, it should be rendered with a `line-through` decoration. A mockup of the end result is the following:
 
-### Todo List
-
- add a random todo item [Add]
-
-* [x] ~~Get-out-of-bed~~
-* [ ] Brush teeth
-* [ ] Eat breakfast
-
 When there are no items, the todo app should render the text "No items...":
 
-### Todo List
+![todolist](assets/todolist.gif)
 
-Enter description: [____________]   [Add]
 
-No items...
-
-## Extra assignment
-Add a delete feature to your todo list so you can delete todo items.
+Requirements:
+- Add random item
+- Mark todo item as done
+- If no items render "No items"
+- *Extra* add a possibility to delete an item
 
 ## Reading exercises 
 
