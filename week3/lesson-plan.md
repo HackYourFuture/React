@@ -21,7 +21,7 @@ but if we need to handle form submission in javascript and keep track of what da
 - Talk about loading states
 
 
-## Prop types **Should we even teach this??**
+## Prop types
 
 
 ## Children

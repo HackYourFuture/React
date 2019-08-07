@@ -4,4 +4,4 @@
 - Forms and events
 - Using data fetching
 - Children
-- Prop types **DO WE REALLY NEED TO TEACH THIS??**
+- Prop types
