@@ -40,9 +40,7 @@ Transform a todolist sketch into components on white board.
 
 ## Lifecycle Methods
 - Full list [here](https://reactjs.org/docs/react-component.html)
-
 - Lifecycle methods are used when render is not enough on its own
-
 - Cover each, giving examples of when they might be useful
   - componentDidMount: data fetching in client-side-only apps
   - shouldComponentUpdate: performance debugging

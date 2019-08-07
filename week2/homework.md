@@ -2,7 +2,7 @@
 
 Base your week 2 homework on the result of week 1.
 
-When you are done update your PR from week 1.
+- Life cycle
 
 ## Outline
 
@@ -12,20 +12,18 @@ Extend your todo list app with the ability to add new random todo items. Also yo
 const todos = [
   {
     "id": 1,
-    "description": "Get out of bed",
-    "done": true
+    "description": "Get out of bed"
   },
   {
     "id": 2,
-    "description": "Brush teeth",
-    "done": false
+    "description": "Brush teeth"
   },
   {
     "id": 3,
-    "description": "Eat breakfast",
-    "done": false
+    "description": "Eat breakfast"
   }
-]
+];
+
 ```
 This also means that new todo items should be added to this array.
 
@@ -33,8 +31,10 @@ Create a checkbox in each todo item. When you click the checkbox, the done state
 
 When there are no items, the todo app should render the text "No items...":
 
-![todolist](assets/todolist.gif)
+## Life cycle
+Using life cycles, set up a timer that counts how long time a users has spent on the website. 
 
+![todolist](assets/todolist.gif)
 
 Requirements:
 - Add random item
