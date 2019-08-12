@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ToDo List - The React Way</title>
+    <style>
+      body {
+        background-color: #f0f0f0;
+      }
+
+      #thisIsWhereReactIsInjected {
+        font-size: 1.5rem;
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .list-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .list {
+        list-style: inside;
+      }
+
+      .list-title {
+        border-bottom: 1px solid black;
+      }
+
+      .list-item {
+        cursor: pointer;
+      }
+
+      .true {
+        text-decoration: line-through;
+        color: rgba(0, 0, 0, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="thisIsWhereReactIsInjected"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="main.js"></script>
+  </body>
+</html>
