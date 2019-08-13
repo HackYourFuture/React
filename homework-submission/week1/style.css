@@ -1,0 +1,26 @@
+.main {
+  background-color: rgb(144, 211, 233); 
+  font-size: 18px;  
+}
+
+.static_list {
+  background-color: rgb(17, 97, 124);
+  color: white;
+  margin: 10px;
+  padding: 10px;
+}
+
+.dynamic_list {
+  background-color: rgb(17, 97, 124);
+  color :white;
+  margin: 10px;
+  padding:10px;
+}
+
+.done {
+  text-decoration: underline;
+}
+
+.not_done {
+  color :rgb(5, 5, 77);
+}
