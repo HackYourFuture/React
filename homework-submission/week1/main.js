@@ -54,22 +54,14 @@ const Icon = ({ color }) => (
 );
 
 // Renders static todo list
-const StaticComponent = ({ array }) => {
-  const { descriptions, deadlines } = array.reduce(
-    (obj, item) => {
-      obj.descriptions.push(item.split(',')[0]);
-      obj.deadlines.push(item.split(',')[1]);
-      return obj;
-    },
-    { descriptions: [], deadlines: [] }
-  );
+const StaticComponent = () => {
   return (
     <div className="m-4 w-64">
       <Title text="Static List" />
       <ul className="shadow-2xl rounded-lg overflow-hidden">
-        <TodoItem description={descriptions[0]} deadline={deadlines[0]} />
-        <TodoItem description={descriptions[1]} deadline={deadlines[1]} />
-        <TodoItem description={descriptions[2]} deadline={deadlines[2]} />
+        <TodoItem description="Get out of bed" deadline="Wed Sep 13 2017" />
+        <TodoItem description="Brush teeth" deadline="Thu Sep 14 2017" />
+        <TodoItem description="Eat breakfast" deadline="Fri Sep 15 2017" />
       </ul>
     </div>
   );
@@ -111,7 +103,7 @@ class TodoItem extends React.Component {
           this.state.done ? 'text-gray-500' : 'hover:bg-gray-100'
         }`}
       >
-        <span className={'mr-3'}>{this.state.done ? <Icon color={'#2F855A'} /> : <Icon color={'#ccc'} />}</span>
+        <span className={'mr-3'}>{<Icon color={this.state.done ? '#2F855A' : '#CCC'} />}</span>
         <div>
           <span className={`block font-bold ${this.state.done ? 'line-through' : ''}`}>{description}</span>
           <span>{deadline}</span>
