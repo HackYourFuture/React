@@ -1,0 +1,29 @@
+* {
+  background-image: url(https://c1.staticflickr.com/5/4097/4893035233_62ae1bd2fe.jpg);
+}
+
+h1 {
+  text-align: center;
+  color: lightgrey;
+  text-shadow: 1px 1px 2px black, 0 0 5px darkblue;
+  font-family: fantasy;
+  font-size: 1.5rem;
+}
+
+.static_list,
+.dynamic_list {
+  border: 2px dashed grey;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 1%;
+  line-height: 1.5em;
+  width: calc(100% / 2 - 10px);
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.yet {
+  font-weight: bold;
+}
