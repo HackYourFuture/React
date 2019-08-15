@@ -1,28 +1,65 @@
-class ComponentStatic extends React.Component {
-  // The goal of this component is to create a list item in page statically
+class ListItem extends React.Component {
+  // ListItem component is creating a list item in page
   render() {
     const { description, deadline } = this.props;
+
     return (
-      <li>
+      <li key={this.props.id} className={this.props.done ? 'itemCompleted' : 'itemNotCompleted'}>
         {description} , {deadline}
       </li>
     );
   }
 }
 
-class ComponentDynamic extends React.Component {
-  // The goal of this component is to create a list in page dynamically
+class StaticList extends React.Component {
+  // StaticList component is creating a list by using the ListItem component in page statically
   render() {
-    const { todoList } = this.props;
+    return (
+      <ul>
+        <ListItem id="1" description="Get out of bed" deadline="Wed Sep 13 2017" />
+        <ListItem id="2" description="Brush teeth" deadline="Thu Sep 14 2017" />
+        <ListItem id="3" description="Eat breakfast" deadline="Fri Sep 15 2017" />
+      </ul>
+    );
+  }
+}
+
+class DynamicList extends React.Component {
+  // DynamicList component is creating a list by using the ListItem component in page dynamically
+  render() {
+    const todoList = [
+      {
+        id: 1,
+        description: 'Get out of bed',
+        deadline: '2017-09-11',
+        done: true,
+      },
+      {
+        id: 2,
+        description: 'Brush teeth',
+        deadline: '2017-09-10',
+        done: false,
+      },
+      {
+        id: 3,
+        description: 'Eat breakfast',
+        deadline: '2017-09-09',
+        done: false,
+      },
+    ];
+
     return (
       <ul>
         {todoList.map(item => {
-          if (item.done == false)
-            return (
-              <li key={item.id}>
-                {item.description}, {item.deadline}
-              </li>
-            );
+          return (
+            <ListItem
+              key={item.id * 3}
+              id={item.id}
+              description={item.description}
+              deadline={item.deadline}
+              done={item.done}
+            />
+          );
         })}
       </ul>
     );
@@ -30,41 +67,14 @@ class ComponentDynamic extends React.Component {
 }
 
 class App extends React.Component {
-  // This component is main component that uses another component.
+  // This component is main component that use another components.
   render() {
-    const data = {
-      todoList: [
-        {
-          id: 1,
-          description: 'Get out of bed',
-          deadline: '2017-09-11',
-          done: true,
-        },
-        {
-          id: 2,
-          description: 'Brush teeth',
-          deadline: '2017-09-10',
-          done: false,
-        },
-        {
-          id: 3,
-          description: 'Eat breakfast',
-          deadline: '2017-09-09',
-          done: false,
-        },
-      ],
-    };
-
     return (
       <div>
-        <ul>
-          <h1>Static List</h1>
-          <ComponentStatic description="Get out of bed" deadline="Wed Sep 13 2017" />
-          <ComponentStatic description="Brush teeth" deadline="Thu Sep 14 2017" />
-          <ComponentStatic description="Eat breakfast" deadline="Fri Sep 15 2017" />
-          <h1>Dynamic List</h1>
-        </ul>
-        <ComponentDynamic todoList={data.todoList} />
+        <h1>Static List</h1>
+        <StaticList />
+        <h1>Dynamic List</h1>
+        <DynamicList />
       </div>
     );
   }
