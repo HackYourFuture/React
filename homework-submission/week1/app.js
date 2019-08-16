@@ -1,10 +1,11 @@
-// Create a todo list item as reusable component:
+// This component creates a list item with given properties description, deadline and done. To give class name to this created item, conditional "className"
+// used. If the todo is done then the className is "done", if not done then "".
 class TodoListItem extends React.Component {
   render() {
-    const { description, deadline, className, id} = this.props;
+    const { description, deadline, done} = this.props;
      return (
-      <li className= {className} key= {id}>
-        {description}, {deadline}
+      <li  className= {done ? "done" : ""}>
+        {description}, {deadline}, {done}
       </li>
     );
   }
@@ -46,20 +47,22 @@ const dynamicListArray = [
     done: false,
   },
 ];
+
 // Create a todo list called Dynamic List with the items of the dynamicListArray
 class DynamicList extends React.Component {
   render() {
+   const { listArray } = this.props;
     return (
       <div className="dynamic_list">
         <h1>Dynamic List</h1>
         <ul>
-          {dynamicListArray.map(listItem => {
+          {listArray.map(listItem => {
             return (
               <TodoListItem
-                key={listItem.id}
-                className={listItem.done === true ? "done" : "not_done"}
+                key={listItem.id}                
                 description={listItem.description}
-                deadline={listItem.deadline}                
+                deadline={listItem.deadline}   
+                done={listItem.done}                       
               />
             );
           })}
@@ -75,7 +78,7 @@ class App extends React.Component {
     return (
       <div className="main">
         <StaticList />
-        <DynamicList />
+        <DynamicList listArray={dynamicListArray}/>
       </div>
     );
   }
