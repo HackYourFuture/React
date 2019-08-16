@@ -37,7 +37,7 @@ class ListItem extends React.Component {
   }
 
   changeDoneState() {
-    this.setState({ done: this.state.done ? false : true });
+    this.setState({ done: !this.state.done });
   }
 
   render() {
