@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: lightgray;
+}
+
+.true {
+  text-decoration: line-through;
+}
+
+.list-items {
+  margin-left: 30px;
+}
+.title {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
