@@ -1,0 +1,24 @@
+body{
+  margin: 20px 100px;
+}
+.header {
+  margin: 10px ;
+  align-items: center;
+  display: inline;
+  color: #ff970e;
+  border-bottom: 2px solid black;
+}
+.completed {
+  text-decoration: line-through;
+  pointer-events: Courier;
+}
+.list {
+  border :1px solid black;
+  list-style: none;
+  display: inline-block;
+  color: black;
+  padding: 5px;
+  margin: 7px;
+  cursor: pointer;
+  font-size: 25 px;
+}
