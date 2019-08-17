@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .listItem {
+        color: aliceblue;
+      }
+      .listHeader {
+        font-weight: bold;
+        background-color: coral;
+        color: antiquewhite;
+      }
+      ul {
+        background-color: burlywood;
+        max-width: 600px;
+        min-width: 250px;
+      }
+      #thisIsWhereReactIsInjected {
+        display: flex;
+      }
+      .false {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="thisIsWhereReactIsInjected"></div>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel" src="main.js"></script>
+  </body>
+</html>

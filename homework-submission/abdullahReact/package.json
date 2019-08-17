@@ -1,0 +1,22 @@
+{
+  "name": "abdullahreact",
+  "version": "1.0.0",
+  "description": "hyf react repo",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/heartwhite/React.git"
+  },
+  "author": "abdullah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heartwhite/React/issues"
+  },
+  "homepage": "https://github.com/heartwhite/React#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.5.5"
+  }
+}
