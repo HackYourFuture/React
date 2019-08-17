@@ -22,29 +22,29 @@ const StaticList = () => {
     </div>
   );
 };
-const todoItems = [
-  {
-    id: 1,
-    description: 'Get out of bed',
-    deadline: '2017-09-11',
-    done: true,
-  },
-  {
-    id: 2,
-    description: 'Brush teeth',
-    deadline: '2017-09-10',
-    done: false,
-  },
-  {
-    id: 3,
-    description: 'Eat breakfast',
-    deadline: '2017-09-09',
-    done: false,
-  },
-];
 
 // Returns unordered list that cntains as many todo items as you want
 const DynamicList = () => {
+  const todoItems = [
+    {
+      id: 1,
+      description: 'Get out of bed',
+      deadline: '2017-09-11',
+      done: true,
+    },
+    {
+      id: 2,
+      description: 'Brush teeth',
+      deadline: '2017-09-10',
+      done: false,
+    },
+    {
+      id: 3,
+      description: 'Eat breakfast',
+      deadline: '2017-09-09',
+      done: false,
+    },
+  ];
   return (
     <div className="dynamic_list">
       <h1>Dynamic List</h1>
@@ -54,7 +54,7 @@ const DynamicList = () => {
             key={id}
             description={description}
             deadline={deadline}
-            className={done === true ? 'done' : 'yet'}
+            className={done ? 'done' : ''}
           />
         ))}
       </ul>
