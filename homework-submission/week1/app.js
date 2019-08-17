@@ -84,7 +84,7 @@ class DynamicList extends React.Component {
               key={item.id}
               description={item.description}
               deadline={item.deadline}
-              done={Item.done}
+              done={item.done}
             />
           ))}
         </ul>

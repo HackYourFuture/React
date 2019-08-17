@@ -160,7 +160,7 @@ var DynamicList = function (_React$Component4) {
               key: item.id,
               description: item.description,
               deadline: item.deadline,
-              done: Item.done
+              done: item.done
             });
           })
         )
