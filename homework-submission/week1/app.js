@@ -12,7 +12,7 @@ const staticList = [
 //the goal of this component is to create a reusable list title by using props
 class ListTitle extends React.Component {
   render() {
-    const title = this.props;
+    const { title } = this.props;
     return <h1>{title}</h1>;
   }
 }
@@ -83,7 +83,7 @@ class DynamicList extends React.Component {
             <Item
               key={item.id}
               description={item.description}
-              deadLine={item.deadLine}
+              deadline={item.deadline}
               done={Item.done}
             />
           ))}

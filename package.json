@@ -2,7 +2,10 @@
   "name": "React",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/HackYourFuture/React.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackYourFuture/React.git"
+  },
   "author": "HYF",
   "license": "MIT",
   "scripts": {
@@ -10,7 +13,9 @@
     "test": "npm run lint"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.3",
+    "babel-preset-react-app": "^3.1.2",
     "eslint": "^4.19.1",
     "eslint-config-react-app": "^2.1.0",
     "eslint-plugin-babel": "^5.1.0",
@@ -21,5 +26,14 @@
   },
   "eslintIgnore": [
     "node_modules"
-  ]
+  ],
+  "description": "> Please help us improve and share your feedback! If you find better tutorials > or links, please share them by [opening a pull request](https://github.com/HackYourFuture/React/pulls).",
+  "bugs": {
+    "url": "https://github.com/HackYourFuture/React/issues"
+  },
+  "homepage": "https://github.com/HackYourFuture/React#readme",
+  "directories": {
+    "example": "examples"
+  },
+  "keywords": []
 }
