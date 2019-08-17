@@ -1,0 +1,9 @@
+.done {
+  text-decoration: line-through;
+}
+.not-done {
+  background-color: silver;
+}
+ul {
+  font-size: 24px;
+}
