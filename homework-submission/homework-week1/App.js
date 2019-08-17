@@ -27,27 +27,7 @@ class StaticList extends React.Component {
 class DynamicList extends React.Component {
   // DynamicList component is creating a list by using the ListItem component in page dynamically
   render() {
-    const todoList = [
-      {
-        id: 1,
-        description: 'Get out of bed',
-        deadline: '2017-09-11',
-        done: true,
-      },
-      {
-        id: 2,
-        description: 'Brush teeth',
-        deadline: '2017-09-10',
-        done: false,
-      },
-      {
-        id: 3,
-        description: 'Eat breakfast',
-        deadline: '2017-09-09',
-        done: false,
-      },
-    ];
-
+    const { todoList } = this.props;
     return (
       <ul>
         {todoList.map(item => {
@@ -69,12 +49,33 @@ class DynamicList extends React.Component {
 class App extends React.Component {
   // This component is main component that use another components.
   render() {
+    const list = [
+      {
+        id: 1,
+        description: 'Get out of bed',
+        deadline: '2017-09-11',
+        done: true,
+      },
+      {
+        id: 2,
+        description: 'Brush teeth',
+        deadline: '2017-09-10',
+        done: false,
+      },
+      {
+        id: 3,
+        description: 'Eat breakfast',
+        deadline: '2017-09-09',
+        done: false,
+      },
+    ];
+
     return (
       <div>
         <h1>Static List</h1>
         <StaticList />
         <h1>Dynamic List</h1>
-        <DynamicList />
+        <DynamicList todoList={list} />
       </div>
     );
   }
