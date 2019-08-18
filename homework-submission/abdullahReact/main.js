@@ -20,7 +20,8 @@ const toDoItems = [
 ];
 
 //the goal of this component is to define/create a reusable list item that uses own function to set state.
-// in this case to set as done or not done by clicking
+// props.description and props.deadline are to write in list item (<li>) as text
+// props.done is to initialize state.done.
 
 class ListItem extends React.Component {
   constructor(props) {
@@ -57,9 +58,9 @@ class StaticList extends React.Component {
     return (
       <ul>
         <ListHeader type="Static" />
-        <ListItem description="Get out of bed" deadline="2017-09-11" />
-        <ListItem description="Brush teeth" deadline="2017-09-10" />
-        <ListItem description="Eat breakfast" deadline="2017-09-09" />
+        <ListItem description="Get out of bed" deadline="2017-09-11" done={true} />
+        <ListItem description="Brush teeth" deadline="2017-09-10" done={false} />
+        <ListItem description="Eat breakfast" deadline="2017-09-09" done={false} />
       </ul>
     );
   }
@@ -69,7 +70,6 @@ class StaticList extends React.Component {
 class DynamicList extends React.Component {
   render() {
     const { toDoArr } = this.props;
-    console.log(this.props);
     return (
       <ul>
         <ListHeader type="Dynamic" />
