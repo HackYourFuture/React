@@ -5,8 +5,9 @@ class Header extends React.Component {
   }
 }
 
-// create the list items component
-class List extends React.Component {
+// create the list items component and show it as li items in ul 
+// there are two props in this component , 1-description : give the explanation of the to do item .2-deadline : the end time for the todo item
+class TodoListItems extends React.Component {
   render() {
     const { description, deadline, completed } = this.props;
     return (
@@ -52,16 +53,14 @@ class App extends React.Component {
     return (
       <div>
         <Header title="Static List" />
-        <List description="Get out of bed" deadline="Wed Sep 13 2017" />
-        <List description="Brush teeth" deadline="Thu Sep 14 2017" />
-        <List description="Eat breakfast" deadline="Fri Sep 15 2017" />
+        <TodoListItems description="Get out of bed" deadline="Wed Sep 13 2017" />
+        <TodoListItems description="Brush teeth" deadline="Thu Sep 14 2017" />
+        <TodoListItems description="Eat breakfast" deadline="Fri Sep 15 2017" />
 
         <Header title="Dynamic List" />
         {this.state.todos.map(todo => {
           return (
-            <div key={todo.id}>
-              <List description={todo.description} deadline={todo.deadline} completed={todo.completed} />
-            </div>
+              <TodoListItems key={todo.id} description={todo.description} deadline={todo.deadline} completed={todo.completed} />
           );
         })}
       </div>
