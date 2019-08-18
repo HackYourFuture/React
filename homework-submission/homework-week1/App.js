@@ -1,10 +1,10 @@
 class ListItem extends React.Component {
   // ListItem component is creating a list item in page
   render() {
-    const { description, deadline } = this.props;
+    const { id, description, deadline, done } = this.props;
 
     return (
-      <li key={this.props.id} className={this.props.done ? 'itemCompleted' : 'itemNotCompleted'}>
+      <li key={id} className={done ? 'itemCompleted' : 'itemNotCompleted'}>
         {description} , {deadline}
       </li>
     );
@@ -33,7 +33,7 @@ class DynamicList extends React.Component {
         {todoList.map(item => {
           return (
             <ListItem
-              key={item.id * 3}
+              key={item.id}
               id={item.id}
               description={item.description}
               deadline={item.deadline}
