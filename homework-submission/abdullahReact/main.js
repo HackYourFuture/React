@@ -27,7 +27,6 @@ class ListItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = { done: props.done };
-    this.switchDoneState = this.switchDoneState.bind(this);
   }
 
   switchDoneState() {
@@ -37,7 +36,7 @@ class ListItem extends React.Component {
   render() {
     const { description, deadline } = this.props;
     return (
-      <li onClick={this.switchDoneState} className={`listItem ${this.state.done}`}>
+      <li onClick={this.switchDoneState.bind(this)} className={`listItem ${this.state.done}`}>
         {description} - {deadline}
       </li>
     );
