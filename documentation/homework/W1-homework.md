@@ -15,7 +15,7 @@ Fork this repository and create a basic folder structure that includes:
 
 - A simple HTML file, with one `<div>` that has an id of `thisIsWhereReactIsInjected` and the following scripts included in the `<body>`:
 
-`<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin><script>`
+`<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>`
 
 `<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>`
 
