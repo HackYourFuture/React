@@ -1,5 +1,11 @@
 body{
-  margin: 20px 100px;
+  margin: 7% 30% ;
+  
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  
 }
 .header {
   margin: 10px ;
@@ -8,17 +14,22 @@ body{
   color: #ff970e;
   border-bottom: 2px solid black;
 }
-.completed {
-  text-decoration: line-through;
-  pointer-events: Courier;
-}
-.list {
-  border :1px solid black;
+ul{
+  background-color: rgb(233, 245, 245);
   list-style: none;
   display: inline-block;
   color: black;
   padding: 5px;
-  margin: 7px;
+  margin: 5px ;
   cursor: pointer;
   font-size: 25 px;
 }
+li{
+  padding: 5px;
+  margin: 5px;
+}
+.completed {
+  text-decoration: line-through;
+  pointer-events: Courier;
+}
+
