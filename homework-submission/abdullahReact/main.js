@@ -21,7 +21,7 @@ const toDoItems = [
 
 //the goal of this component is to define/create a reusable list item that uses own function to set state.
 // props.description and props.deadline are to write in list item (<li>) as text
-// props.done is to initialize state.done.
+// props.done is to initialize state.done and gives the ListItem a line-through when it's true.
 
 class ListItem extends React.Component {
   constructor(props) {
