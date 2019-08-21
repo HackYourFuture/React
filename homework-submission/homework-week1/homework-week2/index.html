@@ -7,16 +7,7 @@
     <title>Document</title>
     <style>
 
-    .itemCompleted {
-        text-decoration: line-through;
-        color: #9e9999;
-    }
-    .itemNotCompleted {
-        text-decoration: none;
-    }
-
-    .itemCompleted, .itemNotCompleted {
-    
+    .listItem{
     line-height: 2;
     font-family: Roboto,sans-serif;
     font-size: 14px;
@@ -30,9 +21,17 @@
     box-shadow: 1px 1px 5px #d8d0d0;
     }
 
-    .itemCompleted:hover, .itemNotCompleted:hover {
+    .listItem:hover{
     background-color: tomato;
     box-shadow: 1px 1px 10px #9e9999;
+    }
+
+    .addItem:hover{
+    background-color: lightgreen;
+    }
+
+    input[value] {
+    color: #9e9999;
     }
 
     .list {
