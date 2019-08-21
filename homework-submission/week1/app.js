@@ -21,11 +21,15 @@ class ListTitle extends React.Component {
 //the goal of this component is to create a list item
 class Item extends React.Component {
   render() {
-    // 4- Each list item should have a prop of description and deadline
-    const { description, deadline, done } = this.props;
+    // 4- Each list item should have a prop of :
+    //description which is the text of todo item,
+    // deadline which is the deadline of todo item,
+    // done which is provided to add style to the item text as strike through is done.
+    // Id which is the key of todo item.
+    const { dataId, description, deadline, done } = this.props;
     return (
       //6 Using CSS (a conditional className), cross out the item if done is true
-      <li className={done ? 'item-list' : ''}>
+      <li key={dataId} className={done ? 'item-list' : ''}>
         {description}, {deadline}
       </li>
     );
@@ -40,9 +44,21 @@ class List extends React.Component {
       <div>
         <ListTitle title="Static List" />
         <ul>
-          <Item description={staticList[0].description} deadline={staticList[0].deadline} />
-          <Item description={staticList[1].description} deadline={staticList[1].deadline} />
-          <Item description={staticList[2].description} deadline={staticList[2].deadline} />
+          <Item
+            dataId={0}
+            description={staticList[0].description}
+            deadline={staticList[0].deadline}
+          />
+          <Item
+            dataId={1}
+            description={staticList[1].description}
+            deadline={staticList[1].deadline}
+          />
+          <Item
+            dataId={2}
+            description={staticList[2].description}
+            deadline={staticList[2].deadline}
+          />
         </ul>
       </div>
     );
@@ -81,7 +97,7 @@ class DynamicList extends React.Component {
         <ul>
           {items.map(item => (
             <Item
-              key={item.id}
+              dataId={item.id}
               description={item.description}
               deadline={item.deadline}
               done={item.done}
