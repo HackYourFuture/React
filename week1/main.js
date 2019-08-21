@@ -1,6 +1,6 @@
 // This is a class based component that has two props that are reuseable
 // as demonstrated in lines 64 through 66.
-class StaticList extends React.Component {
+class ListItem extends React.Component {
   render() {
     const { description, deadline } = this.props;
     return (
@@ -40,11 +40,11 @@ class DynamicList extends React.Component {
   }
   render() {
     return (
-      <div className="list-items">
+      <div>
         {this.state.todos.map(todo => {
           return (
             <div key={todo.id} className={`${todo.done}`}>
-              <StaticList description={todo.description} deadline={todo.deadline} />
+              <ListItem description={todo.description} deadline={todo.deadline} />
             </div>
           );
         })}
@@ -53,18 +53,26 @@ class DynamicList extends React.Component {
   }
 }
 
-// This is the parent component that renders both the StaticList and the DynamicList to the DOM.
+class StaticList extends React.Component {
+  render() {
+    return (
+      <div>
+        <ListItem description="Get out of bed" deadline="2017-09-13" />
+        <ListItem description="Brush teeth" deadline="2017-09-14" />
+        <ListItem description="Eat Breakfast" deadline="2017-09-15" />
+        <ListItem description="Doing homework" deadline="2019-08-17" />
+      </div>
+    );
+  }
+}
+
+// This is the parent component that renders both the ListItem and the DynamicList to the DOM.
 class App extends React.Component {
   render() {
     return (
       <div className="list-items">
         <h1 className="title">Static List</h1>
-        <StaticList description="Get out of bed" deadline="2017-09-13" />
-        <StaticList description="Brush teeth" deadline="2017-09-14" />
-        <StaticList description="Eat Breakfast" deadline="2017-09-15" />
-        <StaticList description="Doing homework" deadline="2019-08-17" />
-        <StaticList description="Respond to feedback" deadline="2019-08-21" />
-        <StaticList description="Attend class after holiday" deadline="2019-09-01" />
+        <StaticList />
         <h1 className="title">Dynamic List</h1>
         <DynamicList />
       </div>
