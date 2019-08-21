@@ -2,31 +2,87 @@ const toDoItems = [
   {
     id: 1,
     description: 'Get out of bed',
-    deadline: '2017-09-11',
+    deadLine: '2017-09-11',
     done: true,
   },
   {
     id: 2,
     description: 'Brush teeth',
-    deadline: '2017-09-10',
+    deadLine: '2017-09-10',
     done: false,
   },
   {
     id: 3,
     description: 'Eat breakfast',
-    deadline: '2017-09-09',
+    deadLine: '2017-09-09',
     done: false,
   },
 ];
 
-//the goal of this component is to define/create a reusable list item that uses own function to set state.
-// in this case to set as done or not done by clicking
+const Label = ({ text, className, htmlFor }) => {
+  return (
+    <label className={className} htmlFor={htmlFor}>
+      {text}
+    </label>
+  );
+};
+
+const Input = ({ name, className, type, placeholder, defaultValue }) => {
+  return (
+    <input
+      name={name}
+      className={className}
+      type={type}
+      placeholder={placeholder}
+      defaultValue={defaultValue}
+    ></input>
+  );
+};
+
+const Header = ({ text, className }) => {
+  return <h2 className={className}>{text}</h2>;
+};
+
+const Button = ({ text, type, className, onClick }) => {
+  return (
+    <button type={type} className={className} onClick={onClick}>
+      {text}
+    </button>
+  );
+};
+
+const Form = ({ addListItem }) => {
+  const x = new Date();
+  const y = x.getFullYear().toString();
+  let m = (x.getMonth() + 1).toString();
+  let d = x.getDate().toString();
+  d.length == 1 && (d = '0' + d);
+  m.length == 1 && (m = '0' + m);
+  let date = y + '-' + m + '-' + d;
+  return (
+    <div>
+      <form onSubmit={addListItem}>
+        <Label text="Add an item to list" className="label" htmlFor="itemToAdd" />
+        <Input
+          name="itemToAdd"
+          className="itemInput"
+          placeholder="write description of todo item"
+          type="text"
+        />
+        <br></br>
+        <Label text="Deadline" className="label" htmlFor="deadLine" />
+        <Input className="input" type="date" name="deadLine" defaultValue={date} />
+        <br></br>
+        <Button text="Add item" type="submit" className="addButton" />
+      </form>
+    </div>
+  );
+};
 
 class ListItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = { done: props.done };
-    this.switchDoneState = this.switchDoneState.bind(this);
   }
 
   switchDoneState() {
@@ -34,60 +90,88 @@ class ListItem extends React.Component {
   }
 
   render() {
-    const { description, deadline } = this.props;
+    const { id, description, deadLine, onClick } = this.props;
     return (
-      <li onClick={this.switchDoneState} className={`listItem ${this.state.done}`}>
-        {description} - {deadline}
+      <li key={id} id={id} className={`listItem ${this.state.done}`}>
+        <p onClick={this.switchDoneState.bind(this)} className="itemDesc">
+          {description}
+        </p>{' '}
+        <p className="itemDead">{deadLine}</p>
+        <Button text="Delete item !" className="deleteButton" onClick={onClick} />
       </li>
     );
   }
 }
 
-//the goal of this component is to define/create a reusable list header.
-//it returns a header with taken parameter/prop.type + "List"
-
-const ListHeader = listHead => {
-  return <h2 className="listHeader">{listHead.type} List</h2>;
-};
-
-//the goal of this component is to create an unordered list statically
-//it returns a ul which has a header(with given prop.type) 3 item with given props.
-class StaticList extends React.Component {
-  render() {
-    return (
-      <ul>
-        <ListHeader type="Static" />
-        <ListItem description="Get out of bed" deadline="2017-09-11" />
-        <ListItem description="Brush teeth" deadline="2017-09-10" />
-        <ListItem description="Eat breakfast" deadline="2017-09-09" />
-      </ul>
-    );
-  }
-}
-//the goal of this component is to create an unordered list dynamically
-//it returns a ul which has items as many as given props.array has.
 class DynamicList extends React.Component {
   render() {
-    const { toDoArr } = this.props;
-    console.log(this.props);
+    let { toDoArr, deleteSelectedItem } = this.props;
     return (
       <ul>
-        <ListHeader type="Dynamic" />
-        {toDoArr.map(item => (
-          <ListItem key={item.id} {...item} />
+        <Header className="listHeader" text="Dynamic List" />
+        {toDoArr.map((item, i) => (
+          <ListItem
+            key={i + 1}
+            id={item.id}
+            description={item.description}
+            deadLine={item.deadLine}
+            onClick={deleteSelectedItem}
+          />
         ))}
       </ul>
     );
   }
 }
 
-//the goal of this component is to inject lists to html. it returns a div element which has two ul.
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { data: toDoItems };
+  }
+
+  deleteSelectedItem = event => {
+    const itemToDelete = event.target.parentElement.id;
+    const newData = this.state.data.filter(item => item.id != itemToDelete);
+    const newDataToOverwrite = newData.map((item, index) => {
+      item.id = index;
+      return item;
+    });
+    this.setState({ data: newDataToOverwrite });
+  };
+
+  addListItem = event => {
+    event.preventDefault();
+    const value = event.target.itemToAdd.value;
+    if (value == '') {
+      alert("empty string can't be added");
+      return;
+    }
+    const newData = this.state.data;
+    const copyNewData = [...newData];
+    let deadLine = event.target.deadLine.value;
+    const dateTest = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
+    if (!dateTest.test(deadLine)) {
+      deadLine = 'not defined';
+    }
+    copyNewData.push({
+      id: copyNewData.length + 1,
+      description: value,
+      deadLine: deadLine,
+      done: false,
+    });
+    this.setState({
+      data: copyNewData,
+    });
+  };
+
   render() {
     return (
       <div>
-        <StaticList />
-        <DynamicList toDoArr={toDoItems} />
+        <Form addListItem={this.addListItem.bind(this)} />
+        <DynamicList
+          toDoArr={this.state.data}
+          deleteSelectedItem={this.deleteSelectedItem.bind(this)}
+        />
       </div>
     );
   }
