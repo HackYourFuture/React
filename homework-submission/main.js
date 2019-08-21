@@ -1,6 +1,6 @@
 'use strict';
 
-const todoListArr = [
+const todoArr = [
   {
     id: 1,
     description: 'Get out of bed',
@@ -21,79 +21,120 @@ const todoListArr = [
   },
 ];
 
-// The goal of this component is to take a parameter for list type as props
-// and insert a header with class of 'list-title' for lists
-const ListTitle = props => <h1 className="list-title">{props.type} List</h1>;
+const Title = ({ text }) => <h1 className="title">{text}</h1>;
 
-// The goal of this component is to insert a list item with given description and
-// deadline, to give this inserted item proper class names, to add an event listener
-// that when a todo is clicked crosses it out as done if the todo is not done
-// and vice versa
-class ListItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { done: props.done ? props.done : false };
-    this.changeDoneState = this.changeDoneState.bind(this);
-  }
+const Input = ({ type, name }) => {
+  return (
+    <div className="input-section">
+      <label className="label" htmlFor={name}>
+        {name}:
+      </label>
+      <input className="input" type={type} name={name} required={type !== 'checkbox'} />
+    </div>
+  );
+};
 
-  changeDoneState() {
-    this.setState({ done: !this.state.done });
-  }
+const Button = ({ type, text, clickHandler }) => {
+  return (
+    <button className="button" type={type} onClick={clickHandler}>
+      {text}
+    </button>
+  );
+};
 
-  render() {
-    const { description, deadline } = this.props;
-    const date = new Date(deadline).toLocaleDateString('en-EN', {
-      weekday: 'short',
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-    });
-    return (
-      <li onClick={this.changeDoneState} className={`list-item ${this.state.done}`}>
-        {description}, {date}
-      </li>
-    );
-  }
-}
+const ListItem = ({ clickHandler, todo }) => {
+  const date = new Date(todo.deadline).toLocaleDateString('en-EN', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+  return (
+    <li onClick={clickHandler} id={todo.id} className={`list-item ${todo.done}`}>
+      {todo.description}, {date}
+    </li>
+  );
+};
 
-// The goal of this component is to insert a static-type list with static list items
-class StaticList extends React.Component {
-  render() {
-    return (
-      <div className="list-container">
-        <ListTitle type="Static" />
-        <ul className="list static">
-          <ListItem description="Get out of bed" deadline="Wed Sep 13 2017" />
-          <ListItem description="Brush teeth" deadline="Thu Sep 14 2017" />
-          <ListItem description="Eat breakfast" deadline="Fri Sep 15 2017" />
-        </ul>
-      </div>
-    );
-  }
-}
+const AddNewTodo = ({ submitHandler }) => {
+  return (
+    <section className="form container">
+      <Title text="Add a new todo" />
+      <form className="form" onSubmit={submitHandler}>
+        <Input type="text" name="description" />
+        <Input type="date" name="deadline" />
+        <Input type="checkbox" name="done" />
+        <Button type="submit" text="Add New Todo" />
+      </form>
+    </section>
+  );
+};
 
-class DynamicList extends React.Component {
-  render() {
-    const { todoArr } = this.props;
-    return (
-      <div className="list-container">
-        <ListTitle type="Dynamic" />
-        <ul className="list dynamic">
-          {todoArr.map(todo => (
-            <ListItem key={todo.id} {...todo} />
-          ))}
-        </ul>
-      </div>
-    );
-  }
-}
+const TodoList = ({ todoArr, liClickHandler, buttonClickHandler, clickBehaviour }) => {
+  return (
+    <section className="list container">
+      <Title text="Todo List" />
+      <Button clickHandler={buttonClickHandler} text={clickBehaviour} />
+      <ul className="list">
+        {todoArr.map(todo => (
+          <ListItem key={todo.id} clickHandler={liClickHandler} todo={todo} />
+        ))}
+      </ul>
+    </section>
+  );
+};
 
 class Main extends React.Component {
+  state = { todoArr, behaviour: 'mark' };
+
+  addNewTodo(event) {
+    event.preventDefault();
+    const currentTodos = [...this.state.todoArr];
+    const newTodo = {
+      id: currentTodos[currentTodos.length - 1] ? currentTodos[currentTodos.length - 1].id + 1 : 1,
+      description: event.target.description.value,
+      deadline: event.target.deadline.value,
+      done: event.target.done.checked,
+    };
+    currentTodos.push(newTodo);
+    this.setState({ todoArr: [...currentTodos], behaviour: this.state.behaviour });
+  }
+
+  markOrDeleteTodo(event) {
+    if (this.state.behaviour === 'mark') {
+      const copyArr = [...this.state.todoArr];
+      copyArr.forEach(todo => {
+        if (todo.id.toString() === event.target.id) {
+          todo.done = !todo.done;
+        }
+      });
+      return this.setState({ todoArr: [...copyArr], behaviour: 'mark' });
+    }
+    if (this.state.behaviour === 'delete') {
+      const remainingTodos = this.state.todoArr.filter(
+        todo => todo.id.toString() !== event.target.id,
+      );
+      return this.setState({ todoArr: [...remainingTodos], behaviour: 'delete' });
+    }
+  }
+
+  changeBehaviour() {
+    this.setState({
+      todoArr: this.state.todoArr,
+      behaviour: this.state.behaviour === 'mark' ? 'delete' : 'mark',
+    });
+  }
+
   render() {
     return (
-      <main>
-        <StaticList />
-        <DynamicList todoArr={todoListArr} />
+      <main className="main">
+        <AddNewTodo submitHandler={this.addNewTodo.bind(this)} />
+        <TodoList
+          todoArr={this.state.todoArr}
+          liClickHandler={this.markOrDeleteTodo.bind(this)}
+          buttonClickHandler={this.changeBehaviour.bind(this)}
+          clickBehaviour={`Click a Todo to ${this.state.behaviour}`}
+        />
       </main>
     );
   }
