@@ -48,15 +48,15 @@ form {
   width: 25%;
   font-family: Herculanum;
 }
+.true {
+  text-decoration: line-through;
+}
 .deleteButton {
-  color: #f4a950;
+  color: #f45050;
   width: 50px;
   height: 44px;
   background-color: #161b21;
   border-radius: 10px;
-}
-.true {
-  text-decoration: line-through;
 }
 .addButton {
   margin-left: 45%;

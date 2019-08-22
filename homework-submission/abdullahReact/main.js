@@ -82,20 +82,19 @@ const Form = ({ addListItem }) => {
 class ListItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { done: props.done };
+    this.state = { done: this.props.done };
   }
 
   switchDoneState() {
     this.setState({ done: !this.state.done });
   }
-
   render() {
     const { id, description, deadLine, onClick } = this.props;
     return (
       <li key={id} id={id} className={`listItem ${this.state.done}`}>
         <p onClick={this.switchDoneState.bind(this)} className="itemDesc">
           {description}
-        </p>{' '}
+        </p>
         <p className="itemDead">{deadLine}</p>
         <Button text="Delete item !" className="deleteButton" onClick={onClick} />
       </li>
@@ -108,11 +107,12 @@ class DynamicList extends React.Component {
     let { toDoArr, deleteSelectedItem } = this.props;
     return (
       <ul>
-        <Header className="listHeader" text="Dynamic List" />
+        <Header className="listHeader" text="Todo List" />
         {toDoArr.map((item, i) => (
           <ListItem
-            key={i + 1}
+            key={item.id}
             id={item.id}
+            done={item.done}
             description={item.description}
             deadLine={item.deadLine}
             onClick={deleteSelectedItem}
@@ -131,12 +131,9 @@ class App extends React.Component {
 
   deleteSelectedItem = event => {
     const itemToDelete = event.target.parentElement.id;
-    const newData = this.state.data.filter(item => item.id != itemToDelete);
-    const newDataToOverwrite = newData.map((item, index) => {
-      item.id = index;
-      return item;
-    });
-    this.setState({ data: newDataToOverwrite });
+    const data = this.state.data;
+    const newData = data.filter(item => item.id != itemToDelete);
+    this.setState({ data: newData });
   };
 
   addListItem = event => {
@@ -154,7 +151,7 @@ class App extends React.Component {
       deadLine = 'not defined';
     }
     copyNewData.push({
-      id: copyNewData.length + 1,
+      id: copyNewData[copyNewData.length - 1].id + 1,
       description: value,
       deadLine: deadLine,
       done: false,
@@ -168,10 +165,7 @@ class App extends React.Component {
     return (
       <div>
         <Form addListItem={this.addListItem.bind(this)} />
-        <DynamicList
-          toDoArr={this.state.data}
-          deleteSelectedItem={this.deleteSelectedItem.bind(this)}
-        />
+        <DynamicList toDoArr={this.state.data} deleteSelectedItem={this.deleteSelectedItem} />
       </div>
     );
   }
