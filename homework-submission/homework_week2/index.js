@@ -19,8 +19,8 @@ class TodoItems extends React.Component {
     return <ul className="theList">{listItems}</ul>;
   }
 }
-const Button = () => {
-  return <button type="submit">add</button>;
+const Button = ({ text, clickHandler }) => {
+  return <button onClick={clickHandler}>{text}</button>;
 };
 
 class TodoList extends React.Component {
@@ -82,7 +82,7 @@ class TodoList extends React.Component {
         <div className="header">
           <form onSubmit={this.addItem}>
             <input ref={a => (this.target = a)} placeholder="enter task" />
-            <Button />
+            <Button text="add" />
           </form>
         </div>
         <TodoItems entries={this.state.items} delete={this.deleteItem} />
