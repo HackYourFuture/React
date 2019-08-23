@@ -2,7 +2,10 @@
 
 ## Learning goals
 - Context
-- Introduction to state management libraries
 - Render props
-- Lifting state
+- Introduction to state management libraries
 
+## Relevant links
+* [Preparation](preparation.md)
+* [Homework](homework.md)
+* [Lesson plan](lesson-plan.md)

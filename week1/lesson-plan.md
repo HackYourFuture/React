@@ -48,7 +48,7 @@ Teacher suggestion:
 
 ### UserList (Components, jsx and props)
 
-https://codesandbox.io/s/delicate-silence-dz32o
+https://codesandbox.io/s/name-age-simple-react-dz32o
 
 ```js
 import React from "react";
@@ -97,7 +97,7 @@ ReactDOM.render(<UserList users={users} />, rootElement);
 
 ### Counter example
 
-https://codesandbox.io/s/cocky-rosalind-wvgxr
+https://codesandbox.io/s/simple-counter-wvgxr
 
 ```js
 import React from "react";

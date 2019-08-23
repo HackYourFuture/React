@@ -25,7 +25,7 @@ but if we need to handle form submission in javascript and keep track of what da
 
 ### Random cats
 
-https://codesandbox.io/s/amazing-swanson-ml92u
+https://codesandbox.io/s/random-cats-ml92u
 
 ```js
 import React from "react";

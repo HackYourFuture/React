@@ -1,9 +1,5 @@
 # Homework
 
-Base your week 3 homework on the result of week 2.
-
-- Children
-
 ## Outline
 
 Now instead of using an array to load the default items, use the api found here: `https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw` using `fetch`

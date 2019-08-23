@@ -1,9 +1,5 @@
 # Homework
 
-Base your week 2 homework on the result of week 1.
-
-- Life cycle
-
 ## Outline
 
 Extend your todo list app with the ability to add new random todo items. Also your todo list should start rendering todo items using the following array:

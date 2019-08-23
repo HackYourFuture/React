@@ -47,7 +47,7 @@
 ## Code inspiration
 
 ### todolist (updating state with list)
-https://codesandbox.io/s/festive-flower-be9qu
+https://codesandbox.io/s/simple-todo-list-be9qu
 
 ```js
 import React, { Component } from "react";

@@ -7,3 +7,9 @@
 - Stateful logic - Having logic around state
 - List keys
 - Life cycle
+- Lifting state
+
+## Relevant links
+* [Preparation](preparation.md)
+* [Homework](homework.md)
+* [Lesson plan](lesson-plan.md)
