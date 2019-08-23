@@ -23,11 +23,13 @@ const todoItems = [
 class ListTitle extends React.Component {
   render() {
     const { text } = this.props;
-    return <h2 className={'list_title'}>{text}</h2>;
+    return <h2 class="list_title">{text}</h2>;
   }
 }
 
-// this component creates reusable list items for both lists
+// this component creates reusable list items for both lists. each ListItem has description, deadline and done properties
+//description is the description of the TODO item eg: "Go to dentist", deadline is the final date for the TODO and Done is
+// to mark TODO as completed
 class ListItem extends React.Component {
   render() {
     const { description, deadline, done } = this.props;
@@ -43,11 +45,12 @@ class ListItem extends React.Component {
 // this component creates a dynamic list for the todoItems object
 class DynamicList extends React.Component {
   render() {
+    const { todos } = this.props;
     return (
       <ul className="list">
-        {todoItems.map((todoItem, index) => {
-          return <ListItem key={index} {...todoItem} />;
-        })}
+        {todos.map((todo, index) => (
+          <ListItem key={index} {...todo} />
+        ))}
       </ul>
     );
   }
@@ -73,7 +76,7 @@ class App extends React.Component {
         <ListTitle text="Static List" />
         <StaticList />
         <ListTitle text="Dynamic List" />
-        <DynamicList />
+        <DynamicList todos={todoItems} />
       </div>
     );
   }
