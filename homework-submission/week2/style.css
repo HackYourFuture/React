@@ -1,3 +1,32 @@
+.panel {
+  max-width: 600px;
+  margin-left: 20px;
+}
+
 .item-list {
   text-decoration: line-through;
+}
+.item-wrapper {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+body {
+  background-color: #f9fbfc;
+}
+ul {
+  list-style: none;
+  background-color: #f4def5;
+  padding: 0;
+  border: 2px solid #f4def5;
+  border-radius: 5px;
+}
+form {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #efc4f5;
+  border: 2px solid #efc4f5;
+  border-radius: 5px;
 }
