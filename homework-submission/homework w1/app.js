@@ -1,77 +1,114 @@
 const ListItem = ({ description, deadLine, done }) => {
   return <li className={done}>{description + ', ' + deadLine}</li>;
 };
-//ListItem is a reuseable component that has 3 props (description,deadline,className) and return a list item with description and deadLine separated by comma
-class StaticList extends React.Component {
-  render() {
-    return (
-      <div>
-        <h2>Static list</h2>
-        <ul>
-          <ListItem description="Get out of bed" deadLine="Wed Sep 13 2017" />
-          <ListItem description="Brush teeth" deadLine="Thu Sep 14 2017" />
-          <ListItem description="Eat breakfast" deadLine="Fri Sep 15 2017" />
-        </ul>
-      </div>
-    );
-  }
-}
-//class App is component return unordered list and make use of the list item component
 
-class DynamicList extends React.Component {
+const Button = ({ text, type, event }) => {
+  return (
+    <button type={type} onClick={event}>
+      {text}
+    </button>
+  );
+};
+
+class App extends React.Component {
   state = {
     toDoList: [
       {
         id: 1,
         description: 'Get out of bed',
-        deadline: '2017-09-11',
+        deadLine: '2017-09-11',
         done: true,
       },
       {
         id: 2,
         description: 'Brush teeth',
-        deadline: '2017-09-10',
+        deadLine: '2017-09-10',
         done: false,
       },
       {
         id: 3,
         description: 'Eat breakfast',
-        deadline: '2017-09-09',
+        deadLine: '2017-09-09',
         done: false,
       },
     ],
+    description: '',
+    deadLine: '',
+    toRemove: null,
   };
+
+  inputChanged(event) {
+    event.preventDefault();
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  addToList(event) {
+    event.preventDefault();
+    const newTodoList = {
+      description: this.state.description,
+      deadLine: this.state.deadLine,
+      done: false,
+    };
+    let array = this.state.toDoList;
+    array.push(newTodoList);
+
+    this.setState({
+      toDoList: array,
+    });
+  }
+
+  removeFromList(e, index) {
+    e.preventDefault();
+    const id = this.state.toRemove - 1;
+    let array = this.state.toDoList;
+    console.log(id);
+
+    let newArray = array.filter((toRemove, index) => {
+      return index !== id;
+    });
+    console.log(newArray);
+    this.setState({
+      toDoList: newArray,
+    });
+  }
   render() {
     return (
-      <div>
+      <div className="panel">
+        <form onSubmit={this.addToList}>
+          <input
+            type="text"
+            name="description"
+            onChange={this.inputChanged.bind(this)}
+            placeholder="Add new To do"
+          ></input>
+          <input type="date" name="deadLine" onChange={this.inputChanged.bind(this)}></input>
+          <Button type="submit" text="add to list" event={this.addToList.bind(this)} />
+          <br />
+          <input
+            type="number"
+            name="toRemove"
+            onChange={this.inputChanged.bind(this)}
+            placeholder="number of item to delete"
+          ></input>
+          <Button type="submit" text="remove from list" event={this.removeFromList.bind(this)} />
+        </form>
         <h2>Dynamic list</h2>
-        <ul>
+        <ol>
           {this.state.toDoList.map((item, i) => {
             return (
               <ListItem
                 description={item.description}
-                deadLine={item.deadline}
+                deadLine={item.deadLine}
                 key={i}
                 done={item.done === true ? 'done' : 'not-done'}
               />
             );
           })}
-        </ul>
+        </ol>
       </div>
     );
   }
 }
-//class DynamicList is component return unordered list and map the array to return data and show it by the list item component
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <StaticList />
-        <DynamicList />
-      </div>
-    );
-  }
-}
 const root = document.getElementById('thisIsWhereReactIsInjected');
 ReactDOM.render(<App />, root);
