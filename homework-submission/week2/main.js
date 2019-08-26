@@ -35,19 +35,19 @@ const tasks = [
   }
 ];
 
-// Task item component for Material Icons
+// Material Icon component
 const Icon = ({ children }) => <i className="material-icons">{children}</i>;
 
 // Task item component
-const TaskItem = ({ task, handleRemove, handleToggleMarked }) => (
+const TaskItem = ({ task, onRemove, onToggleMarked }) => (
   <StyledListItem>
-    <div onClick={() => handleToggleMarked(task.id)} className={task.done ? 'done' : ''}>
-      {task.done && <i className="material-icons">check</i>}
+    <div onClick={() => onToggleMarked(task.id)} className={task.done ? 'done' : ''}>
+      {task.done && <Icon>check</Icon>}
       <StyledText bold>{task.description}</StyledText>
       <StyledText small>{task.deadline}</StyledText>
     </div>
     <div>
-      <StyledButton inverse theme="secondary" onClick={() => handleRemove(task.id)}>
+      <StyledButton inverse theme="secondary" onClick={() => onRemove(task.id)}>
         <Icon>delete</Icon>
       </StyledButton>
     </div>
@@ -58,16 +58,21 @@ const TaskItem = ({ task, handleRemove, handleToggleMarked }) => (
 const TaskList = props => {
   const sortedTasks = props.tasks.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
   const totalTasks = props.tasks.length;
-  const completedTasks = sortedTasks.filter(task => task.done).length;
+  const totalCompletedTasks = sortedTasks.filter(task => task.done).length;
+  const unCompletedTasks = props.tasks.filter(task => !task.done);
+  const completedTasks = props.tasks.filter(task => task.done);
 
   return (
     <React.Fragment>
       <StyledTitle>
         Sorted Task List
-        <StyledText small>({completedTasks + '/' + totalTasks})</StyledText>
+        <StyledText small>({totalCompletedTasks + '/' + totalTasks})</StyledText>
       </StyledTitle>
       <nav>
-        {props.tasks.map(task => (
+        {completedTasks.map(task => (
+          <TaskItem key={task.id} task={task} {...props} />
+        ))}
+        {unCompletedTasks.map(task => (
           <TaskItem key={task.id} task={task} {...props} />
         ))}
       </nav>
@@ -76,17 +81,17 @@ const TaskList = props => {
 };
 
 // Task add form component
-const TaskAddForm = ({ handleAdd }) => {
+const TaskAddForm = ({ onAdd }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const description = e.target.description.value;
     const deadline = e.target.deadline.value;
 
-    handleAdd(description, deadline);
+    onAdd(description, deadline);
   };
 
   // Source: https://css-tricks.com/prefilling-date-input/
-  let today = new Date().toISOString().substr(0, 10);
+  const today = new Date().toISOString().substr(0, 10);
 
   return (
     <form name="form" onSubmit={handleSubmit}>
@@ -141,11 +146,11 @@ class TaskContainer extends React.Component {
     return (
       <StyledContainer>
         <StyledTitle>React Task App</StyledTitle>
-        <TaskAddForm handleAdd={this.handleAdd.bind(this)} />
+        <TaskAddForm onAdd={this.handleAdd.bind(this)} />
         <TaskList
           tasks={this.state.tasks}
-          handleRemove={this.handleRemove.bind(this)}
-          handleToggleMarked={this.handleToggleMarked.bind(this)}
+          onRemove={this.handleRemove.bind(this)}
+          onToggleMarked={this.handleToggleMarked.bind(this)}
         />
         {/* If TaskList is emptye render this instead */}
         {this.state.tasks.length === 0 && (
