@@ -42,6 +42,7 @@ class AddItem extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.state.value);
+    e.target.taskInput.value = '';
   };
 
   render() {
@@ -50,8 +51,9 @@ class AddItem extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <input
             className="input"
+            name="taskInput"
             type="text"
-            placeholder="input a task"
+            placeholder="Input a task..."
             onChange={this.handleChange}
           />
           <button className="submit" type="submit">
@@ -89,11 +91,11 @@ class App extends React.Component {
       ],
     };
   }
-  addItem = item => {
+  addItem = (item, deadline) => {
     const newItem = {
       id: this.state.todos.length + 1,
       description: item,
-      deadline: '',
+      deadline,
       done: false,
     };
     this.setState({
