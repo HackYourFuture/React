@@ -1,18 +1,14 @@
 class TodoItems extends React.Component {
-  constructor(props) {
-    super(props);
-    this.createTasks = this.createTasks.bind(this);
-  }
   delete(key) {
     this.props.delete(key);
   }
-  createTasks(item) {
+  createTasks = item => {
     return (
       <li onClick={() => this.delete(item.id)} key={item.id}>
         {item.description} {item.deadline}
       </li>
     );
-  }
+  };
   render() {
     const todoEntries = this.props.entries;
     const listItems = todoEntries.map(this.createTasks);
@@ -24,38 +20,33 @@ const Button = ({ text, clickHandler }) => {
 };
 
 class TodoList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [
-        {
-          id: 1,
-          description: 'Get out of bed',
-          deadline: '2017-09-11',
-          done: true,
-        },
-        {
-          id: 2,
-          description: 'Brush teeth',
-          deadline: '2017-09-10',
-          done: false,
-        },
-        {
-          id: 3,
-          description: 'Eat breakfast',
-          deadline: '2017-09-09',
-          done: false,
-        },
-      ],
-    };
-    this.addItem = this.addItem.bind(this);
-    this.deleteItem = this.deleteItem.bind(this);
-  }
-  addItem(event) {
+  state = {
+    items: [
+      {
+        id: 1,
+        description: 'Get out of bed',
+        deadline: '2017-09-11',
+        done: true,
+      },
+      {
+        id: 2,
+        description: 'Brush teeth',
+        deadline: '2017-09-10',
+        done: false,
+      },
+      {
+        id: 3,
+        description: 'Eat breakfast',
+        deadline: '2017-09-09',
+        done: false,
+      },
+    ],
+  };
+  addItem = event => {
     event.preventDefault();
-    if (this.target.value !== '') {
+    if (event.target.value !== '') {
       const newItem = {
-        description: this.target.value,
+        description: event.target.inputElement.value,
         id: Math.random(),
         deadline: '',
         done: false,
@@ -65,23 +56,24 @@ class TodoList extends React.Component {
           items: prevState.items.concat(newItem),
         };
       });
-      this.target.value = '';
+      event.target.inputElement.value = '';
+      event.target.value = '';
     }
-  }
-  deleteItem(id) {
+  };
+  deleteItem = id => {
     const filteredItems = this.state.items.filter(function(item) {
       return item.id !== id;
     });
     this.setState({
       items: filteredItems,
     });
-  }
+  };
   render() {
     return (
       <div className="todoListMain">
         <div className="header">
           <form onSubmit={this.addItem}>
-            <input ref={a => (this.target = a)} placeholder="enter task" />
+            <input placeholder="enter task" name="inputElement" />
             <Button text="add" />
           </form>
         </div>
@@ -90,9 +82,4 @@ class TodoList extends React.Component {
     );
   }
 }
-ReactDOM.render(
-  <div>
-    <TodoList />
-  </div>,
-  document.getElementById('root'),
-);
+ReactDOM.render(<TodoList />, document.getElementById('root'));
