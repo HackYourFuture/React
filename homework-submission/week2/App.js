@@ -96,7 +96,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="panel">
-        namicList items={this.state.todoList} deleteItem={this.deleteItem} />
+        <UserInput addItem={this.addItem}/>
+        <DynamicList items={this.state.todoList} deleteItem={this.deleteItem} />
       </div>
     );
   }
