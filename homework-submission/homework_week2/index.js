@@ -45,9 +45,10 @@ class TodoList extends React.Component {
   addItem = event => {
     event.preventDefault();
     if (event.target.value !== '') {
+      // console.log(this.state.items);
       const newItem = {
         description: event.target.inputElement.value,
-        id: Math.random(),
+        id: this.state.items[this.state.items.length - 1].id + 1,
         deadline: '',
         done: false,
       };
