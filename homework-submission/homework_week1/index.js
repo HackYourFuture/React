@@ -1,5 +1,8 @@
-// Create a todo list item as reusable component
-// which accepts { description, deadline, done } as its props and {id} as its key:
+// Creates a todo list item
+// Accepts the following props:
+// - description: the content of the todo item
+// - deadline: the date before which the todo item has to be done
+// - done: if the todo item is done or not, add a line-through if true
 class TodoItem extends React.Component {
   render() {
     const { description, deadline, done } = this.props;
