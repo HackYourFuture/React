@@ -142,16 +142,15 @@ class TaskContainer extends React.Component {
     // I any field is empty, alert user without adding the task
     if (description === '' || deadline === '') return alert('Please fill all the fields!');
 
-    const tasks = [...this.state.tasks];
-    let _lastId = this.state.lastId;
-    tasks.push({
-      id: ++_lastId,
+    let lastId = this.state.lastId;
+    const newTask = {
+      id: ++lastId,
       description,
       deadline,
       done: false
-    });
+    };
 
-    this.setState({ tasks, lastId: _lastId });
+    this.setState({ tasks: [...this.state.tasks, newTask], lastId });
   }
 
   handleRemove(id) {
