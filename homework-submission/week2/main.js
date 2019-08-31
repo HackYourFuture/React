@@ -81,28 +81,52 @@ const TaskList = props => {
 };
 
 // Task add form component
-const TaskAddForm = ({ onAdd }) => {
-  const handleSubmit = e => {
+class TaskAddForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      description: '',
+      deadline: new Date().toISOString().substr(0, 10)
+    };
+  }
+
+  handleSubmit = e => {
     e.preventDefault();
     const description = e.target.description.value;
     const deadline = e.target.deadline.value;
-
-    onAdd(description, deadline);
+    this.props.onAdd(description, deadline);
   };
 
-  // Source: https://css-tricks.com/prefilling-date-input/
-  const today = new Date().toISOString().substr(0, 10);
+  handleChange = e => {
+    const target = e.target;
+    if (target.name === 'description') this.setState({ description: target.value });
+    if (target.name === 'deadline') this.setState({ deadline: target.value });
+  };
 
-  return (
-    <form name="form" onSubmit={handleSubmit}>
-      <StyledInput name="description" type="text" placeholder="Description" />
-      <StyledInput name="deadline" type="text" placeholder="Deadline" onFocus={e => (e.target.value = today)} />
-      <StyledButton full theme="primary">
-        <Icon>add</Icon>
-      </StyledButton>
-    </form>
-  );
-};
+  render() {
+    return (
+      <form name="form" onSubmit={this.handleSubmit.bind(this)}>
+        <StyledInput
+          name="description"
+          type="text"
+          placeholder="Description"
+          value={this.state.description}
+          onChange={this.handleChange.bind(this)}
+        />
+        <StyledInput
+          name="deadline"
+          type="text"
+          placeholder="Deadline"
+          value={this.state.deadline}
+          onChange={this.handleChange.bind(this)}
+        />
+        <StyledButton full theme="primary">
+          <Icon>add</Icon>
+        </StyledButton>
+      </form>
+    );
+  }
+}
 
 // Task container component
 class TaskContainer extends React.Component {
