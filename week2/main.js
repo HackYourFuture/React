@@ -1,39 +1,40 @@
-class ListItem extends React.Component {
-  render() {
-    const { description, deadline } = this.props;
-    return (
-      <div>
-        {description}, {deadline}
-      </div>
-    );
-  }
-}
+const ListItem = props => {
+  const { description, deadline } = props;
+  return (
+    <div>
+      {description}, {deadline}
+    </div>
+  );
+};
 
-class DynamicList extends React.Component {
-  render() {
-    return (
-      <div>
-        {this.props.todos.map(todo => {
-          return (
-            <div key={todo.id} className={`${todo.done}`}>
-              <ListItem description={todo.description} deadline={todo.deadline} />
-              <button
-                className="delete"
-                onClick={() => {
-                  this.props.handleDelete(todo.id);
-                }}
-              >
-                Delete
-              </button>
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
-}
+const DynamicList = props => {
+  return (
+    <div>
+      {props.todos.map(todo => {
+        return (
+          <div key={todo.id} className={`${todo.done}`}>
+            <ListItem description={todo.description} deadline={todo.deadline} />
+            <button
+              className="delete"
+              onClick={() => {
+                props.handleDelete(todo.id);
+              }}
+            >
+              Delete
+            </button>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 class AddItem extends React.Component {
+  constructor() {
+    super();
+    this.state = { value: '' };
+  }
+
   handleChange = e => {
     this.setState({
       value: e.target.value,
@@ -42,7 +43,10 @@ class AddItem extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.state.value);
-    e.target.taskInput.value = '';
+
+    this.setState({
+      value: '',
+    });
   };
 
   render() {
@@ -55,6 +59,7 @@ class AddItem extends React.Component {
             type="text"
             placeholder="Input a task..."
             onChange={this.handleChange}
+            value={this.state.value}
           />
           <button className="submit" type="submit">
             Add Item
@@ -95,7 +100,7 @@ class App extends React.Component {
     const newItem = {
       id: this.state.todos.length + 1,
       description: item,
-      deadline,
+      deadline: deadline,
       done: false,
     };
     this.setState({
