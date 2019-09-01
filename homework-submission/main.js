@@ -85,7 +85,7 @@ const TodoList = ({ todoArr, liClickHandler, buttonClickHandler, clickBehaviour 
 };
 
 class Main extends React.Component {
-  state = { todoArr, behaviour: 'mark' };
+  state = { todoArr: [...todoArr], behaviour: 'mark' };
 
   addNewTodo(event) {
     event.preventDefault();
@@ -97,30 +97,32 @@ class Main extends React.Component {
       done: event.target.done.checked,
     };
     currentTodos.push(newTodo);
-    this.setState({ todoArr: [...currentTodos], behaviour: this.state.behaviour });
+    this.setState({ todoArr: [...currentTodos] });
   }
 
-  markOrDeleteTodo(event) {
-    if (this.state.behaviour === 'mark') {
-      const copyArr = [...this.state.todoArr];
-      copyArr.forEach(todo => {
-        if (todo.id.toString() === event.target.id) {
-          todo.done = !todo.done;
-        }
-      });
-      return this.setState({ todoArr: [...copyArr], behaviour: 'mark' });
-    }
-    if (this.state.behaviour === 'delete') {
-      const remainingTodos = this.state.todoArr.filter(
-        todo => todo.id.toString() !== event.target.id,
-      );
-      return this.setState({ todoArr: [...remainingTodos], behaviour: 'delete' });
-    }
+  markTodo() {
+    const copyArr = this.state.todoArr.map(todo => {
+      if (todo.id.toString() === event.target.id) {
+        todo.done = !todo.done;
+      }
+      return todo;
+    });
+    this.setState({ todoArr: [...copyArr] });
+  }
+
+  deleteTodo() {
+    const remainingTodos = this.state.todoArr.filter(
+      todo => todo.id.toString() !== event.target.id,
+    );
+    this.setState({ todoArr: [...remainingTodos] });
+  }
+
+  markOrDeleteTodo() {
+    this.state.behaviour === 'mark' ? this.markTodo() : this.deleteTodo();
   }
 
   changeBehaviour() {
     this.setState({
-      todoArr: this.state.todoArr,
       behaviour: this.state.behaviour === 'mark' ? 'delete' : 'mark',
     });
   }
