@@ -14,10 +14,10 @@ const Button = ({ type, text, className }) => {
   );
 };
 
-const DynamicList = ({ List, clickHandler, className }) => {
+const DynamicList = ({ list, clickHandler, className }) => {
   return (
     <div className="list">
-      {List.map(item => {
+      {list.map(item => {
         return (
           <ListItem
             clickHandler={clickHandler}
@@ -107,18 +107,19 @@ class App extends React.Component {
     let deadlineValidation = true;
     let descriptionValidation = true;
 
-    if (deadline == '' || deadline == null || deadline == undefined || !regex.test(deadline))
+    if (deadline === '' || deadline === null || deadline === undefined || !regex.test(deadline))
       deadlineValidation = false;
 
-    if (description == '' || description == null || description == undefined)
+    if (description === '' || description === null || description === undefined)
       descriptionValidation = false;
 
-    return { descriptionValidation: descriptionValidation, deadlineValidation: deadlineValidation };
+    return { descriptionValidation, deadlineValidation };
   };
 
   removeItem = event => {
     const idToRemove = event.target.id;
-    const newList = this.state.todoList.filter(item => item.id != idToRemove);
+    const { todoList } = this.state;
+    const newList = todoList.filter(item => item.id !== Number(idToRemove));
     newList.forEach((item, index) => {
       item.id = index;
     });
@@ -130,7 +131,7 @@ class App extends React.Component {
       <div className="wrapper">
         <AddingListItem submitHandler={this.addItem} />
         <DynamicList
-          List={this.state.todoList}
+          list={this.state.todoList}
           clickHandler={this.removeItem}
           className="listItem"
         />
@@ -139,5 +140,5 @@ class App extends React.Component {
   }
 }
 
-const root = document.getElementById('thisIsWhereReactIsInjected');
+const root = document.getElementById('root');
 ReactDOM.render(<App />, root);
