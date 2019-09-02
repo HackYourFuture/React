@@ -2,9 +2,9 @@ const ListItem = ({ description, deadLine, done }) => {
   return <li className={done}>{description + ', ' + deadLine}</li>;
 };
 
-const Button = ({ text, type, event }) => {
+const Button = ({ text, type, clickHandler }) => {
   return (
-    <button type={type} onClick={event}>
+    <button type={type} onClick={clickHandler}>
       {text}
     </button>
   );
@@ -49,11 +49,10 @@ class App extends React.Component {
       deadLine: this.state.deadLine,
       done: false,
     };
-    let array = this.state.toDoList;
-    array.push(newTodoList);
+    let toDoList = [...this.state.toDoList, newTodoList];
 
     this.setState({
-      toDoList: array,
+      toDoList: toDoList,
     });
   }
 
@@ -61,12 +60,10 @@ class App extends React.Component {
     e.preventDefault();
     const id = this.state.toRemove - 1;
     let array = this.state.toDoList;
-    console.log(id);
 
     let newArray = array.filter((toRemove, index) => {
       return index !== id;
     });
-    console.log(newArray);
     this.setState({
       toDoList: newArray,
     });
@@ -82,7 +79,7 @@ class App extends React.Component {
             placeholder="Add new To do"
           ></input>
           <input type="date" name="deadLine" onChange={this.inputChanged.bind(this)}></input>
-          <Button type="submit" text="add to list" event={this.addToList.bind(this)} />
+          <Button type="submit" text="add to list" clickHandler={this.addToList.bind(this)} />
           <br />
           <input
             type="number"
@@ -90,7 +87,11 @@ class App extends React.Component {
             onChange={this.inputChanged.bind(this)}
             placeholder="number of item to delete"
           ></input>
-          <Button type="submit" text="remove from list" event={this.removeFromList.bind(this)} />
+          <Button
+            type="submit"
+            text="remove from list"
+            clickHandler={this.removeFromList.bind(this)}
+          />
         </form>
         <h2>Dynamic list</h2>
         <ol>
