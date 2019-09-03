@@ -1,13 +1,10 @@
-class TodoListItem extends React.Component {
-  render() {
-    const { id, description, deadline, done, ClickHandler } = this.props;
-    return (
-      <li key={id} className={done ? 'done' : ''} onClick={ClickHandler}>
-        {description}, {deadline}
-      </li>
-    );
-  }
-}
+const TodoListItem = ({ id, description, deadline, done, clickHandler }) => {
+  return (
+    <li key={id} className={done ? 'done' : ''} onClick={clickHandler}>
+      {description}, {deadline}
+    </li>
+  );
+};
 
 const DynamicList = ({ listArray, removeTodoItem }) => {
   return (
@@ -27,20 +24,6 @@ const DynamicList = ({ listArray, removeTodoItem }) => {
         })}
       </ul>
     </div>
-  );
-};
-
-const TodoItemForm = ({ addingTodo }) => {
-  return (
-    <form className="form" onSubmit={addingTodo}>
-      <input className="input" type="text" name="id" placeholder="ID" />
-      <input className="input" type="text" name="description" placeholder="Description" />
-      <input className="input" type="text" name="deadline" placeholder="Deadline" />
-      <input className="input" type="text" name="done" placeholder="Done" />
-      <button className="button" type="submit">
-        Add New Todo Item
-      </button>
-    </form>
   );
 };
 
@@ -66,15 +49,22 @@ class App extends React.Component {
         done: false,
       },
     ],
+    newTodo: {
+      id: '',
+      description: 'Todo Item',
+      deadline: '',
+      done: false,
+    },
   };
 
   addTodoItem(event) {
     event.preventDefault();
+    const target = event.target;
     const newTodo = {
-      id: event.target.id.value,
-      description: event.target.description.value,
-      date: event.target.deadline.value,
-      done: event.target.done.value,
+      id: this.state.todoList.length + 1,
+      description: target.description.value,
+      deadline: target.deadline.value,
+      done: target.done.value,
     };
     this.setState({ todoList: [...this.state.todoList, newTodo] });
   }
@@ -84,10 +74,41 @@ class App extends React.Component {
     this.setState({ todoList: [...this.state.todoList].filter(item => item.id !== removedItemId) });
   }
 
+  handleChange(event) {
+    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+    const name = event.target.name;
+    this.setState({ newTodo: { ...this.state.newTodo, [name]: value } });
+  }
   render() {
     return (
       <div className="main">
-        <TodoItemForm addingTodo={this.addTodoItem.bind(this)} />
+        <form className="form" onSubmit={this.addTodoItem.bind(this)}>
+          <input
+            className="input"
+            type="text"
+            name="description"
+            value={this.state.newTodo.description}
+            onChange={this.handleChange.bind(this)}
+          />
+          <input
+            className="input"
+            type="date"
+            name="deadline"
+            value={this.state.newTodo.deadline}
+            onChange={this.handleChange.bind(this)}
+          />
+          <input
+            className="input"
+            type="checkbox"
+            name="done"
+            checked={this.state.newTodo.done}
+            onChange={this.handleChange.bind(this)}
+          />
+          <button className="button" type="submit">
+            Add New Todo Item
+          </button>
+        </form>
+
         <DynamicList
           listArray={this.state.todoList}
           clickHandler={this.removeTodoItem.bind(this)}
