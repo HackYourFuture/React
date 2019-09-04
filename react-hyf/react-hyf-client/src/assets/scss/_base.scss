@@ -1,0 +1,62 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-size: 1.6rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+button,
+input,
+textarea {
+  font-size: 1.6rem;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+svg {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  transform: translateY(2px);
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.male {
+  color: $color-male;
+}
+
+.female {
+  color: $color-female;
+}
+
+.intro {
+  color: #ffffff;
+  text-shadow: 0 0 1rem $color-dark;
+  font-size: 5rem;
+}
+
+.warn {
+  color: gold;
+  background-color: $color-dark;
+  border-left: 1rem solid gold;
+  padding: 3rem;
+  border-radius: 1rem;
+}

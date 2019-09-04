@@ -1,0 +1,39 @@
+.gender {
+  display: flex;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0.5rem;
+    border-radius: 100%;
+  }
+
+  &__button {
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+    border: 0;
+    outline: 0;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    background-color: #ffffff;
+    opacity: 0.4;
+    transition: opacity 0.5s;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  &__icon {
+    fill: $color-main;
+    width: 1.3em;
+    height: 1.3em;
+  }
+}

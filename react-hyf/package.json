@@ -1,0 +1,22 @@
+{
+  "name": "react-hyf",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "install-server": "cd server && npm install",
+    "install-prev-client": "cd previousHomework && npm install",
+    "install-client": "cd react-hyf-client && npm install",
+    "install-all": "concurrently npm:install-server npm:install-client npm:install-prev-client",
+    "build-client": "cd react-hyf-client && npm run build",
+    "build-prev-client": "cd previousHomework && npm run build",
+    "start-prev-client": "cd previousHomework && npm run start",
+    "start-client": "cd react-hyf-client && npm run start",
+    "start-server": "cd server && nodemon server.js",
+    "serve": "concurrently npm:build-prev-client npm:build-client npm:start-server"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "nodemon": "^1.19.1"
+  }
+}
