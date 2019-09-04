@@ -37,6 +37,7 @@ svg {
   transform: translateY(2px);
   stroke: currentColor;
   fill: currentColor;
+  pointer-events: none;
 }
 
 .male {

@@ -99,6 +99,7 @@ class RegionContainer extends Component {
     return (
       <div className="region">
         <button
+          ref={this.props.button}
           id="region"
           className="region__button"
           onClick={this.handleOpen.bind(this)}>

@@ -1,6 +1,8 @@
-import React, { Component, Fragment } from 'react';
-import FilterContainer from './components/filter/FilterContainer';
-import ProfileContainer from './components/profile/ProfileContainer';
+import React, { Component, createRef } from 'react';
+import GenderContainer from './components/filter/GenderContainer';
+import RegionContainer from './components/filter/RegionContainer';
+import ProfileImage from './components/profile/ProfileImage';
+import ProfileList from './components/profile/ProfileList';
 
 export default class HomeworkWeek3 extends Component {
   constructor(props) {
@@ -18,6 +20,11 @@ export default class HomeworkWeek3 extends Component {
 
     this.url = () =>
       `https://uinames.com/api/?ext&amount=${this.state.amount}&region=${this.state.region}&gender=${this.state.gender}`;
+
+    this.randomButton = createRef();
+    this.maleButton = createRef();
+    this.femaleButton = createRef();
+    this.regionButton = createRef();
   }
 
   componentDidMount() {
@@ -32,18 +39,6 @@ export default class HomeworkWeek3 extends Component {
 
   componentWillUnmount() {
     window.removeEventListener('keyup', this.handleKeyUp.bind(this));
-  }
-
-  // React will run the render function automatically when any state is updated.
-  // You can prevent some unnecessary renders for performans.
-  // I don't want react renders when I click gender buttons. (Render needed after pressing spacebar.)
-  // (But it should update region button image when the user select any region.)
-  // It's not so big thing but I just tested preventing unnecessary rendering by logging.
-  shouldComponentUpdate(nextProps, nextState) {
-    if (this.state.gender !== nextState.gender) {
-      return false;
-    }
-    return true;
   }
 
   // Fetch the data only user press spacebar.
@@ -62,15 +57,10 @@ export default class HomeworkWeek3 extends Component {
     }
 
     // Accessibility: User can filter with 1,2,3,4 numbers of keyboard.
-    // I couldn't make it using React.createRef();
-    const randomButton = document.querySelector('#random');
-    const maleButton = document.querySelector('#male');
-    const femaleButton = document.querySelector('#female');
-    const regionButton = document.querySelector('#region');
-    e.which === 49 && randomButton.click();
-    e.which === 50 && maleButton.click();
-    e.which === 51 && femaleButton.click();
-    e.which === 52 && regionButton.click();
+    e.which === 49 && this.randomButton.current.click();
+    e.which === 50 && this.maleButton.current.click();
+    e.which === 51 && this.femaleButton.current.click();
+    e.which === 52 && this.regionButton.current.click();
   }
 
   // If you set randomPerson (or any) state, React automatically will run the render.
@@ -96,30 +86,27 @@ export default class HomeworkWeek3 extends Component {
     }
   }
 
-  // If user click any filter, by pressing on next first space button it will fetch new array.
-  // See handeKeyUp function!
-  handleRegion(region) {
-    this.setState({ region, shouldFetch: true });
-  }
-
-  handleGender(gender) {
-    this.setState({ gender, shouldFetch: true });
-  }
-
   render() {
-    const { randomPerson, error, isLoaded, region } = this.state;
+    const { randomPerson, error, isLoaded, region, gender } = this.state;
 
     return (
       <div className="wrapper">
-        <FilterContainer
-          // Pass data from parent component to child components
-          // Pass current region to child in order to show current flag inside the region button
-          region={region}
-          // Lift data from child components to parent component
-          // Get region and gender values from child components in order to update the state.
-          onRegionSelect={this.handleRegion.bind(this)}
-          onGenderSelect={this.handleGender.bind(this)}
-        />
+        <div className="filter">
+          <GenderContainer
+            buttons={[this.randomButton, this.maleButton, this.femaleButton]}
+            gender={gender}
+            onGenderSelect={text =>
+              this.setState({ gender: text, shouldFetch: true })
+            }
+          />
+          <RegionContainer
+            button={this.regionButton}
+            region={region}
+            onRegionSelect={text =>
+              this.setState({ region: text, shouldFetch: true })
+            }
+          />
+        </div>
 
         {error ? (
           <p className="warn">
@@ -128,14 +115,17 @@ export default class HomeworkWeek3 extends Component {
           </p>
         ) : (
           isLoaded && (
-            <Fragment>
+            <>
               {/* Wait user to press spacebar. Then fetch data and render the page*/}
               {Object.keys(randomPerson).length === 0 ? (
                 <h1 className="intro">Press Spacebar</h1>
               ) : (
-                <ProfileContainer person={randomPerson} />
+                <div className="profile">
+                  <ProfileImage person={randomPerson} />
+                  <ProfileList person={randomPerson} />
+                </div>
               )}
-            </Fragment>
+            </>
           )
         )}
       </div>
