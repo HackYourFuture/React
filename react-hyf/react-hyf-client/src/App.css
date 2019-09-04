@@ -1,0 +1,111 @@
+body {
+  background: rgb(223, 233, 233);
+}
+
+.itemCompleted {
+  text-decoration: line-through;
+}
+.itemNotCompleted {
+  text-decoration: none;
+}
+
+.listItem {
+  line-height: 2;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  margin: 3px;
+  text-align: center;
+  font-weight: 300;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  width: 100%;
+  height: 30px;
+  box-shadow: 1px 1px 5px #d8d0d0;
+}
+
+.listItem:hover {
+  background-color: tomato;
+  box-shadow: 1px 1px 10px #9e9999;
+}
+
+.addItem:hover {
+  background-color: lightgreen;
+}
+
+input[value] {
+  color: #9e9999;
+}
+
+.list {
+  margin: auto;
+  list-style-type: none;
+  background-color: rgb(245, 245, 245);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.wrapper {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  margin: auto;
+  background-color: rgb(245, 245, 245);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 30%;
+  padding: 10px;
+  text-align: center;
+}
+
+body {
+  text-align: center;
+  display: inline-block”;
+}
+.mainDiv {
+  padding: 40px;
+  width: 60%;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  font: 400 16px/165% -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #8fc06c;
+}
+
+.printData {
+  margin: 0 auto;
+  padding: 10px 15px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.1);
+  display: table;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  list-style: none;
+}
+
+img {
+  height: 150px;
+  border-radius: 100%;
+  transition: transform 0.2s;
+}
+img:hover {
+  transform: scale(1.3);
+}
+
+.mainDiv h1,
+.printData li {
+  color: #ffffff;
+}
+
+.todoList {
+  list-style: none;
+}
+
+.heading h1 {
+  color: rgb(236, 53, 8);
+}
