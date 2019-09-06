@@ -1,0 +1,19 @@
+.profile-photo {
+  width: 110px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+.profile-photo:hover {
+  width: 130px;
+}
+.profile-photo-div {
+  height: 150px;
+}
+@media all and (max-width: 550px) {
+  .profile-photo {
+    width: 100px;
+  }
+  .profile-photo:hover {
+    width: 120px;
+  }
+}

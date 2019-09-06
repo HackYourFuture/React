@@ -1,0 +1,72 @@
+.dynamic-ul {
+  list-style: none;
+  background-color: #f4a950;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.item-add-form {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 300px;
+  background-color: #161b21;
+}
+
+.itemInput {
+  width: 50%;
+  margin-bottom: 15px;
+}
+.label {
+  width: 30%;
+  text-align: right;
+  padding-right: 20px;
+  font-weight: bold;
+  color: #f4a950;
+}
+.listHeader {
+  font-weight: bold;
+  background-color: #161b21;
+  color: #f4a950;
+}
+.listItem {
+  color: #161b21;
+  font-weight: bolder;
+  border-bottom: 1px solid black;
+  display: flex;
+}
+.itemDesc {
+  width: 60%;
+  padding-right: 20px;
+  font-family: Herculanum;
+}
+.itemDead {
+  width: 25%;
+  font-family: Herculanum;
+}
+.true {
+  text-decoration: line-through;
+}
+.deleteButton {
+  color: #f45050;
+  width: 50px;
+  height: 44px;
+  background-color: #161b21;
+  border-radius: 10px;
+}
+.addButton {
+  margin-left: 45%;
+  background-color: #f4a950;
+  margin-top: 15px;
+  border-radius: 10px;
+  font-weight: bolder;
+  padding: 10px;
+}
+.todo-list-injected {
+  background-color: #f4a950;
+  max-width: 600px;
+  margin: auto;
+  border: 3px solid #f4a950;
+  display: flex;
+}

@@ -1,0 +1,16 @@
+.details-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto;
+  width: 250px;
+  padding: 20px;
+  background-color: rgb(51, 51, 51);
+  color: white;
+  border-radius: 4px;
+}
+li {
+  display: block;
+  padding: 3px;
+}

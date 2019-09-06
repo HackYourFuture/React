@@ -1,0 +1,19 @@
+.homework1-div {
+  margin: 100px;
+}
+.listItem {
+  color: aliceblue;
+}
+.listHeader {
+  font-weight: bold;
+  background-color: coral;
+  color: antiquewhite;
+}
+ul {
+  background-color: burlywood;
+  max-width: 600px;
+  min-width: 250px;
+}
+.true {
+  text-decoration: line-through;
+}

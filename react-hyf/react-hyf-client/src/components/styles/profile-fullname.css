@@ -1,0 +1,28 @@
+.profile-fullname {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: auto;
+  color: white;
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  transition: 0.2s;
+}
+@media all and (max-width: 1200px) and (min-width: 1000px) {
+  .profile-fullname {
+    font-size: 3.4em;
+  }
+}
+@media all and (max-width: 1000px) and (min-width: 800px) {
+  .profile-fullname {
+    font-size: 3.3em;
+  }
+}
+@media all and (max-width: 800px) and (min-width: 550px) {
+  .profile-fullname {
+    font-size: 3.1em;
+  }
+}
+@media all and (max-width: 550px) {
+  .profile-fullname {
+    font-size: 2.9em;
+  }
+}
