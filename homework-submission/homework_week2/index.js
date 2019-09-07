@@ -2,6 +2,7 @@ class TodoItems extends React.Component {
   delete(key) {
     this.props.delete(key);
   }
+
   createTasks = item => {
     return (
       <li onClick={() => this.delete(item.id)} key={item.id}>
@@ -42,23 +43,28 @@ class TodoList extends React.Component {
       },
     ],
   };
+  setId = () => {
+    this.state.items.length >= 1
+      ? this.state.items[this.state.items.length - 1].id + 1
+      : (this.state.items.id = 0);
+  };
   addItem = event => {
     event.preventDefault();
     if (event.target.value !== '') {
-      // console.log(this.state.items);
       const newItem = {
         description: event.target.inputElement.value,
-        id: this.state.items[this.state.items.length - 1].id + 1,
+        id: this.setId(),
         deadline: '',
         done: false,
       };
+
       this.setState(prevState => {
         return {
           items: prevState.items.concat(newItem),
         };
       });
       event.target.inputElement.value = '';
-      event.target.value = '';
+      event.target.inputElement.value = '';
     }
   };
   deleteItem = id => {
