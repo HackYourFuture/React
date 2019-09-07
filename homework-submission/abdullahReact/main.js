@@ -51,14 +51,17 @@ const Button = ({ text, type, className, onClick }) => {
   );
 };
 
-const Form = ({ addListItem }) => {
+function getDefaultDate() {
   const x = new Date();
   const y = x.getFullYear().toString();
   let m = (x.getMonth() + 1).toString();
   let d = x.getDate().toString();
   d.length == 1 && (d = '0' + d);
   m.length == 1 && (m = '0' + m);
-  let date = y + '-' + m + '-' + d;
+  return y + '-' + m + '-' + d;
+}
+const Form = ({ addListItem }) => {
+  let date = getDefaultDate();
   return (
     <div>
       <form onSubmit={addListItem}>
@@ -89,14 +92,14 @@ class ListItem extends React.Component {
     this.setState({ done: !this.state.done });
   }
   render() {
-    const { id, description, deadLine, onClick } = this.props;
+    const { id, description, deadLine, onDeleteClick } = this.props;
     return (
       <li key={id} id={id} className={`listItem ${this.state.done}`}>
         <p onClick={this.switchDoneState.bind(this)} className="itemDesc">
           {description}
         </p>
         <p className="itemDead">{deadLine}</p>
-        <Button text="Delete item !" className="deleteButton" onClick={onClick} />
+        <Button text="Delete item !" className="deleteButton" onClick={onDeleteClick} />
       </li>
     );
   }
@@ -115,7 +118,7 @@ class DynamicList extends React.Component {
             done={item.done}
             description={item.description}
             deadLine={item.deadLine}
-            onClick={deleteSelectedItem}
+            onDeleteClick={deleteSelectedItem}
           />
         ))}
       </ul>
@@ -146,12 +149,18 @@ class App extends React.Component {
     const newData = this.state.data;
     const copyNewData = [...newData];
     let deadLine = event.target.deadLine.value;
+    let id;
+    if (copyNewData.length === 0) {
+      id = 1;
+    } else {
+      id = copyNewData[copyNewData.length - 1].id + 1;
+    }
     const dateTest = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
     if (!dateTest.test(deadLine)) {
       deadLine = 'not defined';
     }
     copyNewData.push({
-      id: copyNewData[copyNewData.length - 1].id + 1,
+      id: id,
       description: value,
       deadLine: deadLine,
       done: false,
