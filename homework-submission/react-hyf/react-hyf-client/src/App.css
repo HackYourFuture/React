@@ -1,0 +1,70 @@
+body {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  background-image: url(https://c1.staticflickr.com/5/4097/4893035233_62ae1bd2fe.jpg);
+  font-family: sans-serif;
+}
+#root {
+  display: flex;
+  justify-content: flex;
+}
+
+.done {
+  text-decoration: line-through;
+}
+.todoListMain .header {
+  width: 450px;
+  background: transparent;
+  padding: 5px 15px;
+
+  border-radius: 10px;
+
+  margin: auto;
+}
+.todoListMain .header input {
+  padding: 15px;
+  margin: auto;
+  font-size: 16px;
+  border: 2px solid #fff;
+  width: 300px;
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 10px 10px 5px grey;
+  border: 3px solid #2a88ad;
+}
+.todoListMain .header button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 15px;
+  margin-right: 0px;
+  background-color: #0066ff;
+  color: #fff;
+  border: 2px solid #0066ff;
+}
+.todoListMain .header button:hover {
+  background-color: #003399;
+  border: 2px solid #003399;
+  cursor: pointer;
+}
+.todoListMain .theList {
+  list-style: none;
+  margin-left: 70px;
+  padding-left: 0;
+  width: 250px;
+}
+.todoListMain .theList li {
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 2px dashed #2a88ad;
+  box-shadow: 6px 8px 3px 3px #cdcdd0;
+  animation-timing-function: ease-out;
+}
+
+.todoListMain .theList li:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+ul.theList {
+  padding: 0;
+}
