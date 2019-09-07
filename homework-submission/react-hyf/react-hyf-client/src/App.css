@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #31e78c;
+}
+.filter_bar {
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 50%;
+  padding: 5px;
+}
+.filter_icon button {
+  padding: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.info_list {
+  margin-left: 50%;
+  transform: translateX(-40%);
+  color: white;
+  font-weight: bold;
+}
+
+h2 {
+  margin-left: 30%;
+  margin-top: 30px;
+  font-size: 36px;
+  font-weight: 600;
+  color: white;
+}
+
+.info_container button {
+  margin-left: 30%;
+  margin-top: 5%;
+  padding: 10px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  width: 20%;
+  margin-top: 10%;
+}
