@@ -50,16 +50,15 @@ class HomeworkWeek3 extends React.Component {
     } else if (!loaded) {
       return <div>Loading...</div>;
     } else {
-      console.log(this.state.profiles);
       return (
         <div className="week3-homework">
           {loaded && <ProfileImage url={profiles[currentProfile].photo} />}
-          {loaded && (
-            <ProfileFullname
-              name={`${profiles[currentProfile].name} ${profiles[currentProfile].surname}`}
-            />
-          )}
-          {loaded && <ProfileDetails profile={profiles[currentProfile]} />}
+          (
+          <ProfileFullname
+            name={`${profiles[currentProfile].name} ${profiles[currentProfile].surname}`}
+          />
+          )
+          <ProfileDetails profile={profiles[currentProfile]} />
         </div>
       );
     }
