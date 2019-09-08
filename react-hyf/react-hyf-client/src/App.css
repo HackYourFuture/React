@@ -1,0 +1,52 @@
+.App {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  background-color: rgba(246, 246, 246, 0.739);
+}
+#root {
+  height: 100%;
+}
+.done {
+  text-decoration: line-through;
+}
+.li_style {
+  padding: 5%;
+  color: rgb(119, 119, 112);
+}
+.list {
+  background-color: white;
+  width: 20%;
+  border-radius: 2%;
+
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14),
+    0 3px 3px -2px rgba(0, 0, 0, 0.12);
+}
+.list_title {
+  color: rgb(119, 119, 112);
+  text-decoration: underline;
+  margin-left: 3%;
+}
+.button {
+  float: right;
+}
+.homework3 {
+  background-color: aqua;
+  height: 460px;
+}
+.listHomework3 {
+  margin-left: 37%;
+  display: none;
+}
+
+.listItemHomework3 {
+  list-style: none;
+}
+.nameHeader {
+  margin-left: 40%;
+}
+.photoContainer {
+  margin-left: 40%;
+}
