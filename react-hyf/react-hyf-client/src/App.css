@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: darkslategray;
+  color: white;
+}
+
+.card {
+  text-align: center;
+}
+img {
+  width: 70px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+.list-items {
+  text-align: left;
+  padding-left: 300px;
+}
+
+.spacebar {
+  text-align: center;
+  padding: 50 50px;
+}
