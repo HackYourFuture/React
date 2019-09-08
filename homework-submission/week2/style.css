@@ -26,3 +26,7 @@
   height: 35px;
   background-color: rgb(144, 211, 233);
 }
+
+.done {
+  text-decoration: line-through;
+}

@@ -6,7 +6,7 @@ const TodoListItem = ({ id, description, deadline, done, clickHandler }) => {
   );
 };
 
-const DynamicList = ({ listArray, removeTodoItem }) => {
+const DynamicList = ({ listArray, removeTodoItem}) => {
   return (
     <div className="dynamic_list">
       <h1>Dynamic List</h1>
@@ -70,8 +70,10 @@ class App extends React.Component {
   }
 
   removeTodoItem(event) {
-    const removedItemId = event.target.id;
-    this.setState({ todoList: [...this.state.todoList].filter(item => item.id !== removedItemId) });
+    const removedItemId = event.target.id.value;
+    const todoList = this.state.todoList;
+    const newList = todoList.filter(item => item.id !== removedItemId);
+    this.setState({ todoList: newList });
   }
 
   handleChange(event) {
@@ -109,10 +111,7 @@ class App extends React.Component {
           </button>
         </form>
 
-        <DynamicList
-          listArray={this.state.todoList}
-          clickHandler={this.removeTodoItem.bind(this)}
-        />
+        <DynamicList listArray={this.state.todoList} removeTodoItem={this.removeTodoItem} />
       </div>
     );
   }
