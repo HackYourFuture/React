@@ -22,7 +22,7 @@ const Button = ({ text, clickHandler }) => {
   return <button onClick={clickHandler}>{text}</button>;
 };
 
-class TodoList extends Component {
+class Week2 extends Component {
   state = {
     items: [
       {
@@ -91,4 +91,4 @@ class TodoList extends Component {
     );
   }
 }
-export default TodoList;
+export default Week2;
