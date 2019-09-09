@@ -46,12 +46,17 @@ class TodoList extends Component {
     ],
   };
 
+  setId = () => {
+    return this.state.items.length >= 1
+      ? this.state.items[this.state.items.length - 1].id + 1
+      : (this.state.items.id = 0);
+  };
   addItem = event => {
     event.preventDefault();
-    if (event.target.inputElement.value !== '') {
+    if (event.target.value !== '') {
       const newItem = {
         description: event.target.inputElement.value,
-        id: this.state.items[this.state.items.length - 1].id + 1,
+        id: this.setId(),
         deadline: '',
         done: false,
       };
