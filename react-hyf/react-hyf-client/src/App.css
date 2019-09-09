@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #8fc06c;
+}
+
+.App {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  display: flex;
+  position: fixed;
+  text-align: center;
+}
+
+main {
+  display: inline-block;
+  margin: auto auto;
+}
+
+.avatar {
+  height: 100px;
+  width: 100px;
+  background: rgba(0, 0, 0, 0.15);
+  display: block;
+  overflow: hidden;
+  border-radius: 100%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease-out;
+  cursor: pointer;
+  margin: 0 auto 15px;
+}
+
+.avatar:hover {
+  transform: scale(1.2);
+}
+
+.name {
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: 600;
+  line-height: 100%;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.list-container {
+  margin: 0 auto;
+  padding: 10px 15px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  display: table;
+}
+
+.list {
+  list-style-type: none;
+  line-height: 165%;
+}
+
+.list-item {
+  font-size: 90%;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.list-item:first-of-type {
+  text-transform: capitalize;
+}
+
+.true {
+  display: none;
+}

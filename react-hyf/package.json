@@ -1,0 +1,11 @@
+{
+  "name": "react-hyf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./server/server.js",
+  "scripts": {
+    "start-react-app": "cd react-hyf-client && npm i && npm run build && cd ../server && npm i && node ."
+  },
+  "author": "",
+  "license": "ISC"
+}
