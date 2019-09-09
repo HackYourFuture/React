@@ -85,7 +85,15 @@ const TodoList = ({ todoArr, liClickHandler, buttonClickHandler, clickBehaviour 
 };
 
 class Main extends React.Component {
-  state = { todoArr: [...todoArr], behaviour: 'mark' };
+  constructor(props) {
+    super(props);
+
+    this.state = { todoArr: props.todoArr, behaviour: 'mark' };
+
+    this.addNewTodo = this.addNewTodo.bind(this);
+    this.markOrDeleteTodo = this.markOrDeleteTodo.bind(this);
+    this.changeBehaviour = this.changeBehaviour.bind(this);
+  }
 
   addNewTodo(event) {
     event.preventDefault();
@@ -97,7 +105,7 @@ class Main extends React.Component {
       done: event.target.done.checked,
     };
     currentTodos.push(newTodo);
-    this.setState({ todoArr: [...currentTodos] });
+    this.setState({ todoArr: currentTodos });
   }
 
   markTodo() {
@@ -107,14 +115,14 @@ class Main extends React.Component {
       }
       return todo;
     });
-    this.setState({ todoArr: [...copyArr] });
+    this.setState({ todoArr: copyArr });
   }
 
   deleteTodo() {
     const remainingTodos = this.state.todoArr.filter(
       todo => todo.id.toString() !== event.target.id,
     );
-    this.setState({ todoArr: [...remainingTodos] });
+    this.setState({ todoArr: remainingTodos });
   }
 
   markOrDeleteTodo() {
@@ -130,11 +138,11 @@ class Main extends React.Component {
   render() {
     return (
       <main className="main">
-        <AddNewTodo submitHandler={this.addNewTodo.bind(this)} />
+        <AddNewTodo submitHandler={this.addNewTodo} />
         <TodoList
           todoArr={this.state.todoArr}
-          liClickHandler={this.markOrDeleteTodo.bind(this)}
-          buttonClickHandler={this.changeBehaviour.bind(this)}
+          liClickHandler={this.markOrDeleteTodo}
+          buttonClickHandler={this.changeBehaviour}
           clickBehaviour={`Click a Todo to ${this.state.behaviour}`}
         />
       </main>
@@ -144,4 +152,4 @@ class Main extends React.Component {
 
 const root = document.getElementById('thisIsWhereReactIsInjected');
 
-ReactDOM.render(<Main />, root);
+ReactDOM.render(<Main todoArr={todoArr} />, root);
