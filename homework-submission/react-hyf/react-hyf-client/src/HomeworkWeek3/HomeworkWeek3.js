@@ -28,7 +28,7 @@ class HomeworkWeek3 extends Component {
       });
   }
   changeIndex = (e) => {
-    const randomIndex = 0 + Math.floor(Math.random()* this.state.filteredPeople.length || this.state.people.length);
+    const randomIndex =  Math.floor(Math.random()* this.state.filteredPeople.length || this.state.people.length);
     console.log(randomIndex);
     e.preventDefault();
     this.setState({displayedIndex: randomIndex})
