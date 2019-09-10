@@ -1,3 +1,7 @@
-p {
-  color: red;
+.greeting {
+  color: azure;
+  font-size: 3em;
+}
+.desc {
+  color: rgb(208, 243, 243);
 }

@@ -155,8 +155,14 @@ class PreviousHomework2 extends React.Component {
     if (!dateTest.test(deadLine)) {
       deadLine = 'not defined';
     }
+    let id;
+    if (copyNewData.length === 0) {
+      id = 1;
+    } else {
+      id = copyNewData[copyNewData.length - 1].id + 1;
+    }
     copyNewData.push({
-      id: copyNewData[copyNewData.length - 1].id + 1,
+      id: id,
       description: value,
       deadLine: deadLine,
       done: false,

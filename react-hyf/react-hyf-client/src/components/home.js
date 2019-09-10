@@ -5,8 +5,8 @@ function Home() {
   return (
     <div>
       <div>
-        <h1>WELCOME to MY HOMEWORK PAGE</h1>
-        <p>You can choose a week above to see my homework</p>
+        <h1 className="greeting">WELCOME to MY HOMEWORK PAGE</h1>
+        <p className="desc">You can choose a week above to see my homework</p>
       </div>
     </div>
   );

@@ -1,0 +1,11 @@
+.nav-link {
+  display: inline-block;
+  border-bottom: 2px solid azure;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 3px;
+}
+.nav-link:hover {
+  background-color: rgb(223, 240, 240);
+  border-bottom: 2px solid black;
+}
