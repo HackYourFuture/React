@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import HomeworkWeek3 from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<HomeworkWeek3 />, document.getElementById('root'));

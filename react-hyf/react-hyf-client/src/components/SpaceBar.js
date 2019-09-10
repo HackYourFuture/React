@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const SpaceBar = () => {
-  return (
-    <div>
-      <h1 className="spacebar">
-        <span> Press SpaceBar</span>
-      </h1>
-    </div>
-  );
-};
+class SpaceBar extends Component {
+  state = {
+    show: true,
+  };
+
+  render() {
+    return (
+      <div>
+        <h1 className="spacebar">
+          <span> Press Spacebar</span>
+        </h1>
+      </div>
+    );
+  }
+}
 
 export default SpaceBar;

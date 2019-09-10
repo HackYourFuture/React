@@ -7,7 +7,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: darkslategray;
+  background-color: darkslategrey;
   color: white;
 }
 
@@ -24,12 +24,17 @@ ul {
   list-style: none;
 }
 
-.list-items {
-  text-align: left;
-  padding-left: 300px;
-}
-
 .spacebar {
   text-align: center;
-  padding: 50 50px;
+  padding: 160px;
+}
+
+.error {
+  text-align: center;
+  padding: 150px;
+  background: red;
+}
+
+.fas fa-key {
+  color: blue;
 }
