@@ -1,0 +1,42 @@
+.homework-headings {
+  text-align: center;
+  color: darkblue
+}
+
+.week3 {
+  background-color: #8FC06C;
+  text-align: center; 
+  vertical-align: middle;
+  padding-bottom: 40px;
+ 
+}
+
+.profile-photo {
+  border-radius: 100%;
+  height: 150px;
+  margin-top:40px;
+}
+ .profile-photo:hover {
+  transform: scale(1.3);
+ }
+.full-name {
+  color:white;
+  font-size: 64px;
+  text-shadow: 0 5px 15px rgba(0,0,0,.15);
+  margin:0px 350px;
+}
+
+.full-name:hover {
+  background-color:#A5CD89;
+}
+
+.user-data-list {
+  list-style: none;    
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto;
+  width: 250px;
+  background-color: #9AC67B;
+}
+

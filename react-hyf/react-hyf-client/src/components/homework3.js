@@ -1,4 +1,5 @@
 import React from 'react';
+import './homework3.css';
 
 const Image = ({ image }) => {
   return <img src={image} className="profile-photo" alt="profile" />;

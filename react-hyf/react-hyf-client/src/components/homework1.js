@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './homework1.css';
 // This component creates a list item with given properties description, deadline and done. To give class name to this created item, conditional "className"
 // used. If the todo is done then the className is "done", if not done then "".
 class TodoListItem extends React.Component {

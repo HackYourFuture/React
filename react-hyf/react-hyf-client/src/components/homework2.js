@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './homework2.css';
 const TodoListItem = ({ id, description, deadline, done, clickHandler }) => {
   return (
     <li key={id} className={done ? 'done' : ''} onClick={clickHandler}>
