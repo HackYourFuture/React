@@ -1,13 +1,15 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Connection for React and Express",
+  "main": "server.js",
   "scripts": {
-    "test": "index.js",
-    "server": "nodemon index.js"
+    "build": "cd ../react-hyf-client && npm run build",
+    "server": "nodemon server.js",
+    "start": "concurrently npm:build npm:server",
+    "install-client": "cd ../react-hyf-client && npm install"
   },
-  "author": "",
+  "author": "Alusine Q. Sesay",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^4.1.2",
