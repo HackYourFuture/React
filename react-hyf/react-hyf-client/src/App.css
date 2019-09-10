@@ -109,3 +109,7 @@ img:hover {
 .heading h1 {
   color: rgb(236, 53, 8);
 }
+
+.left {
+  left: 20%;
+}

@@ -48,7 +48,7 @@ class DynamicList extends React.Component {
   }
 }
 
-class PreviousHomework1 extends React.Component {
+class HomeworkWeek1 extends React.Component {
   // This component is main component that use another components.
   render() {
     const list = [
@@ -83,4 +83,4 @@ class PreviousHomework1 extends React.Component {
   }
 }
 
-export default PreviousHomework1;
+export default HomeworkWeek1;
