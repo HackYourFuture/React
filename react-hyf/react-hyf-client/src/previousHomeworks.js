@@ -129,7 +129,7 @@ class Main extends React.Component {
 
   render() {
     return (
-      <main className="main">
+      <section className="prev-hw">
         <AddNewTodo submitHandler={this.addNewTodo.bind(this)} />
         <TodoList
           todoArr={this.state.todoArr}
@@ -137,7 +137,7 @@ class Main extends React.Component {
           buttonClickHandler={this.changeBehaviour.bind(this)}
           clickBehaviour={`Click a Todo to ${this.state.behaviour}`}
         />
-      </main>
+      </section>
     );
   }
 }

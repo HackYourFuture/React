@@ -8,20 +8,21 @@ body {
   background: #8fc06c;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
 .App {
   height: 100%;
   width: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  margin-top: 40px;
   color: #fff;
   display: flex;
-  position: fixed;
   text-align: center;
 }
 
-main {
+.main {
   display: inline-block;
   margin: auto auto;
 }
@@ -77,4 +78,16 @@ main {
 
 .true {
   display: none;
+}
+
+.error {
+  align-self: center;
+  margin: auto;
+  color: red;
+}
+
+.prev-hw {
+  display: inline-block;
+  margin: 50px auto;
+  z-index: 1;
 }

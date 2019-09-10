@@ -1,100 +1,15 @@
 import React from 'react';
 import './App.css';
+import { PreviousHomeworks } from './previousHomeworks';
+import HomeworkWeek3 from './homeworkWeek3';
 
-function Header({ text = 'Press Spacebar', className }) {
-  return <h1 className={className}>{text}</h1>;
-}
-
-function Image({ url, className, alt }) {
-  return <img src={url} className={`${className} avatar`} alt={alt} />;
-}
-
-function ListItem({ text }) {
-  return <li className="list-item">{text}</li>;
-}
-
-function List({ elementsArr = [], className }) {
-  const icons = ['👤', '🌐', '📞', '🎂', '✉️', '🔑'];
+function App() {
   return (
-    <section className={`${className} list-container`}>
-      <ul className={`${className} list`}>
-        {elementsArr.map((element, index) => (
-          <ListItem key={index} text={`${icons[index] || ' '} ${element}`} />
-        ))}
-      </ul>
-    </section>
+    <div className="container">
+      <HomeworkWeek3 />
+      <PreviousHomeworks />
+    </div>
   );
-}
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hidden: false,
-      index: 0,
-    };
-
-    this.spacePressed = this.spacePressed.bind(this);
-    this.selectPerson = this.selectPerson.bind(this);
-  }
-
-  async componentDidMount() {
-    const people = await fetch('https://uinames.com/api/?ext&amount=10').then(response => {
-      return response.json();
-    });
-
-    this.setState({ people });
-
-    document.body.addEventListener('keydown', this.spacePressed);
-  }
-
-  spacePressed(event) {
-    if (event.code === 'Space') {
-      if (!this.state.hidden) {
-        this.setState({ hidden: true });
-      }
-      this.selectPerson();
-    }
-  }
-
-  async selectPerson() {
-    const { people } = this.state;
-    if (this.state.index > people.length - 1) {
-      await this.setState({ index: 0 });
-    }
-    const person = people[this.state.index];
-    const personArr = [
-      person.gender,
-      person.region,
-      person.phone,
-      person.birthday.dmy,
-      person.email,
-      person.password,
-    ];
-    this.setState({
-      personName: `${person.name} ${person.surname}`,
-      personInfo: [...personArr],
-      photo: person.photo,
-      index: this.state.index + 1,
-    });
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <main>
-          <Header className={`${this.state.hidden}`} />
-          <Image
-            className={`${!this.state.hidden}`}
-            url={this.state.photo}
-            alt={this.state.personName}
-          />
-          <Header className={`${!this.state.hidden} name`} text={this.state.personName} />
-          <List className={`${!this.state.hidden}`} elementsArr={this.state.personInfo} />
-        </main>
-      </div>
-    );
-  }
 }
 
 export default App;
