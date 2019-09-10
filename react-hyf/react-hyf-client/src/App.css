@@ -91,3 +91,7 @@ body {
   margin: 50px auto;
   z-index: 1;
 }
+
+.done {
+  text-decoration: line-through;
+}

@@ -50,7 +50,7 @@ const ListItem = ({ clickHandler, todo }) => {
     year: 'numeric',
   });
   return (
-    <li onClick={clickHandler} id={todo.id} className={`list-item ${todo.done}`}>
+    <li onClick={clickHandler} id={todo.id} className={`list-item ${todo.done ? 'done' : ''}`}>
       {todo.description}, {date}
     </li>
   );
@@ -85,7 +85,15 @@ const TodoList = ({ todoArr, liClickHandler, buttonClickHandler, clickBehaviour 
 };
 
 class Main extends React.Component {
-  state = { todoArr: [...todoArr], behaviour: 'mark' };
+  constructor(props) {
+    super(props);
+
+    this.state = { todoArr: props.todoArr, behaviour: 'mark' };
+
+    this.addNewTodo = this.addNewTodo.bind(this);
+    this.markOrDeleteTodo = this.markOrDeleteTodo.bind(this);
+    this.changeBehaviour = this.changeBehaviour.bind(this);
+  }
 
   addNewTodo(event) {
     event.preventDefault();
@@ -94,27 +102,27 @@ class Main extends React.Component {
       id: currentTodos[currentTodos.length - 1] ? currentTodos[currentTodos.length - 1].id + 1 : 1,
       description: event.target.description.value,
       deadline: event.target.deadline.value,
-      done: event.target.done.checked,
+      done: event.target.done.checked ? 'done' : '',
     };
     currentTodos.push(newTodo);
-    this.setState({ todoArr: [...currentTodos] });
+    this.setState({ todoArr: currentTodos });
   }
 
   markTodo(event) {
     const copyArr = this.state.todoArr.map(todo => {
       if (todo.id.toString() === event.target.id) {
-        todo.done = !todo.done;
+        todo.done = todo.done ? '' : 'done';
       }
       return todo;
     });
-    this.setState({ todoArr: [...copyArr] });
+    this.setState({ todoArr: copyArr });
   }
 
   deleteTodo(event) {
     const remainingTodos = this.state.todoArr.filter(
       todo => todo.id.toString() !== event.target.id,
     );
-    this.setState({ todoArr: [...remainingTodos] });
+    this.setState({ todoArr: remainingTodos });
   }
 
   markOrDeleteTodo(event) {
@@ -130,11 +138,11 @@ class Main extends React.Component {
   render() {
     return (
       <section className="prev-hw">
-        <AddNewTodo submitHandler={this.addNewTodo.bind(this)} />
+        <AddNewTodo submitHandler={this.addNewTodo} />
         <TodoList
           todoArr={this.state.todoArr}
-          liClickHandler={this.markOrDeleteTodo.bind(this)}
-          buttonClickHandler={this.changeBehaviour.bind(this)}
+          liClickHandler={this.markOrDeleteTodo}
+          buttonClickHandler={this.changeBehaviour}
           clickBehaviour={`Click a Todo to ${this.state.behaviour}`}
         />
       </section>
@@ -142,4 +150,4 @@ class Main extends React.Component {
   }
 }
 
-export { Main as PreviousHomeworks };
+export { Main as PreviousHomeworks, todoArr };
