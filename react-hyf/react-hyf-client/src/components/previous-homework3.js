@@ -2,9 +2,9 @@ import React from 'react';
 import ProfileImage from './sub-components/profile-image';
 import ProfileFullname from './sub-components/profile-fullname';
 import ProfileDetails from './sub-components/profile-details';
-import './styles/week3-homework.css';
+import './styles/previous-homework3.css';
 
-class HomeworkWeek3 extends React.Component {
+class PreviousHomework3 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,4 +64,4 @@ class HomeworkWeek3 extends React.Component {
     }
   }
 }
-export default HomeworkWeek3;
+export default PreviousHomework3;

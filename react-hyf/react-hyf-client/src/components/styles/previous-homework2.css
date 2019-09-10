@@ -69,4 +69,5 @@
   margin: auto;
   border: 3px solid #f4a950;
   display: flex;
+  flex-direction: column;
 }
