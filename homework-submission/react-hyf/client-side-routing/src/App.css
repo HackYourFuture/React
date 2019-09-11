@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+body {
+  background: #2e2d2d;
+  min-height: 100%;
+  width: 100%;
+  font: 400 16px/165% -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black, 0 0 5px darkblue;
+}
+
+li {
+  list-style: none;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.link {
+  color: #fff;
+}
+.link:hover {
+  color: #00f;
+}

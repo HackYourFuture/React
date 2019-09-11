@@ -1,0 +1,41 @@
+/* To place everything in the middle of the screen */
+.container {
+  position: relative;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.userPhoto {
+  height: 100px;
+  width: 100px;
+  background: rgba(0, 0, 0, 0.15);
+  margin: auto;
+  display: block;
+  overflow: hidden;
+  border-radius: 100%;
+}
+
+.userPhoto:hover {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+h1:hover,
+li:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.details {
+  list-style: none;
+  padding: 0.67em;
+  background: rgba(255, 255, 255, 0.1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-left;
+}

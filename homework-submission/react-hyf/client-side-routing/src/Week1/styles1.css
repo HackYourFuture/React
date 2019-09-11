@@ -1,0 +1,12 @@
+.static_list,
+.dynamic_list {
+  border: 2px dashed grey;
+  border-radius: 5px;
+  margin: 15px;
+  padding: 15px;
+  line-height: 1.5em;
+}
+
+.done {
+  text-decoration: line-through;
+}
