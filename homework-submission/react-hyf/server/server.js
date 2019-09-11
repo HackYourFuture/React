@@ -10,7 +10,7 @@ I had it but it was not reached*/
 app.use(express.static(path.join(__dirname, source)));
 
 // app.get('/', (request, response) => {
-//   response.sendFile(path / index, error => {
+//   response.sendFile(path + '/index', error => {
 //     console.log('I am the get');
 //     console.log(error);
 //   });
