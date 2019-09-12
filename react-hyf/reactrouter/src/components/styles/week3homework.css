@@ -1,0 +1,50 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #003366;
+  color: white;
+}
+
+.card {
+  text-align: center;
+}
+
+.card h1 {
+  color: white;
+}
+
+img {
+  width: 70px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+.spacebar {
+  text-align: center;
+  padding: 120px;
+  color: white;
+}
+
+.error {
+  text-align: center;
+  padding: 150px;
+  background: red;
+  color: aliceblue;
+}
+
+.user-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto;
+  border-radius: 3px;
+  width: 250px;
+  color: white;
+  padding: 20px;
+  background: rgb(51, 51, 51);
+}
