@@ -1,9 +1,9 @@
 import React from 'react';
 class NameHeader extends React.Component {
   render() {
-    const { text } = this.props;
+    const { name, surname } = this.props;
 
-    return <h1 className="nameHeader">{text}</h1>;
+    return <h1 className="nameHeader">{name ? `${name} ${surname}` : 'Press SpaceBar'}</h1>;
   }
 }
 export default NameHeader;

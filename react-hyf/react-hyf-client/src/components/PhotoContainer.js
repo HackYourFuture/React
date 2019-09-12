@@ -1,10 +1,10 @@
 import React from 'react';
 class PhotoContainer extends React.Component {
   render() {
-    const { url } = this.props;
+    const { photo } = this.props;
     return (
       <div className="photoContainer">
-        <img src={url} alt=""></img>
+        <img src={photo} alt=""></img>
       </div>
     );
   }

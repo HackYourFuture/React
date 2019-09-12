@@ -10,46 +10,52 @@ import Homework3 from './components/Homework3';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.data = {};
 
     this.state = {
-      person: {
-        name: 'Press',
-        surname: 'Spacebar',
-        gender: '',
-        region: '',
-        phone: '',
-        birthday: '',
-        email: '',
-        password: '',
-        photo: '',
-      },
+      userData: [],
+      isLoading: true,
+      error: false,
+      randomIndex: 0,
     };
     this.fillData = this.fillData.bind(this);
   }
 
-  getRandomArbitrary() {
-    return Math.floor(Math.random() * 10);
-  }
-
   async componentDidMount() {
-    window.addEventListener('keyup', this.fillData);
-    const response = await fetch('https://uinames.com/api/?amount=10&ext');
-    this.data = await response.json();
-  }
-  fillData(event) {
-    const list = document.getElementsByClassName('listHomework3')[0];
-    list.style.display = 'block';
-    if (event.keyCode === 32) {
-      this.setState({ person: this.data[this.getRandomArbitrary()] });
+    try {
+      window.addEventListener('keyup', this.fillData);
+      const response = await fetch('https://uinames.com/api/?amount=10&ext');
+      const data = await response.json();
+      this.setState({ userData: data, isLoading: false });
+    } catch (error) {
+      this.setState({ error: true, isLoading: false });
     }
   }
+  fillData(event) {
+    if (event.keyCode === 32) {
+      this.generateRandom();
+    }
+  }
+  generateRandom = () => {
+    const randomIndex = Math.floor(Math.random() * this.state.userData.length);
+    this.setState({ randomIndex });
+  };
 
   render() {
+    const { userData, error, isLoading, randomIndex } = this.state;
+    const randomUser = userData[randomIndex];
+
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
+
+    if (error) {
+      return <div>Oops something went wrong</div>;
+    }
+
     return (
       <div className="App">
         <PreviousHomeworks></PreviousHomeworks>
-        <Homework3 person={this.state.person}></Homework3>
+        <Homework3 person={randomUser}></Homework3>
       </div>
     );
   }

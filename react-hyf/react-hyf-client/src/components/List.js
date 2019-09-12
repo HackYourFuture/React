@@ -3,16 +3,17 @@ import ListItem from './ListItem';
 
 class List extends React.Component {
   render() {
-    const { person } = this.props;
+    const { gender, region, phone, birthday, email, password } = this.props;
+    console.log(birthday);
 
     return (
       <ul className="listHomework3">
-        <ListItem text={'👤' + person.gender} />
-        <ListItem text={'🌐' + person.region} />
-        <ListItem text={'📞' + person.phone} />
-        <ListItem text={'🎂' + person.birthday.dmy} />
-        <ListItem text={'✉️' + person.email} />
-        <ListItem text={'🔑' + person.password} />
+        <ListItem text={'👤' + gender} />
+        <ListItem text={'🌐' + region} />
+        <ListItem text={'📞' + phone} />
+        {<ListItem text={'🎂' + birthday.mdy} />}
+        <ListItem text={'✉️' + email} />
+        <ListItem text={'🔑' + password} />
       </ul>
     );
   }

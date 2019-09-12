@@ -7,9 +7,9 @@ class Homework3 extends React.Component {
     const { person } = this.props;
     return (
       <div className="homework3">
-        <NameHeader text={`${person.name} ${person.surname}`}></NameHeader>
-        <PhotoContainer url={person.photo}></PhotoContainer>
-        <List person={person}></List>
+        <NameHeader {...person}></NameHeader>
+        <PhotoContainer {...person}></PhotoContainer>
+        <List {...person}></List>
       </div>
     );
   }
