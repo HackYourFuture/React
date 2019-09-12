@@ -137,7 +137,7 @@ class Main extends React.Component {
 
   render() {
     return (
-      <section className="prev-hw">
+      <main className="week2">
         <AddNewTodo submitHandler={this.addNewTodo} />
         <TodoList
           todoArr={this.state.todoArr}
@@ -145,9 +145,9 @@ class Main extends React.Component {
           buttonClickHandler={this.changeBehaviour}
           clickBehaviour={`Click a Todo to ${this.state.behaviour}`}
         />
-      </section>
+      </main>
     );
   }
 }
 
-export { Main as PreviousHomeworks, todoArr };
+export { Main as Week2, todoArr };

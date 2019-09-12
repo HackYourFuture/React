@@ -6,28 +6,172 @@
 
 body {
   background: #8fc06c;
+  font-size: 1.5rem;
 }
 
-.container {
+a {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 3rem;
+  height: 100%;
+  width: 100%;
+}
+
+.navbar {
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: center;
+}
+
+.menu-item {
+  display: inline-block;
+  height: 5rem;
+  font-weight: 700;
+}
+
+.menu-item:hover {
+  background: black;
+  border-bottom: 0.5rem solid yellow;
+}
+
+.greetings {
+  margin: 3rem auto;
+  text-align: center;
+}
+
+/* Week-1 Styling */
+
+.week1 {
   display: flex;
   flex-direction: column;
 }
 
-.App {
+.week1 .list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2.5rem auto;
+}
+
+.week1 .list {
+  list-style: inside;
+}
+
+.week1 .list-title {
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+}
+
+.week1 .list-item {
+  cursor: pointer;
+}
+
+.week1 .true {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Week-2 Styling  */
+
+.week2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.week2 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.week2 .title {
+  border-bottom: 1px solid black;
+  margin: 1rem auto;
+}
+
+.week2 .input-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.week2 .label {
+  text-transform: capitalize;
+  width: 100%;
+}
+
+.week2 .input {
+  width: 100%;
+  height: 2rem;
+  font: inherit;
+  font-size: 1.3rem;
+  padding: 0.5rem;
+}
+
+.week2 .button {
+  height: 3rem;
+  width: 70%;
+  margin-top: 1rem;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font: inherit;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+
+.week2 .list {
+  margin-top: 1rem;
+  list-style: inside;
+}
+
+.week2 .list .button {
+  width: 30%;
+  min-width: 16rem;
+}
+
+.week2 .list-item {
+  cursor: pointer;
+}
+
+.week2 .done {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Week-3 Styling */
+
+.week3 {
   height: 100%;
   width: 100%;
-  margin-top: 40px;
+  top: 5rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
   color: #fff;
   display: flex;
+  position: relative;
   text-align: center;
 }
 
-.main {
-  display: inline-block;
+.week3 .container {
   margin: auto auto;
 }
 
-.avatar {
+.week3 .avatar {
   height: 100px;
   width: 100px;
   background: rgba(0, 0, 0, 0.15);
@@ -40,11 +184,11 @@ body {
   margin: 0 auto 15px;
 }
 
-.avatar:hover {
+.week3 .avatar:hover {
   transform: scale(1.2);
 }
 
-.name {
+.week3 .name {
   margin-bottom: 20px;
   color: #fff;
   font-weight: 600;
@@ -52,7 +196,7 @@ body {
   text-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-.list-container {
+.week3 .list-container {
   margin: 0 auto;
   padding: 10px 15px;
   text-align: left;
@@ -62,36 +206,24 @@ body {
   display: table;
 }
 
-.list {
+.week3 .list {
   list-style-type: none;
   line-height: 165%;
 }
 
-.list-item {
+.week3 .list-item {
   font-size: 90%;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.list-item:first-of-type {
+.week3 .list-item:first-of-type {
   text-transform: capitalize;
 }
 
-.true {
+.week3 .true {
   display: none;
 }
 
-.error {
-  align-self: center;
-  margin: auto;
-  color: red;
-}
-
-.prev-hw {
-  display: inline-block;
-  margin: 50px auto;
-  z-index: 1;
-}
-
-.done {
-  text-decoration: line-through;
+.week3 .error {
+  margin: 0 auto;
 }

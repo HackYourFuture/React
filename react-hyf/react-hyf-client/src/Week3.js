@@ -27,30 +27,44 @@ function List({ elementsArr = [], className }) {
 }
 
 class HomeworkWeek3 extends React.Component {
+  _isMounted = false;
+
   constructor(props) {
     super(props);
     this.state = {
       hidden: false,
       index: 0,
       error: false,
+      personName: '',
+      personInfo: [],
+      photo: '',
     };
 
     this.spacePressed = this.spacePressed.bind(this);
     this.selectPerson = this.selectPerson.bind(this);
+
+    this.abortController = new AbortController();
   }
 
-  async componentDidMount() {
-    try {
-      const people = await fetch('https://uinames.com/api/?ext&amount=10').then(response => {
-        return response.json();
-      });
+  componentDidMount() {
+    this._isMounted = true;
 
-      this.setState({ people });
+    fetch('https://uinames.com/api/?ext&amount=10', { signal: this.abortController.signal })
+      .then(response => response.json())
+      .then(people => {
+        if (this._isMounted) {
+          this.setState({ people });
+        }
+      })
+      .catch(error => this.setState({ error: true }));
 
-      document.body.addEventListener('keydown', this.spacePressed);
-    } catch (error) {
-      this.setState({ error: true });
-    }
+    document.body.addEventListener('keydown', this.spacePressed);
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+    document.body.removeEventListener('keydown', this.spacePressed);
+    this.abortController.abort();
   }
 
   spacePressed(event) {
@@ -86,11 +100,11 @@ class HomeworkWeek3 extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <main className="week3">
         {this.state.error ? (
           <Header className={`${this.state.hidden} error`} text="An error occurred. Try refresh." />
         ) : (
-          <main className="main">
+          <div className="container">
             <Header className={`${this.state.hidden}`} />
             <Image
               className={`${!this.state.hidden}`}
@@ -99,11 +113,11 @@ class HomeworkWeek3 extends React.Component {
             />
             <Header className={`${!this.state.hidden} name`} text={this.state.personName} />
             <List className={`${!this.state.hidden}`} elementsArr={this.state.personInfo} />
-          </main>
+          </div>
         )}
-      </div>
+      </main>
     );
   }
 }
 
-export default HomeworkWeek3;
+export { HomeworkWeek3 as Week3 };

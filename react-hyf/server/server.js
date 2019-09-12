@@ -9,8 +9,6 @@ const root = '../react-hyf-client/build';
 
 app.use(express.static(path.join(__dirname, root)));
 
-app.get('/', async (request, response) => {
-  response.sendFile(path.join(__dirname, root, 'index.html'));
-});
+app.use('/', express.static(path.join(__dirname, root)));
 
 app.listen(port, () => console.log(`Server is listening on port ${port}!`));
