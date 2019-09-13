@@ -1,0 +1,12 @@
+.filter-button {
+  margin: 4px;
+}
+
+.filter-button-image {
+  width: 40px;
+  border-radius: 50%;
+  height: 40px;
+}
+.passive {
+  opacity: 0.5;
+}

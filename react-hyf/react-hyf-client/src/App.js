@@ -5,7 +5,7 @@ import PreviousHomework2 from './components/previous-homework2';
 import PreviousHomework3 from './components/previous-homework3';
 import Home from './components/home';
 
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './components/nav';
 
 function App() {

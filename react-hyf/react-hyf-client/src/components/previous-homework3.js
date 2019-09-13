@@ -2,7 +2,11 @@ import React from 'react';
 import ProfileImage from './sub-components/profile-image';
 import ProfileFullname from './sub-components/profile-fullname';
 import ProfileDetails from './sub-components/profile-details';
+import GenderFilter from './gender-filter';
 import './styles/previous-homework3.css';
+
+const endpoint = 'https://uinames.com/api/';
+const amount = 30;
 
 class PreviousHomework3 extends React.Component {
   constructor(props) {
@@ -10,11 +14,49 @@ class PreviousHomework3 extends React.Component {
     this.state = {
       error: null,
       loaded: false,
-      profiles: [],
+      profiles: {
+        female: [],
+        male: [],
+        random: [],
+      },
       currentProfile: 0,
-      urlToFetch: '?amount=10&ext',
+      filter: '',
     };
   }
+
+  fetchPeople = filter => {
+    if (filter !== this.state.filter) {
+      // Filter on the UI
+      // this.setState({
+      //   profiles: {
+      //     ...this.state.profiles,
+      //     [filter]: filter === 'random' ? sample : sample.filter(p => p.gender === filter),
+      //   },
+      //   loaded: true,
+      // });
+
+      fetch(`${endpoint}?gender=${filter}&ext&amount=${amount}`)
+        .then(results => results.json())
+        .then(
+          data => {
+            this.setState({
+              profiles: {
+                ...this.state.profiles,
+                ...{ [filter]: data },
+              },
+              loaded: true,
+            });
+          },
+          error => {
+            this.setState({
+              loaded: true,
+              error,
+            });
+          },
+        );
+    }
+    this.setState({ filter });
+  };
 
   selectRandomProfile = () => {
     const newIndex = Math.floor(Math.random() * 10);
@@ -29,22 +71,11 @@ class PreviousHomework3 extends React.Component {
 
   componentDidMount() {
     window.addEventListener('keyup', this.handleKeyUp.bind(this));
-    fetch(`https://uinames.com/api/${this.state.urlToFetch}`)
-      .then(results => results.json())
-      .then(
-        data => {
-          this.setState({ profiles: data, loaded: true });
-        },
-        error => {
-          this.setState({
-            loaded: true,
-            error,
-          });
-        },
-      );
+    this.fetchPeople('random');
   }
   render() {
     const { error, loaded, profiles, currentProfile } = this.state;
+
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!loaded) {
@@ -52,13 +83,19 @@ class PreviousHomework3 extends React.Component {
     } else {
       return (
         <div className="week3-homework">
-          {loaded && <ProfileImage url={profiles[currentProfile].photo} />}
-          (
-          <ProfileFullname
-            name={`${profiles[currentProfile].name} ${profiles[currentProfile].surname}`}
-          />
-          )
-          <ProfileDetails profile={profiles[currentProfile]} />
+          {loaded && profiles[this.state.filter].length > 0 && (
+            <>
+              <GenderFilter onPress={this.fetchPeople} />
+              <ProfileImage url={profiles[this.state.filter][currentProfile].photo} />
+              <ProfileFullname
+                name={`${profiles[this.state.filter][currentProfile].name} ${profiles[this.state.filter][currentProfile].surname}`}
+              />
+              <ProfileDetails profile={profiles[this.state.filter][currentProfile]} />
+              {/* <button onClick={() => this.fetchPeople('female')}>Fetch females</button>
+              <button onClick={() => this.fetchPeople('male')}>Fetch males</button>
+              <button onClick={() => this.fetchPeople('random')}>Fetch random</button> */}
+            </>
+          )}
         </div>
       );
     }
