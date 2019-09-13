@@ -14,6 +14,7 @@ const DynamicList = ({ listArray, removeTodoItem}) => {
         {listArray.map(listItem => {
           return (
             <TodoListItem
+            id={listItem.id}
               key={listItem.id}
               onClick={removeTodoItem}
               description={listItem.description}
@@ -64,7 +65,7 @@ class App extends React.Component {
       id: this.state.todoList.length + 1,
       description: target.description.value,
       deadline: target.deadline.value,
-      done: target.done.value,
+     done: target.done.checked,
     };
     this.setState({ todoList: [...this.state.todoList, newTodo] });
   }
@@ -105,13 +106,14 @@ class App extends React.Component {
             name="done"
             checked={this.state.newTodo.done}
             onChange={this.handleChange.bind(this)}
+
           />
           <button className="button" type="submit">
             Add New Todo Item
           </button>
         </form>
 
-        <DynamicList listArray={this.state.todoList} removeTodoItem={this.removeTodoItem} />
+        <DynamicList listArray={this.state.todoList} removeTodoItem={this.removeTodoItem.bind(this)} />
       </div>
     );
   }
