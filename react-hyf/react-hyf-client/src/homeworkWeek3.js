@@ -13,13 +13,24 @@ function ListItem({ text }) {
   return <li className="list-item">{text}</li>;
 }
 
-function List({ elementsArr = [], className }) {
+function List({ person, className }) {
   const icons = ['👤', '🌐', '📞', '🎂', '✉️', '🔑'];
+  const personArr = Object.keys(person).length
+    ? [
+        person.gender,
+        person.region,
+        person.phone,
+        person.birthday.dmy,
+        person.email,
+        person.password,
+      ]
+    : [];
+
   return (
     <section className={`${className} list-container`}>
       <ul className={`${className} list`}>
-        {elementsArr.map((element, index) => (
-          <ListItem key={index} text={`${icons[index] || ' '} ${element}`} />
+        {personArr.map((info, index) => (
+          <ListItem key={index} text={`${icons[index] || ' '} ${info}`} />
         ))}
       </ul>
     </section>
@@ -30,9 +41,14 @@ class HomeworkWeek3 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hidden: false,
-      index: 0,
       error: false,
+      hidden: 'hidden',
+      willHide: '',
+      index: 0,
+      people: [],
+      person: {},
+      personName: '',
+      photo: '',
     };
 
     this.spacePressed = this.spacePressed.bind(this);
@@ -41,9 +57,8 @@ class HomeworkWeek3 extends React.Component {
 
   async componentDidMount() {
     try {
-      const people = await fetch('https://uinames.com/api/?ext&amount=10').then(response => {
-        return response.json();
-      });
+      const response = await fetch('https://uinames.com/api/?ext&amount=10');
+      const people = await response.json();
 
       this.setState({ people });
 
@@ -55,9 +70,8 @@ class HomeworkWeek3 extends React.Component {
 
   spacePressed(event) {
     if (event.code === 'Space') {
-      if (!this.state.hidden) {
-        this.setState({ hidden: true });
-      }
+      this.setState({ hidden: '', willHide: 'hidden' });
+
       this.selectPerson();
     }
   }
@@ -68,17 +82,10 @@ class HomeworkWeek3 extends React.Component {
       await this.setState({ index: 0 });
     }
     const person = people[this.state.index];
-    const personArr = [
-      person.gender,
-      person.region,
-      person.phone,
-      person.birthday.dmy,
-      person.email,
-      person.password,
-    ];
+
     this.setState({
+      person,
       personName: `${person.name} ${person.surname}`,
-      personInfo: [...personArr],
       photo: person.photo,
       index: this.state.index + 1,
     });
@@ -88,17 +95,17 @@ class HomeworkWeek3 extends React.Component {
     return (
       <div className="App">
         {this.state.error ? (
-          <Header className={`${this.state.hidden} error`} text="An error occurred. Try refresh." />
+          <Header className={`error`} text="An error occurred. Try refresh." />
         ) : (
           <main className="main">
-            <Header className={`${this.state.hidden}`} />
+            <Header className={`${this.state.willHide}`} />
             <Image
-              className={`${!this.state.hidden}`}
+              className={`${this.state.hidden}`}
               url={this.state.photo}
               alt={this.state.personName}
             />
-            <Header className={`${!this.state.hidden} name`} text={this.state.personName} />
-            <List className={`${!this.state.hidden}`} elementsArr={this.state.personInfo} />
+            <Header className={`${this.state.hidden} name`} text={this.state.personName} />
+            <List className={`${this.state.hidden}`} person={this.state.person} />
           </main>
         )}
       </div>
