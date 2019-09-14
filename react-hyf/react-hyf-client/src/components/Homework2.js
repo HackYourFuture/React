@@ -1,5 +1,5 @@
 import React from 'react';
-//import ReactDOM from 'react-dom';
+
 class ListTitle extends React.Component {
   render() {
     const { text } = this.props;
@@ -63,7 +63,7 @@ class DynamicList extends React.Component {
   }
 }
 
-class PreviousHomeworks extends React.Component {
+class Homework2 extends React.Component {
   state = {
     todoItems: [
       {
@@ -121,7 +121,5 @@ class PreviousHomeworks extends React.Component {
     );
   }
 }
-//const root = document.getElementById('root');
-//ReactDOM.render(<App />, root);
 
-export default PreviousHomeworks;
+export default Homework2;

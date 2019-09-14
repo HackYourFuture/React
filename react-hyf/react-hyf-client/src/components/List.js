@@ -4,7 +4,6 @@ import ListItem from './ListItem';
 class List extends React.Component {
   render() {
     const { gender, region, phone, birthday, email, password } = this.props;
-    console.log(birthday);
 
     return (
       <ul className="listHomework3">
