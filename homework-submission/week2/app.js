@@ -1,22 +1,22 @@
-const TodoListItem = ({ id, description, deadline, done, clickHandler }) => {
+const TodoListItem = ({ id, description, deadline, done, removeTodoItem }) => {
   return (
-    <li key={id} className={done ? 'done' : ''} onClick={clickHandler}>
+    <li key={id} className={done ? 'done' : ''} onClick={() => removeTodoItem(id)}>
       {description}, {deadline}
     </li>
   );
 };
 
-const DynamicList = ({ listArray, removeTodoItem}) => {
+const DynamicList = ({ listArray, removeTodoItem }) => {
   return (
     <div className="dynamic_list">
       <h1>Dynamic List</h1>
       <ul>
-        {listArray.map(listItem => {
+        {listArray.map((listItem, index) => {
           return (
             <TodoListItem
-            id={listItem.id}
-              key={listItem.id}
-              onClick={removeTodoItem}
+              key={index}
+              id={listItem.id}
+              removeTodoItem={removeTodoItem}
               description={listItem.description}
               deadline={listItem.deadline}
               done={listItem.done}
@@ -65,15 +65,14 @@ class App extends React.Component {
       id: this.state.todoList.length + 1,
       description: target.description.value,
       deadline: target.deadline.value,
-     done: target.done.checked,
+      done: target.done.checked,
     };
     this.setState({ todoList: [...this.state.todoList, newTodo] });
   }
 
-  removeTodoItem(event) {
-    const removedItemId = event.target.id.value;
+  removeTodoItem(id) {
     const todoList = this.state.todoList;
-    const newList = todoList.filter(item => item.id !== removedItemId);
+    const newList = todoList.filter(item => item.id !== id);
     this.setState({ todoList: newList });
   }
 
@@ -82,6 +81,7 @@ class App extends React.Component {
     const name = event.target.name;
     this.setState({ newTodo: { ...this.state.newTodo, [name]: value } });
   }
+
   render() {
     return (
       <div className="main">
@@ -106,14 +106,16 @@ class App extends React.Component {
             name="done"
             checked={this.state.newTodo.done}
             onChange={this.handleChange.bind(this)}
-
           />
           <button className="button" type="submit">
             Add New Todo Item
           </button>
         </form>
 
-        <DynamicList listArray={this.state.todoList} removeTodoItem={this.removeTodoItem.bind(this)} />
+        <DynamicList
+          listArray={this.state.todoList}
+          removeTodoItem={this.removeTodoItem.bind(this)}
+        />
       </div>
     );
   }
