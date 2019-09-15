@@ -54,7 +54,7 @@ class HomeworkWeek3 extends React.Component {
     super(props);
     this.state = {
       error: false,
-      loaded: false,
+      loading: true,
       users: [],
       userIndex: 0,
     };
@@ -72,17 +72,21 @@ class HomeworkWeek3 extends React.Component {
       const response = await fetch('https://uinames.com/api/?ext&amount=10');
       const data = await response.json();      
 
-      this.setState({ users: data, loaded: true });
+      this.setState({ users: data, loading: false });
     } catch (error) {      
-      this.setState({ error: true });
+      this.setState({ error: true, loading:false });
     }
   }
 
   render() {
-    const { users, userIndex, loaded } = this.state;   
-    if (!loaded) {
+    const { users, userIndex, loading,error } = this.state;   
+    if (loading) {
       return <p>Loading...</p>
-    } else {
+    } 
+    if (error) {
+      return <p>Oooops something went wrong.</p>
+    }
+    
       return (
         <div className="week3">
           <Image image={users[userIndex].photo} />
@@ -92,5 +96,5 @@ class HomeworkWeek3 extends React.Component {
       );
     }
   }
-}
+
 export default HomeworkWeek3;
