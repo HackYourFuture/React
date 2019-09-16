@@ -1,5 +1,4 @@
 import React from 'react';
-import './style.css';
 
 //Create a todo list called Static List with three list items:
 

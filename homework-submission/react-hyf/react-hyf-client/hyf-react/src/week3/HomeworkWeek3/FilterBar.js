@@ -7,7 +7,7 @@ const FilterBar = (props) => {
   return (
     <div className="filter_bar">
       {items.map((item, index) => {
-        return <Filter icon={item.icon} key={index} type={item.type} onClick={filter}/>
+        return <Filter icon={item.icon} key={index} type={item.type} onClick={filter}/>// {filter}
       })}
       <Filter icon={'all'} onClick={reset} />
     </div>

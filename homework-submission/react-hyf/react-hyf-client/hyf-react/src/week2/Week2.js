@@ -26,7 +26,7 @@ class DynamicList extends React.Component {
         {items.map((item, index) => (
           <div key={index} className="item-wrapper">
             <Item description={item.description} deadline={item.deadline} done={item.done} />
-            <Button id={item.id} type="button" text="Delete" onClick={deleteItem} />
+            <Button id={item.id} text="Delete" onClick={deleteItem} />
           </div>
         ))}
       </ul>
@@ -39,7 +39,7 @@ const UserInput = ({ addItem }) => {
     <form onSubmit={addItem}>
       <input type="text" name="description" placeholder="Insert description" />
       <input type="date" name="date" />
-      <Button text="Add" />
+      <Button text="Add" /> 
     </form>
   );
 };
@@ -88,10 +88,14 @@ class Week2 extends React.Component {
   };
 
   deleteItem = event => {
-    console.log(event.target);
     event.preventDefault();
     const todoList = this.state.todoList.filter(item => {
-      return item.id !== parseInt(event.target.id);
+      if (item.id === parseInt(event.target.id)) {
+        return false;
+      } else {
+        return true;
+      }
+      return item.id !== parseInt(event.target.id); // if the id of the button delete (event.target.id)is the same id of the item then filter this item out
     });
     this.setState({ todoList });
   };

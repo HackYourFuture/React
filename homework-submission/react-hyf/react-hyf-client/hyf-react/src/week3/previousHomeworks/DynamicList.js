@@ -11,7 +11,7 @@ class DynamicList extends React.Component {
         {items.map((item, index) => (
           <div key={index} className="item-wrapper">
             <Item description={item.description} deadline={item.deadline} done={item.done} />
-            <Button id={item.id} type="button" text="Delete" onClick={deleteItem} />
+            <Button id={item.id} text="Delete" onClick={deleteItem} />
           </div>
         ))}
       </ul>

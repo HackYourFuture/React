@@ -12,8 +12,18 @@ class Week3 extends Component {
       people: [],
       filteredPeople: [],
       displayedIndex: 0,
+      isLoading: true,
+      error: false
     }
   }
+
+  //press space to start show the random people
+  keyUpHandler = (event) => {
+    if (event.keyCode === 32) {
+      this.changeIndex(event);
+    };
+  }
+
   componentDidMount() {
     fetch('https://uinames.com/api/?amount=10&ext')
       .then(response => {
@@ -21,21 +31,21 @@ class Week3 extends Component {
       })
       .then(data => {
         const people = data;
-      
-      document.addEventListener('keyup', (event) => {
-        if (event.keyCode === 32) {
-            this.setState({ people, filteredPeople: people })
-          }
-        })
-  
+        this.setState({
+          people,
+          filteredPeople: people,
+          isLoading: false
+        });
       }).catch(err => {
         console.log(err, 'try again!')
+        this.setState({ error: true, isLoading: false})
       });
-    
+    document.addEventListener('keyup', this.keyUpHandler);
   }
+
+  // specify the index of people
   changeIndex = (e) => {
     const randomIndex =  Math.floor(Math.random()* this.state.filteredPeople.length || this.state.people.length);
-    console.log(randomIndex);
     e.preventDefault();
     this.setState({displayedIndex: randomIndex})
   }
@@ -53,34 +63,35 @@ class Week3 extends Component {
     this.setState({ filteredPeople });
   }
 
-  render() {
-    const { filteredPeople, displayedIndex } = this.state;
-    console.log(displayedIndex, filteredPeople);
-    const displayedItems = filteredPeople.length ? [
-      { text: filteredPeople[displayedIndex].gender, icon: '👤'},
-      { text: filteredPeople[displayedIndex].region, icon: '🌐'},
-      { text: filteredPeople[displayedIndex].phone, icon: '📞'},
-      { text: filteredPeople[displayedIndex].birthday.dmy, icon: '🎂'},
-      { text: filteredPeople[displayedIndex].email, icon: '✉️'},
-      { text: filteredPeople[displayedIndex].password, icon: '🔑'},
-    ] : [];
-
-    const filterItems = [{icon: '♂', type: 'male'}, {icon: '♀', type: 'female'}];
-    const person = (
-      filteredPeople.length ?
+  render() { 
+    const { filteredPeople, displayedIndex, isLoading, error } = this.state;
+    let displayedItems = [];
+    let person = null;
+    if (isLoading === false && error === false) {
+      displayedItems = [
+        { text: filteredPeople[displayedIndex].gender, icon: '👤'},
+        { text: filteredPeople[displayedIndex].region, icon: '🌐'},
+        { text: filteredPeople[displayedIndex].phone, icon: '📞'},
+        { text: filteredPeople[displayedIndex].birthday.dmy, icon: '🎂'},
+        { text: filteredPeople[displayedIndex].email, icon: '✉️'},
+        { text: filteredPeople[displayedIndex].password, icon: '🔑'},
+      ];
+      const filterItems = [{icon: '♂', type: 'male'}, {icon: '♀', type: 'female'}];
+      person = (
         <div>
           <FilterBar items={filterItems} filter={this.filterPeople} reset={this.resetFilter} />
           <Image photo={filteredPeople[displayedIndex].photo} name={filteredPeople[displayedIndex].name} />
           <FullName name={filteredPeople[displayedIndex].name} surname={filteredPeople[displayedIndex].surname} />
           <List items={displayedItems} />
         </div>
-        : null
-    )
+      );
+    }
+
 
     return (
       <div className='info_container'>
         {person}
-        <button onClick={this.changeIndex}>Click to change</button>
+        {error ? <div>something went wrong </div>: null}
       </div>
     );
   }

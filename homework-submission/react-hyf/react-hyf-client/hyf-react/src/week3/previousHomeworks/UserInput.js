@@ -4,8 +4,8 @@ import Button from './Button';
 const UserInput = ({ addItem }) => {
   return (
     <form onSubmit={addItem}>
-      <input type="text" name="description" placeholder="Insert description" />
-      <input type="date" name="date" />
+      <input type="text" placeholder="Insert description" />
+      <input type="date"/>
       <Button text="Add" />
     </form>
   );

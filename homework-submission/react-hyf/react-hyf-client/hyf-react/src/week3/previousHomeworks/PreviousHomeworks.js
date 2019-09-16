@@ -30,17 +30,32 @@ class PreviousHomeworks extends React.Component {
           done: false,
         },
       ],
+      userDescription: '',
+      userDate: '',
     };
   }
+  handleDescriptionChange = (e) => {
+    this.setState({userDescription: e.target.value})
+  };
+
+  handleDateChange = (e) => {
+    const today = Date().now();
+    const userDate = new Date(e.target.value).now();
+    if (userDate < today) {
+      this.setState({ error: true })
+      return;
+    }
+    this.setState({userDate: e.target.value})
+  };
   addItem = event => {
     event.preventDefault();
-    const description = event.target.description.value;
-    const deadline = event.target.date.value;
+    // const description = event.target.description.value;
+    // const deadline = event.target.date.value;
     const todoList = [...this.state.todoList]; //copy the old state array to the new array
     todoList.push({
       id: todoList[todoList.length - 1].id + 1,
-      description,
-      deadline,
+      description: this.state.userDescription,
+      deadline: this.state.userDate,
       done: false,
     });
     this.setState({ todoList });
@@ -49,8 +64,13 @@ class PreviousHomeworks extends React.Component {
   deleteItem = event => {
     event.preventDefault();
     const todoList = this.state.todoList.filter(item => {
-      console.log(item)
-      return item.id !== parseInt(event.target.id);
+      if (item.id === parseInt(event.target.id)) {
+        return false;
+      } else {
+        return true;
+      }
+      // if the id of the button delete (event.target.id)is the same id of the item then filter this item out 'delete it'
+      // return item.id !== parseInt(event.target.id)
     });
     this.setState({ todoList });
   };
