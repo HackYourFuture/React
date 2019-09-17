@@ -9,10 +9,8 @@ const PreviousHomeworks = () => {
       <Homework1 />
       <h1 className="homework-headings">Homework2</h1>
       <Homework2 />
-      <h1 className="homework-headings">Homework3</h1>
     </div>
   );
 };
 
 export default PreviousHomeworks;
-  

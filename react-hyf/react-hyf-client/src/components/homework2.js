@@ -1,8 +1,9 @@
 import React from 'react';
 import './homework2.css';
-const TodoListItem = ({ id, description, deadline, done, clickHandler }) => {
+
+const TodoListItem = ({ id, description, deadline, done, removeTodoItem }) => {
   return (
-    <li key={id} className={done ? 'done' : ''} onClick={clickHandler}>
+    <li key={id} className={done ? 'done' : ''} onClick={() => removeTodoItem(id)}>
       {description}, {deadline}
     </li>
   );
@@ -11,13 +12,14 @@ const TodoListItem = ({ id, description, deadline, done, clickHandler }) => {
 const DynamicList = ({ listArray, removeTodoItem }) => {
   return (
     <div className="dynamic_list">
-      <h2>Dynamic List</h2>
+      <h1>Dynamic List</h1>
       <ul>
-        {listArray.map(listItem => {
+        {listArray.map((listItem, index) => {
           return (
             <TodoListItem
-              key={listItem.id}
-              onClick={removeTodoItem}
+              key={index}
+              id={listItem.id}
+              removeTodoItem={removeTodoItem}
               description={listItem.description}
               deadline={listItem.deadline}
               done={listItem.done}
@@ -66,14 +68,15 @@ class Homework2 extends React.Component {
       id: this.state.todoList.length + 1,
       description: target.description.value,
       deadline: target.deadline.value,
-      done: target.done.value,
+      done: target.done.checked,
     };
     this.setState({ todoList: [...this.state.todoList, newTodo] });
   }
 
-  removeTodoItem(event) {
-    const removedItemId = event.target.id;
-    this.setState({ todoList: [...this.state.todoList].filter(item => item.id !== removedItemId) });
+  removeTodoItem(id) {
+    const todoList = this.state.todoList;
+    const newList = todoList.filter(item => item.id !== id);
+    this.setState({ todoList: newList });
   }
 
   handleChange(event) {
@@ -81,6 +84,7 @@ class Homework2 extends React.Component {
     const name = event.target.name;
     this.setState({ newTodo: { ...this.state.newTodo, [name]: value } });
   }
+
   render() {
     return (
       <div className="main">
@@ -113,7 +117,7 @@ class Homework2 extends React.Component {
 
         <DynamicList
           listArray={this.state.todoList}
-          clickHandler={this.removeTodoItem.bind(this)}
+          removeTodoItem={this.removeTodoItem.bind(this)}
         />
       </div>
     );
