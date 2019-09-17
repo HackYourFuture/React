@@ -30,7 +30,7 @@ const DynamicList = ({ listArray, removeTodoItem }) => {
   );
 };
 
-class  Homework2 extends React.Component {
+class Homework2 extends React.Component {
   state = {
     todoList: [
       {

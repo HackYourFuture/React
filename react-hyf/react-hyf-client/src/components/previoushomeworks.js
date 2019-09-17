@@ -8,8 +8,7 @@ const PreviousHomeworks = () => {
       <h1 className="homework-headings">Homework1</h1>
       <Homework1 />
       <h1 className="homework-headings">Homework2</h1>
-      <Homework2 />
-      <h1 className="homework-headings">Homework3</h1>
+      <Homework2 />      
     </div>
   );
 };
