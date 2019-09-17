@@ -15,27 +15,38 @@ const Button = ({ text, onClick, id }) => {
 };
 
 //the goal of this component is to dynamically render todoList using map() function:
-class DynamicList extends React.Component {
-  render() {
-    const { items, deleteItem } = this.props;
-    return (
-      <ul>
-        {items.map((item, index) => (
-          <div key={index} className="item-wrapper">
-            <Item description={item.description} deadline={item.deadline} done={item.done} />
-            <Button id={item.id} type="button" text="Delete" onClick={deleteItem} />
-          </div>
-        ))}
-      </ul>
-    );
-  }
-}
+const DynamicList = props => {
+  const { items, deleteItem, toggleDone } = props;
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <div key={index} className="item-wrapper">
+          <Item description={item.description} deadline={item.deadline} done={item.done} />
+          <Button id={item.id} type="button" text="Delete" onClick={deleteItem} />
+          <span>{item.done ? '✅' : '⏱'}</span>
+          <input type="checkbox" checked={item.done} onChange={event => toggleDone(event, index)} />
+        </div>
+      ))}
+    </ul>
+  );
+};
 
-const UserInput = ({ addItem }) => {
+const UserInput = ({
+  addItem,
+  descriptionValue,
+  deadlineValue,
+  handleDescription,
+  handleDeadline,
+}) => {
   return (
     <form onSubmit={addItem}>
-      <input type="text" name="description" placeholder="Insert description" />
-      <input type="date" name="date" />
+      <input
+        type="text"
+        placeholder="Insert description"
+        value={descriptionValue}
+        onChange={handleDescription}
+      />
+      <input type="date" value={deadlineValue} onChange={handleDeadline} />
       <Button text="Add" />
     </form>
   );
@@ -68,24 +79,39 @@ class App extends React.Component {
           done: false,
         },
       ],
+      userDescription: '',
+      userDeadline: '',
     };
   }
+
+  handleUserDescription = event => {
+    this.setState({ userDescription: event.target.value });
+  };
+
+  handleUserDeadline = event => {
+    this.setState({ userDeadline: event.target.value });
+  };
+
+  toggleDone = (event, index) => {
+    const done = event.target.checked;
+    const newTodos = [...this.state.todoList];
+    newTodos[index].done = done;
+    this.setState({ todoList: newTodos });
+  };
+
   addItem = event => {
     event.preventDefault();
-    const description = event.target.description.value;
-    const deadline = event.target.date.value;
     const todoList = [...this.state.todoList]; //copy the old state array to the new array
     todoList.push({
       id: todoList[todoList.length - 1].id + 1,
-      description,
-      deadline,
+      description: this.state.userDescription,
+      deadline: this.state.userDeadline,
       done: false,
     });
     this.setState({ todoList });
   };
 
   deleteItem = event => {
-    console.log(event.target);
     event.preventDefault();
     const todoList = this.state.todoList.filter(item => {
       return item.id !== parseInt(event.target.id);
@@ -96,7 +122,18 @@ class App extends React.Component {
   render() {
     return (
       <div className="panel">
-        namicList items={this.state.todoList} deleteItem={this.deleteItem} />
+        <UserInput
+          addItem={this.addItem}
+          descriptionValue={this.state.userDescription}
+          deadlineValue={this.state.userDeadline}
+          handleDescription={this.handleUserDescription}
+          handleDeadline={this.handleUserDeadline}
+        />
+        <DynamicList
+          items={this.state.todoList}
+          deleteItem={this.deleteItem}
+          toggleDone={this.toggleDone}
+        />
       </div>
     );
   }
