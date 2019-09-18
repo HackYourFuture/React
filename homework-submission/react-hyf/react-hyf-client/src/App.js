@@ -5,7 +5,7 @@ import PreviousHomeworks from './PreviousHomeworks/previousHomeworks';
 function App() {
   return (
     <div>
-      <PreviousHomeworks />;
+      <PreviousHomeworks />
     </div>
   );
 }
