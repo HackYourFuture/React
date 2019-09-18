@@ -13,7 +13,7 @@ class TodoItems extends React.Component {
   render() {
     const todoEntries = this.props.entries;
     const listItems = todoEntries.map(this.createTasks);
-    return <ul className="theList">{listItems}</ul>;
+    return <ul className='theList'>{listItems}</ul>;
   }
 }
 const Button = ({ text, clickHandler }) => {
@@ -43,17 +43,13 @@ class TodoList extends React.Component {
       },
     ],
   };
-  setId = () => {
-    this.state.items.length >= 1
-      ? this.state.items[this.state.items.length - 1].id + 1
-      : (this.state.items.id = 0);
-  };
+
   addItem = event => {
     event.preventDefault();
     if (event.target.value !== '') {
       const newItem = {
         description: event.target.inputElement.value,
-        id: this.setId(),
+        id: this.state.items.length >= 1 ? this.state.items[this.state.items.length - 1].id + 1 : 0,
         deadline: '',
         done: false,
       };
@@ -77,11 +73,11 @@ class TodoList extends React.Component {
   };
   render() {
     return (
-      <div className="todoListMain">
-        <div className="header">
+      <div className='todoListMain'>
+        <div className='header'>
           <form onSubmit={this.addItem}>
-            <input placeholder="enter task" name="inputElement" />
-            <Button text="add" />
+            <input placeholder='enter task' name='inputElement' />
+            <Button text='add' />
           </form>
         </div>
         <TodoItems entries={this.state.items} delete={this.deleteItem} />
