@@ -22,6 +22,10 @@ body {
   text-align: center;
 }
 
+.header {
+  margin: auto;
+}
+
 .main {
   display: inline-block;
   margin: auto auto;
@@ -76,13 +80,9 @@ body {
   text-transform: capitalize;
 }
 
-.hidden {
-  display: none;
-}
-
 .error {
   align-self: center;
-  margin: auto;
+  margin: 20px auto;
   color: red;
 }
 
