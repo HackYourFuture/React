@@ -49,7 +49,7 @@ const AddingListItem = ({ submitHandler }) => {
   );
 };
 
-class PreviousHomework2 extends React.Component {
+class HomeworkWeek2 extends React.Component {
   state = {
     todoList: [
       {
@@ -142,4 +142,4 @@ class PreviousHomework2 extends React.Component {
   }
 }
 
-export default PreviousHomework2;
+export default HomeworkWeek2;
