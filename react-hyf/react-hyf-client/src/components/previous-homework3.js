@@ -91,9 +91,6 @@ class PreviousHomework3 extends React.Component {
                 name={`${profiles[this.state.filter][currentProfile].name} ${profiles[this.state.filter][currentProfile].surname}`}
               />
               <ProfileDetails profile={profiles[this.state.filter][currentProfile]} />
-              {/* <button onClick={() => this.fetchPeople('female')}>Fetch females</button>
-              <button onClick={() => this.fetchPeople('male')}>Fetch males</button>
-              <button onClick={() => this.fetchPeople('random')}>Fetch random</button> */}
             </>
           )}
         </div>

@@ -15,15 +15,21 @@ class GenderFilter extends React.Component {
   }
 
   changeGenderAndActiveStatus = async filter => {
-    if (filter === 'female') {
-      this.setState({ male: 'passive', female: 'active', random: 'passive' });
-    } else if (filter === 'male') {
-      this.setState({ male: 'active', female: 'passive', random: 'passive' });
-    } else if (filter === 'random') {
-      this.setState({ male: 'passive', female: 'passive', random: 'active' });
-    }
     const { onPress } = this.props;
-    onPress(filter);
+    if (filter === 'female') {
+      this.setState({ male: 'passive', female: 'active', random: 'passive' }, () =>
+        onPress(filter),
+      );
+    } else if (filter === 'male') {
+      this.setState({ male: 'active', female: 'passive', random: 'passive' }, () =>
+        onPress(filter),
+      );
+    } else if (filter === 'random') {
+      this.setState({ male: 'passive', female: 'passive', random: 'active' }, () =>
+        onPress(filter),
+      );
+    }
+    // onPress(filter);
   };
 
   render() {
