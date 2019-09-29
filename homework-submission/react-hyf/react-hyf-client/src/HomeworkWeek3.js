@@ -18,8 +18,8 @@ class HomeworkWeek3 extends Component {
   componentDidMount = e => {
     axios
       .get('https://uinames.com/api/?amount=10')
-      .then(response => {
-        this.setState({ apiData: response.data });
+      .then(({ data }) => {
+        this.setState({ apiData: data });
       })
       .catch(error => {
         console.log(error);
@@ -53,7 +53,7 @@ class HomeworkWeek3 extends Component {
   randomPerson() {
     const randomNumber = Math.floor(Math.random() * this.state.apiData.length);
     const randomPerson = this.state.apiData[randomNumber];
-    this.setState({ randomPerson: randomPerson });
+    this.setState({ randomPerson });
   }
 
   componentWillMount = () => {
@@ -61,7 +61,7 @@ class HomeworkWeek3 extends Component {
       if (e.charCode === 32) {
         const randomNumber = Math.floor(Math.random() * this.state.apiData.length);
         const randomPerson = this.state.apiData[randomNumber];
-        this.setState({ randomPerson: randomPerson });
+        this.setState({ randomPerson });
         this.getPicture();
       } else {
         console.log('error');
