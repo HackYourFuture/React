@@ -74,29 +74,33 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="container ">
-          <Header title="Static List" />
-          <ul className="list-group">
-            <StaticList description="Get out of bed" deadline="Wed Sep 13 2017" />
-            <StaticList description="Brush teeth" deadline="Thu Sep 14 2017" />
-            <StaticList description="Eat breakfast" deadline="Fri Sep 15 2017" />
-          </ul>
-        </div>
+      <div className="container ">
+        <div className="row ">
+          <div className="col-10 col-md-8 mx-auto">
+            <div>
+              <Header title="Static List" />
+              <ul className="list-group">
+                <StaticList description="Get out of bed" deadline="Wed Sep 13 2017" />
+                <StaticList description="Brush teeth" deadline="Thu Sep 14 2017" />
+                <StaticList description="Eat breakfast" deadline="Fri Sep 15 2017" />
+              </ul>
+            </div>
 
-        <div className="container ">
-          <Header title="Dynamic List" />
-          <ul>
-            {this.state.todos.map(todo => (
-              <DynamicList
-                key={todo.id}
-                description={todo.description}
-                deadline={todo.deadline}
-                done={todo.done}
-                handleComplete={this.handleComplete.bind(this, todo.id)}
-              />
-            ))}
-          </ul>
+            <div>
+              <Header title="Dynamic List" />
+              <ul className="list-group">
+                {this.state.todos.map(todo => (
+                  <DynamicList
+                    key={todo.id}
+                    description={todo.description}
+                    deadline={todo.deadline}
+                    done={todo.done}
+                    handleComplete={this.handleComplete.bind(this, todo.id)}
+                  />
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     );
