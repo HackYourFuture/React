@@ -72,16 +72,10 @@ class App extends React.Component {
     event.preventDefault();
     const list = this.state.todoList;
     const copyList = [...list];
-    const value = event.target.listItem.value;
-    const splitedValue = value.split(',');
-    let description = splitedValue[0];
-    let deadline = splitedValue[1];
     let idItem = 0;
-    let today = new Date();
-    const dd = String(today.getDate()).padStart(2, '0');
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const yyyy = today.getFullYear();
-    today = yyyy + '-' + mm + '-' + dd;
+
+    let { description, deadline } = this.splitToDescriptionAndDeadline(event.target.listItem.value);
+    const { today } = this.generateDate();
 
     const { descriptionValidation, deadlineValidation } = this.validator(description, deadline);
     if (!deadlineValidation) deadline = today;
@@ -100,6 +94,22 @@ class App extends React.Component {
     this.setState({
       todoList: copyList,
     });
+  };
+
+  splitToDescriptionAndDeadline = inputText => {
+    const splitedText = inputText.split(',');
+    let description = splitedText[0];
+    let deadline = splitedText[1];
+    return { description, deadline };
+  };
+
+  generateDate = () => {
+    let today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
+    return { today };
   };
 
   validator = (description, deadline) => {
