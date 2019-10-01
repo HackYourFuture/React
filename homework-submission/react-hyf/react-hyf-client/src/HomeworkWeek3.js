@@ -35,8 +35,8 @@ class HomeworkWeek3 extends Component {
   getPicture = e => {
     axios
       .get('https://randomuser.me/api/')
-      .then(response => {
-        let pictureGender = response.data.results[0].gender;
+      .then(({data}) => {
+        let pictureGender = data.results[0].gender;
         let userGender = this.state.randomPerson.gender;
         if (pictureGender === userGender) {
           let ProfilePicture = response.data.results[0].picture.large;
