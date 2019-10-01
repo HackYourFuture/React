@@ -1,7 +1,7 @@
 body {
   text-align: center;
   margin: 0;
-  background-color: #8fc06c;
+  background-color: darkgreen;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -14,11 +14,32 @@ code {
 h1 {
   color: white;
   font-size: 64px;
+  font-family: fantasy;
+  font-weight: normal;
+  animation: mymove 3s infinite;
 }
+@keyframes mymove {
+  from {
+    color: darkgreen;
+  }
+  to {
+    color: rgb(49, 139, 49);
+  }
+}
+
 img {
   border-radius: 50%;
-  padding: 5%;
+  padding: 3%;
+  width: 250px;
 }
 img:hover {
-  transform: scale(1.5);
+  border-radius: 0%;
+  transform: scale(1.1);
+}
+.container {
+  margin: 2% auto auto auto;
+  padding: 0 0 2% 0;
+  -webkit-box-shadow: 0px 0px 22px 12px rgba(0, 0, 0, 0.89);
+  box-shadow: 0px 0px 22px 12px rgba(0, 0, 0, 0.89);
+  background-color: #8fc06c;
 }

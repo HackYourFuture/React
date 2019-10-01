@@ -75,7 +75,7 @@ class HomeworkWeek3 extends Component {
         <div>
           <Back />
         </div>
-        <div>
+        <div className='container'>
           <ProfilePicture image={this.state.picture} />
           <Name name={this.state.randomPerson.name} surname={this.state.randomPerson.surname} />
           <Info gender={this.state.randomPerson.gender} region={this.state.randomPerson.region} />

@@ -5,8 +5,8 @@ import { Button } from 'reactstrap';
 const Back = () => {
   return (
     <div>
-      <Link to="/">
-        <Button color="danger" block>
+      <Link to='/'>
+        <Button color='secondary' block>
           Back
         </Button>
       </Link>
