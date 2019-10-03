@@ -29,7 +29,7 @@ In order to make use of CRA, you need to install it to your machine through the 
 - Make use of `componentDidMount()`
 - Put the returned JSON in state
 - Create reusable components, at least 3
-- Present the complete week 3 homework inside a container component called `<HomeworkWeek3 />`
+- Present the complete week 3 homework inside a container component called `<HomeworkWeek3 />` below the `<PreviousHomeworks />` component (or find another clever way to show both homework assignments on one page :-))
 - Write as little (repeated) code as possible (tip: make use of the `map()` function)
 
 3. Connect your CRA with a Express-based Node.js backend (Development server)
