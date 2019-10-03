@@ -1,7 +1,7 @@
 import React from 'react';
 import ListItem from '../items';
 
-function ListBody({ items }) {
+const ListBody = ({ items }) => {
   return (
     <ul className="listBody">
       {items.map(item => {
@@ -10,6 +10,6 @@ function ListBody({ items }) {
       })}
     </ul>
   );
-}
+};
 
 export default ListBody;

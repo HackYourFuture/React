@@ -29,17 +29,15 @@ const items = [
 // I created them in theirs Container/Parent Component.
 // passed all of them in theirs sub-Components in order to use them.
 
-// List component includes ListHeader and ListItem Components.
-
 function App() {
   return (
     <div className="App-header">
       <div className="StaticList">
         <ListHeader listName={'Static List'} />
         <ul>
-          <ListItem description={'Get out of bed'} deadline={'Wed Sep 13 2017'} />
-          <ListItem description={'Brush teeth'} deadline={'Thu Sep 14 2017'} />
-          <ListItem description={'Eat breakfast'} deadline={'Fri Sep 15 2017'} />
+          <ListItem description="Get out of bed" deadline="Wed Sep 13 2017" />
+          <ListItem description="Brush teeth" deadline="Thu Sep 14 2017" />
+          <ListItem description="Eat breakfast" deadline="Fri Sep 15 2017" />
         </ul>
       </div>
       <List listName={'Dynamic List'} items={items} />
