@@ -6,7 +6,10 @@ const Todo = props => {
   return (
     <li className={`Todo ${done ? 'done' : ''}`}>
       {(id || '') + ' ' + description}
-      <span>{deadline}</span>
+      <span>
+        {deadline}
+        <i className={`far ${done ? 'fa-check-square' : 'fa-square'}`}></i>
+      </span>
     </li>
   );
 };

@@ -1,0 +1,28 @@
+.Todo {
+  display: flex;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 2.5px;
+  background-color: slateblue;
+  border: 1px solid slategray;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.25rem;
+  height: 3rem;
+}
+
+.Todo:hover {
+  color: #0c0e11;
+  background-color: #8fafcf;
+}
+
+.Todo span {
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 10rem;
+  padding-right: 2rem;
+}
+
+.Todo.done {
+  font-weight: 100;
+  background-color: brown;
+}
