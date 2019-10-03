@@ -1,0 +1,21 @@
+.list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 300px;
+  height: 500px;
+  background-color: rgb(214, 192, 65);
+  border: 3px groove brown;
+  margin: 50px;
+  text-align: center;
+}
+
+ul {
+  margin: auto;
+  padding: 0px;
+}
+
+h3 {
+  margin: auto;
+  padding: 10px;
+}

@@ -1,0 +1,8 @@
+li {
+  list-style-type: none;
+  margin: 10px;
+}
+
+.isDone {
+  text-decoration: line-through;
+}
