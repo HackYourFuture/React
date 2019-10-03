@@ -13,8 +13,8 @@ function App() {
         <ListItem description="Eat breakfast" deadline="Fri Sep 15 2017" />
       </List>
       <List>
-        {data.map(item => (
-          <ListItem {...item} />
+        {data.map((item, index) => (
+          <ListItem key={index} {...item} />
         ))}
       </List>
     </div>
