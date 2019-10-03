@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Adham REact Week 1</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+    ></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+      .line_through {
+        text-decoration: line-through;
+      }
+
+      .no_line {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="thisIsWhereReactIsInjected"></div>
+
+    <script type="text/babel">
+      console.log('test');
+      let data = [
+        {
+          id: 1,
+          description: 'Get out of bed',
+          deadline: '2017-09-11',
+          done: true,
+        },
+        {
+          id: 2,
+          description: 'Brush teeth',
+          deadline: '2017-09-10',
+          done: false,
+        },
+        {
+          id: 3,
+          description: 'Eat breakfast',
+          deadline: '2017-09-09',
+          done: false,
+        },
+      ];
+
+      // ListItem component: it is to create HTML list item.
+      const ListItem = props => {
+        return (
+          <li className={props.done ? 'line_through' : 'no_line'}>
+            {props.description} , {props.deadline}.
+          </li>
+        );
+      };
+
+      // List component: it is to create HTML Unordered List:
+      const List = props => {
+        return <ul>{props.children}</ul>;
+      };
+
+      // Parent component: it is the container component, it create HTML Div, that contains all the above components.
+      class App extends React.Component {
+        state = {};
+        render() {
+          return (
+            <div>
+              <List>
+                <ListItem description="Get out of bed" deadline="Wed Sep 13 2017" />
+                <ListItem description="Brush teeth" deadline="Thu Sep 14 2017" />
+                <ListItem description="Eat breakfast" deadline="Fri Sep 15 2017" />
+              </List>
+              <List>
+                {data.map(item => (
+                  <ListItem {...item} />
+                ))}
+              </List>
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<App />, document.getElementById('thisIsWhereReactIsInjected'));
+    </script>
+  </body>
+</html>
