@@ -1,0 +1,9 @@
+body {
+  margin: 5px;
+  padding: 5px;
+  font-family: sans-serif;
+}
+.done {
+  color: red;
+  text-decoration: line-through;
+}
