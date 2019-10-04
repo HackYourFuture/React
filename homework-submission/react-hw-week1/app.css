@@ -1,0 +1,83 @@
+/* ELEMENT STYLES -------------------- */
+
+body {
+  background: #e8e7e7;
+  font-family: arial;
+  text-transform: uppercase;
+}
+
+header {
+  color: #fff;
+  padding: 5px 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: #8063fa;
+  border-bottom: solid 2px #d4caff;
+}
+
+header h3 {
+  flex-grow: 1;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* COMPONENT STYLES -------------------- */
+
+.todoList {
+  background: #fff;
+  width: 700px;
+  margin: 70px auto;
+  box-shadow: 0 2px 0 rgb(133, 104, 250);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.todoItem {
+  display: flex;
+  font-size: 1.2em;
+  border-bottom: solid 2px #eeeeee;
+  letter-spacing: 2px;
+}
+
+.todoItem-name {
+  flex-grow: 1;
+  line-height: 3.5em;
+  padding-left: 10px;
+}
+
+.stats {
+  margin: 0 0 0 28px;
+  font-weight: normal;
+  width: 170px;
+}
+
+.status {
+  display: flex;
+  width: 190px;
+}
+
+.todoItem-status {
+  border: none;
+  font-size: 1.15em;
+  font-weight: bold;
+  color: #b0aeba;
+  background-color: #dcdcdc;
+  display: block;
+  padding: 20px 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.todoItem-status:hover {
+  color: #fff;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
