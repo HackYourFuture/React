@@ -2,7 +2,7 @@ const Header = props => {
   return <h3 className="text-center text-danger mt-4">{props.title}</h3>;
 };
 
-const StaticList = ({ done, description, deadline }) => {
+const StaticListItem = ({ description, deadline }) => {
   return (
     <li className="bg-light list-group-item">
       {description}
@@ -12,7 +12,7 @@ const StaticList = ({ done, description, deadline }) => {
   );
 };
 
-const DynamicList = props => {
+const DynamicListItem = props => {
   return (
     <li
       className={
@@ -33,7 +33,7 @@ const DynamicList = props => {
 };
 
 class App extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       todos: [
@@ -74,15 +74,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container ">
-        <div className="row ">
+      <div className="container">
+        <div className="row">
           <div className="col-10 col-md-8 mx-auto">
             <div>
               <Header title="Static List" />
               <ul className="list-group">
-                <StaticList description="Get out of bed" deadline="Wed Sep 13 2017" />
-                <StaticList description="Brush teeth" deadline="Thu Sep 14 2017" />
-                <StaticList description="Eat breakfast" deadline="Fri Sep 15 2017" />
+                <StaticListItem description="Get out of bed" deadline="Wed Sep 13 2017" />
+                <StaticListItem description="Brush teeth" deadline="Thu Sep 14 2017" />
+                <StaticListItem description="Eat breakfast" deadline="Fri Sep 15 2017" />
               </ul>
             </div>
 
@@ -90,7 +90,7 @@ class App extends React.Component {
               <Header title="Dynamic List" />
               <ul className="list-group">
                 {this.state.todos.map(todo => (
-                  <DynamicList
+                  <DynamicListItem
                     key={todo.id}
                     description={todo.description}
                     deadline={todo.deadline}
