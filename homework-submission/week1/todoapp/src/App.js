@@ -1,27 +1,60 @@
 import React, { Component } from 'react';
-//we need to pass todo components to the todos.js component so via props we do it, first import todos component into here so we can nest it
-import Todos from './Todos';
-//name of our component and passed it a function inside that function we want to return some kind of template
+import Todostatic from './Todostatic';
+import Todosdynamic from './Todosdynamic';
+import AddTodo from './AddTodo';
 
 class App extends Component {
   state = {
-    todos: [
+    todostatic: [
       { id: 1, content: ' Get out of bed', deadline: 'Wed Sep 13 2017' },
       { id: 2, content: 'Brush teeth', deadline: 'Thu Sep 14 2017' },
       { id: 3, content: 'Eat breakfast', deadline: 'Fri Sep 15 2017' },
     ],
+    todosdynamic: [
+      {
+        id: 1,
+        description: 'Get out of bed',
+        deadline: '2017-09-11',
+        done: true,
+      },
+      {
+        id: 2,
+        description: 'Brush teeth',
+        deadline: '2017-09-10',
+        done: false,
+      },
+      {
+        id: 3,
+        description: 'Eat breakfast',
+        deadline: '2017-09-09',
+        done: false,
+      },
+    ],
   };
-  //we have our state stored in this route component
+
+  deleteTodo = id => {
+    const todosdynamic = this.state.todosdynamicdynamic.filter(todo => {
+      return todo.id !== id;
+    });
+    this.setState({
+      todosdynamic: todosdynamic,
+    });
+  };
+  addTodo = todo => {
+    todo.id = Math.random();
+    let todosdynamic = [...this.state.todosdynamic, todo];
+    this.setState({
+      todosdynamic: todosdynamic,
+    });
+  };
   render() {
-    //this is here our route component and its going to be a container which going to store the state of our application, we are going to store the todoes inside the state of this component
-    //this return is where we ultimately want to render our todos
-    // this is another component for listing individual todoes
     return (
-      //here we can nest our Todo component and pass it some props with name of todos, inside the curly brackets because it going to be dynamic and we are gonna pass it into todos property above
-      //{this.state.todos} >> this going to pass that array into the state component above, and we can access those todos inside the Todos file/component so we need to accept those props over there>> go to that file Todos.js to see more
-      <div className="App">
+      <div className="todo-app container">
         <h1 className="center blue-text">Todo's</h1>
-        <Todos todos={this.state.todos} />
+        <Todostatic todostatic={this.state.todostatic} />
+        <Todosdynamic todosdynamic={this.state.todosdynamic} deleteTodo={this.deleteTodo} />
+
+        <AddTodo addTodo={this.addTodo} />
       </div>
     );
   }
