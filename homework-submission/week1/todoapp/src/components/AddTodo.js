@@ -1,4 +1,5 @@
-/***********This file is optional for user input a todo to the list,all the command lines are nothing important they are for my personal learning*/
+/*This file get todo from user input and add it to list,
+ *!!!> commands are not important! just for self learning */
 
 // we need a local state for this component to store what are user types into the import field and since we need state this should be a class-based component
 // extends component>> to inherit the functionality of a component in react

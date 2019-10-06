@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Todostatic from './Todostatic';
-import Todosdynamic from './Todosdynamic';
-import AddTodo from './AddTodo';
+import Todostatic from './components/Todostatic';
+import Todosdynamic from './components/Todosdynamic';
+import AddTodo from './components/AddTodo';
 
 class App extends Component {
   state = {
