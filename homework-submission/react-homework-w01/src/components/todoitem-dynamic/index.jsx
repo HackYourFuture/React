@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 componentDidMount() {
     fetch("../../dynamiclist.json")
       .then(res => res.json())
-      .then(movies => this.setState({ todos }));
+      .then(todos => this.setState({ todos }));
   }
 
   but I failed miserably and gave up and went with this solution using props. I am bad :(
