@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { todoList } from './services/todoContents';
-import { initialState } from './services/todoContents';
+// import { initialState } from './services/todoContents';
 import Todo from './components/todo';
 import './App.css';
 import Input from './components/input';
-
+import uuid from 'uuid';
 function App() {
+  const initialState = {
+    id: uuid.v4(),
+    description: '',
+    deadline: '',
+    done: false,
+  };
+
   const [todoListState, setTodoListState] = useState(todoList);
   const [descAndDate, setDescAndDate] = useState(initialState);
   const [errors, setErrors] = useState({});
@@ -67,7 +74,7 @@ function App() {
           className="descriptionInput"
         />
         <Input handleChange={handleChange} value={descAndDate.date} type="date" name="deadline" />
-        <Input type="submit" value="+" />
+        <Input todoLength={todoListState.length} type="submit" value="+" />
       </form>
     </div>
   );

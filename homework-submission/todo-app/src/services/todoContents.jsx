@@ -1,4 +1,3 @@
-import uuid from 'uuid';
 export const todoList = [
   {
     id: 1,
@@ -19,10 +18,3 @@ export const todoList = [
     done: false,
   },
 ];
-
-export const initialState = {
-  id: uuid.v4(),
-  description: '',
-  deadline: '',
-  done: false,
-};
