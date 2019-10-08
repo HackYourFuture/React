@@ -1,0 +1,24 @@
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 1px 9px 0px rgb(176, 164, 164);
+  overflow: hidden;
+  border-radius: 10px;
+  height: 80vh;
+  margin-top: 14px;
+  width: 450px;
+}
+
+ul {
+  padding: 0;
+  margin-top: 0;
+}
+
+.form {
+  margin-top: auto;
+}
