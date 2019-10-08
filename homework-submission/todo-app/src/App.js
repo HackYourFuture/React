@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { todoList } from './services/todoContents';
-// import { initialState } from './services/todoContents';
 import Todo from './components/todo';
 import './App.css';
 import Input from './components/input';
@@ -19,10 +18,10 @@ function App() {
 
   const handleDone = id => {
     const todoIndex = todoListState.findIndex(todo => todo.id === id);
-    const todo = todoListState[todoIndex];
+    const newTodoListState = [...todoListState];
+    const todo = newTodoListState[todoIndex];
     todo.done = !todo.done;
-    todoListState[todoIndex] = todo;
-    setTodoListState([...todoListState]);
+    setTodoListState(newTodoListState);
   };
 
   const removeHandler = id => {
