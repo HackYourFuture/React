@@ -27,7 +27,7 @@ const TodoList = props => {
   ];
 
   // using local storage to get the todos
-  const userTodos = JSON.parse(window.localStorage.getItem('todos') || defaultTodos);
+  const userTodos = JSON.parse(window.localStorage.getItem('todos')) || defaultTodos;
   // custom hooks
   const { todos, addTodo, toggleComplete, removeTodo, updateTodo } = useTodoState(userTodos);
 
