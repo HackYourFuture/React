@@ -55,5 +55,3 @@ const TodoList = props => {
 };
 
 export default TodoList;
-
-// TodoList is the parent component of Todo.
