@@ -5,7 +5,8 @@
   "dependencies": {
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "shortid": "^2.2.15"
   },
   "scripts": {
     "start": "react-scripts start",
