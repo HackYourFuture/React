@@ -1,0 +1,41 @@
+.EditForm {
+  width: 96%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.EditForm input {
+  box-sizing: border-box;
+  height: 2rem;
+  line-height: 1.5;
+  color: #edeff1;
+  text-align: center;
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed #83a4c5;
+  outline: none;
+  font-size: 1.1rem;
+}
+
+.EditForm-button {
+  box-sizing: border-box;
+  border-radius: 25%;
+  height: 25px;
+  width: 25px;
+  background-color: rgb(240, 27, 27);
+  border: none;
+  transition: 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(213, 210, 233);
+  font-size: 2rem;
+  margin: 10px;
+  padding: 0;
+}
+
+.EditForm-button:hover {
+  font-size: 1.5rem;
+}

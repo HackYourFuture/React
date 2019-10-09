@@ -1,0 +1,39 @@
+.Todo {
+  display: flex;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 2.5px;
+  background-color: slateblue;
+  border: 1px solid slategray;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.25rem;
+  height: 3rem;
+}
+
+.Todo:hover {
+  background-color: rgba(77, 55, 216, 0.876);
+}
+
+.Todo span {
+  background-color: transparent;
+  color: aliceblue;
+}
+
+.Todo.done {
+  font-weight: 100;
+  background-color: brown;
+}
+
+.Todo-description {
+  flex-basis: 20rem;
+}
+
+.Todo-deadline {
+  flex-basis: 5rem;
+  font-size: 0.8rem;
+}
+
+.Todo-remove,
+.Todo-complete {
+  flex-basis: 2rem;
+}
