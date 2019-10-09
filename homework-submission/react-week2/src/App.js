@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import TodoItems from './components/TodoItems/TodoItems';
+import AddItem from './components/AddItem/AddItem';
+import todoData from './components/todoData/todoData';
+const shortid = require('shortid');
 
-function App() {
+const App = () => {
+  const [data, setData] = useState({
+    items: todoData,
+  });
+
+  const deleteItemFnc = id => {
+    let items = data.items.filter(item => item.id !== id);
+    setData({ items });
+  };
+  const addItemFnc = item => {
+    item.id = shortid.generate();
+    const items = data.items;
+    items.push(item);
+    setData({ items });
+  };
+  const checkBoxFnc = id => {
+    const items = data.items;
+    const itemIndex = items.findIndex(item => item.id === id);
+    items[itemIndex].done ? (items[itemIndex].done = false) : (items[itemIndex].done = true);
+    setData({ items });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      <h3 className="text-center">Todo list App</h3>
+      <TodoItems items={data.items} deleteItemFnc={deleteItemFnc} checkBoxFnc={checkBoxFnc} />
+      <AddItem addItemFnc={addItemFnc} />
+      <button onClick={() => console.log(data)}>console.log(state)</button>
     </div>
   );
-}
+};
 
 export default App;

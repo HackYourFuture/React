@@ -1,13 +1,95 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  margin: 0;
+  padding: 0;
+  background: #7d7b7b;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+.line_through {
+  text-decoration: line-through;
+}
+.container {
+  width: 85%;
+  margin: 5px auto;
+}
+
+.ListItems {
+  background: #fff;
+  color: #495f6a;
+}
+.ListItems p {
+  margin: 0;
+  text-align: center;
+  padding: 10px 0px;
+}
+
+.ListItems span {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 0px;
+  font-size: 14px;
+  border: 0.3px solid #ccc;
+}
+.ListItems span.title {
+  background: #2ebaee;
+  color: #fff;
+}
+
+.ListItems span.description,
+form input[type='text'] {
+  width: 50%;
+  text-align: left;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.ListItems span.deadline,
+form input[type='date'] {
+  width: 25%;
+}
+.ListItems span.action,
+form input[type='submit'] {
+  width: 15%;
+}
+.ListItems span.check-column {
+  width: 10%;
+}
+input[type='checkbox'] {
+  margin: 0px;
+}
+
+.ListItems span.icon {
+  color: #c84316;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+form {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+form input {
+  padding: 10.5px;
+  background: #ebebeb;
+  border: transparent;
+  border: 0.3px solid #ccc;
+}
+form input[type='date'] {
+  padding: 8px;
+  margin: 0px;
+}
+
+form input[type='submit'] {
+  background: #2ebaee;
+  border: 0.3px solid #2ebaee;
+  color: #fff;
+  cursor: pointer;
 }
