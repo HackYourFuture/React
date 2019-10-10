@@ -1,0 +1,35 @@
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  color: white;
+}
+
+.ListHeader {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  box-shadow: 2px 2px 18px -2px rgba(0, 0, 0, 0.75);
+}
+
+.form {
+  display: flex;
+}
+
+.btn {
+  margin: 30px;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: cadetblue;
+}
