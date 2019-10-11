@@ -20,7 +20,7 @@ const TodoList = props => {
     },
     {
       id: 3,
-      descriptiondefaultTodos: 'Eat breakfast',
+      description: 'Eat breakfast',
       deadline: '2017-09-09',
       done: false,
     },
