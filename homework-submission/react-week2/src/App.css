@@ -1,0 +1,37 @@
+*{
+  margin:0px;
+  padding:0px;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.App {
+  text-align: center;
+}
+
+h1{
+background-color:purple;
+color:white;
+padding:5px;
+}
+
+input{
+  margin:5px;
+}
+
+.remove-btn{
+  height: 20px;
+  width: 20px;
+  margin:20px;
+  border-radius: 50%;
+  background-color: rgb(158, 52, 123);
+}
+
+.itemInput{
+  padding:5px;
+}
+
