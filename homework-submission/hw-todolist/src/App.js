@@ -1,0 +1,88 @@
+import React, { useState } from 'react';
+import TodoList from './components/TodoList/index';
+import TodoForm from './components/TodoForm/index';
+import './App.css';
+
+function App() {
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      description: 'Get out of bed',
+      deadline: '2017-09-11',
+      done: true,
+    },
+    {
+      id: 2,
+      description: 'Brush teeth',
+      deadline: '2017-09-10',
+      done: false,
+    },
+    {
+      id: 3,
+      description: 'Eat breakfast',
+      deadline: '2017-09-09',
+      done: false,
+    },
+  ]);
+
+  const [description, setDescription] = useState('');
+  const [date, setDate] = useState('');
+  const [complete, setComplete] = useState(false);
+
+  const handleChange = event => {
+    const descTodo = event.target.value;
+    setDescription(descTodo);
+  };
+
+  const handleDateChange = event => {
+    const dateTodo = event.target.value;
+    setDate(dateTodo);
+  };
+
+  const addTodo = event => {
+    event.preventDefault();
+    const todoToAdd = {
+      id: todos.length + 1,
+      description: description,
+      deadline: date,
+      done: complete,
+    };
+    if (description === '') {
+      setTodos(todos);
+    } else {
+      const newTodos = [...todos, todoToAdd];
+      setTodos(newTodos);
+    }
+  };
+
+  const deleteTodo = id => {
+    const newTodos = todos.filter(todo => todo.id !== id);
+    setTodos(newTodos);
+  };
+
+  const markTodo = (id, done) => {
+    const allTodos = [...todos];
+    const index = allTodos.findIndex(todo => todo.id === id);
+    allTodos[index].done = !done;
+    setComplete({ data: allTodos });
+  };
+
+  return (
+    <div className="App">
+      <h1>Todos</h1>
+      <div className="Todo-Form">
+        <TodoForm
+          addTodo={addTodo}
+          value={todos.value}
+          handleChange={handleChange}
+          handleDateChange={handleDateChange}
+        />
+      </div>
+      <div className="Todo-List">
+        <TodoList todos={todos} deleteTodo={deleteTodo} markTodo={markTodo} />
+      </div>
+    </div>
+  );
+}
+
+export default App;

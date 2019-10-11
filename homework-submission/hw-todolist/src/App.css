@@ -1,0 +1,71 @@
+body {
+  height: 100%;
+  padding: 1em;
+  display: grid;
+  background: #abf9e9;
+  font-weight: bold;
+}
+
+.App {
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  padding: 20px;
+  letter-spacing: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 3em;
+}
+
+table {
+  margin: auto;
+}
+
+div {
+  min-height: 100px;
+}
+
+.Todo-Form {
+  height: 100%;
+}
+
+input:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  width: 80%;
+  height: 20px;
+  margin: 0 auto;
+}
+
+div:nth-child(1) {
+  background-color: rgba(97, 33, 156, 0.338);
+}
+
+div:nth-child(2) {
+  background-color: rgb(66, 66, 201);
+}
+
+.Todo-List {
+  margin-bottom: 100px;
+}
+
+tr {
+  background-color: rgb(248, 236, 219);
+}
+
+th,
+td {
+  color: rgb(66, 66, 201);
+  padding: 20px;
+}
+
+button {
+  font-weight: bold;
+  margin: 10px;
+  height: 30px;
+  border-radius: 10%;
+  border: solid 1px black;
+}
