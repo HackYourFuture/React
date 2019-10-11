@@ -4,6 +4,7 @@ function Input({ type = 'text', placeholder, value, name, handleChangeInput }) {
   return (
     <div>
       <input
+        className="input" 
         type={type}
         placeholder={placeholder}
         value={value}
@@ -14,4 +15,4 @@ function Input({ type = 'text', placeholder, value, name, handleChangeInput }) {
   );
 }
 
-export default Input;
+export default Input; 

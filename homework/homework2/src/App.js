@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Button from './components/button';
 import Input from './components/input';
-import todoShow from './components/todo';
+import Todo from './components/todo';
 function App () {
   const [todos, setTodos] = useState([
     {
@@ -32,24 +32,27 @@ function App () {
     deadline: '',
     done: false,
   });
-console.log(form);
-  const handleChangeInput = e => {
-    const newTodo = e.target.value;
-    const key = [e.target.name];
+
+  const handleChangeInput = event => {
+    const newTodo = event.target.value;
+    const key = [event.target.name];
     const newForm = { ...form, [key]: newTodo };
     setForm(newForm);
   };
+
   const handleDeleteTodo = (id) => {
-    const removeTodo = todos.filter(item=>item.id!==id);
-    setTodos(removeTodo);
+    const newTodos = todos.filter(item=>item.id!==id);
+    setTodos(newTodos);
   };
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = event => {
+    event.preventDefault();
     if (form.description&&form.deadline) {
-      setTodos([...Input, form]);
+      setTodos([...todos, form]);
       setForm({
+        id: todos.length+1,
         description: '',
         deadline: '',
+        done: false,
       });
     } else {window.alert('Please enter a todo');
     }
@@ -77,9 +80,9 @@ console.log(form);
             value={form.deadline}
             name="deadline"
             handleChangeInput={handleChangeInput}/>
-          <Button value={'Add'}/>
+          <Button  value={'Add'}/>
        </form>
-        <button className="btn" onClick={toggleList}>
+        <button className="button" onClick={toggleList}>
           {buttonText ? 'hide' : 'show'}
         </button>
           {showTodoList && (
@@ -87,13 +90,12 @@ console.log(form);
           {todos.map(todo => {
             const { id, description, deadline, done } = todo;
             return (
-              <todoShow
+              <Todo
                 key={id}
-                id={id}
                 description={description}
                 deadline={deadline}
                 done={done}
-                handleRemoveItem={handleDeleteTodo}
+                handleDeleteTodo={handleDeleteTodo}
               />
             );
           })}
@@ -101,6 +103,5 @@ console.log(form);
       )}
       </div>
     );
-};
-
+}
 export default App;
