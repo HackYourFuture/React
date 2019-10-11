@@ -49,8 +49,10 @@ function App() {
     } else {
       setTodos([...Todos, form]);
       setForm({
+        id: uuid.v4(),
         description: '',
         deadline: '',
+        done: false,
       });
     }
   };
@@ -64,6 +66,7 @@ function App() {
   const [buttonText, setButtonText] = useState(false);
 
   const toggleList = () => {
+    // eslint-disable-next-line
     return setShowTodoLIst(!showTodoLIst), setButtonText(!buttonText);
   };
 
@@ -97,7 +100,7 @@ function App() {
             const { id, description, deadline, done } = todo;
             return (
               <List
-                id={id}
+                key={id}
                 description={description}
                 deadline={deadline}
                 done={done}
