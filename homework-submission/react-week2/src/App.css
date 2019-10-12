@@ -24,7 +24,7 @@ padding:5px;
 li{
 display:flex;
 align-items:center;
-justify-content:space-around;
+justify-content:space-between;
 background: rgba(226, 222, 217, 0.171);
 border-bottom:1px dotted black;
 }
@@ -41,12 +41,20 @@ input{
   background-color: rgb(158, 52, 123);
 }
 
-.input-and-button{
-  display: flex;
+.add-btn{
+  background-color:rgb(196, 145, 196);
+  padding:10px;
+  color:white;
+  border:1px solid rgb(180, 137, 166);
 }
 
 .itemInput{
-  padding:5px;
-  
+  margin:0px;
+  padding:10px;
+  width: 95%;
+}
+
+.itemInput::placeholder{
+  color:rgb(180, 137, 166);
 }
 

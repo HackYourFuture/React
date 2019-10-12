@@ -54,17 +54,13 @@ function App() {
     setTodoItems(newList)
   }
 
-
-
-  
-
- 
-
   return <div className="App">
-  <TodoList input={<HyfInput onHandleInputChange={onHandleInputChange}/>} 
+  <TodoList 
+  input={<HyfInput onHandleInputChange={onHandleInputChange}/>} 
   button={<HyfButton onHandleClick={onHandleClick} />} 
   children={toDoItems.map(item => 
-  <TodoItems name={item.name} 
+  <TodoItems 
+   name={item.name} 
    key={uniqid(item.name.substring(1, 3))}
    handleCheckboxChange={() => onHandleCheckboxChange(item.name)}
    done={isDone.find(d=> d.name === item.name)}
