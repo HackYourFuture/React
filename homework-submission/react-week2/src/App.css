@@ -19,6 +19,16 @@ color:white;
 padding:5px;
 }
 
+
+
+li{
+display:flex;
+align-items:center;
+justify-content:space-around;
+background: rgba(226, 222, 217, 0.171);
+border-bottom:1px dotted black;
+}
+
 input{
   margin:5px;
 }
@@ -31,7 +41,12 @@ input{
   background-color: rgb(158, 52, 123);
 }
 
+.input-and-button{
+  display: flex;
+}
+
 .itemInput{
   padding:5px;
+  
 }
 
