@@ -7,6 +7,8 @@ import "./App.css";
 
 
 function App() {
+  const uniqid = require('uniqid')
+
   const [toDoItems, setTodoItems] = useState([
     {
       name: "eat cheese"
@@ -18,23 +20,21 @@ function App() {
       name: "dont fall over"
     }
   ]);
+  
+  const [addItem, setAddItem] = useState({})
+  
 
-  const [addItem, setAddItem] = useState(
-    {
-      name: "",
-    }
-  )
+    console.log(toDoItems)
 
+  
   const handleRemove = (name) => {
-  const removeTodo = toDoItems.filter(item => item.name !== name)
+    const removeTodo = toDoItems.filter(item => item.name !== name)
   setTodoItems(removeTodo)
   }
 
   const onHandleInputChange = e => {
    const name= e.target.value
-   const newItem = {
-     name
-   }
+   const newItem = { name }
    console.log(newItem)
    setAddItem(newItem)
   }
@@ -50,8 +50,11 @@ function App() {
  
 
   return <div className="App">
-  <TodoList input={<HyfInput onHandleInputChange={onHandleInputChange}/>} button={<HyfButton onHandleClick={onHandleClick} />} children={toDoItems.map(item => 
-   <TodoItems name={item.name} 
+  <TodoList input={<HyfInput onHandleInputChange={onHandleInputChange}/>} 
+  button={<HyfButton onHandleClick={onHandleClick} />} 
+  children={toDoItems.map(item => 
+  <TodoItems name={item.name} 
+  key={uniqid(item.name.substring(1, 3))}
    buttonText={'x'} 
    handleRemove={() => handleRemove(item.name)}/>)} />
   </div>;
