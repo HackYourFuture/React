@@ -2,8 +2,6 @@ import React from 'react';
 import useInputState from '../hooks/useInputState';
 import './TodoForms.css';
 
-import uuid from 'uuid/v4';
-
 const TodoForms = props => {
   // custom hooks for inputs
   const [description, handleDescription, resetDescription] = useInputState('');
@@ -11,7 +9,7 @@ const TodoForms = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.addTodo({ id: uuid(), description, deadline, done: false });
+    props.addTodo({ description, deadline, done: false });
     resetDescription();
     resetDeadline();
   };
