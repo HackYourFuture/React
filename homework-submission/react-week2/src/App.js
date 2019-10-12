@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-// import HyfButton from "./components/HyfButton";
+import HyfButton from "./components/HyfButton";
 import HyfInput from "./components/HyfInput";
 import TodoList from './components/TodoList'
 import TodoItems from './components/TodoItems'
 import "./App.css";
-import HyfButton from "./components/HyfButton";
+
 
 function App() {
   const [toDoItems, setTodoItems] = useState([
@@ -19,13 +19,38 @@ function App() {
     }
   ]);
 
+  const [addItem, setAddItem] = useState(
+    {
+      name: "",
+    }
+  )
+
   const handleRemove = (name) => {
-  const newTodo = toDoItems.filter(item => item.name !== name)
-  setTodoItems(newTodo)
+  const removeTodo = toDoItems.filter(item => item.name !== name)
+  setTodoItems(removeTodo)
   }
 
+  const onHandleInputChange = e => {
+   const name= e.target.value
+   const newItem = {
+     name
+   }
+   console.log(newItem)
+   setAddItem(newItem)
+  }
+
+  const onHandleClick = () => {
+    const newList = [...toDoItems, addItem]
+    console.log(newList)
+    setTodoItems(newList)
+  }
+
+  
+
+ 
+
   return <div className="App">
-   <TodoList input={<HyfInput />} button={<HyfButton />} children={toDoItems.map(item => 
+  <TodoList input={<HyfInput onHandleInputChange={onHandleInputChange}/>} button={<HyfButton onHandleClick={onHandleClick} />} children={toDoItems.map(item => 
    <TodoItems name={item.name} 
    buttonText={'x'} 
    handleRemove={() => handleRemove(item.name)}/>)} />
