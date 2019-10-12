@@ -1,5 +1,11 @@
+/* using the default CSS of create react app, will fix ....later :o */
+
 .App {
   text-align: center;
+}
+
+.todo-complete {
+  text-decoration-line: line-through;
 }
 
 .App-logo {
