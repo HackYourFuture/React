@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 
 export class TodoItem extends Component {
   render() {
-    const { id, description, done } = this.props.todo;
+    const { id, description, done, deadline } = this.props.todo;
 
     return (
-      <div>
-        <p style={{ textDecoration: done ? 'line-through' : 'none' }}>
-          {description}{' '}
-          <input type="checkbox" onChange={this.props.markComplete.bind(this, id)}></input>
-        </p>
-      </div>
+      <li style={{ textDecoration: done ? 'line-through' : 'none' }}>
+        {description} {deadline}
+        <input type="checkbox" onChange={this.props.markComplete.bind(this, id)}></input>
+      </li>
     );
   }
 }

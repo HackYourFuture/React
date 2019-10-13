@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Todos, StaticTodos } from './components/Todos';
+import { Todos, StaticTodo } from './components/Todos';
 
 class App extends React.Component {
   // Dynamic List
@@ -44,9 +44,7 @@ class App extends React.Component {
       <div className="App">
         <h2>Static list: </h2>
         <ul>
-          <StaticTodos description="Get out of bed" deadline="Wed Sep 13 2017" />
-          <StaticTodos description="Brush teeth" deadline="Wed Sep 13 2017" />
-          <StaticTodos description="Brush teeth" deadline="Wed Sep 13 2017" />
+          <StaticTodo markComplete={this.markComplete} />
         </ul>
         <h2>Dynamic List:</h2>
         <Todos todos={this.state.todos} markComplete={this.markComplete} />
