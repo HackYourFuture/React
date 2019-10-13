@@ -31,7 +31,8 @@ class Form extends Component {
     return (
       <div>
         <form onSubmit={this.props.click}>
-          <input type="text" name="description" className="item" />
+          <input type="number" name="id" placeholder="ïd" className="item" />
+          <input type="text" name="description" placeholder="description" className="item" />
           <input type="date" name="deadline" className="item" />
           <button className="btn-add-item">Add New Item</button>
         </form>
@@ -82,7 +83,7 @@ class DynamicList extends Component {
       items: [
         ...this.state.items,
         {
-          id: 5,
+          id: event.target.id.value,
           description: event.target.description.value,
           done: false,
           deadline: event.target.deadline.value
