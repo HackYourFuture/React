@@ -1,22 +1,54 @@
-.App {
+#root div {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr;
   text-align: center;
+  margin: auto;
 }
-
-.App-logo {
-  height: 40vmin;
+h1 {
+  opacity: 0.7;
 }
+body {
+  background-color: darkmagenta;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+ul {
+  list-style-type: none;
+  width: 80%;
+  margin: auto;
+}
+li,
+form {
+  display: grid;
+  grid-template-columns: 10fr 1fr 4fr;
+  grid-template-rows: 1fr 1fr;
+  background-color: darkorchid;
+  padding: 3%;
+  border-bottom: 2px solid darkmagenta;
+}
+
+p,
+input {
+  grid-column: 1/2;
+  border: none;
+  border-bottom: 1px solid darkorchid;
+  opacity: 0.9;
+  text-align: center;
+}
+button {
+  grid-row: 1/3;
+  grid-column: 3/4;
+  border: none;
+  background-color: rgb(114, 12, 105);
+  color: white;
+  border-radius: 3px;
+  opacity: 0.8;
+}
+input {
+  outline: none;
+  background-color: darkviolet;
+  font-size: 15px;
+  color: white;
 }
