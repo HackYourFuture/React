@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
 import uuid from 'uuid';
-import List from './components/list';
+import ListItem from './components/listItem';
 import ListHeader from './components/listHeader';
 import Input from './components/Input';
 import Button from './components/Button';
 
 function App() {
-  const [Todos, setTodos] = useState([
+  const [todos, setTodos] = useState([
     {
       id: uuid.v4(),
       description: 'Get out of bed',
@@ -47,7 +47,7 @@ function App() {
     if (form.description.length === 0) {
       window.alert('empty description is not allowed ');
     } else {
-      setTodos([...Todos, form]);
+      setTodos([...todos, form]);
       setForm({
         id: uuid.v4(),
         description: '',
@@ -58,17 +58,19 @@ function App() {
   };
 
   const handleRemoveItem = description => {
-    const removeItem = Todos.filter(todo => todo.description !== description);
+    const removeItem = todos.filter(todo => todo.description !== description);
     console.log(removeItem);
     setTodos(removeItem);
   };
 
   const [showTodoLIst, setShowTodoLIst] = useState(false);
-  const [buttonText, setButtonText] = useState(false);
 
   const toggleList = () => {
-    // eslint-disable-next-line
-    return setShowTodoLIst(!showTodoLIst), setButtonText(!buttonText);
+    return setShowTodoLIst(!showTodoLIst);
+  };
+
+  const onFocusInput = e => {
+    e.currentTarget.type = 'date';
   };
 
   return (
@@ -76,6 +78,7 @@ function App() {
       <ListHeader listName="Todo List" />
       <form className="form" onSubmit={handleSubmit}>
         <Input
+          type="text"
           placeholder="description..."
           value={form.description}
           name="description"
@@ -86,21 +89,22 @@ function App() {
           value={form.deadline}
           name="deadline"
           handleChangeInput={handleChangeInput}
+          onFocusInput={onFocusInput}
         />
         <Button value={'Add'} />
       </form>
 
       <button className="btn" onClick={toggleList}>
-        {buttonText ? 'hide' : 'show'}
-        {buttonText} my list
+        {showTodoLIst ? 'hide' : 'show'}
+        {showTodoLIst} my list
       </button>
 
       {showTodoLIst && (
         <div className="container">
-          {Todos.map(todo => {
+          {todos.map(todo => {
             const { id, description, deadline, done } = todo;
             return (
-              <List
+              <ListItem
                 key={id}
                 description={description}
                 deadline={deadline}

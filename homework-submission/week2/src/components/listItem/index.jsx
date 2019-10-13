@@ -1,7 +1,7 @@
 import React from 'react';
-import '../list/index.css';
+import './index.css';
 
-function List({ id, description, deadline, handleRemoveItem }) {
+function ListItem({ id, description, deadline, handleRemoveItem }) {
   return (
     <h3 id={id} className="list" onClick={() => handleRemoveItem(description)}>
       Description : {description} Deadline : {deadline}
@@ -9,4 +9,4 @@ function List({ id, description, deadline, handleRemoveItem }) {
   );
 }
 
-export default List;
+export default ListItem;

@@ -1,17 +1,16 @@
 import React from 'react';
 
-function Input({ type = 'text', placeholder, value, name, handleChangeInput }) {
+function Input({ type = 'text', placeholder, value, name, handleChangeInput, onFocusInput }) {
   return (
-    <div>
-      <input
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        name={name}
-        size={25}
-        onChange={handleChangeInput}
-      />
-    </div>
+    <input
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      name={name}
+      size={17}
+      onChange={handleChangeInput}
+      onFocus={onFocusInput}
+    />
   );
 }
 
