@@ -32,6 +32,7 @@ class Form extends Component {
       <div>
         <form onSubmit={this.props.click}>
           <input type="text" name="description" className="item" />
+          <input type="date" name="deadline" className="item" />
           <button className="btn-add-item">Add New Item</button>
         </form>
       </div>
@@ -84,7 +85,7 @@ class DynamicList extends Component {
           id: 5,
           description: event.target.description.value,
           done: false,
-          deadline: '2017-09-09'
+          deadline: event.target.deadline.value
         }
       ]
     });
@@ -92,10 +93,10 @@ class DynamicList extends Component {
   };
 
   render() {
-    const todos = this.state.items.map(item => {
+    const todos = this.state.items.map((item, index) => {
       return (
         <TodoItem
-          click={this.deleteItemHandler}
+          click={() => this.deleteItemHandler(index)}
           key={item.id}
           description={item.description}
           deadline={item.deadline}
