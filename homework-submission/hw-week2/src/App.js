@@ -96,6 +96,7 @@ class App extends React.Component {
           itemName="Todo List"
           items={this.state.todo.map((item, index) => (
             <Item
+              key={item.id}
               description={item.description}
               deadline={item.deadline}
               removeHandler={() => this.removeItem(index)}
