@@ -26,54 +26,67 @@ class TodoItem extends Component {
   }
 }
 
-class AddItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [
-        {
-          id: 1,
-          description: 'Get out of bed',
-          deadline: '2017-09-11',
-          done: true
-        },
-        {
-          id: 2,
-          description: 'Brush teeth',
-          deadline: '2017-09-10',
-          done: false
-        },
-        {
-          id: 3,
-          description: 'Eat breakfast',
-          deadline: '2017-09-09',
-          done: false
-        }
-      ]
-    };
-    this.onSubmitHandle = this.onSubmitHandle.bind(this);
-  }
+// class AddItem extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       items: [
+//         {
+//           id: 1,
+//           description: 'Get out of bed',
+//           deadline: '2017-09-11',
+//           done: true
+//         },
+//         {
+//           id: 2,
+//           description: 'Brush teeth',
+//           deadline: '2017-09-10',
+//           done: false
+//         },
+//         {
+//           id: 3,
+//           description: 'Eat breakfast',
+//           deadline: '2017-09-09',
+//           done: false
+//         }
+//       ]
+//     };
+//     this.onSubmitHandle = this.onSubmitHandle.bind(this);
+//   }
 
-  onSubmitHandle = event => {
-    event.preventDefault();
-    this.setState({
-      items: [
-        ...this.state.items,
-        {
-          id: Date.now(),
-          description: event.target.description.value,
-          done: false,
-          deadline: new Date()
-        }
-      ]
-    });
-    event.target.description.value = '';
-  };
+//   onSubmitHandle = event => {
+//     event.preventDefault();
+//     this.setState({
+//       items: [
+//         ...this.state.items,
+//         {
+//           id: Date.now(),
+//           description: event.target.description.value,
+//           done: false,
+//           deadline: new Date()
+//         }
+//       ]
+//     });
+//     event.target.description.value = '';
+//   };
 
+//   render() {
+//     return (
+//       <div>
+//         <form onSubmit={this.onSubmitHandle}>
+//           <input type="text" name="description" className="item" />
+//           <button className="btn-add-item">Add New Item</button>
+//         </form>
+//       </div>
+//     );
+//   }
+// }
+
+class Form extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.onSubmitHandle.bind(this)}>
+        <form onSubmit={this.props.click}>
           <input type="text" name="description" className="item" />
           <button className="btn-add-item">Add New Item</button>
         </form>
@@ -108,6 +121,7 @@ class DynamicList extends Component {
       ]
     };
     this.deleteItemHandler = this.deleteItemHandler.bind(this);
+    this.onSubmitHandle = this.onSubmitHandle.bind(this);
   }
 
   deleteItemHandler = itemIndex => {
@@ -117,12 +131,28 @@ class DynamicList extends Component {
     this.setState({ items: items });
   };
 
+  onSubmitHandle = event => {
+    event.preventDefault();
+    this.setState({
+      items: [
+        ...this.state.items,
+        {
+          id: 5,
+          description: event.target.description.value,
+          done: false,
+          deadline: '2017-09-09'
+        }
+      ]
+    });
+    event.target.description.value = '';
+  };
+
   render() {
-    const todos = this.state.items.map((item, i) => {
+    const todos = this.state.items.map(item => {
       return (
         <TodoItem
-          click={() => this.deleteItemHandler(i)}
-          key={i}
+          click={this.deleteItemHandler}
+          key={item.id}
           description={item.description}
           deadline={item.deadline}
           done={item.done}
@@ -133,7 +163,7 @@ class DynamicList extends Component {
       <div className="todoList">
         <Header />
         {todos}
-        <AddItem />
+        <Form click={this.onSubmitHandle} />
       </div>
     );
   }
