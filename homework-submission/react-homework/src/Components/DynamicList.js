@@ -26,62 +26,6 @@ class TodoItem extends Component {
   }
 }
 
-// class AddItem extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       items: [
-//         {
-//           id: 1,
-//           description: 'Get out of bed',
-//           deadline: '2017-09-11',
-//           done: true
-//         },
-//         {
-//           id: 2,
-//           description: 'Brush teeth',
-//           deadline: '2017-09-10',
-//           done: false
-//         },
-//         {
-//           id: 3,
-//           description: 'Eat breakfast',
-//           deadline: '2017-09-09',
-//           done: false
-//         }
-//       ]
-//     };
-//     this.onSubmitHandle = this.onSubmitHandle.bind(this);
-//   }
-
-//   onSubmitHandle = event => {
-//     event.preventDefault();
-//     this.setState({
-//       items: [
-//         ...this.state.items,
-//         {
-//           id: Date.now(),
-//           description: event.target.description.value,
-//           done: false,
-//           deadline: new Date()
-//         }
-//       ]
-//     });
-//     event.target.description.value = '';
-//   };
-
-//   render() {
-//     return (
-//       <div>
-//         <form onSubmit={this.onSubmitHandle}>
-//           <input type="text" name="description" className="item" />
-//           <button className="btn-add-item">Add New Item</button>
-//         </form>
-//       </div>
-//     );
-//   }
-// }
-
 class Form extends Component {
   render() {
     return (
