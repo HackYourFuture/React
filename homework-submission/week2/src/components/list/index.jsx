@@ -3,7 +3,7 @@ import '../list/index.css';
 
 function List({ id, description, deadline, handleRemoveItem }) {
   return (
-    <h3 id={id} className="list" onClick={() => handleRemoveItem(id)}>
+    <h3 id={id} className="list" onClick={() => handleRemoveItem(description)}>
       Description : {description} Deadline : {deadline}
     </h3>
   );

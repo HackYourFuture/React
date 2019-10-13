@@ -57,8 +57,9 @@ function App() {
     }
   };
 
-  const handleRemoveItem = id => {
-    const removeItem = Todos.filter(todo => todo.id !== id);
+  const handleRemoveItem = description => {
+    const removeItem = Todos.filter(todo => todo.description !== description);
+    console.log(removeItem);
     setTodos(removeItem);
   };
 
