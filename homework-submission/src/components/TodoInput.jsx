@@ -7,20 +7,21 @@ const TodoInput = ({ todos, setTodos }) => {
       .toString(16)
       .slice(-5);
 
-  //Set default deadline to tomorrow
-  const setDeadline = () => {
+  const getToday = () => {
     const today = new Date();
-    const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
-    return `${tomorrow.getFullYear()}-${tomorrow.getMonth()}-${tomorrow.getDate()}`;
+    return `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
   };
 
   const [newTodo, setNewTodo] = useState({
-    deadline: setDeadline(),
     done: false,
   });
 
-  const handleChange = e => {
+  const handleTodoChange = e => {
     setNewTodo({ ...newTodo, id: generateID(), description: e.target.value });
+  };
+
+  const handleDateChange = e => {
+    setNewTodo({ ...newTodo, id: generateID(), deadline: e.target.value });
   };
 
   const handleKeyDown = e => {
@@ -34,11 +35,12 @@ const TodoInput = ({ todos, setTodos }) => {
   return (
     <div className="box m-4 w-2/3">
       <input
-        className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+        className="inline-block bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-2/3 appearance-none leading-normal"
         placeholder="Add more ..."
-        onChange={handleChange}
+        onChange={handleTodoChange}
         onKeyDown={handleKeyDown}
       />
+      <input className="inline-block bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/3 appearance-none leading-normal" type="date" min={getToday()} onChange={handleDateChange}/>
     </div>
   );
 };
