@@ -24,7 +24,9 @@ function TodoList({ todos, deleteTodo, markTodo }) {
               <button onClick={() => deleteTodo(todo.id)}>Delete todo</button>
             </td>
             <td>
-              <button onClick={() => markTodo(todo.id, todo.done)}>Mark todo</button>
+              <button onClick={() => markTodo(todo.id, todo.done)}>
+                {!todo.done ? 'Mark As Done' : 'Mark as Not Done'}
+              </button>
             </td>
           </tr>
         );
