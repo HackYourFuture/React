@@ -1,8 +1,7 @@
 import React from 'react';
 
-function Input({ type = 'text', placeholder, value, name, handleChangeInput }) {
+function Input({ type = 'text', placeholder, value, name, handleChangeInput,onFocusInput }) {
   return (
-    <div>
       <input
         className="input" 
         type={type}
@@ -10,8 +9,8 @@ function Input({ type = 'text', placeholder, value, name, handleChangeInput }) {
         value={value}
         name={name}
         onChange={handleChangeInput}
+        onFocus={onFocusInput}
       />
-    </div>
   );
 }
 

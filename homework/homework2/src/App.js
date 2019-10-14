@@ -43,6 +43,7 @@ function App () {
   const handleDeleteTodo = (id) => {
     const newTodos = todos.filter(item=>item.id!==id);
     setTodos(newTodos);
+    console.log(id);
   };
   const handleSubmit = event => {
     event.preventDefault();
@@ -54,14 +55,16 @@ function App () {
         deadline: '',
         done: false,
       });
-    } else {window.alert('Please enter a todo');
+    } else {window.alert('Please enter a todo description and select a deadline');
     }
   };
   const [showTodoList, setShowTodoList] = useState(false);
-  const [buttonText, setButtonText] = useState(false);
 
   const toggleList = () => {
-    return setShowTodoList(!showTodoList), setButtonText(!buttonText);
+    return setShowTodoList(!showTodoList);
+  };
+  const onFocusInput = e => {
+    e.currentTarget.type = 'date';
   };
   return (
       <div className="App">
@@ -74,23 +77,28 @@ function App () {
             placeholder="description"
             value={form.description}
             name="description"
-            handleChangeInput={handleChangeInput}/>
-          <Input
+            handleChangeInput={handleChangeInput}
+            />
+          <div><Input
             placeholder="dd-mm-yyyy"
             value={form.deadline}
             name="deadline"
-            handleChangeInput={handleChangeInput}/>
-          <Button  value={'Add'}/>
+            handleChangeInput={handleChangeInput}
+            onFocusInput={onFocusInput}/>            
+            </div>
+          <div><Button  value={'Add'}/></div>
        </form>
-        <button className="button" onClick={toggleList}>
-          {buttonText ? 'hide' : 'show'}
-        </button>
-          {showTodoList && (
+       <button className="button" onClick={toggleList}>
+        {showTodoList ? 'hide' : 'show'}
+      </button>
+      
+      {showTodoList && (
         <div className="container">
           {todos.map(todo => {
             const { id, description, deadline, done } = todo;
             return (
               <Todo
+                id={id}
                 key={id}
                 description={description}
                 deadline={deadline}
