@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import TodoList from './components/TodoList/index';
+import TodoTable from './components/TodoTable/index';
 import TodoForm from './components/TodoForm/index';
 import './App.css';
+const uuidv4 = require('uuid/v4');
 
 function App() {
   const [todos, setTodos] = useState([
@@ -42,10 +43,10 @@ function App() {
   const addTodo = event => {
     event.preventDefault();
     const todoToAdd = {
-      id: todos.length + 1,
+      id: uuidv4(),
       description: description,
       deadline: date,
-      done: complete,
+      done: false,
     };
     if (description === '') {
       setTodos(todos);
@@ -61,10 +62,8 @@ function App() {
   };
 
   const markTodo = (id, done) => {
-    const allTodos = [...todos];
-    const index = allTodos.findIndex(todo => todo.id === id);
-    allTodos[index].done = !done;
-    setComplete({ data: allTodos });
+    const todoToMark = todos.find(todo => todo.id === id);
+    setComplete({ data: (todoToMark.done = !done) });
   };
 
   return (
@@ -79,7 +78,7 @@ function App() {
         />
       </div>
       <div className="Todo-List">
-        <TodoList todos={todos} deleteTodo={deleteTodo} markTodo={markTodo} />
+        <TodoTable todos={todos} deleteTodo={deleteTodo} markTodo={markTodo} />
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ function TodoForm({ addTodo, handleChange, value, dateValue, handleDateChange })
         value={value}
         onChange={handleChange}
       ></input>
-      <input type="date" dateValue={dateValue} onChange={handleDateChange}></input>
+      <input type="date" value={dateValue} onChange={handleDateChange}></input>
       <button type="submit">Add Todo</button>
     </form>
   );
