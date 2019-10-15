@@ -37,7 +37,7 @@ function App() {
   const toggleTodo = index => {
     const newTodoArray = [...toDoItems];
 
-    newTodoArray[index].isComplete = true;
+    newTodoArray[index].isComplete = newTodoArray[index].isComplete ? false : true;
     setTodoItems(newTodoArray);
   };
 
@@ -47,7 +47,10 @@ function App() {
         {toDoItems.map((todo, index) => (
           <React.Fragment>
             <Todo key={index} index={index} todo={todo} />
-            <HyfButton name="Mark Complete" toggle={() => toggleTodo(index)} />
+            <HyfButton
+              name={todo.isComplete ? 'Mark Incomplete' : 'Mark Complete'}
+              toggle={() => toggleTodo(index)}
+            />
             <HyfButton name="Remove Todo" toggle={() => removeTodo(index)} />
           </React.Fragment>
         ))}
