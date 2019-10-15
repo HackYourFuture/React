@@ -1,0 +1,8 @@
+h2 {
+  border: 2px solid black;
+  width: 75%;
+  margin: auto;
+}
+.divBorder {
+  border-bottom: 3px dotted rgb(1, 15, 15);
+}
