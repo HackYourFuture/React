@@ -1,11 +1,11 @@
 import React from "react";
 
-const Input = ({ handleInput, type }) => (
+const Input = ({ handleInput, type, name }) => (
   <input
     required="required"
     type={type}
-    name={type}
-    id={type}
+    name={name}
+    id={name}
     onChange={handleInput}
   />
 );

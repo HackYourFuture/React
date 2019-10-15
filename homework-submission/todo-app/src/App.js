@@ -2,23 +2,24 @@ import React, { useState } from "react";
 import "./App.css";
 import Button from "./component/button.jsx";
 import Input from "./component/todoInput";
+const uuid = require("uuid");
 
 const App = () => {
   const [todos, setTodos] = useState([
     {
-      id: 1,
+      id: uuid(),
       description: "Get out of bed",
       deadline: "2017-09-11",
       done: true
     },
     {
-      id: 2,
+      id: uuid(),
       description: "Brush teeth",
       deadline: "2017-09-10",
       done: false
     },
     {
-      id: 3,
+      id: uuid(),
       description: "Eat breakfast",
       deadline: "2017-09-09",
       done: false
@@ -30,7 +31,7 @@ const App = () => {
 
   const handleInput = e => {
     e.preventDefault();
-    e.target.type === "text"
+    e.target.name === "description"
       ? setDescription(e.target.value)
       : setDate(e.target.value);
   };
@@ -38,7 +39,7 @@ const App = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const newItem = {
-      id: todos.length + 1,
+      id: uuid(),
       description: description,
       deadline: date,
       done: false
@@ -46,17 +47,12 @@ const App = () => {
     const newTodos = [...todos, newItem];
 
     setTodos(newTodos);
-    setDescription("");
-    setDate(null);
-    const inputText = document.querySelector("#text");
-    const inputDate = document.querySelector("#date");
-    inputText.value = "";
-    inputDate.value = null;
+    e.target.date.value = null;
+    e.target.description.value = null;
   };
 
   const remove = id => {
-    const upDatedTodos = todos.filter((e, i) => i !== id - 1);
-    console.log(upDatedTodos);
+    const upDatedTodos = todos.filter(e => e.id !== id);
     setTodos(upDatedTodos);
   };
 
@@ -70,9 +66,7 @@ const App = () => {
           todos.map(todo => {
             return (
               <li key={todo.id}>
-                <p>
-                  {todo.id}. {todo.description}
-                </p>
+                <p>{todo.description}</p>
                 <p>deadline: {todo.deadline}</p>
                 <Button
                   buttonType="Remove Todo"
@@ -84,8 +78,8 @@ const App = () => {
         )}
 
         <form onSubmit={handleSubmit} id="form">
-          <Input handleInput={handleInput} type="text" />
-          <Input handleInput={handleInput} type="date" />
+          <Input handleInput={handleInput} type="text" name="description" />
+          <Input handleInput={handleInput} type="date" name="date" />
           <Button buttonType="add" />
         </form>
       </ul>
