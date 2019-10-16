@@ -9,8 +9,10 @@ function App() {
       <header className="App-header">
         <h1>Week 3 Homework</h1>
       </header>
-      <Steps />
-      <DisplayUser />
+      <main className="App-main">
+        <Steps />
+        <DisplayUser />
+      </main>
     </div>
   );
 }
