@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import Steps from './components/FetchOrigin';
+import DisplayUser from './components/FetchForeign';
 
 function App() {
   return (
@@ -7,6 +9,8 @@ function App() {
       <header className="App-header">
         <h1>Week 3 Homework</h1>
       </header>
+      <Steps />
+      <DisplayUser />
     </div>
   );
 }
