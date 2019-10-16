@@ -1,19 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import PersonCard from './PersonCard';
+import Error from './Error';
 
-const Person = ({ photo, name, surname, region, email, phone }) => (
-  <div className="md:flex bg-white rounded-lg p-6 hover:bg-gray-200">
-    <img
-      className="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6"
-      src={photo}
-      alt={`${name} ${surname}`}
-    />
-    <div className="text-center md:text-left">
-      <h2 className="text-lg">{`${name} ${surname}`}</h2>
-      <div className="text-purple-500">{region}</div>
-      <div className="text-gray-600">{email}</div>
-      <div className="text-gray-600">{phone}</div>
+const People = () => {
+  const [person, setPerson] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [error, setError] = useState(null);
+  const [clicked, setClicked] = useState(null);
+
+  const handleClick = () => {
+    setClicked(Math.random());
+  };
+
+  useEffect(() => {
+    const fetchPeople = async () => {
+      try {
+        setIsLoaded(false);
+        const response = await fetch(
+          'https://cors-anywhere.herokuapp.com/https://uinames.com/api/?amount=1&&ext=photos',
+        );
+        const data = await response.json();
+        setPerson(data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoaded(true);
+      }
+    };
+    fetchPeople();
+  }, [clicked]);
+
+  const { photo, name, surname, region, email, phone } = person;
+
+  return (
+    <div>
+      {error && <Error error={error} />}
+      {!error &&
+        (isLoaded ? (
+          <div className="box mx-auto m-4 w-2/3 shadow-lg rounded-lg overflow-hidden">
+            <PersonCard
+              key={`${name} ${surname}`}
+              photo={photo}
+              name={name}
+              surname={surname}
+              region={region}
+              email={email}
+              phone={phone}
+              handleClick={handleClick}
+            />
+          </div>
+        ) : (
+          <div className="loading mx-auto"></div>
+        ))}
     </div>
-  </div>
-);
+  );
+};
 
-export default Person;
+export default People;

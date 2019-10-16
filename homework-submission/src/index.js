@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PreviousHomework from './PreviousHomework';
-import HomeworkWeek3 from './components/People';
+import HomeworkWeek3 from './components/Person';
 
 ReactDOM.render(
   <React.Fragment>
