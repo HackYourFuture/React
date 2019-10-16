@@ -89,13 +89,13 @@ class App extends React.Component {
             <div>
               <Header title="Dynamic List" />
               <ul className="list-group">
-                {this.state.todos.map(todo => (
+                {this.state.todos.map(({ id, description, deadline, done }) => (
                   <DynamicListItem
-                    key={todo.id}
-                    description={todo.description}
-                    deadline={todo.deadline}
-                    done={todo.done}
-                    handleComplete={this.handleComplete.bind(this, todo.id)}
+                    key={id}
+                    description={description}
+                    deadline={deadline}
+                    done={done}
+                    handleComplete={this.handleComplete.bind(this, id)}
                   />
                 ))}
               </ul>
