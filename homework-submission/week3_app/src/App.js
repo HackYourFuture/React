@@ -11,6 +11,7 @@ function App() {
       </header>
       <main className="App-main">
         <Steps />
+        <hr />
         <DisplayUser />
       </main>
     </div>
