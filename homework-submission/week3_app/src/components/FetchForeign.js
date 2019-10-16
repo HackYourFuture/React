@@ -27,10 +27,10 @@ const DisplayUser = () => {
   }, [loding]);
 
   return loding ? (
-    <p> {error ? error.message : 'Loding'}</p>
+    <p> {error ? `Error: ${error.message}` : 'Loding'}</p>
   ) : (
     <div>
-      <h3> Display user </h3>
+      <h3> Display user (Fetch from remote server). </h3>
       <img src={userInfo.photo} alt="User" />
       <br />
 

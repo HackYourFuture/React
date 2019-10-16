@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Steps = () => {
   const [loding, setLoding] = useState(true);
   const [steps, setSteps] = useState([]);
+  const [error, setError] = useState(false);
 
   async function getSteps() {
     try {
@@ -12,7 +13,7 @@ const Steps = () => {
       setSteps(dataSteps);
       setLoding(false);
     } catch (error) {
-      console.log(error);
+      setError(error);
     }
   }
 
@@ -20,10 +21,10 @@ const Steps = () => {
     getSteps();
   }, []);
   return loding ? (
-    <p>'Loding'</p>
+    <p>{error ? `Error: ${error.message}` : 'Loding'}</p>
   ) : (
     <div>
-      <h3>Steps</h3>
+      <h3>Steps, Fetch Origin.</h3>
       <ol>
         {steps.map(step => (
           <li key={step.number}>{step.description}</li>

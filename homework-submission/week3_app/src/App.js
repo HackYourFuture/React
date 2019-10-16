@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Steps from './components/FetchOrigin';
 import DisplayUser from './components/FetchForeign';
+import StaticSteps from './components/StaticData';
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
       </header>
       <main className="App-main">
         <Steps />
+        <hr />
+        <StaticSteps />
         <hr />
         <DisplayUser />
       </main>
