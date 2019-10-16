@@ -3,7 +3,7 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/hey', (req, res) =>
+app.get('/steps', (req, res) =>
   res.json({
     setps: [
       { number: 1, description: 'Create React App.' },
@@ -18,4 +18,5 @@ app.get('/hey', (req, res) =>
   }),
 );
 
-app.listen(8080, () => console.log('The server is listening to: http://localhost:8080/'));
+const port = process.env.PORT || 8080;
+app.listen(port, () => console.log(`The server is listening to: http://localhost:${port}/`));
