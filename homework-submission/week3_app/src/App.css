@@ -45,3 +45,15 @@ img {
   max-width: 65%;
   border-radius: 10%;
 }
+button {
+  background-color: #008cba; /* Green */
+  border: 0.5px solid black;
+  border-radius: 15px;
+  color: black;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bolder;
+}

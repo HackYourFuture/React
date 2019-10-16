@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 
 const DisplayUser = () => {
-  const [Loding, setLoding] = useState(true);
+  const [loding, setLoding] = useState(true);
   const [userInfo, setUserInfo] = useState({});
 
   const clickHandel = () => {
     setLoding(true);
-    console.log(`bt: ${Loding}`);
   };
 
   const getUser = async () => {
     try {
-      const dataPromis = await fetch('https://uinames.com/api/?ext');
-      const dataUser = await dataPromis.json();
-      setUserInfo(dataUser);
-      setLoding(false);
+      if (loding) {
+        const dataPromis = await fetch('https://uinames.com/api/?ext');
+        const dataUser = await dataPromis.json();
+        setUserInfo(dataUser);
+        setLoding(false);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -25,15 +26,16 @@ const DisplayUser = () => {
 
   useEffect(() => {
     getUser();
-  }, [Loding]);
-  return Loding ? (
+  }, [loding]);
+
+  return loding ? (
     <p>'Loding'</p>
   ) : (
     <div>
       <h3>Display user</h3>
       <img src={userInfo.photo} alt="User" />
       <br />
-      <button onClick={clickHandel}>click me</button>
+
       <ul>
         <li>Name: {userInfo.name}</li>
         <li>Region: {userInfo.region}</li>
@@ -41,6 +43,7 @@ const DisplayUser = () => {
         <li>Age: {userInfo.age}</li>
         <li>Email: {userInfo.email}</li>
       </ul>
+      <button onClick={clickHandel}>Get another user</button>
     </div>
   );
 };

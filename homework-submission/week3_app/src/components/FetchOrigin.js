@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 const Steps = () => {
   const [loding, setLoding] = useState(true);
   const [steps, setSteps] = useState([]);
-  console.log(`1:${loding}`);
 
   async function getSteps() {
     try {
