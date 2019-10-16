@@ -22,11 +22,14 @@ const Steps = () => {
   return Loding ? (
     <p>'Loding'</p>
   ) : (
-    <ul>
-      {steps.map(step => (
-        <li key={step.number}>{step.description}</li>
-      ))}
-    </ul>
+    <div>
+      <h3>Steps</h3>
+      <ol>
+        {steps.map(step => (
+          <li key={step.number}>{step.description}</li>
+        ))}
+      </ol>
+    </div>
   );
 };
 
