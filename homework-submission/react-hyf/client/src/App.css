@@ -1,0 +1,174 @@
+:root {
+  --main-bg-color: #e5faf6;
+}
+
+body {
+  height: 100%;
+  padding: 1em;
+  display: grid;
+  background: var(--main-bg-color);
+  font-weight: bold;
+}
+
+.App {
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  padding: 20px;
+  letter-spacing: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 3em;
+}
+
+table {
+  margin: auto;
+}
+
+div {
+  min-height: 100px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  color: rgb(97, 33, 156);
+  list-style-type: none;
+  margin: 20px 0;
+}
+
+.Todo-Form {
+  height: 100%;
+}
+
+input:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  width: 80%;
+  height: 20px;
+  margin: 0 auto;
+}
+
+div:nth-child(1) {
+  background-color: rgba(97, 33, 156, 0.338);
+}
+
+div:nth-child(2) {
+  background-color: rgb(66, 66, 201);
+}
+
+.Todo-List {
+  margin-bottom: 100px;
+}
+
+tr {
+  background-color: var(--main-bg-color);
+}
+
+th,
+td {
+  color: rgb(66, 66, 201);
+  padding: 20px;
+}
+
+button {
+  font-weight: bold;
+  margin: 10px;
+  height: 30px;
+  border-radius: 10%;
+  border: solid 1px black;
+}
+
+img {
+  background-color: var(--main-bg-color);
+  padding: 5px;
+  height: 150px;
+  width: 150px;
+  border-radius: 10%;
+  box-shadow: 1px 1px 2px 4px rgba(80, 48, 110, 0.3);
+}
+
+div.user-info {
+  background-color: var(--main-bg-color);
+  width: 300px;
+  margin: 0px auto;
+  margin-top: -25px;
+  padding: 20px;
+  border-radius: 10%;
+  text-align: left;
+  text-indent: 20px;
+  box-shadow: 2px 2px 2px 7px rgba(80, 48, 110, 0.3);
+  z-index: 10;
+}
+
+.loader {
+  font-size: 10px;
+  margin: 50px auto;
+  text-indent: -9999em;
+  width: 11em;
+  height: 11em;
+  border-radius: 50%;
+  background: #ffffff;
+  background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  position: relative;
+  -webkit-animation: load3 1.4s infinite linear;
+  animation: load3 1.4s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.loader:before {
+  width: 50%;
+  height: 50%;
+  background: #ffffff;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+
+.loader:after {
+  background: var(--main-bg-color);
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+@-webkit-keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
