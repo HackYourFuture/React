@@ -19,9 +19,6 @@ const DisplayUser = () => {
     } catch (error) {
       console.log(error);
     }
-    return function cleanup() {
-      console.log('clean');
-    };
   };
 
   useEffect(() => {
