@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 const Steps = () => {
-  const [Loding, setLoding] = useState(true);
+  const [loding, setLoding] = useState(true);
   const [steps, setSteps] = useState([]);
+  console.log(`1:${loding}`);
 
   async function getSteps() {
     try {
@@ -19,7 +20,7 @@ const Steps = () => {
   useEffect(() => {
     getSteps();
   }, []);
-  return Loding ? (
+  return loding ? (
     <p>'Loding'</p>
   ) : (
     <div>

@@ -36,8 +36,12 @@ hr {
 }
 
 ol {
-  margin: 0px 15px;
+  margin: 0px 15px 20px 15px;
 }
 li {
   text-align: left;
+}
+img {
+  max-width: 65%;
+  border-radius: 10%;
 }

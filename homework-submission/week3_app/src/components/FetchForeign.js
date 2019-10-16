@@ -4,8 +4,10 @@ const DisplayUser = () => {
   const [Loding, setLoding] = useState(true);
   const [userInfo, setUserInfo] = useState({});
 
-  const clickHandel = () => setLoding(true);
-  console.log(Loding);
+  const clickHandel = () => {
+    setLoding(true);
+    console.log(`bt: ${Loding}`);
+  };
 
   const getUser = async () => {
     try {
