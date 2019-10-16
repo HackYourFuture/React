@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const DisplayUser = () => {
   const [loding, setLoding] = useState(true);
   const [userInfo, setUserInfo] = useState({});
+  const [error, setError] = useState(false);
 
   const clickHandel = () => {
     setLoding(true);
@@ -17,7 +18,7 @@ const DisplayUser = () => {
         setLoding(false);
       }
     } catch (error) {
-      console.log(error);
+      setError(error);
     }
   };
 
@@ -26,10 +27,10 @@ const DisplayUser = () => {
   }, [loding]);
 
   return loding ? (
-    <p>'Loding'</p>
+    <p> {error ? error.message : 'Loding'}</p>
   ) : (
     <div>
-      <h3>Display user</h3>
+      <h3> Display user </h3>
       <img src={userInfo.photo} alt="User" />
       <br />
 
