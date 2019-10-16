@@ -34,3 +34,10 @@
 hr {
   width: 80%;
 }
+
+ol {
+  margin: 0px 15px;
+}
+li {
+  text-align: left;
+}
