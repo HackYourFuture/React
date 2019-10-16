@@ -6,7 +6,20 @@ const stepsData = {
     {
       number: 4,
       description:
-        'Test the connection: send HTTP request from React App, and then recive HTTP respond form Express server, as JSON object.',
+        "Test the connection: send HTTP request from React App by using Fetch('/steps'), then reforming the JSON Response to JSX Elements.",
+    },
+    {
+      number: 5,
+      description:
+        'Fetching data from API point foreign source, then reforming the JSON Response to JSX Elements.',
+    },
+    {
+      number: 6,
+      description: 'Finish developing stage, and move on to production stage.',
+    },
+    {
+      number: 7,
+      description: 'Problem: the content is rendered twice.',
     },
   ],
 };
