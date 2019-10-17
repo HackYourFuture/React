@@ -30,12 +30,15 @@ function Homework3() {
 
   return (
     <div className="container">
-      <div className="row ">
+      <div className="row my-3">
         <div className="col-lg-5 col-sm-8 mx-auto">
           {error ? (
             <h4 className="text-center text-danger">something wrong</h4>
           ) : isLoaded ? (
-            <h3 className="text-primary my-3 font-italic" onClick={e => genRandom(index)}>
+            <h3
+              className="text-primary text-center my-3 font-italic"
+              onClick={e => genRandom(index)}
+            >
               Press SpaceBar
             </h3>
           ) : (
