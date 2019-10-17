@@ -7,12 +7,16 @@ function UserList() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`https://uinames.com/api/?ext=photos}`)
-      .then(response => response.json())
-      .then(json => {
-        setData(json);
-        setIsLoading(false);
-      });
+    document.addEventListener('keyup', function(e) {
+      if (e.keyCode == 32) {
+        fetch(`https://uinames.com/api/?ext=photos}`)
+          .then(response => response.json())
+          .then(json => {
+            setData(json);
+            setIsLoading(false);
+          });
+      }
+    });
   }, []);
 
   return (
