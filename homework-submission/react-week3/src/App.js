@@ -6,14 +6,14 @@ import Button from "./components/Button";
 import "./App.css";
 
 function App() {
+  const API = "https://uinames.com/api/?ext";
   const [data, setData] = useState([]);
-  const [isSending, setIsSending] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
-      const res = await fetch("https://uinames.com/api/?ext");
+      const res = await fetch(API);
       const usersData = await res.json();
       setIsLoading(false);
       setData(usersData);
@@ -25,7 +25,33 @@ function App() {
     };
   }, []);
 
-  const generateNextUser = useCallback(async () => {});
+  const generateNextUser = useCallback(() => {
+    async function fetchNewUser() {
+      setIsLoading(true);
+      const res = await fetch(API);
+      const newUserData = await res.json();
+      setIsLoading(false);
+      setData(newUserData);
+    }
+    fetchNewUser();
+
+    return function cleanup() {
+      return fetchNewUser();
+    };
+  }, []);
+
+  document.body.onkeyup = function(e) {
+    if (e.keyCode === 32) {
+      async function fetchWithSpace() {
+        setIsLoading(true);
+        const res = await fetch(API);
+        const newUserData = await res.json();
+        setIsLoading(false);
+        setData(newUserData);
+      }
+      return fetchWithSpace();
+    }
+  };
 
   return (
     <React.Fragment>
@@ -43,7 +69,7 @@ function App() {
               email={data.email}
             />
           }
-          button={<Button generateNextUser={() => generateNextUser} />}
+          button={<Button generateNextUser={generateNextUser} />}
         />
       )}
     </React.Fragment>

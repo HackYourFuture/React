@@ -1,7 +1,7 @@
 li {
   list-style-type: none;
   padding: 10px;
-  border-bottom: 2px dotted rgba(185, 192, 189, 0.267);
+  border-bottom: 2px dotted rgba(1, 12, 3, 0.267);
 }
 
 li:hover {
