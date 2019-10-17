@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(90deg, #e7e1f0, #d2baf3);
+  font-family: 'Roboto', sans-serif;
+}
+
+.App {
+  text-align: center;
+}

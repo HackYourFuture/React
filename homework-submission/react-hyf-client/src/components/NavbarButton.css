@@ -1,0 +1,27 @@
+.NavbarButton {
+  padding: 0.2rem 1.5rem;
+  background: #9852f9;
+  color: white;
+  font-size: 3rem;
+  margin: 1rem;
+  border-radius: 3px;
+  transition: box-shadow 0.25s;
+}
+
+.NavbarButton:hover {
+  -webkit-box-shadow: inset 0px 0px 0px 5px white;
+  -moz-box-shadow: inset 0px 0px 0px 5px white;
+  box-shadow: inset 0px 0px 0px 5px white;
+}
+
+.NavbarButton i {
+  height: 1.5rem;
+  width: 2.5rem;
+  opacity: 0.5;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+.NavbarButton i.active {
+  opacity: 1;
+}

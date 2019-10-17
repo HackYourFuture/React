@@ -1,0 +1,12 @@
+.App-Container-Header {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  cursor: default;
+  position: fixed;
+  z-index: -1;
+}

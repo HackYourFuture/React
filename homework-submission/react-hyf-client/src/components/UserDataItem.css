@@ -1,0 +1,17 @@
+.UserDataItem {
+  background: #edf3f8;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.UserDataItem i {
+  color: #a5aef8;
+  transition: color 0.25s;
+}
+
+.UserDataItem:hover i {
+  color: #5b6efa;
+}
+
+.UserDataItem:first-child {
+  text-transform: capitalize;
+}

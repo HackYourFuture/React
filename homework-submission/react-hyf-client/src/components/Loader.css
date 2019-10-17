@@ -1,0 +1,12 @@
+.Loader {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Loader-Spinner {
+  width: 6rem;
+  height: 6rem;
+  border-width: 0.5rem;
+}
