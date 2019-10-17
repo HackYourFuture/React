@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "concurrently": "^5.0.0",
     "express": "^4.17.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -12,7 +13,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "client": "npm start",
+    "server": "cd back_end && node server.js",
+    "online": "concurrently --kill-others \"npm run server\" \"npm run client\""
   },
   "proxy": "http://localhost:8080",
   "eslintConfig": {

@@ -21,6 +21,18 @@ const stepsData = {
       number: 7,
       description: 'Problem: the content is rendered twice.',
     },
+    {
+      number: 8,
+      description: 'Problem: after hosting on netlify.com, Fetch from Origin is not working.',
+    },
+    {
+      number: 9,
+      description: 'Add build in static Data, require it and reform it as JSX elements.',
+    },
+    {
+      number: 10,
+      description: 'Rebuild and reupload on netlify.com.',
+    },
   ],
 };
 
