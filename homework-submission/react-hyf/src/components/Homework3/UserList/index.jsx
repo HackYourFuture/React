@@ -7,7 +7,7 @@ function UserList() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://uinames.com/api/?amount=10&&ext=photos')
+    fetch(`https://uinames.com/api/?ext=photos}`)
       .then(response => response.json())
       .then(json => {
         setData(json);
@@ -15,28 +15,26 @@ function UserList() {
       });
   }, []);
 
+  console.log(data);
+
   return (
     <div className="Users">
       <h1>Users</h1>
       {isLoading === true ? (
         <Spinner />
       ) : (
-        <ul>
-          {data.map(p => {
-            return (
-              <User
-                name={p.name}
-                surname={p.surname}
-                photo={p.photo}
-                region={p.region}
-                birthday={p.birthday.dmy}
-                phone={p.phone}
-                gender={p.gender}
-                email={p.email}
-              />
-            );
-          })}
-        </ul>
+        <div>
+          <User
+            name={data.name}
+            surname={data.surname}
+            photo={data.photo}
+            region={data.region}
+            birthday={data.birthday.dmy}
+            phone={data.phone}
+            gender={data.gender}
+            email={data.email}
+          />
+        </div>
       )}
     </div>
   );
