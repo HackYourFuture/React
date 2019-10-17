@@ -1,45 +1,8 @@
 import React, { Component } from 'react';
-
-class Header extends Component {
-  render() {
-    return (
-      <header>
-        <h3>Todo List</h3>
-        <span className="stats">Type:Dynamic</span>
-      </header>
-    );
-  }
-}
-
-class TodoItem extends Component {
-  render() {
-    return (
-      <div className="todoItem">
-        <span
-          onClick={this.props.click}
-          className={`todoItem-name ${this.props.done ? ' line-through' : ''}`}
-        >
-          {this.props.description}, {this.props.deadline} {this.props.done}
-        </span>
-      </div>
-    );
-  }
-}
-
-class Form extends Component {
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.props.click}>
-          <input type="number" name="id" placeholder="ïd" className="item" />
-          <input type="text" name="description" placeholder="description" className="item" />
-          <input type="date" name="deadline" className="item" />
-          <button className="btn-add-item">Add New Item</button>
-        </form>
-      </div>
-    );
-  }
-}
+import TodoItem from './TodoItem';
+import Header from './Header';
+import Form from './Form';
+import uuid from 'uuid/v4';
 
 class DynamicList extends Component {
   constructor(props) {
@@ -66,8 +29,8 @@ class DynamicList extends Component {
         }
       ]
     };
-    this.deleteItemHandler = this.deleteItemHandler.bind(this);
-    this.onSubmitHandle = this.onSubmitHandle.bind(this);
+    // this.deleteItemHandler = this.deleteItemHandler.bind(this);
+    // this.onSubmitHandle = this.onSubmitHandle.bind(this);
   }
 
   deleteItemHandler = itemIndex => {
@@ -83,9 +46,9 @@ class DynamicList extends Component {
       items: [
         ...this.state.items,
         {
-          id: event.target.id.value,
+          id: uuid(),
           description: event.target.description.value,
-          done: false,
+          done: event.target.done.value,
           deadline: event.target.deadline.value
         }
       ]
