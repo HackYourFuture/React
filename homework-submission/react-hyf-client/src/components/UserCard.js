@@ -18,7 +18,6 @@ const UserCard = () => {
       <UserPhoto photo={data[1].photo} name={data[1].name + ' ' + data[1].surname} />
       <UserName info={data[1].name + ' ' + data[1].surname} />
       <UserData />
-      <div className="mask rgba-white-slight"></div>
     </div>
   );
 };
