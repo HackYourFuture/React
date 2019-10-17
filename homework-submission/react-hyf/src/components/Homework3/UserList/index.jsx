@@ -5,29 +5,45 @@ import CountryInput from '../CountryInput';
 
 function UserList() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const [data, setData] = useState([]);
+  const [url, setUrl] = useState(`https://uinames.com/api/?ext=photos&&query=redux`);
+
+  const handleChange = e => {
+    const value = e.target.value;
+    setUrl(`https://uinames.com/api/?ext=photos&&region=${value}`);
+  };
 
   useEffect(() => {
-    const selectInput = document.getElementById('country-selection');
-    selectInput.addEventListener('change', function(e) {
-      const value = e.target.value;
-      document.addEventListener('keyup', function(e) {
-        if (e.keyCode == 32) {
-          fetch(`https://uinames.com/api/?ext=photos&&region=${value}`)
-            .then(response => response.json())
-            .then(json => {
-              setData(json);
-              setIsLoading(false);
-            });
-        }
-      });
+    document.addEventListener('keyup', function(e) {
+      if (e.keyCode == 32) {
+        const fetchData = async () => {
+          setIsError(false);
+          setIsLoading(true);
+
+          try {
+            await fetch(url)
+              .then(response => response.json())
+              .then(json => {
+                setData(json);
+                setIsLoading(false);
+              });
+          } catch (error) {
+            setIsError(true);
+          }
+          console.log(url);
+          setIsLoading(false);
+        };
+        fetchData();
+      }
     });
-  }, []);
+  }, [url]);
 
   return (
     <div className="Users">
       <h1>User</h1>
-      <CountryInput />
+      {isError && <div>Something went terribly wrong ...</div>}
+      <CountryInput handleChange={handleChange} />
       {isLoading === true ? (
         <Spinner />
       ) : (

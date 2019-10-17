@@ -8,6 +8,7 @@ body {
   display: grid;
   background: var(--main-bg-color);
   font-weight: bold;
+  color: white;
 }
 
 .App {
