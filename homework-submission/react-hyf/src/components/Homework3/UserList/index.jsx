@@ -15,11 +15,9 @@ function UserList() {
       });
   }, []);
 
-  console.log(data);
-
   return (
     <div className="Users">
-      <h1>Users</h1>
+      <h1>User</h1>
       {isLoading === true ? (
         <Spinner />
       ) : (
