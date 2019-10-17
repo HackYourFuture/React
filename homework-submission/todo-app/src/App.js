@@ -47,8 +47,8 @@ const App = () => {
     const newTodos = [...todos, newItem];
 
     setTodos(newTodos);
-    e.target.date.value = null;
-    e.target.description.value = null;
+    setDate("");
+    setDescription("");
   };
 
   const remove = id => {
@@ -78,8 +78,18 @@ const App = () => {
         )}
 
         <form onSubmit={handleSubmit} id="form">
-          <Input handleInput={handleInput} type="text" name="description" />
-          <Input handleInput={handleInput} type="date" name="date" />
+          <Input
+            handleInput={handleInput}
+            type="text"
+            name="description"
+            value={description}
+          />
+          <Input
+            handleInput={handleInput}
+            type="date"
+            name="date"
+            value={date}
+          />
           <Button buttonType="add" />
         </form>
       </ul>
