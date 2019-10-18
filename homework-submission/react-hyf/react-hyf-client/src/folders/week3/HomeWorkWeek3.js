@@ -20,10 +20,12 @@ function HomeWorkWeek3() {
   }, [index]);
 
   const handleClick = e => {
-    if (e.keyCode === 32) {
+    if (e.which === 32) {
+      e.preventDefault();
       setIndex(randomNum);
     } else {
       setIndex(randomNum);
+      e.preventDefault();
     }
   };
 
