@@ -1,60 +1,56 @@
-*{
-  margin:0px;
-  padding:0px;
+* {
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
-body{
+body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
 
 .App {
   text-align: center;
 }
 
-h1{
-background-color:purple;
-color:white;
-padding:5px;
+h1 {
+  background-color: purple;
+  color: white;
+  padding: 5px;
 }
 
-
-
-li{
-display:flex;
-align-items:center;
-justify-content:space-between;
-background: rgba(226, 222, 217, 0.171);
-border-bottom:1px dotted black;
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(226, 222, 217, 0.171);
+  border-bottom: 1px dotted black;
 }
 
-input{
-  margin:5px;
+input {
+  margin: 5px;
 }
 
-.remove-btn{
+.remove-btn {
   height: 20px;
   width: 20px;
-  margin:20px;
+  margin: 20px;
   border-radius: 50%;
   background-color: rgb(158, 52, 123);
 }
 
-.add-btn{
-  background-color:rgb(196, 145, 196);
-  padding:10px;
-  color:white;
-  border:1px solid rgb(180, 137, 166);
+.add-btn {
+  background-color: rgb(196, 145, 196);
+  padding: 10px;
+  color: white;
+  border: 1px solid rgb(180, 137, 166);
 }
 
-.itemInput{
-  margin:0px;
-  padding:10px;
+.itemInput {
+  margin: 0px;
+  padding: 10px;
   width: 95%;
 }
 
-.itemInput::placeholder{
-  color:rgb(180, 137, 166);
+.itemInput::placeholder {
+  color: rgb(180, 137, 166);
 }
-

@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default function HyfButton({onHandleClick}) {
-    return (
-       
-            <button className="add-btn" onClick={onHandleClick}>Add</button>
-        
-    )
+export default function HyfButton({ onHandleClick }) {
+  return (
+    <button className="add-btn" onClick={onHandleClick}>
+      Add
+    </button>
+  );
 }
