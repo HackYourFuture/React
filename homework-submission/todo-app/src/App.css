@@ -1,5 +1,11 @@
+#root {
+  width: 100%;
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: 5fr 3fr;
+}
+
 #root div {
-  width: 80%;
   display: grid;
   grid-template-columns: 1fr;
   text-align: center;
@@ -16,8 +22,9 @@ body {
 
 ul {
   list-style-type: none;
-  width: 80%;
+  width: 90%;
   margin: auto;
+  text-align: center;
 }
 li,
 form {
@@ -51,4 +58,15 @@ input {
   background-color: darkviolet;
   font-size: 15px;
   color: white;
+}
+img {
+  border-radius: 50%;
+  width: 60%;
+  margin: 0 20%;
+}
+
+.week3 li {
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  justify-content: center;
 }
