@@ -11,6 +11,10 @@ function UserInfo({ userValues }) {
       <div>
         <p> {`👤 ${userValues[2]}`}</p>
         <p> {`🌐 ${userValues[3]}`}</p>
+        <p>{`📞  ${userValues[6]}`}</p>
+        <p>{`🎂 ${userValues[7].dmy}`}</p>
+        <p>{`✉️ ${userValues[8]}`}</p>
+        <p>{`🔑  ${userValues[9]}`}</p>
       </div>
     </React.Fragment>
   );
