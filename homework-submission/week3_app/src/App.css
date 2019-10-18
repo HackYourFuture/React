@@ -25,6 +25,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
   padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .App-link {
@@ -56,4 +57,17 @@ button {
   margin-bottom: 20px;
   font-size: 16px;
   font-weight: bolder;
+}
+
+.on_screen {
+  display: block;
+}
+
+.none {
+  display: none;
+}
+.warning {
+  color: #d8000c;
+  background-color: #ffbaba;
+  padding: 5px;
 }
