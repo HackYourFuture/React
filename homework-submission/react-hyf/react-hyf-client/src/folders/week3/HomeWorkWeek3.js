@@ -39,7 +39,7 @@ function HomeWorkWeek3() {
   return (
     <div>
       {isLoading ? (
-        <div>...loading</div>
+        <div className="loading-spinner"></div>
       ) : (
         <div className="container">
           <ProfilPicture userValues={userValues} />
