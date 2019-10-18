@@ -1,0 +1,9 @@
+.list {
+  margin: 0.5rem;
+  border-bottom: 1px solid grey;
+  color: whitesmoke;
+}
+
+.list:hover {
+  cursor: pointer;
+}

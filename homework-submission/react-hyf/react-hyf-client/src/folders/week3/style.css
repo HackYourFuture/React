@@ -1,0 +1,16 @@
+.container {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .imgOnSmallScreen {
+    display: none;
+    width: 10px;
+  }
+}

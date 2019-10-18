@@ -1,0 +1,20 @@
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.ListHeader {
+  text-align: center;
+}
+
+.StaticList {
+  box-shadow: 5px 0px 11px 0px rgba(201, 139, 201, 1);
+}
+.DynamicList {
+  box-shadow: 5px 0px 11px 0px rgba(201, 139, 201, 1);
+}
