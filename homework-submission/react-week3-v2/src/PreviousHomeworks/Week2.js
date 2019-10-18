@@ -10,17 +10,18 @@ function PreviousHomeworks() {
 
   const [toDoItems, setTodoItems] = useState([
     {
-      name: "eat cheese"
+      name: "eat cheese",
+      done: false
     },
     {
-      name: "fight monsters"
+      name: "fight monsters",
+      done: false
     },
     {
-      name: "dont fall over"
+      name: "dont fall over",
+      done: false
     }
   ]);
-
-  const [isDone, setIsDone] = useState([]);
 
   const [addItem, setAddItem] = useState({});
 
@@ -36,15 +37,14 @@ function PreviousHomeworks() {
   };
 
   const onHandleCheckboxChange = name => {
-    const isCompletedItem = isDone.find(i => i.name === name);
-    if (isCompletedItem) {
-      const completedItem = isDone.filter(i => i.name !== name);
-      setIsDone(completedItem);
-    } else {
-      const completedItem = toDoItems.find(i => i.name === name);
-      const completedItems = [...isDone, completedItem];
-      setIsDone(completedItems);
-    }
+    setTodoItems(
+      toDoItems.map(item => {
+        if (item.name === name) {
+          item.done = !item.done;
+        }
+        return item;
+      })
+    );
   };
 
   const onHandleClick = () => {
@@ -63,7 +63,7 @@ function PreviousHomeworks() {
             name={item.name}
             key={uniqid()}
             handleCheckboxChange={() => onHandleCheckboxChange(item.name)}
-            done={isDone.find(d => d.name === item.name)}
+            done={item.done}
             buttonText={"X"}
             handleRemove={() => handleRemove(item.name)}
           />

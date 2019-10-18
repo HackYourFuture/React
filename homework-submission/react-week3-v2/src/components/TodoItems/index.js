@@ -8,16 +8,14 @@ export default function TodoItems({
   handleCheckboxChange,
   handleRemove
 }) {
-  const isDone = () => {
-    return {
-      textDecoration: done ? "line-through" : ""
-    };
-  };
-
   return (
-    <li className="todoListItems" style={isDone()}>
+    <li
+      className="todoListItems"
+      style={{ textDecoration: done ? "line-through" : "" }}
+    >
       <input type="checkbox" onChange={handleCheckboxChange} />
       {name}
+      {done}
       <button className="remove-btn" onClick={handleRemove}>
         {buttonText}
       </button>
