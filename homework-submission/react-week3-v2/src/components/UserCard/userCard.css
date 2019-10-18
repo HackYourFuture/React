@@ -1,0 +1,11 @@
+.user-card {
+  border-radius: 15%;
+  margin: auto;
+  margin-top: 30px;
+  width: 350px;
+}
+
+img {
+  border-radius: 10%;
+  margin: 10px 10px 0px 10px;
+}

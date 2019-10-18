@@ -1,0 +1,14 @@
+.todoListItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(226, 222, 217, 0.171);
+  border-bottom: 1px dotted black;
+}
+.remove-btn {
+  height: 20px;
+  width: 20px;
+  margin: 20px;
+  border-radius: 50%;
+  background-color: rgb(158, 52, 123);
+}

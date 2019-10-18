@@ -1,0 +1,13 @@
+.list-items {
+  background-color: slategray;
+}
+
+.list-items:hover,
+.isDone:hover {
+  background-color: rgb(185, 211, 236);
+}
+
+.isDone {
+  background-color: slategray;
+  text-decoration: line-through;
+}

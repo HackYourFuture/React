@@ -1,0 +1,13 @@
+input {
+  margin: 5px;
+}
+
+.itemInput {
+  margin: 0px;
+  padding: 10px;
+  width: 96%;
+}
+
+.itemInput::placeholder {
+  color: rgb(180, 137, 166);
+}

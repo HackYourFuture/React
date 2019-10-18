@@ -1,0 +1,9 @@
+li {
+  list-style-type: none;
+  padding: 10px;
+  border-bottom: 2px dotted rgba(1, 12, 3, 0.267);
+}
+
+li:hover {
+  background-color: rgba(200, 243, 200, 0.253);
+}

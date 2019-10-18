@@ -1,0 +1,13 @@
+body {
+  display: grid;
+}
+
+h1 {
+  background-color: purple;
+  color: white;
+  padding: 5px;
+}
+
+.list {
+  margin: 20px;
+}
