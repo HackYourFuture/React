@@ -17,15 +17,13 @@
   margin-top: 13px;
   padding: 12px 20px;
   box-sizing: border-box;
-  border: 2px solid rgb(0, 174, 255);
+  border: 2px solid rgb(56, 54, 54); 
   border-radius: 4px;
 }
-.container{
-  width: 300px;
-  border: 15px solid rgb(0, 174, 255);
+.homework2,.homework1{
+  width: 400px;
   padding: 50px;
   margin: auto;
-  margin-top: 10px;
 }
 .button {
   border: 2px solid rgb(0, 174, 255);
@@ -38,6 +36,16 @@
   font-size: 12px;
   border-radius: 8px;
   margin: 10px;
+}
+ul,li {
+  height: 20px;
+  list-style-type: none;
+  margin: 5px;
+  padding: 5px;  
+}
+
+ul{
+  margin-bottom: 40px;
 }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

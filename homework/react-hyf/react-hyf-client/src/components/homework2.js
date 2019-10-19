@@ -1,10 +1,38 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Button from './components/button';
-import Input from './components/input';
-import Todo from './components/todo';
-function App () {
+import '../App.css';
+import '../index.css';
+
+function Button({ type = 'submit', value }) {
+    return (
+        <button className="button" type={type} value={value}>
+          {value}
+        </button>
+    );
+  }
+
+function Input({ type = 'text', placeholder, value, name, handleChangeInput,onFocusInput }) {
+    return (
+        <input
+          className="input" 
+          type={type}
+          placeholder={placeholder}
+          value={value}
+          name={name}
+          onChange={handleChangeInput}
+          onFocus={onFocusInput}
+        />
+    );
+  }
+
+function Todo({ id, description, deadline, handleDeleteTodo }) {
+    return (
+      <h3 id={id} className="todo" onClick={() => handleDeleteTodo(id)}>
+        {description}/{deadline}
+      </h3>
+    );
+  }
+
+function Homework2 () {
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -67,11 +95,7 @@ function App () {
     e.currentTarget.type = 'date';
   };
   return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React Todo App</h2>
-        </div>
+      <div className="homework2">
         <form className="form" onSubmit={handleSubmit}>
           <Input
             placeholder="description"
@@ -112,4 +136,4 @@ function App () {
       </div>
     );
 }
-export default App;
+export default Homework2;

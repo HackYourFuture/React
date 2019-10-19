@@ -1,10 +1,10 @@
 {
-  "name": "myapp",
+  "name": "react-hyf-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.10.1",
-    "react-dom": "^16.10.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "react-scripts": "0.9.5"
   },
   "devDependencies": {},
