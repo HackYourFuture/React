@@ -1,0 +1,44 @@
+.user {
+  position: absolute;
+  top: 55%; /* position the top  edge of the element at the middle of the parent */
+  left: 48%; /* position the left edge of the element at the middle of the parent */
+  transform: translate(-50%, -50%);
+  padding: 0;
+}
+
+.user li {
+  color: #fff;
+  list-style: none;
+  margin: 5px;
+  text-align: center;
+}
+.left_align {
+  display: flex;
+  padding-left: 25%;
+}
+.user li i {
+  margin-right: 10px;
+}
+
+.user li img {
+  cursor: pointer;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.user li img:hover {
+  transform: scale(1.1);
+}
+
+.user .name {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.icon {
+  border-radius: 50%;
+  background-color: #5200d4;
+  padding: 8px;
+}

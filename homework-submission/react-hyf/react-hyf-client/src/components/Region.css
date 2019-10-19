@@ -1,0 +1,21 @@
+.region {
+  color: #fff;
+  list-style: none;
+  background-color: #343f7aad;
+  padding: 20px;
+  margin: 25px;
+  width: 15%;
+  border-radius: 5px;
+}
+
+.region li {
+  margin: 10px;
+  text-align: center;
+  padding-bottom: 5px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.region li:hover {
+  background-color: #051b24;
+}

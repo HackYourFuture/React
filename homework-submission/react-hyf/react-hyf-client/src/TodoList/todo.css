@@ -1,0 +1,84 @@
+.todo_container {
+  margin: 50px auto 0;
+  width: 450px;
+}
+
+.todo_container ul {
+  margin: 0;
+  padding: 0;
+}
+
+.isDone {
+  text-decoration-line: line-through;
+}
+
+.list {
+  list-style: none;
+  box-shadow: 0px 1px 9px 0px rgb(176, 164, 164);
+  height: 40px;
+  padding: 15px 12px 0;
+  margin-bottom: 10px;
+  display: flex;
+  background-color: snow;
+}
+
+span:last-child {
+  margin-left: auto;
+}
+
+.check {
+  margin-right: 10px;
+  color: #547a63;
+}
+
+.checked {
+  color: #15fd15;
+}
+
+.delete {
+  color: #332c2c;
+  margin-left: 5px;
+}
+
+.delete:hover {
+  color: #cf0a0a;
+  transition: 0.3s;
+}
+
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  width: 200px;
+  margin-bottom: 0.7rem;
+  border-radius: 0.25rem;
+  color: #721c24;
+  background-color: #f8d7da;
+}
+
+input[type='submit'] {
+  width: 14%;
+  height: 55px;
+  font-size: 1.5em;
+  color: #f1f6f9;
+  background-color: #e91e63;
+  border: 1.5px solid #e91e63;
+}
+
+input[type='date'] {
+  width: 30%;
+  height: 48px;
+  padding: 7px 2px 0;
+  background-color: #f7f6f7;
+  border: unset;
+  font-size: 13px;
+  text-align: center;
+}
+
+input[type='text'] {
+  width: 52%;
+  height: 55px;
+  background-color: #f7f6f7;
+  padding: 0 0 0 0.75rem;
+  font-size: 1.5em;
+  border: unset;
+}
