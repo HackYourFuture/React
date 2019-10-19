@@ -1,0 +1,79 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+h2 {
+  color: white;
+  font-size: 2em;
+  text-shadow: 1px 1px 4px #09d3ac;
+}
+
+.todo-complete {
+  text-decoration-line: line-through;
+}
+
+.name-surname {
+  font-size: 150%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px #09d3ac;
+}
+
+.active-button {
+  background-color: #09d3ac;
+}
+
+.profile-pic {
+  border: 3px double #6b6666cb;
+  width: 5em;
+  height: 5em;
+  transition: transform 0.2s;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.74);
+  box-shadow: 0px 0px 3px #09d3ac;
+}
+
+.profile-pic:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 8px #09d3ac;
+}
+
+.randomizer {
+  height: 2em;
+  width: 12em;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgb(199, 33, 36);
+}
+
+.info-wrapper {
+  font-size: 75%;
+  transition: transform 0.2s;
+  box-sizing: border-box;
+  border: 3px groove #333333;
+  border-radius: 4px;
+}
+
+.info-wrapper:hover {
+  transform: scale(1.005);
+  box-shadow: 0px 0px 2px #09d3ac;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
