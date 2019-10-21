@@ -13,7 +13,7 @@
   width: 12px;
   height: 12px;
   border-radius: 3px;
-  background: #fff;
+  background: blue;
 }
 
 .block:nth-child(4n + 1) {

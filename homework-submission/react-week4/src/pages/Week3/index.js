@@ -10,14 +10,15 @@ function Week3() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  async function fetchData() {
+    setIsLoading(true);
+    const res = await fetch(API);
+    const usersData = await res.json();
+    setIsLoading(false);
+    setData(usersData);
+  }
+
   useEffect(() => {
-    async function fetchData() {
-      setIsLoading(true);
-      const res = await fetch(API);
-      const usersData = await res.json();
-      setIsLoading(false);
-      setData(usersData);
-    }
     fetchData();
 
     return function cleanup() {

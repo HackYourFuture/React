@@ -1,4 +1,5 @@
-.list-items {
+.list-i,
+.isDone {
   background-color: slategray;
   display: flex;
   padding: 10px;
@@ -7,15 +8,11 @@
   list-style: none;
 }
 
-.list-items:hover,
+.list-i:hover,
 .isDone:hover {
   background-color: rgb(185, 211, 236);
 }
 
 .isDone {
-  background-color: slategray;
   text-decoration: line-through;
-  padding: 10px;
-  border-bottom: 2px dotted rgba(200, 215, 230, 0.425);
-  list-style: none;
 }

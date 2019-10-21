@@ -26,12 +26,14 @@ function Week2() {
 
   const handleRemove = name => {
     const removeTodo = toDoItems.filter(item => item.name !== name);
+    console.log(removeTodo);
     setTodoItems(removeTodo);
   };
 
   const onHandleInputChange = e => {
     const name = e.target.value;
     const newItem = { name };
+    console.log(newItem);
     setAddItem(newItem);
   };
 
@@ -50,6 +52,7 @@ function Week2() {
 
   const onHandleClick = () => {
     const newList = [...toDoItems, addItem];
+    console.log(newList);
     setTodoItems(newList);
   };
 
@@ -58,11 +61,11 @@ function Week2() {
       <TodoList
         name="To-Do"
         input={<HyfInput onHandleInputChange={onHandleInputChange} />}
-        button={<HyfButton onHandleClick={onHandleClick} />}
+        button={<HyfButton onHandleClick={onHandleClick} buttonText={"Add"} />}
         children={toDoItems.map(item => (
           <TodoItems
             name={item.name}
-            key={uniqid("eli")}
+            key={uniqid(item.name)}
             handleCheckboxChange={() => onHandleCheckboxChange(item.name)}
             done={item.done}
             buttonText={"x"}

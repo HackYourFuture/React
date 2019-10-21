@@ -9,9 +9,9 @@ import "./App.css";
 
 function App() {
   const routes = [
+    { name: "home", path: "/", exact: true, component: Home },
     { name: "week1", path: "/week1", component: Week1 },
     { name: "week2", path: "/week2", component: Week2 },
-    { name: "home", path: "/", exact: true, component: Home },
     { name: "week3", path: "/week3", component: Week3 }
   ];
 
@@ -23,6 +23,7 @@ function App() {
           {routes.map(route => {
             return (
               <Route
+                key={route.name}
                 path={route.path}
                 exact={route.exact}
                 component={route.component}

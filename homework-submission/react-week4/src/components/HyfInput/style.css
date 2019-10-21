@@ -7,5 +7,6 @@ input {
 }
 
 .itemInput::placeholder {
+  text-align: center;
   color: rgb(180, 137, 166);
 }

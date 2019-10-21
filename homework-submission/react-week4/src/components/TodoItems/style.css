@@ -1,3 +1,12 @@
+.list-items {
+  background-color: rgba(194, 166, 192, 0.281);
+  display: flex;
+  padding: 10px;
+  border-bottom: 2px dotted rgba(200, 215, 230, 0.425);
+  justify-content: space-around;
+  list-style: none;
+}
+
 .remove-btn {
   height: 20px;
   width: 20px;

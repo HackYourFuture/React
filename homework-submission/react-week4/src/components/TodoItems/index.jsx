@@ -15,7 +15,7 @@ export default function TodoItems({
   };
 
   return (
-    <li style={isDone()}>
+    <li className="list-items" style={isDone()}>
       <input type="checkbox" onChange={handleCheckboxChange} />
       {name}
       <button className="remove-btn" onClick={handleRemove}>
