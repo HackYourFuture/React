@@ -5,7 +5,7 @@ import Region from "./region";
 import Gender from "./gender";
 import "core-js";
 
-function Week3Components() {
+function Week3() {
   const [data, setData] = useState("");
   const [id, setId] = useState(-1);
 
@@ -55,4 +55,4 @@ function Week3Components() {
   );
 }
 
-export default Week3Components;
+export default Week3;

@@ -1,12 +1,14 @@
 import React from "react";
-import PreviousHomeworks from "./component/PreviousHomeworks/previousHomework.js";
-import Week3Components from "./component/week3Components/index.js";
+import Week1 from "./component/week1/";
+import Week2 from "./component/week2/";
+import Week3 from "./component/week3";
 
 function App(props) {
   return (
     <>
-      <PreviousHomeworks />
-      <Week3Components />
+      <Week1 />
+      <Week2 />
+      <Week3 />
     </>
   );
 }

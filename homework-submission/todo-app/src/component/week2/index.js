@@ -4,7 +4,7 @@ import Button from "./button.jsx";
 import Input from "./todoInput";
 const uuid = require("uuid");
 
-const PreviousHomeworks = () => {
+const Week2 = () => {
   const [todos, setTodos] = useState([
     {
       id: uuid(),
@@ -97,4 +97,4 @@ const PreviousHomeworks = () => {
   );
 };
 
-export default PreviousHomeworks;
+export default Week2;
