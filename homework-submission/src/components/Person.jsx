@@ -6,29 +6,29 @@ const People = () => {
   const [person, setPerson] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
-  const [clicked, setClicked] = useState(null);
 
   const handleClick = () => {
-    setClicked(Math.random());
+    fetchPeople();
+  };
+
+  const fetchPeople = async () => {
+    try {
+      setIsLoaded(false);
+      const response = await fetch(
+        'https://cors-anywhere.herokuapp.com/https://uinames.com/api/?amount=1&&ext=photos',
+      );
+      const data = await response.json();
+      setPerson(data);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoaded(true);
+    }
   };
 
   useEffect(() => {
-    const fetchPeople = async () => {
-      try {
-        setIsLoaded(false);
-        const response = await fetch(
-          'https://cors-anywhere.herokuapp.com/https://uinames.com/api/?amount=1&&ext=photos',
-        );
-        const data = await response.json();
-        setPerson(data);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoaded(true);
-      }
-    };
     fetchPeople();
-  }, [clicked]);
+  }, []);
 
   const { photo, name, surname, region, email, phone } = person;
 
