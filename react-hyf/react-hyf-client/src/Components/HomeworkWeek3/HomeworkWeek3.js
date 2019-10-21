@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NameSurname from './NameSurname';
 import Container from './Container';
 import Info from './Info';
+import Image from './Image';
 
 class HomeworkWeek3 extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class HomeworkWeek3 extends Component {
   }
 
   componentDidMount() {
-    fetch('https://uinames.com/api/?amount=10')
+    fetch('https://uinames.com/api/?ext')
       .then(res => res.json())
       .then(
         result => {
@@ -49,8 +50,9 @@ class HomeworkWeek3 extends Component {
       return (
         <div>
           <Container>
-            <NameSurname name={items[index].name} surname={items[index].surname} />
-            <Info gender={items[index].gender} region={items[index].region} />
+            <Image photo={items.photo} />
+            <NameSurname name={items.name} surname={items.surname} />
+            <Info gender={items.gender} region={items.region} phone={items.phone} />
           </Container>
         </div>
       );
