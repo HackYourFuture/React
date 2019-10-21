@@ -71,7 +71,6 @@ function Homework2 () {
   const handleDeleteTodo = (id) => {
     const newTodos = todos.filter(item=>item.id!==id);
     setTodos(newTodos);
-    console.log(id);
   };
   const handleSubmit = event => {
     event.preventDefault();
@@ -83,7 +82,8 @@ function Homework2 () {
         deadline: '',
         done: false,
       });
-    } else {window.alert('Please enter a todo description and select a deadline');
+    } else if (!form.description){window.alert('Please enter a todo description');
+    }else if (!form.deadline){window.alert('Please enter a todo deadline');
     }
   };
   const [showTodoList, setShowTodoList] = useState(false);
