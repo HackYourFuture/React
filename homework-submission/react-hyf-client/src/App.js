@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Users from './Containers/Users/Users';
+import Users from './Containers/Users';
 import TodoList from './TodoList/TodoList';
 import NotFound from './services/NotFound';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';

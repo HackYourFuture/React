@@ -36,3 +36,11 @@ header .nav_link li a {
   text-decoration: none;
   padding: 0 10px;
 }
+.space_bar {
+  position: absolute;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: #fff;
+  margin: 0;
+}

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Button from '../../components/Button';
-import User from '../../components/User';
-import Region from '../../components/Region';
-import { countries } from '../../services/countries';
-import Spinner from '../../components/Spinner';
-import ErrorModal from './../../Error/ErrorModal.jsx';
+import React, { useState, useEffect, useCallback } from 'react';
+import Button from '../components/Button';
+import User from '../components/User';
+import Region from '../components/Region';
+import { countries } from '../services/countries';
+import Spinner from '../components/Spinner';
+import ErrorModal from '../Error/ErrorModal.jsx';
 const Users = () => {
   const [data, setData] = useState([]);
   const [randomUser, setRandomUser] = useState([]);
@@ -14,37 +14,52 @@ const Users = () => {
   const [isShowing, setIsShowing] = useState(false);
   const [changed, setChange] = useState(false);
   const [error, setError] = useState();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await fetch(`https://uinames.com/api/?amount=30&gender=${gender}&region=${region}&ext`)
-          .then(res => res.json())
-          .then(res => {
-            setData(res);
-          });
-      } catch (error) {
-        setError(error.message);
-      }
-    };
-    fetchData();
-    setIsLoading(false);
+
+  const fetchData = useCallback(async () => {
+    try {
+      await fetch(`https://uinames.com/api/?amount=30&gender=${gender}&region=${region}&ext`)
+        .then(res => res.json())
+        .then(res => {
+          setData(res);
+          setIsLoading(false);
+        });
+    } catch (error) {
+      setError(error.message);
+    }
   }, [gender, region]);
 
-  const getUserHandler = () => {
-    if (data.length > 0) {
-      const userData = data;
-      const index = Math.floor(Math.random() * userData.length);
-      const newData = [userData[index]];
-      setRandomUser(newData);
-      setChange(true);
-    }
-    return null;
-  };
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  const getUserHandler = useCallback(
+    e => {
+      e.preventDefault();
+      if (data.length > 0) {
+        if (e.keyCode === 32) {
+          const index = Math.floor(Math.random() * data.length);
+          const newData = [data[index]];
+          setRandomUser(newData);
+          setChange(true);
+        }
+      }
+      return null;
+    },
+    [data],
+  );
+
+  useEffect(() => {
+    window.addEventListener('keyup', getUserHandler);
+    // Remove event listeners on cleanup
+    return () => {
+      return window.addEventListener('keyup', getUserHandler);
+    };
+  }, [getUserHandler]);
 
   const queryGenderHandler = gender => {
     setGender(gender);
-    console.log(gender);
   };
+  console.log('dd');
 
   const queryRegionHandler = ct => {
     const country = ct.toLocaleLowerCase('en-NL');
@@ -82,12 +97,10 @@ const Users = () => {
         }
         clicked={showCountriesHandler}
       />
-      <Button
-        className="users"
-        clicked={getUserHandler}
-        value={changed ? <i className="fas fa-exchange-alt"></i> : 'Get users'}
-      />
-      {isLoading ? <Spinner /> : <User data={data} randomUser={randomUser} />}
+      <p className="space_bar">
+        {changed ? <i className="fas fa-exchange-alt"></i> : 'Press SpaceBar'}
+      </p>
+      {isLoading ? <Spinner /> : <User isLoading={isLoading} data={data} randomUser={randomUser} />}
       {isShowing ? <Region queryRegionHandler={queryRegionHandler} countries={countries} /> : null}
     </div>
   );

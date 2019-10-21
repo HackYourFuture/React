@@ -2,11 +2,11 @@ import React from 'react';
 import Spinner from './Spinner';
 import './User.css';
 const User = props => {
-  const { data, randomUser } = props;
+  const { data, randomUser, isLoading } = props;
 
   return (
     <ul className="user">
-      {data.length <= 0 ? (
+      {data.length <= 0 || isLoading ? (
         <Spinner />
       ) : (
         randomUser.map(user => (

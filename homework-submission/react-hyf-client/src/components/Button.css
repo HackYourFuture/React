@@ -12,14 +12,3 @@ button {
 button:hover {
   box-shadow: 1px 1px 6px rgba(233, 220, 220, 0.89);
 }
-
-.users {
-  font-size: 20px;
-  position: absolute;
-  top: 20%;
-  left: 47%;
-  transform: translate(-50%, -50%);
-  width: 100px;
-  height: 55px;
-  border-radius: 3px;
-}
