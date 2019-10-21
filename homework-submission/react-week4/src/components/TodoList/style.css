@@ -1,0 +1,18 @@
+.list {
+  margin: 20px;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.list-name {
+  display: flex;
+  justify-content: center;
+  background-color: purple;
+  color: white;
+  margin: 0px;
+  padding: 5px;
+}

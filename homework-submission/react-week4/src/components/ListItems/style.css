@@ -1,0 +1,21 @@
+.list-items {
+  background-color: slategray;
+  display: flex;
+  padding: 10px;
+  border-bottom: 2px dotted rgba(200, 215, 230, 0.425);
+  justify-content: center;
+  list-style: none;
+}
+
+.list-items:hover,
+.isDone:hover {
+  background-color: rgb(185, 211, 236);
+}
+
+.isDone {
+  background-color: slategray;
+  text-decoration: line-through;
+  padding: 10px;
+  border-bottom: 2px dotted rgba(200, 215, 230, 0.425);
+  list-style: none;
+}
