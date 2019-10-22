@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Week3.css';
-// --------------
 
 const Week3 = () => {
   const [loading, setLoding] = useState(true);
@@ -18,6 +17,7 @@ const Week3 = () => {
         const dataUser = await dataPromis.json();
         setUserInfo(dataUser);
         setLoding(false);
+        console.log('getuser function');
       }
     } catch (error) {
       setError(error);
@@ -44,10 +44,13 @@ const Week3 = () => {
       </header>
       <main className="App-main">
         <h3 className={!error ? 'w3_on_screen' : 'w3_none '}>
-          {loading ? 'loading new info' : 'Display user info'}
+          {loading ? (
+            <span className="w3_loading">loading new info</span>
+          ) : (
+            <span>Display user info</span>
+          )}
         </h3>
         <img src={userInfo.photo} alt="User" />
-        <br />
 
         <ul>
           <li>Name: {userInfo.name}</li>
@@ -63,17 +66,3 @@ const Week3 = () => {
 };
 
 export default Week3;
-
-// ------------------
-// const Week3 = () => {
-//   return (
-//     <div>
-//       <header className="App-header">
-//         <h1>Week3</h1>
-//       </header>
-//       <main className="App-main"></main>
-//     </div>
-//   );
-// };
-
-// export default Week3;

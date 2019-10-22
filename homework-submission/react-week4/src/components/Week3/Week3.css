@@ -33,11 +33,13 @@ button:active {
 
 .w3_loading {
   width: 90%;
-  margin: 15px auto;
-  padding: 15px;
+  border-radius: 15px;
+  margin: 10px auto;
+  padding: 10px;
   text-align: center;
   border: 1px solid #2ebaee;
-  color: #c84316;
+  color: #2ebaee;
+  font-size: smaller;
 }
 .w3_on_screen {
   display: block;
