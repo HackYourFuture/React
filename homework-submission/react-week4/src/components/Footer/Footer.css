@@ -1,4 +1,5 @@
-.home_nav a {
+.footer_nav a {
+  display: inline-block;
   color: inherit;
   text-decoration: none;
   margin: 10px;
@@ -8,13 +9,13 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
-.home_nav a:hover {
+.footer_nav a:hover {
   background-color: #ddd;
   color: black;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.home_nav a.active {
+.footer_nav a.active {
   background-color: #4caf50;
   color: white;
 }
