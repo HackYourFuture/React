@@ -3,7 +3,7 @@ import React from 'react';
 // ListItem component: it is to create HTML list item.
 export const ListItem = ({ done, description, deadline }) => {
   return (
-    <li className={done ? 'line_through' : 'no_line'}>
+    <li className={done ? 'w1_line_through' : 'w1_no_line'}>
       {description} , {deadline}.
     </li>
   );
