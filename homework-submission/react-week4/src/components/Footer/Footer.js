@@ -7,8 +7,8 @@ const footerLinksArray = linksArray.filter(link => link.href !== '/');
 const Footer = () => {
   return (
     <div className="footer_nav">
-      {footerLinksArray.map(link => (
-        <NavLink exact to={link.href}>
+      {footerLinksArray.map((link, index) => (
+        <NavLink key={index} exact to={link.href}>
           {link.text}
         </NavLink>
       ))}

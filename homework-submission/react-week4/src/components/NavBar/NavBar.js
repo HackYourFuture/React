@@ -16,8 +16,8 @@ const NavBar = () => {
 
   return (
     <div className={MobileMenu ? 'topnav responsive ' : 'topnav'}>
-      {linksArray.map(link => (
-        <NavLink exact to={link.href} onClick={linkClickHandler}>
+      {linksArray.map((link, index) => (
+        <NavLink key={index} exact to={link.href} onClick={linkClickHandler}>
           {link.text}
         </NavLink>
       ))}
