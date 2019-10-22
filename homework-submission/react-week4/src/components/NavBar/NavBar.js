@@ -1,18 +1,36 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './NavBar.css';
 
 const NavBar = () => {
-  const [clickMobileMenu, setClickMobileMenu] = useState(false);
+  const [MobileMenu, setMobileMenu] = useState(false);
+
   function myFunction() {
-    !clickMobileMenu ? setClickMobileMenu(true) : setClickMobileMenu(false);
-    console.log(clickMobileMenu);
+    !MobileMenu ? setMobileMenu(true) : setMobileMenu(false);
+    console.log(MobileMenu);
   }
+  const mouseLeaveHandler = () => {
+    setMobileMenu(false);
+  };
+
   return (
-    <div className={!clickMobileMenu ? 'topnav' : 'topnav responsive '}>
-      <a href="#home">Home</a>
-      <a href="#week1">Week1</a>
-      <a href="#week2">Week2</a>
-      <a href="#week3">Week3</a>
+    <div className={MobileMenu ? 'topnav responsive ' : 'topnav'} onMouseLeave={mouseLeaveHandler}>
+      <NavLink exact to="/">
+        Home
+      </NavLink>
+
+      <NavLink exact to="/week1">
+        Week1
+      </NavLink>
+
+      <NavLink exact to="/week2">
+        Week2
+      </NavLink>
+
+      <NavLink exact to="/week3">
+        Week3
+      </NavLink>
+
       <span className="icon" onClick={myFunction}>
         <i className="fa fa-bars"></i>
       </span>
