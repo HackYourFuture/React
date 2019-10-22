@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import Week1 from './components/Week1/Week1';
 import Week2 from './components/Week2/Week2';
 import Week3 from './components/Week3/Week3';
