@@ -1,37 +1,27 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './NavBar.css';
+import linksArray from './linksArray';
 
 const NavBar = () => {
   const [MobileMenu, setMobileMenu] = useState(false);
 
-  function myFunction() {
+  const iconClickhandler = () => {
     !MobileMenu ? setMobileMenu(true) : setMobileMenu(false);
     console.log(MobileMenu);
-  }
-  const mouseLeaveHandler = () => {
+  };
+  const linkClickHandler = () => {
     setMobileMenu(false);
   };
 
   return (
-    <div className={MobileMenu ? 'topnav responsive ' : 'topnav'} onMouseLeave={mouseLeaveHandler}>
-      <NavLink exact to="/">
-        Home
-      </NavLink>
-
-      <NavLink exact to="/week1">
-        Week1
-      </NavLink>
-
-      <NavLink exact to="/week2">
-        Week2
-      </NavLink>
-
-      <NavLink exact to="/week3">
-        Week3
-      </NavLink>
-
-      <span className="icon" onClick={myFunction}>
+    <div className={MobileMenu ? 'topnav responsive ' : 'topnav'}>
+      {linksArray.map(link => (
+        <NavLink exact to={link.href} onClick={linkClickHandler}>
+          {link.text}
+        </NavLink>
+      ))}
+      <span className="icon" onClick={iconClickhandler}>
         <i className="fa fa-bars"></i>
       </span>
     </div>

@@ -1,22 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import linksArray from '../NavBar/linksArray';
 import './Footer.css';
+const footerLinksArray = linksArray.filter(link => link.href !== '/');
+
 const Footer = () => {
   return (
-    <div>
-      <p className="footer_nav">
-        <NavLink exact to="/week1">
-          Week1
+    <div className="footer_nav">
+      {footerLinksArray.map(link => (
+        <NavLink exact to={link.href}>
+          {link.text}
         </NavLink>
-
-        <NavLink exact to="/week2">
-          Week2
-        </NavLink>
-
-        <NavLink exact to="/week3">
-          Week3
-        </NavLink>
-      </p>
+      ))}
     </div>
   );
 };
