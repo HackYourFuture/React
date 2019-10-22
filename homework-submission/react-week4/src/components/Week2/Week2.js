@@ -2,7 +2,10 @@ import React from 'react';
 const Week2 = () => {
   return (
     <div>
-      <h1>Week2</h1>
+      <header className="App-header">
+        <h1>Week2</h1>
+      </header>
+      <main className="App-main"></main>
     </div>
   );
 };

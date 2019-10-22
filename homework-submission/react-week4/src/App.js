@@ -6,6 +6,7 @@ import Week1 from './components/Week1/Week1';
 import Week2 from './components/Week2/Week2';
 import Week3 from './components/Week3/Week3';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import Footer from './components/Footer/Footer';
 
 import './App.css';
 
@@ -22,6 +23,7 @@ function App() {
           <Route component={PageNotFound} />
         </Switch>
         {/* <header className="App-header"></header> */}
+        <Footer />
       </div>
     </BrowserRouter>
   );
