@@ -14,13 +14,13 @@ const NavBar = () => {
   };
 
   return (
-    <div className={MobileMenu ? 'topnav responsive ' : 'topnav'}>
+    <div className={MobileMenu ? 'nb_topnav nb_responsive ' : 'nb_topnav'}>
       {linksArray.map((link, index) => (
         <NavLink key={index} exact to={link.href} onClick={linkClickHandler}>
           {link.text}
         </NavLink>
       ))}
-      <span className="icon" onClick={iconClickhandler}>
+      <span className="nb_icon" onClick={iconClickhandler}>
         <i>&#8801;</i>
       </span>
     </div>
