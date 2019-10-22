@@ -8,7 +8,6 @@ const NavBar = () => {
 
   const iconClickhandler = () => {
     !MobileMenu ? setMobileMenu(true) : setMobileMenu(false);
-    console.log(MobileMenu);
   };
   const linkClickHandler = () => {
     setMobileMenu(false);
@@ -22,7 +21,7 @@ const NavBar = () => {
         </NavLink>
       ))}
       <span className="icon" onClick={iconClickhandler}>
-        <i className="fa fa-bars"></i>
+        <i>&Xi;</i>
       </span>
     </div>
   );

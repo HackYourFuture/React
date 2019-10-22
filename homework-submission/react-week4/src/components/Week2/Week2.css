@@ -1,0 +1,103 @@
+.container {
+  width: 90%;
+  margin: 5px auto;
+}
+
+table {
+  margin-top: 15px;
+  border-collapse: collapse;
+  font-weight: normal;
+  table-layout: fixed;
+  width: 65%;
+}
+
+thead {
+  background: #ddd;
+  color: black;
+  padding: 5px;
+}
+tr {
+  border-bottom: 0.5px solid #ddd;
+}
+
+td {
+  padding: 5px;
+  vertical-align: top;
+}
+
+.check-column {
+  white-space: nowrap;
+  width: 20%;
+}
+.description {
+  text-align: left;
+  min-width: 40%;
+}
+
+.action {
+  width: 20%;
+}
+
+td.icon {
+  color: #c84316;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.no_items {
+  width: 100%;
+  text-align: center;
+  border: 1px solid #2ebaee;
+  color: #c84316;
+}
+
+/* form */
+form input[type='text'] {
+  width: 50%;
+  text-align: left;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+form input[type='date'] {
+  width: 25%;
+}
+
+form input[type='submit'] {
+  width: 15%;
+}
+input[type='checkbox'] {
+  margin: 0px;
+}
+
+form {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+form input {
+  padding: 10.5px;
+  background: #ebebeb;
+  border: transparent;
+  border: 0.3px solid #ccc;
+}
+form input[type='date'] {
+  padding: 8px;
+  margin: 0px;
+}
+
+form input[type='submit'] {
+  background: #2ebaee;
+  border: 0.3px solid #2ebaee;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    width: 100%;
+  }
+  .container {
+    width: 95%;
+    margin: 5px auto;
+  }
+}
