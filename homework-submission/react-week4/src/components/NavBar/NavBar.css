@@ -37,8 +37,9 @@ span:hover {
   .topnav span.icon {
     float: right;
     display: block;
+
     font-weight: bolder;
-    border: 0.5px solid #ddd;
+    border-left: 0.5px solid #ddd;
   }
 }
 

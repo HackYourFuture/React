@@ -21,7 +21,7 @@ const NavBar = () => {
         </NavLink>
       ))}
       <span className="icon" onClick={iconClickhandler}>
-        <i>&Xi;</i>
+        <i>&#8801;</i>
       </span>
     </div>
   );
