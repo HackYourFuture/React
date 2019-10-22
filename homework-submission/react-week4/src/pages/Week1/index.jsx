@@ -41,6 +41,7 @@ function Week1() {
       <TodoList name={"Dynamic List"}>
         {items.map(item => (
           <ListItems
+            key={item.id}
             description={item.description}
             deadline={item.deadline}
             done={item.done}

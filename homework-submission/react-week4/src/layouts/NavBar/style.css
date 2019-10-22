@@ -1,0 +1,46 @@
+.nav-bar {
+  background-color: rgba(135, 235, 160, 0.589);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 10vh;
+}
+
+.home-icon::after {
+  content: "";
+  cursor: pointer;
+  display: block;
+  float: left;
+  width: 40px;
+  height: 40px;
+  background: url("../../images/home.svg") no-repeat 0px 0px;
+}
+
+.back-icon::after {
+  content: "";
+  cursor: pointer;
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background: url("../../images/back.svg") no-repeat 0px 0px;
+}
+
+.forward-icon::after {
+  content: "";
+  cursor: pointer;
+  display: block;
+  float: right;
+  width: 25px;
+  height: 25px;
+  background: url("../../images/arrow.svg") no-repeat 0px 0px;
+}
+
+.nav-links {
+  display: flex;
+  width: 50%;
+  padding: 0px;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}

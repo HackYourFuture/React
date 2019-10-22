@@ -26,20 +26,17 @@ function Week2() {
 
   const handleRemove = name => {
     const removeTodo = toDoItems.filter(item => item.name !== name);
-    console.log(removeTodo);
     setTodoItems(removeTodo);
   };
 
   const onHandleInputChange = e => {
     const name = e.target.value;
     const newItem = { name };
-    console.log(newItem);
     setAddItem(newItem);
   };
 
   const onHandleCheckboxChange = name => {
-    const todo = toDoItems.find(item => item.name === name);
-    console.log(todo);
+    toDoItems.find(item => item.name === name);
     setTodoItems(
       toDoItems.map(item => {
         if (item.name === name) {
@@ -52,7 +49,6 @@ function Week2() {
 
   const onHandleClick = () => {
     const newList = [...toDoItems, addItem];
-    console.log(newList);
     setTodoItems(newList);
   };
 
