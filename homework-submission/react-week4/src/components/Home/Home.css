@@ -1,0 +1,10 @@
+.home_p {
+  text-align: left;
+  width: 75%;
+}
+
+@media screen and (max-width: 600px) {
+  .home_p {
+    width: 95%;
+  }
+}
