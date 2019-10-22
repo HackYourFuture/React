@@ -3,7 +3,7 @@ import './Week3.css';
 // --------------
 
 const Week3 = () => {
-  const [loding, setLoding] = useState(true);
+  const [loading, setLoding] = useState(true);
   const [userInfo, setUserInfo] = useState(null);
   const [error, setError] = useState(false);
 
@@ -13,7 +13,7 @@ const Week3 = () => {
 
   const getUser = async () => {
     try {
-      if (loding) {
+      if (loading) {
         const dataPromis = await fetch('https://uinames.com/api/?ext');
         const dataUser = await dataPromis.json();
         setUserInfo(dataUser);
@@ -26,11 +26,11 @@ const Week3 = () => {
 
   useEffect(() => {
     getUser();
-  }, [loding]);
+  }, [loading]);
 
-  return loding && !userInfo ? (
-    <div className={error ? 'w3_on_screen w3_warning' : 'w3_none '}>
-      {error ? `Error: ${error.message}. server is busy, Try later` : 'Loding...................'}
+  return loading && !userInfo ? (
+    <div className={error ? 'w3_on_screen w3_warning' : 'w3_loading'}>
+      {error ? `Error: ${error.message}. server is busy, Try later` : 'loading...................'}
     </div>
   ) : (
     <div>
@@ -44,7 +44,7 @@ const Week3 = () => {
       </header>
       <main className="App-main">
         <h3 className={!error ? 'w3_on_screen' : 'w3_none '}>
-          {loding ? 'Loding new info' : 'Display user info'}
+          {loading ? 'loading new info' : 'Display user info'}
         </h3>
         <img src={userInfo.photo} alt="User" />
         <br />

@@ -31,6 +31,14 @@ button:active {
   transform: translateY(2px);
 }
 
+.w3_loading {
+  width: 90%;
+  margin: 15px auto;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #2ebaee;
+  color: #c84316;
+}
 .w3_on_screen {
   display: block;
 }
@@ -39,6 +47,7 @@ button:active {
   display: none;
 }
 .w3_warning {
+  display: block;
   color: #d8000c;
   background-color: #ffbaba;
   padding: 5px;

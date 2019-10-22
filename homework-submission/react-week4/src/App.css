@@ -3,10 +3,6 @@
 }
 
 .App-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
 }
 .App-main {
@@ -16,7 +12,4 @@
   align-items: center;
   font-size: calc(10px + 2vmin);
   padding-bottom: 15px;
-}
-.App-link {
-  color: #09d3ac;
 }
