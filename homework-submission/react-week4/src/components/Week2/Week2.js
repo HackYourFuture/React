@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import TodoItems from './components/TodoItems/TodoItems';
-import AddItem from './components/AddItem/AddItem';
-import todoData from './components/todoData/todoData';
+import TodoItems from './TodoItems/TodoItems';
+import AddItem from './AddItem/AddItem';
+import todoData from './todoData/todoData';
 import shortid from 'shortid';
 import './Week2.css';
 
@@ -34,7 +34,7 @@ const Week2 = () => {
       <header className="App-header">
         <h1>Week2</h1>
       </header>
-      <main className="App-main container">
+      <main className="App-main w2_container">
         <h3>Todo list App</h3>
         <TodoItems items={data.items} deleteItemFnc={deleteItemFnc} checkBoxFnc={checkBoxFnc} />
         <AddItem addItemFnc={addItemFnc} />

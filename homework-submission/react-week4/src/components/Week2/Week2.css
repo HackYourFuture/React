@@ -1,4 +1,4 @@
-.container {
+.w2_container {
   width: 90%;
   margin: 5px auto;
 }
@@ -16,6 +16,10 @@ thead {
   color: black;
   padding: 5px;
 }
+thead tr th {
+  border-right: 0.5px solid whitesmoke;
+  border-left: 0.5px solid whitesmoke;
+}
 tr {
   border-bottom: 0.5px solid #ddd;
 }
@@ -25,32 +29,39 @@ td {
   vertical-align: top;
 }
 
-.check-column {
+.w2_check-column {
   white-space: nowrap;
   width: 20%;
 }
-.description {
+.w2_description {
   text-align: left;
   min-width: 40%;
 }
 
-.action {
+.w2_action {
   width: 20%;
 }
 
-td.icon {
+td.w2_icon {
   color: #c84316;
   cursor: pointer;
   font-weight: bolder;
 }
 
-.no_items {
+.w2_no_items {
   width: 100%;
   text-align: center;
   border: 1px solid #2ebaee;
   color: #c84316;
 }
 
+.w2_line_through {
+  text-decoration: line-through;
+}
+
+.w2_no_line {
+  text-decoration: none;
+}
 /* form */
 form input[type='text'] {
   width: 50%;
@@ -66,13 +77,18 @@ form input[type='date'] {
 form input[type='submit'] {
   width: 15%;
 }
+
 input[type='checkbox'] {
-  margin: 0px;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 6px;
 }
 
 form {
-  margin-top: 15px;
-  margin-bottom: 10px;
+  width: 65%;
+  margin-top: 30px;
+  margin-bottom: 15px;
 }
 form input {
   padding: 10.5px;
@@ -90,13 +106,19 @@ form input[type='submit'] {
   border: 0.3px solid #2ebaee;
   color: #fff;
   cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 600px) {
-  table {
+  table,
+  form {
     width: 100%;
   }
-  .container {
+  th,
+  td {
+    font-size: smaller;
+  }
+  .w2_container {
     width: 95%;
     margin: 5px auto;
   }

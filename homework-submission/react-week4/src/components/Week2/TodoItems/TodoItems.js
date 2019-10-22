@@ -5,7 +5,7 @@ const TodoItems = ({ items, deleteItemFnc, checkBoxFnc }) => {
     items.map((item, index) => {
       return (
         <tr key={index}>
-          <td className="check-column">
+          <td className="w2_check-column">
             <input
               type="checkbox"
               checked={item.done ? 'checked' : ''}
@@ -13,11 +13,11 @@ const TodoItems = ({ items, deleteItemFnc, checkBoxFnc }) => {
               onChange={() => checkBoxFnc(item.id)}
             ></input>
           </td>
-          <td className={item.done ? 'description line_through' : 'description'}>
+          <td className={item.done ? 'w2_description w2_line_through' : 'w2_description'}>
             {item.description}
           </td>
-          <td className="deadline">{item.deadline}</td>
-          <td className="action icon" onClick={() => deleteItemFnc(item.id)}>
+          <td className="w2_deadline">{item.deadline}</td>
+          <td className="w2_action w2_icon" onClick={() => deleteItemFnc(item.id)}>
             &times;
           </td>
         </tr>
@@ -26,7 +26,7 @@ const TodoItems = ({ items, deleteItemFnc, checkBoxFnc }) => {
   ) : (
     <tr>
       <td colSpan="4">
-        <p className="no_items">No Items</p>
+        <p className="w2_no_items">No Items</p>
       </td>
     </tr>
   );
@@ -35,10 +35,10 @@ const TodoItems = ({ items, deleteItemFnc, checkBoxFnc }) => {
     <table>
       <thead>
         <tr>
-          <th className="check-column ">Check</th>
-          <th className="description ">Description</th>
-          <th className="deadline ">Deadline</th>
-          <th className="action ">Delete</th>
+          <th className="w2_check-column ">Check</th>
+          <th className="w2_description ">Description</th>
+          <th className="w2_deadline ">Deadline</th>
+          <th className="w2_action ">Delete</th>
         </tr>
       </thead>
       <tbody>{ListItems}</tbody>
