@@ -1,0 +1,10 @@
+img {
+  border-radius: 50%;
+  width: 250px;
+  margin: auto;
+}
+h1 {
+  width: 50%;
+  margin: auto;
+  border-bottom: 2px solid red;
+}
