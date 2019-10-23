@@ -47,14 +47,14 @@ function Week3() {
         <Spinner />
       ) : (
         <UserCard
-          image={data.photo}
-          image_info={data.name}
+          image={usersData.photo}
+          image_info={usersData.name}
           children={
             <UserInfo
-              name={data.name}
-              surname={data.surname}
-              phone={data.phone}
-              email={data.email}
+              name={usersData.name}
+              surname={usersData.surname}
+              phone={usersData.phone}
+              email={usersData.email}
             />
           }
           button={<Button onHandleClick={onHandleClick} buttonText="Next" />}
