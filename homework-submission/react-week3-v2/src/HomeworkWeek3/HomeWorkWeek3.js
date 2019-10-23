@@ -10,46 +10,33 @@ function HomeWorkWeek3() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  async function fetchUsersData() {
+    setIsLoading(true);
+    const res = await fetch(API);
+    const usersData = await res.json();
+    setIsLoading(false);
+    setData(usersData);
+  }
+
   useEffect(() => {
-    async function fetchData() {
-      setIsLoading(true);
-      const res = await fetch(API);
-      const usersData = await res.json();
-      setIsLoading(false);
-      setData(usersData);
-    }
-    fetchData();
+    fetchUsersData();
 
     return function cleanup() {
-      return fetchData();
+      return fetchUsersData();
     };
   }, []);
 
   const onHandleClick = useCallback(() => {
-    async function fetchNewUser() {
-      setIsLoading(true);
-      const res = await fetch(API);
-      const newUserData = await res.json();
-      setIsLoading(false);
-      setData(newUserData);
-    }
-    fetchNewUser();
+    fetchUsersData();
 
     return function cleanup() {
-      return fetchNewUser();
+      return fetchUsersData();
     };
   }, []);
 
   document.body.onkeyup = function(e) {
     if (e.keyCode === 32) {
-      async function fetchWithSpace() {
-        setIsLoading(true);
-        const res = await fetch(API);
-        const newUserData = await res.json();
-        setIsLoading(false);
-        setData(newUserData);
-      }
-      return fetchWithSpace();
+      fetchUsersData();
     }
   };
 
