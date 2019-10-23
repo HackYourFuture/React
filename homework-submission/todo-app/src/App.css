@@ -2,7 +2,17 @@
   width: 100%;
   display: grid;
   margin-top: 20px;
-  grid-template-columns: 5fr 3fr;
+}
+.nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 #root div {
@@ -69,4 +79,13 @@ img {
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
   justify-content: center;
+}
+
+.gender,
+.region {
+  grid-template-columns: 1fr 5fr !important;
+}
+
+.nav {
+  grid-template-rows: 1fr;
 }

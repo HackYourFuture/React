@@ -59,7 +59,7 @@ const Week2 = () => {
   return (
     <div>
       <h1>Time management is life management!</h1>
-      <ul>
+      <ul className="week2">
         {!todos.length ? (
           <li>please add item to your list!</li>
         ) : (
