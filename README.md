@@ -1,9 +1,20 @@
-> Please help us improve and share your feedback! If you find better tutorials
-> or links, please share them by [opening a pull request](https://github.com/HackYourFuture/React/pulls).
+> If you are following the HackYourFuture curriculum we recommend you to start with module 1: [HTML/CSS/GIT](https://github.com/HackYourFuture/HTML-CSS). To get a complete overview of the HackYourFuture curriculum first, click [here](https://github.com/HackYourFuture/curriculum).
 
-# HackYourFuture - React.js
+> Please help us improve and share your feedback! If you find better tutorials or links, please share them by [opening a pull request](https://github.com/HackYourFuture/React/pulls).
 
-Welcome to the React.js (from this point on: React) module. In these 5 weeks we will go back to the frontend and learn how to make faster, more modern user interfaces.
+# Module #7 - React.js: Building dynamic UIs with modern JavaScript (Frontend)
+
+![React Module](./assets/react.png)
+
+Welcome to the React module! Congratulations on making it this far!
+
+In these 5 weeks we will go back to the frontend and learn how to make faster, more modern user interfaces. In the HTML and JavaScript modules you've learned all about creating webpages that that hold unchanging data. No matter who is using the website, the data will always be the same. We call this a `static website`. At the same time you've build various HTML pages so the user is able to access various parts of the website. We call this a `multi-page application (MPA)`
+
+In the Node.js module you've learned about how to change the content of the page, based on the user's input, using a `templating engine`. Type in a keyword and the server sends back a `template` with customized data. We call this a `dynamic website`. However, we did it in such a way were we still had to send different pages to the client depending on the URL (for example, `/` or `/users`). This is also an MPA.
+
+In this module, however, you'll learn how to make more complex websites. Though, we won't be calling them websites anymore: they'll be `web applications`. They're not just informational, but allow the user to interact with it. This similar to any application on your desktop. These React applications will also deal with `dynamic data`: its `state` changes depending on who's using it.
+
+Besides being dynamic, React applications also are `single page applications (SPA)`. Essentially, this means that on loading the whole application (every page and its contents) is accessible to the user, without the need to send requests to the server to get another page.
 
 ## Learning goals
 
@@ -12,46 +23,57 @@ In order to successfully complete this module you will need to master the follow
 - Understand the React way of thinking about user interfaces
 - Know the importance and place of state and how to pass it down
 - Be able to work with different lifecycle hooks
+- Distinguish between class-based versus function-based components
 - Recognize the utility of modularization
 - Putting emphasis on writing reusable code (components)
-- Knowing how to connect a Node backend with a React frontend
+- How to handle client-side routing
 
-## Must-reads before starting
+## How to use this repository
 
-Before learning React, you need to understand a couple of things first.
+This repository consists of 3 essential parts:
 
-1. React makes use of the latest [JavaScript features](https://www.youtube.com/watch?v=NCwa_xi0Uuc), like [classes](https://medium.com/beginners-guide-to-mobile-web-development/javascript-introduction-to-es6-classes-ecb2db9fe985), [destructuring](https://codeburst.io/es6-destructuring-the-complete-guide-7f842d08b98f) and [higher order functions](https://www.sitepoint.com/higher-order-functions-javascript/).
+1. `Reading materials`: this document contains all the required theory you need to know _**while**_ you're coding. It's meant as both study material and as a reference to understand what you're doing.
+2. `Homework`: this document contains the instructions for each week's homework.
+3. `Lesson Plans`: this part is meant for teachers as a reference. However, as a student don't be shy to take a look at it as well!
 
-It's important to become familiar with these concepts, as they will drastically help to differentiate what is React-specific and what is regular JavaScript code. In this way you'll much quicker be able to see what exactly the role of React is.
+After your first class you should start off with checking the `reading materials` for that week. At the beginning that would be the [Week 1 Reading](/Week1/README.md). Study all the concepts and try to get the gist of everything. After, you can get started with the `homework` for that week.
 
-2. You need to become familiar with the idea of SPA: [Single Page Application](https://www.youtube.com/watch?v=wlVmmsMD28w). As opposed to MPA ([Multi Page Application](https://medium.com/@goldybenedict/single-page-applications-vs-multiple-page-applications-do-you-really-need-an-spa-cf60825232a3)), a SPA works with a single HTML file that switches in the content it shows the user. This is all for the sake of performance, speed and better user experience.
+If you have any questions or if something is not entirely clear ¯\\\_(ツ)\_/¯, please ask/comment on Slack!
 
-React makes use of this SPA structure, bundling all your JavaScript code and injecting that into your singular HTML file. When the browser loads this file React then takes care of what content to show when in an efficient way.
+## Before you start
 
-3. You should know the difference between [static](https://www.webnots.com/basics-of-a-static-website/) and [dynamic](https://www.webnots.com/basics-of-dynamic-websites/) websites. While the former deals with content that doesn't change, the latter customizes content depending on the user (and their actions).
+In order to properly work through this module smoothly we're going to use software that will allow us to write React applications with ease. It's called `create-react-app`.
 
-There is nothing inherently bad about having static frontends. However, as websites increasingly became more interactive there arose a need to display customized content. Content that is dependent upon the user and user input. This is what React aims to do.
+Go to your command line and execute the following:
 
-4. Learn about the how and why of [JavaScript frameworks](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445). Whenever building software you can build on top of what others have already done; this is why we use a framework. It not only allows us to structure our application, but also gives us tools on how to achieve certain requirements (like faster loading, and showing customized information to the user)
+```
+npm install -g create-react-app
+```
 
-With that out of the way, let's get started with React!
+Now verify that you have it by executing the following:
+
+```
+create-react-app --version
+```
+
+It should be at least version `2.1.x`.
 
 ## Planning
 
-| Week | Topic               | Reading Materials                                                                                                                                                                                                                                                                                                                                                                                                                                   | In Class                                                       | Homework                                             |
-| ---- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------- |
-| 1.   | Thinking in React   | [React Philosophy](https://reallifeprogramming.com/react-philosophy-e8cdea991599), [Components](https://medium.com/the-andela-way/understanding-react-components-37f841c1f3bb), [JSX](https://reactgo.com/learn-react-jsx-detailed/), [Props](https://www.robinwieruch.de/react-pass-props-to-component/)                                                                                                                                           | [W1 Lesson Plan](documentation/lesson-plans/W1-lesson-plan.md) | [W1 Homework](documentation/homework/W1-homework.md) |
-| 2.   | Data flow in React  | [State](https://medium.com/the-andela-way/understanding-the-fundamentals-of-state-in-react-79c711be677f), [State vs. props](https://codeburst.io/react-state-vs-props-explained-51beebd73b21), [Unidirectional data flow](https://medium.com/@lizdenhup/understanding-unidirectional-data-flow-in-react-3e3524c09d8e), [Forms](https://medium.com/@agoiabeladeyemi/the-complete-guide-to-forms-in-react-d2ba93f32825)                               | [W2 Lesson Plan](documentation/lesson-plans/W2-lesson-plan.md) | [W2 Homework](documentation/homework/W2-homework.md) |
-| 3.   | Advanced React      | [Lifecycle hooks](https://blog.pusher.com/beginners-guide-react-component-lifecycle/), [API calls](https://blog.hellojs.org/fetching-api-data-with-react-js-460fe8bbf8f2), [Connecting Node with React](https://medium.freecodecamp.org/how-to-make-create-react-app-work-with-a-node-backend-api-7c5c48acb1b0), [Connecting Node with React II](https://hackernoon.com/how-to-combine-a-nodejs-back-end-with-a-reactjs-front-end-app-ea9b24715032) | [W3 Lesson Plan](documentation/lesson-plans/W3-lesson-plan.md) | [W3 Homework](documentation/homework/W3-homework.md) |
-| 4.   | Client-side routing | [Client-side routing](http://krasimirtsonev.com/blog/article/deep-dive-into-client-side-routing-navigo-pushstate-hash), [Server-side vs. client-side routing](https://www.youtube.com/watch?v=ofCoqejWohA), [React-Router](https://itnext.io/react-router-simple-starter-guide-c6477695908c)                                                                                                                                                        | [W4 Lesson Plan](documentation/lesson-plans/W4-lesson-plan.md) | [W4 Homework](documentation/homework/W4-homework.md) |
-| 5.   | Test                | [Summary of core concepts](https://medium.com/@madhupathy/learn-basics-of-react-js-in-3-minutes-a94cbc6f02c8)                                                                                                                                                                                                                                                                                                                                       | [Test](documentation/homework/test.md)                         |                                                      |
+| Week | Topics                                          | Reading Materials                | Homework                         | Lesson Plans                            |
+| ---- | ----------------------------------------------- | -------------------------------- | -------------------------------- | --------------------------------------- |
+| 1.   | What is React, JSX, Props, Deploy a static site | [Readings W1](./week1/README.md) | [Homework W1](./week1/MAKEME.md) | [Lesson Plan W1](./week1/LESSONPLAN.md) |
+| 2.   | State I, Hooks I, API calls, Forms              | [Readings W2](./week2/README.md) | [Homework W2](./week2/MAKEME.md) | [Lesson Plan W2](./week2/LESSONPLAN.md) |
+| 3.   | State II, Hooks II, Third party components      | [Readings W3](./week3/README.md) | [Homework W3](./week3/MAKEME.md) | [Lesson Plan W3](./week3/LESSONPLAN.md) |
+| 4.   | Context, Client-side routing                    | [Readings W4](./week4/README.md) | [Homework W4](./week4/MAKEME.md) | [Lesson Plan W4](./week4/LESSONPLAN.md) |
+| 5.   | Test                                            | [Details](./week5/test.md)       | -                                | -                                       |
 
-## Handing in homework
+## Finished?
 
-Take a look at [this video](https://www.youtube.com/watch?v=-o0yomUVVpU&index=2&list=PLVYDhqbgYpYUGxRdtQdYVE5Q8h3bt6SIA) made by Daan, he explains how your homework needs to be handed in.
+Did you finish the module? Impressive!
 
-Also review the Git [workflow material](https://github.com/HackYourFuture/Git/blob/master/Lecture-3.md) from the JavaScript3 module, use this as a reference.
-
-Please read [this doc](homework-submission/HOMEWORK.md) for information on how to where to put your homework for this particular module.
+If you feel ready for the **final** challenge, click [here](https://www.github.com/HackYourFuture/Project) to go to Project!
 
 _The HackYourFuture curriculum is subject to CC BY copyright. This means you can freely use our materials, but just make sure to give us credit for it :)_
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
