@@ -7,7 +7,7 @@ import "./HomeworkWeek3.css";
 
 function HomeWorkWeek3() {
   const API = "https://uinames.com/api/?ext";
-  const [data, setData] = useState([]);
+  const [userData, setUsersData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   async function fetchUsersData() {
@@ -15,7 +15,7 @@ function HomeWorkWeek3() {
     const res = await fetch(API);
     const usersData = await res.json();
     setIsLoading(false);
-    setData(usersData);
+    setUsersData(usersData);
   }
 
   useEffect(() => {
@@ -46,14 +46,14 @@ function HomeWorkWeek3() {
         <Spinner />
       ) : (
         <UserCard
-          image={data.photo}
-          image_info={data.name}
+          image={userData.photo}
+          image_info={userData.name}
           children={
             <UserInfo
-              name={data.name}
-              surname={data.surname}
-              phone={data.phone}
-              email={data.email}
+              name={userData.name}
+              surname={userData.surname}
+              phone={userData.phone}
+              email={userData.email}
             />
           }
           button={<Button onHandleClick={onHandleClick} buttonText="Next" />}
