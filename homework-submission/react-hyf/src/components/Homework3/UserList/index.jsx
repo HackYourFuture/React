@@ -14,36 +14,58 @@ function UserList() {
     setUrl(`https://uinames.com/api/?ext=photos&&region=${value}`);
   };
 
-  useEffect(() => {
-    document.addEventListener('keyup', function(e) {
-      if (e.keyCode == 32) {
-        const fetchData = async () => {
-          setIsError(false);
-          setIsLoading(true);
+  async function fetchData() {
+    setIsError(false);
+    setIsLoading(true);
 
-          try {
-            await fetch(url)
-              .then(response => response.json())
-              .then(json => {
-                setData(json);
-                setIsLoading(false);
-              });
-          } catch (error) {
-            setIsError(true);
-          }
-          console.log(url);
+    try {
+      await fetch(url)
+        .then(response => response.json())
+        .then(json => {
+          setData(json);
           setIsLoading(false);
-        };
+        });
+    } catch (error) {
+      setIsError(true);
+    }
+
+    setIsLoading(false);
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [url]);
+
+  function useKey(key) {
+    const [pressed, setPressed] = useState(false);
+
+    const onDown = event => {
+      if (event.keyCode === 32) {
+        event.preventDefault();
+        setPressed(true);
         fetchData();
       }
-    });
-  }, [url]);
+    };
+
+    useEffect(() => {
+      window.addEventListener('keydown', onDown);
+      return () => {
+        window.removeEventListener('keydown', onDown);
+      };
+    }, [key]);
+
+    return pressed;
+  }
+
+  const space = useKey();
 
   return (
     <div className="Users">
       <h1>User</h1>
+
       {isError && <div>Something went terribly wrong ...</div>}
-      <CountryInput handleChange={handleChange} />
+      <CountryInput handleChange={handleChange} handleClick={() => fetchData()} />
+      {!space && <div>Press spacebar to get a random user</div>}
       {isLoading === true ? (
         <Spinner />
       ) : (

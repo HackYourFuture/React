@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CountryInput({ handleChange }) {
+function CountryInput({ handleChange, handleClick }) {
   const countries = [
     'random',
     'Albania',
@@ -69,9 +69,14 @@ function CountryInput({ handleChange }) {
       <select id={'country-selection'} onChange={handleChange}>
         <option value="">Select a country</option>
         {countries.map(c => {
-          return <option value={c}>{c}</option>;
+          return (
+            <option key={c} value={c}>
+              {c}
+            </option>
+          );
         })}
       </select>
+      <button onClick={handleClick}>Get User</button>
     </div>
   );
 }

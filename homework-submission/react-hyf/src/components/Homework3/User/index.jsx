@@ -19,11 +19,36 @@ function User({ photo, name, surname, region, birthday, phone, email, gender }) 
           >
             {name} {surname}
           </li>
-          <li>🌐 {region}</li>
-          <li>🎂 {birthday}</li>
-          <li>📞 {phone}</li>
-          <li>✉️ {email}</li>
-          <li>👤 {gender}</li>
+          <li>
+            <span role="img" aria-hidden="true">
+              🌐
+            </span>{' '}
+            {region}
+          </li>
+          <li>
+            <span role="img" aria-hidden="true">
+              🎂
+            </span>{' '}
+            {birthday}
+          </li>
+          <li>
+            <span role="img" aria-hidden="true">
+              📞
+            </span>{' '}
+            {phone}
+          </li>
+          <li>
+            <span role="img" aria-hidden="true">
+              ✉️
+            </span>{' '}
+            {email}
+          </li>
+          <li>
+            <span role="img" aria-hidden="true">
+              👤
+            </span>{' '}
+            {gender}
+          </li>
         </ul>
       </div>
     </li>
