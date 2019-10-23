@@ -4,6 +4,7 @@ import Img from "./img";
 import Region from "./region";
 import Gender from "./gender";
 import "core-js";
+import { setServers } from "dns";
 
 function App() {
   const [user, setUser] = useState("");
@@ -11,10 +12,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async url => {
-      await fetch(url, {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "multipart/form-data"
-      })
+      await fetch(url)
         .then(response => response.json())
         .then(content => setUser(content));
     };
@@ -23,7 +21,7 @@ function App() {
         fetchData("https://uinames.com/api/?ext");
         setOrder(false);
       } catch (err) {
-        console.log(err);
+        setServers(err);
       }
     }
   }, [order]);
@@ -41,6 +39,7 @@ function App() {
       ) : (
         <>
           <h1>week3-homework</h1>
+
           <ul>
             <Img
               imgSrc={`${user.photo}`}
