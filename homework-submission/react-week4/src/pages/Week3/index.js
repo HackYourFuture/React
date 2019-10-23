@@ -7,7 +7,7 @@ import "./style.css";
 
 function Week3() {
   const API = "https://uinames.com/api/?ext";
-  const [data, setData] = useState([]);
+  const [usersData, setUsersData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   async function fetchData() {
@@ -15,7 +15,7 @@ function Week3() {
     const res = await fetch(API);
     const usersData = await res.json();
     setIsLoading(false);
-    setData(usersData);
+    setUsersData(usersData);
   }
 
   useEffect(() => {
@@ -27,31 +27,18 @@ function Week3() {
   }, []);
 
   const onHandleClick = useCallback(() => {
-    async function fetchNewUser() {
-      setIsLoading(true);
-      const res = await fetch(API);
-      const newUserData = await res.json();
-      setIsLoading(false);
-      setData(newUserData);
-    }
-    fetchNewUser();
+    fetchData();
 
     return function cleanup() {
-      return fetchNewUser();
+      return fetchData();
     };
   }, []);
 
   document.body.onkeyup = function(e) {
     if (e.keyCode === 32) {
-      async function fetchWithSpace() {
-        setIsLoading(true);
-        const res = await fetch(API);
-        const newUserData = await res.json();
-        setIsLoading(false);
-        setData(newUserData);
-      }
-      return fetchWithSpace();
+      fetchData();
     }
+    return fechData();
   };
 
   return (
