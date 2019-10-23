@@ -3,6 +3,7 @@ import UserCard from "../components/UserCard";
 import UserInfo from "../components/UserInfo/UserInfo";
 import Spinner from "../components/Spinner";
 import Button from "../components/Button";
+import Frame from "../components/Frame";
 import "./HomeworkWeek3.css";
 
 function HomeWorkWeek3() {
@@ -43,21 +44,25 @@ function HomeWorkWeek3() {
   return (
     <React.Fragment>
       {isLoading ? (
-        <Spinner />
+        <Frame>
+          <Spinner />
+        </Frame>
       ) : (
-        <UserCard
-          image={userData.photo}
-          image_info={userData.name}
-          children={
-            <UserInfo
-              name={userData.name}
-              surname={userData.surname}
-              phone={userData.phone}
-              email={userData.email}
-            />
-          }
-          button={<Button onHandleClick={onHandleClick} buttonText="Next" />}
-        />
+        <Frame>
+          <UserCard
+            image={userData.photo}
+            image_info={userData.name}
+            children={
+              <UserInfo
+                name={userData.name}
+                surname={userData.surname}
+                phone={userData.phone}
+                email={userData.email}
+              />
+            }
+            button={<Button onHandleClick={onHandleClick} buttonText="Next" />}
+          />
+        </Frame>
       )}
     </React.Fragment>
   );
