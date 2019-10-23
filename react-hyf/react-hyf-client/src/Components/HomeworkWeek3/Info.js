@@ -12,7 +12,7 @@ const Info = ({ gender, region, phone }) => {
         <h2 className="region">{region}</h2>
       </div>
       <div className="Info-phone">
-        <i class="huge phone icon"></i>
+        <i className="huge phone icon"></i>
         <h2 className="phone">{phone}</h2>
       </div>
       {/* <div className="Info-region">

@@ -3,6 +3,7 @@ import NameSurname from './NameSurname';
 import Container from './Container';
 import Info from './Info';
 import Image from './Image';
+import RandomButton from './RandomButton';
 
 class HomeworkWeek3 extends Component {
   constructor(props) {
@@ -37,6 +38,32 @@ class HomeworkWeek3 extends Component {
       );
   }
 
+  handleKeyDown(event) {
+    if (event.keyCode === 13) {
+      console.log('Enter key pressed');
+    }
+  }
+
+  onClickButton = event => {
+    fetch('https://uinames.com/api/?ext')
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            isLoaded: true,
+            items: result
+          });
+          // console.log(this.state.items);
+        },
+        error => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      );
+  };
+
   render() {
     const { error, isLoaded, items } = this.state;
     const index = Math.floor(Math.random() * items.length);
@@ -51,6 +78,7 @@ class HomeworkWeek3 extends Component {
         <div>
           <Container>
             <Image photo={items.photo} />
+            <RandomButton click={this.onClickButton} />
             <NameSurname name={items.name} surname={items.surname} />
             <Info gender={items.gender} region={items.region} phone={items.phone} />
           </Container>
