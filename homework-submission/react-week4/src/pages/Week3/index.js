@@ -38,7 +38,7 @@ function Week3() {
     if (e.keyCode === 32) {
       fetchData();
     }
-    return fechData();
+    return fetchData();
   };
 
   return (
