@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Homework3 from './components/week3/Homework3';
 import Homework1 from './components/week1/Homework1';
 import Homework2 from './components/week2/Homework2';
 import HomePage from './components/HomePage';
-import NavBAr from './components/NavBar';
+import NavBArPage from './components/NavBar';
 import NotFound from './components/404';
 
 import './App.css';
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="container">
       <Router>
-        <NavBAr />
+        <NavBArPage />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/week1" component={Homework1} />
