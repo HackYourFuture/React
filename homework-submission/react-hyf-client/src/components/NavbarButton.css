@@ -12,6 +12,7 @@
   -webkit-box-shadow: inset 0px 0px 0px 5px white;
   -moz-box-shadow: inset 0px 0px 0px 5px white;
   box-shadow: inset 0px 0px 0px 5px white;
+  text-decoration: none;
 }
 
 .NavbarButton i {
@@ -24,4 +25,8 @@
 
 .NavbarButton i.active {
   opacity: 1;
+}
+
+.active-link {
+  color: red;
 }
