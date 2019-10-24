@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  padding: 50px;
+  font-family: sans-serif;
+  text-align: left;
+  background: rgba(241, 231, 231, 0.2);
+  font-family: 'Montserrat', 'Helvetica', 'Open Sans', 'Arial';
+}
+
+.panel {
+  border: 1px solid #3aa708;
+  border-radius: 3px;
+  background: #3aa708;
+  color: #fff;
+  max-width: 550px;
+  margin: 0 auto;
+  position: relative;
+  padding: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.panel form {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel form input {
+  margin-bottom: 1em;
+  background-color: #fff;
+}
+
+.container {
+  text-align: center;
+}
+
+.text-area {
+  color: #000000;
+  font-size: 18px;
+  width: 100%;
+  height: auto;
+}
+
+form input {
+  line-height: 1.75;
+  font-size: 18px;
+  background-color: #fff;
+}
+
+button {
+  background: transparent;
+  color: #fff;
+  border-radius: 3px;
+  font-weight: bold;
+  cursor: pointer;
+  min-height: 40px;
+  opacity: 0.9;
+  margin: 0 10px 0 0;
+}
+
+button:hover {
+  opacity: 1;
+  background-color: #fff;
+  color: #3aa708;
+}
+
+.items {
+  background-color: #fff;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  padding: 0.5rem;
+}
+
+.item {
+  display: grid;
+  grid-template-rows: 3fr 2fr;
+}
+
+.font-color {
+  color: #3aa708;
+}
+
+.bg-color-hover:hover {
+  background-color: #3aa708;
+  color: white;
+}
+
+.block {
+  display: block;
+  font-weight: 700;
+}
+
+.through {
+  text-decoration: line-through;
+}
+
+#description {
+  font-weight: bold;
+}
+
+#deadline {
+  font-size: 12px;
+}
+
+.text-area :hover {
+  background-color: #3aa708;
+  font-style: italic;
+}
+
+.text-area button {
+  background: #3aa708;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 3px;
+  cursor: pointer;
+  min-height: 25px;
+  opacity: 0.9;
+  margin-right: 0;
+}
+
+.text-area button:hover {
+  background-color: #3aa708;
+  font-weight: bold;
+}
+
+.header {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}

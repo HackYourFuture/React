@@ -7,7 +7,10 @@
     "react-dom": "^16.10.2",
     "react-scripts": "0.9.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
