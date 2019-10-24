@@ -29,6 +29,10 @@ div.container.dynamic-list,
   height: 80%;
 }
 
+div.Todo-List.container {
+  padding: 20px 0;
+}
+
 div.jumbotron {
   margin: 0;
 }

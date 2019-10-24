@@ -4,7 +4,7 @@ function TodoForm({ addTodo, handleChange, value, dateValue, handleDateChange })
   return (
     <form onSubmit={addTodo}>
       <div className="form-row">
-        <div className="form-group col-sm">
+        <div className="form-group col">
           <input
             type="text"
             placeholder="Add a todo item..."
@@ -13,7 +13,7 @@ function TodoForm({ addTodo, handleChange, value, dateValue, handleDateChange })
             onChange={handleChange}
           ></input>
         </div>
-        <div className="form-group col-sm">
+        <div className="form-group col-md-auto">
           <input
             type="date"
             className="form-control"
@@ -21,8 +21,8 @@ function TodoForm({ addTodo, handleChange, value, dateValue, handleDateChange })
             onChange={handleDateChange}
           ></input>
         </div>
-        <div className="form-group-append">
-          <button type="submit" className="btn btn-success">
+        <div className="form-group-append col col-lg-2">
+          <button type="submit" className="btn btn-success ">
             Add Todo
           </button>
         </div>
