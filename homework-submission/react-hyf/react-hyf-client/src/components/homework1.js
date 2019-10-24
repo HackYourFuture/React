@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import uuid from 'uuid';
 
 const ComponentHeader =(props)=>{
     return (
@@ -35,19 +36,19 @@ class Homework1 extends Component {
     state = {
         todos: [
           {
-            id: 1,
+            id: uuid.v4(),
             description: 'Get out of bed',
             deadline: '2017-09-11',
             done: true,
           },
           {
-            id: 2,
+            id: uuid.v4(),
             description: 'Brush teeth',
             deadline: '2017-09-10',
             done: false,
           },
           {
-            id: 3,
+            id: uuid.v4(),
             description: 'Eat breakfast',
             deadline: '2017-09-09',
             done: false,
