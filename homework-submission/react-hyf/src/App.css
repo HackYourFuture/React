@@ -1,9 +1,32 @@
-/* .selector-for-some-widget {
-  box-sizing: content-box;
-} */
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
 
 .App {
   text-align: center;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+}
+
+div.Users.container {
+  padding: 10px;
+}
+
+div.Users.container ul {
+  padding: 30px;
+}
+
+div.container.static-list,
+div.card,
+div.container.dynamic-list,
+.jumbotron {
+  height: 80%;
 }
 
 div.jumbotron {

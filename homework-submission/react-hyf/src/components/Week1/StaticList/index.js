@@ -3,7 +3,7 @@ import StaticTodo from '../StaticTodo';
 
 function StaticList() {
   return (
-    <div className="container">
+    <div className="container static-list">
       <h1>Static list: </h1>
       <StaticTodo />
     </div>

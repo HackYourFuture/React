@@ -67,7 +67,7 @@ function RenderTodos() {
   };
 
   return (
-    <div className="container">
+    <div className="container dynamic-list">
       <h1>Todos</h1>
       <div className="Todo-Form container">
         <TodoForm
