@@ -5,6 +5,7 @@ const useKeyPress = () => {
 
   useEffect(() => {
     const handleKeyPress = e => {
+      e.preventDefault();
       if (e.keyCode === 32) {
         setKeyPressed(keyPressed + 1);
       }

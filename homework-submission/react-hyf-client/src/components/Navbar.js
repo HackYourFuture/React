@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import './Navbar.css';
 import NavbarButton from './NavbarButton';
-import { NavContext } from '../contexts/UserContext';
-import { randomURL } from '../contexts/UserContext';
+import { NavContext, randomURL } from '../contexts/UserContext';
 
 const Navbar = () => {
   const [state, dispatch] = useContext(NavContext);

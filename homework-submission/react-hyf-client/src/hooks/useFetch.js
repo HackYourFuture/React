@@ -2,7 +2,7 @@ import { useReducer, useEffect } from 'react';
 import useKeyPress from '../hooks/useKeyPress';
 
 const useFetch = (defaultValue, url, reducer) => {
-  const keyPressData = useKeyPress();
+  const numberOfSpacePressed = useKeyPress();
   const [state, dispatch] = useReducer(reducer, defaultValue);
 
   useEffect(() => {
@@ -11,10 +11,10 @@ const useFetch = (defaultValue, url, reducer) => {
       const data = await response.json();
       return data[0];
     };
-    keyPressData >= 1 &&
+    numberOfSpacePressed >= 1 &&
       getUser().then(info => dispatch({ type: 'FETCH', data: info, loading: { loading: false } }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [keyPressData]);
+  }, [numberOfSpacePressed]);
 
   return [state, dispatch];
 };
