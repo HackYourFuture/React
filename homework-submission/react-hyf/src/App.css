@@ -1,9 +1,13 @@
-.selector-for-some-widget {
+/* .selector-for-some-widget {
   box-sizing: content-box;
-}
+} */
 
 .App {
   text-align: center;
+}
+
+div.jumbotron {
+  margin: 0;
 }
 
 h1 {
