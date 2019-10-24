@@ -17,6 +17,7 @@ const Users = () => {
 
   const fetchData = useCallback(async () => {
     try {
+      setIsLoading(true);
       await fetch(`https://uinames.com/api/?amount=30&gender=${gender}&region=${region}&ext`)
         .then(res => res.json())
         .then(res => {
@@ -59,7 +60,6 @@ const Users = () => {
   const queryGenderHandler = gender => {
     setGender(gender);
   };
-  console.log('dd');
 
   const queryRegionHandler = ct => {
     const country = ct.toLocaleLowerCase('en-NL');
