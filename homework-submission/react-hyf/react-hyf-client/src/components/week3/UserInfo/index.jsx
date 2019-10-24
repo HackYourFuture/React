@@ -1,20 +1,21 @@
 import React from 'react';
 
-function UserInfo({ userValues }) {
+function UserInfo({ user }) {
   const getNameStyle = {
     fontSize: '2.5rem',
     fontWeight: 'bold',
   };
+  const { name, surname, gender, region, phone, birthday, email, password } = user;
   return (
     <React.Fragment>
-      <p style={getNameStyle}>{` ${userValues[0]} ${userValues[1]}`}</p>
+      <p style={getNameStyle}>{` ${name} ${surname}`}</p>
       <div>
-        <p> {`👤 ${userValues[2]}`}</p>
-        <p> {`🌐 ${userValues[3]}`}</p>
-        <p>{`📞  ${userValues[6]}`}</p>
-        <p>{`🎂 ${userValues[7].dmy}`}</p>
-        <p>{`✉️ ${userValues[8]}`}</p>
-        <p>{`🔑  ${userValues[9]}`}</p>
+        <p> {`👤 ${gender}`}</p>
+        <p> {`🌐 ${region}`}</p>
+        <p>{`📞  ${phone}`}</p>
+        <p>{`🎂 ${birthday.dmy}`}</p>
+        <p>{`✉️ ${email}`}</p>
+        <p>{`🔑  ${password}`}</p>
       </div>
     </React.Fragment>
   );
