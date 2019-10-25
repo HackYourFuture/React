@@ -38,13 +38,7 @@ class HomeworkWeek3 extends Component {
       );
   }
 
-  handleKeyDown(event) {
-    if (event.keyCode === 13) {
-      console.log('Enter key pressed');
-    }
-  }
-
-  onClickButton = event => {
+  onClickButton = () => {
     fetch('https://uinames.com/api/?ext')
       .then(res => res.json())
       .then(
@@ -66,7 +60,7 @@ class HomeworkWeek3 extends Component {
 
   render() {
     const { error, isLoaded, items } = this.state;
-    const index = Math.floor(Math.random() * items.length);
+    // const index = Math.floor(Math.random() * items.length);
     // console.log(index);
 
     if (error) {
