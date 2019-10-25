@@ -1,0 +1,53 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+.input {
+  margin-top: 13px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid rgb(56, 54, 54); 
+  border-radius: 4px;
+}
+.homework2,.homework1{
+  width: 400px;
+  padding: 50px;
+  margin: auto;
+}
+.button {
+  border: 2px solid rgb(0, 174, 255);
+  background-color: rgb(56, 54, 54); 
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 8px;
+  margin: 10px;
+}
+ul,li {
+  height: 20px;
+  list-style-type: none;
+  margin: 5px;
+  padding: 5px;  
+}
+
+ul{
+  margin-bottom: 40px;
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
