@@ -82,7 +82,6 @@ button:hover {
 
 .bg-color-hover:hover {
   background-color: #3aa708;
-  color: white;
 }
 
 .block {
@@ -100,11 +99,6 @@ button:hover {
 
 #deadline {
   font-size: 12px;
-}
-
-.text-area :hover {
-  background-color: #3aa708;
-  font-style: italic;
 }
 
 .text-area button {
