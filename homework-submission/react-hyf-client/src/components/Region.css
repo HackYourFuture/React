@@ -1,0 +1,16 @@
+.custom-select {
+  position: absolute;
+  top: 25%;
+  left: 2%;
+}
+
+select {
+  background-color: #0563af;
+  color: white;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  text-align: center;
+}

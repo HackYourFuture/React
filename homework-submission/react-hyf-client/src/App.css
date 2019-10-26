@@ -1,0 +1,46 @@
+.App {
+  margin-top: 30px;
+}
+
+button {
+  margin-left: 20px;
+}
+
+body {
+  background: #8e0e00; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1f1c18, #8e0e00); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #1f1c18,
+    #8e0e00
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+header .nav_link {
+  display: flex;
+  padding-left: 13px;
+}
+
+header .nav_link li {
+  list-style: none;
+  width: 100px;
+  background-color: #5200d4;
+  text-align: center;
+  padding: 5px;
+  margin: 0 10px;
+  border-radius: 5px;
+}
+
+header .nav_link li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 10px;
+}
+.space_bar {
+  position: absolute;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: #fff;
+  margin: 0;
+}

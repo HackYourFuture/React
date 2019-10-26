@@ -1,0 +1,26 @@
+button {
+  background: #5200d4;
+  position: relative;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.4rem;
+  transition: all 0.3s;
+}
+
+button:hover {
+  box-shadow: 1px 1px 6px rgba(233, 220, 220, 0.89);
+}
+
+.getData:hover::before {
+  content: attr(data);
+  position: absolute;
+  bottom: 80%;
+  font-size: 15px;
+  background-color: #87030f;
+  padding: 6px;
+  border-radius: 5px;
+  width: 100;
+}
