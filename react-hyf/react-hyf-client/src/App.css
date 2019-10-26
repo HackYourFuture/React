@@ -1,4 +1,7 @@
-.App {
+.App,
+.Container,
+.todoList,
+.PreviousHomeworks {
   text-align: center;
 }
 
@@ -34,7 +37,8 @@ ul {
 /* COMPONENT STYLES -------------------- */
 
 .todoList,
-.Container {
+.Container,
+.PreviousHomeworks {
   background: #fff;
   width: 700px;
   margin: 20px auto;
@@ -63,4 +67,8 @@ ul {
 
 .line-through {
   text-decoration: line-through;
+}
+
+.HomeworkWeek3 {
+  margin-bottom: 50px;
 }

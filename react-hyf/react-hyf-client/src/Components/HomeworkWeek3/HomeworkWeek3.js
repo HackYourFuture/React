@@ -4,6 +4,7 @@ import Container from './Container';
 import Info from './Info';
 import Image from './Image';
 import RandomButton from './RandomButton';
+import AppHeader from '../../AppHeader';
 
 class HomeworkWeek3 extends Component {
   constructor(props) {
@@ -69,8 +70,9 @@ class HomeworkWeek3 extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div>
+        <div className="HomeworkWeek3">
           <Container>
+            <AppHeader />
             <Image photo={items.photo} />
             <RandomButton click={this.onClickButton} />
             <NameSurname name={items.name} surname={items.surname} />
