@@ -1,0 +1,51 @@
+body {
+  background-color: #3aa708;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+}
+
+.header {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+}
+
+.class-div {
+  margin: 1rem;
+}
+
+.list-box {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: white;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.font-color {
+  color: #3aa708;
+}
+
+.bg-color-hover:hover {
+  background-color: #3aa708;
+  color: white;
+}
+
+.block {
+  display: block;
+  font-weight: 700;
+}
+
+.through {
+  text-decoration: line-through;
+}

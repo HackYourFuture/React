@@ -1,0 +1,30 @@
+.menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  list-style-type: none;
+}
+
+.menu-item {
+  padding: 20px;
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  background-color: white;
+  font-family: VT323, monospace;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+.menu-item:hover {
+  font-size: 25px;
+  background-color: #3aa708;
+}
+
+.home {
+  margin-top: 50px;
+  font-size: 25px;
+  letter-spacing: 1.5px;
+  color: white;
+  font-family: VT323, monospace;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
