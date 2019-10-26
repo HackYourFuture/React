@@ -15,7 +15,7 @@ const history = createBrowserHistory();
 ReactDOM.render(
   <Router history={history}>
     <Switch>
-      <Route exact={true} path="/week1" component={StaticList}></Route>
+      <Route exact={true} path="/" component={StaticList}></Route>
       <Route path="/week2" component={PreviousHomeworks}></Route>
       <Route path="/week3" component={HomeworkWeek3}></Route>
     </Switch>

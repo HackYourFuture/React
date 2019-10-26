@@ -10,7 +10,7 @@ const AppHeader = () => {
   return (
     <div>
       <h3 style={style}>
-        <Link to="/week1">Week1</Link>
+        <Link to="/">Week1</Link>
       </h3>
       <h3 style={style}>
         <Link to="/week2">Week2</Link>
