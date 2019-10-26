@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import NavBar from '../../routes/NavBar';
+import NavBar from '../NavBar';
 
 const RouterContainer = () => {
   return (
