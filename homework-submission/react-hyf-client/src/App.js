@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Users from './Containers/Users';
-import TodoList from './TodoList/TodoList';
-import NotFound from './services/NotFound';
+import Users from './components/users/Users';
+import TodoList from './components/TodoList/TodoList';
+import NotFound from './components/Error/ErrorModal';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
-import TodoStatic from './TodoList/TodoStatic';
+import TodoStatic from './components/TodoList/TodoStatic';
 
 function App() {
   return (

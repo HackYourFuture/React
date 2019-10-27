@@ -1,6 +1,6 @@
 import React from 'react';
 import './Region.css';
-import { countries } from './../services/countries';
+import { countries } from '../services/countries';
 const Region = props => {
   const { queryRegionHandler } = props;
 

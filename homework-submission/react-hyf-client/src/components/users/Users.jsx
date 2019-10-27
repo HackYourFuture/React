@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import Button from '../components/Button';
-import User from '../components/User';
-import Region from '../components/Region';
-import Spinner from '../components/Spinner';
-import ErrorModal from '../Error/ErrorModal.jsx';
+import Button from './Button';
+import User from './User';
+import Region from './Region';
+import Spinner from './Spinner';
+import ErrorModal from '../Error/ErrorModal';
 const Users = () => {
   const [data, setData] = useState([]);
   const [randomUser, setRandomUser] = useState([]);
