@@ -1,7 +1,7 @@
 import React from 'react';
 import './AppContainer.css';
-import Navbar from '../components/Navbar';
-import UserCard from '../components/UserCard';
+import Navbar from './Navbar';
+import UserCard from './UserCard';
 import useKeyPress from '../hooks/useKeyPress';
 
 function AppContainer() {

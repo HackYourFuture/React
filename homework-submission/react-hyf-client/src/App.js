@@ -1,23 +1,22 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import AppContainer from './components/AppContainer';
-import { UserProvider } from './contexts/UserContext';
-import Home from './components/Home';
-import HomeNavbar from './components/Home-Navbar';
+import UserApp from './user_app/components/UserApp';
+import TodoApp from './todo_app/TodoApp';
+import Home from './Home';
+import HomeNavbar from './Home-Navbar';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <UserProvider>
-        <HomeNavbar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/users" component={AppContainer} />
-        </Switch>
-      </UserProvider>
+      <HomeNavbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/users" component={UserApp} />
+        <Route exact path="/todos" component={TodoApp} />
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;

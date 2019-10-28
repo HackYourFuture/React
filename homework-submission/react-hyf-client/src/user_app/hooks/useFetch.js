@@ -1,5 +1,5 @@
 import { useReducer, useEffect } from 'react';
-import useKeyPress from '../hooks/useKeyPress';
+import useKeyPress from './useKeyPress';
 
 const useFetch = (defaultValue, url, reducer) => {
   const numberOfSpacePressed = useKeyPress();

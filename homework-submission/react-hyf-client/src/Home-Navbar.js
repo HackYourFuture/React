@@ -9,11 +9,11 @@ const HomeNavbar = () => {
         Home
       </NavLink>
       <NavLink exact activeClassName="active-link" className="NavbarButton" to="/users">
-        User Profiles
+        User App
       </NavLink>
-      <a className="NavbarButton" href="https://angry-brattain-c60e5e.netlify.com/">
-        Todos
-      </a>
+      <NavLink exact activeClassName="active-link" className="NavbarButton" to="/todos">
+        Todo App
+      </NavLink>
     </div>
   );
 };

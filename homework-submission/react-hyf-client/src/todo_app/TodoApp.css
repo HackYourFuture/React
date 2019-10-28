@@ -1,0 +1,16 @@
+.TodoApp {
+  width: 50%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  min-width: 420px;
+}
+
+.TodoApp h1 {
+  text-align: center;
+}
+
+.TodoApp h2 {
+  text-align: left;
+}

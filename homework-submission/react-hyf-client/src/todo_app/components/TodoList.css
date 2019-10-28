@@ -1,0 +1,10 @@
+.TodoList {
+  margin-bottom: 5rem;
+}
+
+.TodoList ul {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+}
