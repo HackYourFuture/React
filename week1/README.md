@@ -74,7 +74,9 @@ Learn more by going through the following resources:
 
 ### State & Props
 
-What makes React `dynamic` is the concept of `state`. Simply put, state is the data that moves from component to component. It changes based on the input from the user. Let's say a user logs into their Facebook account. In React terms this is what will happen: A user types in
+What makes React `dynamic` is the concept of `state`. Simply put, state is the data that moves from component to component. It changes based on the input from the user. Let's say a user logs into their Facebook account. In React terms this is what will happen: A user types in their account details into the login form. This data will be placed into the application state, in real-time.
+
+This means: The other parts of the application knows immediately about the content you've just written! So if we want to use those exact same details to show in the next screen, we can do so without having to send a request to the server. All of this user-specific data stays inside the client.
 
 The other side of `state` is the how we pass it down to our other components. When this happens we call it `props`. It's short for `property`, similar to the properties in HTML elements.
 
