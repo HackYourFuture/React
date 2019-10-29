@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+/* body {
+  margin: 0;
+  background-color: whitesmoke;
+} */
+
+body {
+  background-color: #3aa708;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.contains {
+  margin: 0;
+  color: white;
+}
+
+.profile {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+.profile > img {
+  max-width: 50%;
+  border-radius: 40%;
+  padding-top: 10px;
+  transform: scale(1);
+}
+
+.info {
+  text-align: center;
+  color: white;
+}
+
+.attention {
+  margin-top: 20px;
+  font-size: 25px;
+  letter-spacing: 1.5px;
+  color: white;
+  font-family: VT323, monospace;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
