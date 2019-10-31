@@ -1,0 +1,9 @@
+.header {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+}

@@ -1,0 +1,26 @@
+.list-box {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: white;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.font-color {
+  color: #3aa708;
+}
+
+.bg-color-hover:hover {
+  background-color: #3aa708;
+  color: white;
+}
+
+.block {
+  display: block;
+  font-weight: 700;
+}
+
+.through {
+  text-decoration: line-through;
+}

@@ -1,5 +1,8 @@
 import React from 'react';
 import './Week2.css';
+import Todo from './Todo';
+import Button from './Button';
+import ItemField from './ItemField';
 
 const dynamicList = [
   {
@@ -21,28 +24,6 @@ const dynamicList = [
     done: false,
   },
 ];
-
-const Button = ({ text, clickHandler }) => {
-  return <button onClick={clickHandler}>{text}</button>;
-};
-
-const ItemField = ({ formHandler }) => {
-  return (
-    <form onSubmit={formHandler}>
-      <input type="text" name="itemField" />
-      <button type="submit">Add Todo</button>
-    </form>
-  );
-};
-
-const Todo = ({ itemName, items }) => {
-  return (
-    <div className="container">
-      <h1 className="header">{itemName}</h1>
-      <div className="text-area">{items}</div>
-    </div>
-  );
-};
 
 const Item = ({
   description,
