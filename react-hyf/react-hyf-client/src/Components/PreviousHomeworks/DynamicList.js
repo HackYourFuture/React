@@ -29,12 +29,9 @@ class DynamicList extends Component {
         }
       ]
     };
-    // this.deleteItemHandler = this.deleteItemHandler.bind(this);
-    // this.onSubmitHandle = this.onSubmitHandle.bind(this);
   }
 
   deleteItemHandler = itemIndex => {
-    // const persons = this.state.persons.slice();
     const items = [...this.state.items];
     items.splice(itemIndex, 1);
     this.setState({ items: items });

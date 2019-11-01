@@ -16,29 +16,10 @@ class HomeworkWeek3 extends Component {
   }
 
   componentDidMount() {
-    fetch('https://uinames.com/api/?ext')
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            isLoaded: true,
-            items: result
-          });
-          console.log(this.state.items);
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      );
+    this.fetchingData();
   }
 
-  onClickButton = () => {
+  fetchingData = () => {
     fetch('https://uinames.com/api/?ext')
       .then(res => res.json())
       .then(
@@ -47,7 +28,6 @@ class HomeworkWeek3 extends Component {
             isLoaded: true,
             items: result
           });
-          // console.log(this.state.items);
         },
         error => {
           this.setState({
@@ -60,8 +40,6 @@ class HomeworkWeek3 extends Component {
 
   render() {
     const { error, isLoaded, items } = this.state;
-    // const index = Math.floor(Math.random() * items.length);
-    // console.log(index);
 
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -72,7 +50,7 @@ class HomeworkWeek3 extends Component {
         <div>
           <Container>
             <Image photo={items.photo} />
-            <RandomButton click={this.onClickButton} />
+            <RandomButton click={this.fetchingData} />
             <NameSurname name={items.name} surname={items.surname} />
             <Info gender={items.gender} region={items.region} phone={items.phone} />
           </Container>
