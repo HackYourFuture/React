@@ -13,17 +13,17 @@ const RouterContainer = () => {
         <Switch>
           <Route
             exact
-            path="/"
+            path='/'
             render={() => (
-              <p className="home">
+              <p className='home'>
                 You are in Home.
-                <br /> Please press other menu items.
+                <br /> Please visit other menu items.
               </p>
             )}
           />
-          <Route exact path="/week1" component={Container} />
-          <Route exact path="/week2" component={Week2} />
-          <Route exact path="/week3" component={ProfileGenerator} />
+          <Route exact path='/week1' component={Container} />
+          <Route exact path='/week2' component={Week2} />
+          <Route exact path='/week3' component={ProfileGenerator} />
         </Switch>
       </Fragment>
     </Router>
