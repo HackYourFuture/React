@@ -15,5 +15,3 @@ React makes use of this SPA structure, bundling all your JavaScript code and inj
 There is nothing inherently bad about having static frontends. However, as websites increasingly became more interactive there arose a need to display customized content. Content that is dependent upon the user and user input. This is what React aims to do.
 
 4. Learn about the how and why of [JavaScript frameworks](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445). Whenever building software you can build on top of what others have already done; this is why we use a framework. It not only allows us to structure our application, but also gives us tools on how to achieve certain requirements (like faster loading, and showing customized information to the user)
-
-With that out of the way, let's get started with React!

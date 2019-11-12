@@ -5,7 +5,7 @@
 1. Practice the concepts
 2. React exercises
 3. Code along
-4. PROJECT: Hack Your Todolist IIII
+4. PROJECT: Hack Your Weather IIII
 
 ## **1. Practice the concepts**
 
@@ -25,14 +25,11 @@ Let's finish the online exercises. Start from `Review Using Props with Stateless
 
 ## **3. Code along**
 
-In the following tutorial you'll learn how to make
+In the following tutorial you'll learn how to
 
-- [Build a Recipe App With React](https://www.youtube.com/watch?v=U9T6YkEDkMo)
-- [Build a Calculator with React and Flexbox](https://www.youtube.com/watch?v=KzYUuTiHdiY)
 - [Build a Movie Database](https://www.youtube.com/playlist?list=PL_kAgwZgMfWyZ6m8fDwdiwEarr_g6nFxz)
-- [Build a Random Quote Machine](https://www.youtube.com/playlist?list=PL3cz80ehFCan4srLIp1HmhrQ0CU8Cw9XM)
 
-## **4. PROJECT: Hack Your Todolist IV**
+## **4. PROJECT: Hack Your Weather IV**
 
 > Every week ends with a project you have to build on your own. Instead of getting clear-cut instructions, you'll get a list of criteria that your project needs to measure up to.
 
@@ -47,6 +44,6 @@ If you need a refresher, take a look at the following [guide](../hand-in-homewor
 The homework that needs to be submitted is the following:
 
 1. React exercises
-2. Project: Hack Your Todolist IV
+2. Project: Hack Your Weather IV
 
 _Deadline Saturday 23.59 CET_
