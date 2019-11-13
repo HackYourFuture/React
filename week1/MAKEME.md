@@ -24,7 +24,7 @@ There's nothing better than some extreme sports to get the blood pumping.
 Take a look at the following:
 
 ```js
-const hobbies = ['Surfing', 'Rock climbing', 'Mountain biking', 'Breakdancing'];
+const hobbies = ["Surfing", "Rock climbing", "Mountain biking", "Breakdancing"];
 ```
 
 1. Create 2 functional components: `<HobbyList>` and `<Hobbies>`
@@ -39,7 +39,7 @@ Don't you love it when a company provides great customer service?
 
 Take a look at the following image:
 
-![Exercise 2](exercises/exercise2.png)
+![Exercise 2](assets/exercises/exercise2.png)
 
 In this exercise you have to create a single component that you'll reuse to display different information each time.
 
@@ -92,7 +92,7 @@ The first step to any project is to setup your development environment. Follow t
 
 1. Navigate to your `project` folder
 2. Inside, use `create-react-app` to create a React application. Give it the name `hackyourweather`
-3. Copy and paste the file `city-weather.json` inside of your project folder, into the `src` folder
+3. Copy and paste the file `city-weather.json` (you can find this inside of the `project-starter-files` folder) inside of your project folder: into the `src` folder
 
 ### 2. Requirements
 
