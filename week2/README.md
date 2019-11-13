@@ -23,7 +23,7 @@ Like any other system, React is always evolving. Before we had Hooks, we used to
 ```js
 class Example extends React.Component {
   state = {
-    exampleMessage: 'This message is for the example'
+    exampleMessage: "This message is for the example"
   };
 
   render() {
@@ -108,4 +108,17 @@ Forms have always been slightly different than any other element in HTML. So it 
 
 ### Controlled vs. uncontrolled
 
+These terms refer to whether or not a component has its own state or not. We're talking about a `controlled` component when it doesn't have its own state: it's being controlled by
+
+A component is `uncontrolled` when it does have state, meaning state values are defined within in.
+
+Learn more about this here:
+
+- [Controlled and uncontrolled elements](https://www.youtube.com/watch?v=nSGZEQa5C_c)
+- [How React Hooks change the way we build forms](https://www.youtube.com/watch?v=8yo44xN7-nQ)
+
 ### EventListeners & preventing default behavior
+
+## Finished?
+
+Are you finished with going through the materials? High five! If you feel ready to get practical, click [here](./MAKEME.md).

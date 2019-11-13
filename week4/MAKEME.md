@@ -15,13 +15,7 @@ Let's finish the online exercises. Start from `Review Using Props with Stateless
 
 ## **2. React exercises**
 
-> Inside of your `React` fork, go to the `week4` folder and create a folder called `react-exercises`. For each exercise create a new folder (call it `exercise` follwed by the right number) and create 3 files: and `index.html`, `script.js` and `style.css`.
-
-**Exercise 1**
-
-**Exercise 2**
-
-**Exercise 3**
+**No exercises this week**
 
 ## **3. Code along**
 
@@ -31,9 +25,39 @@ In the following tutorial you'll learn how to
 
 ## **4. PROJECT: Hack Your Weather IV**
 
-> Every week ends with a project you have to build on your own. Instead of getting clear-cut instructions, you'll get a list of criteria that your project needs to measure up to.
+> Make sure you're building on last week's codebase.
 
-> Before you start, create a new folder called `project` that includes the files for the following app you'll be building.
+This week we'll finish our application by integrating 2 things: `client-side routing` with [React-Router-Dom](https://reacttraining.com/react-router/web/guides/quick-start) and `charting` our data (in either hourly or five day forecasts).
+
+### 1. Setup
+
+1. Install the following packages: [React Router Dom](https://www.npmjs.com/package/react-router-dom) and [Recharts](https://www.npmjs.com/package/recharts)
+
+```
+npm install react-router-dom recharts
+```
+
+### 2. Requirements
+
+At the end of the week the user interface of your application will look mostly the same, but with an additional page:
+
+![Week 4 Wireframe](../assets/project/week4.png)
+
+Here are the requirements your project needs to fulfill:
+
+- Divide your page into 2 different routes (`/` and `/:cityId`), using `react-router-dom`
+- Allow users to click on the searched city to open the city page
+- The city page will be on a different route identified by the city id (make use of the `<Link>` component given by `react-router-dom`)
+- On the city page there will be several things:
+  - Two tabs, one for the hourly forecast and the other for a 5 day forecast
+  - A chart (made with `recharts`) that displays the correct data according to which tab is active
+- Clicking on a tab will do 2 things: (1) make an API call to get the right data (using the city id from the URL params), and (2) switch the active component (from the hourly forecast to the five day forecast and vice versa)
+- Add a "Back" button to go back to `/`, on the city page
+
+Hints:
+
+- Read the documentation to get a basic sense of what problems both `react-router-dom` and `recharts` are trying to solve, and to learn how to use them
+- Make sure to have a clear overview of your application so far, before you add this week's features to it
 
 ## **SUBMIT YOUR HOMEWORK!**
 
@@ -43,7 +67,6 @@ If you need a refresher, take a look at the following [guide](../hand-in-homewor
 
 The homework that needs to be submitted is the following:
 
-1. React exercises
-2. Project: Hack Your Weather IV
+1. Project: Hack Your Weather IV
 
 _Deadline Saturday 23.59 CET_
