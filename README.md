@@ -20,13 +20,13 @@ Besides being dynamic, React applications also are `single page applications (SP
 
 In order to successfully complete this module you will need to master the following:
 
-- Understand the React way of thinking about user interfaces
-- Know the importance and place of state and how to pass it down
-- Be able to work with different lifecycle hooks
-- Distinguish between class-based versus function-based components
-- Recognize the utility of modularization
-- Putting emphasis on writing reusable code (components)
-- How to handle client-side routing
+- Understand the React way of thinking about `user interfaces`
+- Know the importance and place of `state` and how to pass it down
+- Be able to work with different `lifecycle hooks`
+- Distinguish between `class-based versus function-based components`
+- Recognize the utility of `modularization`
+- Putting emphasis on writing reusable code (`components`)
+- How to handle `client-side routing`
 
 ## How to use this repository
 
