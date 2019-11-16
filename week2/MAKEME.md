@@ -92,6 +92,7 @@ Here are the requirements your project needs to fulfill:
 - Make a component for the search
 - Incorporate error handling for the API call
 - Show user feedback when there are no cities searched for yet
+- Redeploy your static site
 
 Hints:
 

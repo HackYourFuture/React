@@ -53,6 +53,7 @@ Here are the requirements your project needs to fulfill:
   - A chart (made with `recharts`) that displays the correct data according to which tab is active
 - Clicking on a tab will do 2 things: (1) make an API call to get the right data (using the city id from the URL params), and (2) switch the active component (from the hourly forecast to the five day forecast and vice versa)
 - Add a "Back" button to go back to `/`, on the city page
+- Redeploy your site
 
 Hints:
 

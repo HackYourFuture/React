@@ -4,15 +4,15 @@
 
 The purpose of this class is to introduce the student to the most basic React concepts:
 
-- How to look at a webpage from the React point of view
-- How to write reusable components and why
-- The purpose of JSX
-- What are props and how to pass them down components
-- Most important: React is just a simple library that allows you to make dynamic, modern user interfaces
+- How to look at a `webpage` from the React point of view
+- What `create-react-app` is
+- How to write `reusable components` and why
+- The purpose of `JSX`
+- What are `props` and how to `pass them down components`
 
-In order to keep it as simple as possible, please use the `React CDN` instead of create-react-app. For more info check the following [link](https://reactjs.org/docs/add-react-to-a-website.html#add-react-in-one-minute).
+When illustrating these concepts, make use of [create-react-app](https://github.com/facebook/create-react-app). Make sure that students have installed it as well.
 
-_Explain to students what each library does: React, ReactDOM and Babel. Then ask the to download the same files and follow along._
+_Explain to students what each library does: React, ReactDOM and Babel._
 
 ## Core concepts
 
@@ -23,7 +23,16 @@ _Explain to students what each library does: React, ReactDOM and Babel. Then ask
 
 _Show [example](https://htmlstream.com/preview/unify-v2.6.2/unify-main/home/home-default.html) and dissect a part of the site into components. After, ask 2 students to do the same._
 
-2. Components
+2. create-react-app
+
+- Generates an fully functional out-of-the-box React environment
+- Solves problem of manually configuring file bundler (like Webpack) or transpiler (Babel)
+- Improves workflow through `hot reloading`
+- Gives a more realistic folder structure
+
+_Explain to the student the problems Webpack (ex. React necessitates file bundling to work) and Babel (ex. React makes use of ES2017+ features that need to be converted into syntax that older browsers can understand) solves_
+
+3. Components
 
 - Reusable blocks of JavaScript & HTML
 - Each component instance can be given different data
@@ -33,16 +42,16 @@ _Show [example](https://htmlstream.com/preview/unify-v2.6.2/unify-main/home/home
 
 _Show example of making a class-based and functional component. After, ask students to do the same._
 
-3. JSX
+4. JSX
 
 - A way to write dynamic HTML code with JavaScript
-- It is a more intuitive version of the function `createElement()`
+- It is a more intuitive version of the function `createElement()` (that takes its name from the DOM function `createElement()`)
 - A component should always return JSX
 - These are the parts that will build the DOM structure
 
 _Show example of both JSX and createElement component and ask students to do the same._
 
-4. Props
+5. Props
 
 - Props is short for property (like a regular HTML attribute)
 - It is (dynamic) data that can be given to child components

@@ -1,6 +1,10 @@
 # Lesson Plan Week 2
 
-The purpose of this class is to teach the student about `state`, how to `pass it down as props` and extracting data from forms (the React way).
+The purpose of this class is to teach the student about:
+
+- Creating `state` (using `useState()`)
+- how to make `API calls` within a React component
+- Working with `forms`
 
 ## Agenda
 
@@ -28,9 +32,9 @@ _Show example of directly modifying state (and how it doesn't work). Then show a
 3. Forms
 
 - The natural behavior of forms is that they keep their own state and send it to a backend
-- React takes control of this behavior, by preventing the default and moving state to the class component
+- React takes control of this behavior, by preventing the default behavior and moving state to the class component
 - Form state can be updated in real-time, using the onChange attribute combined with the value attribute
-- The easiest way form data can be extracted is by using the `name` attribute: event.target._inputName_.value
+- We want to `control` our inputs by using the `onChange` and `value` attributes
 
 _Show example of a form with a text input, that after submission shows the value in a <p> tag. After, ask the students to do the same_
 
@@ -42,7 +46,7 @@ To illustrate the core concepts of state, props and components build the followi
 
 Create a number counter, that the user can increase or decrease by one.
 
-- Create a Counter class-based component
+- Create a Counter functional component
 - Initialize state
 - Create reusable components for the increase/decrease buttons
 - Create 2 functions that change the counter state: 1 for increasing and 1 for decreasing the counter

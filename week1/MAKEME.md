@@ -111,10 +111,11 @@ Here are the requirements your project needs to fulfill:
   - `weather desciption`
   - `max and min temprature`
   - `location (longitude and lattitude)`
+- Deploy your static site using [Netlify](https://www.netlify.com/)
 
 Hints:
 
-- Make use of the `map()` function to show the
+- Make use of the `map()` function to show the different cities
 - Try to "think in components"
 - Look at the JSON file and carefully look at where the useful data is found
 
@@ -127,6 +128,8 @@ If you need a refresher, take a look at the following [guide](../hand-in-homewor
 The homework that needs to be submitted is the following:
 
 1. JavaScript exercises
-2. Project: Random Quote Generator
+2. Project: Hack Your Weather I
+
+**This time also put the URL to your deployed website in your class' slack channel!**
 
 _Deadline Saturday 23.59 CET_

@@ -40,6 +40,7 @@ Here are the requirements your project needs to fulfill:
 - Any time a user searches for a new city, add it to a list of already searched cities
 - Allow a user to delete a search entry, by clicking the "X"
 - Only allow a user to use the "Search City" button when the input field has at least 1 character
+- Redploy your site
 
 Hints:
 
