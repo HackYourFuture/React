@@ -200,20 +200,18 @@ As you've learned in the Node.js module, we can use server-side frameworks like 
 
 But what if we don't want to setup a whole web server to do this?
 
-### Static site generators
+### Static site hosting 
 
-We call these `static site generators`. They take a lot of the basic web server setup out of our hands. All we have to do is upload our frontend (in other words, our static website) to that particular service's web server and that's it. The generator creates a URL for us that we can use to access our website.
+We call these `static site hosting`. They take a lot of the basic web server setup out of our hands. All we have to do is upload our frontend (in other words, our static website) to that particular service's web server and that's it. The generator creates a URL for us that we can use to access our website.
 
-Examples of static site generators are the following:
+Examples of static site hosting are the following:
 
 - [Netlify](https://www.netlify.com/)
 - [Now](https://zeit.co/)
-- [Jekyll](https://jekyllrb.com/)
 
-To learn more about static site generators, study the following:
+To learn more about static site hosting, study the following:
 
-- [The Reign of Static Site Generators](https://www.netlify.com/blog/2018/07/12/the-reign-of-static-site-generators/)
-- [Why use a Static Site Generator](https://www.youtube.com/watch?v=mDKQGANttyE)
+- [A Step-by-Step Guide: Deploying A Static Site or Single-page App](https://www.netlify.com/blog/2016/10/27/a-step-by-step-guide-deploying-a-static-site-or-single-page-app/)
 
 ## Finished?
 

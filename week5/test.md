@@ -20,10 +20,9 @@ Like the homework you will get feedback and are expected to improve upon your we
 
 The test will be about all the main React concepts you’ve learned about these past 4 weeks. The following are the most important that will be tested:
 
-- `State`
-- `Props`
-- `Lifecycle methods`
 - `Components` (functional components)
+- `Props`
+- `Hooks (state and effect)`
 - `API calls`
 - `Client-side routing`
 
