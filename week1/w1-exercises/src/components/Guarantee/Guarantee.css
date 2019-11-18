@@ -1,0 +1,19 @@
+.icons {
+  width: 80px;
+  height: 80px;
+}
+
+.guarantee-cards {
+  margin: 0;
+  padding: 10px;
+  transition: background-color 1s;
+}
+
+.guarantee-cards:hover {
+  background-color: rgba(209, 209, 209, 0.123);
+  border-radius: 10px;
+}
+
+.guarantee-cards p {
+  color: #888;
+}
