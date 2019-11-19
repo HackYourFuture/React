@@ -1,0 +1,58 @@
+.count-board {
+  margin: 0px;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.count-board p {
+  width: 200px;
+  margin: auto;
+}
+
+.warning {
+  position: relative;
+  color: red;
+  font-weight: bolder;
+  animation-name: warn;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+}
+
+@keyframes warn {
+  0% {
+    left: 5px;
+    bottom: 2px;
+  }
+  15% {
+    right: 10px;
+    bottom: 3px;
+    transform: scale(1.2);
+  }
+  30% {
+    left: 15px;
+    bottom: 4px;
+    transform: scale(1);
+  }
+  45% {
+    right: 25px;
+    bottom: 5px;
+    transform: scale(1.2);
+  }
+  60% {
+    left: 15px;
+    bottom: 3px;
+    transform: scale(1);
+  }
+  85% {
+    right: 15px;
+    bottom: 2px;
+    transform: scale(1.2);
+  }
+  100% {
+    left: 5px;
+    bottom: 0px;
+    transform: scale(1);
+  }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Hobbies = props => {
-  return <li key={props.index}>{props.hobby}</li>;
+  return <li key={props.uid}>{props.hobby}</li>;
 };
 
 export default Hobbies;

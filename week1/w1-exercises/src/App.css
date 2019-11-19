@@ -1,8 +1,27 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
 h1 {
   text-align: center;
+  color: rgb(61, 58, 58);
+  font-weight: bolder;
+}
+
+.ex-1 {
+  padding: 0px 100px;
+  margin: 150px 0px 100px 0px;
+  background-color: rgba(0, 0, 0, 0.247);
+  box-sizing: border-box;
 }
 
 .ex-2 {
   display: flex;
   text-align: center;
+  padding: 50px;
+}
+
+.ex-3 {
+  border: 10px solid black;
+  margin: 100px 0px;
 }

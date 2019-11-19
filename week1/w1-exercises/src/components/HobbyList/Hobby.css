@@ -1,0 +1,53 @@
+.hobby-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px;
+}
+
+input {
+  width: 100%;
+  height: 40px;
+}
+
+input::placeholder {
+  text-align: center;
+  font-size: 18px;
+}
+
+input[type="text"] {
+  color: #888;
+  text-align: center;
+  font-size: 18px;
+}
+
+.hobby-list button {
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+  color: white;
+  background-color: rgba(100, 73, 73, 0.555);
+  outline: rgba(100, 73, 73, 0.555);
+  border: 2px outset rgba(236, 168, 168, 0.404);
+}
+
+.hobby-list button:active {
+  border: 2px outset rgba(243, 216, 216, 0.404);
+}
+
+.hobby-list ul {
+  list-style: none;
+  text-align: justify;
+}
+
+.hobby-list ul li {
+  background-color: rgba(236, 168, 168, 0.404);
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px groove rgba(0, 0, 0, 0.234);
+}
+
+.hobby-list ul li:hover {
+  background-color: rgba(236, 168, 168, 0.507);
+}

@@ -9,12 +9,12 @@ import coinIcon from "./img/coin.png";
 function App() {
   return (
     <React.Fragment>
-      <div>
-        <h1>Exercise 1 --> HobbyList</h1>
+      <div className="ex-1">
+        <h1>HobbyList</h1>
         <HobbyList />
       </div>
       <div>
-        <h1>Exercise 2 --> Guarantee</h1>
+        <h1>Guarantee</h1>
         <div className="ex-2">
           <Guarantee
             image={deliveryIcon}
@@ -36,7 +36,8 @@ function App() {
           />
         </div>
       </div>
-      <div>
+      <div className="ex-3">
+        <h1>Counter</h1>
         <Counter />
       </div>
     </React.Fragment>

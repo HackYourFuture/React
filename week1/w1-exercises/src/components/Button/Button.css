@@ -1,0 +1,20 @@
+.btn-div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  border: none;
+  background-color: black;
+  outline-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+.btn:active {
+  background-color: white;
+  color: black;
+}
