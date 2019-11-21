@@ -8,20 +8,18 @@ import Title from "./components/Title";
 import "./App.css";
 
 function App() {
-  console.log(datas);
   return (
     <div className="App">
       <Title title="Weather" />
       {datas.map((data, index) => {
         return (
-          <WeatherCards>
+          <WeatherCards key={index}>
             <CountryNames ctry_name={data.name} ctry_code={data.sys.country} />
             <WeatherDesc
               weather={data.weather.map(w => w.main)}
               weather_desc={data.weather.map(w => w.description)}
             />
             <WeatherDetails
-              key={index}
               min_temp={data.main.temp_min}
               max_temp={data.main.temp_max}
               lat={data.coord.lat}

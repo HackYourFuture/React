@@ -1,12 +1,12 @@
 import React from "react";
 
-const WeatherDetails = ({ min_temp, max_temp, lat, lon, index }) => {
+const WeatherDetails = ({ min_temp, max_temp, lat, lon, id }) => {
   return (
     <div>
       <ul>
-        <li key={index}>min_temp: {min_temp}</li>
-        <li key={index}>max_temp: {max_temp}</li>
-        <li key={index}>
+        <li key={min_temp.toString(2)}>min_temp: {min_temp}</li>
+        <li key={max_temp.toString(2)}>max_temp: {max_temp}</li>
+        <li key={lat + lon.toString(2)}>
           location: {lat} ,{lon}
         </li>
       </ul>
