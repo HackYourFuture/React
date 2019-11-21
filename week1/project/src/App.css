@@ -1,0 +1,24 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  font-weight: initial;
+}
+
+div {
+  padding: 5px 0 5px 15px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin: 5px 0px 5px 0px;
+}
