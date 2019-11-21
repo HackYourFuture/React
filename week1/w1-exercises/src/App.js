@@ -10,7 +10,7 @@ function App() {
   return (
     <React.Fragment>
       <div className="ex-1">
-        <h1>HobbyList</h1>
+        <h1>Hobby List</h1>
         <HobbyList />
       </div>
       <div>

@@ -23,6 +23,12 @@ const HobbyList = props => {
     }
   }
 
+  function removeHobby(name) {
+    const index = hobbies.indexOf(name);
+    const newHobbyList = hobbies.filter((hobby, i) => i !== index);
+    setHobbies(newHobbyList);
+  }
+
   return (
     <React.Fragment>
       <div className="hobby-list">
@@ -33,11 +39,17 @@ const HobbyList = props => {
             value={props.value}
             onChange={handleChange}
           />
-          <button onClick={() => addHobby()}> Add </button>
+          <button className="add-btn" onClick={() => addHobby()}>
+            Add
+          </button>
         </span>
         <ul>
           {hobbies.map(hobby => (
-            <Hobbies hobby={hobby} uid={hobby.substring(0, 4)} />
+            <Hobbies
+              hobby={hobby}
+              key={hobby.substring(0, 4)}
+              removeHobby={() => removeHobby(hobby)}
+            />
           ))}
         </ul>
       </div>
