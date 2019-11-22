@@ -1,0 +1,18 @@
+.all-part {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: 5em;
+}
+
+.guarantee-parts {
+  width: 25%;
+  margin: 20px auto;
+  text-align: center;
+  padding: 10px auto;
+}
+img {
+  width: 100px;
+  height: 100px;
+  align-self: flex-end;
+}

@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+  font-size: 0.8em;
+}
+header {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin: 1em auto 2em;
+}
+.box {
+  width: 45%;
+  margin: 2em auto;
+  text-align: left;
+  border: 1px black solid;
+  padding: 2em;
+}
+.weather {
+  margin-bottom: 0.001em;
+}
+.description {
+  margin-top: 0.001em;
+}
+h2,
+p {
+  margin: 1.2em auto;
+}

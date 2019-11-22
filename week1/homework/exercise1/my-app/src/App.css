@@ -1,0 +1,18 @@
+header {
+  text-align: Center;
+  border: 1px blue solid;
+  width: 50%;
+  margin: 10px auto;
+  box-shadow: 1px 2px black;
+  color: red;
+}
+
+.hobbies-div {
+  border: 1px solid black;
+  width: 70%;
+  margin: 20px auto;
+  box-shadow: 2px 2px black;
+}
+.hobby {
+  color: blue;
+}
