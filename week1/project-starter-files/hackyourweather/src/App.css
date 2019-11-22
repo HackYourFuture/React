@@ -1,0 +1,24 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.weather_title {
+  margin: 1em 0;
+  text-align: center;
+}
+.city_info{
+  width: 50%;
+  border: 1px solid black;
+  margin: 3em 25%;
+}
+.info_list{
+  list-style: none;
+  padding: 10px 30px;
+}
+li{
+  padding: 5px;
+}
+.weather_info{
+  margin: 15px 0;
+}

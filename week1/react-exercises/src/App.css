@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+h1{
+  text-decoration: underline;
+  margin-top: 2em;
+}
+.hobbies{
+  list-style: none;
+  text-align: left;
+}
+.hobbies li{
+  display: inline-block;
+  padding: 5px;
+}
+.name{
+  text-align: left;
+  margin-left: 15px;;
+}
+.Guarantee {
+  display:flex;
+  flex-wrap: nowrap;
+}
+.services{
+  margin-right: 3%;
+}
+.services img{
+  width: 60px;
+  height: 50px;
+}
+
