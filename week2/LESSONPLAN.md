@@ -15,7 +15,6 @@ The purpose of this class is to teach the student about:
 - Both props and state are plain JavaScript objects
 - State holds all the dynamic data of the app
 - Whenever data from the state object gets passed down it becomes a prop
-- State can only be defined in class-based components
 - While props can be widespread, state should only be defined in the top parent component
 
 _Show example of (1) state initialization, (2) passing state down (and showing how it becomes props). Then let students do the same_
