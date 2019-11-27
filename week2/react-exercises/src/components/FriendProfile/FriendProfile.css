@@ -1,0 +1,28 @@
+.friend-info-box {
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.f-image {
+  margin: 10px auto;
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.friend-info {
+  list-style: none;
+  padding: 0px;
+  cursor: pointer;
+}
+
+.friend-info li {
+  transition: background 0.5s ease-in;
+  margin: 12px;
+  padding: 5px;
+}
+
+.friend-info li:hover {
+  background: rgba(43, 70, 43, 0.267);
+}
