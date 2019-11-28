@@ -1,0 +1,24 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  font-weight: initial;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin: 5px 0px 5px 0px;
+}
+
+.loading {
+  text-align: center;
+}
