@@ -1,8 +1,8 @@
 import React from "react";
+import uuid from "uuid/v1";
 import "./FriendProfile.css";
 
 const FriendProfile = ({ friend }) => {
-  console.log("f-profile", friend);
   const friends = friend.results;
 
   return friends.map(friend => (
@@ -13,13 +13,13 @@ const FriendProfile = ({ friend }) => {
         alt={friend.name.first}
       />
       <ul key={friend.login.uuid} className="friend-info">
-        <li>{`${friend.name.first}  ${friend.name.last} `}</li>
-        <li>
+        <li key={uuid()}>{`${friend.name.first}  ${friend.name.last} `}</li>
+        <li key={uuid()}>
           {friend.location.city}/{friend.location.state}/
           {friend.location.country}
         </li>
-        <li>{friend.email}</li>
-        <li>{friend.phone}</li>
+        <li key={uuid()}>{friend.email}</li>
+        <li key={uuid()}>{friend.phone}</li>
       </ul>
     </div>
   ));

@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Button from "../Button";
 import FriendProfile from "../FriendProfile";
+import uuid from "uuid/v1";
 import "./Friend.css";
 
 const Friend = () => {
   const friendAPI = `https://www.randomuser.me/api?results=1`;
   const [friend, setFriend] = useState({});
-  const [friendsDataStatus, setFriendsDataStatus] = useState("loading");
+  const [status, setStatus] = useState("loading");
   const [errorMessage, setErrorMessage] = useState("");
 
   async function getFriend() {
@@ -17,10 +18,10 @@ const Friend = () => {
       }
       const friendsData = await res.json();
       setFriend(friendsData);
-      setFriendsDataStatus("Success");
+      setStatus("Success");
     } catch (error) {
       if (error) {
-        setFriendsDataStatus("Error");
+        setStatus("Error");
         setErrorMessage(error.message);
       }
     }
@@ -29,7 +30,6 @@ const Friend = () => {
   useEffect(() => {
     getFriend();
     return () => {
-      console.log("not running");
       getFriend();
     };
   }, []);
@@ -40,11 +40,10 @@ const Friend = () => {
 
   return (
     <div className="ex-1">
-      {console.log(friend)}
-      {friendsDataStatus === "loading" && <div>Loading please wait...</div>}
-      {friendsDataStatus === "Success" && <FriendProfile friend={friend} />}
-      {friendsDataStatus === "Error" && <div>{errorMessage}</div>}
-      <Button fetchFriend={() => getFriendBtn()} />
+      {status === "loading" && <div>Loading please wait...</div>}
+      {status === "Success" && <FriendProfile friend={friend} key={uuid()} />}
+      {status === "Error" && <div>{errorMessage}</div>}
+      <Button fetchData={() => getFriendBtn()} text="Get a friend!" />
     </div>
   );
 };

@@ -1,0 +1,9 @@
+.ex-2 {
+  background: rgba(199, 109, 199, 0.295);
+  box-sizing: border-box;
+  min-height: 450px;
+}
+
+p {
+  margin: 0px;
+}

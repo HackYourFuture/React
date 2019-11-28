@@ -1,0 +1,54 @@
+.error-div {
+  background: rgb(177, 23, 23);
+  border: 2px solid rgb(218, 120, 120);
+  margin: 20px;
+  border-radius: 20px;
+  animation-name: shake;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(1, 0.01, 0.22, 1);
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0px);
+  }
+  10% {
+    transform: translate(0px);
+  }
+  20% {
+    transform: translate(-3px);
+  }
+  30% {
+    transform: translate(3px);
+  }
+  40% {
+    transform: translate(1px);
+  }
+  50% {
+    transform: translate(-1px);
+  }
+  60% {
+    transform: translate(-3px);
+  }
+  70% {
+    transform: translate(3px);
+  }
+  80% {
+    transform: translate(-1px);
+  }
+  90% {
+    transform: translate(0px);
+  }
+  100% {
+    transform: translate(0px);
+  }
+}
+
+.error-text {
+  margin: 10px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px black;
+  font-size: 2em;
+}

@@ -1,7 +1,17 @@
-.btn {
+.btn-friend {
   outline: none;
   padding: 15px;
+  margin: 10px;
   font-size: 1.5em;
   background: rgb(12, 56, 32);
+  color: white;
+}
+
+.dog-btn {
+  outline: none;
+  padding: 15px;
+  margin: 10px;
+  font-size: 1.5em;
+  background: rgb(172, 133, 163);
   color: white;
 }

@@ -1,0 +1,28 @@
+.joke-div {
+  min-height: 300px;
+  position: relative;
+}
+
+.joke-setup {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: rgba(231, 186, 186, 0.664);
+  border-radius: 10px;
+}
+
+.joke-punchline {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: rgba(231, 186, 186, 0.664);
+  margin-top: 10px;
+  border-radius: 10px;
+}

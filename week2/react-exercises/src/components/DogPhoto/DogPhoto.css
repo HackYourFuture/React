@@ -1,0 +1,13 @@
+.dog-img {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10px;
+  transition: opacity 0.2s ease-out;
+}
+
+.dog-img:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 2px #888;
+}
