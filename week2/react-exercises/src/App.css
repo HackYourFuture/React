@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+  margin: 10px auto;
+}
+
+.userUl {
+  float: left;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.userButton {
+  margin: 20px auto;
+}
+
+hr {
+  margin: 40px 100px;
+}
+
+.jokeLi {
+  list-style: none;
+}
