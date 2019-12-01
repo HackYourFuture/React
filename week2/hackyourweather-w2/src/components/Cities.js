@@ -6,13 +6,14 @@ import Form from './Form';
 function Cities(props) {
   const [city, setCity] = useState({});
   const [loading, setLoading] = useState(true);
+  const [inputCity, setInputCity] = useState('');
   const [errorState, setErrorState] = useState(false);
 
   const api_key = 'c9e673ce8d31f4d210954edd51e08fed';
 
   async function getCity() {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=london&APPID=c9e673ce8d31f4d210954edd51e08fed`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&APPID=${api_key}`,
     );
     const json = await response.json();
 
@@ -20,9 +21,9 @@ function Cities(props) {
     setLoading(false);
   }
 
-  useEffect(() => {
-    getCity();
-  }, []);
+  const handleOnSubmitChange = cities => {
+    setInputCity(cities);
+  };
 
   return (
     <div>
@@ -39,7 +40,11 @@ function Cities(props) {
           latitude={city.coord.lat}
         />
       )}
-      <Form />
+      <Form
+        onSubmitForm={({ cities }) => {
+          handleOnSubmitChange(cities);
+        }}
+      />
     </div>
   );
 }

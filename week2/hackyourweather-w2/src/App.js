@@ -7,11 +7,7 @@ function App() {
   return (
     <div>
       <h1 className="header">Weather</h1>
-      <Cities
-        onSubmitForm={data => {
-          console.log(data);
-        }}
-      />
+      <Cities />
     </div>
   );
 }

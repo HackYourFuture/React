@@ -5,6 +5,7 @@ function Form(props) {
 
   const handleCity = e => {
     setCities(e.target.value);
+    console.log(e.target.value);
   };
   const handleSubmit = e => {
     props.onSubmitForm({ cities });
@@ -12,7 +13,11 @@ function Form(props) {
   };
   return (
     <div>
-      <form onSubmit={e => handleSubmit(e)}>
+      <form
+        onSubmit={e => {
+          handleSubmit(e);
+        }}
+      >
         <label>
           <input name="city" type="text" onChange={e => handleCity(e)} />
         </label>
