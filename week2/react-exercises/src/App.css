@@ -5,12 +5,21 @@
   margin-top: 1em;
 }
 .info_list{
-  text-align: left;
   list-style: none;
+  text-align: left;
   width: 50%;
 }
 .info_list li{
-  /* border-bottom: 1px solid #999; */
   font-size: larger;
   font-weight: 500;
+}
+.dogPhotos{
+  margin-top: 30px;
+  width: 50%;
+  margin-left: 25%;
+}
+.dogPhotos img{
+  border: 1px solid black;
+  border-radius: 12px;
+  width: 100%;
 }
