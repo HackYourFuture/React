@@ -1,0 +1,12 @@
+.weather-card {
+  border: 1px solid black;
+  width: 350px;
+  margin: 50px auto;
+  transition: transform 0.1s ease-in;
+  cursor: pointer;
+  padding: 5px 0 5px 15px;
+}
+
+.weather-card:hover {
+  transform: scale(1.05);
+}
