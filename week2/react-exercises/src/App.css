@@ -13,13 +13,20 @@
   font-size: larger;
   font-weight: 500;
 }
+.imgList{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .dogPhotos{
-  margin-top: 30px;
-  width: 50%;
-  margin-left: 25%;
+  margin: 20px;
+  width: 200px;
 }
 .dogPhotos img{
   border: 1px solid black;
   border-radius: 12px;
   width: 100%;
 }
+/* .dogBtn{
+  margin: 0 auto;
+} */
