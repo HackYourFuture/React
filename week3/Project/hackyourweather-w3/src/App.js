@@ -9,12 +9,11 @@ import WeatherDetails from "./components/WeatherDetails";
 import UserFeedback from "./components/UserFeedback";
 import kelvinToCelsius from "kelvin-to-celsius";
 import uuid from "uuid/v1";
+import "array.prototype.move";
 import DeleteButton from "./components/DeleteButton";
 
 function App() {
   const [cityList, setCityList] = useState([]);
-  const [cityWeatherInfo, setCityWeatherInfo] = useState({});
-  const [weatherDesc, setWeatherDesc] = useState([]);
   const [status, setStatus] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -29,16 +28,20 @@ function App() {
           "Uppss.. An error occurred while fetching the data. Make sure you don't have a typo on your input."
         );
       }
-
       const weatherData = await res.json();
 
-      const { weather } = weatherData;
-      setWeatherDesc(weather);
-      setCityList([weatherData, ...cityList]);
-      setStatus("Success");
+      const isDuplicatedInput =
+        cityList.filter(c => c.id === weatherData.id).length !== 0;
 
-      // const duplicatedCity = cityList.filter(city => city === weatherData);
-      // console.log(duplicatedCity);
+      if (!isDuplicatedInput) {
+        setCityList([weatherData, ...cityList]);
+      } else {
+        const duplicatedCity = cityList.find(c => c.id === weatherData.id);
+        const index = cityList.indexOf(duplicatedCity);
+        cityList.move(index, 0);
+      }
+
+      setStatus("Success");
     } catch (err) {
       console.log(err.message);
       setStatus("Error");
@@ -73,18 +76,20 @@ function App() {
         cityList.map(city => (
           <React.Fragment>
             <WeatherCards key={uuid()} id={city.id}>
+              <DeleteButton deleteItem={() => deleteItem(city.id)} />
               <CountryNames
                 country_name={city.name}
                 country_code={city.sys.country}
               />
-
+              {city.weather.map(w => (
+                <WeatherDesc weather={w.main} weather_desc={w.description} />
+              ))}
               <WeatherDetails
                 min_temp={kelvinToCelsius(city.main.temp_min).toFixed(1)}
                 max_temp={kelvinToCelsius(city.main.temp_max).toFixed(1)}
                 lat={city.coord.lat}
                 lon={city.coord.lon}
               />
-              <DeleteButton deleteItem={() => deleteItem(city.id)} />
             </WeatherCards>
           </React.Fragment>
         ))}
