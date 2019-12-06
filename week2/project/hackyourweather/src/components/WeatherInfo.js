@@ -1,13 +1,13 @@
 import React from 'react'
 
-function Info(props) {
+function Info({ item }) {
     return (
-        <li className="weather_info" >
+        <li className="weather_info">
             <h3 className="main_weather">
-                {props.item.weather[0].main}
+                {item.main}
             </h3>
             <p className="description">
-                {props.item.weather[0].description}
+                {item.description}
             </p>
         </li>
     )

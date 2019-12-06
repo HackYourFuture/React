@@ -10,7 +10,7 @@
 .form{
   width: 50%;
   margin-left: 25%;
-  margin-bottom: 6em;
+  padding: 10px;
 }
 .insert_alert{
   text-align: center;
@@ -18,23 +18,30 @@
 }
 .search{
   width: 65%;
-  padding: 10px;
+  padding: 10px 40px;
   float: left;
+  box-sizing: border-box;
   border-radius: 10px;
+  outline: none;
+  border: 1px solid #555;
+  background-image: url('https://img.icons8.com/ios/50/000000/search--v1.png');
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position:5px 5px ;
 }
 .btn{
   width: 25%;
-  padding: 10px;
+  font-size: larger;
+  padding: 6.73px;
   border-radius: 5px;
   float: right;
+  border: 1px solid #555;
 }
-.city_info{
+.info_list{
   clear: both;
   width: 50%;
   border: 1px solid black;
   margin: 3em 25%;
-}
-.info_list{
   list-style: none;
   padding: 10px 30px;
 }
@@ -43,4 +50,9 @@ li{
 }
 .weather_info{
   margin: 15px 0;
+}
+.advise, .warning{
+  text-align: center;
+  margin-top: 3em;
+  color: #555;
 }

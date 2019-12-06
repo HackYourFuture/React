@@ -7,36 +7,43 @@ import Form from './Form'
 function Weather() {
     const [weatherInfo, setWeatherInfo] = useState({})
     const [loading, setLoading] = useState(false)
+    const [wrong, setWrong] = useState(true)
 
-    async function getCity(cityName) {
+    const getCity = async (e) => {
+        e.preventDefault();
+        const city = e.target.elements.cityName.value
+
         try {
-            const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`)
-            const data = await res.json()
-            setWeatherInfo(data)
-            setLoading(true)
+            const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`)
+            if (res.ok){
+                const data = await res.json()
+                setWeatherInfo(data)
+                setLoading(true)
+                setWrong(true)
+            }else{
+                setWrong(false)
+                throw new Error();
+            }
         }
-        catch (error) {
-            if (error) {
+        catch (error) {       
                 setLoading(false)
                 console.error(error.message);
-            }
         }
-
     }
 
+
     return (
-        <div className="city_list">
-            <Form onSubmitForm={cityName => getCity(cityName)} />
-            {Object.entries(weatherInfo).length === 0 && <p className="insert_alert">Type city name </p>}
-            {loading === true &&
-                <div className="city_info">
-                    <ul className="info_list">
-                        <CityName city={weatherInfo} />
-                        <Info item={weatherInfo} /> 
-                        <Temp city={weatherInfo} />
-                    </ul>
-                </div>
+        <div className="city_info">
+            <Form getCity={getCity} />
+            {loading === true &&           
+                        <ul className="info_list" >
+                            <CityName city={weatherInfo} />
+                            <Info item={weatherInfo.weather[0]} />
+                            <Temp city={weatherInfo} />
+                        </ul>
             }
+            {loading === false && <h4 className="advise">Please insert city name.</h4>}
+            { wrong === false && <h4 className="warning">Check city name...</h4>}
         </div>
     )
 }
