@@ -1,0 +1,72 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.weather_title {
+  margin: 1em 0;
+  text-align: center;
+}
+.form{
+  width: 50%;
+  margin-left: 25%;
+  padding: 10px;
+}
+.insert_alert{
+  text-align: center;
+  margin-bottom: 10px;
+}
+.search{
+  width: 65%;
+  padding: 10px 40px;
+  float: left;
+  box-sizing: border-box;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid #555;
+  background-image: url('https://img.icons8.com/ios/50/000000/search--v1.png');
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position:5px 5px ;
+}
+.btn{
+  width: 25%;
+  font-size: larger;
+  padding: 6.73px;
+  border-radius: 5px;
+  float: right;
+  border: 1px solid #555;
+}
+.info_list{
+  clear: both;
+  width: 50%;
+  border: 1px solid black;
+  margin: 3em 25%;
+  list-style: none;
+  padding: 10px 30px;
+}
+li{
+  padding: 5px;
+}
+.weather_info{
+  margin: 15px 0;
+}
+.advise, .warning{
+  text-align: center;
+  margin-top: 3em;
+  color: #555;
+}
+.cityName{
+  display: flex;
+}
+.cityName h3{
+  width: 95%;
+}
+.remove{
+  font-size: 18px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid #555;
+  background-color: white;
+}
