@@ -48,10 +48,7 @@ Here are the requirements your project needs to fulfill:
 - Divide your page into 2 different routes (`/` and `/:cityId`), using `react-router-dom`
 - Allow users to click on the searched city to open the city page
 - The city page will be on a different route identified by the city id (make use of the `<Link>` component given by `react-router-dom`)
-- On the city page there will be several things:
-  - Two tabs, one for the hourly forecast and the other for a 5 day forecast
-  - A chart (made with `recharts`) that displays the correct data according to which tab is active
-- Clicking on a tab will do 2 things: (1) make an API call to get the right data (using the city id from the URL params), and (2) switch the active component (from the hourly forecast to the five day forecast and vice versa)
+- On the city page there will be a chart (made with `recharts`) that displays the correct data for 5-day forecast
 - Add a "Back" button to go back to `/`, on the city page
 - Redeploy your site
 

@@ -29,6 +29,7 @@ _Show [example](https://htmlstream.com/preview/unify-v2.6.2/unify-main/home/home
 - Solves problem of manually configuring file bundler (like Webpack) or transpiler (Babel)
 - Improves workflow through `hot reloading`
 - Gives a more realistic folder structure
+- Building a production version of react app and deploying on static site hosting service (netlify/now)
 
 _Explain to the student the problems Webpack (ex. React necessitates file bundling to work) and Babel (ex. React makes use of ES2017+ features that need to be converted into syntax that older browsers can understand) solves_
 

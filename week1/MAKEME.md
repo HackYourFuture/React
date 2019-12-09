@@ -130,6 +130,6 @@ The homework that needs to be submitted is the following:
 1. JavaScript exercises
 2. Project: Hack Your Weather I
 
-**This time also put the URL to your deployed website in your class' slack channel!**
+**This time also put the URL to your deployed website in your homework pull request!**
 
 _Deadline Saturday 23.59 CET_
