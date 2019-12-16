@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link, useParams } from 'react-router-dom'
+import { AreaChart, Area, XAxis, YAxis, Tooltip,CartesianGrid, ResponsiveContainer } from 'recharts'
 
 
 function Recharts() {
-    const {id} = useParams()
-    
-    const [city, setCity] = useState({})
-    const [list,setList] = useState({})
+    const { id } = useParams()
+    const [city, setCity] = useState([])
+    const [list, setList] = useState({})
     const [isWrong, setIsWrong] = useState(false)
 
     useEffect(() => {
@@ -15,13 +15,13 @@ function Recharts() {
             .then(res => {
                 const info = res.data
                 const city = info.city
-                const list = info.list[0]
+                const list = info.list
                 setCity(city)
                 setList(list)
             })
             .catch((err) => {
                 setIsWrong(true)
-                console.log(err)
+                throw new Error(err)
             })
     }, [id])
 
@@ -32,15 +32,19 @@ function Recharts() {
                     <button type="submit" className="back_btn">Back</button>
                 </Link>
             </div>
-            <div>
+
+            <div className="info_chart" >
                 {isWrong === true && <h3>Oops something went wrong.</h3>}
                 <h3>{city.name} --- {city.country}</h3>
-                <Link to="/hourly">
-                    <button type="submit" className="hourly_btn">3 Hours</button>
-                </Link>
-                <Link to="/daily">
-                    <button type="submit" className="daily_btn">5 Dais</button>
-                </Link>
+                <ResponsiveContainer>
+                    <AreaChart data={list} >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="dt_txt" />
+                        <YAxis />
+                        <Tooltip  />
+                        <Area type="monotone" dataKey="main.temp" strok="#daf800" fill="#7099e6" />
+                    </AreaChart>
+                </ResponsiveContainer>
             </div>
 
         </div>

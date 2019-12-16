@@ -15,7 +15,7 @@ function Weather() {
         const city = e.target.elements.cityName.value
 
         try {
-            const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`)
+            const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`)
             if (res.ok){
                 const data = await res.json()
                 const noRepeatCities = weatherInfo.filter(city => city.id !== data.id)
