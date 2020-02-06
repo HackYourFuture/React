@@ -33,3 +33,25 @@ Worth considering:
 ## Extra assignment
 
 Make the exercises in [chat-app](/documentation/chat-app/Exercises.md)!
+
+## Hand in Homework:
+
+Watch [this video](https://www.youtube.com/watch?v=feyBVDhFQuk) for a more detailed go-through of how to hand in homework!
+
+- Create a new branch called `react/week3` 
+- Add all your changes to this branch in the `react/week3` folder. 
+- Go through the [Homework checklist](#homework-checklist)
+- Create a pull request using the `react/week3` branch
+- Wait for mentor feedback
+- Implement feedback, `add`, `commit` and `push` the changes
+- Now you can merge the changes into `master`
+- When merged you can **share the github link** to your classes slack channel if you are **proud of what you did** 💪
+- Now celebrate 🎉🎉🎉
+
+## Homework checklist
+Go over your homework one last time:
+
+- [ ] Does every file run without errors and with the correct results?
+- [ ] Have you used `const` and `let` and avoided `var`?
+- [ ] Do the variable, function and argument names you created follow the [Naming Conventions](https://github.com/HackYourFuture/fundamentals/blob/master/fundamentals/naming_conventions.md)?
+- [ ] Is your code well-formatted (see [Code Formatting](https://github.com/HackYourFuture/fundamentals/blob/master/fundamentals/naming_conventions.md))?
