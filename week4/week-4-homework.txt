@@ -1,0 +1,2 @@
+PROJECT REPO => https://github.com/ozcansamed/React-HackYourWeather
+PROJECT NETLIFY => https://reverent-hamilton-9b2877.netlify.com
