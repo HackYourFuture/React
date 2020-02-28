@@ -32,7 +32,7 @@ Worth considering:
 
 ## Extra assignment
 
-Make the exercises in [chat-app](/documentation/chat-app/Exercises.md)!
+Make the exercises in [chat-app](/documentation/chat-app/Exercises.md)! 
 
 ## Hand in Homework:
 
