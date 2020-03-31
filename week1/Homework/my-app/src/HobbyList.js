@@ -4,7 +4,6 @@ import Hobbies from './Hobbies';
 
 
 const HobbyList = (props)=> {
-  console.log('Hobbylist.js props', props.passedHobbies);
   const hobbies = props.passedHobbies; 
   return (
     <div>
