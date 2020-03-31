@@ -11,21 +11,35 @@ The purpose of this class is to teach the student about:
 
 ## Core Concepts
 
-1. Component lifecycle
+## 1. Component lifecycle
 
+### Explanation
 - In React any component renders in stages to the DOM: we call this the `component lifecycle`
 - The purpose of the different lifecycle stages is to **solve rendering issues** that sometimes can't easily be controlled via state and props
 - 4 groups of lifecycle methods: **mounting**, **updating**, **unmounting** and **errors**
+### Example
+Show the following [image](https://cdn-images-1.medium.com/max/2000/1*cEWErpe-oY-_S1dOaT1NtA.jpeg) to illustrate the place and purpose of each lifecycle method. Then show how to access the methods in a class-based component
+### Excercise 
+### Essence
 
-_Show the following [image](https://cdn-images-1.medium.com/max/2000/1*cEWErpe-oY-_S1dOaT1NtA.jpeg) to illustrate the place and purpose of each lifecycle method. Then show how to access the methods in a class-based component_
 
-3. Third party React tools
 
+
+
+## 2. Third party React tools
+
+### Explanation
 - 2 broad categories: `UI toolkits` and `utility libraries`
 - `UI toolkits` help us structure our user interfaces
-
-_Show example of a UI toolkit, like Semantic UI. You can illustrate how to use it by building a [Menu](https://react.semantic-ui.com/collections/menu/)_
-
 - `Utility libraries` help us solve functional problems that come up during development
 
-_Show example of a utility library, for example [Redux](https://redux.js.org/)_
+### Example
+Show example of a UI toolkit, like Semantic UI. You can illustrate how to use it by building a [Menu](https://react.semantic-ui.com/collections/menu/)
+
+Show example of a utility library, for example [Redux](https://redux.js.org/)
+### Excercise
+### Essence
+
+
+
+

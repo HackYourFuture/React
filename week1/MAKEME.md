@@ -28,7 +28,7 @@ const hobbies = ["Surfing", "Rock climbing", "Mountain biking", "Breakdancing"];
 ```
 
 1. Create 2 functional components: `<HobbyList>` and `<Hobbies>`
-2. Put the `hobbies` variable into the `<HobbyList>` component as state.
+2. Put the `hobbies` variable into the `<HobbyList>` component.
 3. In the `return` statement of the `<HobbyList>` use the `map()` function to return an instance of `<Hobby>`
 4. Pass down the hobby as a `prop`
 5. Test out if it works by importing it into the top level component, which in this case is `<App>`
