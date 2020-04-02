@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.cityCard {
+  border: solid 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30%;
+  margin-left: 30%;
+  margin-bottom : 10px;
+  padding-bottom: 20px;
+}
