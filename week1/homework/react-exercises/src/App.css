@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  margin: 20px;
+}
+
+.customerService {
+  background-color: rgb(235, 229, 217);
+  display: flex;
+  flex-direction: row;
+}
+
+.customerService div {
+  margin: 20px;
+  width: calc((100% / 3)) ;
+}
+
+.customerService div h2 {
+  margin: 10px 0;
+}
+
+.sports {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.sports h1 {
+  margin-bottom: 10px;
+}
+
+.sports ul li {
+  margin-bottom: 10px ;
+}
+
+.counter {
+  text-align: center;
+}
+
+.counter h2 {
+  margin: 10px 0;
+}
+
+.counter button {
+  height:30px;
+  width: 70px;
+  font-size: 12px;
+}
+
+.counter p {
+  margin: 10px 0;
+  font-size: 15px;
+}
