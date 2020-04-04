@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  text-align: center;
+}
+.cont{
+  margin: 30px auto;
+  text-align: left;
+  width: 30%;
+  border: 2px solid rgb(41, 37, 37);
+  padding-left: 20px;
+}
+
+p {
+  font-weight: 500;
+}
+.weatherDesc {
+  margin: 10px 0;
+}
+.weatherDesc h2 {
+  margin: 0;
+  padding: 0;
+}
+.weatherDesc p {
+  margin-top: 0;
+}
+.temperatureInfo p {
+  margin: 4px auto;
+}
+.temperatureInfo :last-child {
+  margin-bottom: 30px;
+}
