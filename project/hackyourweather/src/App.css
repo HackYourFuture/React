@@ -1,0 +1,18 @@
+body {
+  text-align: center;
+}
+.App {
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  margin: 5px;
+}
+
+.weather {
+  width: 400px;
+  color: black;
+  border: 2px solid black;
+  text-align: left;
+  margin: 30px 10px;
+  padding: 20px 10px;
+}
