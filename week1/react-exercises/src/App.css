@@ -1,0 +1,41 @@
+.App {
+  background-color: #eee;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  width: 100px;
+}
+
+.offer-card {
+  text-align: center;
+  width: 400px;
+  display: inline-block;
+}
+
+.counter {
+  color: blue;
+  text-align: center;
+  margin: 10px;
+}
+button {
+  margin: 5px;
+  font-size: 20px;
+}
+.weather-box {
+  text-align: center;
+  width: 60%;
+  margin: auto;
+}
+
+.weather {
+  width: 400px;
+  color: blue;
+  border: 2px solid black;
+  text-align: left;
+  margin: 30px 10px;
+  padding: 20px 10px;
+}
