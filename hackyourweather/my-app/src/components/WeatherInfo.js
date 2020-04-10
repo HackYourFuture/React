@@ -4,7 +4,6 @@ import React from 'react';
 
 
 function WeatherInfo({weatherKind, weatherDescription}){
-    
     return (
         <div>
         <h2>{weatherKind}</h2>

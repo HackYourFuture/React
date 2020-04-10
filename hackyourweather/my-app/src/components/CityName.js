@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-function CityWeather({name}){
+function CityName({name}){
     return (
         <div>
         <h1>{name}</h1>
@@ -11,4 +11,4 @@ function CityWeather({name}){
 }
 
 
-export default CityWeather;
+export default CityName;

@@ -4,6 +4,7 @@ import React from 'react';
 
 
 function Details({minTemp, maxTemp, lat, lon}){
+
     return (
         <table>
         <tr>
