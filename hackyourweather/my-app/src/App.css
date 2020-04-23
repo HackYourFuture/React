@@ -1,15 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+*{
+  font-family: 'Open Sans', sans-serif;
+  /* border: solid; */
+}
 .App {
   text-align: center;
 }
 
+body{
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+}
 .cityCard {
-  border: solid 2px;
+  /* border: solid 1px white; */
   display: flex;
+  margin: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 1rem ;
+  padding-bottom: 10px;
+  border-radius: 5%;
+  width: 75%;
+  height: 100%; 
+  box-shadow: inset 10px 10px 74px 195px rgba(252,252,252,0.55);
+  
+}
+
+
+.close {
+  align-self: flex-end;
+  width: 1em;
+  margin-right: 5%; 
+  margin-top : 2%; 
+}
+
+.close:hover {
+  width: 1.1em;
+}
+
+.search-btn {
+  background-color: rgba(255,255,255,0); 
+  margin-left: 2rem;
+  font-family: 'Open Sans', sans-serif;
+  transition: all 0.2s ease-in-out;
+  font-size: 1em;
+  color: black;
+  border: solid 1px cornflowerblue;
+  letter-spacing: 2px; 
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+.search-form{
+  margin: 1rem;
+}
+.danger{
+  color: red;  
+}
+.search-bar{
+  border-radius: 5px;
+  border: 0px; 
+  font-size: 1em;
+  width: 50%;
+}
+.wrapper{
+  width: 40%;
   margin-right: 30%;
   margin-left: 30%;
-  margin-bottom : 10px;
-  padding-bottom: 20px;
+
 }

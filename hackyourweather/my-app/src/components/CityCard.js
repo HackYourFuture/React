@@ -1,76 +1,106 @@
-import React, { useEffect, useState } from 'react';
-import CityName from './CityName';
-import axios from 'axios';
-import WeatherInfo from './WeatherInfo';
-import Details from './Details';
-import data from '../data.json';
-import Button from './Button';
-import SearchBox from './SearchBox';
-import { kelvinToCelsius } from 'temperature';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import Input from './Input'
+import { kelvinToCelsius } from 'temperature'
+import City from './City'
 
-const APIKEY = process.env.REACT_APP_API_KEY;
 
-function CityCard() {
-	const [ data, setData ] = useState({});
-	const [ city, setCity ] = useState('Amsterdam');
-	const [ inputValue, setInputValue ] = useState('');
-	const [ error, setError ] = useState(false);
+function CityCard () {
+  const [city, setCity] = useState('Amsterdam')
+  const [inputValue, setInputValue] = useState('')
+  const [error, setError] = useState(false)
+  const [searchedCities, setSearchedCities] = useState([])
 
-	const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`;
+  const APIKEY = process.env.REACT_APP_API_KEY
 
-	useEffect(
-		() => {
-			const fetchData = async () => {
-				try {
-					const result = await axios(url);
-					setData(result.data);
-					setError(false);
-					console.log(data, 'data');
-				} catch (err) {
-					console.log(err);
-					setError(true);
-				}
-			};
-			fetchData();
-		},
-		[ city ]
-	);
-	function handleChange(e){
-		setInputValue(e.target.value);
-	}
-	function handleButton() {
-		setCity(inputValue);
-	}
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`
 
-	return (
-		<div>
-			<div>
-				<SearchBox
-					handleChange={handleChange}
-					placeholder={'Search City...'}
-				/>
-				<Button 
-				handleButton={handleButton} 
-				type={'submit'} 
-				text={'Search'}
-				/>
-				{error && <p>{city} is not found. Please enter another city...</p>}
-			</div>
-			<div className="cityCard">
-				<CityName name={data.name} />
-				<WeatherInfo
-					weatherKind={data.weather ? data.weather[0].main : 'uploading'}
-					weatherDescription={data.weather ? data.weather[0].description : 'uploading'}
-				/>
-				<Details
-					minTemp={data.main ? kelvinToCelsius(data.main.temp_min).toFixed(1) + '°C' : 'uploading'}
-					maxTemp={data.main ? kelvinToCelsius(data.main.temp_max).toFixed(1) + '°C' : 'uploading'}
-					lat={data.coord ? data.coord.lat : 'loading'}
-					lon={data.coord ? data.coord.lon : 'loading'}
-				/>
-			</div>
-		</div>
-	);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await axios(url)
+        setSearchedCities(searchedCities.concat(result.data))
+        setError(false)
+      } catch (error) {
+        console.log(error)
+        setError(true)
+      }
+    }
+	fetchData()
+	
+  }, [city])
+  
+  console.log("CityCard -> city", city)
+
+  function handleInput (e) {
+	setInputValue(e.target.value)
+  }
+
+  function handleSubmit (e) {
+	e.preventDefault(); 
+	setCity(inputValue);
+	e.target.reset();
+  }
+
+  function handleClose (e) {
+    e.preventDefault()
+    const cityToDelete =
+      e.currentTarget.nextSibling.firstElementChild.textContent
+    const remainingCities = searchedCities.filter(city => {
+      return city.name !== cityToDelete
+    })
+    setSearchedCities(remainingCities)
+  }
+
+  return (
+    <div className="wrapper">
+	  <Input
+		 handleInput={handleInput}
+		 disabled={!inputValue}
+		 handleSubmit={handleSubmit}
+         type={'submit'}
+		 buttonName={'Search'}
+	  /> 
+	  {error && <p className="danger"> "{city}" is not found.<br></br> Please enter another city</p>}
+      <div>
+        {searchedCities.length === 0 ? (
+          <div>
+            <p>You have no cities :( left! </p>
+            <h2>Please type a city...</h2>
+          </div>
+        ) : (
+          searchedCities
+            .slice(0)
+            .reverse()
+            .map((data, index) => {
+              return (
+                <City
+				  key={index}
+                  handleClose={handleClose}
+                  name={data.name}
+                  weatherKind={data.weather ? data.weather[0].main : 'loading'}
+                  weatherDescription={
+                    data.weather ? data.weather[0].description : 'loading'
+                  }
+                  minTemp={
+                    data.main
+                      ? kelvinToCelsius(data.main.temp_min).toFixed(1) + '°C'
+                      : 'loading'
+                  }
+                  maxTemp={
+                    data.main
+                      ? kelvinToCelsius(data.main.temp_max).toFixed(1) + '°C'
+                      : 'loading'
+                  }
+                  lat={data.coord ? data.coord.lat : 'loading'}
+                  lon={data.coord ? data.coord.lon : 'loading'}
+                />
+              )
+            })
+        )}
+      </div>
+    </div>
+  )
 }
 
-export default CityCard;
+export default CityCard
