@@ -1,15 +1,13 @@
 import React from 'react';
-import DogPhoto from './dogPhoto/dogPhoto';
-import Joker from './joker/joker';
-import NewFriend from './newFriend/newFriend';
+import Weather from './week3/Weather';
+import './App.css';
+// import DogPhoto from './dogPhoto/dogPhoto';
+// import Joker from './joker/joker';
+// import NewFriend from './newFriend/newFriend';
 function App() {
 	return (
 		<div className="col">
-			<NewFriend />
-			<hr />
-			<DogPhoto />
-			<hr />
-			<Joker />
+			<Weather />
 		</div>
 	);
 }
