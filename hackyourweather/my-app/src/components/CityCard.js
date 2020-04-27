@@ -11,15 +11,16 @@ function CityCard () {
   const [error, setError] = useState(false)
   const [searchedCities, setSearchedCities] = useState([])
 
-  const APIKEY = process.env.REACT_APP_API_KEY
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`
 
   useEffect(() => {
+  const APIKEY = process.env.REACT_APP_API_KEY;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`; 
     const fetchData = async () => {
       try {
         const result = await axios(url)
-        setSearchedCities(searchedCities.concat(result.data))
+        setSearchedCities(s=> s.concat(result.data))
+        console.log(result.data);
         setError(false)
       } catch (error) {
         console.log(error)
@@ -30,7 +31,7 @@ function CityCard () {
 	
   }, [city])
   
-  console.log("CityCard -> city", city)
+
 
   function handleInput (e) {
 	setInputValue(e.target.value)
@@ -42,15 +43,27 @@ function CityCard () {
 	e.target.reset();
   }
 
-  function handleClose (e) {
-    e.preventDefault()
-    const cityToDelete =
-      e.currentTarget.nextSibling.firstElementChild.textContent
+  function handleClose (id) {
+    // e.preventDefault()
+    console.log(id);
     const remainingCities = searchedCities.filter(city => {
-      return city.name !== cityToDelete
-    })
-    setSearchedCities(remainingCities)
-  }
+        return city.id !== id}) 
+        setSearchedCities(remainingCities); 
+    console.log("handleClose -> remainingCities", remainingCities)
+      
+      } ; 
+
+    //
+
+  //   // console.log('hanlde', e.target)
+  //   // const cityToDelete =
+  //   //   e.currentTarget.nextSibling.firstElementChild.textContent; 
+  //   // console.log(cityToDelete);
+  //   // const remainingCities = searchedCities.filter(city => {
+  //   //   return city.name !== cityToDelete
+  //   // })
+  //   // setSearchedCities(remainingCities)
+  // }
 
   return (
     <div className="wrapper">
@@ -65,19 +78,21 @@ function CityCard () {
       <div>
         {searchedCities.length === 0 ? (
           <div>
-            <p>You have no cities :( left! </p>
+            <p>You have no cities left! </p>
             <h2>Please type a city...</h2>
           </div>
         ) : (
           searchedCities
             .slice(0)
             .reverse()
-            .map((data, index) => {
+            .map((data) => {
               return (
                 <City
-				  key={index}
+                  key={data.id}
+                  id={data.id}
                   handleClose={handleClose}
                   name={data.name}
+                  country={data.sys}
                   weatherKind={data.weather ? data.weather[0].main : 'loading'}
                   weatherDescription={
                     data.weather ? data.weather[0].description : 'loading'

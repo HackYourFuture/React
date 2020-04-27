@@ -69,3 +69,8 @@ body{
   margin-left: 30%;
 
 }
+@media screen and (max-width: 800px){
+  .wrapper{
+    width: 100%;
+    margin: auto;
+  }}

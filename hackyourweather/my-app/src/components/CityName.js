@@ -2,10 +2,10 @@ import React from 'react';
 
 
 
-function CityName({name}){
+function CityName({name, country }){
     return (
         <div>
-        <h1>{name}</h1>
+        <h1>{name}, {country.country}</h1>
         </div>
     )
 }
