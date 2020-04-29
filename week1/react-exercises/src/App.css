@@ -1,41 +1,114 @@
-/* .App {
-  background-color: #eee;
+.App {
+	text-align: center;
+}
+.one-Three {
+	display: inline-block;
 }
 
-ul {
-  list-style-type: none;
-}
+.ExtremeHobbies {
+	border: 1px solid black;
+	width: 300px;
 
+	margin: 50px 30px;
+	display: inline-block;
+}
+.CustService {
+	margin: 50px 20px;
+}
+.service {
+	display: inline-block;
+	width: 300px;
+	height: 250px;
+	padding: 20px;
+	margin-left: 30px;
+}
 img {
-  width: 100px;
+	width: 100px;
+	height: 100px;
 }
-
-.offer-card {
-  text-align: center;
-  width: 400px;
-  display: inline-block;
-}
-
 .counter {
-  color: blue;
-  text-align: center;
-  margin: 10px;
-}
-button {
-  margin: 5px;
-  font-size: 20px;
-}
-.weather-box {
-  text-align: center;
-  width: 60%;
-  margin: auto;
+	border: 1px solid black;
+	width: 300px;
+	margin: 50px 30px;
+	display: inline-block;
 }
 
-.weather {
-  width: 400px;
-  color: blue;
-  border: 2px solid black;
-  text-align: left;
-  margin: 30px 10px;
-  padding: 20px 10px;
+button {
+	font-size: 15px;
+	padding: 7px;
+	margin: 5px;
+	background-color: white;
+	color: blue;
+}
+
+.weatherCard {
+	display: inline-block;
+	width: 200px;
+	height: 250px;
+	padding: 10px;
+	margin: 10px;
+	margin: 0 30px 50px 0;
+	text-align: left;
+	border: 1px solid black;
+}
+/* 
+.App {
+	text-align: center;
+	color: #222;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	margin: 20px auto;
+	text-align: left;
+	width: 40%;
+	border: 2px solid black;
+	padding-left: 20px;
+}
+.entrance {
+	display: flex;
+	justify-content: space-between;
+}
+.deleteBtn {
+	margin-right: 40px;
+	align-self: center;
+	border-radius: 50%;
+	padding: 5px 8px;
+	color: #333;
+	border: 3px solid #333;
+	background-color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.submitBtn {
+	padding: 10px 20px;
+	color: #fff;
+	border: none;
+	background-color: #333;
+	margin-left: 20px;
+	font-size: 16px;
+}
+
+p {
+	font-weight: 500;
+}
+.main h2 {
+	margin: 0;
+	padding: 0;
+}
+.main p {
+	margin-top: 0;
+}
+.tempLoc :last-child {
+	margin-bottom: 20px;
+}
+
+.tempLoc p {
+	margin: 4px auto;
+}
+
+.inputCity {
+	padding: 10px;
 } */
