@@ -7,7 +7,7 @@ function Form({ onChange, onSubmit }) {
 				<input className="inputCity" type="text" onChange={onChange} placeholder="Search City" />
 
 				<button className="submitBtn" type="submit">
-					Search
+					Select
 				</button>
 			</form>
 		</div>

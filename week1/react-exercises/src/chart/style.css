@@ -1,0 +1,74 @@
+.App {
+	text-align: center;
+	color: #222;
+}
+
+.container {
+	width: 50%;
+	border: 2px solid black;
+	padding-left: 20px;
+	display: flex;
+	flex-direction: column;
+	margin: 20px auto;
+	text-align: left;
+}
+.entrance {
+	display: flex;
+	justify-content: space-between;
+}
+.deleteBtn {
+	margin-right: 40px;
+	align-self: center;
+	border-radius: 50%;
+	padding: 5px 8px;
+	color: #222;
+	border: 3px solid #222;
+	background-color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+}
+p {
+	font-weight: 400;
+}
+.main h2 {
+	margin: 0;
+	padding: 0;
+}
+.main p {
+	margin-top: 20;
+}
+.tempLoc p {
+	margin: 5px auto;
+}
+.tempLoc :last-child {
+	margin-bottom: 20px;
+}
+
+.submitBtn {
+	padding: 10px 20px;
+	color: #fff;
+	border: none;
+	background-color: #222;
+	margin-left: 20px;
+	font-size: 16px;
+}
+
+.inputCity {
+	padding: 10px;
+	margin-bottom: 40px;
+}
+.graph {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 40px;
+}
+.forecast {
+	color: #121f3b;
+	background-color: #d8d8d8;
+	margin-bottom: 5px;
+	width: 15%;
+	margin: auto;
+	padding: 10px;
+	font-size: 1.2rem;
+	text-decoration: none;
+}

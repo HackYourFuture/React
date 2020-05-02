@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Form from './Form';
 import City from './City';
+import './style.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import CityData from './CityData';
 
 export default function Main() {
 	const [ city, setCity ] = useState({});
@@ -9,18 +12,18 @@ export default function Main() {
 	const [ isLoading, setLoading ] = useState(false);
 	const [ errMessage, setErrMessage ] = useState(null);
 
-	const APIKEY = '874a1b8c00dacaa9d15a7e520e259b16';
-
-	const fetchWeather = (city) => {
+	const fetchWeather = (cityName) => {
+		const APIKEY = require('./secret.json').API_KEY;
 		setLoading(true);
-		fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},&APPID=${APIKEY}`)
+		fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKEY}`)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.cod === 200) {
 					setCity(data);
 					setCities([ data, ...cities ]);
+					setErrMessage(null);
 				} else {
-					setErrMessage('The city is not found');
+					setErrMessage('The city is not found...');
 				}
 			})
 			.catch((err) => setErrMessage(err.message))
@@ -35,24 +38,29 @@ export default function Main() {
 		fetchWeather(searchText);
 	};
 	const deleteCity = (id) => {
-		const remainCities = cities.filter((city) => city.id !== id);
-		setCities(remainCities);
+		setCities(cities.filter((city) => city.id !== id));
 	};
 
 	if (isLoading) {
 		return <div>Loading...</div>;
 	}
-	if (errMessage) {
-		return <div>{errMessage}</div>;
-	}
+
 	return (
-		<div>
-			<Form onChange={onChange} onSubmit={onSubmit} city={city} />
-			{cities.map((city) => (
-				<div key={city.id}>
-					<City city={city} deleteCity={deleteCity} />
-				</div>
-			))}
-		</div>
+		<Router>
+			<div>
+				<Form onChange={onChange} onSubmit={onSubmit} city={city} />
+				<Switch>
+					<Route path="/:id">{city.name && <CityData city={city} />}</Route>
+					<Route path="/">
+						{cities.map((city) => (
+							<div key={city.id}>
+								<City city={city} deleteCity={deleteCity} />
+							</div>
+						))}
+						{errMessage && <div>{errMessage}</div>}
+					</Route>
+				</Switch>
+			</div>
+		</Router>
 	);
 }
