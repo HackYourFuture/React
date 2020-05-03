@@ -12,6 +12,8 @@ Requirements:
 
 ![Homework preview](assets/homework-preview.gif)
 
+Try the website here: https://ro6ne.csb.app/
+
 ## Render props
 
 
