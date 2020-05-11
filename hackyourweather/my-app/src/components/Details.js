@@ -1,33 +1,30 @@
+import React from 'react'
 
-import React from 'react';
-
-
-
-function Details({minTemp, maxTemp, lat, lon}){
-
-    return (
-        <table>
-        <thead>
+function Details ({ minTemp, maxTemp, lat, lon }) {
+  return (
+    <table>
+      <thead>
         <tr>
-            <th>min temp:</th>
-            <td>{minTemp}</td>
+          <th>min temp:</th>
+          <td>{minTemp}</td>
         </tr>
-        </thead>
-        <tbody>
+      </thead>
+      <tbody>
         <tr>
-            <th>max temp:</th>
-            <td>{maxTemp}</td>
+          <th>max temp:</th>
+          <td>{maxTemp}</td>
         </tr>
-        </tbody>
-        <tfoot>
+      </tbody>
+      <tfoot>
         <tr>
-            <th>location: </th>
-            <td>{lat}, {lon}</td>
+          <th>location: </th>
+          <td>
+            {lat}, {lon}
+          </td>
         </tr>
-        </tfoot>
-        </table>
-    )
+      </tfoot>
+    </table>
+  )
 }
 
-
-export default Details;
+export default Details
