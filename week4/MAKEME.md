@@ -19,7 +19,7 @@ Let's finish the online exercises. Start from `Review Using Props with Stateless
 
 ## **3. Code along**
 
-In the following tutorial you'll learn how to
+
 
 - [Build a Movie Database](https://www.youtube.com/playlist?list=PL_kAgwZgMfWyZ6m8fDwdiwEarr_g6nFxz)
 

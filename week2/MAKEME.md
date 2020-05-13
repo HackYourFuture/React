@@ -62,9 +62,13 @@ In this exercise we'll be using the following API endpoint: `https://official-jo
 
 ## **3. Code along**
 
-In the following tutorial you'll learn how to
+> Create a new GitHub repository for this project. It's a portfolio piece!
 
-- [Build a Calculator with React and Flexbox](https://www.youtube.com/watch?v=KzYUuTiHdiY)
+In the following tutorial you'll learn how to build an `Expense Tracker`. You'll do so using React Hooks, but also using the [Context API](https://reactjs.org/docs/context.html)! The later you'll be learning about more formally in week 4, but best to get familiar as soon as possible.
+
+Happy learning!
+
+- [Build an Expense Tracker](https://www.youtube.com/watch?v=XuFDcZABiDQ)
 
 ## **4. PROJECT: Hack Your Weather II**
 

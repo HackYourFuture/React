@@ -24,7 +24,7 @@ There's nothing better than some extreme sports to get the blood pumping.
 Take a look at the following:
 
 ```js
-const hobbies = ["Surfing", "Rock climbing", "Mountain biking", "Breakdancing"];
+const hobbies = ['Surfing', 'Rock climbing', 'Mountain biking', 'Breakdancing'];
 ```
 
 1. Create 2 functional components: `<HobbyList>` and `<Hobbies>`
@@ -62,19 +62,17 @@ Let's create a simple number counter, starting from 0 until infinity!
 
 ## **3. Code along**
 
-Learning how to work with React is a fundamentally different approach to building frontends. Therefore, we need to practice a lot!
+> Create a new GitHub repository for this project. It's a portfolio piece!
 
-In the following tutorial you'll learn how to a `Random Quote Machine`!
+Learning how to work with React is a fundamentally different approach to building a user interface. Therefore, we need to practice a lot!
 
-Notice how you'll be writing `class` based components. This is an older React feature for writing components, but that's still valid.
+In the following tutorial you'll learn how to a `Budget Calculator`!
 
-Even though you'll be learning more modern ways of writing React applications, you should always be aware that applications can vary in the versions of technologies they're working with.
-
-Don't worry! You don't have to memorize it all. Aim for understanding the principle behind it to the best you can. If you ever feel in doubt: do a Google search or ask a question in Slack!
+It might seem complicated at first, but don't worry. Aim for understanding the principle behind it to the best you can. If you ever feel in doubt: do a Google search or ask a question in Slack!
 
 Enjoy!
 
-- [Build a Random Quote Machine](https://www.youtube.com/playlist?list=PL3cz80ehFCan4srLIp1HmhrQ0CU8Cw9XM)
+- [Build a Budget Calculator](https://www.youtube.com/watch?v=f6HYLHrYpGs)
 
 ## **4. PROJECT: Hack Your Weather I**
 
