@@ -80,7 +80,7 @@ Let's continue building on our application! This week you'll replace the applica
 
 1. Sign up for an API key at [OpenWeatherMap App ID](https://openweathermap.org/appid)
 2. Create a `.env` file in the root of your project folder
-3. Paste the API key inside the `.env` file with the name `OPENWEATHERMAP_API_KEY`
+3. Paste the API key inside the `.env` file with the name `REACT_APP_OPENWEATHERMAP_API_KEY`
 
 ### 2. Requirements
 

@@ -28,7 +28,7 @@ const hobbies = ['Surfing', 'Rock climbing', 'Mountain biking', 'Breakdancing'];
 ```
 
 1. Create 2 functional components: `<HobbyList>` and `<Hobbies>`
-2. Put the `hobbies` variable into the `<HobbyList>` component as state.
+2. Put the `hobbies` variable into the `<HobbyList>` component.
 3. In the `return` statement of the `<HobbyList>` use the `map()` function to return an instance of `<Hobby>`
 4. Pass down the hobby as a `prop`
 5. Test out if it works by importing it into the top level component, which in this case is `<App>`
@@ -128,6 +128,6 @@ The homework that needs to be submitted is the following:
 1. JavaScript exercises
 2. Project: Hack Your Weather I
 
-**This time also put the URL to your deployed website in your class' slack channel!**
+**This time also put the URL to your deployed website in your homework pull request!**
 
 _Deadline Saturday 23.59 CET_
