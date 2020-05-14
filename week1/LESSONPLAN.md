@@ -4,11 +4,11 @@
 
 The purpose of this class is to introduce the student to the most basic React concepts:
 
-- How to look at a `webpage` from the React point of view
-- What `create-react-app` is
-- How to write `reusable components` and why
-- The purpose of `JSX`
-- What are `props` and how to `pass them down components`
+-   How to look at a `webpage` from the React point of view
+-   What `create-react-app` is
+-   How to write `reusable components` and why
+-   The purpose of `JSX`
+-   What are `props` and how to `pass them down components`
 
 When illustrating these concepts, make use of [create-react-app](https://github.com/facebook/create-react-app). Make sure that students have installed it as well.
 
@@ -19,80 +19,213 @@ _Explain to students what each library does: React, ReactDOM and Babel._
 ## 1. Looking at webpages from the React point of view
 
 ### Explanation
-- Any given page can be broken up into reusable components
-- Component hierarchy
+
+React aims to build webpages, by breaking the page down into small pieces: components. These components are isolated bits of HTML that can receive changing data in order to be reusable for different purposes. In this way you could say that components are custom HTML elements.
+
+These components are structured similar to the DOM: in a tree-like structure. The top-level element contains the component that has the rest of the application nested inside of it.
+
 ### Example
-### Excercise 
-Show [example](https://htmlstream.com/preview/unify-v2.6.2/unify-main/home/home-default.html) and dissect a part of the site into components. After, ask 2 students to do the same.
+
+Take a look the following example:
+
+![stats](./../assets/stats.png)
+
+This is made using one single component (reused several times):
+
+```jsx
+const Stat = ({ statNum, statDesc }) => {
+	return (
+		<div>
+			<span>{statNum}</span>
+			<span>{statDesc}</span>
+		</div>
+	);
+};
+```
+
+By instantiating it several times you can output it like in the image:
+
+```jsx
+<>
+	<Stat statNum={'52147'} statDesc={'CODE LINES'} />
+	<Stat statNum={'24583'} statDesc={'PROJECTS'} />
+	<Stat statNum={'7348'} statDesc={'WORKING HOURS'} />
+	<Stat statNum={'87904'} statDesc={'JOB OFFERS'} />
+</>
+```
+
+### Exercise
+
+Show this [example](https://htmlstream.com/preview/unify-v2.6.2/unify-main/home/home-default.html) and dissect a part of the site into components. After, ask 2 students to do the same.
+
 ### Essence
-- Any given page can be broken up into reusable components
-- Component hierarchy
 
-
+Using React allows us to make webpages using reusable building blocks: components. That saves us time and effort in the longterm!
 
 ## 2. create-react-app
 
 ### Explanation
-Explain to the student the problems Webpack (ex. React necessitates file bundling to work) and Babel (ex. React makes use of ES2017+ features that need to be converted into syntax that older browsers can understand) solves
+
+In order to quickly start building React applications, we can use a tool called `create-react-app`. It's an NPM package that sets up a basic template project, incorporating tools needed for us to translate React code into regular JavaScript the browser can understand.
+
+These tools are `webpack` (which bundles and optimizes our component files into one) and `babel` (which transforms our modern JavaScript into an older version most browsers will understand).
+
+To set this up manually will be time costly, therefore we can make things easy by using `create-react-app`.
+
 ### Example
 
-### Excercise 
+_Install `create-react-app` and create a sample project. Go over the various files and explain what their purpose is._
+
+### Exercise
+
+Ask students to install `create-react-app` and get it started on their machines!
 
 ### Essence
-- Generates an fully functional out-of-the-box React environment
-- Solves problem of manually configuring file bundler (like Webpack) or transpiler (Babel)
-- Improves workflow through `hot reloading`
-- Gives a more realistic folder structure
-- Building a production version of react app and deploying on static site hosting service (netlify/now)
 
+`create-react-app` allows us to:
+
+-   Generate an fully functional out-of-the-box React environment
+-   Solve problem of manually configuring file bundler (like Webpack) or transpiler (Babel)
+-   Improve our development workflow through `hot reloading`
+-   Give a more realistic folder structure
+-   Build a production version of react app and deploying on static site hosting service (netlify/now)
 
 ## 3. Components
 
 ### Explanation
+
+A component is a part of a webpage. It contains 2 things: (1) the necessary HTML to structure the element and (2) the necessary JavaScript to give it dynamic data.
+
 ### Example
-Show example of making a class-based and functional component. After, ask students to do the same.
-### Excercise 
+
+In the React world you'll find 2 types of components: `class`-based and `function`-based.
+
+```jsx
+// Class based component (Old way)
+class Counter {
+	state = {
+		count: 0,
+	};
+
+	render() {
+		return <div>{this.state.count}</div>;
+	}
+}
+```
+
+```jsx
+// Function based component (New way)
+const ThisIsAComponent = () => {
+	const [count, setCount] = useState(0);
+
+	return <div>{setCount}</div>;
+};
+```
+
+You should focus on `function` based components.
+
+### Exercise
+
+Ask students to rebuild the following:
+
+![Navbar](./../assets/navbar.png)
+
+-   The components should be `functional`
+-   Make 2 components `NavBar` and `NavBarItem`
+-   Pass props to each `NavBarItem` instance
+-   Styling is optional
+
+After they're done discuss and highlight the works of at least 2 students.
+
 ### Essence
-- Reusable blocks of JavaScript & HTML
-- Each component instance can be given different data
-- Can display JavaScript values in the HTML, using the { } symbols
-- Class component vs. functional component
-- Always returns HTML (in the form of JSX)
+
+Components are:
+
+-   Custom HTML elements: reusable building blocks used to create webpages.
+-   Designed to receive different data in each instance.
+-   Able to display JavaScript values using the `{ }` symbols.
+-   Always returning HTML-like elements, which is called JSX
 
 ## 4. JSX
 
 ### Explanation
+
+`JSX` stands for JavaScript XML. Effectively, it's our ability to return HTML elements in our React components.
+
 ### Example
-### Excercise 
+
+```jsx
+const Section = () => {
+	return (
+		<section>
+			<h1>The section component</h1>
+			<p>In this component we return HTML. In the React world we call this JSX!</p>
+		</section>
+	);
+};
+```
+
+### Exercise
+
+Ask students to create a functional component that returns the following HTML elements:
+
+-   1 `<nav>`
+-   1 `<ul>`
+-   2 `<li>`: t
+
 ### Essence
-- A way to write dynamic HTML code with JavaScript
-- It is a more intuitive version of the function `createElement()` (that takes its name from the DOM function `createElement()`)
-- A component should always return JSX
-- These are the parts that will build the DOM structure
+
+-   A way to write dynamic HTML code with JavaScript
+-   It is a more intuitive version of the function `createElement()` (that takes its name from the DOM function `createElement()`)
+-   A component should always return JSX
+-   These are the parts that will build the DOM structure
 
 _Show example of both JSX and createElement component and ask students to do the same._
 
 ## 5. Props
 
 ### Explanation
-- Props is short for property (like a regular HTML attribute)
-- It is (dynamic) data that can be given to child components
-- Passed down using an identifier, a self-defined attribute name
-- Can be given to multiple instances of components
+
+`Props` is short for `property`: like the ones you give an HTML element. However, in React we can make up our own property names for the components we create.
+
+With `props` we can pass down information from one level of the component tree into another, lower level.
+
+In this way we can give each component instance different data. We can access this data from that instance using the `prop` name.
+
 ### Example
-### Excercise 
-Ask each student to follow along. You'll be showing them how it's done and explaining your thought process along the way. In the second exercise the student needs to remake the app.
 
-1. [Navigation Bar](../../examples/navigationbar)
+```jsx
+const UserItem = ({ name }) => {
+	return <li>{name}</li>
+}
 
-Make a navigation bar with 3 items. Each item should have a text prop.
+const UserList = () => {
+	return (
+		<ul>
+			<UserItem name={"Wouter"}>
+			<UserItem name={"Federico"}>
+			<UserItem name={"Noer"}>
+		</ul>
+	)
+}
+```
 
-- Show how to divide an element into components
-- Reuse components
-- Pass down props (just a string is fine)
+### Exercise
 
-_After showing the example, hide your code and ask students to recreate the same thing._
+Ask students to make a **list of posts**, where each post has a `title` and a `content` part. It should look like similar to this:
+
+![List of posts](./../assets/posts.png)
+
+Requirements:
+
+-   Create a functional component called `PostList`, that will store 3 posts
+-   Create a functional component called `Post`, that will take 2 props: `title` and `content`
+-   Styling is optional
 
 ### Essence
 
+`Props` are:
 
+-   used to pass down data from component to component.
+-   are custom named HTML properties.
+-   making it possible for our components to be reusable

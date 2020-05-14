@@ -11,7 +11,7 @@
 
 Let's get started with some interactive exercises! Complete the exercises from the following resources:
 
-- [Codecademy: Learn ReactJS I](https://www.codecademy.com/learn/react-101)
+-   [Codecademy: Learn ReactJS I](https://www.codecademy.com/learn/react-101)
 
 ## **2. React exercises**
 
@@ -30,7 +30,7 @@ const hobbies = ['Surfing', 'Rock climbing', 'Mountain biking', 'Breakdancing'];
 1. Create 2 functional components: `<HobbyList>` and `<Hobbies>`
 2. Put the `hobbies` variable into the `<HobbyList>` component.
 3. In the `return` statement of the `<HobbyList>` use the `map()` function to return an instance of `<Hobby>`
-4. Pass down the hobby as a `prop`
+4. Pass down the hobby as a `prop` (don't forget to add the `key` prop as well!)
 5. Test out if it works by importing it into the top level component, which in this case is `<App>`
 
 **Exercise 2: Perfect customer service!**
@@ -58,7 +58,7 @@ Let's create a simple number counter, starting from 0 until infinity!
 3. Inside `<Button>` create a `<button>` with the text `Add 1!` and `onClick` attribute
 4. Pass down the `count` state variable to `<Count>`, and the `setCount` to `<Button>`
 5. Inside `<Counter>`, declare a variable called `feedback` above the return statement. Give this variable a ternary operator value: if `count` is higher than 10 it should display the string `"It's higher than 10!"`, else it displays `"Keep counting..."`
-6. 5. Test out if it works by importing `<Counter>` into the top level component, which is `<App>`
+6.  5. Test out if it works by importing `<Counter>` into the top level component, which is `<App>`
 
 ## **3. Code along**
 
@@ -72,7 +72,7 @@ It might seem complicated at first, but don't worry. Aim for understanding the p
 
 Enjoy!
 
-- [Build a Budget Calculator](https://www.youtube.com/watch?v=f6HYLHrYpGs)
+-   [Build a Budget Calculator](https://www.youtube.com/watch?v=f6HYLHrYpGs)
 
 ## **4. PROJECT: Hack Your Weather I**
 
@@ -80,7 +80,7 @@ Enjoy!
 
 During this module you'll be starting a project called `Hack Your Weather`! Like in the Node.js module, each week you'll add to it until it becomes a fully-fledged application you can be proud of.
 
-Here's what you're eventually going end up with: [Hack Your Weather Finished](https://hyf-weather-app.netlify.com/)
+Here's what you're eventually going end up with: [Hack Your Weather Finished](https://xenodochial-wing-7532d8.netlify.app/)
 
 Let's get into it.
 
@@ -100,26 +100,26 @@ This week you'll build the foundation of your application. It should eventually 
 
 Here are the requirements your project needs to fulfill:
 
-- List all the cities and their weather information (taken from `city-weather.json`)
-- Display each city in its own box
-- Each box should contain the following pieces of data:
-  - `city name`
-  - `country name`
-  - `weather main`
-  - `weather desciption`
-  - `max and min temprature`
-  - `location (longitude and lattitude)`
-- Deploy your static site using [Netlify](https://www.netlify.com/)
+-   List all the cities and their weather information (taken from `city-weather.json`)
+-   Display each city in its own box
+-   Each box should contain the following pieces of data:
+    -   `city name`
+    -   `country name`
+    -   `weather main`
+    -   `weather desciption`
+    -   `max and min temprature`
+    -   `location (longitude and lattitude)`
+-   Deploy your static site using [Netlify](https://www.netlify.com/)
 
 Hints:
 
-- Make use of the `map()` function to show the different cities
-- Try to "think in components"
-- Look at the JSON file and carefully look at where the useful data is found
+-   Make use of the `map()` function to show the different cities
+-   Try to "think in components"
+-   Look at the JSON file and carefully look at where the useful data is found
 
 ## **SUBMIT YOUR HOMEWORK!**
 
-After you've finished your list it's time to show us what you got! Upload all your files to a forked repository (a copy from the original, which in this case is the [React](https://www.github.com/HackYourFuture/React) repository) using GIT. Then make a pull request to your teacher's forked repository.
+After you've finished your list it's time to show us what you got! Upload all your files to the HackYourHomework repository (which in this case is the [React](https://www.github.com/HackYourHomework/React) repository) using GIT. 
 
 If you need a refresher, take a look at the following [guide](../hand-in-homework-guide.md) to see how it's done.
 
@@ -128,6 +128,6 @@ The homework that needs to be submitted is the following:
 1. JavaScript exercises
 2. Project: Hack Your Weather I
 
-**This time also put the URL to your deployed website in your homework pull request!**
+**Also put the URL to your deployed website in your homework pull request!**
 
 _Deadline Saturday 23.59 CET_

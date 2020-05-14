@@ -101,7 +101,7 @@ In the above example, the `prop` has a name that describes its contents. From it
 Learn more about state and props here:
 
 - [State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
-- [ReactJS State Tutorial](https://www.youtube.com/watch?v=DPdc5Z-Tf4U)
+- [ReactJS State Tutorial](https://www.youtube.com/watch?v=O6P86uwfdR0)
 - [ReactJS Props](https://www.youtube.com/watch?v=eXQRhVUMCP8)
 
 ### Lifecycle
@@ -202,14 +202,14 @@ But what if we don't want to setup a whole web server to do this?
 
 ### Static site hosting 
 
-We call these `static site hosting`. They take a lot of the basic web server setup out of our hands. All we have to do is upload our frontend (in other words, our static website) to that particular service's web server and that's it. The generator creates a URL for us that we can use to access our website.
+To enable this we use something called a `static site hosting` platform. They take a lot of the basic web server setup out of our hands. All we have to do is upload our frontend (in other words, our static website) to that particular service's web server and that's it. The generator creates a URL for us that we can use to access our website.
 
-Examples of static site hosting are the following:
+Examples of `static site hosting` platforms are the following:
 
 - [Netlify](https://www.netlify.com/)
 - [Now](https://zeit.co/)
 
-To learn more about static site hosting, study the following:
+To learn more about `static site hosting` and how to do it, study the following:
 
 - [A Step-by-Step Guide: Deploying A Static Site or Single-page App](https://www.netlify.com/blog/2016/10/27/a-step-by-step-guide-deploying-a-static-site-or-single-page-app/)
 
