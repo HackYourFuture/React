@@ -2,65 +2,161 @@
 
 The purpose of this class is to teach the student about:
 
-- Creating `state` (using `useState()`)
-- how to make `API calls` within a React component
-- Working with `forms`
+-   What is `state`?
+-   How to make `HTTP Requests` within a React component
+-   Working with `forms`
 
 ## Core concepts
 
-## 1. State vs. Props
+## 1. What is state?
 
 ### Explanation
-- Both props and state are plain JavaScript objects
-- State holds all the dynamic data of the app
-- Whenever data from the state object gets passed down it becomes a prop
-- While props can be widespread, state should only be defined in the top parent component
+
+State is all the data in the application, that can change because of user interaction. It's defined using a special React function, called `useState`.
+
+This `useState` function provides the state value, and a function that allows us to modify the state value.
+
+All state values must be declared at the top function, ideally in the parent component.
+
+Whenever we want to pass a state value down into a component, we assign it to a custom named `prop`. It can then be accessed as part of the `props` within that child component.
+
 ### Example
-Show example of (1) state initialization, (2) passing state down (and showing how it becomes props). Then let students do the same
-### Excercise 
+
+```jsx
+const Counter = () => {
+	// State value, state modifier, initial state
+	const [count, setCount] = useState(0);
+
+	// Handler to change state
+	const handleClick = () => {
+		setCount((prevState) => prevState + 1);
+	};
+
+	return (
+		<div>
+			<Count count={count} />
+			<button onClick={handleClick}>+ 1</button>
+		</div>
+	);
+};
+
+const Count = ({ count }) => {
+	return <p>Count is: {count}</p>;
+};
+```
+
+### Exercise
+
+Ask students to remake aforementioned by themselves.
+
 ### Essence
 
+Having state allows our application to handle 'dynamic data': data that can change. Using the React defined `useState` function we can define and modify all pieces of state that need to change
 
-
-
-## 2. Changing state
+## 2. Making HTTP requests within a React component
 
 ### Explanation
-- Do not modify state directly, always use the React function setState()
-- State gets changed through self-defined functions (within the class component) that include setState()
-- setState() is an asynchronously-executed request to change state
-- Changing state will re-render the component
+
+Making HTTP requests is an essential task of the frontend. Within React, we make these requests at specific points: (1) after a user action (like a button click), or (2) at a certain point in the component lifecycle.
 
 ### Example
-### Excercise 
-Show example of directly modifying state (and how it doesn't work). Then show an example of a self-defined function that uses setState. Finally, ask students to do the same
+
+```jsx
+// 1. After a user action
+const Users = () => {
+	const [users, setUsers] = useState([]);
+
+	const fetchUsers = async () => {
+		const response = await fetch('https://jsonplaceholder.typicode.com/users');
+		const users = await response.json();
+
+		setUsers(users);
+	};
+
+	return (
+		<div>
+			{
+				// Do something with users...
+			}
+			<button onClick={fetchUsers}>Get users!</button>
+		</div>
+	);
+};
+```
+
+Sometimes we also want to make HTTP requests before or after a component has been rendered/updated:
+
+```jsx
+// 2. At a certain point in the component lifecycle
+const Users = () => {
+	const [users, setUsers] = useState([]);
+
+	const fetchUsers = async () => {
+		const response = await fetch('https://jsonplaceholder.typicode.com/users');
+		const users = await response.json();
+
+		setUsers(users);
+	};
+
+	useEffect(() => {
+		// Fetches users after component has rendered
+		fetchUsers();
+	}, []);
+
+	return (
+		<div>
+			{
+				// Do something with users...
+			}
+		</div>
+	);
+};
+```
+
+### Exercise
+
+Ask students to write a component that uses `useEffect` to fetch data and populate state:
+
+-   Use `useEffect` & `useState` hook
+-   Wrap the HTTP Request in a function
+-   Populate the state
+-   Display the `title` property
+-   Use the following API endpoint: https://jsonplaceholder.typicode.com/todos/1
+
+After, ask 2 students to explain what they did.
+
 ### Essence
+
+We send HTTP requests in React as a consequence of user interaction (like a button click) or when the component is rendered/updated. We do this is a separate function that we execute, either on an event (like `onClick`) or after a component has been rendered/updated (with `useEffect`).
 
 ## 3. Forms
 
 ### Explanation
-- The natural behavior of forms is that they keep their own state and send it to a backend
-- React takes control of this behavior, by preventing the default behavior and moving state to the class component
-- Form state can be updated in real-time, using the onChange attribute combined with the value attribute
-- We want to `control` our inputs by using the `onChange` and `value` attributes
+
+In HTML, forms have a default behavior. They store the data and automically want to refresh the page. In React we're trying to stop this default behavior and bring the data under our control: by putting it into `state`!
+
+We bring form data into state by listening to it, using the `onChange` and `value` attribute. We are controlling our `<input>` fields, thereby creating `controlled inputs`. Then when we want to submit it, we can use the `onSubmit` attribute.
+
 ### Example
-### Excercise 
 
-To illustrate the core concepts of state, props and components build the following small app with the students.
+```jsx
+const Form = () => {
+	const [formValues, setFormValues] = useState({ title: '' });
 
-- [Counter](../../examples/simpleCounter)
+	const inputHandler = (event) => {
+		setFormValues();
+	};
 
-Create a number counter, that the user can increase or decrease by one.
+	return (
+		<form onSubmit={}>
+			<input type="text" onChange={inputHandler} value={formValues.title} />
+		</form>
+	);
+};
+```
 
-- Create a Counter functional component
-- Initialize state
-- Create reusable components for the increase/decrease buttons
-- Create 2 functions that change the counter state: 1 for increasing and 1 for decreasing the counter
-- Add onClick to Button instances with clickhandlers
+### Exercise
 
-_After showing the example, hide your code and ask students to recreate the same thing_
+
 
 ### Essence
-
-
-

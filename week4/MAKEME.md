@@ -11,7 +11,7 @@
 
 Let's finish the online exercises. Start from `Review Using Props with Stateless Functional Components` until the last exercise `Render React on the Server with renderToString`:
 
-- [FreeCodeCamp: Exercise 21-48](https://www.freecodecamp.org/learn/front-end-libraries/react/)
+-   [FreeCodeCamp: Exercise 21-48](https://www.freecodecamp.org/learn/front-end-libraries/react/)
 
 ## **2. React exercises**
 
@@ -19,9 +19,13 @@ Let's finish the online exercises. Start from `Review Using Props with Stateless
 
 ## **3. Code along**
 
-In the following tutorial you'll learn how to
+> Create a new GitHub repository for this project. It's a portfolio piece!
 
-- [Build a Movie Database](https://www.youtube.com/playlist?list=PL_kAgwZgMfWyZ6m8fDwdiwEarr_g6nFxz)
+In this project you'll be working with the CSS framework [Material UI](https://material-ui.com/) that allows you to use Material Design with React! It's very common to work with CSS frameworks when doing real life project, so best to prepare for it as soon as possible.
+
+Have fun!
+
+-   [Build an COVID-19 Tracker](https://www.youtube.com/watch?v=khJlrj3Y6Ls)
 
 ## **4. PROJECT: Hack Your Weather IV**
 
@@ -45,17 +49,17 @@ At the end of the week the user interface of your application will look mostly t
 
 Here are the requirements your project needs to fulfill:
 
-- Divide your page into 2 different routes (`/` and `/:cityId`), using `react-router-dom`
-- Allow users to click on the searched city to open the city page
-- The city page will be on a different route identified by the city id (make use of the `<Link>` component given by `react-router-dom`)
-- On the city page there will be a chart (made with `recharts`) that displays the correct data for 5-day forecast
-- Add a "Back" button to go back to `/`, on the city page
-- Redeploy your site
+-   Divide your page into 2 different routes (`/` and `/:cityId`), using `react-router-dom`
+-   Allow users to click on the searched city to open the city page
+-   The city page will be on a different route identified by the city id (make use of the `<Link>` component given by `react-router-dom`)
+-   On the city page there will be a chart (made with `recharts`) that displays the correct data for 5-day forecast
+-   Add a "Back" button to go back to `/`, on the city page
+-   Redeploy your site
 
 Hints:
 
-- Read the documentation to get a basic sense of what problems both `react-router-dom` and `recharts` are trying to solve, and to learn how to use them
-- Make sure to have a clear overview of your application so far, before you add this week's features to it
+-   Read the documentation to get a basic sense of what problems both `react-router-dom` and `recharts` are trying to solve, and to learn how to use them
+-   Make sure to have a clear overview of your application so far, before you add this week's features to it
 
 ## **SUBMIT YOUR HOMEWORK!**
 

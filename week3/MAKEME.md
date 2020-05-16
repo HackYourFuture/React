@@ -19,9 +19,17 @@ This week we'll practice some (hopefully) familiar concepts, with some online ex
 
 ## **3. Code along**
 
-In the following tutorial you'll learn how to make
+> Create a new GitHub repository for this project. It's a portfolio piece!
 
-- [Build a Recipe App With React](https://www.youtube.com/watch?v=U9T6YkEDkMo)
+It's time for another code along! This week you'll learn how to make a cool Video Player! You'll do so using various packages, among those are [styled-components](https://www.npmjs.com/package/styled-components) and [react-router-dom](https://www.npmjs.com/package/react-router-dom).
+
+The first is a third party library that'll make writing CSS rules easier in React applications. And it's also used in real life applications!
+
+The latter you'll be learning about next week, but the more preparation you have the better.
+
+Enjoy!
+
+- [Build a Video Player](https://www.youtube.com/watch?v=iVRO0toVdYM)
 
 ## **4. PROJECT: Hack Your Weather III**
 
