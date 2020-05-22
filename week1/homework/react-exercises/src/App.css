@@ -1,0 +1,32 @@
+
+.App {
+  text-align: center;
+}
+
+.counter {
+  margin-bottom: 2%;
+}
+
+.HobbyList {
+  list-style-type:none;
+  font-size: 1.1rem;
+
+}
+
+.box{
+  display: flex;
+  flex-direction: row;
+}
+
+.box div {
+  margin: 20px;
+  width:80%;
+  font-size: 1.1rem;
+ } 
+
+
+.counter button {
+  width: 10%;
+  height:7vh;
+  font-size: 1.5 rem;
+}
