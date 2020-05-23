@@ -1,7 +1,6 @@
 import React from 'react'
 
-export default function CityCard(props){
-    const { name, countryCode, mainWeather, description, temp_min, temp_max, longitude, latitude } = props;
+export default function CityCard({ name, countryCode, mainWeather, description, temp_min, temp_max, longitude, latitude }){
     return (
         <div className="cityBox">
             <div className="City">

@@ -8,28 +8,36 @@ import chatImg from './chat.png';
 import Counter from './Counter';
 
 
+const containers = [
+	{
+		img: deliveryImg,
+		title: "Free Shipping",
+		description:"Your products are always shipped free",
+	},
+	{
+		img: coinImg,
+		title: "100% Money Back",
+		description:"You can return your product and get your money back",
+	},
+	{
+		img: chatImg,
+		title: "Online support 24/7",
+		description:"Call our free customer service number anytime",
+	},
+];
+
+
 function App() {
   return (
     <div className="App">
       <HobbyList />
       <div className="box">       
-        <Guarantee 
-        img={deliveryImg} 
-        title="Free Shipping"
-        description="Your products are always shipped free."
-        />
-          <Guarantee 
-        img={coinImg} 
-        title="100% Money Back"
-        description="You can return your product and get your money back"
-        />
-          <Guarantee 
-        img={chatImg} 
-        title="Online Support 24/7"
-        description="Call our free customer service number anytime"
-        />
+        {containers.map(container => <ul><Guarantee 
+        img = {container.img}
+        title = {container.title}
+        description= {container.description} /></ul>)}
       </div>
-      <Counter />
+    <Counter />
     </div>
   );
 }

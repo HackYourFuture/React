@@ -1,8 +1,8 @@
 import React from "react";
 
-function Button(props) {
+function Button({onclick}) {
     return (
-        <button onClick={props.onclick}>
+        <button onClick={onclick}>
         Add 1!
         </button>
     );
