@@ -27,7 +27,7 @@ export default function Friend() {
 
   return (
     <div>
-      <h1>Get Random Friend</h1>
+      <h1>Get New Friend</h1>
       <Button onClick={getFriend} title="friend"/>
       <FriendProfile friend={friend} />
     </div>

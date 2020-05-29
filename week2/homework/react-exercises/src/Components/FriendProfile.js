@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default function FriendProfile(props) {
-  const { name, location, email, phone } = props.friend.results[0];
-  const { street, city, state, country, postcode } = location;
+  const { name, location, email } = props.friend.results[0];
+  const { street, city, country, postcode } = location;
   return (
     <div>
       <ul>
@@ -10,7 +10,7 @@ export default function FriendProfile(props) {
           {name.title} {name.first} {name.last}
         </li>
         <li>
-          Address: {street.name} {street.number} {city} {postcode} {country}
+          Address: {street.name} {street.number}, {postcode}, {city}  {country}
         </li>
         <li>{email}</li>
         <li></li>
