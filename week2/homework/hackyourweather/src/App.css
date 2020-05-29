@@ -1,0 +1,32 @@
+.App {
+  text-align: center;
+}
+
+.cityBox{
+  display:flex;
+  flex-direction: column;
+  width: 400px;
+  height: auto;
+  border: 1px solid black;
+  margin-top: 3%;
+  margin-left:auto;
+  margin-right: auto;
+  text-align: left;
+  padding: 5px 25px 10px 30px;
+}
+
+h3{
+  margin:0;
+  padding: 0;
+}
+.description {
+  text-transform:capitalize;
+  margin: 0;
+  padding: 0;
+}
+
+.temp {
+  margin-top: 30px;
+  padding-bottom: 0px;
+}
+
