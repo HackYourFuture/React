@@ -1,0 +1,64 @@
+h1 {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+h2 {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+.status {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 300px;
+}
+
+.items {
+  border: solid 2px black;
+  margin: 20px auto;
+  list-style: none;
+  width: 300px;
+  padding: 20px;
+}
+
+.input-text {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+.input-submit {
+  margin: 10px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  position: absolute;
+  float: right;
+}
+.close-btn {
+  float: right;
+  margin-right: 50px;
+}
+.chart-name {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.chart {
+  margin: 50px auto;
+}
+.chart-btn{
+  float: right;
+  margin-bottom: 150px;
+}
