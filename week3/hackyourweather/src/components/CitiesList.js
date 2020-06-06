@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CityInfo from "./CityInfo";
 import Form from "./Form";
+//w
 
 const CitiesList = () => {
   const [weather, setWeather] = useState([]);

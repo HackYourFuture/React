@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
-
+// e
 const CityInfo = ({ city, deleteCity }) => {
   return (
     <div className="list-items">
