@@ -20,23 +20,23 @@ Besides being dynamic, React applications also are `single page applications (SP
 
 In order to successfully complete this module you will need to master the following:
 
-- Understand the React way of thinking about `user interfaces`
-- Know the importance and place of `state` and how to pass it down
-- Be able to work with different `lifecycle hooks`
-- Distinguish between `class-based versus function-based components`
-- Recognize the utility of `modularization`
-- Putting emphasis on writing reusable code (`components`)
-- How to handle `client-side routing`
+-   Understand the React way of thinking about `user interfaces`
+-   Know the importance and place of `state` and how to pass it down
+-   Be able to work with different `lifecycle hooks`
+-   Distinguish between `class-based versus function-based components`
+-   Recognize the utility of `modularization`
+-   Putting emphasis on writing reusable code (`components`)
+-   How to handle `client-side routing`
 
 ## How to use this repository
 
 This repository consists of 3 essential parts:
 
-1. `Reading materials`: this document contains all the required theory you need to know _**while**_ you're coding. It's meant as both study material and as a reference to understand what you're doing.
-2. `Homework`: this document contains the instructions for each week's homework.
-3. `Lesson Plans`: this part is meant for teachers as a reference. However, as a student don't be shy to take a look at it as well!
+1. `README`: this document contains all the required theory you need to understand **before** class. It's also meant as a reference to understand what you're doing while you're coding.
+2. `MAKEME`: this document contains the instructions for each week's homework.
+3. `LESSONPLAN`: this document is meant for teachers as a reference. However, as a student don't be shy to take a look at it as well!
 
-After your first class you should start off with checking the `reading materials` for that week. At the beginning that would be the [Week 1 Reading](/Week1/README.md). Study all the concepts and try to get the gist of everything. After, you can get started with the `homework` for that week.
+**Before** the first class of the module you should start off with the [Week 1 Reading](/Week1/README.md). Study all the concepts and try to get the gist of everything. After your first class, you can get started with the [Week 1 Homework](/Week1/MAKEME.md).
 
 If you have any questions or if something is not entirely clear ¯\\\_(ツ)\_/¯, please ask/comment on Slack!
 
@@ -46,13 +46,13 @@ In order to properly work through this module smoothly we're going to use softwa
 
 Go to your command line and execute the following:
 
-```
+```bash
 npm install -g create-react-app
 ```
 
 Now verify that you have it by executing the following:
 
-```
+```bash
 create-react-app --version
 ```
 
