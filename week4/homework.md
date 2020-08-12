@@ -9,13 +9,13 @@ Requirements:
 - When the search is failed, you should show "error fetching (reason why it failed)..."
 - When the search result is empty (no users), you should show "No results..."
 - All state should be managed using the context api!
+- Only use hooks, no `setState` in this homework
 
 ![Homework preview](assets/homework-preview.gif)
 
 Try the website here: https://ro6ne.csb.app/
 
 ## Render props
-
 
 
 ## Working with github api
@@ -25,6 +25,7 @@ Try the website here: https://ro6ne.csb.app/
     - You can try to retrieve the repos data from the HackYourFuture-CPH organisation - (Hint: https://api.github.com/users/.../repos)
     - You can try to display the name of all the repos in your React app
     - If this is to easy for you... surprise us with your creativity... build up on your project and we will have a look!! ;)
+- Only using hooks
 
 ## Hand in Homework:
 
