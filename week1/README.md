@@ -17,6 +17,12 @@ These are the topics for week 1:
    - What is a static site
    - Static site generators
 
+## 0. Video Lectures
+
+Your teacher Shriyans has made video lectures for this week's material. You can find them here: [Videos 1 - 3](https://www.youtube.com/playlist?list=PLVYDhqbgYpYVavMRA5iOfBpSPA39ecm-V)
+
+<a href="https://www.youtube.com/playlist?list=PLVYDhqbgYpYVavMRA5iOfBpSPA39ecm-V" target="_blank"><img src="../assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
+
 ## 1. What is React.js?
 
 If you go to the official website of [React](https://www.reactjs.org) you'll read the following:
@@ -200,7 +206,7 @@ As you've learned in the Node.js module, we can use server-side frameworks like 
 
 But what if we don't want to setup a whole web server to do this?
 
-### Static site hosting 
+### Static site hosting
 
 To enable this we use something called a `static site hosting` platform. They take a lot of the basic web server setup out of our hands. All we have to do is upload our frontend (in other words, our static website) to that particular service's web server and that's it. The generator creates a URL for us that we can use to access our website.
 

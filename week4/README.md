@@ -12,6 +12,12 @@ These are the topics for week 4:
    - React-router
    - Protected routes with React-router
 
+## 0. Video Lectures
+
+Your teacher Shriyans has made video lectures for this week's material. You can find them here: [Videos 12 - 14](https://www.youtube.com/playlist?list=PLVYDhqbgYpYVavMRA5iOfBpSPA39ecm-V)
+
+<a href="https://www.youtube.com/playlist?list=PLVYDhqbgYpYVavMRA5iOfBpSPA39ecm-V" target="_blank"><img src="../assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
+
 ## 1. Context API
 
 ### Global state management

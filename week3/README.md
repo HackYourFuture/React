@@ -11,6 +11,12 @@ These are the topics for week 3:
    - UI toolkits
    - Utilities
 
+## 0. Video Lectures
+
+Your teacher Shriyans has made video lectures for this week's material. You can find them here: [Videos 9 - 11](https://www.youtube.com/playlist?list=PLVYDhqbgYpYVavMRA5iOfBpSPA39ecm-V)
+
+<a href="https://www.youtube.com/playlist?list=PLVYDhqbgYpYVavMRA5iOfBpSPA39ecm-V" target="_blank"><img src="../assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
+
 ## 1. Hooks II
 
 ### Building custom hooks

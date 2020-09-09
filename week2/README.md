@@ -5,14 +5,21 @@
 These are the topics for week 2:
 
 1. Hooks
-    - Class vs functional components
-    - What are hooks?
-    - useState & useEffect
+   - Class vs functional components
+   - What are hooks?
+   - useState & useEffect
 2. API calls in React
-    - When to load data
+   - When to load data
 3. Forms
-    - Controlled vs. uncontrolled
-    - EventListeners & preventing default behavior
+
+   - Controlled vs. uncontrolled
+   - EventListeners & preventing default behavior
+
+## 0. Video Lectures
+
+Your teacher Shriyans has made video lectures for this week's material. You can find them here: [Videos 4 - 8](https://www.youtube.com/playlist?list=PLVYDhqbgYpYVavMRA5iOfBpSPA39ecm-V)
+
+<a href="https://www.youtube.com/playlist?list=PLVYDhqbgYpYVavMRA5iOfBpSPA39ecm-V" target="_blank"><img src="../assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
 
 ## 1. Hooks
 
@@ -22,13 +29,13 @@ Like any other system, React is always evolving. Before we had Hooks (like `useS
 
 ```js
 class Example extends React.Component {
-	state = {
-		exampleMessage: 'This message is for the example',
-	};
+  state = {
+    exampleMessage: "This message is for the example",
+  };
 
-	render() {
-		return <div>{this.state.exampleMessage}</div>;
-	}
+  render() {
+    return <div>{this.state.exampleMessage}</div>;
+  }
 }
 ```
 
@@ -38,19 +45,19 @@ However, the people behind React want to take the library into a different direc
 
 If you're really curious what the reasons are, look at the following resources:
 
--   [Refactor to React Hooks, Not Classes](https://rangle.io/blog/refactor-to-react-hooks-not-classes/)
--   [React Class Components are dead? (Hint: maybe)](https://itnext.io/react-class-components-are-dead-hint-not-yet-1d0a151173b8)
+- [Refactor to React Hooks, Not Classes](https://rangle.io/blog/refactor-to-react-hooks-not-classes/)
+- [React Class Components are dead? (Hint: maybe)](https://itnext.io/react-class-components-are-dead-hint-not-yet-1d0a151173b8)
 
 ### What are hooks?
 
 Hooks are predefined functions that the React library gives us. They are used only in **functional** components. They try to solve a couple of things:
 
--   [Hooks Intro: Motivation]https://reactjs.org/docs/hooks-intro.html#motivation
+- [Hooks Intro: Motivation]https://reactjs.org/docs/hooks-intro.html#motivation
 
 Learn more about the essence of hooks here:
 
--   [Why React Hooks?](https://www.youtube.com/watch?v=eX_L39UvZes)
--   [React.js Hooks Crash Course](https://www.youtube.com/watch?v=-MlNBTSg_Ww)
+- [Why React Hooks?](https://www.youtube.com/watch?v=eX_L39UvZes)
+- [React.js Hooks Crash Course](https://www.youtube.com/watch?v=-MlNBTSg_Ww)
 
 ### useState & useEffect
 
@@ -60,8 +67,8 @@ Sometimes we just want to have our dynamic data (state) live locally inside of a
 
 Lear more about it here:
 
--   [Using the State Hook](https://reactjs.org/docs/hooks-state.html)
--   [React Hooks - useState](https://www.youtube.com/watch?v=-G43PbpmGrA)
+- [Using the State Hook](https://reactjs.org/docs/hooks-state.html)
+- [React Hooks - useState](https://www.youtube.com/watch?v=-G43PbpmGrA)
 
 **useEffect**
 
@@ -71,8 +78,8 @@ This hook, `useEffect`, gives us a way of structuring our app to be able to hand
 
 Learn more about it here:
 
--   [Using the Effect Hook](https://reactjs.org/docs/hooks-effect.html)
--   [React Hooks - useEffect](https://www.youtube.com/watch?v=sjCe4iHyxxs)
+- [Using the Effect Hook](https://reactjs.org/docs/hooks-effect.html)
+- [React Hooks - useEffect](https://www.youtube.com/watch?v=sjCe4iHyxxs)
 
 ## 2. API calls in React
 
@@ -94,17 +101,17 @@ This is valid JavaScript. But it is outside of the scope of the React component!
 
 In class components, you'd use the `componentDidMount()` hook. Look at the following to learn more about how to do that:
 
--   [ComponentWillMount() and ComponentDidMount() LifeCycle Event](https://www.youtube.com/watch?v=PEPgugfzDLk)
+- [ComponentWillMount() and ComponentDidMount() LifeCycle Event](https://www.youtube.com/watch?v=PEPgugfzDLk)
 
 In functional components, you'd use the `useEffect` hook. Study the following resources to learn how to do this:
 
--   [How to Fetch Data (feat. React Hooks, Render Props)](https://www.youtube.com/watch?v=Ur6MNStwXlQ)
+- [How to Fetch Data (feat. React Hooks, Render Props)](https://www.youtube.com/watch?v=Ur6MNStwXlQ)
 
 ## 3. Forms
 
 Forms have always been slightly different than any other element in HTML. So it also goes for React.
 
--   [Forms](https://reactjs.org/docs/forms.html)
+- [Forms](https://reactjs.org/docs/forms.html)
 
 ### Controlled vs. uncontrolled
 
@@ -114,8 +121,8 @@ A component is `uncontrolled` when it does have state, meaning state values are 
 
 Learn more about this here:
 
--   [Controlled and uncontrolled elements](https://www.youtube.com/watch?v=nSGZEQa5C_c)
--   [How React Hooks change the way we build forms](https://www.youtube.com/watch?v=8yo44xN7-nQ)
+- [Controlled and uncontrolled elements](https://www.youtube.com/watch?v=nSGZEQa5C_c)
+- [How React Hooks change the way we build forms](https://www.youtube.com/watch?v=8yo44xN7-nQ)
 
 ### EventListeners & preventing default behavior
 
