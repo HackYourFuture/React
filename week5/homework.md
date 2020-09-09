@@ -1,5 +1,27 @@
 # Homework
 
+## Get git ready to work on homework
+
+Using the `hyf-homework` repo. In the terminal run `git status`
+
+If there are changes that have not been committed, figure out what to do with those changes
+- Should they be committed to another branch?
+- Should they be committed to `master`?
+- Should they be discarded?
+
+When you have figured out what to do with the changes and fixed those. Write `git status` again. If it says `nothing to commit, working tree clean`. Then you are ready to create the branch for this weeks homework.
+
+### Creating the branch
+Using the `hyf-homework` repo write this command
+
+`git checkout -b react/week5`
+
+This will create and checkout the branch so you are ready make commits to it
+
+[This video](https://www.youtube.com/watch?v=feyBVDhFQuk) can help
+
+## Github search
+
 - The github search becomes the home page of your project.
 - When you list the github users you can click on individual users to navigate to the profile
 - In the profile component you need to fetch details about the github user and display them in a nice way using css, you can get inspiration from [a github profile](https://github.com/younesmln)
@@ -11,7 +33,7 @@
 
 Watch [this video](https://www.youtube.com/watch?v=feyBVDhFQuk) for a more detailed go-through of how to hand in homework!
 
-- Create a new branch called `react/week5` 
+- Use the branch called `react/week5` 
 - Add all your changes to this branch in the `react/week5` folder. 
 - Go through the [Homework checklist](#homework-checklist)
 - Create a pull request using the `react/week5` branch

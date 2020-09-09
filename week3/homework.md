@@ -1,5 +1,25 @@
 # Homework
 
+## Get git ready to work on homework
+
+Using the `hyf-homework` repo. In the terminal run `git status`
+
+If there are changes that have not been committed, figure out what to do with those changes
+- Should they be committed to another branch?
+- Should they be committed to `master`?
+- Should they be discarded?
+
+When you have figured out what to do with the changes and fixed those. Write `git status` again. If it says `nothing to commit, working tree clean`. Then you are ready to create the branch for this weeks homework.
+
+### Creating the branch
+Using the `hyf-homework` repo write this command
+
+`git checkout -b react/week3`
+
+This will create and checkout the branch so you are ready make commits to it
+
+[This video](https://www.youtube.com/watch?v=feyBVDhFQuk) can help
+
 ## Outline
 
 Now instead of using an array to load the default items, use the api found here: `https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw` using `fetch`
@@ -38,7 +58,7 @@ Make the exercises in [chat-app](https://github.com/HackYourFuture-CPH/React/tre
 
 Watch [this video](https://www.youtube.com/watch?v=feyBVDhFQuk) for a more detailed go-through of how to hand in homework!
 
-- Create a new branch called `react/week3` 
+- Use the branch called `react/week3` 
 - Add all your changes to this branch in the `react/week3` folder. 
 - Go through the [Homework checklist](#homework-checklist)
 - Create a pull request using the `react/week3` branch
