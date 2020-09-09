@@ -3,10 +3,8 @@
 - Context
   - Consumer
   - Provider
+- Hooks
 - Render props
-- Introduction to state management libraries
-  - Redux
-
 
 ## Context example
 
