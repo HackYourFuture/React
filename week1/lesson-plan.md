@@ -143,13 +143,36 @@ Create a new component called `UserItemExpanded`. Render these user attributes:
 
 - Fullname
 - Adress
-- Gender
 - Age
 - Height
 - Spoken languages
 
-### Counter
-Expanding the Counter example, Add two new buttons:
-1. Reset button. Clicking this button will reset the counter
-2. Increment double. Clicking this button will double the counter. 
+### UserItemList
+Create a component that renders a list of UserItemExpanded using the users array below
+
+```
+const users = [
+  {
+    fullname: 'testy mc testy face',
+    adress: 'test alley',
+    age: 35,
+    height: 185,
+    languages: ['danish', 'arabic']
+  },
+  {
+    fullname: 'Ahmad Hansen',
+    adress: 'test alley 2',
+    age: 89,
+    height: 167,
+    languages: ['english', 'polish']
+  },
+  {
+    fullname: 'Peter Petersen',
+    adress: 'alley 2',
+    age: 19,
+    height: 176,
+    languages: ['english', 'danish']
+  }
+];
+```
 
