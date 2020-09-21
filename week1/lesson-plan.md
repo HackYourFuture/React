@@ -150,7 +150,7 @@ Create a new component called `UserItemExpanded`. Render these user attributes:
 ### UserItemList
 Create a component that renders a list of UserItemExpanded using the users array below
 
-```
+```js
 const users = [
   {
     fullname: 'testy mc testy face',
