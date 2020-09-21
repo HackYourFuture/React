@@ -127,7 +127,7 @@ ReactDOM.render(<Counter />, rootElement);
 
 ### Working with component trees
 Write the component tree for these two sites. NO CODE!
-- [www.youtubecom](https://www.youtube.com/)
+- [www.youtube.com](https://www.youtube.com/)
 - https://github.com/HackYourFuture-CPH
 
 Example:
