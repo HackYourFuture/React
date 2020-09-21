@@ -139,7 +139,7 @@ Example:
 ```
 
 ### UserItemExpanded
-Create a new component called `UserItemExpanded`. Render these user attributes aswell:
+Create a new component called `UserItemExpanded`. Render these user attributes:
 
 - Fullname
 - Adress
