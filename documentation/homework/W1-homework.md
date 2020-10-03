@@ -48,7 +48,7 @@ Static List
 - Write for each component `a short summary` of what it does and the role of the prop (in case there is one) in a JavaScript comment
 
 ```
-const RandomHello = () => { return <h1>Hello there!</h1> }
+const RandomHello = () => { return( <h1>Hello there!</h1> )}
 // The goal of this component is to insert a random greeting in page
 ```
 
@@ -86,6 +86,10 @@ Use the following links to practice some more:
 
 - [Codecademy](https://www.codecademy.com/learn/react-101)
 - [BuildWithReact](http://buildwithreact.com/tutorial)
+
+## Learning Resources
+
+- The best way to get the knowledge of any application is to read the documentation of that application.Refer https://reactjs.org/docs/getting-started.html for this.
 
 ## Scoring
 
