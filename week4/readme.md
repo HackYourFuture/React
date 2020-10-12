@@ -3,7 +3,6 @@
 ## Learning goals
 - Context
 - Render props
-- Introduction to state management libraries
 
 ## Relevant links
 * [Preparation](preparation.md)
