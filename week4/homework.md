@@ -37,9 +37,6 @@ Requirements:
 
 Try the website here: https://ro6ne.csb.app/
 
-## Render props
-
-
 ## Working with github api
 
 - Continue using the github API through this url - https://api.github.com (Hint: use postman to query the github API)
