@@ -3,7 +3,6 @@
 - Context
   - Consumer
   - Provider
-- Hooks
 - Render props
 
 ## Context example

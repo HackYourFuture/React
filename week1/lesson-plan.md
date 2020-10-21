@@ -127,7 +127,7 @@ ReactDOM.render(<Counter />, rootElement);
 
 ### Working with component trees
 Write the component tree for these two sites. NO CODE!
-- [www.youtubecom](https://www.youtube.com/)
+- [www.youtube.com](https://www.youtube.com/)
 - https://github.com/HackYourFuture-CPH
 
 Example:
@@ -139,17 +139,40 @@ Example:
 ```
 
 ### UserItemExpanded
-Create a new component called `UserItemExpanded`. Render these user attributes aswell:
+Create a new component called `UserItemExpanded`. Render these user attributes:
 
 - Fullname
 - Adress
-- Gender
 - Age
 - Height
 - Spoken languages
 
-### Counter
-Expanding the Counter example, Add two new buttons:
-1. Reset button. Clicking this button will reset the counter
-2. Increment double. Clicking this button will double the counter. 
+### UserItemList
+Create a component that renders a list of UserItemExpanded using the users array below
+
+```js
+const users = [
+  {
+    fullname: 'testy mc testy face',
+    adress: 'test alley',
+    age: 35,
+    height: 185,
+    languages: ['danish', 'arabic']
+  },
+  {
+    fullname: 'Ahmad Hansen',
+    adress: 'test alley 2',
+    age: 89,
+    height: 167,
+    languages: ['english', 'polish']
+  },
+  {
+    fullname: 'Peter Petersen',
+    adress: 'alley 2',
+    age: 19,
+    height: 176,
+    languages: ['english', 'danish']
+  }
+];
+```
 
