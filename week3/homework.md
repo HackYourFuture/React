@@ -5,6 +5,7 @@
 Using the `hyf-homework` repo. In the terminal run `git status`
 
 If there are changes that have not been committed, figure out what to do with those changes
+
 - Should they be committed to another branch?
 - Should they be committed to `master`?
 - Should they be discarded?
@@ -12,6 +13,7 @@ If there are changes that have not been committed, figure out what to do with th
 When you have figured out what to do with the changes and fixed those. Write `git status` again. If it says `nothing to commit, working tree clean`. Then you are ready to create the branch for this weeks homework.
 
 ### Creating the branch
+
 Using the `hyf-homework` repo write this command
 
 `git checkout master` - You are now on the `master` branch
@@ -40,6 +42,7 @@ Demo of how the homework should look
 ![todolist](assets/todolist.gif)
 
 Here are the requirements for this weeks homework:
+
 - Add a deadline to the todo item
 - Create new item using description and deadline that the user inputs
 - Possibility to update a todoitem
@@ -47,6 +50,7 @@ Here are the requirements for this weeks homework:
 - Create a border component that wraps a component in a black border
 
 Worth considering:
+
 - What if the description input is empty?
 - What if the deadline input is empty?
 - What if the deadline is before the current day?
@@ -54,14 +58,14 @@ Worth considering:
 
 ## Extra assignment
 
-Make the exercises in [chat-app](https://github.com/HackYourFuture-CPH/React/tree/master/examples/chat-app)! 
+Make the exercises in [chat-app](https://github.com/HackYourFuture-CPH/React/tree/master/examples/chat-app)!
 
 ## Hand in Homework:
 
-Watch [this video](https://www.youtube.com/watch?v=feyBVDhFQuk) for a more detailed go-through of how to hand in homework!
+Watch [this video](https://www.youtube.com/watch?v=XYlgh9hSWtw) for a more detailed go-through of how to hand in homework!
 
-- Use the branch called `react/week3` 
-- Add all your changes to this branch in the `react/week3` folder. 
+- Use the branch called `react/week3`
+- Add all your changes to this branch in the `react/week3` folder.
 - Go through the [Homework checklist](#homework-checklist)
 - Create a pull request using the `react/week3` branch
 - Wait for mentor feedback
@@ -71,6 +75,7 @@ Watch [this video](https://www.youtube.com/watch?v=feyBVDhFQuk) for a more detai
 - Now celebrate 🎉🎉🎉
 
 ## Homework checklist
+
 Go over your homework one last time:
 
 - [ ] Does every file run without errors and with the correct results?
@@ -79,10 +84,11 @@ Go over your homework one last time:
 - [ ] Is your code well-formatted (see [Code Formatting](https://github.com/HackYourFuture/fundamentals/blob/master/fundamentals/naming_conventions.md))?
 
 ## Feedback giving time!
-Find a student to give feedback using this site: https://hyf-peer-review.herokuapp.com/. The feedback should be given after the homework has been handed in, preferably two days after. 
+
+Find a student to give feedback using this site: https://hyf-peer-review.herokuapp.com/. The feedback should be given after the homework has been handed in, preferably two days after.
 
 Give the review on the PR exactly how the mentors do it! To find the link for the PR ask the person you are reviewing :) You can see how to give feedback on a PR using github [here](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)
 
-To help you get started with reviewing we have created [some ressources](https://github.com/HackYourFuture-CPH/curriculum/tree/master/review) about giving feedback. Find them 
+To help you get started with reviewing we have created [some ressources](https://github.com/HackYourFuture-CPH/curriculum/tree/master/review) about giving feedback. Find them
 
 Why is it important to give feedback? Because it will make you a [better](https://www.brightspot.com/blog/developer-life-5-reasons-why-the-code-review-process-is-critical-for-developers) [developer](https://www.sitepoint.com/the-importance-of-code-reviews/)
