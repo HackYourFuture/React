@@ -2,7 +2,7 @@
 
 ## Get git ready to work on homework
 
-Using the `hyf-homework` repo. In the terminal run `git status`
+Using the 🚨 `meal-sharing` 🚨 repo. Not the `hyf-homework` repo! In the terminal run `git status`
 
 If there are changes that have not been committed, figure out what to do with those changes
 
@@ -14,7 +14,7 @@ When you have figured out what to do with the changes and fixed those. Write `gi
 
 ### Creating the branch
 
-Using the `hyf-homework` repo write this command
+Using the `meal-sharing` repo write this command
 
 `git checkout master` - You are now on the `master` branch
 
@@ -29,17 +29,6 @@ This will create and checkout the branch so you are ready make commits to it
 Using your `meal-sharing` repo lets create the frontend for the site!
 
 Hopefully the backend is pretty built out from the `nodejs/week3` homework
-
-#### Where to create your code
-
-Now for us mentors to easily give feedback on your code create all functionality in a PR just like we do normally with homework, so:
-
-`git checkout -b react/week5` <- in the meal-sharing repo you have cloned down!
-
-Now you can make your code in the `react/week5` branch and when you are done create a PR with the `react/week5` branch.
-
-If this is confusing please reach out!!
-
 
 ### Adding frontend routes
 
