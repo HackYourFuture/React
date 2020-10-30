@@ -24,14 +24,62 @@ This will create and checkout the branch so you are ready make commits to it
 
 [This video](https://www.youtube.com/watch?v=XYlgh9hSWtw) can help. On slack use the #git-support channel to ask questions about git
 
-## Github search
+## Meal sharing app continued
 
-- The github search becomes the home page of your project.
-- When you list the github users you can click on individual users to navigate to the profile
-- In the profile component you need to fetch details about the github user and display them in a nice way using css, you can get inspiration from [a github profile](https://github.com/younesmln)
-- Create an about page and fill it with some relevant info about the project (used technologies as an example maybe).
+Using your `meal-sharing` repo lets create the frontend for the site!
 
-**Get A single User API ** https://developer.github.com/v3/users/#get-a-single-user
+Hopefully the backend is pretty built out from the `nodejs/week3` homework
+
+#### Where to create your code
+
+Now for us mentors to easily give feedback on your code create all functionality in a PR just like we do normally with homework, so:
+
+`git checkout -b react/week5` <- in the meal-sharing repo you have cloned down!
+
+Now you can make your code in the `react/week5` branch and when you are done create a PR with the `react/week5` branch.
+
+If this is confusing please reach out!!
+
+
+### Adding frontend routes
+
+| Route         | Description                                                                                                                                         |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`           | Add a page title and a sub title. Under that render all the meals found in the database. Please add more to this page like footer, menu, logo, etc. |
+| `/meals/{id}` | Render the meal with the specific `id`. Add a form to create reservations for the meal                                                              |
+| `/meals`      | Render all the meals found in the database with a link to their respective pages (`meals/3`). Add a form to create a meal.                          |
+
+When it says `render the meal` What is rendered is up to you! You could render the `title`, `id`, `description` but you decide what makes sense and what looks good! You are in charge 💪
+
+Rendering the html will all be done client side. That means using `innerHTML` fx `document.querySelector('body').innerHTML`. So if i wanted to render all meals here is how that should work:
+
+1. Using `fetch` get the meals from `/api/meals`
+2. With the meals array gotten from `/api/meals` create a string with the rendered html containing `ul` and `li`
+3. Set the `innerHTML` of an element (fx the `body`) to the string with the rendered html
+
+### /meals/{id}
+
+The `/meals/{id}` route should have a form for making a reservation for that meal. The form should have `phonenumber`, `name` and `email`. When creating a new reservation with a form, use the [`POST /api/reservations` route](../week3/homework.md#reservation)
+
+This form should only be shown if the meal does have available reservations!
+
+That means that we in js need to:
+
+- When the "book seat" button is clicked get the `phonenumber`, `name` and `email` from either the form or the individual inputs
+- Now create a [post request using fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options) with the `phonenumber`, `name` and `email`. Posting the request [here](../week3/homework.md#meal)
+- If the request is successful indicate to the user that the request went well. If it was unsuccessful show an error message. This we could do using `alert`
+
+### Styling
+
+Add some styling to the website so it is not so basic looking!
+
+### Autocomplete for meals _optional_
+
+Create an autocomplete for searching for a meal. The autocomplete should be added to the `home` route and the `meals` route. The autocomplete should use the query parameter `title` in the [meals api](../week3/homework.md#get-apimeals-query-parameters)
+
+### Reviews _optional_
+
+Create the possibility for a person to leave a review for a meal.
 
 ## Hand in Homework:
 
