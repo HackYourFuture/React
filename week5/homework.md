@@ -61,6 +61,12 @@ That means that we in js need to:
 
 Add some styling to the website so it is not so basic looking!
 
+### Now what?
+
+That is up to you! There are two optional features below. But if you have other things you would prefer to add to the site please do! 
+
+Now is your time to really show off 
+
 ### Autocomplete for meals _optional_
 
 Create an autocomplete for searching for a meal. The autocomplete should be added to the `home` route and the `meals` route. The autocomplete should use the query parameter `title` in the `api/meals` api. like this: `/api/meals?title=lasagn`
@@ -68,6 +74,10 @@ Create an autocomplete for searching for a meal. The autocomplete should be adde
 ### Reviews _optional_
 
 Create the possibility for a person to leave a review for a meal.
+
+### Deploying
+
+We will deploy the site next week :)
 
 ## Hand in Homework:
 
