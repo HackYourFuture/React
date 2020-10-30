@@ -77,7 +77,7 @@ Create the possibility for a person to leave a review for a meal.
 
 ### Deploying
 
-We will deploy the site next week :)
+We will finish and will the site next week: https://github.com/HackYourFuture-CPH/node.js/blob/master/deployment.md
 
 ## Hand in Homework:
 
