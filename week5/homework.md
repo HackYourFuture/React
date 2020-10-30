@@ -14,7 +14,7 @@ When you have figured out what to do with the changes and fixed those. Write `gi
 
 ### Creating the branch
 
-Using the `meal-sharing` repo write this command
+Using the 🚨`meal-sharing`🚨 repo write this command
 
 `git checkout master` - You are now on the `master` branch
 
