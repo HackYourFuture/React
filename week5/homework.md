@@ -22,7 +22,7 @@ Using the 🚨`meal-sharing`🚨 repo write this command
 
 This will create and checkout the branch so you are ready make commits to it
 
-[This video](https://www.youtube.com/watch?v=XYlgh9hSWtw) can help. On slack use the #git-support channel to ask questions about git
+On slack use the #git-support channel to ask questions about git
 
 ## Meal sharing app continued
 
@@ -71,8 +71,6 @@ Create an autocomplete for searching for a meal. The autocomplete should be adde
 Create the possibility for a person to leave a review for a meal.
 
 ## Hand in Homework:
-
-Watch [this video](https://www.youtube.com/watch?v=XYlgh9hSWtw) for a more detailed go-through of how to hand in homework!
 
 - Use the branch called `react/week5`
 - Add all your changes to this branch in the `react/week5` folder.
