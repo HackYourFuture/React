@@ -4,12 +4,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  width: 90%;
   margin: auto;
+  font-family: 'Barlow', sans-serif;
 }
 
 .div-container{
-  height: 30vh;
+  height: 38vh;
   background-color: #d1ccc0;
 }
 .title-container{
@@ -18,26 +18,25 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  background-color: #f5cd79;
+  background-color: #3dc1d3;
   font-family: 'Aleo', serif;
   font-size: 1.4em;
 }
 
 .list-container{
   width: 100%;
-  height: 20vh;
+  height: 28vh;
   display: flex;
   justify-content: center;
   font-size: 1.2em;
   line-height: 1.5em;
   background-color: #f7f1e3;
-  font-family: 'Barlow', sans-serif;
 }
 
 .guarantee-container{
-  width: 90%;
-  height: 50vh;
-  background-color: #f19066;
+  width: 100%;
+  height: 40vh;
+  background-color: #20bf6b;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -46,10 +45,10 @@
 
 .guarantee-card{
   width: 25%;
-  height: 40vh;
+  height: 28vh;
   background-color: #ffffff;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-self: center;
   justify-content: center;
   text-align: center;
@@ -61,16 +60,82 @@
 }
 
 .guarantee-title{
-  font-family: 'Barlow', sans-serif;
   font-size: 1.2em;
 }
 
 .guarantee-description{
-  font-family: 'Barlow', sans-serif;
   font-size: .8em;
   color: #57606f;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  
+.counter-container{
+  width: 100%;
+  height: 30vh;
+  background-color: #f7f1e3;
+}
+
+.counter{
+  width: 70%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+}
+
+.button-container{
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.button-add{
+  background-color: #0984e3;
+  padding: 1em;
+  border: none;
+  text-transform: uppercase;
+}
+
+.button-add:hover{
+  background-color: #0fbcf9;
+}
+
+.button-reset{
+  background-color: #ee5253;
+  padding: 1em;
+  border: none;
+  text-transform: uppercase;
+}
+
+.button-reset:hover{
+  background-color: #ff6b6b;
+}
+
+@media only screen and (max-width: 800px) {
+  *{
+    width: 100%;
+  }
+  .list-container{
+    font-size: 1em;
+    padding-left: 20%;
+  }
+  .guarantee-container{
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    height: 100vh;
+  }
+  .guarantee-card{
+    width: 80%;
+    height: 30vh;
+  }
+
+  .counter{
+    width: 100%;
+    text-align: center;
+  }
+  .button-container{
+    width: 80%;
+    height: 15vh;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
