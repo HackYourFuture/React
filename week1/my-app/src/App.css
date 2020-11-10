@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@700&family=Barlow&display=swap');
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 90%;
+  margin: auto;
+}
+
+.div-container{
+  height: 100vh;
+  background-color: #d1ccc0;
+}
+.title-container{
+  width: 100%;
+  height: 14vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #feca57;
+  font-family: 'Aleo', serif;
+  font-size: 1.4em;
+}
+
+.list-container{
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  background-color: #f7f1e3;
+  font-family: 'Barlow', sans-serif;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  
+}
