@@ -9,16 +9,16 @@
 }
 
 .div-container{
-  height: 100vh;
+  height: 30vh;
   background-color: #d1ccc0;
 }
 .title-container{
   width: 100%;
-  height: 14vh;
+  height: 10vh;
   display: flex;
   justify-content: center;
   text-align: center;
-  background-color: #feca57;
+  background-color: #f5cd79;
   font-family: 'Aleo', serif;
   font-size: 1.4em;
 }
@@ -34,6 +34,42 @@
   font-family: 'Barlow', sans-serif;
 }
 
+.guarantee-container{
+  width: 90%;
+  height: 50vh;
+  background-color: #f19066;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.guarantee-card{
+  width: 25%;
+  height: 40vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.guarantee-img{
+  width: 6em;
+}
+
+.guarantee-title{
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.2em;
+}
+
+.guarantee-description{
+  font-family: 'Barlow', sans-serif;
+  font-size: .8em;
+  color: #57606f;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   

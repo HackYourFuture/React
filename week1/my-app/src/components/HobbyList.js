@@ -22,7 +22,7 @@ const HobbyListComponent = (props, index) => {
         </div>
     );
 
-}
+};
 
 
 
