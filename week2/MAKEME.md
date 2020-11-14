@@ -72,7 +72,7 @@ Concepts Covered:
 
 Happy learning!
 
-- [Build an Expense Tracker](https://www.youtube.com/watch?v=XuFDcZABiDQ)
+- [Build A Flashcard Quiz With React](https://www.youtube.com/watch?v=hEtZ040fsD8)
 
 ## **4. PROJECT: Hack Your Weather II**
 
@@ -118,4 +118,4 @@ The homework that needs to be submitted is the following:
 1. React exercises
 2. Project: Hack Your Weather II
 
-_Deadline Saturday 23.59 CET_
+_Deadline Tuesday 23.59 CET_
