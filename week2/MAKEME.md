@@ -64,7 +64,11 @@ In this exercise we'll be using the following API endpoint: `https://official-jo
 
 > Create a new GitHub repository for this project. It's a portfolio piece!
 
-In the following tutorial you'll learn how to build an `Expense Tracker`. You'll do so using React Hooks, but also using the [Context API](https://reactjs.org/docs/context.html)! The later you'll be learning about more formally in week 4, but best to get familiar as soon as possible.
+In the following tutorial you'll learn how to build A Flashcard Quiz With React. You'll do so using React Hooks, but also connecting to an  external API! You are also going to explore some fancy animations with CSS which really make this application pop.
+Concepts Covered:
+- How to connect to an API with React using `useEffect` hook
+- The planning process of a React app
+- Efficient React re-rendering techniques
 
 Happy learning!
 
