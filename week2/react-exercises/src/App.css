@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.gallery{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.dogos {
+  width: 20%;
+  height: 200px;
+  margin: 1rem;
+}
