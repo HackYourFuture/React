@@ -115,16 +115,14 @@ Forms have always been slightly different than any other element in HTML. So it 
 
 ### Controlled vs. uncontrolled
 
-These terms refer to whether or not a component has its own state or not. We're talking about a `controlled` component when it doesn't have its own state: it's being controlled by
+These terms refer to whether or not a component has its own state or not. We're talking about a `controlled` component when it doesn't have its own state: it's being controlled by another component.
 
-A component is `uncontrolled` when it does have state, meaning state values are defined within in.
+A component is `uncontrolled` when it does have state, meaning state values are defined within it.
 
 Learn more about this here:
 
 - [Controlled and uncontrolled elements](https://www.youtube.com/watch?v=nSGZEQa5C_c)
 - [How React Hooks change the way we build forms](https://www.youtube.com/watch?v=8yo44xN7-nQ)
-
-### EventListeners & preventing default behavior
 
 ## Finished?
 
