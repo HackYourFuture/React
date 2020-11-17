@@ -1,9 +1,10 @@
 import './App.css';
+import Friend from './components/Friends';
 
 function App() {
   return (
     <div className="App">
-     Hello 🌎
+     <Friend />
     </div>
   );
 }

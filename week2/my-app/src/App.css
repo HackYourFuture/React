@@ -1,12 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,400;1,500&display=swap');
+
 *{
   margin: 0;
   box-sizing: border-box;
+}
+
+body{
+  background: #262626;
+  color:#ffffff;
+  font-family: 'Barlow', sans-serif;
 }
 
 .App{
   text-align: center;
 }
 
+.friend-container{
+  display: flex;
+  justify-content: center;
+}
+
+.friend-card{
+  background-color: #333;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 25%;
+  height: 65vh;
+  margin: 2%;
+}
+
+.friend-title{
+  text-align: center;
+  margin: 2%;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+}
+
+.button{
+  width: 50%;
+  height: 2em;
+  margin: 1%;
+  border-radius: 5px;
+  border: none;
+  margin: 2%;
+}
+
+.button:hover{
+  background-color: #ffc048;
+}
+
+.profile-pic{
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  margin: 4%;
+}
+
+ul{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  padding: 0;
+}
+
+.list-container{
+  width: 100%;
+  padding-bottom: 2%;
+}
+
+
+
 @media (prefers-reduced-motion: no-preference) {
-  
+  .friend-card{
+    width: 100%;
+    height: 55vh;
+  }
 }
