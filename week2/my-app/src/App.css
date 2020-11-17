@@ -18,6 +18,7 @@ body{
 .friend-container{
   display: flex;
   justify-content: center;
+  margin-top: 1%;
 }
 
 .friend-card{
@@ -75,7 +76,7 @@ ul{
   padding-bottom: 2%;
 }
 
-.dog-card{
+.dog-card, .joke-card{
   background-color: #333;
   width: 50%;
   box-shadow: 0 10px 40px rgba(0, 0, 0, .5);
@@ -85,7 +86,12 @@ ul{
   margin-top: 1%;
 }
 
-.message{
+.joke-card{
+  height: 30vh;
+  margin-bottom: 1%;
+}
+
+.message, .joke-setup{
   color: #ffc048;
 }
 
@@ -109,13 +115,17 @@ ul{
   width: 100px;
 }
 
+.joke-header{
+  padding-top: 2%;
+  padding-bottom: 5%;
+}
 
 @media only screen and (max-width: 1024px) {
   .friend-card{
     width: 100%;
     height: 75vh;
   }
-  .dog-card{
+  .dog-card, .joke-card{
     width: 100%;
   }
   .dog-button-container button{
