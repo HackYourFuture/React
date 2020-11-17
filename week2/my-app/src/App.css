@@ -26,9 +26,10 @@ body{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 25%;
-  height: 65vh;
-  margin: 2%;
+  width: 50%;
+  height: 70vh;
+  margin: auto;
+  margin-bottom: 1%;
 }
 
 .friend-title{
@@ -45,10 +46,11 @@ body{
   width: 50%;
   height: 2em;
   margin: 1%;
-  border-radius: 5px;
   border: none;
   margin: 2%;
 }
+
+button:focus { outline:none }
 
 .button:hover{
   background-color: #ffc048;
@@ -73,11 +75,52 @@ ul{
   padding-bottom: 2%;
 }
 
+.dog-card{
+  background-color: #333;
+  width: 50%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .5);
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 1%;
+}
+
+.message{
+  color: #ffc048;
+}
+
+.gallery-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+
+.dog-button-container{
+  padding: 1%;
+}
+
+.dog-button-container button{
+  margin: 1%;
+  padding: 1%;
+  width: 20%;
+}
+
+.dog-photo{
+  width: 100px;
+}
 
 
-@media (prefers-reduced-motion: no-preference) {
+@media only screen and (max-width: 1024px) {
   .friend-card{
     width: 100%;
-    height: 55vh;
+    height: 75vh;
+  }
+  .dog-card{
+    width: 100%;
+  }
+  .dog-button-container button{
+    width: 40%;
   }
 }

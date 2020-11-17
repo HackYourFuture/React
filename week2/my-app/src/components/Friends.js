@@ -56,7 +56,7 @@ function Friend() {
       <div className='friend-card'>
         <h1 className='friend-title'>Hi, friend 👋 </h1>
         <Button getFriend={getFriend} />
-        {isLoading && <p>'Loading ...'</p> }
+        {isLoading && <p>Loading ...</p> }
         {data && <FriendProfile friend={friend} />}
         {hasError && <p>Uh oh, something has gone wrong...</p>}
       </div>
