@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+body{
+  color: #27363B;
+  background-color:#FDCEAA;
+  font-size: 1.3rem;
+}
+
 ul {
   list-style-type: none;
 }
@@ -14,6 +20,27 @@ ul {
 
 .dogos {
   width: 20%;
-  height: 200px;
+  height: auto;
   margin: 1rem;
+}
+
+.friendDiv{
+ border:5px solid #9AB999;
+ width: 40%;
+ margin : 0 auto;
+}
+
+.Friendlist {
+  padding: 5px;
+  margin: 15px;
+
+}
+
+button{
+  color:#EB4960 ;
+  border: 2px solid #EB4960;
+  padding: 5px;
+  margin : 1rem;
+  width: 10%;
+  height: 50px;
 }

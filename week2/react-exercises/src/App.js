@@ -1,17 +1,17 @@
 import './App.css';
 import React from 'react';
 
-//import Friend from './newFriend';
 import RandomJoke from './randomJoke';
+import Friend from './newFriend';
 import DogGallery from './dogPhoto';
 
 
 function App() {
   return (
     <div className="App">
-    {/* <Friend/> */}
-    <RandomJoke/>
-    <DogGallery/>
+     <RandomJoke/>
+     <Friend/> 
+     <DogGallery/> 
      </div>
   );
 }

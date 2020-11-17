@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-const shortid = require('shortid');
 
  const Friend = () => {
    const [friend, setFriend] = useState({});
@@ -25,20 +24,25 @@ const shortid = require('shortid');
     
       
    const FriendProfile = ({friend, error, loading}) => {
+      const {gender, name, location, email, phone} = friend;
       return(
-      <div>
+      <div className="friendDiv">
        {loading && <p>is loading...</p>}
        {error && <p>There is an Error</p>}
        {!error && 
-        <ul>
-         <li key = {shortid.generate()}>{friend.gender}</li>
-         <li key = {shortid.generate()}> {friend.name.first} {friend.name.last}</li> 
-         <li key = {shortid.generate()}> {friend.location.street.number} {friend.location.street.name}</li>
-         <li key = {shortid.generate()}> {friend.location.city}</li>
-         <li key = {shortid.generate()}> {friend.location.country}</li>
-         <li key = {shortid.generate()}> {friend.email}</li>
-         <li key = {shortid.generate()}> {friend.phone}</li> 
-        </ul> 
+       <div>
+          {Object.keys(friend).length !== 0 && (
+             <ul className="Friendlist">
+             <li key ={"2000"}> {gender}</li>
+             <li key = {"2001"}> {name.first} {name.last}</li> 
+             <li key = {"2002"}> {friend.location.street.number} {friend.location.street.name} </li> 
+             <li key = {"2003"}>{friend.location.city} </li> 
+             <li key = {"2004"}> {friend.location.country}</li> 
+             <li key = {"2005"}> {email}</li>
+             <li key = {"2006"}>{phone} </li>  
+            </ul> 
+          )}
+        </div>
        }
      </div>
      )
