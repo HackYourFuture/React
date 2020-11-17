@@ -25,8 +25,8 @@ const url='https://dog.ceo/api/breeds/image/random';
 
 function DogGallery() {
     const [dogPhotos, setDogPhotos] = useState([]);
-    const [isLoading, setLoading] = useState(false); 
     const [clickMessage, setClickMessage] = useState(true); 
+    const [isLoading, setLoading] = useState(false); 
     const [hasError, setError] = useState(false);
 
     const getDogPhoto = async () => {
@@ -58,6 +58,7 @@ function DogGallery() {
             <div className='gallery-container'>
                 {dogPhotos.map((imageURL) => <DogPhoto imageURL={imageURL} />)}
             </div>
+            {hasError && <p>Uh oh, something has gone wrong...</p>}
         </div>
     );
 };
