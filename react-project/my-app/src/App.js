@@ -1,10 +1,10 @@
 import './App.css';
-import City from './components/city';
+import Search from './components/search';
 
 function App() {
   return (
     <div className="container">
-      <City />
+      <Search />
     </div>
   );
 }

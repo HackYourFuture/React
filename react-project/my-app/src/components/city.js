@@ -1,22 +1,21 @@
 import React from 'react';
-import data from '/Users/hackyourfuture/Documents/HYF_React/React/react-project/my-app/src/components/city-weather.json';
 
-const City = () => {
-    const cityData = data.map((city) => 
-        <div className='weather-card'>
-            <h1 className='city-name'>{city.name}, {city.sys.country}</h1>
-            <h2>{city.weather[0].main}</h2>
-            <p>{city.weather[0].description}</p>
+const City = ({ weatherData }) => {
+
+    const { name, sys, weather, main, coord } = weatherData;
+    
+    return (
+        <div>
+            <h1 className='city-name'>{weatherData.name}, {weatherData.sys.country}</h1>
+            <h2>{weatherData.weather[0].main}</h2>
+            <p>{weatherData.weather[0].description}</p>
             <div className='number-data'>
-                <p>max temp: {city.main.temp_max}</p>
-                <p>min temp: {city.main.temp_min}</p>
-                <p>location: {city.coord.lat}, {city.coord.lon}</p>
+                <p className='max-temp'>max temp: {Math.round(weatherData.main.temp_max)}</p>
+                <p className='min-temp'>min temp: {Math.round(weatherData.main.temp_min)}</p>
+                <p>location: {weatherData.coord.lat}, {weatherData.coord.lon}</p>
             </div>
         </div>
-
-    ) 
-
-    return <p>{cityData}</p>;
+    )
 };
 
 export default City;
