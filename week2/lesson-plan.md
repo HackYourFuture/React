@@ -44,6 +44,10 @@
 
 [Code inspiration](#counter)
 
+## Flipped classroom videos
+
+[Flipped classroom videos](https://github.com/HackYourFuture-CPH/React/blob/master/week2/preparation.md#flipped-classroom-videos)
+
 ## Code inspiration
 
 ### todolist (updating state with list)
