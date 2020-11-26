@@ -21,26 +21,17 @@
         - Use props unless you definitely need to use state
         - State is single-level only. Components can read and set their own state, but cannot read or set the state of their children
       - Later, we are going to be using a state-management tool
-- Using state correctly
-    - Do not modify state directly, always use setState
-        - Give an example of how mutating state directly doesn’t work
-    - State updates are merged (note that merging is shallow)
-    - setState is an asynchronously-executed _request_ to change state
 - List keys
   - Render list first without adding the key. See the error
   - Assignment of unique key to every item rendered in an array
   - Keys help React identify which items have changed, are added, or are removed
   - [Index should be avoided](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318)
   - [Code inspiration](#todolist-updating-state-with-list)
-- Lifecycle Methods
-  - Full list [here](https://reactjs.org/docs/react-component.html)
-    - ![react Lifecycles](assets/react-lifecycles.jpeg)
-  - Lifecycle methods are used when render is not enough on its own
-  - Cover each, giving examples of when they might be useful
-    - componentDidMount: data fetching in client-side-only apps
-    - shouldComponentUpdate: performance debugging
-    - componentWillUnmount: teardown (payment SDKs, intervals, etc)
-    - Question: in which of these lifecycle methods is it OK to call setState? (watch out for stack overflows)
+- Compponent life cycles
+  - [Using the effect hook](https://reactjs.org/docs/hooks-effect.html)
+  - Understand when useEffect is executed
+  - understand how to"clean up" useEffect code
+  - Understand when "clean up" is run
 
 [Code inspiration](#counter)
 
@@ -112,33 +103,37 @@ ReactDOM.render(<TodoList />, rootElement);
 
 ## Exercise
 
+
 ### Counter
 
 First understand the code in this component:
 
 ```js
-import React from 'react';
-
-class Counter extends React.Component {
-  state = { counter: this.props.initialCounter };
-
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({ counter: this.state.counter + 1 });
-    }, 1000);
+function WatchCount() {
+    const [count, setCount] = useState(0);
+  
+    useEffect(() => {
+       setTimeout(() => {
+            setCount(prev => prev + 1);
+        }, 1000);
+    });
+  
+    return (
+      <div>
+        {count}
+      </div>
+    );
   }
 
-  render() {
-    return <div>
-    {this.state.counter}</div>;
-  }
-}
-
-export default Counter;
 ```
 
 Now extend it with the following features:
+- Add a button that decrements the timer. What is observed?
+- Add a button that resets the counter to 0
+- Add an text input field an start typing in a long story. What is observed?
+
+## Extra : 
 - A button that pauses the counter
   - Clicking it should change the text so it says `start`. Clicking the button now should start the timer again and change the text to `pause`
-- Add a button that decrements the timer
-- Add a button that resets the counter to 0
+  - Also, the counter should stop immediately. Hint : you need to return a clean up function from useEffect
+- An input field that lets you set the speed of the counter. The speed should be reflected immediately on keypress and the counter should pause when entering invalid input.
