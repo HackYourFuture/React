@@ -48,6 +48,9 @@ Teacher suggestion:
 
 [Flipped classroom videos](https://github.com/HackYourFuture-CPH/React/blob/master/week1/preparation.md#flipped-classroom-videos)
 
+### Get started with React and parcel.js
+- https://github.com/senner008/react-min-boilerplate-parcel
+
 ## Coding inspiration
 
 ### UserList (Components, jsx and props)
@@ -55,47 +58,51 @@ Teacher suggestion:
 https://codesandbox.io/s/name-age-simple-react-dz32o
 
 ```js
-import React from "react";
-import ReactDOM from "react-dom";
+  import React from "react";
+  import ReactDOM from "react-dom";
 
-class UserItem extends React.Component {
-  render() {
-    const { name, age } = this.props;
+  function UserItem (props) {
+    
     return (
-      <li>
-        <h3>
-          {name}: {age}
-        </h3>
-      </li>
+        <li>
+          <h3>
+            {props.name}: {props.age}
+          </h3>
+        </li>
     );
   }
-}
-
-class UserList extends React.Component {
-  render() {
+    
+  function UserList (props)  {
+      
     return (
-      <ul>
-        {this.props.users.map(user => {
-          return <UserItem name={user.name} age={user.age} />;
-        })}
-      </ul>
+        <ul>
+            {
+              props.users.map(user => {
+                return <UserItem name={user.name} age={user.age} key={user.id} />;
+              });
+            }
+        </ul>
     );
   }
-}
+    
+  const users = [
+    {
+      id : 0,  
+      name: "Benjamin",
+      age: 32,
+    },
+    {
+      id : 1,
+      name: "Peter",
+      age: 43
+    }
+  ];
 
-const users = [
-  {
-    name: "Benjamin",
-    age: 32
-  },
-  {
-    name: "Peter",
-    age: 43
-  }
-];
+  ReactDOM.render(
+      <UserList users={users} />, 
+      document.getElementById("root")
+  );
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<UserList users={users} />, rootElement);
 
 ```
 
@@ -104,25 +111,21 @@ ReactDOM.render(<UserList users={users} />, rootElement);
 https://codesandbox.io/s/simple-counter-wvgxr
 
 ```js
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
-class Counter extends React.Component {
-  state = {
-    counter: 0
-  };
-
-  increment = () => {
-    this.setState({ counter: this.state.counter + 1 });
-  };
-
-  render() {
-    return <button onClick={this.increment}>{this.state.counter}</button>;
-  }
+function Counter () {
+    
+    const [counterState, setCounterState] = useState(0);
+  
+    const increment = () => {
+      setCounterState(prev => prev +1)
+    };
+  
+    return <button onClick={increment}>{counterState}</button>;  
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<Counter />, rootElement);
+ReactDOM.render(<Counter />, document.getElementById("root"));
 
 ```
 
@@ -150,6 +153,12 @@ Create a new component called `UserItemExpanded`. Render these user attributes:
 - Age
 - Height
 - Spoken languages
+
+### Counter
+Expanding the Counter example, Add two new buttons:
+1. Reset button. Clicking this button will reset the counter
+2. Increment double. Clicking this button will double the counter.
+
 
 ### UserItemList
 Create a component that renders a list of UserItemExpanded using the users array below
@@ -180,3 +189,24 @@ const users = [
 ];
 ```
 
+## Ekstra:
+
+### Fibonacci Counter
+Count the fibonacci row instead. Log each new count as an expanding list of numbers
+![alt text](https://github.com/senner008/Class11-React/blob/master/week1/fibo_counter.png "Logo Title Text 1")
+```js
+import React, { useState } from 'react';
+export function Counter () {
+    
+    const [counterState, setCounterState] = useState([0, 1]);
+  
+    // ... some code here
+  
+    return (
+        <div>
+            { counterState.map(counter => <div>{counter}</div>) }
+            <button onClick={increment}>Increment</button>
+        </div>
+    );  
+}
+```
