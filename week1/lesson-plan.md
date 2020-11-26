@@ -44,6 +44,10 @@ Teacher suggestion:
 - "Why react comes" - video - all students should watch this. 
 
 
+## Flipped classroom videos
+
+[Flipped classroom videos](https://github.com/HackYourFuture-CPH/React/blob/master/week1/preparation.md#flipped-classroom-videos)
+
 ## Coding inspiration
 
 ### UserList (Components, jsx and props)
