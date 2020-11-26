@@ -21,6 +21,10 @@ but if we need to handle form submission in javascript and keep track of what da
 
 [Code inspiration](#random-cats)
 
+## Flipped classroom videos
+
+[Flipped classroom videos](https://github.com/HackYourFuture-CPH/React/blob/master/week3/preparation.md#flipped-classroom-videos)
+
 ## Code inspiration
 
 ### Random cats
