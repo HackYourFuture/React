@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+:root {
+  --primaryColor: #f15025;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGrey: #9e9e9e;
+  --mainRed: #d50000;
+  --mainGreen: #4caf50;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--mainGrey);
+  color: var(--mainBlack);
+  font-family: 'Roboto', sans-serif;
+}
+h1 {
+  text-align: center;
+  text-transform: capitalize;
+  margin: 2rem 0;
+  color: var(--mainBlack);
+  letter-spacing: 5px;
+}
+.App {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%;
+  background: var(--mainWhite);
+  padding-bottom: 2rem;
+  border-radius: 2px;
+}
+.count {
+  color: #d50000;
+  font-size: x-large;
+}
+.counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 10rem;
+}
+
+.list {
+  margin: 2rem 0.75rem 0 0.75rem;
+  list-style-type: none;
+  border: none;
+  padding: 1rem;
+}
+.item {
+  background-color: var(--mainWhite);
+  line-height: 1.5rem;
+  padding: 10px 20px;
+  /* margin-top: 1rem; */
+  margin-bottom: 1rem;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.3s linear;
+}
+.item:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transform: scale(1.05);
+}
+.service {
+  display: flex;
+  width: 20vw;
+  height: 40vh;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.services-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 90%;
+  margin: 5rem auto;
+}
+p {
+  color: gray;
+  line-height: 1.5rem;
+}
+
+@media screen and (min-width: 601px) {
+  .App,
+  .list,
+  .list {
+    margin: 2rem auto 0 auto;
+  }
+}
+@media screen and (min-width: 993px) {
+  .App,
+  .list,
+  .list {
+    margin: 2rem auto 0 auto;
+  }
+}

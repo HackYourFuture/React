@@ -1,0 +1,2 @@
+*{margin:0;padding:0;box-sizing:border-box}.App{text-align:center}.container{display:flex;flex-direction:column;align-items:center;width:100%}.weather{width:80%}.city-weather,.weather{display:flex;flex-direction:column;border:1px solid grey}.city-weather{font-size:1rem;margin-bottom:1rem;margin-top:3rem;padding:1rem;width:30%;height:30vh;align-items:flex-start;justify-content:space-between}.cityInfo{width:100%;align-items:center}.cityInfo,.temp{display:flex;flex-direction:column}.temp{align-items:flex-start}
+/*# sourceMappingURL=main.f197e149.chunk.css.map */
