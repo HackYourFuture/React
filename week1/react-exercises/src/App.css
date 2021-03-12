@@ -1,0 +1,64 @@
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: rgb(14, 11, 11);
+  color: #fff;
+}
+
+.main-container {
+  margin: auto;
+}
+
+/* hobby styles */
+
+.hobbies,
+.counter,
+h1 {
+  text-align: center;
+}
+
+.hobbies li {
+  list-style: none;
+}
+
+/* guarantee styles */
+.gContainer {
+  margin: 0 3rem;
+  display: flex;
+  border: 1px solid rgb(170, 31, 77);
+}
+
+.guarantees {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.guarantees img {
+  width: 50px;
+}
+
+/* counter style */
+
+.counter h2 {
+  font-size: 2rem;
+}
+
+.counter button {
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: rgb(132, 136, 132);
+}
+
+.counter button:hover {
+  background-color: rgb(170, 31, 77);
+  transition: 0.7s;
+}
