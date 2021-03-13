@@ -1,9 +1,5 @@
 import React from "react";
 
-const Hobbies = props => {
-  return <li>{props.hobby_}</li>;
-};
-
 const HobbyList = () => {
   const hobbies = [
     "Surfing",
@@ -15,11 +11,15 @@ const HobbyList = () => {
   return (
     <div className="hobbies">
       <h1>Extreme Hobbies:</h1>
-      {hobbies.map(hobby => (
-        <Hobbies hobby_={hobby} />
+      {hobbies.map((hobby, i) => (
+        <Hobbies key={i} hobby_={hobby} />
       ))}
     </div>
   );
+};
+
+const Hobbies = props => {
+  return <li>{props.hobby_}</li>;
 };
 
 export default HobbyList;
