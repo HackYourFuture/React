@@ -39,6 +39,7 @@ const Guarantee = () => {
 const GuaranteeLayout = props => {
   return (
     <div className="guarantees">
+      <h1>Guarantees:</h1>
       <img src={props.img} alt="" />
       <h1>{props.title}</h1>
       <p>{props.desc}</p>

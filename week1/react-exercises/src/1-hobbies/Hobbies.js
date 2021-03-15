@@ -11,9 +11,11 @@ const HobbyList = () => {
   return (
     <div className="hobbies">
       <h1>Extreme Hobbies:</h1>
-      {hobbies.map((hobby, i) => (
-        <Hobbies key={i} hobby_={hobby} />
-      ))}
+      <ul>
+        {hobbies.map((hobby, i) => (
+          <Hobbies key={i} hobby_={hobby} />
+        ))}
+      </ul>
     </div>
   );
 };

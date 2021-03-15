@@ -9,6 +9,7 @@ const Counter = () => {
 
   return (
     <div className="counter">
+      <h1>Counter:</h1>
       <Count currCount={count} />
       <Button addOne={increaseCount} />
       <h3>{feedback}</h3>

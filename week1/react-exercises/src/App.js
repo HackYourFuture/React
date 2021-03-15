@@ -6,12 +6,8 @@ import Counter from "./3-counter/Counter";
 function App() {
   return (
     <div className="main-container">
-      <ul>
-        <HobbyList />
-      </ul>
-      <h1>Guarantees:</h1>
+      <HobbyList />
       <Guarantee />
-      <h1>Counter:</h1>
       <Counter />
     </div>
   );
