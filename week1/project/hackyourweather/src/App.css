@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* image taken from unsplash:width: https://images.unsplash.com/photo-1549321495-305eb13f8aa9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80 */
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),
+    url("./background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Poppins", sans-serif;
+  color: rgb(233, 229, 229);
+}
+
+header {
+  font-size: 1.7rem;
+  margin: 2rem 0;
+  color: rgb(199, 213, 226);
+  text-shadow: 4px 3px rgb(58, 58, 124);
+}
+
+.center-text {
+  text-align: center;
+}
+
+span {
+  font-style: italic;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-container {
+  font-size: 1.3rem;
+  width: 40vw;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid black;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.924);
+}
