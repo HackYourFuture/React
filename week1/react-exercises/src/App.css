@@ -1,0 +1,91 @@
+/* Hobbies Exercise */
+.hobbies_container {
+  background-color: rgb(126, 126, 128);
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.hobbies_container h3 {
+  color: rgb(212, 212, 212);
+  font-size: 30px;
+  text-decoration: underline;
+}
+.itemsList {
+  text-align: left;
+  list-style-position: inside;
+  padding: 20px;
+}
+.hobbyItem {
+  color: white;
+  font-size: 25px;
+}
+/* Guarantee Exercise */
+
+.guarantee_container {
+  background-color: rgb(168, 168, 240);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  display: flex;
+  padding: 20px 0;
+}
+.guarantee_item_container {
+  padding: 10px;
+  align-self: flex-end;
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.guarantee_title {
+  background-color: rgb(233, 233, 233);
+  color: blue;
+  width: fit-content;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  padding: 10px;
+}
+.guarantee_desc {
+  color: white;
+  min-height: 70px;
+  padding: 13px 25px 0 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  font-weight: bold;
+}
+/* Counter Exercise */
+.counter_container {
+  background-color: rgb(224, 222, 222);
+  width: 200px;
+  padding: 40px 120px;
+  border-radius: 20px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.add_btn {
+  background-color: rgb(71, 71, 236);
+  color: rgb(231, 226, 226);
+  font-size: 25px;
+  font-weight: bold;
+  padding: 15px 25px;
+  border-radius: 4px;
+  border-color: white;
+  border-width: 5px;
+}
+.add_btn:hover {
+  color: rgb(71, 71, 236);
+  background-color: rgb(231, 226, 226);
+}
+.counter_display {
+  font-size: 60px;
+}
+
+.counter_notification {
+  background-color: rgb(185, 182, 182);
+  color: blue;
+  text-align: center;
+  font-size: 22px;
+  padding: 5px 10px;
+}

@@ -1,0 +1,29 @@
+.weather_container {
+  width: 400px;
+  border: black 4px solid;
+  margin: 30px auto;
+  padding: 0 30px;
+}
+
+.city_name {
+  text-decoration: underline;
+  padding-bottom: 15px;
+}
+.country_name {
+  font-size: 35px;
+}
+
+.weather_main {
+  display: flex;
+  flex-direction: column;
+}
+.weather_description {
+  font-size: 20px;
+}
+.max_temperature,
+.min_temperature,
+.location,
+.weather_main {
+  text-align: left;
+  color: blue;
+}
