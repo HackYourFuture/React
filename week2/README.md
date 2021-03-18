@@ -105,7 +105,7 @@ In class components, you'd use the `componentDidMount()` hook. Look at the follo
 
 In functional components, you'd use the `useEffect` hook. Study the following resources to learn how to do this:
 
-- [How to Fetch Data (feat. React Hooks, Render Props)](https://www.youtube.com/watch?v=Ur6MNStwXlQ)
+- [How to Fetch Data (feat. React Hooks)](https://www.youtube.com/watch?v=k0WnY0Hqe5c)
 
 ## 3. Forms
 
