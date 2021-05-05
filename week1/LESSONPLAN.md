@@ -9,6 +9,7 @@ The purpose of this class is to introduce the student to the most basic React co
 -   How to write `reusable components` and why
 -   The purpose of `JSX`
 -   What are `props` and how to `pass them down components`
+-   What is `state`?
 
 When illustrating these concepts, make use of [create-react-app](https://github.com/facebook/create-react-app). Make sure that students have installed it as well.
 
@@ -229,3 +230,81 @@ Requirements:
 -   used to pass down data from component to component.
 -   are custom named HTML properties.
 -   making it possible for our components to be reusable
+
+## 6. Forms
+
+### Explanation
+
+In HTML, forms have a default behavior. They store the data and automically want to refresh the page. In React we're trying to stop this default behavior and bring the data under our control: by putting it into `state`!
+
+We bring form data into state by listening to it, using the `onChange` and `value` attribute. We are controlling our `<input>` fields, thereby creating `controlled inputs`. Then when we want to submit it, we can use the `onSubmit` attribute.
+
+### Example
+
+```jsx
+const Form = () => {
+	const [formValues, setFormValues] = useState({ title: '' });
+
+	const inputHandler = (event) => {
+		setFormValues();
+	};
+
+	return (
+		<form onSubmit={}>
+			<input type="text" onChange={inputHandler} value={formValues.title} />
+		</form>
+	);
+};
+```
+
+### Exercise
+
+
+
+### Essence
+
+
+## 7. What is state?
+
+### Explanation
+
+State is all the data in the application, that can change because of user interaction. It's defined using a special React function, called `useState`.
+
+This `useState` function provides the state value, and a function that allows us to modify the state value.
+
+All state values must be declared at the top function, ideally in the parent component.
+
+Whenever we want to pass a state value down into a component, we assign it to a custom named `prop`. It can then be accessed as part of the `props` within that child component.
+
+### Example
+
+```jsx
+const Counter = () => {
+	// State value, state modifier, initial state
+	const [count, setCount] = useState(0);
+
+	// Handler to change state
+	const handleClick = () => {
+		setCount((prevState) => prevState + 1);
+	};
+
+	return (
+		<div>
+			<Count count={count} />
+			<button onClick={handleClick}>+ 1</button>
+		</div>
+	);
+};
+
+const Count = ({ count }) => {
+	return <p>Count is: {count}</p>;
+};
+```
+
+### Exercise
+
+Ask students to remake aforementioned by themselves.
+
+### Essence
+
+Having state allows our application to handle 'dynamic data': data that can change. Using the React defined `useState` function we can define and modify all pieces of state that need to change

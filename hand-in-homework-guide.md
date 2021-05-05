@@ -12,7 +12,7 @@ Watch the video (by clicking the image) or go through the following walk-through
 
 ONE TIME ONLY (START OF EVERY MODULE)
 
-1. Create a [fork](https://help.github.com/en/articles/fork-a-repo) of the teacher's forked repository (ask in Slack what the URL for it is). You do this by using the `fork` option on the top right
+1. Create a [fork](https://help.github.com/en/articles/fork-a-repo) of the HackYourHomework forked repository (https://www.github.com/HackYourHomework/React). You do this by using the `fork` option on the top right
 2. Navigate to the URL of the cloned repository (it should be in your personal GitHub account, under "repositories")
 3. Clone the repository, using SSH, to your local machine. You can do this by typing in `git clone <git url>` in the command line
 4. On your local machine, navigate to the folder using the command line

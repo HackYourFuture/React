@@ -1,88 +1,38 @@
-# Reading Material React Week 4
+# Week 4
 
-## Agenda
+In the final week of React you will put everything you have learned into practice and build the app of your dreams! As this is a big thing one of the mentors for this module will be there to help you think your app through. They will not be allowed to write any code for you however.
 
-These are the topics for week 4:
+This project will be a great thing to put on your CV so make it look good and be something that you will enjoy working on later to keep improving. Also make sure you challenge yourself, you have a mentor to guide you if you get stuck! This means you will learn more if you go out of your comfort zone a little.
 
-1. Context API
-   - Global state management
-   - Connecting state to component
-2. Client-side routing
-   - Client-side routing vs. server-side routing
-   - React-router
-   - Protected routes with React-router
+## Project requirements
+We want you to get excited and be free to build something you are passionate about, but there are some things that we need to see you have mastered. This means there are a few requirements:
 
-## 0. Video Lectures
+- The app needs to have multiple pages and use client-side routing
+- The app should make use of the Context API
+- You can either use an API that you have built or access to (then just include the backend code in the project) or should use data from a public API. _You will not be graded on backend code_
 
-Your teacher Shriyans has made video lectures for this week's material. You can find them here: [Videos 12 - 14](https://www.youtube.com/playlist?list=PLVYDhqbgYpYVavMRA5iOfBpSPA39ecm-V)
+## Planning and deadlines
+There are only 2 deadlines in the project, how you divide your time for the rest is up to you.
 
-<a href="https://www.youtube.com/playlist?list=PLVYDhqbgYpYVavMRA5iOfBpSPA39ecm-V" target="_blank"><img src="../assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
+### Deadline 1: Project definition
+By *Thursday 18:00PM CET* (but the earlier the better) you should send a short description of what your app will be to your project mentor. This description should make it clear that your application will adhere to the requirements. It is best to divide it into `must have` parts (that fulfil the requirements and will be built first) and `nice to have` parts (features you can add on later to make your app cooler). The reason to make this division is to make sure that you will prioritise your work correctly as you will probably run into time issues. A week is not a lot for building an application and in the end we will only be able to evaluate based on what is working.
 
-## 1. Context API
+### Deadline 2: Application
+By *Tuesday 23:59PM CET* you should send a link to your github project to the Education Director. Make sure that everything works for them! The best way to test this is to clone your repository to a new directory on your computer and try to run it there.
 
-### Global state management
+## Grading
+After finishing the project you will get another technical interview about your own project (similar to what you had in the [Browsers module](https://github.com/HackYourFuture/Browsers/blob/main/PROJECT.md#the-interview)) to determine if you can go on to the project. Keep track of your class channel to see when these will be.
 
-So far you've learned about `state` and the way to communicate that to other components. This is called `passing down props`. IT's easy enough to do this if we have only a few components. But what happens if we have a 100 components, and we need to pass a piece of state from the top level to the most bottom component?
+The difficulty of the application affects the grading in two ways:
+- You get extra points for creating a difficult application (things like making your own hooks, good state management, loads of features, etc)
+- We will expect simpler applications to have better structured code and be more lenient on complexer applications
 
-This would be very time-consuming and unpractical. That's where the idea of a global state management system comes from.
+## F.A.Q.
 
-Instead of having state passed down to each component separately, we put state in one central place called a `context`. Then we connect the `context` directly to any component that needs access to state.
+### What API's can I use?
+Any API you want, you can look at the [Ideas](https://github.com/HackYourFuture/UsingAPIs/blob/main/Week3/README.md) in the Using API's module to get some ideas and see what to look out for.
 
-> If you've ever come across a tool called [Redux](https://redux.js.org/), this idea might sound familiar to you. Actually, Redux solves a similar problem, but came before the rise of the React `Context API`.
+### Can I use third party libraries?
+Yes! But please check with your mentor if you decide to use one. We don't want you to use a library that abstracts away some of the things we want to teach you.
 
-- [Context](https://reactjs.org/docs/context.html)
-- [React Context](https://www.robinwieruch.de/react-context)
-
-### Connecting state to component
-
-The React library gives us 2 hooks that allow us to use `context`: `useContext` and `useReducer`.
-
-Learn more about these hooks here:
-
-- [useReducer with useContext](https://www.youtube.com/watch?v=BCD2irXaVoE)
-- [React Hooks - useContext & useReducer](https://www.youtube.com/watch?v=cjBm0HnYcqw)
-
-## 2. Client-side routing
-
-Routing traditionally happens on the server-side. Whenever a user goes to a certain endpoint, let's say it's `/about` a GET request will be send to the server. The server then responds with an HTML page.
-
-In React, however, we're dealing with a Single Page Application. This means that we're never really sending a request to fetch another page from the server; all pages are already included in the initial render of the whole application.
-
-React doesn't offer any routing solution. So we'll have to use a third party library, which is [React-Router](https://github.com/ReactTraining/react-router).
-
-But before we go on, let's first look at the differences between client-side and server-side routing.
-
-### Client-side routing vs. server-side routing
-
-It's important to note that client-side routing **simulates** a page change, but technically no actual page is being changed.
-
-Go through the following to learn more about the differences:
-
-- [Server-side vs. client-side routing](https://www.youtube.com/watch?v=ofCoqejWohA)
-- [Server Side Routing vs Client-Side Routing](https://www.codementor.io/chinemeremnwoga/server-side-routing-vs-client-side-routing-yne57eq9a)
-
-### React-router
-
-React itself doesn't offer a way to create client-side routing. That's because it's not necessary for a single page application to have.
-
-However, to provide a more complete user experience we can add it. A popular way of doing this is by using the third part library [React Router DOM](https://reacttraining.com/react-router/web/guides/quick-start)
-
-Check the following resources to learn more about it:
-
-- [React Router Tutorial](https://www.youtube.com/watch?v=Law7wfdg_ls)
-- [React Router with Hooks](https://www.youtube.com/watch?v=CZeulkp1ClA)
-
-### Protected routes with React-router
-
-When building React applications, you'll definitely deal with `authentication`. Every login system of some kind applies this concept.
-
-In terms of routing, this means that some parts of the app will be accessible only to logged in users. We call those areas `protected routes`.
-
-Go through the following to learn more about them:
-
-- [Protected routes and authentication with React Router](https://www.youtube.com/watch?v=ojYbcon588A)
-- [Protected Routes in React using React Router](https://www.youtube.com/watch?v=Y0-qdp-XBJg)
-
-## Finished?
-
-Are you finished with going through the materials? High five! If you feel ready to get practical, click [here](./MAKEME.md).
+Any UI toolkit (things like [Material UI](https://material-ui.com/) or [Semantic UI](https://react.semantic-ui.com/) that give you some basic components that have a particular style) is fine. The libaries we used during the curriculum is also fine. For the rest please let us know what you are planning.

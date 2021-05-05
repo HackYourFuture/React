@@ -4,42 +4,37 @@
 
 The purpose of this class is to teach the student about:
 
-- What `component lifecycle` is
-- The purpose and use of `useEffect()`
-- Making an `API call` both inside and outside `useEffect()`
-- Some third party React tools (`UI toolkits` and `utility libraries`)
+- Client-side routing
 
 ## Core Concepts
 
-## 1. Component lifecycle
+1. Client-side routing
 
-### Explanation
-- In React any component renders in stages to the DOM: we call this the `component lifecycle`
-- The purpose of the different lifecycle stages is to **solve rendering issues** that sometimes can't easily be controlled via state and props
-- 4 groups of lifecycle methods: **mounting**, **updating**, **unmounting** and **errors**
-### Example
-Show the following [image](https://cdn-images-1.medium.com/max/2000/1*cEWErpe-oY-_S1dOaT1NtA.jpeg) to illustrate the place and purpose of each lifecycle method. Then show how to access the methods in a class-based component
-### Excercise 
-### Essence
+- Server-side routing is the norm, but with rise of modern JavaScript and SPAs came **client-side routing**
+- On URL change **no request to server** (and thus no page refresh), **only changed state of app and URL adjustment**
+- For React, third-party library **React-Router** is most popular
+- Most important concepts: `<BrowserRouter />`, `<Route />`, `<Link />`, `<Switch />`, the `location` prop and `history` object
 
+_Explain the following example: [Basic Example](https://reacttraining.com/react-router/web/example/basic)_
 
+_Exercise: help students recreate the Basic Example (without looking at the code)_
 
+## Build with students
 
+To illustrate the workings of React-Router build the following small app with the students.
 
-## 2. Third party React tools
+- [Basic Router](../../examples/router-example)
 
-### Explanation
-- 2 broad categories: `UI toolkits` and `utility libraries`
-- `UI toolkits` help us structure our user interfaces
-- `Utility libraries` help us solve functional problems that come up during development
+Make a basic navigation menu that uses React-Router.
 
-### Example
-Show example of a UI toolkit, like Semantic UI. You can illustrate how to use it by building a [Menu](https://react.semantic-ui.com/collections/menu/)
+- Use `react-router-dom`
+- Render a different component for each route
 
-Show example of a utility library, for example [Redux](https://redux.js.org/)
-### Excercise
-### Essence
+_After showing the example, hide your code and ask students to recreate the same thing_
 
+2. Server-side routing
 
+- Routing refresher: the mechanism by which `requests` (as specified by a URL change or HTTP method) are `send to an endpoint on the server`, that then executes code that handles the request.
+- Server-side routing happens `when the client sends a request to the server`, usually **triggered by a URL change**
 
 
