@@ -10,6 +10,7 @@ We want you to get excited and be free to build something you are passionate abo
 - The app needs to have multiple pages and use client-side routing
 - The app should make use of the Context API
 - You can either use an API that you have built or access to (then just include the backend code in the project) or should use data from a public API. _You will not be graded on backend code_
+- You should not use class components
 
 ## Planning and deadlines
 There are only 2 deadlines in the project, how you divide your time for the rest is up to you.
