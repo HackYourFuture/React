@@ -5,17 +5,17 @@
 These are the topics for week 1:
 
 1. [What is React.js?](https://study.hackyourfuture.net/react/README.md)
-  - What React is not
-  - Componentization
-  - HTML in JS: JSX
+   - What React is not
+   - Componentization
+   - HTML in JS: JSX
 2. [State & Props](https://study.hackyourfuture.net/react/state-and-props.md)
 3. [Hooks](https://study.hackyourfuture.net/react/hooks.md)
-  - useState
-  - useEffect
+   - useState
+   - useEffect
 4. [Forms: Controlled vs Uncontrolled](https://study.hackyourfuture.net/react/controlled-vs-uncontrolled.md)
-4. [Tools](https://study.hackyourfuture.net/react/tools.md)
-  - create-react-app
-  - Static hosting
+5. [Tools](https://study.hackyourfuture.net/react/tools.md)
+   - create-react-app
+   - Static hosting
 
 ## Important note on React
 > In the React world there is a huge shift happening since the introduction of 'hooks' in 2018. Before hooks React was built using both class and function components. Currently it is recommended to use only function components in combination with hooks for all of the code you build from now on. When you are going to do research on your own or when you get into your internship you are going to run into class components however. This will be less and less as time goes on and hopefully we can remove this at some point in the future.
