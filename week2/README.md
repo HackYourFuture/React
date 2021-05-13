@@ -4,125 +4,24 @@
 
 These are the topics for week 2:
 
-1. Hooks
-   - Class vs functional components
-   - What are hooks?
-   - useState & useEffect
-2. API calls in React
+1. [API calls in React](https://study.hackyourfuture.net/react/api-calls.md)
    - When to load data
-3. Forms
+2. [Context API](https://study.hackyourfuture.net/react/context-api.md)
+   - Global state management
+   - Connecting state to component
 
-   - Controlled vs. uncontrolled
-   - EventListeners & preventing default behavior
+## Important note on React
+> In the React world there is a huge shift happening since the introduction of 'hooks' in 2018. Before hooks React was built using both class and function components. Currently it is recommended to use only function components in combination with hooks for all of the code you build from now on. When you are going to do research on your own or when you get into your internship you are going to run into class components however. This will be less and less as time goes on and hopefully we can remove this at some point in the future.
 
-## 0. Video Lectures
+> We at HackYourFuture will only be teaching you the recommended way of building applications and have provided a section in the study book to share the most basic details on how to read class components [here](https://study.hackyourfuture.net/react/class-vs-function-components.md). If you encounter class components in your research, try to look for a more up to date tutorial, question, or video. If you encounter class components during your internship, then convert it to a function component. The developers will love you :).
 
-Your teacher Shriyans has made video lectures for this week's material. You can find them here: [Videos 4 - 8](https://www.youtube.com/playlist?list=PLVYDhqbgYpYVavMRA5iOfBpSPA39ecm-V)
+## Week goals
 
-<a href="https://www.youtube.com/playlist?list=PLVYDhqbgYpYVavMRA5iOfBpSPA39ecm-V" target="_blank"><img src="../assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
+Last week we learned the basic building blocks of React and how to think in components. This week we are going to introduce some more advanced techniques to give you even more power!
 
-## 1. Hooks
+Firstly, it is time to work with API's again. In vanilla JavaScript we learned about the fetch mechanism, but when thinking in a component way we need to approach it a little differently. Take a look at the study book [here](https://study.hackyourfuture.net/react/api-calls.md). 
 
-### Class vs functional components
-
-Like any other system, React is always evolving. Before we had Hooks (like `useState` and `useEffect`), we used to write our components in `classes`. Here's how it looks:
-
-```js
-class Example extends React.Component {
-  state = {
-    exampleMessage: "This message is for the example",
-  };
-
-  render() {
-    return <div>{this.state.exampleMessage}</div>;
-  }
-}
-```
-
-This is a valid way of writing a React component.
-
-However, the people behind React want to take the library into a different direction. Instead of using classes, they want to go to a world where React components are written using only functions, no classes. There a different reasons for why this the case, but the bottom line is that future React application **should be written with functions alone**. This is also what HackYourFuture (mostly) will teach.
-
-If you're really curious what the reasons are, look at the following resources:
-
-- [Refactor to React Hooks, Not Classes](https://rangle.io/blog/refactor-to-react-hooks-not-classes/)
-- [React Class Components are dead? (Hint: maybe)](https://itnext.io/react-class-components-are-dead-hint-not-yet-1d0a151173b8)
-
-### What are hooks?
-
-Hooks are predefined functions that the React library gives us. They are used only in **functional** components. They try to solve a couple of things:
-
-- [Hooks Intro: Motivation]https://reactjs.org/docs/hooks-intro.html#motivation
-
-Learn more about the essence of hooks here:
-
-- [Why React Hooks?](https://www.youtube.com/watch?v=eX_L39UvZes)
-- [React.js Hooks Crash Course](https://www.youtube.com/watch?v=-MlNBTSg_Ww)
-
-### useState & useEffect
-
-**useState**
-
-Sometimes we just want to have our dynamic data (state) live locally inside of a single component. With functional components we can do that, by using the `useState` hook.
-
-Lear more about it here:
-
-- [Using the State Hook](https://reactjs.org/docs/hooks-state.html)
-- [React Hooks - useState](https://www.youtube.com/watch?v=-G43PbpmGrA)
-
-**useEffect**
-
-A side effect modifies the outside world. Everything in your app that deals with making HTTP requests, writing to localStorage, or even manipulating the DOM, is considered a side effect.
-
-This hook, `useEffect`, gives us a way of structuring our app to be able to handle these operations.
-
-Learn more about it here:
-
-- [Using the Effect Hook](https://reactjs.org/docs/hooks-effect.html)
-- [React Hooks - useEffect](https://www.youtube.com/watch?v=sjCe4iHyxxs)
-
-## 2. API calls in React
-
-Like mentioned before, React is "just JavaScript". The only things that make it React are the addition of `JSX`, `componentization` and `component lifecycle`. The rest, like making API calls, happens as usual: at any moment you want to do some `data fetching` you can use a `fetch`, `axios` or a good old `XMLHtppRequest` instance to do the call. Look at the following example:
-
-```js
-import React from 'react';
-
-const getUsers = fetch('').then(response => response.json());
-
-const Example () => {
-
-}
-```
-
-This is valid JavaScript. But it is outside of the scope of the React component! If you want to make sure the whole component hierarchy knows about the data fetching (and the state changes because of it), you have to make the call in a specific location: in a lifecycle hook. More specifically, you have to call in in the `componentDidMount()` method for classes and `useEffect()` for functional components.
-
-### When to load data
-
-In class components, you'd use the `componentDidMount()` hook. Look at the following to learn more about how to do that:
-
-- [ComponentWillMount() and ComponentDidMount() LifeCycle Event](https://www.youtube.com/watch?v=PEPgugfzDLk)
-
-In functional components, you'd use the `useEffect` hook. Study the following resources to learn how to do this:
-
-- [How to Fetch Data (feat. React Hooks)](https://www.youtube.com/watch?v=k0WnY0Hqe5c)
-
-## 3. Forms
-
-Forms have always been slightly different than any other element in HTML. So it also goes for React.
-
-- [Forms](https://reactjs.org/docs/forms.html)
-
-### Controlled vs. uncontrolled
-
-These terms refer to whether or not a component has its own state or not. We're talking about a `controlled` component when it doesn't have its own state: it's being controlled by another component.
-
-A component is `uncontrolled` when it does have state, meaning state values are defined within it.
-
-Learn more about this here:
-
-- [Controlled and uncontrolled elements](https://www.youtube.com/watch?v=nSGZEQa5C_c)
-- [How React Hooks change the way we build forms](https://www.youtube.com/watch?v=8yo44xN7-nQ)
+Secondly, let's have a look at the context API, which sounds like something external but is actually something that React provides us. Have a look [here](https://study.hackyourfuture.net/react/context-api.md)
 
 ## Finished?
 

@@ -2,18 +2,14 @@
 
 ## **Todo list**
 
-1. Practice the concepts
-2. React exercises
+1. React exercises
+2. Practice projects
 3. Code along
 4. PROJECT: Hack Your Weather II
+5. Extra: Challenges (Optional)
 
-## **1. Practice the concepts**
-
-We'll start the week off with some online exercises again. Complete the exercises from the following:
-
-- [Codecademy: Learn ReactJS II](https://www.codecademy.com/learn/react-102)
-
-## **2. React exercises**
+## **1. React exercises**
+We'll start this week off with some our own exercises that lead you through the solution.
 
 > Inside of your `React` fork, go to the `week2` folder and create a React application called `react-exercises` (use `create-react-app`). Inside of the `src` folder create a JavaScript file with an appropriate name.
 
@@ -60,15 +56,24 @@ In this exercise we'll be using the following API endpoint: `https://official-jo
 5. Inside the `<Joke>` component, display the `setup` and `punchline` attributes in 2 `<p>` tags
 6. Test out your work by importing your components into the top level component, which is `<App>`
 
-## **3. Code along**
+## **2. Code along**
 
 > Create a new GitHub repository for this project. It's a portfolio piece!
 
-In the following tutorial you'll learn how to build an `Expense Tracker`. You'll do so using React Hooks, but also using the [Context API](https://reactjs.org/docs/context.html)! The later you'll be learning about more formally in week 4, but best to get familiar as soon as possible.
+In the following tutorial you'll learn how to build an `Expense Tracker`. You'll do so using React Hooks, but also using the [Context API](https://reactjs.org/docs/context.html)!
 
 Happy learning!
 
 - [Build an Expense Tracker](https://www.youtube.com/watch?v=XuFDcZABiDQ)
+
+## **3. Practice projects**
+
+The following exercises give you a prompt of what to build and then provide a solution when stuck. Try to do it yourself as much as possible and then compare to what they give as a solution:
+
+- First let's create a project without an API and [implement a tic-tac-toe game](https://epic-react-exercises.vercel.app/react/hooks/1)
+- Now let's use the pokemon API and [build a pokemon finder](https://epic-react-exercises.vercel.app/react/hooks/3)
+
+> The solutions they give is not necessarily the only solution, compare it to yours and see if you can get some good ideas from theirs. Because they want to show just one file, you will notice they put a lot of different functionality in one component. It is generally better to do it in separate components so good job if you thought of that!
 
 ## **4. PROJECT: Hack Your Weather II**
 
@@ -102,6 +107,9 @@ Hints:
 
 - For the form, use the `onChange` and `value` attributes
 - Take the name of the city to use in the API call
+
+## **5. Extra: Challenges (Optional)**
+Remember that our friends over at CodeYourFuture have provided a repository with different ideas for [challenges to build](https://github.com/CodeYourFuture/cyf-react-challenges). Have a look at the `README.md` in each folder to see what the challenge is and now you can also do ones that require you to connect to an API!
 
 ## **SUBMIT YOUR HOMEWORK!**
 

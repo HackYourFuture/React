@@ -8,7 +8,7 @@
 
 Welcome to the React module! Congratulations on making it this far!
 
-In these 5 weeks we will go back to the frontend and learn how to make faster, more modern user interfaces. In the HTML and JavaScript modules you've learned all about creating webpages that that hold unchanging data. No matter who is using the website, the data will always be the same. We call this a `static website`. At the same time you've build various HTML pages so the user is able to access various parts of the website. We call this a `multi-page application (MPA)`
+In these 4 weeks we will go back to the frontend and learn how to make faster, more modern user interfaces. In the HTML and JavaScript modules you've learned all about creating webpages that that hold unchanging data. No matter who is using the website, the data will always be the same. We call this a `static website`. At the same time you've build various HTML pages so the user is able to access various parts of the website. We call this a `multi-page application (MPA)`
 
 In the Node.js module you've learned about how to change the content of the page, based on the user's input, using a `templating engine`. Type in a keyword and the server sends back a `template` with customized data. We call this a `dynamic website`. However, we did it in such a way were we still had to send different pages to the client depending on the URL (for example, `/` or `/users`). This is also an MPA.
 
@@ -40,8 +40,7 @@ In order to successfully complete this module you will need to master the follow
 
 - Understand the React way of thinking about `user interfaces`
 - Know the importance and place of `state` and how to pass it down
-- Be able to work with different `lifecycle hooks`
-- Distinguish between `class-based versus function-based components`
+- Be able to work with different `hooks` and even create your own
 - Recognize the utility of `modularization`
 - Putting emphasis on writing reusable code (`components`)
 - How to handle `client-side routing`
@@ -62,7 +61,7 @@ Let's say you are just starting out with the Databases module. This is what you 
 
 1. The week always starts on **Wednesday**. First thing you'll do is open the `README.md` for that week. For the first week of `Databases`, that would be [Week1 Reading](/Week1/README.md)
 2. You spend **Wednesday** and **Thursday** going over the resources and try to get a basic understanding of the concepts. In the meanwhile, you'll also implement any feedback you got on last week's homework (from the Node.js module)
-3. On **Friday** you start with the homework, found in the `MAKEME.md`. For the first week of `Databases`, that would be [Week1 Homework](/Week1/MAKEME.md)
+3. On **Friday** you start with the homework, found in the `MAKEME.md`. For the first week of `React`, that would be [Week1 Homework](/Week1/MAKEME.md)
 4. You spend **Friday** and **Saturday** playing around with the exercises and write down any questions you might have
 5. **DEADLINE 1**: You'll submit any questions you might have before **Saturday 23.59**, in the class channel
 6. On **Sunday** you'll attend class. It'll be of the Q&A format, meaning that there will be no new material. Instead your questions shall be discussed and you can learn from others
@@ -76,28 +75,14 @@ In summary:
 
 To have a more detailed overview of the guidelines, please read [this document](https://docs.google.com/document/d/1JUaEbxMQTyljAPFsWIbbLwwvvIXZ0VCHmCCN8RaeVIc/edit?usp=sharing) or ask your mentor/class on Slack!
 
-### Video lectures
-
-For each module HackYourFuture provides you with video lectures. These are made by experienced software developers who know what they're talking about. Your main teacher for this module will be [Shriyans Bhatnagar](https://hackyourfuture.slack.com/team/UJN6SA6NM)
-
-You can find out more about him here:
-
-- [GitHub](https://github.com/shrynx/)
-- [@shriyans on Slack](https://hackyourfuture.slack.com/team/UJN6SA6NM)
-
-Learn from Shriyans in the following playlist of videos he has made for you! (Click on the image to open the link)
-
-<a href="https://www.youtube.com/playlist?list=PLVYDhqbgYpYVavMRA5iOfBpSPA39ecm-V" target="_blank"><img src="./assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
-
 ## Planning
 
-| Week | Topics                                          | Reading Materials                | Homework                         | Lesson Plans                            |
-| ---- | ----------------------------------------------- | -------------------------------- | -------------------------------- | --------------------------------------- |
-| 1.   | What is React, JSX, Props, Deploy a static site | [Readings W1](./week1/README.md) | [Homework W1](./week1/MAKEME.md) | [Lesson Plan W1](./week1/LESSONPLAN.md) |
-| 2.   | State I, Hooks I, API calls, Forms              | [Readings W2](./week2/README.md) | [Homework W2](./week2/MAKEME.md) | [Lesson Plan W2](./week2/LESSONPLAN.md) |
-| 3.   | State II, Hooks II, Third party components      | [Readings W3](./week3/README.md) | [Homework W3](./week3/MAKEME.md) | [Lesson Plan W3](./week3/LESSONPLAN.md) |
-| 4.   | Context, Client-side routing                    | [Readings W4](./week4/README.md) | [Homework W4](./week4/MAKEME.md) | [Lesson Plan W4](./week4/LESSONPLAN.md) |
-| 5.   | Test                                            | [Details](./week5/test.md)       | -                                | -                                       |
+| Week | Topics                                          | Reading Materials                | Homework                         |
+| ---- | ----------------------------------------------- | -------------------------------- | -------------------------------- | 
+| 1.   | What is React, JSX, State & Props, Deploy a static site | [Readings W1](./week1/README.md) | [Homework W1](./week1/MAKEME.md) | 
+| 2.   | API calls, Context            | [Readings W2](./week2/README.md) | [Homework W2](./week2/MAKEME.md) |
+| 3.   | Client-side routing, Custom hooks      | [Readings W3](./week3/README.md) | [Homework W3](./week3/MAKEME.md) | 
+| 4.   | Project!                   | [Readings W4](./week4/README.md) |  |  
 
 ## Finished?
 

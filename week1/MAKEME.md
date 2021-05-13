@@ -6,12 +6,13 @@
 2. React exercises
 3. Code along
 4. PROJECT: Hack Your Weather I
+5. Extra: Challenges (Optional)
 
 ## **1. Practice the concepts**
 
 Let's get started with some interactive exercises! Complete the exercises from the following resources:
 
--   [Codecademy: Learn ReactJS I](https://www.codecademy.com/learn/react-101)
+-   [Scotch.io: React challenges. Exercises 1-6](https://scotch.io/courses/10-react-challenges-beginner)
 
 ## **2. React exercises**
 
@@ -58,15 +59,15 @@ Let's create a simple number counter, starting from 0 until infinity!
 3. Inside `<Button>` create a `<button>` with the text `Add 1!` and `onClick` attribute
 4. Pass down the `count` state variable to `<Count>`, and the `setCount` to `<Button>`
 5. Inside `<Counter>`, declare a variable called `feedback` above the return statement. Give this variable a ternary operator value: if `count` is higher than 10 it should display the string `"It's higher than 10!"`, else it displays `"Keep counting..."`
-6.  5. Test out if it works by importing `<Counter>` into the top level component, which is `<App>`
+6. Test out if it works by importing `<Counter>` into the top level component, which is `<App>`
 
 ## **3. Code along**
 
-> Create a new GitHub repository for this project. It's a portfolio piece!
+> Create a new GitHub repository for this project.
 
 Learning how to work with React is a fundamentally different approach to building a user interface. Therefore, we need to practice a lot!
 
-In the following tutorial you'll learn how to a `Budget Calculator`!
+In the following tutorial you'll learn how to build a `Budget Calculator`!
 
 It might seem complicated at first, but don't worry. Aim for understanding the principle behind it to the best you can. If you ever feel in doubt: do a Google search or ask a question in Slack!
 
@@ -80,7 +81,7 @@ Enjoy!
 
 During this module you'll be starting a project called `Hack Your Weather`! Like in the Node.js module, each week you'll add to it until it becomes a fully-fledged application you can be proud of.
 
-Here's what you're eventually going end up with: [Hack Your Weather Finished](https://xenodochial-wing-7532d8.netlify.app/)
+Here's what you're eventually going to end up with: [Hack Your Weather Finished](https://xenodochial-wing-7532d8.netlify.app/)
 
 Let's get into it.
 
@@ -109,13 +110,17 @@ Here are the requirements your project needs to fulfill:
     -   `weather desciption`
     -   `max and min temprature`
     -   `location (longitude and lattitude)`
--   Deploy your static site using [Netlify](https://www.netlify.com/)
 
 Hints:
 
 -   Make use of the `map()` function to show the different cities
 -   Try to "think in components"
 -   Look at the JSON file and carefully look at where the useful data is found
+
+## **5. Extra: Challenges (Optional)**
+Our friends over at CodeYourFuture have provided a repository with different ideas for [challenges to build](https://github.com/CodeYourFuture/cyf-react-challenges). Have a look at the `README.md` in each folder to see what the challenge is and try to build it. It mentions the difficulty in the different README's, anything with easy should be doable at this point. But if not, leave it for next week and then try again.
+
+Building many different small applications will get you the practice you need to do your final project in week 4, so in the next 3 weeks if you are done with the rest of the homework, look back at the challenges and try to do as many as you can.
 
 ## **SUBMIT YOUR HOMEWORK!**
 
@@ -128,6 +133,4 @@ The homework that needs to be submitted is the following:
 1. JavaScript exercises
 2. Project: Hack Your Weather I
 
-**Also put the URL to your deployed website in your homework pull request!**
-
-_Deadline Saturday 23.59 CET_
+_Deadline Tuesday 23.59 CET_
