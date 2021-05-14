@@ -9,7 +9,7 @@ These are the topics for week 1:
    - Componentization
    - HTML in JS: JSX
 2. [State & Props](https://study.hackyourfuture.net/#/react/state-and-props.md)
-3. [Hooks](https://study.hackyourfuture.net/#/react/hooks.md)
+3. [Hooks](https://study.hackyourfuture.net/#/react/react-hooks.md)
    - useState
    - useEffect
 4. [Forms: Controlled vs Uncontrolled](https://study.hackyourfuture.net/#/react/controlled-vs-uncontrolled.md)
