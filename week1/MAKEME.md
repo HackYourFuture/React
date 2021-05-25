@@ -28,10 +28,10 @@ Take a look at the following:
 const hobbies = ['Surfing', 'Rock climbing', 'Mountain biking', 'Breakdancing'];
 ```
 
-1. Create 2 functional components: `<HobbyList>` and `<Hobbies>`
+1. Create 2 functional components: `<HobbyList>` and `<Hobby>`
 2. Put the `hobbies` variable into the `<HobbyList>` component.
-3. In the `return` statement of the `<HobbyList>` use the `map()` function to return an instance of `<Hobby>`
-4. Pass down the hobby as a `prop` (don't forget to add the `key` prop as well!)
+3. In the `return` statement of the `<HobbyList>` use the `map()` function to return an instance of `<Hobby>` for every hobby in the array
+4. Pass down the hobby string as a `prop` to the `<Hobby>` component (don't forget to add the `key` prop as well!)
 5. Test out if it works by importing it into the top level component, which in this case is `<App>`
 
 **Exercise 2: Perfect customer service!**
