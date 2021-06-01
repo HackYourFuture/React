@@ -17,3 +17,4 @@ https://glitch.com/~hyf-node-react
 - Every user should have a seperate about page
   - When the list of users is rendered link to the users about page
 
+Please, feel free to give us some feedback about your experience teaching React [here](https://forms.gle/usuv9u1HMdjkqqzu8), or with homework reviews [here](https://forms.gle/Ai5vrCiCnYs1bMmh9).
