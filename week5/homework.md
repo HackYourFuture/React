@@ -81,10 +81,10 @@ We will finish and deploy the meal sharing site next week: https://github.com/Ha
 
 ## Hand in Homework:
 
-- Use the branch called `react/week5`
-- Add all your changes to this branch in the `react/week5` folder.
+- From the mealsharing app repository make a frontend branch called `frontend`
+- Add all your changes to the branch `frontend`
 - Go through the [Homework checklist](#homework-checklist)
-- Create a pull request using the `react/week5` branch
+- Create a pull request using the `frontend` branch
 - Wait for mentor feedback
 - Implement feedback, `add`, `commit` and `push` the changes
 - Now you can merge the changes into `master`
