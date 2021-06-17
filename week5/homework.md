@@ -18,7 +18,7 @@ Using the 🚨`meal-sharing`🚨 repo write this command
 
 `git checkout master` - You are now on the `master` branch
 
-`git checkout -b react/week5`
+`git checkout -b frontend`
 
 This will create and checkout the branch so you are ready make commits to it
 
