@@ -44,7 +44,7 @@ For each item render a description and a deadline date. Before you start draw a 
 
 ## thinking in React
 
-go through this section of react official documentation https://reactjs.org/docs/thinking-in-react.html for learning how to think the react way.
+go through this article https://www.codestackr.com/blog/5-steps-to-think-in-react/ for learning how to think the react way (hooks updated).
 
 ## Hand in Homework:
 
