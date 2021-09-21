@@ -18,7 +18,7 @@ Using the `hyf-homework` repo write this command
 
 `git checkout master` - You are now on the `master` branch
 
-`git checkout -b react/week1`
+`git checkout -b react-week1`
 
 This will create and checkout the branch so you are ready make commits to it
 
@@ -50,10 +50,10 @@ go through this article https://www.codestackr.com/blog/5-steps-to-think-in-reac
 
 Watch [this video](https://www.youtube.com/watch?v=XYlgh9hSWtw) for a more detailed go-through of how to hand in homework!
 
-- Use the branch called `react/week1`
+- Use the branch called `react-week1`
 - Add all your changes to this branch in the `react/week1` folder.
 - Go through the [Homework checklist](#homework-checklist)
-- Create a pull request using the `react/week1` branch
+- Create a pull request using the `react-week1` branch
 - Wait for mentor feedback
 - Implement feedback, `add`, `commit` and `push` the changes
 - Now you can merge the changes into `master`
