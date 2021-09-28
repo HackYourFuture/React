@@ -11,6 +11,7 @@ We want you to get excited and be free to build something you are passionate abo
 - The app should make use of the Context API
 - You can either use an API that you have built or access to (then just include the backend code in the project) or should use data from a public API. _You will not be graded on backend code_
 - You should not use class components
+- Follow the [guidelines for technical assignments](https://github.com/HackYourFuture/ta_guidelines). This will help you not get stuck or end up with only half an application and make sure that what you have at the end is something presentable. Your README should also be filled with information for potential recruiters/reviewers
 
 ## Final product
 The final product (the repository is the product, not just the application) should be something that you can show off on your CV. So have a look at our technical assignment guidelines [here](https://github.com/HackYourFuture/ta_guidelines) and our design guidelines [here](https://github.com/HackYourFuture/design_guidelines) to see what it entails. By following those guidelines your app AND your code will look great, making it a great thing to show off to employers. You will also get into the habit of doing this with all the technical assignments you will get during your job search.
