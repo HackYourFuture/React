@@ -2,27 +2,34 @@
 
 ## **Todo list**
 
-1. Practice projects
-2. Code along
+1. Prep exercises
+2. Code alongs
 3. PROJECT: Hack Your Weather III
 4. Extra: Challenges (Optional)
 
-## **1. Practice projects**
-The following exercises give you a prompt of what to build and then provide a solution when stuck. Try to do it yourself as much as possible and then compare to what they give as a solution:
+## **1. Prep exercises**
 
-- Create a hook that checks the [screen size](https://epic-react-exercises.vercel.app/react/advanced-hooks/4)
+> Prep exercises are exercises that you should work on _before_ the session on Sunday. These are a little more difficult or show an important concept and as such are a great exercise to talk about with your mentor. Have a solution ready by Sunday as you may be asked to show what you did.
 
-> The solution given is not necessarily the only solution, compare it to yours and see if you can get some good ideas from theirs. Because they want to show just one file, you will notice they put a lot of different functionality in one component. It is generally better to do it in separate components so good job if you thought of that!
+Inside your `React` fork, go to the folder `week3`. Inside of that folder, navigate to `/prep-exercises`. For each exercise, you will find a separate folder. The `README` explains what needs to be done. There will also be some questions at the bottom to think about. Go through them _before_ the session on Sunday as it will be covered then.
 
-## **2. Code along**
+## **2. Code alongs**
 
-> Create a new GitHub repository for this project. It's a portfolio piece!
+> Create a new GitHub repository for each of these projects.
 
-It's time for another code along! This week you'll learn how to make a cool Video Player! You'll do so using various packages, among those are [styled-components](https://www.npmjs.com/package/styled-components) and [react-router-dom](https://www.npmjs.com/package/react-router-dom).
+### 2.1 Expense tracker using the Context API
 
-The first is a third party library that'll make writing CSS rules easier in React applications. And it's also starting to be used in more and more real life applications!
+In the following tutorial you'll learn how to build an `Expense Tracker`. You'll do so using React Hooks, but also using the [Context API](https://reactjs.org/docs/context.html)!
 
-The latter you'll be learning about next week, but the more preparation you have the better.
+Happy learning!
+
+- [Build an Expense Tracker](https://www.youtube.com/watch?v=XuFDcZABiDQ)
+
+### 2.2 Video player using react-router-dom
+
+In this code along you'll learn how to make a cool Video Player! You'll do so using various packages, among those are [styled-components](https://www.npmjs.com/package/styled-components) and [react-router-dom](https://www.npmjs.com/package/react-router-dom).
+
+The first is a third party library that'll make writing CSS rules easier in React applications. And it's also starting to be used in more and more real life applications! The second is the most used package for handling client-side routing.
 
 Enjoy!
 
@@ -45,6 +52,7 @@ Here are the requirements for this step:
 - Any time a user searches for a new city, add it to a list of already searched cities
 - Allow a user to delete a search entry, by clicking the "X"
 - Only allow a user to use the "Search City" button when the input field has at least 1 character
+- Have all these new features tested!
 
 Hints:
 
@@ -60,20 +68,21 @@ After that it is time to add another page to `chart` our data (in either hourly 
 These are the requirements:
 
 - Install the following packages: [React Router Dom](https://www.npmjs.com/package/react-router-dom) and [Recharts](https://www.npmjs.com/package/recharts)
--   Divide your page into 2 different routes (`/` and `/:cityId`), using `react-router-dom`
--   Allow users to click on the searched city to open the city page
--   The city page will be on a different route identified by the city id (make use of the `<Link>` component given by `react-router-dom`)
--   On the city page there will be a chart (made with `recharts`) that displays the correct data for 5-day forecast
--   Add a "Back" button to go back to `/`, on the city page
--   Redeploy your site
+- Divide your page into 2 different routes (`/` and `/:cityId`), using `react-router-dom`
+- Allow users to click on the searched city to open the city page
+- The city page will be on a different route identified by the city id (make use of the `<Link>` component given by `react-router-dom`)
+- On the city page there will be a chart (made with `recharts`) that displays the correct data for 5-day forecast
+- Add a "Back" button to go back to `/`, on the city page
+- Redeploy your site
 
 Hints:
 
--   Read the documentation to get a basic sense of what problems both `react-router-dom` and `recharts` are trying to solve, and to learn how to use them
--   Make sure to have a clear overview of your application so far, before you add this week's features to it
+- Read the documentation to get a basic sense of what problems both `react-router-dom` and `recharts` are trying to solve, and to learn how to use them
+- Make sure to have a clear overview of your application so far, before you add this week's features to it
 
-## **4. Extra: Challenges (Optional)**
-Remember that our friends over at CodeYourFuture have provided a repository with different ideas for [challenges to build](https://github.com/CodeYourFuture/cyf-react-challenges). Have a look at the `README.md` in each folder to see what the challenge is and now you can also do ones that require you to connect to an API!
+## **4. Optional: Challenges**
+
+Remember that our friends over at CodeYourFuture have provided a repository with different ideas for [challenges to build](https://github.com/CodeYourFuture/cyf-react-challenges). Have a look at the `README.md` in each folder to see what the challenge is and now you can also do ones that require you to create multiple pages!
 
 ## **SUBMIT YOUR HOMEWORK!**
 
@@ -85,4 +94,4 @@ The homework that needs to be submitted is the following:
 
 1. Project: Hack Your Weather III
 
-_Deadline Saturday 23.59 CET_
+_Deadline Tuesday 23.59 CET_
