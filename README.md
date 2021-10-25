@@ -77,12 +77,12 @@ To have a more detailed overview of the guidelines, please read [this document](
 
 ## Planning
 
-| Week | Topics                                          | Reading Materials                | Homework                         |
-| ---- | ----------------------------------------------- | -------------------------------- | -------------------------------- | 
-| 1.   | What is React, JSX, State & Props, Deploy a static site | [Readings W1](./week1/README.md) | [Homework W1](./week1/MAKEME.md) | 
-| 2.   | API calls, Context            | [Readings W2](./week2/README.md) | [Homework W2](./week2/MAKEME.md) |
-| 3.   | Client-side routing, Custom hooks      | [Readings W3](./week3/README.md) | [Homework W3](./week3/MAKEME.md) | 
-| 4.   | Project!                   | [Readings W4](./week4/README.md) |  |  
+| Week | Topics                                                  | Reading Materials                | Homework                         |
+| ---- | ------------------------------------------------------- | -------------------------------- | -------------------------------- |
+| 1.   | What is React, JSX, State & Props, Deploy a static site | [Readings W1](./week1/README.md) | [Homework W1](./week1/MAKEME.md) |
+| 2.   | API calls, Testing                                      | [Readings W2](./week2/README.md) | [Homework W2](./week2/MAKEME.md) |
+| 3.   | Client-side routing, Context, Custom hooks              | [Readings W3](./week3/README.md) | [Homework W3](./week3/MAKEME.md) |
+| 4.   | Project!                                                | [Readings W4](./week4/README.md) |                                  |
 
 ## Finished?
 

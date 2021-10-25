@@ -5,6 +5,7 @@
 The purpose of this class is to teach the student about:
 
 - Client-side routing
+- What is the Context API
 
 ## Core Concepts
 
@@ -37,4 +38,9 @@ _After showing the example, hide your code and ask students to recreate the same
 - Routing refresher: the mechanism by which `requests` (as specified by a URL change or HTTP method) are `send to an endpoint on the server`, that then executes code that handles the request.
 - Server-side routing happens `when the client sends a request to the server`, usually **triggered by a URL change**
 
+## 2. Global state with `context API`
 
+- Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+- Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language.
+
+_Show instance of how to create `context`, pass down the `Provider` and `Consumer` and show the value. After, have the students do the same_
