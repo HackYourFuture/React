@@ -52,7 +52,7 @@ Try the website here: https://ro6ne.csb.app/
 Watch [this video](https://www.youtube.com/watch?v=XYlgh9hSWtw) for a more detailed go-through of how to hand in homework!
 
 - Use the branch called `react-week4`
-- Add all your changes to this branch in the `react/week4` folder.
+- Add all your changes to this branch in the `react-week4` folder.
 - Go through the [Homework checklist](#homework-checklist)
 - Create a pull request using the `react-week4` branch
 - Wait for mentor feedback
