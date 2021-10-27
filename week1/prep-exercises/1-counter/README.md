@@ -14,6 +14,6 @@ The counter is one of the best way to learn about state management as it is nice
 
 Building this little App should be straightforward, now let's get those brain juices flowing. Before the session on Sunday have a think about the following:
 
-- How would you implement a decrement button that lowers the count by 1? Would you make 2 different <Button> components or would you add props to the component to handle the change in text?
+- How would you implement a decrement button that lowers the count by 1? Would you make 2 different <Button> functions or would you add props to the component to handle the change in text?
 - Once you can decrement as well, how would you implement it never going below 0?
 - What would you need to change to also have a button that adds 2 and one that removes 2? Will that create a problem with your logic for never going below 0?
