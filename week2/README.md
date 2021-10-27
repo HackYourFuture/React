@@ -6,7 +6,7 @@ These are the topics for week 2:
 
 1. [API calls in React](https://study.hackyourfuture.net/#/react/api-calls.md)
    - When to load data
-2. [Testing in React](https://study.hackyourfuture.net/#/react/testing.md) _(Ignore the sections on timing and custom hooks for now, that is for next week!)_
+2. [Testing in React](https://study.hackyourfuture.net/#/react/testing.md) _(Not everything!)_
 
 ## Important note on React
 
@@ -20,7 +20,7 @@ Last week we learned the basic building blocks of React and how to think in comp
 
 Firstly, it is time to work with API's again. In vanilla JavaScript we learned about the fetch mechanism, but when thinking in a component way we need to approach it a little differently. Take a look at the study book [here](https://study.hackyourfuture.net/#/react/api-calls.md) to learn how you can interact with an API using React.
 
-Secondly, it is time to start the dive into testing in React. Have a look at the first sections (everything except timing and testing custom hooks) of the study book [here](https://study.hackyourfuture.net/#/react/testing.md). This is a lot of information and we will keep practicing with it next week. For now it is important to know about the `react-testing-library` and the way of thinking about testing: User centric!
+Secondly, it is time to start the dive into testing in React. Have a look at the `Paradigms`, `Testing-library` and `Mocking` sections of the study book [here](https://study.hackyourfuture.net/#/react/testing.md). `Enzyme` and `Working with time` are things that you may encounter or need in the future, so keep that in the back of your mind but those sections are optional if you have time. This is a lot of information and we will keep practicing with it next week. For now it is important to know about the `react-testing-library` and the way of thinking about testing: User centric!
 
 ## Finished?
 

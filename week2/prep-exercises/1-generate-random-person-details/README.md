@@ -32,7 +32,7 @@ Let's focus on getting the data into our app first, we'll worry about the UI lat
 
 ## 4. Refactor intermezzo
 
-As always, once you have something new done it is time to think about refactoring. If you don't clean up your code often you will actually start slowing down more and more. As you keep on adding code that is only focused on fixing the problem you are creating a tangled mess we like to call `spaghetti code`. And in the end adding new things will become more and more difficult.
+As always, once you have something new done it is time to think about refactoring. If you don't clean up your code often you will actually start slowing down more and more. As you keep on adding code that is only focused on fixing the problem you are creating a tangled mess we like to call `spaghetti code`. And in the end adding new things will become more and more difficult as you will lose the overview.
 
 So never skip this step! Let's see:
 
@@ -193,3 +193,4 @@ Before the session on Sunday, have a think about the following:
 - What would you need to do to add a new field to the list of details? Let's say we want to add the phone number!
 - What would you need to do to add a button that will fetch a new fake person rather than having one each time? How would you split up the code then?
 - How would you do it if we want 10 random people on the screen? How does our splitting of the code help with implementing this feature?
+- We made a choice to store the person information in our state as an object. An alternative could be to have each field have their own state, so a `[firstName, setFirstName]`, a `[lastName, setLastName]`, etc. What would the advantages and disadvantages be of doing it that way?
