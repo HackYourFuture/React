@@ -1,0 +1,40 @@
+* {
+}
+body {
+  background-color: rgb(122, 131, 131);
+  display: flex;
+  flex-direction: column;
+}
+.App {
+  background-color: rgb(9, 170, 170);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  max-width: 80%;
+  margin-left: 10%;
+  margin-top: 10%;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
+}
+.white {
+  color: ghostwhite;
+}
+.red {
+  color: red;
+}
+.hidden {
+  visibility: hidden;
+}
+
+button {
+  padding: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 1em;
+}
+button:hover {
+  background-color: rgb(180, 180, 180);
+  color: whitesmoke;
+}
