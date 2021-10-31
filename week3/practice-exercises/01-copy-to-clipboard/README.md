@@ -8,7 +8,7 @@ Can you make a hook that takes a user input and copies it to their computer's cl
 4. Store the user's entry. (Bonus question: How should you store this value? In the component? Context API? App.js?)
 5. It's time to make our hook!
 
-- Create a `hooks` folder in your project, and inside create a file called `useCopy,js`.
+- Create a `hooks` folder in your project, and inside create a file called `useCopy.js`.
 - Create (and export!) a function called `useCopy` and inside create another function `handleCopy`.
 - Handle copy should take one string as a parameter, copy that parameter to the clipboard.
 - For that, we're going to need the [navigator object](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/clipboard). Look for the method that adds text to the user's clipboard.
