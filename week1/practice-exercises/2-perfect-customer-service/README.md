@@ -4,7 +4,7 @@ Don't you love it when a company provides great customer service?
 
 Take a look at the following image:
 
-![Exercise 2](assets/exercises/exercise2.png)
+![Exercise 2](../../assets/exercises/exercise2.png)
 
 In this exercise you have to create a single component that you'll reuse to display different information each time.
 
