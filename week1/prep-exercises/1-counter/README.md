@@ -12,7 +12,7 @@ The counter is one of the best way to learn about state management as it is nice
 
 ## Things to think about
 
-Building this little App should be straightforward, now let's get those brain juices flowing. Before the session on Sunday have a think about the following:
+Building this little App should be straightforward, now let's get those *brain juices* flowing. Before the session on Sunday have a think about the following:
 
 - How would you implement a decrement button that lowers the count by 1? Would you make 2 different <Button> functions or would you add props to the component to handle the change in text?
 - Once you can decrement as well, how would you implement it never going below 0?
