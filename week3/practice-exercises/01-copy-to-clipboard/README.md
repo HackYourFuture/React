@@ -19,5 +19,5 @@ Can you make a hook that takes a user input and copies it to their computer's cl
 
 Extra:
 
-- Could we make and return else from this hook? Perhaps something to indicate the user has copied to clipboard?
+- Could we make and return something else from this hook? Perhaps something to indicate the user has copied to clipboard?
 - Could we do anything to ensure the data type is valid? What if users are inputting letters into a phone number field?
