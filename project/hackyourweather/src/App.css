@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+  width: 100%;
+}
+.App {
+  text-align: center;
+}
+.city-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 2px solid black;
+  max-width: 60%;
+  margin-left: 20%;
+  margin-top: 2em;
+  padding: 1em;
+  padding-left: 2em;
+}
+
+.city-container h1 {
+  margin-bottom: 0.5em;
+  font-weight: 200;
+}
+.weather-info {
+  margin-bottom: 2em;
+  text-align: left;
+}
+.weather-info h2 {
+  font-weight: 550;
+}
+.temp-info {
+  padding-bottom: 2em;
+}
