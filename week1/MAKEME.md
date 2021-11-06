@@ -75,15 +75,16 @@ Here are the requirements your project needs to fulfill:
   - `city name`
   - `country name`
   - `weather main`
-  - `weather desciption`
-  - `max and min temprature`
-  - `location (longitude and lattitude)`
+  - `weather description`
+  - `max and min temperature`
+  - `location (longitude and latitude)`
 
 Hints:
 
 - Make use of the `map()` function to show the different cities
 - Try to "think in components"
 - Look at the JSON file and carefully look at where the useful data is found
+- The temperatures in the JSON file are in kelvin; The temperatures in the example image are in celsius.
 
 ## **6. Optional: Challenges**
 
