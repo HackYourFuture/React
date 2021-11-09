@@ -2,12 +2,13 @@ import "./App.css";
 import React, { useState } from "react";
 import Search from "./components/Search";
 import APIKEY from "./secret";
-//import City from "./components/City";
+import City from "./components/City";
 //;
 function App() {
   const [data, setData] = useState([]);
   const [isSearch, setIsSearch] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSearchButton = (e) => {
     e.preventDefault();
@@ -21,13 +22,20 @@ function App() {
     try {
       if (isSearch) {
         const request = await fetch(baseUrl);
-        const apiData = await request.json();
-        setData([...data, apiData]);
-        console.log(apiData);
-        return apiData;
+        if (request.status > 400) {
+          setError(request.message);
+          throw new Error(
+            `I don't know any city with this name: "${isSearch}".`
+          );
+        } else {
+          const apiData = await request.json();
+          setData([apiData]);
+          return apiData;
+        }
       }
     } catch (err) {
-      console.error(err);
+      setData([]);
+      setError(err.message);
     } finally {
       setIsLoading(false);
     }
@@ -41,6 +49,13 @@ function App() {
         fetch={fetchData}
       />
       {isLoading && <h1>Loading...</h1>}
+      {data.length > 0 ? (
+        data.map((item, index) => {
+          return <City data={item} key={index} />;
+        })
+      ) : (
+        <h1 className="error__headline">{error}</h1>
+      )}
     </div>
   );
 }

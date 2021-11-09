@@ -10,3 +10,6 @@ body {
 .App {
   text-align: center;
 }
+.error__headline {
+  margin-top: 2em;
+}
