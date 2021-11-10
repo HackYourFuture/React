@@ -13,3 +13,9 @@ body {
 .error__headline {
   margin-top: 2em;
 }
+.header {
+  max-width: 60%;
+  font-size: 3em;
+  margin-left: 20%;
+  margin-top: 2em;
+}

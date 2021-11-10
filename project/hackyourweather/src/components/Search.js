@@ -4,7 +4,6 @@ import "./search.css";
 const Search = (props) => {
   return (
     <form className="search__bar" onSubmit={props.fetch}>
-      <h2>Weather</h2>
       <input
         name="Search"
         placeholder="City Name"

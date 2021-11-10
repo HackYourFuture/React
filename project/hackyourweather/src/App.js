@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Search from "./components/Search";
 import APIKEY from "./secret";
 import City from "./components/City";
+import Header from "./components/Header";
 //;
 function App() {
   const [data, setData] = useState([]);
@@ -13,7 +14,6 @@ function App() {
   const handleSearchButton = (e) => {
     e.preventDefault();
     setIsSearch(e.target.value);
-    console.log(e.target.value);
   };
   const baseUrl = `https://api.openweathermap.org/data/2.5/weather?q=${isSearch}&appid=${APIKEY}`;
   const fetchData = async (e) => {
@@ -43,6 +43,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header className="Header" title="Weather" />
       <Search
         setIsSearch={handleSearchButton}
         isSearch={isSearch}
