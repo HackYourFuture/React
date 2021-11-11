@@ -1,7 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
 import Search from "./components/Search";
-
 import City from "./components/City";
 import Header from "./components/Header";
 
@@ -10,7 +9,7 @@ function App() {
   const [isSearch, setIsSearch] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-
+  const APIKEY = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
   const handleSearchButton = (e) => {
     e.preventDefault();
     setIsSearch(e.target.value);
