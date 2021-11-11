@@ -1,10 +1,10 @@
 import "./App.css";
 import React, { useState } from "react";
 import Search from "./components/Search";
-import APIKEY from "./secret";
+
 import City from "./components/City";
 import Header from "./components/Header";
-//;
+
 function App() {
   const [data, setData] = useState([]);
   const [isSearch, setIsSearch] = useState("");
