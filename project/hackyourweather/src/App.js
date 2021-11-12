@@ -40,7 +40,7 @@ function App() {
         search={search}
         fetch={fetchData}
       />
-      {isLoading && <h1>Loading...</h1>}
+      {isLoading && <h2>Loading...</h2>}
       {data.length > 0 ? (
         data.map((item, index) => {
           return <City data={item} key={index} />;
