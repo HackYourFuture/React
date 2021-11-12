@@ -19,20 +19,14 @@ function App() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      if (Search) {
-        const request = await fetch(baseUrl);
-        if (request.status > 400) {
-          setError(request.message);
-          throw new Error(`I don't know any city with this name: "${search}".`);
-        } else {
-          const apiData = await request.json();
-          setData([apiData]);
-          return apiData;
-        }
-      }
+      const request = await fetch(baseUrl);
+      const apiData = await request.json();
+      setData([apiData]);
+      return apiData;
     } catch (err) {
       setData([]);
       setError(err.message);
+      throw new Error(`I don't know any city with this name: "${search}".`);
     } finally {
       setIsLoading(false);
     }
