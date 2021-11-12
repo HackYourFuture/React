@@ -4,6 +4,7 @@ import "./city.css";
 const City = ({ data }) => {
   const { name, sys, weather, main, coord } = data;
   let weatherDescription;
+
   if (weather[0].description === "clear sky") {
     weatherDescription = "description__sunny";
   } else if (weather[0].description === "few clouds") {

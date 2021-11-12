@@ -8,10 +8,10 @@ const Search = (props) => {
         name="Search"
         placeholder="City Name"
         type="text"
-        onChange={props.setIsSearch}
+        onChange={props.setSearch}
         className="search__value"
       />
-      <button disabled={!props.isSearch} type="submit">
+      <button disabled={!props.search} type="submit">
         Search
       </button>
     </form>

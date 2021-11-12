@@ -6,26 +6,24 @@ import Header from "./components/Header";
 
 function App() {
   const [data, setData] = useState([]);
-  const [isSearch, setIsSearch] = useState("");
+  const [search, setSearch] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const APIKEY = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
   const handleSearchButton = (e) => {
     e.preventDefault();
-    setIsSearch(e.target.value);
+    setSearch(e.target.value);
   };
-  const baseUrl = `https://api.openweathermap.org/data/2.5/weather?q=${isSearch}&appid=${APIKEY}`;
+  const baseUrl = `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${APIKEY}`;
   const fetchData = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      if (isSearch) {
+      if (Search) {
         const request = await fetch(baseUrl);
         if (request.status > 400) {
           setError(request.message);
-          throw new Error(
-            `I don't know any city with this name: "${isSearch}".`
-          );
+          throw new Error(`I don't know any city with this name: "${search}".`);
         } else {
           const apiData = await request.json();
           setData([apiData]);
@@ -44,8 +42,8 @@ function App() {
     <div className="App">
       <Header className="Header" title="Weather" />
       <Search
-        setIsSearch={handleSearchButton}
-        isSearch={isSearch}
+        setSearch={handleSearchButton}
+        search={search}
         fetch={fetchData}
       />
       {isLoading && <h1>Loading...</h1>}
