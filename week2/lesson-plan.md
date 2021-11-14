@@ -1,8 +1,8 @@
 # Lesson Plan - Building components
 
 - Stateful logic - Having logic around state
-- Create react app
-  - Show students how to install create react app. [Getting Started](https://create-react-app.dev/docs/getting-started).
+- create-react-app
+  - Show students how to install create-react-app. [Getting Started](https://create-react-app.dev/docs/getting-started).
   - Explain the general structure
   - How to run `npm run start`
   - Talk briefly about how the dist folder is generated

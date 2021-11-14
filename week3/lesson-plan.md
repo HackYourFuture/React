@@ -1,4 +1,4 @@
-# Lesson Plan - Advanced react
+# Lesson Plan - Advanced React
 
 ## Forms
 Forms works out of the box exactly like plain html.
@@ -125,7 +125,7 @@ As a employee i would like to submit my shift. The shift should include
 - End time
 
 ##### Shift overview
-As an employeer i would like to have an overview of the employee shifts. They should be displayed in a list, showing 
+As an employeer i would like to have an overview of the employee shifts. They should be displayed in a list, showing
 - Employee name
 - Start time
 - End time
@@ -143,7 +143,7 @@ As an employeer i would like to filter the shifts based on name.
 All components should have prop types defined.
 
 ##### Submit shift
-The submit shift form should come up as a modal. The simplest way to do this is setting the modal to fixed position. 
+The submit shift form should come up as a modal. The simplest way to do this is setting the modal to fixed position.
 
 Use controlled inputs to get the shift information.
 
@@ -154,7 +154,7 @@ What input type should `start` and `end` be?
 ##### Shift overview
 To fetch the default shifts, use this api: https://gist.githubusercontent.com/benna100/5fd674171ea528d7cd1d504e9bb0ca6f/raw
 
-When is it we should do fetching in a react component?
+When is it we should do fetching in a React component?
 
 Remember loading state when fetching the default shifts.
 

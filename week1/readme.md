@@ -1,8 +1,8 @@
-# Week 1 - Thinking in react
+# Week 1 - Thinking in React
 
 ## Learning goals
-- [Thinking the react way](https://reactjs.org/docs/thinking-in-react.html)
-  - What was initial problem react solves?
+- [Thinking the React way](https://reactjs.org/docs/thinking-in-react.html)
+  - What was the initial problem React solves?
 - Understanding the component model
   - Seeing a website as components
   - Thinking in abstractions

@@ -1,6 +1,6 @@
-# Lesson Plan - Thinking in react
+# Lesson Plan - Thinking in React
 
-- [Thinking the react way](https://reactjs.org/docs/thinking-in-react.html)
+- [Thinking the React way](https://reactjs.org/docs/thinking-in-react.html)
   - What was the initial problem React solves?
 - Components
   - Understanding the component model
@@ -36,7 +36,7 @@ Both props and state are plain JavaScript objects/values.
 Teacher suggestion:
 
 - Make a jquery app first and then change it into dom
-- "Why react comes" - video - all students should watch this.
+- "Why React comes" - video - all students should watch this.
 
 ## Flipped classroom videos
 

@@ -1,4 +1,4 @@
-# Week 3 - Advanced react
+# Week 3 - Advanced React
 
 ## Learning goals
 - Forms and events
