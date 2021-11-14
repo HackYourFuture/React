@@ -13,7 +13,7 @@ but if we need to handle form submission in javascript and keep track of what da
     - The onChange event handler
   - React controls the state of the input, not the browser
 - Using data fetching
-  - Setting up fetching in `componentDidMount`
+  - Setting up fetching on mount
   - Talk about loading states
 - Prop types
 - Children
