@@ -16,3 +16,8 @@ button {
   height: 40px;
   font-size: 1rem;
 }
+h2 {
+  max-width: 60%;
+  margin-left: 20%;
+  padding-top: 2em;
+}

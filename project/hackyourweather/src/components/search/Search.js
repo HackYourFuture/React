@@ -64,7 +64,7 @@ const Search = ({ setIsLoading, isLoading }) => {
           <h2>Find out the weather of your favorite cities!</h2>
         )}
         {data?.length > 0 ? (
-          <City aria-label="city" data={data} />
+          <City className="city__component" aria-label="city" data={data} />
         ) : (
           <h2>{error}</h2>
         )}
