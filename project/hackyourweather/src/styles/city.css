@@ -1,4 +1,4 @@
-.description__sunny {
+.description__clear__sky {
   background-image: url("../assets/sunny.jpg");
 
   background-attachment: local;
@@ -31,6 +31,36 @@
   padding-left: 2em;
 }
 .description__scattered__clouds {
+  background-image: url("../assets/scattered_clouds.jpg");
+  background-attachment: local;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 5%;
+  box-shadow: 0px 5px #888888;
+  max-width: 60%;
+  margin-left: 20%;
+  margin-top: 2em;
+  padding: 1em;
+  padding-left: 2em;
+}
+.description__broken__clouds {
+  background-image: url("../assets/scattered_clouds.jpg");
+  background-attachment: local;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 5%;
+  box-shadow: 0px 5px #888888;
+  max-width: 60%;
+  margin-left: 20%;
+  margin-top: 2em;
+  padding: 1em;
+  padding-left: 2em;
+}
+.description__overcast__clouds {
   background-image: url("../assets/scattered_clouds.jpg");
   background-attachment: local;
   background-size: contain;
@@ -106,6 +136,36 @@
   padding-left: 2em;
 }
 .description__mist {
+  background-image: url("../assets/mist.jpg");
+  background-attachment: local;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 5%;
+  box-shadow: 0px 5px #afadad;
+  max-width: 60%;
+  margin-left: 20%;
+  margin-top: 2em;
+  padding: 1em;
+  padding-left: 2em;
+}
+.description__haze {
+  background-image: url("../assets/mist.jpg");
+  background-attachment: local;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 5%;
+  box-shadow: 0px 5px #afadad;
+  max-width: 60%;
+  margin-left: 20%;
+  margin-top: 2em;
+  padding: 1em;
+  padding-left: 2em;
+}
+.description__fog {
   background-image: url("../assets/mist.jpg");
   background-attachment: local;
   background-size: contain;
