@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import City from "../city/City";
 import "/Users/alejandrourroz/Desktop/hyf/React/project/hackyourweather/src/styles/search.css";
 const APIKEY = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
-const Search = ({ setIsLoading }) => {
+const Search = ({ setIsLoading, isLoading }) => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
+  const [welcome, setWelcome] = useState(false);
 
   const baseUrl = `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${APIKEY}`;
 
@@ -18,6 +19,7 @@ const Search = ({ setIsLoading }) => {
   const fetchData = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setWelcome(true);
     try {
       const request = await fetch(baseUrl);
       if (request.status > 400) {
@@ -58,7 +60,9 @@ const Search = ({ setIsLoading }) => {
         </form>
       </div>
       <div>
-        {!search && <h2>Find out the weather fo your favorite cities!</h2>}
+        {welcome === false && (
+          <h2>Find out the weather of your favorite cities!</h2>
+        )}
         {data?.length > 0 ? (
           <City aria-label="city" data={data} />
         ) : (
