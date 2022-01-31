@@ -5,8 +5,9 @@
 1. Prep exercises
 2. Optional: Practice exercises
 3. PROJECT: Hack Your Weather II
-4. Optional: Practice projects
-5. Optional: Challenges
+4. Test Exercises
+5. Optional: Practice projects
+6. Optional: Challenges
 
 ## **1. Prep exercises**
 
@@ -55,7 +56,13 @@ Hints:
 - Take the name of the city to use in the API call
 - Remember to keep writing tests and refactoring while adding features! So probably start with testing week 1's code
 
-## **4. Optional: Practice projects**
+## **4. Test exercises**
+
+This week we have some extra small exercises to practice testing and receive feedback from your homework mentor! In the `test-exercises` folder you will find a react application with some test files. The `README.md` that explains what the idea is.
+
+> If you are feeling up for an extra challenge you can try adding tests to your project! If you are struggling with the complexity of the tests you may need to split your components a bit. Note: this is an optional extra challenge and is not required.
+
+## **5. Optional: Practice projects**
 
 The following exercises give you a prompt of what to build and then provide a solution when stuck. Try to do it yourself as much as possible and then compare to what they give as a solution:
 
@@ -64,7 +71,7 @@ The following exercises give you a prompt of what to build and then provide a so
 
 > The solutions they give is not necessarily the only solution, compare it to yours and see if you can get some good ideas from theirs. Because they want to show just one file, you will notice they put a lot of different functionality in one component. It is generally better to do it in separate components so good job if you thought of that!
 
-## **5. Optional: Challenges**
+## **6. Optional: Challenges**
 
 Remember that our friends over at CodeYourFuture have provided a repository with different ideas for [challenges to build](https://github.com/CodeYourFuture/cyf-react-challenges). Have a look at the `README.md` in each folder to see what the challenge is and now you can also do ones that require you to connect to an API!
 
@@ -77,7 +84,6 @@ If you need a refresher, take a look at the following [guide](../hand-in-homewor
 The homework that needs to be submitted is the following:
 
 1. Project: Hack Your Weather II
-
-Make sure you _only_ commit the project files to the repository!
+2. Test exercises
 
 _Deadline Tuesday 23.59 CET_

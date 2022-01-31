@@ -5,7 +5,8 @@
 1. Prep exercises
 2. Code alongs
 3. PROJECT: Hack Your Weather III
-4. Extra: Challenges (Optional)
+4. Test Exercises
+5. OPtional: Challenges
 
 ## **1. Prep exercises**
 
@@ -80,7 +81,13 @@ Hints:
 - Read the documentation to get a basic sense of what problems both `react-router-dom` and `recharts` are trying to solve, and to learn how to use them
 - Make sure to have a clear overview of your application so far, before you add this week's features to it
 
-## **4. Optional: Challenges**
+## **4. Test exercises**
+
+This week we have some extra small exercises to practice testing and receive feedback from your homework mentor! In the `test-exercises` folder you will find a react application with some test files. The `README.md` that explains what the idea is.
+
+> If you are feeling up for an extra challenge you can try adding tests to your project! If you are struggling with the complexity of the tests you may need to split your components a bit. Note: this is an optional extra challenge and is not required.
+
+## **5. Optional: Challenges**
 
 Remember that our friends over at CodeYourFuture have provided a repository with different ideas for [challenges to build](https://github.com/CodeYourFuture/cyf-react-challenges). Have a look at the `README.md` in each folder to see what the challenge is and now you can also do ones that require you to create multiple pages!
 
@@ -93,5 +100,6 @@ If you need a refresher, take a look at the following [guide](../hand-in-homewor
 The homework that needs to be submitted is the following:
 
 1. Project: Hack Your Weather III
+2. Test exercises
 
 _Deadline Tuesday 23.59 CET_
