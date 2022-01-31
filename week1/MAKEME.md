@@ -47,7 +47,7 @@ Enjoy!
 
 During this module you'll be starting a project called `Ecommerce Shop`! Like in the Node.js module, each week you'll add to it until it becomes a fully-fledged application that has used all of the concepts you have learned.
 
-Here's what you're eventually going to end up with: [TODO: Ecommerce Shop Finished](TODO)
+Here's what you're eventually going to end up with: [Ecommerce Shop Finished](https://jolly-curie-a12f0d.netlify.app/)
 
 Have a look at the [project/README.md](./project/README.md) file to know what to do this week.
 

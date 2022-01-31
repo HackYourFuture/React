@@ -8,8 +8,9 @@ Make sure you created a new week2 branch from the `main` branch of your forked r
 
 We are going to focus on linking up our app to the API this week. By the end of the assignment your application should work similar to this:
 
-#TODO UPDATE PICTURE AND LINK TO DEPLOYED VERSION
-![Week 2 Wireframe](../../assets/project/week2.png)
+[![Week 2 Screenshot](../../assets/project/week2.png)](https://upbeat-meninsky-86c3c8.netlify.app/)
+
+_Note: The API is a fully open API so can be a little slow to respond sometimes. Great for checking your loading UX!_
 
 What you need to have done at the end of the week:
 

@@ -10,8 +10,7 @@ Copy over the `assets` folder to your `ecommerce/src` folder. We will use these 
 
 We are going to implement some cool new features this week now that we have all of the React building blocks at our disposal. By the end of the assignment your application should work similar to this:
 
-#TODO UPDATE PICTURE AND LINK TO DEPLOYED VERSION
-![Week 3 Wireframe](../../assets/project/week3.png)
+[![Week 3 Screenshot](../../assets/project/week3.png)](https://jolly-curie-a12f0d.netlify.app/)
 
 What you need to have done at the end of the week:
 
