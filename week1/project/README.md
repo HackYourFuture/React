@@ -14,6 +14,8 @@ This week you'll build the foundation of your application. It should eventually 
 
 [![Week 1 Wireframe](../../assets/project/week1.png)](https://awesome-carson-606d96.netlify.app/)
 
+There is a live version [here](https://awesome-carson-606d96.netlify.app/)
+
 We will be using the information in the `fake-data` folder as an example of what we get back from the API. The actual connection to the API will be done next week.
 
 What you need to have done at the end of the week:
