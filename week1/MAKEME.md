@@ -6,7 +6,7 @@
 2. React exercises
 3. Optional: Practice exercises
 4. Code along
-5. PROJECT: Hack Your Weather I
+5. PROJECT: Ecommerce Shop I
 6. Optional: Challenges
 
 ## **1. Practice the concepts**
@@ -43,48 +43,13 @@ Enjoy!
 
 - [Build a Budget Calculator](https://www.youtube.com/watch?v=f6HYLHrYpGs)
 
-## **5. PROJECT: Hack Your Weather I**
+## **5. PROJECT: Ecommerce Shop I**
 
-> Before you start, create a new folder called `project` that includes the files for the following web application you'll be building.
+During this module you'll be starting a project called `Ecommerce Shop`! Like in the Node.js module, each week you'll add to it until it becomes a fully-fledged application that has used all of the concepts you have learned.
 
-During this module you'll be starting a project called `Hack Your Weather`! Like in the Node.js module, each week you'll add to it until it becomes a fully-fledged application you can be proud of.
+Here's what you're eventually going to end up with: [Ecommerce Shop Finished](https://jolly-curie-a12f0d.netlify.app/)
 
-Here's what you're eventually going to end up with: [Hack Your Weather Finished](https://xenodochial-wing-7532d8.netlify.app/)
-
-Let's get into it.
-
-### 1. Setup
-
-The first step to any project is to setup your development environment. Follow the steps:
-
-1. Navigate to your `project` folder
-2. Inside, use `create-react-app` to create a React application. Give it the name `hackyourweather`
-3. Copy and paste the file `city-weather.json` (you can find this inside of the `project-starter-files` folder) inside of your project folder: into the `src` folder
-
-### 2. Requirements
-
-This week you'll build the foundation of your application. It should eventually look like this:
-
-![Week 1 Wireframe](../assets/project/week1.png)
-
-Here are the requirements your project needs to fulfill:
-
-- List all the cities and their weather information (taken from `city-weather.json`)
-- Display each city in its own box
-- Each box should contain the following pieces of data:
-  - `city name`
-  - `country name`
-  - `weather main`
-  - `weather description`
-  - `max and min temperature`
-  - `location (longitude and latitude)`
-
-Hints:
-
-- Make use of the `map()` function to show the different cities
-- Try to "think in components"
-- Look at the JSON file and carefully look at where the useful data is found
-- The temperatures in the JSON file are in kelvin; The temperatures in the example image are in celsius.
+Have a look at the [project/README.md](./project/README.md) file to know what to do this week.
 
 ## **6. Optional: Challenges**
 
@@ -100,7 +65,7 @@ If you need a refresher, take a look at the following [guide](../hand-in-homewor
 
 The homework that needs to be submitted is the following:
 
-1. Project: Hack Your Weather I
+1. Project: Ecommerce Shop I
 
 Make sure you _only_ commit the project files to the repository!
 

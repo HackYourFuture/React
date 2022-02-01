@@ -4,7 +4,7 @@
 
 1. Prep exercises
 2. Optional: Practice exercises
-3. PROJECT: Hack Your Weather II
+3. PROJECT: Ecommerce Shop II
 4. Test Exercises
 5. Optional: Practice projects
 6. Optional: Challenges
@@ -21,40 +21,11 @@ Practice, practice, practice! Watching videos is a good way to get new ideas, bu
 
 Inside of your `React` fork, go to the folder `week2`. Inside of that folder, navigate to `/practice-exercises`. For each exercise, you will find a separate folder. The `README` explains what needs to be done. Go through them to practice concepts that you have learned about!
 
-## **3. PROJECT: Hack Your Weather II**
+## **3. PROJECT: Ecommerce Shop II**
 
-> Make sure you're building on last week's codebase.
+Let's continue building on our application! This week you'll replace the application's data source: instead of using a JSON file you'll be using an external API, called [Fake Store API](https://fakestoreapi.com/).
 
-Let's continue building on our application! This week you'll replace the application's data source: instead of using a JSON file you'll be using an external API, called [OpenWeatherMap](https://openweathermap.org/). In addition to that, you'll add a `search functionality` that allows a user to type in a city name and retrieve weather data on it!
-
-### 1. Setup
-
-1. Sign up for an API key at [OpenWeatherMap App ID](https://openweathermap.org/appid)
-2. Create a `.env` file in the root of your project folder
-3. Paste the API key inside the `.env` file with the name `REACT_APP_OPENWEATHERMAP_API_KEY`
-
-### 2. Requirements
-
-By the end of this week's assignment your application should look similar to this:
-
-![Week 2 Wireframe](../assets/project/week2.png)
-
-Here are the requirements your project needs to fulfill:
-
-- Your form should have `controlled inputs`
-- Make an API call when the button is clicked
-- Display the city + weather information similar to week 1
-- Make a component for the search
-- Incorporate error handling for the API call
-- Show user feedback when there are no cities searched for yet
-- All your components should be tested
-- Redeploy your static site
-
-Hints:
-
-- For the form, use the `onChange` and `value` attributes
-- Take the name of the city to use in the API call
-- Remember to keep writing tests and refactoring while adding features! So probably start with testing week 1's code
+Have a look at the [project/README.md](./project/README.md) file to know what to do this week.
 
 ## **4. Test exercises**
 
@@ -83,7 +54,7 @@ If you need a refresher, take a look at the following [guide](../hand-in-homewor
 
 The homework that needs to be submitted is the following:
 
-1. Project: Hack Your Weather II
+1. Project: Ecommerce Shop II
 2. Test exercises
 
 _Deadline Tuesday 23.59 CET_
