@@ -54,7 +54,7 @@ If you need a refresher, take a look at the following [guide](../hand-in-homewor
 
 The homework that needs to be submitted is the following:
 
-1. Project: Hack Your Weather II
+1. Project: Ecommerce Shop II
 2. Test exercises
 
 _Deadline Tuesday 23.59 CET_

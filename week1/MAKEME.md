@@ -65,7 +65,7 @@ If you need a refresher, take a look at the following [guide](../hand-in-homewor
 
 The homework that needs to be submitted is the following:
 
-1. Project: Hack Your Weather I
+1. Project: Ecommerce Shop I
 
 Make sure you _only_ commit the project files to the repository!
 
