@@ -12,6 +12,8 @@ We are going to implement some cool new features this week now that we have all 
 
 [![Week 3 Screenshot](../../assets/project/week3.png)](https://jolly-curie-a12f0d.netlify.app/)
 
+There is a live version [here](https://jolly-curie-a12f0d.netlify.app/)
+
 What you need to have done at the end of the week:
 
 - Add a navigation bar at the top that handles routing between `/`, `/product/:id` and `/favourites`. _TIP: You will need to add the `react-router-dom` package and add the routing to your app._
