@@ -17,38 +17,14 @@ import useListState from "./6-useListState";
 
 describe("useListState", () => {
   it("Sets the correct initial list", () => {
-    const testList = [1, 2, 3];
-    const { result } = renderHook(() => useListState(testList));
-
-    expect(result.current.list).toEqual(testList);
+    
   });
 
   it("Adding an element updates the list", () => {
-    const testList = [1, 2, 3];
-    const { result } = renderHook(() => useListState(testList));
-
-    expect(result.current.list).toEqual(testList);
-
-    act(() => {
-      result.current.addElement(4);
-    });
-
-    expect(result.current.list).toEqual([...testList, 4]);
+    
   });
 
   it("Removing an element updates the list", () => {
-    const testList = [
-      { id: 1, value: 1 },
-      { id: 2, value: 2 },
-    ];
-    const { result } = renderHook(() => useListState(testList));
-
-    expect(result.current.list).toEqual(testList);
-
-    act(() => {
-      result.current.removeElementWithId(2);
-    });
-
-    expect(result.current.list).toEqual([{ id: 1, value: 1 }]);
+    
   });
 });
