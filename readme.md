@@ -3,17 +3,15 @@
 
 # HackYourFuture - React
 
-In this 5 week module we will learn React!
+React is a JavaScript library for building user interfaces. This course is divided in 2 modules, of 3 and 2 week.
 
-## Planning
 
-| Week | Topic                                                                                                                | Preparation                         | Lesson plan                         | Homework                      |
-| ---- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------- |
-| 1.   | **Thinking the React way** <br> Understanding the component model <br> Props <br> State                              | [Preparation](week1/preparation.md) | [Lesson plan](week1/lesson-plan.md) | [Homework](week1/homework.md) |
-| 2.   | **Building components** <br> create-react-app <br> Component tree <br> Stateful logic <br> List keys <br> Life cycle | [Preparation](week2/preparation.md) | [Lesson plan](week2/lesson-plan.md) | [Homework](week2/homework.md) |
-| 3.   | **Advanced React** <br> Forms and events <br> Using data fetching <br> Children <br> Prop types                      | [Preparation](week3/preparation.md) | [Lesson plan](week3/lesson-plan.md) | [Homework](week3/homework.md) |
-| 4.   | **Managing state** <br> Context <br> Render props                                                                    | [Preparation](week4/preparation.md) | [Lesson plan](week4/lesson-plan.md) | [Homework](week4/homework.md) |
-| 5.   | **Connecting to node** <br> React router <br> Refs <br> Node api project                                             | [Preparation](week5/preparation.md) | [Lesson plan](week5/lesson-plan.md) | [Homework](week5/homework.md) |
+## Module goals:
+
+### [React1 Module:](/react1/readme.md)   
+
+### [React2 Module:](/react2/readme.md)
+
 
 ## Read up before we get started
 
