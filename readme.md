@@ -1,14 +1,18 @@
 > Please help us improve and share your feedback! If you find better tutorials
 > or links, please share them by [opening a pull request](https://github.com/HackYourFuture-CPH/React/pulls).
 
-# HackYourFuture - React
+<h1 align='center'>
+ HackYourFuture - React
+</h1>   
+
 <p align='center'>
-![react-logo](https://user-images.githubusercontent.com/6642037/154867292-68c1fe6b-087a-41e1-b660-99c8a1d8eea3.png)
-</p>
+<img src='react-logo.png' width='600px'>  
+</p>   
 
- 
 
-React is a JavaScript library for building user interfaces. This course is divided in 2 modules, of 3 and 2 week.
+React is free an open-source frontend JavaScript library for building user interfaces based on UI components.
+
+This course is divided in 2 modules, of 3 and 2 week.
 
 
 ## Module goals:
