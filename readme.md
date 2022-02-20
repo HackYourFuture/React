@@ -9,8 +9,13 @@ React is a JavaScript library for building user interfaces. This course is divid
 ## Module goals:
 
 ### [React1 Module:](/react1/readme.md)   
+Thinking the React way
+Building components
+Advanced React
 
 ### [React2 Module:](/react2/readme.md)
+Managing state
+Connecting to node
 
 
 ## Read up before we get started
