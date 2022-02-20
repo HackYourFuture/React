@@ -2,6 +2,11 @@
 > or links, please share them by [opening a pull request](https://github.com/HackYourFuture-CPH/React/pulls).
 
 # HackYourFuture - React
+<p align='center'>
+![react-logo](https://user-images.githubusercontent.com/6642037/154867292-68c1fe6b-087a-41e1-b660-99c8a1d8eea3.png)
+</p>
+
+ 
 
 React is a JavaScript library for building user interfaces. This course is divided in 2 modules, of 3 and 2 week.
 
