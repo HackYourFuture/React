@@ -167,8 +167,8 @@ Do this again using controlled inputs.
 #### Mockups
 
 ##### Submit shift
-![Submit shift](assets/submit-shift.jpg)
+![Submit shift](assets/submit-shift.jpeg)
 
 
 ##### Shifts overview
-![Submit shift](assets/shifts-overview.jpg)
+![Submit shift](assets/shifts-overview.jpeg)
