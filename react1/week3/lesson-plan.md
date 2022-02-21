@@ -23,7 +23,7 @@ but if we need to handle form submission in javascript and keep track of what da
 
 ## Flipped classroom videos
 
-[Flipped classroom videos](https://github.com/HackYourFuture-CPH/React/blob/react-module-spliting/react1/week3/preparation.md#flipped-classroom-videos)
+[Flipped classroom videos](./preparation.md#flipped-classroom-videos)
 
 ## Code inspiration
 
