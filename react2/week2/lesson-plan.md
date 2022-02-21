@@ -1,14 +1,20 @@
-# Lesson Plan - Managing state
+# Lesson Plan - Connecting to node
 
-- Context
-  - Consumer
-  - Provider
-- Render props
+- Having a boilerplate that runs node connected to a sql database and React. The node api uses the database table, React uses the node api.
+- React router
+- Refs
 
-## Context example
+## Code inspiration
 
-From [Niels Schmidt ](https://github.com/bytewiz)
+### Node React
+Simple React app using node with express as backend. Rendering users.
 
-https://github.com/bytewiz/HackYourFuture/tree/master/src/ContextExample
+https://glitch.com/~hyf-node-react
 
+#### Possible extensions
+- Creating a new user using a `POST` request with `fetch`
+  - Do it both with controlled inputs and refs
+- Every user should have a seperate about page
+  - When the list of users is rendered link to the users about page
 
+Please, feel free to give us some feedback about your experience teaching React [here](https://forms.gle/usuv9u1HMdjkqqzu8), or with homework reviews [here](https://forms.gle/Ai5vrCiCnYs1bMmh9).
