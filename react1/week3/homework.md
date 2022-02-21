@@ -58,7 +58,7 @@ Worth considering:
 
 ## Extra assignment
 
-Make the exercises in [chat-app](https://github.com/HackYourFuture-CPH/React/tree/master/examples/chat-app)!
+Make the exercises in [chat-app](https://github.com/HackYourFuture-CPH/React/tree/main/examples/chat-app)!
 
 ## Hand in Homework:
 
