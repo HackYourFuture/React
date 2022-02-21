@@ -40,7 +40,7 @@ Teacher suggestion:
 
 ## Flipped classroom videos
 
-[Flipped classroom videos](https://github.com/HackYourFuture-CPH/React/blob/master/week1/preparation.md#flipped-classroom-videos)
+[Flipped classroom videos](https://github.com/HackYourFuture-CPH/React/blob/react-module-spliting/react1/week1/preparation.md#flipped-classroom-videos)
 
 ### Get started with React and parcel.js
 
