@@ -1,0 +1,42 @@
+.productCard {
+  background-color: rgb(247, 218, 191);
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  max-width: 80%;
+  justify-content: space-between;
+}
+
+h2 {
+  text-align: center;
+}
+.detailImage {
+  display: flex;
+  justify-content: center;
+  max-width: 50%;
+}
+
+.detailImage img {
+  width: 90%;
+}
+
+.detailDescription {
+  background-color: rgb(253, 235, 219);
+  padding: 8px;
+  width: 50%;
+}
+
+.rate_price {
+  text-align: center;
+  background-color: rgb(255, 119, 0);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  margin: auto;
+}
+
+.detailDescription p {
+  padding: 20px;
+  margin: auto;
+}

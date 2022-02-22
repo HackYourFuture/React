@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  padding: 20px;
+  background-color: #e7e4f1;
+  min-width: 425px;
+  min-height: 100vh;
+}
+
+/* Header */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 8px 24px;
+  margin-bottom: 16px;
+}
+.navigation span {
+  font-size: 48px;
+}
+.links a {
+  margin-left: 16px;
+  text-decoration: none;
+}
+
+/* body */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  color: #ab3428;
+}
+
+.categoryItem {
+  padding: 6px;
+  margin-right: 24px;
+  border-bottom: 4px solid #9b7bfa;
+  background: linear-gradient(90deg, #d8cef8 1%, #e7e1f8 20%);
+  list-style: none;
+}
+.categoryItem:hover {
+  cursor: pointer;
+  background: linear-gradient(90deg, #d8cef8 50%, #e7e1f8 80%);
+}
+.categoryItem:active {
+  transform: translateY(3px);
+}
+
+.productList {
+  display: grid;
+  grid-template-columns: repeat(4, 24%);
+  gap: 20px 1.3%;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #cfc0fc;
+  padding: 20px;
+  margin: 20px;
+  background-color: #fff;
+  height: 100%;
+}
+.product:hover {
+  cursor: pointer;
+  transform: translateY(3px);
+}
+.image {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.image img {
+  width: 90%;
+  padding: 20px;
+}
+
+.favoriteIcon {
+  position: relative;
+  left: 40%;
+}
+.favoriteIcon svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.favoriteIcon:hover {
+  cursor: grab;
+}
+@media only screen and (max-width: 1440px) {
+  .productList {
+    grid-template-columns: repeat(3, 33%);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .productList {
+    grid-template-columns: repeat(2, 50%);
+  }
+  .navbar {
+    grid-template-columns: repeat(2, 45%);
+  }
+  .categoryItem {
+    margin-bottom: 6px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .productList {
+    grid-template-columns: repeat(1, 100%);
+  }
+  .categories {
+    grid-template-columns: repeat(1, 75%);
+  }
+}

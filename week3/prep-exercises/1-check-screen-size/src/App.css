@@ -1,0 +1,31 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(44, 44, 44);
+  color: rgb(225, 225, 225);
+}
+
+.container {
+  background-color: rgb(66, 66, 66);
+  text-align: center;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.avatar {
+  width: 300px;
+  margin: auto;
+}
+
+.description {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: rgb(100, 100, 100);
+}
+
+span {
+  font-size: 48px;
+}
