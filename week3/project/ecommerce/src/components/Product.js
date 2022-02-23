@@ -10,11 +10,17 @@ const Product = ({ product }) => {
   const addFavorites = (e) => {
     e.preventDefault();
     setIsFavorite(!isfavorite);
-    const found = favorites.some((el) => el === product.id);
+
+    const favorite = {
+      id: product.id,
+      title: product.title,
+      image: product.image,
+    };
+    const found = favorites.some((el) => el.id === product.id);
     if (!found) {
-      setFavorites((prevFavorites) => [...prevFavorites, product.id]);
+      setFavorites((prevFavorites) => [...prevFavorites, favorite]);
     } else {
-      const itemRemoved = favorites.filter((el) => el !== product.id);
+      const itemRemoved = favorites.filter((el) => el.id !== product.id);
       setFavorites(itemRemoved);
     }
     console.log("favorites List", favorites);

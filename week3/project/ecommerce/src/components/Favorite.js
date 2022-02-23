@@ -4,17 +4,16 @@ import { AiFillHeart } from "react-icons/ai";
 const Favorite = ({ item }) => {
   return (
     <div className="product">
-      <div>
+      <div className="favoriteIcon">
         <AiFillHeart />
-        {item}
       </div>
-      {/* <div className="image">
+      <div className="image">
         <img src={item.image} alt="product" />
       </div>
 
       <div className="description">
         <h3>{item.title}</h3>
-      </div> */}
+      </div>
     </div>
   );
 };

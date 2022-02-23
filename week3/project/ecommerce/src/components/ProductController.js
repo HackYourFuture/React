@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Error from "./Error";
 import Categories from "./Categories";
 import ProductList from "./ProductList";
@@ -30,13 +30,13 @@ function ProductController() {
   //fetches data for each navbar item
   const handleList = async (category) => {
     try {
-      let products = [];
+      let result;
       if (category) {
-        products = await fetch(`${BASE_URL}/category/${category}`);
+        result = await fetch(`${BASE_URL}/category/${category}`);
       } else {
-        products = await fetch(`${BASE_URL}`);
+        result = await fetch(`${BASE_URL}`);
       }
-      const productsData = await products.json();
+      const productsData = await result.json();
       setProducts(productsData);
       setProductsLoading(false);
     } catch (error) {
