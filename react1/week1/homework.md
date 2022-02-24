@@ -18,7 +18,7 @@ Using the `hyf-homework` repo write this command
 
 `git checkout master` - You are now on the `master` branch
 
-`git checkout -b react-week1`
+`git checkout -b react-react1-week1`
 
 This will create and checkout the branch so you are ready make commits to it
 
