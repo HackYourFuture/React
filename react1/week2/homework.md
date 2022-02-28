@@ -7,7 +7,7 @@ Using the `hyf-homework` repo. In the terminal run `git status`
 If there are changes that have not been committed, figure out what to do with those changes
 
 - Should they be committed to another branch?
-- Should they be committed to `master`?
+- Should they be committed to `main`?
 - Should they be discarded?
 
 When you have figured out what to do with the changes and fixed those. Write `git status` again. If it says `nothing to commit, working tree clean`. Then you are ready to create the branch for this weeks homework.
@@ -16,9 +16,9 @@ When you have figured out what to do with the changes and fixed those. Write `gi
 
 Using the `hyf-homework` repo write this command
 
-`git checkout master` - You are now on the `master` branch
+`git checkout main` - You are now on the `main` branch
 
-`git checkout -b react-week3`
+`git checkout -b react-react1-week2`
 
 This will create and checkout the branch so you are ready make commits to it
 
@@ -26,51 +26,65 @@ This will create and checkout the branch so you are ready make commits to it
 
 ## Outline
 
-Now instead of using an array to load the default items, use the api found here: `https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw` using `fetch`
+Extend your todo list app with the ability to add new random todo items. Also your todo list should start rendering todo items using the following array:
 
-Extend your todo list app with the ability to add new todo items with user inputted data and remove existing ones and a deadline for the todo item.
+```js
+const todos = [
+  {
+    id: 1,
+    description: "Get out of bed",
+  },
+  {
+    id: 2,
+    description: "Brush teeth",
+  },
+  {
+    id: 3,
+    description: "Eat breakfast",
+  },
+];
+```
 
-Create an add button, a text input and a deadline input. When the add button is clicked a new todo item is created with the given
-description and deadline. Create also a remove button, which when clicked it should remove the todo item from the list.
+This also means that new todo items should be added to this array.
 
-> Challenge: figure out a way for users to enter the deadline date. This is a great opportunity to think like a community in a wider development community. Perhaps there are some React libraries out there that provide some kind of **date picker**? Also, look at [Luxon](https://moment.github.io/luxon/index.html) to see if it could be useful.
+Create a checkbox in each todo item. When you click the checkbox, the done state of the item should change. When an item is marked as done, it should be rendered with a `line-through` decoration. A mockup of the end result is the following:
 
-Create a component that wraps another component in a black border using [react children](https://medium.com/javascript-in-plain-english/how-to-use-props-children-in-react-7d6ab5836c9d)
+When there are no items, the todo app should render the text "No items...":
 
-Demo of how the homework should look
+## Life cycle
+
+Using life cycles, set up a timer that counts how long time a users has spent on the website.
 
 ![todolist](assets/todolist.gif)
 
-Here are the requirements for this weeks homework:
+Requirements:
 
-- Add a deadline to the todo item
-- Create new item using description and deadline that the user inputs
-- Possibility to update a todoitem
-- Create proptypes for at least one of the components
-- Create a border component that wraps a component in a black border
+- Add random item
+- Mark todo item as done
+- If no items render "No items"
+- _Extra_ add a possibility to delete an item
 
-Worth considering:
+## Reading exercises
 
-- What if the description input is empty?
-- What if the deadline input is empty?
-- What if the deadline is before the current day?
-- What if you edit an item with an empty description?
+Read about `this` binding in Javascript:
 
-## Extra assignment
+- https://gist.github.com/zcaceres/2a4ac91f9f42ec0ef9cd0d18e4e71262
+- https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/
+- https://codeburst.io/binding-functions-in-react-b168d2d006cb
 
-Make the exercises in [chat-app](https://github.com/HackYourFuture-CPH/React/tree/master/examples/chat-app)!
+Follow the The Beginner's Guide to React by Egghead https://egghead.io/courses/the-beginner-s-guide-to-react
 
 ## Hand in Homework:
 
 Watch [this video](https://www.youtube.com/watch?v=XYlgh9hSWtw) for a more detailed go-through of how to hand in homework!
 
-- Use the branch called `react-week3`
-- Add all your changes to this branch in the `react/week3` folder.
+- Use the branch called `react-react1-week2`
+- Add all your changes to this branch in the `react/react1/week2` folder.
 - Go through the [Homework checklist](#homework-checklist)
-- Create a pull request using the `react-week3` branch and give your PR the same name `react-week3`.
+- Create a pull request using the `react-react1-week2` branch and give your PR the same name `react-react1-week2`.
 - Wait for mentor feedback
 - Implement feedback, `add`, `commit` and `push` the changes
-- Now you can merge the changes into `master`
+- Now you can merge the changes into `main`
 - When merged you can **share the github link** to your classes slack channel if you are **proud of what you did** 💪
 - Now celebrate 🎉🎉🎉
 
@@ -89,6 +103,6 @@ Find a student to give feedback using this site: https://hyf-peer-review.herokua
 
 Give the review on the PR exactly how the mentors do it! To find the link for the PR ask the person you are reviewing :) You can see how to give feedback on a PR using github [here](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)
 
-To help you get started with reviewing we have created [some ressources](https://github.com/HackYourFuture-CPH/curriculum/tree/master/review) about giving feedback. Find them
+To help you get started with reviewing we have created [some resources](https://github.com/HackYourFuture-CPH/curriculum/tree/main/review) about giving feedback. Find them
 
 Why is it important to give feedback? Because it will make you a [better](https://www.brightspot.com/blog/developer-life-5-reasons-why-the-code-review-process-is-critical-for-developers) [developer](https://www.sitepoint.com/the-importance-of-code-reviews/)

@@ -5,25 +5,25 @@ Forms works out of the box exactly like plain html.
 
 but if we need to handle form submission in javascript and keep track of what data the user enters in the form, then we use [controlled inputs](#controlled-inputs)
 
-- Controlled Inputs
+### Controlled Inputs
   - Docs [here](https://reactjs.org/docs/forms.html#controlled-components)
   - Uncontrolled inputs are almost never useful to us
   - For controlled inputs, we must provide _both_:
     - The value
     - The onChange event handler
   - React controls the state of the input, not the browser
-- Using data fetching
+### Using data fetching
   - Setting up fetching on mount
   - Talk about loading states
-- Prop types
-- Children
+### Prop types
+### Children
   - Make a simple example of using `props.children`. Fx the fancyborder component used in [this example](https://reactjs.org/docs/composition-vs-inheritance.html#containment)
 
 [Code inspiration](#random-cats)
 
 ## Flipped classroom videos
 
-[Flipped classroom videos](https://github.com/HackYourFuture-CPH/React/blob/master/week3/preparation.md#flipped-classroom-videos)
+[Flipped classroom videos](./preparation.md#flipped-classroom-videos)
 
 ## Code inspiration
 
@@ -167,8 +167,8 @@ Do this again using controlled inputs.
 #### Mockups
 
 ##### Submit shift
-![Submit shift](assets/submit-shift.jpg)
+![Submit shift](assets/submit-shift.jpeg)
 
 
 ##### Shifts overview
-![Submit shift](assets/shifts-overview.jpg)
+![Submit shift](assets/shifts-overview.jpeg)

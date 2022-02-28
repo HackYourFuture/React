@@ -6,5 +6,5 @@
 
 ## Flipped classroom videos
 
-- [React week 2 part 1](https://youtu.be/ArGRhOgf5LU)
-- [React week 2 part 2](https://youtu.be/E_5U6lzI8-A)
+- [React 1 week 2 part 1](https://youtu.be/ArGRhOgf5LU)
+- [React 1 week 2 part 2](https://youtu.be/E_5U6lzI8-A)

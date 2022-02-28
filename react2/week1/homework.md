@@ -7,7 +7,7 @@ Using the `hyf-homework` repo. In the terminal run `git status`
 If there are changes that have not been committed, figure out what to do with those changes
 
 - Should they be committed to another branch?
-- Should they be committed to `master`?
+- Should they be committed to `main`?
 - Should they be discarded?
 
 When you have figured out what to do with the changes and fixed those. Write `git status` again. If it says `nothing to commit, working tree clean`. Then you are ready to create the branch for this weeks homework.
@@ -16,75 +16,48 @@ When you have figured out what to do with the changes and fixed those. Write `gi
 
 Using the `hyf-homework` repo write this command
 
-`git checkout master` - You are now on the `master` branch
+`git checkout main` - You are now on the `main` branch
 
-`git checkout -b react-week2`
+`git checkout -b react-react2-week1`
 
 This will create and checkout the branch so you are ready make commits to it
 
 [This video](https://www.youtube.com/watch?v=XYlgh9hSWtw) can help. On slack use the #git-support channel to ask questions about git
 
-## Outline
+## Github users search
 
-Extend your todo list app with the ability to add new random todo items. Also your todo list should start rendering todo items using the following array:
-
-```js
-const todos = [
-  {
-    id: 1,
-    description: "Get out of bed",
-  },
-  {
-    id: 2,
-    description: "Brush teeth",
-  },
-  {
-    id: 3,
-    description: "Eat breakfast",
-  },
-];
-```
-
-This also means that new todo items should be added to this array.
-
-Create a checkbox in each todo item. When you click the checkbox, the done state of the item should change. When an item is marked as done, it should be rendered with a `line-through` decoration. A mockup of the end result is the following:
-
-When there are no items, the todo app should render the text "No items...":
-
-## Life cycle
-
-Using life cycles, set up a timer that counts how long time a users has spent on the website.
-
-![todolist](assets/todolist.gif)
+your homework will be searching github users based on the what you type in the input. Use this api: `https://api.github.com/search/users?q=${query}`
 
 Requirements:
 
-- Add random item
-- Mark todo item as done
-- If no items render "No items"
-- _Extra_ add a possibility to delete an item
+- When the search is loading, you should show "loading..."
+- When the search is failed, you should show "error fetching (reason why it failed)..."
+- When the search result is empty (no users), you should show "No results..."
+- All state should be managed using the context api!
 
-## Reading exercises
+![Homework preview](assets/homework-preview.gif)
 
-Read about `this` binding in Javascript:
+Try the website here: https://ro6ne.csb.app/
 
-- https://gist.github.com/zcaceres/2a4ac91f9f42ec0ef9cd0d18e4e71262
-- https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/
-- https://codeburst.io/binding-functions-in-react-b168d2d006cb
+## Working with github api
 
-Follow the The Beginner's Guide to React by Egghead https://egghead.io/courses/the-beginner-s-guide-to-react
+- Continue using the github API through this url - https://api.github.com (Hint: use postman to query the github API)
+- By querying the above url you will view all the api urls that the github API has. You can try to explore them, we recommend that you read the github API documentation. (https://developer.github.com/v3/#current-version)
+  - You can try to retrieve the repos data from the HackYourFuture-CPH organisation - (Hint: https://api.github.com/users/.../repos)
+  - You can try to display the name of all the repos in your React app
+  - If this is to easy for you... surprise us with your creativity... build up on your project and we will have a look!! ;)
 
 ## Hand in Homework:
 
 Watch [this video](https://www.youtube.com/watch?v=XYlgh9hSWtw) for a more detailed go-through of how to hand in homework!
 
-- Use the branch called `react-week2`
-- Add all your changes to this branch in the `react/week2` folder.
+- Use the branch called `react-react2-week1`
+- Add all your changes to this branch in the `react/react2/week1` folder.
 - Go through the [Homework checklist](#homework-checklist)
-- Create a pull request using the `react-week2` branch and give your PR the same name `react-week2`.
+- Create a pull request using the `react-react2-week1` branch and give your PR the same name `react-react2-week1`.
 - Wait for mentor feedback
 - Implement feedback, `add`, `commit` and `push` the changes
-- Now you can merge the changes into `master`
+- Now you can merge the changes into `main`
 - When merged you can **share the github link** to your classes slack channel if you are **proud of what you did** 💪
 - Now celebrate 🎉🎉🎉
 
@@ -103,6 +76,6 @@ Find a student to give feedback using this site: https://hyf-peer-review.herokua
 
 Give the review on the PR exactly how the mentors do it! To find the link for the PR ask the person you are reviewing :) You can see how to give feedback on a PR using github [here](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)
 
-To help you get started with reviewing we have created [some ressources](https://github.com/HackYourFuture-CPH/curriculum/tree/master/review) about giving feedback. Find them
+To help you get started with reviewing we have created [some resources](https://github.com/HackYourFuture-CPH/curriculum/tree/main/review) about giving feedback. Find them
 
 Why is it important to give feedback? Because it will make you a [better](https://www.brightspot.com/blog/developer-life-5-reasons-why-the-code-review-process-is-critical-for-developers) [developer](https://www.sitepoint.com/the-importance-of-code-reviews/)
