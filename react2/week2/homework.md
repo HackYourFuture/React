@@ -7,7 +7,7 @@ Using the 🚨 `meal-sharing` 🚨 repo. Not the `hyf-homework` repo! In the ter
 If there are changes that have not been committed, figure out what to do with those changes
 
 - Should they be committed to another branch?
-- Should they be committed to `master`?
+- Should they be committed to `main`?
 - Should they be discarded?
 
 When you have figured out what to do with the changes and fixed those. Write `git status` again. If it says `nothing to commit, working tree clean`. Then you are ready to create the branch for this weeks homework.
@@ -16,7 +16,7 @@ When you have figured out what to do with the changes and fixed those. Write `gi
 
 Using the 🚨`meal-sharing`🚨 repo write this command
 
-`git checkout master` - You are now on the `master` branch
+`git checkout main` - You are now on the `main` branch
 
 `git checkout -b frontend`
 
@@ -87,7 +87,7 @@ We will finish and deploy the meal sharing site next week: https://github.com/Ha
 - Create a pull request using the `frontend` branch and give your PR the same name `frontend`.
 - Wait for mentor feedback
 - Implement feedback, `add`, `commit` and `push` the changes
-- Now you can merge the changes into `master`
+- Now you can merge the changes into `main`
 - When merged you can **share the github link** to your classes slack channel if you are **proud of what you did** 💪
 - Now celebrate 🎉🎉🎉
 
@@ -106,7 +106,7 @@ Find a student to give feedback using this site: https://hyf-peer-review.herokua
 
 Give the review on the PR exactly how the mentors do it! To find the link for the PR ask the person you are reviewing :) You can see how to give feedback on a PR using github [here](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)
 
-To help you get started with reviewing we have created [some ressources](https://github.com/HackYourFuture-CPH/curriculum/tree/main/review) about giving feedback. Find them
+To help you get started with reviewing we have created [some resources](https://github.com/HackYourFuture-CPH/curriculum/tree/main/review) about giving feedback. Find them
 
 Why is it important to give feedback? Because it will make you a [better](https://www.brightspot.com/blog/developer-life-5-reasons-why-the-code-review-process-is-critical-for-developers) [developer](https://www.sitepoint.com/the-importance-of-code-reviews/)
 

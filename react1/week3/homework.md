@@ -7,7 +7,7 @@ Using the `hyf-homework` repo. In the terminal run `git status`
 If there are changes that have not been committed, figure out what to do with those changes
 
 - Should they be committed to another branch?
-- Should they be committed to `master`?
+- Should they be committed to `main`?
 - Should they be discarded?
 
 When you have figured out what to do with the changes and fixed those. Write `git status` again. If it says `nothing to commit, working tree clean`. Then you are ready to create the branch for this weeks homework.
@@ -16,9 +16,9 @@ When you have figured out what to do with the changes and fixed those. Write `gi
 
 Using the `hyf-homework` repo write this command
 
-`git checkout master` - You are now on the `master` branch
+`git checkout main` - You are now on the `main` branch
 
-`git checkout -b react-week3`
+`git checkout -b react-react1-week3`
 
 This will create and checkout the branch so you are ready make commits to it
 
@@ -64,13 +64,13 @@ Make the exercises in [chat-app](https://github.com/HackYourFuture-CPH/React/tre
 
 Watch [this video](https://www.youtube.com/watch?v=XYlgh9hSWtw) for a more detailed go-through of how to hand in homework!
 
-- Use the branch called `react-week3`
-- Add all your changes to this branch in the `react/week3` folder.
+- Use the branch called `react-react1-week3`
+- Add all your changes to this branch in the `react/react1/week3` folder.
 - Go through the [Homework checklist](#homework-checklist)
-- Create a pull request using the `react-week3` branch and give your PR the same name `react-week3`.
+- Create a pull request using the `react-react1-week3` branch and give your PR the same name `react-react1-week3`.
 - Wait for mentor feedback
 - Implement feedback, `add`, `commit` and `push` the changes
-- Now you can merge the changes into `master`
+- Now you can merge the changes into `main`
 - When merged you can **share the github link** to your classes slack channel if you are **proud of what you did** 💪
 - Now celebrate 🎉🎉🎉
 
