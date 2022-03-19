@@ -46,30 +46,41 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
+const initTodos = [
+  {
+    text: "clean room",
+  },
+  {
+    text: "do pushups",
+  },
+];
+
 function TodoList() {
-  const [todos, setTodos] = useState([
-    {
-      text: "asdllll",
-    },
-    {
-      text: "testsss",
-    },
-  ]);
+  const [todos, setTodos] = useState(initTodos);
 
   const addTodo = () => {
-    const newItem = { text: "lolol" };
-    const newList = todos.concat(newItem);
-    setTodos(newList);
+    const newTodo = { text: "learn React" };
+    setTodos(prevTodos => {
+      return [...prevTodos, newTodo];
+    });
   };
+
+  const todos = todos.map((todo) => (
+    <TodoItem>{todo.text}</TodoItem>
+  ));
 
   return (
     <div className="App">
       <button onClick={addTodo}>Add todo</button>
-      {todos.map((todo) => (
-        <li>{todo.text}</li>
-      ))}
+      {todos}
     </div>
   );
+}
+
+function TodoItem({todoText}) {
+  return (
+     <li>{todoText}</li>
+  )
 }
 
 const rootElement = document.getElementById("root");
