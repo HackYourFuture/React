@@ -12,14 +12,14 @@
 - Stateful logic
   - Using destructuring in React
   - State vs. Props
-    - Both props and state trigger a render update when they change
+    - Seeting the state triggers a compenent call.
     - How to determine if data should be props or state?
       - Props are "configuration options" for components
       - State is completely optional
       - State increases complexity and reduces predictability
       - Use props unless you definitely need to use state
       - State is single-level only. Components can read and set their own state, but cannot read or set the state of their children
-    - Later, we are going to be using a state-management tool
+    - Understand that we are not allowed to mutate the state. 
 - List keys
   - Render list first without adding the key. See the error
   - Assignment of unique key to every item rendered in an array
@@ -88,6 +88,9 @@ ReactDOM.render(<TodoList />, rootElement);
 ```
 
 ## Exercise
+
+  1. Add an id to the todo list objects to deal with the key error
+  2. Add a method to delete a todo by using an input field to enter the id to be deleted.
 
 ### Counter
 
