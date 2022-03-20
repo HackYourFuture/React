@@ -55,31 +55,31 @@ const initTodos = [
   },
 ];
 
-function TodoList() {
-  const [todos, setTodos] = useState(initTodos);
+export function TodoList() {
+  const [todosState, setTodosState] = useState(initTodos);
 
   const addTodo = () => {
     const newTodo = { text: "learn React" };
-    setTodos(prevTodos => {
+    setTodosState(prevTodos => {
       return [...prevTodos, newTodo];
     });
   };
 
-  const todos = todos.map((todo) => (
-    <TodoItem>{todo.text}</TodoItem>
+  const todoItems = todosState.map((todo) => (
+    <TodoItem text={todo.text}></TodoItem>
   ));
 
   return (
     <div className="App">
       <button onClick={addTodo}>Add todo</button>
-      {todos}
+      {todoItems}
     </div>
   );
 }
 
-function TodoItem({todoText}) {
+function TodoItem({text}) {
   return (
-     <li>{todoText}</li>
+     <li>{text}</li>
   )
 }
 
