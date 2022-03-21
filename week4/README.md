@@ -69,3 +69,8 @@ Any API you want, you can look at the [Ideas](https://github.com/HackYourFuture/
 Yes! But please check with your mentor if you decide to use one. We don't want you to use a library that abstracts away some of the things we want to teach you.
 
 Any UI toolkit (things like [Material UI](https://material-ui.com/) or [Semantic UI](https://react.semantic-ui.com/) that give you some basic components that have a particular style) is fine. The libaries we used during the curriculum is also fine. For the rest please let us know what you are planning.
+
+## Final remarks
+As you are all working on the projects this week there will not be a Q&A session on Sunday this week.
+
+Enjoy!
