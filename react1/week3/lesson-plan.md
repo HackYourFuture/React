@@ -5,6 +5,11 @@ Forms works out of the box exactly like plain html.
 
 but if we need to handle form submission in javascript and keep track of what data the user enters in the form, then we use [controlled inputs](#controlled-inputs)
 
+### The Callback pattern
+  - The callback pattern allows us to set up communication between different parts of the system. Components in this case. We can have a parent component talk to a child component by using props.
+  To have the child component call back to the parent we use a callback. A callback is a function that is defined in the parent component and executed in the child component.
+  In the below cats example we use a callback function to set up the delete behavior to update the state in the parent component.
+
 ### Controlled Inputs
   - Docs [here](https://reactjs.org/docs/forms.html#controlled-components)
   - Uncontrolled inputs are almost never useful to us
@@ -14,7 +19,6 @@ but if we need to handle form submission in javascript and keep track of what da
   - React controls the state of the input, not the browser
 ### Using data fetching
   - Setting up fetching on mount
-  - Talk about loading states
 ### Prop types
 ### Children
   - Make a simple example of using `props.children`. Fx the fancyborder component used in [this example](https://reactjs.org/docs/composition-vs-inheritance.html#containment)
@@ -28,8 +32,6 @@ but if we need to handle form submission in javascript and keep track of what da
 ## Code inspiration
 
 ### Random cats
-
-https://codesandbox.io/s/random-cats-ml92u
 
 ```js
 import React, { useEffect, useState } from 'react';
@@ -75,10 +77,22 @@ export function RandomCats({ fetchUrl }) {
     </div>
   );
 }
-
 ```
 
 ## Exercise
+
+1. Create a CatListItem component which has has a CatItem and a DeleteCatItem component.
+The randomCatsDisplay now looks like this:
+```js
+  const randomCatsDisplay = randomCats.map((randomCat) => {
+      return (
+        <CatListItem randomCat={randomCat} deleteCat={deleteCat}></CatListItem>
+      );
+    });
+```
+When the delete button is clicked the cat is deleted.
+
+2. Place the CatItem and the DeleteCatItem inside the FancyBorder component and add some styling
 
 ### Time registration
 Make a site that manages time registration for employees.
