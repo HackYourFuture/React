@@ -33,6 +33,18 @@ but if we need to handle form submission in javascript and keep track of what da
 ### Random cats
 
 ```js
+import { RandomCats } from './RandomCats'
+
+function App() {
+  return (
+    <RandomCats fetchUrl="https://aws.random.cat/meow" />
+  );
+}
+
+export default App;
+```
+
+```js
 import React, { useEffect, useState } from 'react';
 import "./catStyles.css"
 
