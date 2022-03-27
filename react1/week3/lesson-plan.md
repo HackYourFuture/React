@@ -5,6 +5,10 @@ Forms works out of the box exactly like plain html.
 
 but if we need to handle form submission in javascript and keep track of what data the user enters in the form, then we use [controlled inputs](#controlled-inputs)
 
+### The Callback pattern
+  - The callback pattern allows us to set up communication between different parts of the system. Components in this case. We can have a parent component talk to a child component by using props.
+  To have the child component call back to the parent we use a callback. A callback is a function that is defined in the parent component and executed in the child component.
+  In the below cats example we use a callback function to set up the delete behavior to update the state in the parent component.
 ### Controlled Inputs
   - Docs [here](https://reactjs.org/docs/forms.html#controlled-components)
   - Uncontrolled inputs are almost never useful to us
