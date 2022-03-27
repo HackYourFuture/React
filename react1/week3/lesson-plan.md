@@ -32,82 +32,49 @@ but if we need to handle form submission in javascript and keep track of what da
 https://codesandbox.io/s/random-cats-ml92u
 
 ```js
-import React from "react";
-import ReactDOM from "react-dom";
-import PropTypes from "prop-types";
-
-import "./styles.css";
+import React, { useEffect, useState } from 'react';
+import "./catStyles.css"
 
 function FancyBorder(props) {
-  return <div className="fancy-border">{props.children}</div>;
+  return <div className='fancy-border'>{props.children}</div>;
 }
 
-class RandomCats extends React.Component {
-  state = { randomCats: [], inputValue: this.props.defaultNumberOfCats };
+export function RandomCats({ fetchUrl }) {
+  const [randomCats, setRandomCats] = useState([]);
+  useEffect(() => {
+    addCat();
+  }, []);
 
-  componentDidMount() {
-    this.getCat().then(randomCats => {
-      const newRandomCats = this.state.randomCats.concat(randomCats);
-      this.setState({ randomCats: newRandomCats });
-    });
-  }
-
-  getCat = () => {
-    return fetch(this.props.fetchUrl).then(response =>
-      response.json()
-    );
+  const getCat = () => {
+    return fetch(fetchUrl).then((response) => response.json());
   };
 
-  addCat = () => {
-    this.getCat().then(randomCats => {
-      const newRandomCats = this.state.randomCats.concat(randomCats);
-      this.setState({ randomCats: newRandomCats });
+  const addCat = () => {
+    getCat().then((cat) => {
+      setRandomCats((prev) => [...prev, cat.file]);
     });
   };
 
-  handleInputChange = event => {
-    const numberOfCats = event.target.value;
-    // Why is this not the best way of doing things??
-    this.setState({
-      inputValue: numberOfCats,
-      randomCats: this.state.randomCats.splice(0, numberOfCats)
-    });
-  };
-
-  render() {
+  const randomCatsDisplay = randomCats.map((randomCat) => {
     return (
-      <div className="App">
-        <input
-          value={this.state.inputValue}
-          onChange={this.handleInputChange}
-          placeholder="Number of cats"
-        />
-        <h1>Random cats!!!!</h1>
-        <button onClick={this.addCat}>Add cat</button>
-        {this.state.randomCats.map(randomCat => {
-          return (
-            <li>
-              <FancyBorder>
-                <img src={randomCat.file} />
-              </FancyBorder>
-            </li>
-          );
-        })}
-      </div>
+      <li>
+        <FancyBorder>
+          <img src={randomCat} />
+        </FancyBorder>
+      </li>
     );
-  }
+  });
+
+  return (
+    <div className='App'>
+      <h1>Random cats</h1>
+      <button onClick={addCat}>Add cat</button>
+      <ul>
+        {randomCatsDisplay}
+      </ul>
+    </div>
+  );
 }
-
-RandomCats.propTypes = {
-  fetchUrl: PropTypes.string,
-  defaultNumberOfCats: PropTypes.number
-};
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(
-  <RandomCats defaultNumberOfCats={2} fetchUrl="https://aws.random.cat/meow" />,
-  rootElement
-);
 
 ```
 
