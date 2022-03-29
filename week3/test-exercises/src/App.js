@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import RoutingApp from "./1-Routing/RoutingApp";
-import { LoggedInUserContextProvider } from "./2-Context/LoggedInUserContext";
-import MyProfile from "./2-Context/MyProfile";
-import useListState from "./3-useListState";
+import UserListItem from "./1-UserListItem";
+import UserDetailsForm from "./2-UserDetailsForm";
+import ChuckNorrisJoke from "./3-ChuckNorrisJoke";
+import RoutingApp from "./4-Routing/RoutingApp";
+import { LoggedInUserContextProvider } from "./5-Context/LoggedInUserContext";
+import MyProfile from "./5-Context/MyProfile";
+import useListState from "./6-useListState";
 
 function App() {
   const { list, addElement, removeElementWithId } = useListState([
@@ -14,6 +17,20 @@ function App() {
 
   return (
     <div>
+      <UserListItem
+        user={{ firstName: "John", lastName: "Doe", role: "Admin" }}
+      />
+      <hr />
+      <UserDetailsForm
+        initialUserValues={{
+          firstName: "John",
+          lastName: "Doe",
+          role: "Admin",
+        }}
+        onSubmit={() => {}}
+      />
+      <hr />
+      <ChuckNorrisJoke />
       <RoutingApp />
       <hr />
       <LoggedInUserContextProvider initialUser={{ name: "John" }}>

@@ -10,4 +10,3 @@ In this exercise we'll be using the following API endpoint: `https://official-jo
 4. Now pass the reassigned state variable `joke` to the `<Joke>` component
 5. Inside the `<Joke>` component, display the `setup` and `punchline` attributes in 2 `<p>` tags
 6. Check out your work by importing your components into the top level component, which is `<App>`
-7. Write the tests!

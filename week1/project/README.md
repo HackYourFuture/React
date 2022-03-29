@@ -12,9 +12,9 @@ The first step to any project is to setup your development environment. Follow t
 
 This week you'll build the foundation of your application. It should eventually look like this:
 
-[![Week 1 Wireframe](../../assets/project/week1.png)](https://awesome-carson-606d96.netlify.app/)
+[![Week 1 Wireframe](../../assets/project/week1.png)](https://hyf-react-w1-example.netlify.app)
 
-There is a live version [here](https://awesome-carson-606d96.netlify.app/)
+There is a live version [here](https://hyf-react-w1-example.netlify.app)
 
 We will be using the information in the `fake-data` folder as an example of what we get back from the API. The actual connection to the API will be done next week.
 

@@ -11,5 +11,4 @@ The solution given is also not necessarily the only solution, compare it to your
 ## Things to think about
 
 - Why do you think their solution has two different hooks?
-- How would you test the hook(s)?
 - What is the difference between using a custom hook to handle state, to using a context API with some logic? When would you use which one?

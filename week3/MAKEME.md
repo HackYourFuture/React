@@ -5,7 +5,7 @@
 1. Prep exercises
 2. Code alongs
 3. PROJECT: Ecommerce Shop III
-4. Test Exercises
+4. Optional: Test Exercises
 5. Optional: Challenges
 
 ## **1. Prep exercises**
@@ -37,13 +37,14 @@ Enjoy!
 - [Build a Video Player](https://www.youtube.com/watch?v=iVRO0toVdYM)
 
 ## **3. Ecommerce Shop III**
+
 Let's continue building on our application! This week you'll use all the new tricks you learned to finish up the ecommerce shop by adding client-side routing, a context to store the user's favourite items and finally clean up some duplicate code by building our own custom hook!
 
 Have a look at the [project/README.md](./project/README.md) file to know what to do this week.
 
-## **4. Test exercises**
+## **4. Optional: Test exercises**
 
-This week we have some extra small exercises to practice testing and receive feedback from your homework mentor! In the `test-exercises` folder you will find a react application with some test files. The `README.md` that explains what the idea is.
+To practice your `react-testing-library` skills we have some extra small exercises that isolate testing all of the different things that you have learned the past weeks! In the `test-exercises` folder you will find a react application with some test files. The `README.md` that explains what the idea is.
 
 > If you are feeling up for an extra challenge you can try adding tests to your project! If you are struggling with the complexity of the tests you may need to split your components a bit. Note: this is an optional extra challenge and is not required.
 
@@ -60,6 +61,5 @@ If you need a refresher, take a look at the following [guide](../hand-in-homewor
 The homework that needs to be submitted is the following:
 
 1. Project: Ecommerce Shop III
-2. Test exercises
 
 _Deadline Tuesday 23.59 CET_
