@@ -23,6 +23,7 @@ We want you to get excited and be free to build something you are passionate abo
 - Do your research first! Is all the information you need available in the API? Changing API's halfway is devastating.
 - Please refactor and write tests often! It may feel like it is delaying your progress but trying to refactor and testing a week's work of code at the end will actually take you more time overall!
 - Make sure you reserve time for the UI. This is one of the main projects recruiters will look at, so it should look good!
+- It is tempting to include many libraries to solve certain things, but not all npm libraries are good and you need to be careful. Have a look at [this article](https://betterprogramming.pub/how-to-choose-the-right-npm-package-for-your-project-c3d1cc25285e) to learn how to choose the right package.
 
 ## Final product
 
