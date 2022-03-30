@@ -27,4 +27,11 @@ All of these tests are inside of the `cypress` folder that was added to your pro
 
 Now for the fun part, playing around ourselves!
 
-1. In this folder you will find a folder called `0-myown`. Copy this over to your project inside of the `cypress/integration` folder. We start with `0-` to make ours nicely at the top of the list :D!
+1. In this folder you will find a folder called `0-myown`. Copy this over to your project inside of the `cypress/integration` folder so that it is next to the cypress examples. We start with `0-` to make ours nicely at the top of the list :D!
+2. Go through those files, we numbered them so that you know where to start, the extra explanations get less and less as you go on. _Note: The API we use is sometimes a little slow with responses and can cause timeout issues. If you get these, have a look at the cypress documentation to figure out how to increase the time cypress will wait per command._
+3. Fill in the tests that are missing!
+
+## Things to think about
+
+- The API we use has a stable data set. How would you test a data set that is not this stable? What would you need to change in these tests?
+- It is possible to [add your own commands](https://docs.cypress.io/api/cypress-api/custom-commands) to cypress, are there things in the code you think should be made a custom command?
