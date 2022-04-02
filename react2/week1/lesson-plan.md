@@ -23,7 +23,7 @@ https://github.com/bytewiz/HackYourFuture/tree/master/src/ContextExample
   2. Discuss when and why you would use the useContext hook.
   3. Create an example application and present it to the rest of the class. 
   4. Your example must include one or more examples of:
-    - useState
-    - useEffect
-    - useContext
-    - the callback pattern
+      * useState
+      * seEffect
+      * useContext
+      * the callback pattern
