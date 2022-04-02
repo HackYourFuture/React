@@ -24,6 +24,6 @@ https://github.com/bytewiz/HackYourFuture/tree/master/src/ContextExample
   3. Create an example application and present it to the rest of the class. 
   4. Your example must include one or more examples of:
       * useState
-      * seEffect
+      * useEffect
       * useContext
       * the callback pattern
