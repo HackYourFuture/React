@@ -14,7 +14,8 @@ These are the topics for week 1:
    - useEffect
 4. [Forms: Controlled vs Uncontrolled](https://study.hackyourfuture.net/#/react/controlled-vs-uncontrolled.md)
 5. [Tools](https://study.hackyourfuture.net/#/react/tools.md)
-   - create-react-app
+   - React dev tools
+   - `create-react-app` command
    - Static hosting
 
 ## Important note on React
