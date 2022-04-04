@@ -12,4 +12,3 @@ In this exercise we'll be using the following API endpoint: `https://dog.ceo/api
 6. Inside `<DogGallery>` return all the dogs stored in the `dogPhotos` array using the `map()` function. Pass down each `dogPhoto` into an instance of `<DogPhoto>`.
 7. However, when there are no dogs in the array yet make sure to display the message "Get your first dog by clicking the button!"
 8. Check your components by importing it into the top level component, which is `<App>`
-9. Now write the tests!

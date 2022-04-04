@@ -4,16 +4,15 @@
 
 These are the topics for week 3:
 
-1. [Client-side routing](https://study.hackyourfuture.net/#/react/routing.md)
-   - React-router
-   - Protected routes
-2. [Context API](https://study.hackyourfuture.net/#/react/context-api.md)
+1. [Context API](https://study.hackyourfuture.net/#/react/context-api.md)
    - Global state management
    - Connecting state to component
-3. [Custom Hooks](https://study.hackyourfuture.net/#/react/custom-hooks.md)
+2. [Custom Hooks](https://study.hackyourfuture.net/#/react/custom-hooks.md)
    - Building custom hooks
    - Using other people's custom hooks
-4. [Testing custom hooks](https://study.hackyourfuture.net/#/react/testing.md) _(Just the sections on timing and custom hooks, you did the rest last week!)_)
+3. Testing
+   - [e2e testing](https://study.hackyourfuture.net/#/testing/e2e-testing.md)
+   - [react-testing-library](https://study.hackyourfuture.net/#/react/testing.md)
 
 ## Important note on React
 
@@ -23,15 +22,17 @@ These are the topics for week 3:
 
 ## Week goals
 
-This week we are going to look at some more advanced topics. Let's start with looking at routing. Because we build single page applications in React, the location in the address bar has no effect on what we should show. When building more advanced applications that becomes a problem, as we want to be able to define different pages. To solve this we use what is called client-side routing, have a look [here](https://study.hackyourfuture.net/#/react/routing.md).
+This week we are going to look at some more advanced topics.
 
-As you can see in the router library, they have built their own hooks. We can do that too and it is extremely powerful. Have a look at the custom hook section [here](https://study.hackyourfuture.net/#/react/custom-hooks.md) to see how to do it.
+Firstly, let's have a look at the context API, which sounds like something external but is actually something that React provides us. Have a look [here](https://study.hackyourfuture.net/#/react/context-api.md). A common mistake students make is thinking that you only make one context for every app, but you should think of the context API as way to consolidate state and the functions surrounding it in one place for all subcomponents to use. So when thinking about using the context API, think of it as a way to keep code that belongs together in one place!
 
-Secondly, let's have a look at the context API, which sounds like something external but is actually something that React provides us. Have a look [here](https://study.hackyourfuture.net/#/react/context-api.md). A common mistake students make is thinking that you only make one context for every app, but you should think of the context API as way to consolidate state and the functions surrounding it in one place for all subcomponents to use. So when thinking about using the context API, think of it as a way to keep code that belongs together in one place!
+As you probably noticed in the router library last week, they have built their own hooks to provide some of the . We can do that too and it is extremely powerful. Have a look at the custom hook section [here](https://study.hackyourfuture.net/#/react/custom-hooks.md) to see how to do it.
+
+Finally, it is time to revisit the topic of testing again. We want to introduce you to two ways of testing: [end-to-end (e2e) testing](https://study.hackyourfuture.net/#/testing/e2e-testing.md) and the [react-testing-library](https://study.hackyourfuture.net/#/react/testing.md). This week we will focus most on end-to-end testing as testing is moving away from heavy unit-testing coverage and moving towards more user-centric focused testing of which e2e testing is the most user-centric you can get. We will have some testing exercises with the react-testing-library that you can do, but they are optional for when you have extra time.
+
+Now the first question that we always get is 'What is the best way of testing?' and to avoid getting this question in the Q&A session: there is no best way of testing. Testing is always a balance of the amount of coverage needed with the amount of time to spend on it. Certain critical applications will need more tests and other less critical applications very little. Certain companies will have automated testing ranked as extremely important, others will have their focus on manual testing. As such there is no answer to the question, you will want to have a basic understanding of both to be prepared, but it will be a company/team decision on how to approach the topic of testing for your specific application. Note that we say `basic understanding` as trying to learn this type of testing in 1 week is impossible.
 
 These are complex topics, so play around with this new knowledge in your own applications!
-
-You will want to test your custom hooks, so that means it is time to finish off the [testing section](https://study.hackyourfuture.net/#/react/testing.md) that explains how to do just that.
 
 ## Finished?
 
