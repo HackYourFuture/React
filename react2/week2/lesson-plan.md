@@ -27,6 +27,7 @@ On the first day on your new job you are handed a bug report by the QA person.
 3. A user name with numbers can be submitted.
 4. The shifts list should be searchable and only show the 10 latest submissions. Each shift should therefore include a timestamp so that it can be sorted.
 5. The app looks terrible! Please add some styling.
+6. The input error validation should be specific to the error.
 
 
 Please, feel free to give us some feedback about your experience teaching React [here](https://forms.gle/usuv9u1HMdjkqqzu8), or with homework reviews [here](https://forms.gle/Ai5vrCiCnYs1bMmh9).
