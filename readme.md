@@ -26,7 +26,7 @@ This course is divided in 2 modules, of 3 and 2+1 week.
 - Managing state
 - Connecting to node
 
-\+ [Individual Project (Meal Sharing App)](https://github.com/HackYourFuture-CPH/React/edit/mealsharing-app-content/react2/readme.md#individual-project)
+\+ [Individual Project (Meal Sharing App)](https://github.com/HackYourFuture-CPH/React/blob/main/react2/readme.md#individual-project)
 
 
 ## Read up before we get started
