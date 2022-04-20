@@ -12,7 +12,7 @@
 
 React is free an open-source frontend JavaScript library for building user interfaces based on UI components.
 
-This course is divided in 2 modules, of 3 and 2 week.
+This course is divided in 2 modules, of 3 and 2+1 week.
 
 
 ## Module goals:
