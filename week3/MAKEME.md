@@ -52,6 +52,8 @@ To practice your `react-testing-library` skills we have some extra small exercis
 
 Remember that our friends over at CodeYourFuture have provided a repository with different ideas for [challenges to build](https://github.com/CodeYourFuture/cyf-react-challenges). Have a look at the `README.md` in each folder to see what the challenge is and now you can also do ones that require you to create multiple pages!
 
+There is also a great website called [frontendeval](https://frontendeval.com/) that gives a nice list of challenges that may come up in frontend technical assignments. You will have a leg up if you have already solved these problems beforehand. Every challenge also has solutions from others so you can compare yours and maybe learn something from other people!
+
 ## **SUBMIT YOUR HOMEWORK!**
 
 After you've finished your list it's time to show us what you got! Upload all your files to a forked repository (a copy from the original, which in this case is the [React](https://www.github.com/HackYourHomework/React) repository) using GIT.
