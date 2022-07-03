@@ -24,3 +24,4 @@ What you need to have done at the end of the week:
 - A category list that displays all of the categories in the `all-categories` file at the top of the page
 - If the user clicks on a category only the products that have that category in their `category` property should be displayed on the screen.
 - There should only be 1 category active at a time and the user should see which category is selected.
+- You need to deploy your app somewhere (using something like [netlify](https://www.netlify.com)) and put the link in your PR!
