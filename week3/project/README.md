@@ -24,3 +24,4 @@ What you need to have done at the end of the week:
 - If you did the same things as us then in the Products and ProductDetails pages you will have quite a lot of duplicate logic concerning the `loading` and `error` states of all those requests. Fix that by creating a `useFetch` custom hook.
   > Your custom hook will have a couple of challenges. The URL for the products changes and you will have to perform that fetch whenever the user clicks a category so you will need to give the user of your hook the option to do that.
   > Extra challenge: We purposefully do not say Favourites page here as that would make the custom hook even more difficult to build. If you are up for the challenge, add functionality to your hook for multiple fetches!
+- You need to deploy your app somewhere (using something like [netlify](https://www.netlify.com)) and put the link in your PR! Make it a different one than the previous week.
