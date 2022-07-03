@@ -13,7 +13,12 @@
 
 Let's get started with some interactive exercises! Complete the exercises from the following resources:
 
-- [Scotch.io: React challenges. Exercises 1-6](https://scotch.io/courses/10-react-challenges-beginner)
+- [React challenge #1 (Displaying simple data)](https://www.youtube.com/watch?v=sHSBWi1ggqE)
+- [React challenge #2 (Loop over and display data)](https://www.youtube.com/watch?v=JDuYnDHWLD8)
+- [React challenge #3 (Using React state to update the DOM)](https://www.youtube.com/watch?v=nhhxIHO1g0A))
+- [React challenge #4 (Show an alert based on input)](https://www.youtube.com/watch?v=uK-fc_xUDhc)
+- [React challenge #5 (Adding calculator)](https://www.youtube.com/watch?v=BqBAXqMU3pc)
+- [React challenge #6 (DOM movement with events)](https://www.youtube.com/watch?v=Scg8-6VxVl8)
 
 ## **2. Prep exercises**
 
