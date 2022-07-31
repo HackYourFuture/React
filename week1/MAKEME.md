@@ -3,8 +3,8 @@
 ## **Todo list**
 
 1. Practice the concepts
-2. React exercises
-3. Optional: Practice exercises
+2. Prep exercises
+3. Optional: Possible Q&A exercises
 4. Code along
 5. PROJECT: Ecommerce Shop I
 6. Optional: Challenges
@@ -28,11 +28,14 @@ Inside your `React` fork, go to the folder `week1`. Inside of that folder, navig
 
 If you are struggling with the prep exercises, try out some of the practice exercises, maybe they will give you some ideas!
 
-## **3. Optional: Practice exercises**
+## **3. Optional: Possible Q&A exercises**
 
-Practice, practice, practice! Watching videos is a good way to get new ideas, but to cement them into your mind you need to program a lot. What you build is up to you as long as you keep challenging yourself. We have provided some practice exercises to help you if you don't know what to build.
+> Possible Q&A exercises are exercises that you can nominate to discuss with the Q&A mentor during the session on Sunday. Have a go at these and see which one you find difficult, then you can reply to the thread in your class channel with a link to the exercise you want to do.
+> Even if the exercise does not get handled in the Q&A session these exercises are good ways to get ideas of what to build to keep practicing.
 
-Inside of your `React` fork, go to the folder `week1`. Inside of that folder, navigate to `/practice-exercises`. For each exercise, you will find a separate folder. The `README` explains what needs to be done. Go through them to practice concepts that you have learned about!
+> If you want to nominate a different exercise you found online then feel free to do so! We may even add that one to the list for the next class to use and attribute it to you ;).
+
+Inside of your `React` fork, go to the folder `week1`. Inside of that folder, navigate to `/possible-qa-exercises`. For each exercise, you will find a separate folder. The `README` explains what needs to be done. Go through them to practice concepts that you have learned about!
 
 ## **4. Code along**
 

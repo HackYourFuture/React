@@ -3,9 +3,9 @@
 ## **Todo list**
 
 1. Prep exercises
-2. Code alongs
-3. PROJECT: Ecommerce Shop III
-4. Optional: Test Exercises
+2. Optional: Test Exercises
+3. Code alongs
+4. PROJECT: Ecommerce Shop III
 5. Optional: Challenges
 
 ## **1. Prep exercises**
@@ -14,11 +14,24 @@
 
 Inside your `React` fork, go to the folder `week3`. Inside of that folder, navigate to `/prep-exercises`. For each exercise, you will find a separate folder. The `README` explains what needs to be done. There will also be some questions at the bottom to think about. Go through them _before_ the session on Sunday as it will be covered then.
 
-## **2. Code alongs**
+## **4. Optional: Possible Q&A exercises**
+
+> Possible Q&A exercises are exercises that you can nominate to discuss with the Q&A mentor during the session on Sunday. Have a go at these and see which one you find difficult, then you can reply to the thread in your class channel with a link to the exercise you want to do.
+> Even if the exercise does not get handled in the Q&A session these exercises are good ways to get ideas of what to build to keep practicing.
+
+> If you want to nominate a different exercise you found online then feel free to do so! We may even add that one to the list for the next class to use and attribute it to you ;).
+
+Inside of your `React` fork, go to the folder `week3`. Inside of that folder, navigate to `/possible-qa-exercises`. For each exercise, you will find a separate folder. The `README` explains what needs to be done. Go through them to practice concepts that you have learned about!
+
+This week includes testing exercises in the `2-react-testing-library-exercises` folder. There are 6 different scenarios in there, you can only nominate one of them as doing all will take too much time.
+
+> If you are feeling up for an extra challenge you can try adding tests to your project! If you are struggling with the complexity of the tests you may need to split your components a bit. Note: this is an optional extra challenge and is not required.
+
+## **3. Code alongs**
 
 > Create a new GitHub repository for each of these projects.
 
-### 2.1 Expense tracker using the Context API
+### 3.1 Expense tracker using the Context API
 
 In the following tutorial you'll learn how to build an `Expense Tracker`. You'll do so using React Hooks, but also using the [Context API](https://reactjs.org/docs/context.html)!
 
@@ -26,7 +39,7 @@ Happy learning!
 
 - [Build an Expense Tracker](https://www.youtube.com/watch?v=XuFDcZABiDQ)
 
-### 2.2 Video player using react-router-dom
+### 3.2 Video player using react-router-dom
 
 In this code along you'll learn how to make a cool Video Player! You'll do so using various packages, among those are [styled-components](https://www.npmjs.com/package/styled-components) and [react-router-dom](https://www.npmjs.com/package/react-router-dom).
 
@@ -36,17 +49,11 @@ Enjoy!
 
 - [Build a Video Player](https://www.youtube.com/watch?v=iVRO0toVdYM)
 
-## **3. Ecommerce Shop III**
+## **4. Ecommerce Shop III**
 
 Let's continue building on our application! This week you'll use all the new tricks you learned to finish up the ecommerce shop by adding client-side routing, a context to store the user's favourite items and finally clean up some duplicate code by building our own custom hook!
 
 Have a look at the [project/README.md](./project/README.md) file to know what to do this week.
-
-## **4. Optional: Test exercises**
-
-To practice your `react-testing-library` skills we have some extra small exercises that isolate testing all of the different things that you have learned the past weeks! In the `test-exercises` folder you will find a react application with some test files. The `README.md` that explains what the idea is.
-
-> If you are feeling up for an extra challenge you can try adding tests to your project! If you are struggling with the complexity of the tests you may need to split your components a bit. Note: this is an optional extra challenge and is not required.
 
 ## **5. Optional: Challenges**
 

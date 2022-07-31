@@ -1,5 +1,7 @@
 # Test exercises
 
+**NOTE: If you want to discuss this for the Q&amp;A session then pick 1 of the 6 options. We've put all 6 in the same project for simplicity**
+
 In this sample project you will find some component files (files that end in `.js`) with associated test files (files that end in `.test.js`). The test files will have comments to help you out, we have also already described the things you should be testing. It is your job to make sure that all of the tests pass. You will notice that there are components with no associated test files, you only need to do the ones that have a test file associated with it.
 
 These test exercises try to provide you with a couple scenario's that you will encounter in your real world applications that you may be asked to test. We have the following things:
