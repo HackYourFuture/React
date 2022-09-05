@@ -15,7 +15,6 @@ Can you make a hook that takes a user input and copies it to their computer's cl
 - Return the `handleCopy` function. (For a familiar syntax, you might want to export it like so: `return [handleCopy]`.)
 
 6. Import `handleCopy` from the `useCopy` function. Based on how you've stored the user input, you will need to call it in different places, but be sure it is triggered by a button click.
-7. Let's see if it works!
 
 Extra:
 

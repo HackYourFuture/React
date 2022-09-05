@@ -2,7 +2,7 @@
 
 For this prep exercise we are actually going to use an online exercise. Have a look at the [following prompt](https://epic-react-exercises.vercel.app/react/advanced-hooks/4). To summarize:
 
-> Create a hook to determine the window user's window screen size and update the view based on it. Use the ][useDebugValue hook](https://reactjs.org/docs/hooks-reference.html#usedebugvalue) so that when a component uses the hook three different times, you'll be able to differentiate them on the The React DevTools browser extension.
+> Create a hook to determine the window user's window screen size and update the view based on it. Use the [useDebugValue hook](https://reactjs.org/docs/hooks-reference.html#usedebugvalue) so that when a component uses the hook three different times, you'll be able to differentiate them on the The React DevTools browser extension.
 
 In the link you will see some more details about the steps to take. There is also their solution, but try to only look at that if you are really stuck. Preferably ask some classmates first as that will teach you more than just copying over their solution.
 
