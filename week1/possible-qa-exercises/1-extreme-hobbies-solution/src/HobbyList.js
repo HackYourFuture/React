@@ -1,7 +1,7 @@
 import React from 'react';
 import Hobby from './Hoppy';
 
-const HobbyList = (props) => {
+const HobbyList = () => {
   const hobbies = [
     'Surfing',
     'Rock climbing',
