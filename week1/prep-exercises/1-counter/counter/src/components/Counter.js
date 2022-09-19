@@ -4,15 +4,17 @@ import Count from './Count';
 
 const Counter = () => {
   const [count, setCount] = useState(0);
+
   const feedback = count > 10 ? "It's higher than 10!" : 'Keep counting...';
-  const incrementCount = () => {
+
+  function incrementCount() {
     if (count <= 10) {
       setCount((prevCount) => prevCount + 1);
     } else {
       return;
     }
   };
-  const incrementCountTwo = () => {
+  function incrementCountTwo() {
     if (count <= 9) {
       setCount((prevCount) => prevCount + 1);
       setCount((prevCount) => prevCount + 1);
@@ -20,14 +22,14 @@ const Counter = () => {
       return;
     }
   };
-  const decrementCount = () => {
+  function decrementCount () {
     if (count > 0) {
       setCount((prevCount) => prevCount - 1);
     } else {
       return;
     }
   };
-  const decrementCountTwo = () => {
+  function decrementCountTwo() {
     if (count > 1) {
       setCount((prevCount) => prevCount - 1);
       setCount((prevCount) => prevCount - 1);
@@ -35,16 +37,19 @@ const Counter = () => {
       return;
     }
   };
+  
+  const buttonsFunction = {
+    incrementCount,
+    incrementCountTwo,
+    decrementCount,
+    decrementCountTwo
+  }
 
   return (
     <div>
       <Count value={count} />
       <h2>{feedback}</h2>
-      {/* <Button function={incrementCount} /> */}
-      <button onClick={incrementCount}>Add 1 </button>
-      <button onClick={incrementCountTwo}>Add 2 </button>
-      <button onClick={decrementCount}>Remove 1 </button>
-      <button onClick={decrementCountTwo}>Remove 2 </button>
+      <Button functions={buttonsFunction} />
     </div>
   );
 };
