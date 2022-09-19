@@ -1,5 +1,5 @@
 import './App.css';
-import HobbyList from './HobbyList';
+import HobbyList from './components/HobbyList';
 
 function App() {
   return (

@@ -1,6 +1,6 @@
-import delivery from './f-delivery.png';
-import coin from './coin.png';
-import chat from './chat.png';
+import delivery from '../image/f-delivery.png';
+import coin from '../image/coin.png';
+import chat from '../image/chat.png';
 
 const services = [
   {

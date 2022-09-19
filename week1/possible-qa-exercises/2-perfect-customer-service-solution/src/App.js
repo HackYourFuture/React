@@ -1,5 +1,5 @@
 import './App.css';
-import Guarantee from './Guarantee';
+import Guarantee from './components/Guarantee';
 
 function App() {
   return (

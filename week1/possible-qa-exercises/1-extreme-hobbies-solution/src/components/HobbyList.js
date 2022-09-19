@@ -1,5 +1,6 @@
 import React from 'react';
-import Hobby from './Hoppy';
+import Hobby from './Hobby';
+import './HobbyList.css';
 
 const HobbyList = () => {
   const hobbies = [
@@ -12,11 +13,11 @@ const HobbyList = () => {
     <div>
       {hobbies.map((hobby, index) => {
         return (
-          <div key={index}>
-            <h3>
+          <div className="hobby" key={index}>
+            <span>
               <Hobby />
-              {hobby}
-            </h3>
+            </span>
+            <h3>{hobby}</h3>
           </div>
         );
       })}

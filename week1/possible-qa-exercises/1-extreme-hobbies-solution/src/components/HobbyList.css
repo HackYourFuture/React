@@ -1,0 +1,9 @@
+.hobby {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+h3 {
+  margin: 5px;
+}
