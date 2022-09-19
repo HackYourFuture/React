@@ -13,43 +13,41 @@ const Counter = () => {
     } else {
       return;
     }
-  };
+  }
   function incrementCountTwo() {
     if (count <= 9) {
-      setCount((prevCount) => prevCount + 1);
-      setCount((prevCount) => prevCount + 1);
+      setCount((prevCount) => prevCount + 2);
     } else {
       return;
     }
-  };
-  function decrementCount () {
+  }
+  function decrementCount() {
     if (count > 0) {
       setCount((prevCount) => prevCount - 1);
     } else {
       return;
     }
-  };
+  }
   function decrementCountTwo() {
     if (count > 1) {
-      setCount((prevCount) => prevCount - 1);
-      setCount((prevCount) => prevCount - 1);
+      setCount((prevCount) => prevCount - 2);
     } else {
       return;
     }
-  };
-  
+  }
+
   const buttonsFunction = {
     incrementCount,
     incrementCountTwo,
     decrementCount,
-    decrementCountTwo
-  }
+    decrementCountTwo,
+  };
 
   return (
     <div>
       <Count value={count} />
       <h2>{feedback}</h2>
-      <Button functions={buttonsFunction} />
+      <Button function={buttonsFunction} />
     </div>
   );
 };
