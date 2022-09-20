@@ -5,7 +5,7 @@ export default function OneProducts({ item }) {
     <div className='one--item'>
       <div className='image'><img src={image} alt={description} />
       </div>
-      <div><span className='product--title' >{title}</span ></div>
+      <div className='product--title--div' ><span className='product--title'  >{title}</span ></div>
     </div>
   )
 }
