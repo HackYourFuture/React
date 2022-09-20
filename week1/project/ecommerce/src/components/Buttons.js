@@ -1,17 +1,20 @@
 import React from 'react';
-import { allCategories } from '../fake-data/all-categories';
+import allProducts from '../fake-data/all-products';
 
-const Buttons = (catPro) => {
-  const listItems = allCategories.map((category, index) => {
-    return (
-      <li className="product-button" key={category}>
-        <button className="button" onClick={() => catPro(category)} key={index}>
-          {category}
-        </button>
-      </li>
+const CategoryOfButton = ({ category, setProducts }) => {
+  function filterProducts() {
+    const filterByCategory = allProducts.filter(
+      (product) => product.category === category.categoryName,
     );
-  });
-  return listItems;
-}
+    setProducts(filterByCategory);
+  }
+  return (
+    <li className="product-button">
+      <button className="button" onClick={filterProducts}>
+        {category.buttonCategory}
+      </button>
+    </li>
+  );
+};
 
-export default Buttons;
+export default CategoryOfButton;

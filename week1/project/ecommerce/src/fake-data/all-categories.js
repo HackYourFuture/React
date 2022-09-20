@@ -1,6 +1,18 @@
 export const allCategories = [
-  "FAKE: electronics",
-  "FAKE: jewelery",
-  "FAKE: men's clothing",
-  "FAKE: women's clothing",
+  {
+    buttonCategory: 'FAKE: electronics',
+    categoryName: 'electronics',
+  },
+  {
+    buttonCategory: 'FAKE: jewelery',
+    categoryName: 'jewelery',
+  },
+  {
+    buttonCategory: "FAKE: men's clothing",
+    categoryName: "men's clothing",
+  },
+  {
+    buttonCategory: "FAKE: women's clothing",
+    categoryName: "women's clothing",
+  },
 ];
