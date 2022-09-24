@@ -13,13 +13,13 @@ function App() {
       <Header />
       <nav>
         <ul className="product-list">
-          {allCategories.map((categoryObj, index) => (
+          {allCategories.map((categoryObj, id) => (
             <CategoryOfButton
-              category={categoryObj}
-              setProducts={setProducts}
-              key={index}
+            category={categoryObj}
+            setProducts={setProducts}
+            key={id}
             />
-          ))}
+            ))}
         </ul>
       </nav>
       <main className="main">

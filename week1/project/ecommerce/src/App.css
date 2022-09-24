@@ -6,6 +6,13 @@ nav {
   display: flex;
 }
 
+.product-card {
+  width: 350px;
+  margin-top: 40px;
+  border: 1px solid #888888;
+  box-shadow: 2px 2px 2px #888888;
+}
+
 .product-button {
   list-style: none;
   width: calc(33% - 16px);
@@ -52,3 +59,5 @@ nav {
   font-size: 40px;
   font-weight: bold;
 }
+
+
