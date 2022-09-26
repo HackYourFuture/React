@@ -1,7 +1,7 @@
 import React from 'react';
 import allProducts from '../fake-data/all-products';
 
-const CategoryOfButton = ({ category, setProducts }) => {
+const ButtonCategory = ({ category, setProducts }) => {
   function filterProducts() {
     const filterByCategory = allProducts.filter(
       (product) => product.category === category.categoryName,
@@ -17,4 +17,4 @@ const CategoryOfButton = ({ category, setProducts }) => {
   );
 };
 
-export default CategoryOfButton;
+export default ButtonCategory;

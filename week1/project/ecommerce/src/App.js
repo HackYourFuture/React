@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import './App.css';
-import CategoryOfButton from './components/Buttons';
+import ButtonCategory from './components/ButtonCategory';
 import Header from './components/Header';
 import ProductsList from './components/ProductsList';
 import { allCategories } from './fake-data/all-categories';
@@ -14,12 +13,12 @@ function App() {
       <nav>
         <ul className="product-list">
           {allCategories.map((categoryObj, id) => (
-            <CategoryOfButton
-            category={categoryObj}
-            setProducts={setProducts}
-            key={id}
+            <ButtonCategory
+              category={categoryObj}
+              setProducts={setProducts}
+              key={id}
             />
-            ))}
+          ))}
         </ul>
       </nav>
       <main className="main">

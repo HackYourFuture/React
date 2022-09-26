@@ -1,23 +1,21 @@
 import React from 'react';
-import './ProductList.css';
 const ProductsList = ({ products }) => {
   return (
     <>
-      {products.length > 0 &&
-        products.map((product) => (
-          <li className="product-card" key={product.id}>
-            <div className="product">
-              <img
-                className="product-image"
-                src={product.image}
-                alt={product.title}
-              />
-              <div className="title-container">
-                <p className="product-title">{product.title}</p>
-              </div>
+      {products.map((product) => (
+        <li className="product-card" key={product.id}>
+          <div className="product">
+            <img
+              className="product-image"
+              src={product.image}
+              alt={product.title}
+            />
+            <div className="title-container">
+              <p className="product-title">{product.title}</p>
             </div>
-          </li>
-        ))}
+          </div>
+        </li>
+      ))}
     </>
   );
 };
