@@ -20,10 +20,15 @@ nav {
   display: flex;
 }
 
+.product-card div {
+  width: 100%;
+}
+
 .product-card {
-  width: 350px;
-  margin-top: 40px;
-  border: 1px solid #888888;
+  margin: 30px 0 50px 0;
+  height: fit-content;
+  width: fit-content;
+  border: 1px solid #6e2121;
   box-shadow: 2px 2px 2px #888888;
 }
 
@@ -35,6 +40,8 @@ nav {
 
 .products {
   display: flex;
+  width: 80%;
+  margin: 10px auto;
   flex-wrap: wrap;
   list-style: none;
   justify-content: space-around;
@@ -61,7 +68,8 @@ nav {
 }
 
 .main {
-  display: flex;
+  width: 100%;
+  margin: auto;
   flex-direction: row;
   flex-wrap: wrap;
   min-height: 100vh;
@@ -72,13 +80,6 @@ nav {
   color: black;
   font-size: 40px;
   font-weight: bold;
-}
-
-.product-card {
-  width: 350px;
-  margin-top: 40px;
-  border: 1px solid #888888;
-  box-shadow: 2px 2px 2px #888888;
 }
 
 img {
@@ -98,7 +99,7 @@ img {
 .product-image {
   margin-bottom: auto;
   margin-top: auto;
-  max-width: 280px;
+  width: 300px;
   object-fit: contain;
 }
 

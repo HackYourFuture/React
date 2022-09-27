@@ -22,9 +22,7 @@ function App() {
         </ul>
       </nav>
       <main className="main">
-        <ul className="products">
-          <ProductsList products={products} />
-        </ul>
+        <ProductsList products={products} />
       </main>
     </header>
   );
