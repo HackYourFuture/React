@@ -1,17 +1,13 @@
 import React from 'react';
-import allProducts from '../fake-data/all-products';
 
-const ButtonCategory = ({ category, setProducts }) => {
-  function filterProducts() {
-    const filterByCategory = allProducts.filter(
-      (product) => product.category === category.categoryName,
-    );
-    setProducts(filterByCategory);
+const ButtonCategory = ({ category, setActiveCategory }) => {
+  function getCategory() {
+    setActiveCategory(category);
   }
   return (
     <li className="product-button">
-      <button className="button" onClick={filterProducts}>
-        {category.buttonCategory}
+      <button className="button" onClick={getCategory}>
+        {category.categoryName}
       </button>
     </li>
   );

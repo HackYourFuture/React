@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ButtonCategory from './components/ButtonCategory';
 import Header from './components/Header';
 import ProductsList from './components/ProductsList';
@@ -7,6 +7,17 @@ import allProducts from './fake-data/all-products';
 
 function App() {
   const [products, setProducts] = useState(allProducts);
+  const [activeCategory, setActiveCategory] = useState('');
+  useEffect(() => {
+    if (activeCategory === '') {
+      setProducts(allProducts);
+    } else {
+      const filterByCategory = allProducts.filter(
+        (product) => product.category === activeCategory.categoryName,
+      );
+      setProducts(filterByCategory);
+    }
+  }, [activeCategory]);
   return (
     <header className="App">
       <Header />
@@ -15,6 +26,7 @@ function App() {
           {allCategories.map((categoryObj, id) => (
             <ButtonCategory
               category={categoryObj}
+              setActiveCategory={setActiveCategory}
               setProducts={setProducts}
               key={id}
             />
