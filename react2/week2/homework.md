@@ -40,7 +40,7 @@ Hopefully the backend is pretty built out from the `nodejs/week3` homework
 
 When it says `render the meal` What is rendered is up to you! You could render the `title`, `id`, `description` but you decide what makes sense and what looks good! You are in charge 💪
 
-Rendering the html will all be done client side. 
+Rendering the html will all be done client side.
 
 1. Using `fetch` get the meals from `/api/meals`
 2. Then updating some state that will then render the meals
@@ -63,9 +63,9 @@ Add some styling to the website so it is not so basic looking!
 
 ### Now what?
 
-That is up to you! There are two optional features below. But if you have other things you would prefer to add to the site please do! 
+That is up to you! There are two optional features below. But if you have other things you would prefer to add to the site please do!
 
-Now is your time to really show off 
+Now is your time to really show off
 
 ### Autocomplete for meals _optional_
 
@@ -79,35 +79,15 @@ Create the possibility for a person to leave a review for a meal.
 
 We will finish and deploy the meal sharing site next week: https://github.com/HackYourFuture-CPH/node.js/blob/main/deployment.md
 
-## Hand in Homework:
+<br/>
 
-- From the mealsharing app repository make a frontend branch called `frontend`
-- Add all your changes to the branch `frontend`
-- Go through the [Homework checklist](#homework-checklist)
-- Create a pull request using the `frontend` branch and give your PR the same name `frontend`.
-- Wait for mentor feedback
-- Implement feedback, `add`, `commit` and `push` the changes
-- Now you can merge the changes into `main`
-- When merged you can **share the github link** to your classes slack channel if you are **proud of what you did** 💪
-- Now celebrate 🎉🎉🎉
+## Hand in homework
 
-## Homework checklist
+Need to brush up on the homework hand-in process?<br/>
+Check [this resource](https://github.com/HackYourFuture-CPH/Git/blob/main/homework_hand_in.md) to remember how to hand in the homework correctly!
 
-Go over your homework one last time:
+<br/>
 
-- [ ] Does every file run without errors and with the correct results?
-- [ ] Have you used `const` and `let` and avoided `var`?
-- [ ] Do the variable, function and argument names you created follow the [Naming Conventions](https://github.com/HackYourFuture/fundamentals/blob/master/fundamentals/naming_conventions.md)?
-- [ ] Is your code well-formatted (see [Code Formatting](https://github.com/HackYourFuture/fundamentals/blob/master/fundamentals/naming_conventions.md))?
+## Feedback
 
-## Feedback giving time!
-
-Find a student to give feedback using this site: https://hyf-peer-review.herokuapp.com/. The feedback should be given after the homework has been handed in, preferably two days after.
-
-Give the review on the PR exactly how the mentors do it! To find the link for the PR ask the person you are reviewing :) You can see how to give feedback on a PR using github [here](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)
-
-To help you get started with reviewing we have created [some resources](https://github.com/HackYourFuture-CPH/curriculum/tree/main/review) about giving feedback. Find them
-
-Why is it important to give feedback? Because it will make you a [better](https://www.brightspot.com/blog/developer-life-5-reasons-why-the-code-review-process-is-critical-for-developers) [developer](https://www.sitepoint.com/the-importance-of-code-reviews/)
-
-Finally, feel free to give feedback to the mentors and staff [here](https://forms.gle/t3FgysinXddDRJdM8).
+Finally, please give some feedback to the mentors and staff [here](https://forms.gle/t3FgysinXddDRJdM8).
