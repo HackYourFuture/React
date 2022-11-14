@@ -1,0 +1,27 @@
+.categoryList{
+    display: flex;
+    margin:1rem;
+}
+.categoryList div{
+    margin: 0.5rem;
+}
+
+.productList{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.productCard{
+    width: 30%;
+    margin:1.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productCard img{
+    width:80%;
+}
