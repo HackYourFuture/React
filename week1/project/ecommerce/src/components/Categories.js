@@ -1,10 +1,10 @@
 import React from "react";
-import categories from "../fake-data/all-categories";
+import categoriesData from "../fake-data/all-categories";
 
 function Categories({ changeCategory }) {
   return (
     <div className="categoryList">
-      {categories.map((category) => (
+      {categoriesData.map((category) => (
         <div key={category}>
           <button onClick={() => changeCategory(category.slice(6))}>
             {category}
