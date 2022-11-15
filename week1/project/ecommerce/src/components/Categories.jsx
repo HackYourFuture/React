@@ -3,7 +3,7 @@ import Category from "./Category"
 
 function Categories() {
   return (
-    <div className="category_container"> 
+    <div className="categories_container"> 
       {
         allCategories.map((category, index) => (
           <Category key={index} category= {category}/>

@@ -1,8 +1,13 @@
-import React from 'react'
 
-function product() {
+
+function product({product}) {
+  const {title ,  image} = product
+
   return (
-    <div>product</div>
+    <div className='product'>
+      <img className="image" src={image} alt={title} />
+      <h3 className="title">{title.substring(5)}</h3>
+    </div>
   )
 }
 

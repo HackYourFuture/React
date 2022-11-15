@@ -6,7 +6,7 @@
 }
 
 /* categories */
-.category_container {
+.categories_container {
   display: flex;
   justify-content: center;
   margin: 30px 0;
@@ -25,4 +25,34 @@
 .category:hover {
   background-color: rgb(78, 21, 131);
   color: #fff;
+}
+
+/* products */
+.products_container {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 80%;
+  text-align: center;
+}
+.product h3 {
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+}
+.product {
+  width: 350px;
+  height: 400px;
+  margin: 20px auto;
+  border: 1px solid rgb(201, 201, 211);
+  border-radius: 15px;
+  padding: 30px;
+  cursor: pointer;
+}
+.product .image {
+  height: 60%;
+  width: 60%;
+  margin: auto;
+  object-fit: contain;
 }
