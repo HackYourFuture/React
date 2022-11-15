@@ -42,7 +42,7 @@
   margin-top: 30px;
 }
 .product {
-  width: 350px;
+  flex-basis: 350px;
   height: 400px;
   margin: 20px auto;
   border: 1px solid rgb(201, 201, 211);
@@ -55,4 +55,26 @@
   width: 60%;
   margin: auto;
   object-fit: contain;
+}
+
+/* media query */
+@media (max-width:  768px) { 
+  .category_container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+    flex-wrap: wrap;
+  } 
+  .category {
+    padding: 8px;
+    font-size: 17px;
+    width: 180px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 769px)and (max-width: 849px) { 
+  .category {
+    font-size: 18px;
+  }
 }
