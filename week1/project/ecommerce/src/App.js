@@ -1,11 +1,12 @@
 import './App.css';
 import Products from './components/Products';
+import ProductContext from './hooks/context';
 
 function App() {
   return (
-    <div className="App">
+    <ProductContext>
       <Products />
-    </div>
+    </ProductContext>
   );
 }
 

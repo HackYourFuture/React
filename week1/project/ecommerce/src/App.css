@@ -1,9 +1,6 @@
 * {
   box-sizing: border-box;
 }
-.App {
-  text-align: center;
-}
 
 /* categories */
 .categories_container {
@@ -22,12 +19,16 @@
   transition: all .5s ease-in-out;
   text-transform: capitalize;
 }
-.category:hover {
+.category:hover,
+.category.active {
   background-color: rgb(78, 21, 131);
   color: #fff;
 }
 
 /* products */
+.title {
+  text-align: center;
+}
 .products_container {
   margin: auto;
   display: flex;

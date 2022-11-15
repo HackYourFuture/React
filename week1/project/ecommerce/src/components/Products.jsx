@@ -1,15 +1,21 @@
-import allProducts from '../fake-data/all-products'
+import { useContext } from "react";
+import { provideContext } from '../hooks/context'
+
 import Categories from './Categories'
 import Product from './Product'
 
-function products() {
+
+function Products() {
+
+  const {products} = useContext(provideContext)
+
   return (
     <>
-      <h1>Products</h1>
+      <h1 className="title">Products</h1>
       <Categories />
       <div className='products_container'>
         {
-          allProducts.map((product, index) => (
+          products.map((product, index) => (
           <Product key={index} product={product}/> 
           ))
         }
@@ -18,4 +24,4 @@ function products() {
   )
 }
 
-export default products
+export default Products

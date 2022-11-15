@@ -1,5 +1,3 @@
-
-
 function product({product}) {
   const {title ,  image} = product
 
