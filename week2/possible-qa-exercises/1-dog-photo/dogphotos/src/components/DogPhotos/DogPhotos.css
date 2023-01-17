@@ -1,0 +1,11 @@
+.dogPhotos{
+ display: grid;
+ grid-template-columns: auto auto auto auto;
+
+ align-items: center;
+}
+.dogPhotos img{
+  height: 200px;
+  margin: 10px;
+  justify-self: center;
+}

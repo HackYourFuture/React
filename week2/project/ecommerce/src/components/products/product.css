@@ -1,0 +1,11 @@
+.product{
+ margin: auto;
+}
+
+.product img{
+  margin-bottom: auto;
+  margin-top: auto;
+  max-height: 300px;
+  object-fit: contain;
+  width: 100%;
+}

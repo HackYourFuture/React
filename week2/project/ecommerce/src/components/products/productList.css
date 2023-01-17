@@ -1,0 +1,26 @@
+.productList{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.productList:hover{
+cursor: pointer;
+}
+
+
+@media (min-width: 576px) { 
+  .productList{
+    grid-template-columns: auto;
+  }
+ }
+
+@media (min-width: 992px) { 
+  .productList{
+    grid-template-columns: auto auto;
+  }
+ }
+
+@media (min-width: 1200px) {
+  .productList{
+    grid-template-columns: auto auto auto;
+  }
+}

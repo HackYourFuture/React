@@ -1,0 +1,8 @@
+.detailContent{
+  display: flex;
+align-items: center;
+margin: 50px;
+}
+.detailContent img{
+  height: 80vh;
+}
