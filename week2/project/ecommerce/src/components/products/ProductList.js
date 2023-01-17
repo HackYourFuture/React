@@ -9,7 +9,6 @@ const ProductList = () => {
   const [filtered, setFiltered] = useState(allProduct);
   const [selectedBtn, setSelectedBtn] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-  x
   const handleClick = (e) => {
     setSelectedBtn(e.target.innerText);
     console.log("selected", selectedBtn);
