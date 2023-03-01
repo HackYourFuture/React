@@ -1,0 +1,17 @@
+.categories--item-selected {
+    background-color: #bdbdc1;
+}
+.categories--item {
+    background-color: #efeff0;
+    cursor: pointer;
+    font-weight: 700;
+    margin: 2px;
+    padding: 12px;
+}
+
+div {
+    display: block;
+}
+.categories {
+    display: flex;
+}
