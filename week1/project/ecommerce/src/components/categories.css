@@ -15,3 +15,9 @@ div {
 .categories {
     display: flex;
 }
+
+
+
+.categories--item:hover {
+    background-color: #d6d6d8;
+}   
