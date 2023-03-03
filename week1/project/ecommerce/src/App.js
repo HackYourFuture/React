@@ -6,7 +6,7 @@ import CategoriesList from './components/Categories';
 import ProductsList from './components/Products';
 
 function App() {
-  const [state, setState] = useState({selectedCategory:'', isAll: true})
+  const [state, setState] = useState({sortCategory:'', anyAll: true})
   return (
     <div className = "App">
       <h1>Products</h1>

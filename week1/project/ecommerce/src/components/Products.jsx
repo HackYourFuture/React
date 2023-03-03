@@ -14,7 +14,7 @@ const Product = (props) => {
   const ProductsList = (props) => {
     const {products, state} = props;
 
-    const filter = state.isAll ? '' : state.selectedCategory
+    const filter = state.anyAll ? '' : state.sortCategory
 
     const filteredList = 
       filter ? products.filter(product => product.category === filter) : products

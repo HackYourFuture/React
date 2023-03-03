@@ -4,13 +4,13 @@ const Category = (props) => {
     const {current, state, setState} = props
     const key = current.slice(6)
 
-    const className = 'category-item' + ((key === state.selectedCategory) && !state.isAll ? ' category-selected' : '')
+    const className = 'category-item' + ((key === state.sortCategory) && !state.anyAll ? ' category-sort' : '')
 
     const changeFilter = (key) => {
         setState(prevState => {
             return {
-                selectedCategory: key, 
-                isAll: (prevState.selectedCategory === key) && !prevState.isAll
+                sortCategory: key, 
+                anyAll: (prevState.sortCategory === key) && !prevState.anyAll
             }
         })
     }
