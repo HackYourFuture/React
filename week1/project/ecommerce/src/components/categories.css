@@ -1,18 +1,22 @@
 .categories {
+  color: blueviolet;
   display: flex;
   font-weight: 700;
+  background: #5a5aef;
 }
 
 .category-item {
   margin: 2px;
   padding: 12px;
-  background-color: #efeff0;;
+  background-color: #efeff0;
+  border-color: red;
+  border-radius: 13px;
 }
 
 .category-item:hover {
-  background-color: #d6d6d8;;
+  background-color: #d6d6d8;
 }
 
-.category-selected {
-  background-color: #bdbdc1;;
+.category-sort {
+  background-color: #d5e6d5;
 }

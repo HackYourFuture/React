@@ -6,6 +6,8 @@
   margin-block-end: 0;
   margin-block-start: 0;
   padding-inline-start: 0;
+  color: #4508ee;
+  background: burlywood;
 }
 
 .product-item {
@@ -31,6 +33,8 @@
   padding-top: 8px;
   text-overflow: ellipsis;
   white-space: nowrap;
+  border-radius: 13px;
+
 }
 
 @media (min-width: 600px) {
