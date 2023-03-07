@@ -1,19 +1,70 @@
-# Building a counter
+# Getting Started with Create React App
 
-The counter is one of the best way to learn about state management as it is nice and simple and isolates the management of state. Let's create a simple number counter, starting from 0 until infinity!
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-1. Run `create-react-app` in this folder to create your environment
-2. Create 3 functional components called `<Counter>`, `<Count>` and `<Button>`
-3. Inside `<Counter>` define a state variable called `count` (initialized with value `0`) and state handler called `setCount`
-4. Inside `<Button>` create a `<button>` with the text `Add 1!` and `onClick` attribute
-5. Pass down the `count` state variable to `<Count>`, and a function to add 1 to the count to `<Button>`
-6. Inside `<Counter>`, declare a variable called `feedback` above the return statement. Give this variable a ternary operator value: if `count` is higher than 10 it should display the string `"It's higher than 10!"`, else it displays `"Keep counting..."`
-7. Test out if it works by importing `<Counter>` into the top level component, which is `<App>`
+## Available Scripts
 
-## Things to think about
+In the project directory, you can run:
 
-Building this little App should be straightforward, now let's get those _brain juices_ flowing. Before the session on Sunday have a think about the following:
+### `npm start`
 
-- How would you implement a decrement button that lowers the count by 1? Would you make 2 different <Button> functions or would you add props to the component to handle the change in text?
-- Once you can decrement as well, how would you implement it never going below 0?
-- What would you need to change to also have a button that adds 2 and one that removes 2? Will that create a problem with your logic for never going below 0?
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
