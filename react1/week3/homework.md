@@ -40,7 +40,7 @@ Worth considering:
 
 ## Meal Sharing
 
-For this, you will work in your `Meal Sharing` repository - the same that you worked on it in the **Node** module.
+For this, you will work in your `Meal Sharing` repository - the same that you worked on in the **Node** module.
 
 You have just learned **fetching** and renderng the fetched data, and you have built the basis of the backend of your Meal Sharing app during the Node module, so it is time to work on the frontend!
 
