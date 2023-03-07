@@ -1,6 +1,5 @@
 # Homework
 
-<<<<<<< HEAD
 ### Start the homework
 
 Need to brush up on the homework setup process? Check [this](https://github.com/HackYourFuture-CPH/Git/blob/main/homework_hand_in.md) out before you get into some git confusion!
@@ -8,13 +7,6 @@ Need to brush up on the homework setup process? Check [this](https://github.com/
 This week the homework will result in 2 PRs: 1 in your homework repository and 1 in the Meal Sharing repository.
 
 ## TODO app
-=======
-## Start the homework
-
-Need to brush up on the homework setup process? Check [this](https://github.com/HackYourFuture-CPH/Git/blob/main/homework_hand_in.md) out before you get into some git confusion!
-
-## Outline
->>>>>>> origin
 
 Now instead of using an array to load the default items, use the api found here: `https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw` using `fetch`
 
