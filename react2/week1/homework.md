@@ -1,28 +1,11 @@
 # Homework
 
-## Get git ready to work on homework
+### Start the homework
 
-Using the `hyf-homework` repo. In the terminal run `git status`
+Need to brush up on the homework setup process? Check [this](https://github.com/HackYourFuture-CPH/Git/blob/main/homework_hand_in.md) out before you get into some git confusion!
 
-If there are changes that have not been committed, figure out what to do with those changes
+This week the homework will result in 2 PRs: 1 in your homework repository and 1 in the Meal Sharing repository.
 
-- Should they be committed to another branch?
-- Should they be committed to `main`?
-- Should they be discarded?
-
-When you have figured out what to do with the changes and fixed those. Write `git status` again. If it says `nothing to commit, working tree clean`. Then you are ready to create the branch for this weeks homework.
-
-### Creating the branch
-
-Using the `hyf-homework` repo write this command
-
-`git checkout main` - You are now on the `main` branch
-
-`git checkout -b react-react2-week1`
-
-This will create and checkout the branch so you are ready make commits to it
-
-[This video](https://www.youtube.com/watch?v=XYlgh9hSWtw) can help. On slack use the #git-support channel to ask questions about git
 
 ## Github users search
 
@@ -39,13 +22,12 @@ Requirements:
 
 Try the website here: https://ro6ne.csb.app/
 
-## Working with github api
+## Meal Sharing
 
-- Continue using the github API through this url - https://api.github.com (Hint: use postman to query the github API)
-- By querying the above url you will view all the api urls that the github API has. You can try to explore them, we recommend that you read the github API documentation. (https://developer.github.com/v3/#current-version)
-  - You can try to retrieve the repos data from the HackYourFuture-CPH organisation - (Hint: https://api.github.com/users/.../repos)
-  - You can try to display the name of all the repos in your React app
-  - If this is to easy for you... surprise us with your creativity... build up on your project and we will have a look!! ;)
+Let's not forget to give some attention to the Meal Sharing frontend! 
+You have built a ``MealList`` last week. 
+Now build the ``Meal`` component so that you can use it in the MealList and render a nice Meal card for each meal. Decide how the Meal card should look like and style it. 
+The component should accept a meal object as a prop and render all its relevant details. The MealList should render all the meals in a grid. 
 
 <br/>
 
