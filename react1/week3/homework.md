@@ -1,30 +1,12 @@
 # Homework
 
-## Get git ready to work on homework
+### Start the homework
 
-Using the `hyf-homework` repo. In the terminal run `git status`
+Need to brush up on the homework setup process? Check [this](https://github.com/HackYourFuture-CPH/Git/blob/main/homework_hand_in.md) out before you get into some git confusion!
 
-If there are changes that have not been committed, figure out what to do with those changes
+This week the homework will result in 2 PRs: 1 in your homework repository and 1 in the Meal Sharing repository.
 
-- Should they be committed to another branch?
-- Should they be committed to `main`?
-- Should they be discarded?
-
-When you have figured out what to do with the changes and fixed those. Write `git status` again. If it says `nothing to commit, working tree clean`. Then you are ready to create the branch for this weeks homework.
-
-### Creating the branch
-
-Using the `hyf-homework` repo write this command
-
-`git checkout main` - You are now on the `main` branch
-
-`git checkout -b react-react1-week3`
-
-This will create and checkout the branch so you are ready make commits to it
-
-[This video](https://www.youtube.com/watch?v=XYlgh9hSWtw) can help. On slack use the #git-support channel to ask questions about git
-
-## Outline
+## TODO app
 
 Now instead of using an array to load the default items, use the api found here: `https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw` using `fetch`
 
@@ -55,6 +37,17 @@ Worth considering:
 - What if the deadline input is empty?
 - What if the deadline is before the current day?
 - What if you edit an item with an empty description?
+
+## Meal Sharing
+
+For this, you will work in your `Meal Sharing` repository - the same that you worked on in the **Node** module.
+
+You have just learned **fetching** and renderng the fetched data, and you have built the backend of your Meal Sharing app during the Node module, so it is time to work on the frontend!
+
+Create a `MealList` component that fetches and renders the meals.
+Your component will have a `meals` state. Render the meal title, description and price at least as simple paragraphs. Add your MealList component to App.js.
+
+<br/>
 
 ## Extra assignment
 
