@@ -2,11 +2,20 @@ import { useState } from "react";
 import Button from "./Button";
 import Count from "./Count";
 
-export default function Counter() {
+function Counter() {
    const [count, setCount] = useState(0); 
    const feedBack = count > 10 ? "It's higher than 10!" : "Keep counting...";
 
-   function addOne() {
+   return ( <div>
+    <p>{feedBack}</p>
+    <Count number={count}/>
+    <h2>{count}</h2>
+    <Button/>
+   </div>
+   );
+}
+
+  /* function addOne() {
      setCount((prev) => prev + 1);
    }
 
@@ -32,5 +41,8 @@ export default function Counter() {
        <Button onclick={decrementOne} text="Decrement 1!" />
        <Button onclick={addOne} text="Add 1!" />
     </div>
-   );
-}
+   );*/
+
+
+export default Counter;
+

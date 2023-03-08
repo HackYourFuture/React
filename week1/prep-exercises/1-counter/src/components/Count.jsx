@@ -1,6 +1,6 @@
-
-
-export default function Count({number}) {
-    return <div>{number}</div>
-
+export default function Count ({number}) {
+    return  <h2>{number}</h2>;
 }
+
+
+

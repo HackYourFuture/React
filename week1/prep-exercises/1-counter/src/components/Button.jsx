@@ -1,4 +1,6 @@
 
-export default function Button({ text, onClick }) {  
-  return <button onClick={onClick}>{text}</button>;
+export default function Button() {
+  function add() {
+return <button onClick={add}>Add 1!</button>;
+}
 }
