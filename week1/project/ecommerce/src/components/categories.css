@@ -1,4 +1,5 @@
 .categories {
+  justify-content: space-around;
   color: blueviolet;
   display: flex;
   font-weight: 700;
@@ -17,6 +18,6 @@
   background-color: #d6d6d8;
 }
 
-.category-sort {
+.category-selected {
   background-color: #d5e6d5;
 }
