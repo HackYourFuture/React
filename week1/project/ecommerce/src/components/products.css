@@ -33,8 +33,6 @@
   padding-top: 8px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  border-radius: 13px;
-
 }
 
 @media (min-width: 600px) {
