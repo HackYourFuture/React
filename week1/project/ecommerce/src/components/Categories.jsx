@@ -6,8 +6,8 @@ function Categories ({categories, state, setState}) {
     function changeFilter(newCategory) {
         setState(prevState => {
             return {
-                selectedCategory: newCategory, 
-                isAll: (prevState.selectedCategory === newCategory) && !prevState.isAll
+                selectCategory: newCategory, 
+                isAll: (prevState.selectCategory === newCategory) && !prevState.isAll
             }
         })
     }
@@ -15,7 +15,7 @@ function Categories ({categories, state, setState}) {
     return (
         <div className="categories">
             {categories.map((item, index) => {
-                const className = ((item === state.selectedCategory) && !state.isAll ? 'category-selected' : '')
+                const className = ((item === state.selectCategory) && !state.isAll ? 'category-select' : '')
                 return <Category key={index} className={className} data={item} onClick={changeFilter} />
             })}
         </div>

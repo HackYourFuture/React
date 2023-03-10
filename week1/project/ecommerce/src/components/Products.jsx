@@ -3,7 +3,7 @@ import Product from './Product'
 
   function Products({products, state}) {
 
-    const categoryName = state.isAll ? '' : state.selectedCategory.slice(6)
+    const categoryName = state.isAll ? '' : state.selectCategory.slice(6)
 
     const filteredList = 
       categoryName ? products.filter(product => product.category === categoryName) : products
