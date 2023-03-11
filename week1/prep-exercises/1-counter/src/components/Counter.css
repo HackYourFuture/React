@@ -1,0 +1,20 @@
+.Counter {
+font-size: calc(10px + 4vmin);
+}
+
+button {
+border: 2px solid #48f8c3;
+width : 150px;
+background-color: #f8e1ee;
+border-radius: 8px;
+font-size: 13px;
+margin : 6px;
+padding: 3px;
+color: #05641b;
+}
+
+button:hover {
+    border: 2px solid #eda4f3; 
+    background-color: #adefeb;
+    color: #cc11dd;
+}
