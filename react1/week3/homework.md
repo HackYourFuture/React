@@ -44,6 +44,7 @@ For this, you will work in your `Meal Sharing` repository - the same that you wo
 
 You have just learned **fetching** and rendering the fetched data, and you have built the backend of your Meal Sharing app during the Node module, so it is time to work on the frontend!
 
+
 Create a `MealList` component that fetches and renders the meals.
 Your component will have a `meals` state. Render the meal title, description and price at least as simple paragraphs. Add your MealList component to App.js.
 
