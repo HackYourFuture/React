@@ -8,9 +8,9 @@ Let's create some routing in your `meal-sharing` repo!
 
 | Route         | Description                                                                                                                                                                                                                                                             |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/`           | Add a page title and a sub title. Under that render all the meals found in the database. Please add more to this page like footer, menu, logo, etc. You should have the meals part already by having worked on `Meals` and `MealsList` components for the past 2 weeks. |
-| `/meals/{id}` | Render the meal with the specific `id`. Add a form to create reservations for the meal                                                                                                                                                                                  |
-| `/meals`      | Render all the meals found in the database with a link to their respective pages (`meals/3`). Add a form to create a meal. To render a meal, use the `Meal` component that you have already built.                                                                      |
+| `/`           | Add a page title and a sub title. Render **some** (not all!) of the meals found in the database and a link (a button or something out of your creative decision) to see more, which will lead to the "/meals" page. Please add more to this page like footer, menu, logo, etc. You should have the meals part already by having worked on `MealsList` (and `Meal`) component in previous homeworks. |
+| `/meals/{id}` | Render the meal with the specific `id`. Add a form to create reservations for the meal.                                                                                                                                                                                 |
+| `/meals`      | Render all the meals found in the database with a link to their respective pages (`meals/3`). Add a form to create a meal. This page is very similar to the one in '/' route.                                                          |
 
 ### **/meals/{id}**
 
