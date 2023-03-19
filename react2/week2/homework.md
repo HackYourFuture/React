@@ -10,7 +10,7 @@ Let's create some routing in your `meal-sharing` repo!
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `/`           | Add a page title and a sub title. Render **some** (not all!) of the meals found in the database and a link (a button or something out of your creative decision) to see more, which will lead to the "/meals" page. Please add more to this page like footer, menu, logo, etc. You should have the meals part already by having worked on `MealsList` (and `Meal`) component in previous homeworks. |
 | `/meals/{id}` | Render the meal with the specific `id`. Add a form to create reservations for the meal.                                                                                                                                                                                 |
-| `/meals`      | Render all the meals found in the database with a link to their respective pages (`meals/3`). Add a form to create a meal. This page is very similar to the one in '/' route, except that it lists all meals found in the database.                                                          |
+| `/meals`      | Render all the meals found in the database with a link to their respective pages (`meals/3`). This page is very similar to the one in '/' route, except that it lists all meals found in the database.                                                          |
 
 ### **/meals/{id}**
 
