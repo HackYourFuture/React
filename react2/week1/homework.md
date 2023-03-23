@@ -26,8 +26,8 @@ Try the website here: https://ro6ne.csb.app/
 
 Let's not forget to give some attention to the Meal Sharing frontend! 
 You have built a ``MealList`` last week. 
-Now build the ``Meal`` component so that you can use it in the MealList and render a nice Meal card for each meal. Decide how the Meal card should look like and style it. 
-The component should accept a meal object as a prop and render all its relevant details. The MealList should render all the meals in a grid. 
+Now build the ``Meal`` component so that you can use it in the MealsList and render a nice Meal card for each meal. Decide how the Meal card should look like and style it. 
+The component should accept a meal object as a prop and render all its relevant details. The MealsList should render all the meals in a grid. 
 
 <br/>
 
