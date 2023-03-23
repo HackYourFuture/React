@@ -46,7 +46,7 @@ You have just learned **fetching** and rendering the fetched data, and you have 
 
 
 Create a `MealsList` component that fetches and renders the meals.
-Your component will have a `meals` state. Render the meal title, description and price at least as simple paragraphs. Add your MealList component to App.js.
+Your component will have a `meals` state. Render the meal title, description and price at least as simple paragraphs. Add your `MealsList` component to App.js.
 
 <br/>
 
