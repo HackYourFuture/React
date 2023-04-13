@@ -4,9 +4,11 @@
 
 These are the topics for week 2:
 
-1. [API calls in React](https://study.hackyourfuture.net/#/react/api-calls.md)
+1. [Hooks](https://study.hackyourfuture.net/#/react/react-hooks.md)
+   - **ONLY THE useEffect HOOK**
+2. [API calls in React](https://study.hackyourfuture.net/#/react/api-calls.md)
    - When to load data
-2. [Client-side routing](https://study.hackyourfuture.net/#/react/routing.md)
+3. [Client-side routing](https://study.hackyourfuture.net/#/react/routing.md)
    - React-router
    - Protected routes
 
@@ -20,7 +22,7 @@ These are the topics for week 2:
 
 Last week we learned the basic building blocks of React and how to think in components. This week we are going to introduce some more advanced techniques to give you even more power!
 
-Firstly, it is time to work with API's again. In vanilla JavaScript we learned about the fetch mechanism, but when thinking in a component way we need to approach it a little differently. Take a look at the study book [here](https://study.hackyourfuture.net/#/react/api-calls.md) to learn how you can interact with an API using React.
+Firstly, it is time to work with API's again. In vanilla JavaScript we learned about the fetch mechanism, but when thinking in a component way we need to approach it a little differently. To do this we need to make use of the `useEffect` hook, so let's revisit the [hooks](https://study.hackyourfuture.net/#/react/react-hooks.md) page and read up on the `useEffect` section. With knowledge of the `useEffect` hook we can take a look at the study book [here](https://study.hackyourfuture.net/#/react/api-calls.md) to learn how you can interact with an API using React.
 
 Next, let's look at routing. Because we build single page applications in React, the location in the address bar has no effect on what we should show. When building more advanced applications that becomes a problem, as we want to be able to define different pages. To solve this we use what is called client-side routing, have a look [here](https://study.hackyourfuture.net/#/react/routing.md).
 
