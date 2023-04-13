@@ -10,8 +10,7 @@ These are the topics for week 1:
    - HTML in JS: JSX
 2. [State & Props](https://study.hackyourfuture.net/#/react/state-and-props.md)
 3. [Hooks](https://study.hackyourfuture.net/#/react/react-hooks.md)
-   - useState
-   - useEffect
+   - **ONLY THE useState and useRef HOOKS**
 4. [Forms: Controlled vs Uncontrolled](https://study.hackyourfuture.net/#/react/controlled-vs-uncontrolled.md)
 5. [Tools](https://study.hackyourfuture.net/#/react/tools.md)
    - React dev tools
@@ -27,7 +26,9 @@ These are the topics for week 1:
 
 This week we will start the wonderful journey of React! Let's start by learning what React is and more importantly what it is not, once you start working with big frameworks like this it becomes hard to identify where the boundary is and we want to make sure you understand where React ends and where JavaScript begins. Have a look at our introduction to React [here](https://study.hackyourfuture.net/#/react/README.md). 
 
-React is a big framework that introduces a lot of new terminology and ways of thinking to simplify the building of bigger applications. Let's start by learning about State and Props [here](https://study.hackyourfuture.net/#/react/state-and-props.md). Now let's go into the basic hooks that React gives you to build your application [here](https://study.hackyourfuture.net/#/react/react-hooks.md). For now it is best to focus on the `useState` and `useEffect` as they are the ones you will use a lot, but you can already have a look at the others to have them in your mind. The last thing we want you to have a look at is how to work with user input (as websites will always need to respond to user input). For that we are actually going to go into a discussion about controlled vs uncontrolled components. This is a little broader topic, but forms and user input is the best example for this. Have a look [here](https://study.hackyourfuture.net/#/react/controlled-vs-uncontrolled.md) and make sure that you always use the controlled way of writing forms in your applications.
+React is a big framework that introduces a lot of new terminology and ways of thinking to simplify the building of bigger applications. Let's start by learning about State and Props [here](https://study.hackyourfuture.net/#/react/state-and-props.md). Now let's go a little deeper into hooks that React gives you to build your application [here](https://study.hackyourfuture.net/#/react/react-hooks.md). For now it is best to focus only on the `useState` and `useRef` hooks as we are just starting out. You can skip the others for now. 
+
+The last thing we want you to have a look at is how to work with user input (as websites will always need to respond to user input). For that we are actually going to go into a discussion about controlled vs uncontrolled components. This is a little broader topic, but forms and user input is the best example for this. Have a look [here](https://study.hackyourfuture.net/#/react/controlled-vs-uncontrolled.md) to try to get a little more into .
 
 Phew, that was a lot, but you now have knowledge of the basic building blocks with which you can already create some very cool applications. But how do you start?
 
