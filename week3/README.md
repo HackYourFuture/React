@@ -4,9 +4,9 @@
 
 These are the topics for week 3:
 
-1. [Context API](https://study.hackyourfuture.net/#/react/context-api.md)
-   - Global state management
-   - Connecting state to component
+1. [State Management](https://study.hackyourfuture.net/#/react/state-management.md)
+   - Reducers
+   - Context
 2. [Custom Hooks](https://study.hackyourfuture.net/#/react/custom-hooks.md)
    - Building custom hooks
    - Using other people's custom hooks
@@ -24,7 +24,7 @@ These are the topics for week 3:
 
 This week we are going to look at some more advanced topics.
 
-Firstly, let's have a look at the context API, which sounds like something external but is actually something that React provides us. Have a look [here](https://study.hackyourfuture.net/#/react/context-api.md). A common mistake students make is thinking that you only make one context for every app, but you should think of the context API as way to consolidate state and the functions surrounding it in one place for all subcomponents to use. So when thinking about using the context API, think of it as a way to keep code that belongs together in one place!
+Firstly, let's have a look at more advanced state management topics now that we are going into larger apps! Have a look [here](https://study.hackyourfuture.net/#/react/state-management.md). A common mistake students make is thinking that you only make one context for every app, but you should think of the context API as way to consolidate state and the functions surrounding it in one place for all subcomponents to use. So when thinking about using the context API, think of it as a way to keep code that belongs together in one place!
 
 As you probably noticed in the router library last week, they have built their own hooks to provide some of the . We can do that too and it is extremely powerful. Have a look at the custom hook section [here](https://study.hackyourfuture.net/#/react/custom-hooks.md) to see how to do it.
 
