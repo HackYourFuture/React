@@ -21,7 +21,7 @@ The `/meals/{id}` route should display the meal and have a form for making a res
 That means that we in js need to:
 
 - When the "book seat" button is clicked get the `phonenumber`, `name` and `email` from either the form or the individual inputs;
-- Now create a [post request using fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options) with the `phonenumber`, `name` and `email`. Posting the request [here](../week3/homework.md#meal);
+- Now create a [post request using fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options) with the `phonenumber`, `name` and `email`.
 - If the request is successful indicate to the user that the request went well. If it was unsuccessful show an error message. This we could do using `alert`. You could also explore [making a modal](https://dev.to/franciscomendes10866/how-to-create-a-modal-in-react-3coc).
 
 ### **Reviews**
