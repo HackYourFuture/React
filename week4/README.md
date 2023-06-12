@@ -12,6 +12,7 @@ We want you to get excited and be free to build something you are passionate abo
 - The app should make use of the Context API or use custom hooks
 - You can either use an API that you have built or access to (then just include the backend code in the project) or should use data from a public API. _You will not be graded on backend code_
 - You should not use class components
+- You are *not* allowed to do a code-along or tutorial for this project, the goal is for you to build something yourself!
 - Follow the [guidelines for technical assignments](https://github.com/HackYourFuture/ta_guidelines). This will help you not get stuck or end up with only half an application and make sure that what you have at the end is something presentable. Your README should also be filled with information for potential recruiters/reviewers
 
 ### Bonus points:
