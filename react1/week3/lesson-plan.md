@@ -37,7 +37,7 @@ import { RandomCats } from './RandomCats'
 
 function App() {
   return (
-    <RandomCats fetchUrl="https://aws.random.cat/meow" />
+    <RandomCats fetchUrl="https://api.thecatapi.com/v1/images/search" />
   );
 }
 
@@ -64,15 +64,15 @@ export function RandomCats({ fetchUrl }) {
 
   const addCat = () => {
     getCat().then((cat) => {
-      setRandomCats((prev) => [...prev, cat.file]);
+      setRandomCats((prev) => [...prev, ...cat]);
     });
   };
 
   const randomCatsDisplay = randomCats.map((randomCat) => {
     return (
-      <li>
+      <li key={randomCat.id}>
         <FancyBorder>
-          <img src={randomCat} />
+          <img src={randomCat.url} alt="Random cat" />
         </FancyBorder>
       </li>
     );
