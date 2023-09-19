@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import Products from "../fake-data/all-products";
-import Cart from "./Cart"; // Import the Cart component
+import Cart from "./Cart";
 
 function ProductList({ selectedCategory }) {
   const [cart, setCart] = useState([]);
-  const [isCartVisible, setIsCartVisible] = useState(false); // State to control cart visibility
+  const [isCartVisible, setIsCartVisible] = useState(false);
 
   const addToCart = (product) => {
-    // Check if the product is already in the cart
     if (!cart.find((item) => item.id === product.id)) {
       setCart([...cart, product]);
       console.log("Added to cart:", product);
@@ -16,8 +15,18 @@ function ProductList({ selectedCategory }) {
     }
   };
 
-  const toggleCartVisibility = () => {
-    setIsCartVisible(!isCartVisible); // Toggle cart visibility
+  const removeFromCart = (product) => {
+    const updatedCart = cart.filter((item) => item.id !== product.id);
+    setCart(updatedCart);
+    console.log("Removed from cart:", product);
+  };
+
+  const showCart = () => {
+    setIsCartVisible(true);
+  };
+
+  const showProducts = () => {
+    setIsCartVisible(false);
   };
 
   const filteredProducts = selectedCategory
@@ -29,24 +38,32 @@ function ProductList({ selectedCategory }) {
   return (
     <div className="product-list">
       <header>
-        {/* Conditionally render the Cart component */}
-        {isCartVisible && <Cart cart={cart} />}
-        <button className="cart-container" onClick={toggleCartVisibility}>
-          Cart <span className="cart-length">({cart.length})</span>
-        </button>
+        {isCartVisible ? (
+          <Cart
+            cart={cart}
+            removeFromCart={removeFromCart}
+            onBackToProductsClick={showProducts}
+          />
+        ) : (
+          <>
+            <button className="cart-container" onClick={showCart}>
+              Cart <span className="cart-length">({cart.length})</span>
+            </button>
+            {filteredProducts.map((product) => (
+              <div key={product.id} className="product">
+                <img src={product.image} alt={product.title} />
+                <h3>{product.title}</h3>
+                <span className="price">€{product.price}</span>
+                <p>{product.description}</p>
+                <p>Category: {product.category}</p>
+                <p>Rating: {product.rating.rate}</p>
+                <p>Reviews: {product.rating.count}</p>
+                <button onClick={() => addToCart(product)}>Add to Cart</button>
+              </div>
+            ))}
+          </>
+        )}
       </header>
-      {filteredProducts.map((product) => (
-        <div key={product.id} className="product">
-          <img src={product.image} alt={product.title} />
-          <h3>{product.title}</h3>
-          <span className="price">€{product.price}</span>
-          <p>{product.description}</p>
-          <p>Category: {product.category}</p>
-          <p>Rating: {product.rating.rate}</p>
-          <p>Reviews: {product.rating.count}</p>
-          <button onClick={() => addToCart(product)}>Add to Cart</button>
-        </div>
-      ))}
     </div>
   );
 }
