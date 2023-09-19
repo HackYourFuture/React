@@ -1,0 +1,169 @@
+
+.category-list {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+
+.category-button {
+  background-color: #007bff; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.category-button:hover {
+  background-color: #0056b3;
+}
+
+.category-button.active {
+  background-color: #ff6000;
+  color: #fff;
+}
+
+
+.category-name {
+  text-align: center; 
+  background-color: #f2f2f2; 
+  padding: 10px; 
+  border-radius: 5px; 
+  font-weight: bold; 
+  color: #333;
+  margin-top: 10px; 
+ 
+}
+
+
+
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+.product {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.product img {
+  max-width: 100%;
+}
+
+.product img:hover {
+  transform: scale(1.2); 
+  transition: transform 0.3s ease; 
+}
+
+.product h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.product p {
+  font-size: 14px;
+  color: #777;
+  margin: 5px 0;
+}
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #007bff; 
+}
+
+.product button {
+  background-color: #ff6000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+  background-color: #e05000;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+header button {
+  background-color: #ff6000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+header button:hover {
+  background-color: #e05000;
+}
+
+.cart {
+  background-color: #ff6000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.cart .cart-length {
+  color: #007bff; 
+  font-weight: bold; 
+}
+.cart:hover {
+  background-color: #e05000;
+}
+@media (max-width: 768px) {
+  .category-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  .cart {
+    left: 70%;
+    top: 3%;
+    
+  }
+  .category-name {
+  width: 90%;
+  margin-right: 9%;
+   
+  }
+  .app {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    min-height: 100vh;
+  }
+  .category-list {
+    display: flex;
+   ;
+  }
+  
+}
+
+
+
