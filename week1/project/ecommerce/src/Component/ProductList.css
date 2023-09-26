@@ -1,0 +1,152 @@
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+.product h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.product p {
+  font-size: 14px;
+  color: #777;
+  margin: 5px 0;
+}
+
+.product button {
+  background-color: #ff6000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+  background-color: #e05000;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+header button {
+  background-color: #ff6000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+.product {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.product img {
+  max-width: 100%;
+}
+
+.product img:hover {
+  transform: scale(1.2); 
+  transition: transform 0.3s ease; 
+}
+
+
+.product p {
+  font-size: 14px;
+  color: #777;
+  margin: 5px 0;
+}
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #007bff; 
+}
+
+.product button {
+  background-color: #ff6000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+  background-color: #e05000;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+header button {
+  background-color: #ff6000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+header button:hover {
+  background-color: #e05000;
+}
+
+header button:hover {
+  background-color: #e05000;
+}
+
+.cart-container {
+  position: absolute;
+  top: 90px;
+  left: 90%; 
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff; 
+}
+
+.cart:hover {
+  background-color: #0ef1e2;
+}
