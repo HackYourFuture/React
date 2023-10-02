@@ -1,0 +1,33 @@
+.category__list {
+  display: flex;
+}
+
+@media (max-width: 740px) {
+  .category__list {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.category__list button {
+  background-color: #efeff0;
+  cursor: pointer;
+  font-weight: 900;
+  margin: 2px;
+  height: 3rem;
+  width: 9rem;
+  border: none;
+}
+
+.category__list button:hover {
+  background-color: #d6d6d8;
+}
+
+.category__list button.active {
+  background-color: #bababe;
+}
+@media (max-width: 480px) {
+  .category__list button {
+    margin: 0 5px;
+  }
+}

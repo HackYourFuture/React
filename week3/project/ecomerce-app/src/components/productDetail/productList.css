@@ -1,0 +1,10 @@
+
+.product__details img {
+  margin-bottom: auto;
+  margin-top: auto;
+  max-height: 300px;
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
