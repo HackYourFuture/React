@@ -1,20 +1,23 @@
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './productList.css';
 
 function ProductList({ products }) {
+  const limitedProducts = products.slice(0, 10);
+
   return (
     <div className="product__list">
-      {products.map((product) => (
-        <div key={product.id} className="product">
-          <img src={product.image} alt={product.title} />
-          <h3>{product.title}</h3>
-          <p>Price: ${product.price}</p>
-          <p>Category: {product.category}</p>
-          <div className="rating">
-            <p>Rating: {product.rating.rate}</p>
-            <p>Reviews: {product.rating.count}</p>
+      {limitedProducts.map((product) => (
+        <Link
+          key={product.id}
+          to={`/product/${product.id}`}
+          className="product-link"
+        >
+          <div className="product">
+            <img src={product.image} alt={product.title} />
+            <h3>{product.title}</h3>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
