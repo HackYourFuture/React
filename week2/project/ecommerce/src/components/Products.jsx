@@ -10,7 +10,7 @@ const Products = ({ productsData, selectedCategory }) => {
       <ul className="product-list">
         {filteredProducts.map((product) => (
           <li key={product.id}>
-            <Link to={`/${product.id}`}>
+            <Link to={`/product/${product.id}`}>
               <div>
                 <img src={product.image} alt="product" />
                 <p>{product.title}</p>

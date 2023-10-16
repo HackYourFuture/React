@@ -4,6 +4,7 @@ import Products from "./components/Products";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import ProductDetail from "./components/ProductDetail";
+import Loading from "./components/Loading";
 
 async function fetchCategories() {
   try {
@@ -39,6 +40,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [categoriesData, setCategoriesData] = useState([]);
   const [productsData, setProductsData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -46,6 +48,7 @@ function App() {
       const products = await fetchProducts();
       setCategoriesData(categories);
       setProductsData(products);
+      setLoading(false);
     }
 
     fetchData();
@@ -59,18 +62,22 @@ function App() {
         setSelectedCategory={setSelectedCategory}
       />
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Products
-              productsData={productsData}
-              selectedCategory={selectedCategory}
-            />
-          }
-        />
-        <Route path="/:id" element={<ProductDetail />} />
-      </Routes>
+      {loading ? (
+        <Loading />
+      ) : (
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Products
+                productsData={productsData}
+                selectedCategory={selectedCategory}
+              />
+            }
+          />
+          <Route path="/product/:id" element={<ProductDetail />} />
+        </Routes>
+      )}
     </div>
   );
 }
