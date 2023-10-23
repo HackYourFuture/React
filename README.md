@@ -8,7 +8,7 @@
 
 Welcome to the React module! Congratulations on making it this far!
 
-In these 4 weeks we will go back to the frontend and learn how to make faster, more modern user interfaces. In the HTML and JavaScript modules you've learned all about creating webpages that that hold unchanging data. No matter who is using the website, the data will always be the same. We call this a `static website`. At the same time you've build various HTML pages so the user is able to access various parts of the website. We call this a `multi-page application (MPA)`
+In these 4 weeks we will go back to the frontend and learn how to make faster, more modern user interfaces. In the HTML and JavaScript modules, you've learned all about creating webpages that hold unchanging data. No matter who is using the website, the data will always be the same. We call this a `static website`. At the same time you've build various HTML pages so the user is able to access various parts of the website. We call this a `multi-page application (MPA)`
 
 In the Node.js module you've learned about how to change the content of the page, based on the user's input, using a `templating engine`. Type in a keyword and the server sends back a `template` with customized data. We call this a `dynamic website`. However, we did it in such a way were we still had to send different pages to the client depending on the URL (for example, `/` or `/users`). This is also an MPA.
 
