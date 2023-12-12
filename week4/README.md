@@ -1,23 +1,23 @@
 # Week 4
 
-In the final week of React you will put everything you have learned into practice and build the app of your dreams! As this is a big thing one of the mentors for this module will be there to help you think your app through. They will not be allowed to write any code for you however.
+In the final week of React you put everything you have learned into practice and build the app of your dreams! As this is a big thing, a mentor is there is there to help you think your app through. They are not allowed to write any code for you however.
 
-This project will be a great thing to put on your CV so make it look good and be something that you will enjoy working on later to keep improving. Also make sure you challenge yourself, you have a mentor to guide you if you get stuck! This means you will learn more if you go out of your comfort zone a little.
+This project is a great thing to put on your CV, so make it look good and be something that you will enjoy working on later to keep improving. Also make sure to challenge yourself; you have a mentor to guide you if you get stuck! This means you will learn more if you go out of your comfort zone a little.
 
 ## Project requirements
 
 We want you to get excited and be free to build something you are passionate about, but there are some things that we need to see you have mastered. This means there are a few requirements:
 
-- The app needs to have multiple pages and use client-side routing
-- The app should make use of the Context API or use custom hooks
-- You can either use an API that you have built or access to (then just include the backend code in the project) or should use data from a public API. _You will not be graded on backend code_
-- You should not use class components
+- The app needs to have multiple pages and use client-side routing;
+- The app should make use of the Context API or use custom hooks;
+- You can either use an API that you have built or access to (then just include the backend code in the project) or should use data from a public API _You will not be graded on backend code_
+- You should not use class components;
 - You are *not* allowed to do a code-along or tutorial for this project, the goal is for you to build something yourself!
-- Follow the [guidelines for technical assignments](https://github.com/HackYourFuture/ta_guidelines). This will help you not get stuck or end up with only half an application and make sure that what you have at the end is something presentable. Your README should also be filled with information for potential recruiters/reviewers
+- Follow the [guidelines for technical assignments](https://github.com/HackYourFuture/ta_guidelines). This will help you not get stuck or end up with only half an application and make sure that what you have at the end is something presentable. Your README should also be filled with information for potential recruiters/reviewers.
 
 ### Bonus points:
 - Testing your app!
-- Having a backend (although we will not look at that code)
+- Having a backend (although we will not look at that code).
 
 ### TIPS
 
@@ -28,11 +28,11 @@ We want you to get excited and be free to build something you are passionate abo
 
 ## Final product
 
-The final product (the repository is the product, not just the application) should be something that you can show off on your CV. So have a look at our technical assignment guidelines [here](https://github.com/HackYourFuture/ta_guidelines) and our design guidelines [here](https://github.com/HackYourFuture/design_guidelines) to see what it entails. By following those guidelines your app AND your code will look great, making it a great thing to show off to employers. You will also get into the habit of doing this with all the technical assignments you will get during your job search.
+The final product (the repository is the product, not just the application) should be something that you can show off on your CV. So have a look at our technical assignment guidelines [here](https://github.com/HackYourFuture/ta_guidelines) and our design guidelines [here](https://github.com/HackYourFuture/design_guidelines) to see what it entails. By following those guidelines, your app AND your code will look great, making it a great thing to show off to employers. You will also get into the habit of doing this with all the technical assignments you will get during your job search.
 
 ## Planning and deadlines
 
-There are only 2 deadlines in the project, how you divide your time for the rest is up to you.
+There are only two deadlines in the project, how you divide your time for the rest is up to you.
 
 ### Deadline 1: Project definition
 
@@ -48,17 +48,17 @@ By _Tuesday 23:59PM CET_ you should send a link to your github project to the Ed
 
 ## Grading
 
-After finishing the project you will get another technical interview about your own project (similar to what you had in the [Browsers module](https://github.com/HackYourFuture/Browsers/blob/main/PROJECT.md#the-interview)) to determine if you can go on to the project. Keep track of your class channel to see when these will be.
+After finishing the project you will get another technical interview about your own project (similar to what you had in the [Browsers module](https://github.com/HackYourFuture/Browsers/blob/main/PROJECT.md#the-interview)) to determine if you can go on to the project. Keep track of your cohort channel to see when these will be.
 
 _Note: The difficulty of the application affects the grading in two ways:_
 
-- You get extra points for creating a difficult application (things like making your own hooks, good state management, loads of features, etc)
-- We will expect simpler applications to have better structured code and be more lenient on complexer applications
+- You get extra points for creating a difficult application (things like making your own hooks, good state management, loads of features, etc);
+- We expect simpler applications to have better structured code and be more lenient on complexer applications.
 
 _Note: following the technical assignment guidelines will also be a part of the grading_
 
-- Make sure you have read the [design guidelines](https://github.com/HackYourFuture/design_guidelines) and that your app design follows these guidelines
-- Make sure you have read the [technical assignment guidelines](https://github.com/HackYourFuture/ta_guidelines) and that your code and README follows these guidelines
+- Make sure that you have read the [design guidelines](https://github.com/HackYourFuture/design_guidelines) and that your app design follows these guidelines.
+- Make sure you that have read the [technical assignment guidelines](https://github.com/HackYourFuture/ta_guidelines) and that your code and README follows these guidelines.
 
 ## F.A.Q.
 
@@ -73,6 +73,6 @@ Yes! But please check with your mentor if you decide to use one. We don't want y
 Any UI toolkit (things like [Material UI](https://material-ui.com/) or [Semantic UI](https://react.semantic-ui.com/) that give you some basic components that have a particular style) is fine. The libaries we used during the curriculum is also fine. For the rest please let us know what you are planning.
 
 ## Final remarks
-As you are all working on the projects this week there will not be a Q&A session on Sunday this week.
+As you are all working on the projects this week there is no Q&A session on Sunday this week.
 
 Enjoy!
