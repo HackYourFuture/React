@@ -1,13 +1,11 @@
-import React from "react";
-
 import Product from "./Product";
 
-const ProductList = (props) => {
+const ProductList = ({ products }) => {
   return (
     <div>
       <h2>Products</h2>
       <div className="product-list">
-        {props.products.map((product) => (
+        {products.map((product) => (
           <Product
             key={product.id}
             title={product.title}

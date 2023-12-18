@@ -1,10 +1,11 @@
 const Product = (props) => {
+  const { image, title, price } = props;
   return (
     <div className="product-item">
-      <img src={props.image} />
-      <h3>{props.title.substring(0, 50)}</h3>
+      <img src={image} />
+      <h3>{title.substring(0, 50)}</h3>
 
-      <p>Price: ${props.price}</p>
+      <p>Price: ${price}</p>
     </div>
   );
 };

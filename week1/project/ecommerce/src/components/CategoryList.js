@@ -1,12 +1,13 @@
-import React from "react";
-import categoriesData from "../all-categories";
-
-const CategoryList = (props) => {
+const CategoryList = ({ categories, selectedCategory, onToggle }) => {
   return (
     <div id="category-list">
       <ul>
-        {categoriesData.map((category, index) => (
-          <li key={index} onClick={() => props.onFilterProducts(category)}>
+        {categories.map((category, index) => (
+          <li
+            key={index}
+            onClick={() => onToggle(category)}
+            className={category === selectedCategory ? "active" : ""}
+          >
             {category}
           </li>
         ))}
