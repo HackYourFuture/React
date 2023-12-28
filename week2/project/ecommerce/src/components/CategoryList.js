@@ -2,23 +2,21 @@ import { useState, useEffect } from "react";
 
 const CategoryList = ({ selectedCategory, onToggle }) => {
   const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   function fetchCategories() {
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => {
-        setLoading(true);
         return res.json();
       })
       .then((data) => {
-        setLoading(false);
         setCategories(data);
       })
       .catch((error) => {
-        setLoading(false);
         setError("Can not fetch data!");
       });
+    setLoading(false);
   }
 
   useEffect(() => {

@@ -9,12 +9,11 @@ const ProductList = ({ category }) => {
   function fetchProducts(url) {
     fetch(url)
       .then((res) => {
-        setLoading(true);
         return res.json();
       })
       .then((data) => {
-        setLoading(false);
         setProducts(data);
+        setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
@@ -23,10 +22,12 @@ const ProductList = ({ category }) => {
   }
 
   useEffect(() => {
+    setLoading(true);
     if (category) {
       fetchProducts(`https://fakestoreapi.com/products/category/${category}`);
       return;
     }
+
     fetchProducts("https://fakestoreapi.com/products");
   }, [category]);
 
@@ -39,11 +40,11 @@ const ProductList = ({ category }) => {
 
   return (
     <div>
-      <h2>Products</h2>
       <div className="product-list">
         {products.map((product) => (
           <Product
             key={product.id}
+            id={product.id}
             title={product.title}
             price={product.price}
             image={product.image}

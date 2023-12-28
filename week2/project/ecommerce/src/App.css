@@ -81,3 +81,13 @@ main {
   width: 100%;
   border-radius: 4px;
 }
+
+.productDetails {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding: 30px;
+}
+.productDetails img {
+  width: 350px;
+}
