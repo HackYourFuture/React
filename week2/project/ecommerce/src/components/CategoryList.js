@@ -12,11 +12,12 @@ const CategoryList = ({ selectedCategory, onToggle }) => {
       })
       .then((data) => {
         setCategories(data);
+        setLoading(false);
       })
       .catch((error) => {
         setError("Can not fetch data!");
+        setLoading(false);
       });
-    setLoading(false);
   }
 
   useEffect(() => {

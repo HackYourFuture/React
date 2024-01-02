@@ -4,28 +4,30 @@ import { useEffect, useState } from "react";
 const ProductDetailsPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchProduct = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await fetch(`https://fakestoreapi.com/products/${id}`);
-      if (res.status !== 200) {
-        throw new Error("Something Went Wrong!");
-      }
-      const data = await res.json();
-      setProduct(data);
-    } catch (error) {
-      setError(error.message);
-    }
-    setLoading(false);
-  };
+  useEffect(
+    function () {
+      const fetchProduct = async () => {
+        setError(null);
+        try {
+          const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+          if (res.status !== 200) {
+            throw new Error("Something Went Wrong!");
+          }
+          const data = await res.json();
+          setProduct(data);
+        } catch (error) {
+          setError(error.message);
+        }
+        setLoading(false);
+      };
 
-  useEffect(function () {
-    fetchProduct();
-  }, []);
+      fetchProduct();
+    },
+    [id],
+  );
 
   if (loading) {
     return <h1>Loading...</h1>;
@@ -41,7 +43,7 @@ const ProductDetailsPage = () => {
         <p>{product.description}</p>
       </div>
       <div>
-        <img src={product.image} />
+        <img src={product.image} alt={product.title} />
       </div>
     </div>
   );

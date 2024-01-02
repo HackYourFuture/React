@@ -7,7 +7,7 @@ const Product = (props) => {
 
   return (
     <div className="product-item">
-      <img src={image} />
+      <img src={image} alt={title} />
       <h3>{title.substring(0, 50)}</h3>
 
       <p>Price: ${price}</p>
