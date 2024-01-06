@@ -1,14 +1,6 @@
 # Lesson Plan - Building components
 
 - Stateful logic - Having logic around state
-- create-react-app
-  - Show students how to install create-react-app. [Getting Started](https://create-react-app.dev/docs/getting-started).
-  - Explain the general structure
-  - How to run `npm run start`
-  - Talk briefly about how the dist folder is generated
-- Component tree
-  - Transform a todolist sketch into components on white board.
-  - _Exercise:_ transform another ui into components in pairs.
 - Stateful logic
   - Using destructuring in React
   - State vs. Props
@@ -19,7 +11,7 @@
       - State increases complexity and reduces predictability
       - Use props unless you definitely need to use state
       - State is single-level only. Components can read and set their own state, but cannot read or set the state of their children
-    - Understand that we are not allowed to mutate the state. 
+    - Understand that we are not allowed to mutate the state.
 - List keys
   - Render list first without adding the key. See the error
   - Assignment of unique key to every item rendered in an array
@@ -60,7 +52,7 @@ export function TodoList() {
 
   const addTodo = () => {
     const newTodo = { text: "learn React" };
-    setTodosState(prevTodos => {
+    setTodosState((prevTodos) => {
       return [...prevTodos, newTodo];
     });
   };
@@ -77,10 +69,8 @@ export function TodoList() {
   );
 }
 
-function TodoItem({text}) {
-  return (
-     <li>{text}</li>
-  )
+function TodoItem({ text }) {
+  return <li>{text}</li>;
 }
 
 const rootElement = document.getElementById("root");
@@ -89,8 +79,8 @@ ReactDOM.render(<TodoList />, rootElement);
 
 ## Exercise
 
-  1. Add an id to the todo list objects to deal with the key error
-  2. Add a method to delete a todo by using an input field to enter the id to be deleted.
+1. Add an id to the todo list objects to deal with the key error
+2. Add a method to delete a todo by using an input field to enter the id to be deleted.
 
 ### Counter
 

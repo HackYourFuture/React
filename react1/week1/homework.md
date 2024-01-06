@@ -6,7 +6,7 @@ Need to brush up on the homework setup process? Check [this](https://github.com/
 
 ## Todo list
 
-Usign `create-react-app` create a new react project.
+Using `create-react-app` create a new react project.
 
 ## basic React & props
 

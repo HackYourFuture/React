@@ -7,10 +7,6 @@
     - Break down a site into components
   - Reusable blocks of JavaScript & HTML
   - Each component instance can be given different data
-  - Can display JavaScript values in the HTML, using the { } symbols
-  - Class component vs. functional component
-  - Always returns HTML (in the form of JSX)
-  - Render an array in `.map`
   - [Exercise](#working-with-component-trees)
 - JSX
   - A way to write dynamic HTML code with JavaScript
@@ -19,6 +15,18 @@
   - A component should always return JSX
   - These are the parts that will build the DOM structure
   - `ReactDOM.render`
+  - Can display JavaScript values in the HTML, using the { } symbols
+  - Class component vs. functional component
+  - Always returns HTML (in the form of JSX)
+  - Render an array in `.map`
+- create-react-app
+  - Show students how to install create-react-app. [Getting Started](https://create-react-app.dev/docs/getting-started).
+  - Explain the general structure
+  - How to run `npm run start`
+  - Talk briefly about how the dist folder is generated
+- Component tree - hierarchy of components
+  - Transform a todolist sketch into components on white board.
+  - _Exercise:_ transform another ui into components in pairs.
 - Props
   - Props is short for property (like a regular HTML attribute)
   - It is (dynamic) data that can be given to child components
@@ -26,16 +34,11 @@
   - Can be given to multiple instances of components
   - [Code inspiration](#userlist-components-jsx-and-props)
   - [Exercise](#useritemexpanded)
-- State
-  - State holds all the dynamic data of the app
-  - [Code inspiration](#counter-example)
-  - [Exercise](#counter)
 
 Both props and state are plain JavaScript objects/values.
 
 Teacher suggestion:
 
-- Make a jquery app first and then change it into dom
 - "Why React comes" - video - all students should watch this.
 
 ## Flipped classroom videos
