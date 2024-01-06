@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  text-transform: capitalize;
+}
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  width: 90%;
+}
+
+.box div:first-child {
+  text-align: center;
+}
+
+.box .avatar-container {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.box svg {
+  width: 200px;
+}
