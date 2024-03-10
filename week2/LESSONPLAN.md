@@ -1,6 +1,6 @@
 # Lesson Plan Week 2
 
-The purpose of this class is to teach the student about:
+The purpose of this class is to teach the trainee about:
 
 - How to make `HTTP Requests` within a React component
 - How to test in React
@@ -69,7 +69,7 @@ const Users = () => {
 
 ### Exercise
 
-Ask students to write a component that uses `useEffect` to fetch data and populate state:
+Ask trainees to write a component that uses `useEffect` to fetch data and populate state:
 
 - Use `useEffect` & `useState` hook
 - Wrap the HTTP Request in a function
@@ -77,7 +77,7 @@ Ask students to write a component that uses `useEffect` to fetch data and popula
 - Display the `title` property
 - Use the following API endpoint: https://jsonplaceholder.typicode.com/todos/1
 
-After, ask 2 students to explain what they did.
+After, ask 2 trainees to explain what they did.
 
 ### Essence
 

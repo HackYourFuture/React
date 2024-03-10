@@ -1,4 +1,4 @@
-# Homework React Week 3
+# Assignment React Week 3
 
 ## **Todo list**
 
@@ -16,7 +16,7 @@ Inside your `React` fork, go to the folder `week3`. Inside of that folder, navig
 
 ## **4. Optional: Possible Q&A exercises**
 
-> Possible Q&A exercises are exercises that you can nominate to discuss with the Q&A mentor during the session on Sunday. Have a go at these and see which one you find difficult, then you can reply to the thread in your class channel with a link to the exercise you want to do.
+> Possible Q&A exercises are exercises that you can nominate to discuss with the Q&A mentor during the session on Sunday. Have a go at these and see which one you find difficult, then you can reply to the thread in your cohort channel with a link to the exercise you want to do.
 > Even if the exercise does not get handled in the Q&A session these exercises are good ways to get ideas of what to build to keep practicing.
 
 > If you want to nominate a different exercise you found online then feel free to do so! We may even add that one to the list for the next class to use and attribute it to you ;).
@@ -61,13 +61,13 @@ Remember that our friends over at CodeYourFuture have provided a repository with
 
 There is also a great website called [frontendeval](https://frontendeval.com/) that gives a nice list of challenges that may come up in frontend technical assignments. You will have a leg up if you have already solved these problems beforehand. Every challenge also has solutions from others so you can compare yours and maybe learn something from other people!
 
-## **SUBMIT YOUR HOMEWORK!**
+## **SUBMIT YOUR ASSIGNMENT!**
 
-After you've finished your list it's time to show us what you got! Upload all your files to a forked repository (a copy from the original, which in this case is the [React](https://www.github.com/HackYourHomework/React) repository) using GIT.
+After you've finished your list it's time to show us what you got! Upload all your files to a forked repository (a copy from the original, which in this case is the [React](https://www.github.com/HackYourAssignment/React) repository) using GIT.
 
-If you need a refresher, take a look at the following [guide](../hand-in-homework-guide.md) to see how it's done.
+If you need a refresher, take a look at the following [guide](../hand-in-assignment-guide.md) to see how it's done.
 
-The homework that needs to be submitted is the following:
+The assignment that needs to be submitted is the following:
 
 1. Project: Ecommerce Shop III
 

@@ -2,7 +2,7 @@
 
 ## Agenda
 
-The purpose of this class is to teach the student about:
+The purpose of this class is to teach the trainee about:
 
 - Client-side routing
 - What is the Context API
@@ -18,11 +18,11 @@ The purpose of this class is to teach the student about:
 
 _Explain the following example: [Basic Example](https://reacttraining.com/react-router/web/example/basic)_
 
-_Exercise: help students recreate the Basic Example (without looking at the code)_
+_Exercise: help trainees recreate the Basic Example (without looking at the code)_
 
-## Build with students
+## Build with trainees
 
-To illustrate the workings of React-Router build the following small app with the students.
+To illustrate the workings of React-Router build the following small app with the trainees.
 
 - [Basic Router](../../examples/router-example)
 
@@ -31,7 +31,7 @@ Make a basic navigation menu that uses React-Router.
 - Use `react-router-dom`
 - Render a different component for each route
 
-_After showing the example, hide your code and ask students to recreate the same thing_
+_After showing the example, hide your code and ask trainees to recreate the same thing_
 
 2. Server-side routing
 
@@ -43,4 +43,4 @@ _After showing the example, hide your code and ask students to recreate the same
 - Context provides a way to pass data through the component tree without having to pass props down manually at every level.
 - Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language.
 
-_Show instance of how to create `context`, pass down the `Provider` and `Consumer` and show the value. After, have the students do the same_
+_Show instance of how to create `context`, pass down the `Provider` and `Consumer` and show the value. After, have the trainees do the same_

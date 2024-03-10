@@ -2,7 +2,7 @@
 
 ## Agenda
 
-The purpose of this class is to introduce the student to the most basic React concepts:
+The purpose of this class is to introduce the trainee to the most basic React concepts:
 
 -   How to look at a `webpage` from the React point of view
 -   What `create-react-app` is
@@ -11,9 +11,9 @@ The purpose of this class is to introduce the student to the most basic React co
 -   What are `props` and how to `pass them down components`
 -   What is `state`?
 
-When illustrating these concepts, make use of [create-react-app](https://github.com/facebook/create-react-app). Make sure that students have installed it as well.
+When illustrating these concepts, make use of [create-react-app](https://github.com/facebook/create-react-app). Make sure that trainees have installed it as well.
 
-_Explain to students what each library does: React, ReactDOM and Babel._
+_Explain to trainees what each library does: React, ReactDOM and Babel._
 
 ## Core concepts
 
@@ -57,7 +57,7 @@ By instantiating it several times you can output it like in the image:
 
 ### Exercise
 
-Show this [example](https://htmlstream.com/preview/unify-v2.6.2/unify-main/home/home-default.html) and dissect a part of the site into components. After, ask 2 students to do the same.
+Show this [example](https://htmlstream.com/preview/unify-v2.6.2/unify-main/home/home-default.html) and dissect a part of the site into components. After, ask 2 trainees to do the same.
 
 ### Essence
 
@@ -79,7 +79,7 @@ _Install `create-react-app` and create a sample project. Go over the various fil
 
 ### Exercise
 
-Ask students to install `create-react-app` and get it started on their machines!
+Ask trainees to install `create-react-app` and get it started on their machines!
 
 ### Essence
 
@@ -127,7 +127,7 @@ You should focus on `function` based components.
 
 ### Exercise
 
-Ask students to rebuild the following:
+Ask trainees to rebuild the following:
 
 ![Navbar](./../assets/navbar.png)
 
@@ -136,7 +136,7 @@ Ask students to rebuild the following:
 -   Pass props to each `NavBarItem` instance
 -   Styling is optional
 
-After they're done discuss and highlight the works of at least 2 students.
+After they're done discuss and highlight the works of at least 2 trainees.
 
 ### Essence
 
@@ -168,7 +168,7 @@ const Section = () => {
 
 ### Exercise
 
-Ask students to create a functional component that returns the following HTML elements:
+Ask trainees to create a functional component that returns the following HTML elements:
 
 -   1 `<nav>`
 -   1 `<ul>`
@@ -181,7 +181,7 @@ Ask students to create a functional component that returns the following HTML el
 -   A component should always return JSX
 -   These are the parts that will build the DOM structure
 
-_Show example of both JSX and createElement component and ask students to do the same._
+_Show example of both JSX and createElement component and ask trainees to do the same._
 
 ## 5. Props
 
@@ -213,7 +213,7 @@ const UserList = () => {
 
 ### Exercise
 
-Ask students to make a **list of posts**, where each post has a `title` and a `content` part. It should look like similar to this:
+Ask trainees to make a **list of posts**, where each post has a `title` and a `content` part. It should look like similar to this:
 
 ![List of posts](./../assets/posts.png)
 
@@ -303,7 +303,7 @@ const Count = ({ count }) => {
 
 ### Exercise
 
-Ask students to remake aforementioned by themselves.
+Ask trainees to remake aforementioned by themselves.
 
 ### Essence
 
