@@ -79,7 +79,7 @@ _Install `create-react-app` and create a sample project. Go over the various fil
 
 ### Exercise
 
-ask trainees to install `create-react-app` and get it started on their machines!
+Ask trainees to install `create-react-app` and get it started on their machines!
 
 ### Essence
 
@@ -127,7 +127,7 @@ You should focus on `function` based components.
 
 ### Exercise
 
-ask trainees to rebuild the following:
+Ask trainees to rebuild the following:
 
 ![Navbar](./../assets/navbar.png)
 
@@ -168,7 +168,7 @@ const Section = () => {
 
 ### Exercise
 
-ask trainees to create a functional component that returns the following HTML elements:
+Ask trainees to create a functional component that returns the following HTML elements:
 
 -   1 `<nav>`
 -   1 `<ul>`
@@ -213,7 +213,7 @@ const UserList = () => {
 
 ### Exercise
 
-ask trainees to make a **list of posts**, where each post has a `title` and a `content` part. It should look like similar to this:
+Ask trainees to make a **list of posts**, where each post has a `title` and a `content` part. It should look like similar to this:
 
 ![List of posts](./../assets/posts.png)
 
@@ -303,7 +303,7 @@ const Count = ({ count }) => {
 
 ### Exercise
 
-ask trainees to remake aforementioned by themselves.
+Ask trainees to remake aforementioned by themselves.
 
 ### Essence
 

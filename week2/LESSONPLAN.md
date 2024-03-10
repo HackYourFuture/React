@@ -69,7 +69,7 @@ const Users = () => {
 
 ### Exercise
 
-ask trainees to write a component that uses `useEffect` to fetch data and populate state:
+Ask trainees to write a component that uses `useEffect` to fetch data and populate state:
 
 - Use `useEffect` & `useState` hook
 - Wrap the HTTP Request in a function

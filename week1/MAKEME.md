@@ -67,7 +67,7 @@ Building many different small applications will get you the practice you need to
 
 ## **SUBMIT YOUR ASSIGNMENT!**
 
-After you've finished your list it's time to show us what you got! Upload all your files to the HackYourAssignment repository (which in this case is the https://www.github.com/HackYourAssignment/React-cohort-XX repository) using GIT.
+After you've finished your list it's time to show us what you got! Upload all your files to a forked repository (a copy from the original, which in this case is the [React](https://www.github.com/HackYourFuture/React) repository) using GIT. Then make a pull request to your teacher's forked repository.
 
 If you need a refresher, take a look at the following [guide](../hand-in-assignment-guide.md) to see how it's done.
 

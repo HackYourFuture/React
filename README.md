@@ -77,7 +77,7 @@ To have a more detailed overview of the guidelines, please read [this document](
 
 ## Planning
 
-| Week | Topics                                                  | Reading Materials                | assignment                         |
+| Week | Topics                                                  | Reading Materials                | Assignment                         |
 | ---- | ------------------------------------------------------- | -------------------------------- | -------------------------------- |
 | 1.   | What is React, JSX, State & Props, Deploy a static site | [Readings W1](./week1/README.md) | [Assignment W1](./week1/MAKEME.md) |
 | 2.   | API calls, Testing                                      | [Readings W2](./week2/README.md) | [Assignment W2](./week2/MAKEME.md) |
