@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.productCard {
+    width: 25%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.productCard img {
+    width: 70%;
+
+}
