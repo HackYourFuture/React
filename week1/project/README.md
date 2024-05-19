@@ -4,7 +4,7 @@
 
 The first step to any project is to setup your development environment. Follow the steps:
 
-1. Inside this folder (`week1/project`), use `create-react-app` to create a React application. Give it the name `ecommerce`
+1. Inside this folder (`week1/project`), use `npm create vite` to create a React application. Give it the name `ecommerce`
    > You are going to be copying and refactoring your code every week but will simultaneously be getting feedback for previous weeks. As such, at the beginning of every week you copy over the project files from the previous week into a new folder and a new branch. To help you identify if all is well, we suggest keeping it in the week folder that it is a part of.
 2. Copy and paste the folder `fake-data` inside the `src` folder of your new project
 

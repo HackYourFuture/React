@@ -18,21 +18,21 @@ Besides being dynamic, React applications also are `single page applications (SP
 
 ## Before you start
 
-In order to properly work through this module smoothly, we're going to use software that will allow us to write React applications with ease. It's called `create-react-app`.
+In order to properly work through this module smoothly, we're going to use software that will allow us to write React applications with ease. It's called `vite`.
 
 Go to your command line and execute the following:
 
 ```bash
-npm install -g create-react-app
+npm create vite FOLDER_NAME -- --template react
 ```
 
 Now verify that you have it by executing the following:
 
 ```bash
-create-react-app --version
+vite --version
 ```
 
-It should be at least version `2.1.x`.
+It should be at least version `5.x.y`.
 
 ## Learning goals
 

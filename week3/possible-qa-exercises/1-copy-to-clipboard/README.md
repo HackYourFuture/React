@@ -2,7 +2,7 @@
 
 Can you make a hook that takes a user input and copies it to their computer's clipboard?
 
-1. Create a new application via `create-react-app`
+1. Create a new application via `npm create vite`
 2. Add a new component, with a simple text field the user can type in.
 3. Add another component consisting of a button.
 4. Store the user's entry. (Bonus question: How should you store this value? In the component? Context API? App.js?)

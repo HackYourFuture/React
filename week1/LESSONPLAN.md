@@ -5,13 +5,13 @@
 The purpose of this class is to introduce the trainee to the most basic React concepts:
 
 -   How to look at a `webpage` from the React point of view
--   What `create-react-app` is
+-   What `vite` is
 -   How to write `reusable components` and why
 -   The purpose of `JSX`
 -   What are `props` and how to `pass them down components`
 -   What is `state`?
 
-When illustrating these concepts, make use of [create-react-app](https://github.com/facebook/create-react-app). Make sure that trainees have installed it as well.
+When illustrating these concepts, make use of [vite](https://vitejs.dev/guide/).
 
 _Explain to trainees what each library does: React, ReactDOM and Babel._
 
@@ -63,33 +63,33 @@ Show this [example](https://htmlstream.com/preview/unify-v2.6.2/unify-main/home/
 
 Using React allows us to make webpages using reusable building blocks: components. That saves us time and effort in the longterm!
 
-## 2. create-react-app
+## 2. Vite
 
 ### Explanation
 
-In order to quickly start building React applications, we can use a tool called `create-react-app`. It's an NPM package that sets up a basic template project, incorporating tools needed for us to translate React code into regular JavaScript the browser can understand.
+In order to quickly start building React applications, we can use a tool called `vite`. It's an NPM package that sets up a basic template project, incorporating tools needed for us to translate React code into regular JavaScript the browser can understand.
 
 These tools are `webpack` (which bundles and optimizes our component files into one) and `babel` (which transforms our modern JavaScript into an older version most browsers will understand).
 
-To set this up manually will be time costly, therefore we can make things easy by using `create-react-app`.
+To set this up manually will be time costly, therefore we can make things easy by using `vite`.
 
 ### Example
 
-_Install `create-react-app` and create a sample project. Go over the various files and explain what their purpose is._
+_Create a sample project with `vite`. Go over the various files and explain what their purpose is._
 
 ### Exercise
 
-Ask trainees to install `create-react-app` and get it started on their machines!
+Ask trainees to create a project with `vite` on their machines!
 
 ### Essence
 
-`create-react-app` allows us to:
+`vite` allows us to:
 
--   Generate an fully functional out-of-the-box React environment
+-   Generate a fully functional out-of-the-box React environment
 -   Solve problem of manually configuring file bundler (like Webpack) or transpiler (Babel)
 -   Improve our development workflow through `hot reloading`
 -   Give a more realistic folder structure
--   Build a production version of react app and deploying on static site hosting service (netlify/now)
+-   Build a production version of a React app and deploying on static site hosting service (Netlify/Vercel)
 
 ## 3. Components
 

@@ -6,12 +6,12 @@ In this sample project you will find some component files (files that end in `.j
 
 These test exercises try to provide you with a couple scenario's that you will encounter in your real world applications that you may be asked to test. We have the following things:
 
-- `1-UserListItem` - A rendering component with data props and no other user interaction
-- `2-UserDetailsForm` - A form component with state changes and a button for user interaction
-- `3-ChuckNorrisJoke` - A simple component that grabs data from an api and renders it on the screen
-- `4-Routing` - A complete router that switches between pages
-- `5-Context` - A component set up to use a context
-- `6-userListState` - A custom hook that can be tested.
+-   `1-UserListItem` - A rendering component with data props and no other user interaction
+-   `2-UserDetailsForm` - A form component with state changes and a button for user interaction
+-   `3-ChuckNorrisJoke` - A simple component that grabs data from an api and renders it on the screen
+-   `4-Routing` - A complete router that switches between pages
+-   `5-Context` - A component set up to use a context
+-   `6-userListState` - A custom hook that can be tested.
 
 You may edit the components if you wish, but only make changes that help you test it. The functionality of the component should stay the same!
 
