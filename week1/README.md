@@ -14,7 +14,7 @@ These are the topics for week 1:
 4. [Forms: Controlled vs Uncontrolled](https://study.hackyourfuture.net/#/react/controlled-vs-uncontrolled.md)
 5. [Tools](https://study.hackyourfuture.net/#/react/tools.md)
    - React dev tools
-   - `create-react-app` command
+   - `vite` command
    - Static hosting
 
 ## Important note on React
@@ -32,7 +32,7 @@ The last thing we want you to have a look at is how to work with user input (as 
 
 Phew, that was a lot, but you now have knowledge of the basic building blocks with which you can already create some very cool applications. But how do you start?
 
-Let's look at some [tools](https://study.hackyourfuture.net/#/react/tools.md) that allows you to start quickly (create-react-app) as well as easily deploy anything you build to the web (static hosting).
+Let's look at some [tools](https://study.hackyourfuture.net/#/react/tools.md) that allows you to start quickly (`vite`) as well as easily deploy anything you build to the web (static hosting).
 
 To bring it all together, you can follow Shriyans in the following video, who employs all of this information to build a small application. You can stop the video at 35 minutes, the assignment has changed since then.
 

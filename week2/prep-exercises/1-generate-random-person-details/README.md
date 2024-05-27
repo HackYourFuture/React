@@ -8,7 +8,7 @@ A common problem is to know where to start!
 
 ## 1. Setup
 
-1. First, let's make sure we have some place to code. Run `create-react-app` in this folder to create your environment
+1. First, let's make sure we have some place to code. Run `npm create vite assignment -- --template react` in this folder to create your environment
 
 ## 2. Research
 
