@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import categories from './fake-data/all-categories.js'
 import products from './fake-data/all-products.js'
@@ -11,7 +9,6 @@ import Products from './products.jsx'
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null)
-  const [selectedProduct, setSelectedProduct] = useState(null)
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category)
