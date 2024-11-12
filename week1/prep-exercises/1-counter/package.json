@@ -1,0 +1,18 @@
+{
+  "name": "1-counter",
+  "version": "1.0.0",
+  "description": "The counter is one of the best way to learn about state management as it is nice and simple and isolates the management of state. Let's create a simple number counter, starting from 0 until infinity!",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.4.10"
+  }
+}
