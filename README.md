@@ -3,7 +3,7 @@
 > Please help us improve and share your feedback! If you find better tutorials or links, please share them by [opening a pull request](https://github.com/HackYourFuture/React/pulls).
 
 # Module #7 - React.js: Building dynamic UIs with modern JavaScript (Frontend)
-
+# Nisarg Patel
 ![React Module](./assets/react.png)
 
 Welcome to the React module! Congratulations on making it this far!
