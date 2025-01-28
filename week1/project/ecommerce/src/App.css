@@ -1,0 +1,121 @@
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.category-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 1rem;
+}
+
+.category-container ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0;
+}
+
+.category-container li {
+  padding: 0.5rem 1rem;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+  transition: background 0.3s ease-in-out;
+  border: 1px solid #ccc;
+}
+
+.category-container li:hover {
+  background-color: #ddd;
+}
+
+.active-category {
+  background-color: #007bff !important;
+  color: white;
+}
+
+.product-container {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 1rem;
+}
+
+.product-container ul {
+  display: contents;
+}
+
+.product--item {
+  list-style: none;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  background-color: white;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product--item:hover {
+  transform: scale(1.05);
+}
+
+.product--image {
+  max-width: 100%;
+  height: auto;
+}
+
+.product--title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: #333;
+}
+
+@media (max-width: 1024px) {
+  .product-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
