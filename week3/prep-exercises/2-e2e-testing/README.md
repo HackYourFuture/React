@@ -21,13 +21,13 @@ This does a lot! You will now see that a `cypress` folder was added to your file
 
 Cypress has added a lot of sample tests for you that connect to their deployed applications and show off all the things you can do with it. Go ahead and click on some of the tests to see why everyone gets really excited about end-to-end testing. You can pretty much programmatically write down all of those tests that you usually do manually to check that a certain user flow still works after every change you make!
 
-All of these tests are inside of the `cypress` folder that was added to your project. If you look into the `cypress/integration` folder you will see all of the code that generates the tests inside cypress.
+All of these tests are inside of the `cypress` folder that was added to your project. If you look into the `cypress/e2e` folder you will see all of the code that generates the tests inside cypress.
 
 ## Get started!
 
 Now for the fun part, playing around ourselves!
 
-1. In this folder you will find a folder called `0-myown`. Copy this over to your project inside of the `cypress/integration` folder so that it is next to the cypress examples. We start with `0-` to make ours nicely at the top of the list :D!
+1. In this folder you will find a folder called `0-myown`. Copy this over to your project inside of the `cypress/e2e` folder so that it is next to the cypress examples. We start with `0-` to make ours nicely at the top of the list :D!
 2. Go through those files, we numbered them so that you know where to start, the extra explanations get less and less as you go on. _Note: The API we use is sometimes a little slow with responses and can cause timeout issues. If you get these, have a look at the cypress documentation to figure out how to increase the time cypress will wait per command._
 3. Fill in the tests that are missing!
 
