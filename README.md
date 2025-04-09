@@ -57,10 +57,10 @@ This repository consists of 3 essential parts:
 
 ### How to study
 
-Let's say you are just starting out with the Databases module. This is what you do:
+Let's say you are just starting out with the React module. This is what you do:
 
-1. The week always starts on **Wednesday**. First thing you'll do is open the `README.md` for that week. For the first week of `Databases`, that would be [Week1 Reading](/Week1/README.md).
-2. You spend **Wednesday** and **Thursday** going over the resources and try to get a basic understanding of the concepts. In the meanwhile, you'll also implement any feedback you got on last week's assignment (from the Node.js module).
+1. The week always starts on **Wednesday**. First thing you'll do is open the `README.md` for that week. For the first week of `React`, that would be [Week1 Reading](/week1/README.md).
+2. You spend **Wednesday** and **Thursday** going over the resources and try to get a basic understanding of the concepts. In the meanwhile, you'll also implement any feedback you got on last week's assignment (from the Databases module).
 3. On **Friday** you start with the assignment, found in the `MAKEME.md`. For the first week of `React`, that would be [Week1 assignment](/week1/MAKEME.md).
 4. You spend **Friday** and **Saturday** playing around with the exercises and write down any questions you might have.
 5. **DEADLINE 1**: You'll submit any questions you might have before **Saturday 23.59**, in the class channel.
