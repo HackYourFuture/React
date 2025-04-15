@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    gap: 5px;
+}
+
+/* 
+.button {
+    background-color: lightgray;
+}
+
+.button.hover {
+    background-color: darkgray;
+} */
+
+.button {
+    background-color: lightgray;
+    color: black;
+    transition: 0.3s ease;
+}
+
+.button:hover {
+    background-color: darkgray;
+    color: white;
+}

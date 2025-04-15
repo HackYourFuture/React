@@ -1,0 +1,34 @@
+.gridContainer {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+    .gridContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1000px) {
+    .gridContainer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.item {
+    width: 250px;
+    list-style: none;
+}
+
+.img {
+    margin-bottom: auto;
+    margin-top: auto;
+    max-height: 300px;
+    object-fit: contain;
+    width: 100%;
+}
+
+.title {
+    font-family: HelveticaNow, Helvetica, sans-serif;
+}
