@@ -8,9 +8,9 @@ const Categories = () => {
   const [filtered, setFiltered] = useState(products);
 
   const handlerProduct = (category) => {
-    const cleanedCategory = category.replace(/^FAKE:\s*/, '');
+    const cleanCategory = category.replace(/^FAKE:\s*/, '');
     const filteredArr = products.filter((product) => {
-      return product.category === cleanedCategory;
+      return product.category === cleanCategory;
     });
     setFiltered(filteredArr);
   };
