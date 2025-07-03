@@ -42,6 +42,26 @@ The description should make it clear that your application will adhere to the re
 
 The company brand/colour palette will help you design something that looks good, as explained in our [design guidelines](https://github.com/HackYourFuture/design_guidelines).
 
+Here's an example proposal:
+
+```
+MUST-HAVE:
+1. Home page with title, footer, and all series visible
+2. Page with issues for selected series
+3. Page of issue with link to pdf which opens in additional window
+4. Possibility to add issues to reading list and save them in storage
+
+NICE-TO-HAVE
+- Developer page with possibility to leave some feedback
+- Section for only popular comics
+- Search for titles
+- Load pdf inside the app with option of saving the last position in memory
+- Translations for selected languages in pdf
+
+Design:
+I want to design it in the simple and bright style of colourful comics. Like this website: https://blog.gocollect.com/category/comiclist/
+```
+
 ### Deadline 2: Application
 
 By _Tuesday 23:59PM CET_ you should send a link to your github project to the Education Director. Make sure that everything works for them! The best way to test this is to clone your repository to a new directory on your computer and try to run it there.
